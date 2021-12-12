@@ -1,0 +1,720 @@
+<?php
+
+namespace EasyElementorAddons\Modules\VideoPlayer\Widgets;
+
+// Elementor Classes
+use Elementor\Embed;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Typography;
+use Elementor\Core\Schemes\Typography;
+use Elementor\Core\Schemes\Color;
+use EasyElementorAddons\Group_Control_Query;
+use EasyElementorAddons\Group_Control_Header;
+use Elementor\Repeater;
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ * Tiled Posts Widget
+ */
+class VideoPlayer extends Widget_Base {
+
+    /** Widget Name */
+    public function get_name() {
+        return 'eead-video-player-block';
+    }
+
+    public function get_script_depends() {
+        return array( );
+    }
+
+    /** Widget Title */
+    public function get_title() {
+        return esc_html__('Video Player', 'easy-elementor-addons');
+    }
+
+    /** Icon */
+    public function get_icon() {
+        return 'eicon-play';
+    }
+
+    /** Category */
+    public function get_categories() {
+        return ['easy-elementor-addons'];
+    }
+
+    /** Controls */
+    protected function _register_controls() {
+
+        $this->start_controls_section(
+            'section_video',
+            array(
+                'label' => esc_html__( 'Video', 'easy-elementor-addons' ),
+            )
+        );
+
+        $this->add_control(
+            'video_type',
+            array(
+                'label'   => esc_html__( 'Video Type', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'self_hosted',
+                'options' => array(
+                    'youtube'     => esc_html__( 'YouTube', 'easy-elementor-addons' ),
+                    'vimeo'       => esc_html__( 'Vimeo', 'easy-elementor-addons' ),
+                    'self_hosted' => esc_html__( 'Self Hosted', 'easy-elementor-addons' ),
+                ),
+            )
+        );
+
+        $this->add_control(
+            'youtube_url',
+            array(
+                'label'       => esc_html__( 'Youtube URL', 'easy-elementor-addons' ),
+                'label_block' => true,
+                'type'        => Controls_Manager::TEXT,
+                'placeholder' => esc_html__( 'Enter your URL', 'easy-elementor-addons' ),
+                'default'     => 'https://www.youtube.com/watch?v=nZYqLR_DBqw',
+                'condition' => array(
+                    'video_type' => 'youtube',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'vimeo_url',
+            array(
+                'label'       => esc_html__( 'Vimeo URL', 'easy-elementor-addons' ),
+                'label_block' => true,
+                'type'        => Controls_Manager::TEXT,
+                'placeholder' => esc_html__( 'Enter your URL', 'easy-elementor-addons' ),
+                'default'     => 'https://vimeo.com/456168511',
+                'condition' => array(
+                    'video_type' => 'vimeo',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'y_setting_header', array(
+                'label' => __( 'Youtube Options', 'plugin-name' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => array(
+                    'video_type' => 'youtube',
+                    'controls'   => 'yes',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'yt_modestbranding',
+            array(
+                'label'     => esc_html__( 'Modest Branding', 'easy-elementor-addons' ),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'     => '',
+                'condition' => array(
+                    'video_type' => 'youtube',
+                    'controls'   => 'yes',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'yt_privacy_mode',
+            array(
+                'label'       => esc_html__( 'Privacy Mode', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::SWITCHER,
+                'description' => esc_html__( 'If switched off, YouTube will save visitors data on your website only when video is played.', 'easy-elementor-addons' ),
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'     => '',
+                'condition'   => array(
+                    'video_type' => 'youtube',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'yt_suggested_videos',
+            array(
+                'label'   => esc_html__( 'Suggested Videos', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => '',
+                'options' => array(
+                    ''    => esc_html__( 'Current Video Channel', 'easy-elementor-addons' ),
+                    'yes' => esc_html__( 'Any Video', 'easy-elementor-addons' ),
+                ),
+                'separator' => 'after',
+                'condition' => array(
+                    'video_type' => 'youtube',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'self_hosted_player',
+            array(
+                'label'   => esc_html__( 'Player', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'html5',
+                'options' => array(
+                    'html5' => esc_html__( 'HTML5 Player', 'easy-elementor-addons' ),
+                ),
+                'condition' => array(
+                    'video_type' => 'self_hosted',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'self_hosted_url',
+            array(
+                'label'      => esc_html__( 'Self Hosted URL', 'easy-elementor-addons' ),
+                'type'       => Controls_Manager::MEDIA,
+                'media_type' => 'video',
+                'condition' => array(
+                    'video_type' => 'self_hosted',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'start_time',
+            array(
+                'label'     => esc_html__( 'Start Time (seconds)', 'easy-elementor-addons' ),
+                'type'      => Controls_Manager::NUMBER,
+                'condition' => array(
+                    'loop' => '',
+                ),
+                'separator' => 'before'
+            )
+        );
+
+        $this->add_control(
+            'end_time',
+            array(
+                'label'     => esc_html__( 'End Time (seconds)', 'easy-elementor-addons' ),
+                'type'      => Controls_Manager::NUMBER,
+                'condition' => array(
+                    'loop'       => '',
+                    'video_type' => ['youtube', 'self_hosted'],
+                ),
+                'separator' => 'after'
+            )
+        );
+
+        $this->add_control(
+            'aspect_ratio',
+            array(
+                'label'   => esc_html__( 'Aspect Ratio', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => '16-9',
+                'options' => array(
+                    '16-9' => '16:9',
+                    '21-9' => '21:9',
+                    '9-16' => '9:16',
+                    '4-3'  => '4:3',
+                    '3-2'  => '3:2',
+                    '1-1'  => '1:1',
+                ),
+                'condition' => array(
+                    'video_type' => ['youtube', 'vimeo'],
+                ),
+            )
+        );
+
+        $this->add_control(
+            'download_button',
+            array(
+                'label'       => esc_html__( 'Download Button', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'     => '',
+                'condition' => array(
+                    'video_type'         => 'self_hosted',
+                    'self_hosted_player' => 'html5',
+                    'controls'           => 'yes',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'poster',
+            array(
+                'label' => esc_html__( 'Poster', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::MEDIA,
+                'condition' => array(
+                    'video_type' => 'self_hosted',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'autoplay',
+            array(
+                'label'   => esc_html__( 'Autoplay', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SWITCHER,
+            )
+        );
+
+        $this->add_control(
+            'loop',
+            array(
+                'label'   => esc_html__( 'Loop', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'   => ''
+            )
+        );
+
+        $this->add_control(
+            'controls',
+            array(
+                'label'     => esc_html__( 'Player Controls', 'easy-elementor-addons' ),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'   => '',
+                'condition' => array(
+                    'video_type!' => 'vimeo',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'mute',
+            array(
+                'label'   => esc_html__( 'Mute', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default'   => ''
+            )
+        );
+
+        $this->add_control(
+            'vimeo_controls_color',
+            array(
+                'label' => esc_html__( 'Controls Color', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::COLOR,
+                'alpha' => false,
+                'condition' => array(
+                    'video_type' => 'vimeo',
+                ),
+            )
+        );
+        
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'play_button_section',
+            array(
+                'label' => esc_html__( 'Play Button', 'easy-elementor-addons' ),
+            )
+        );
+
+        $this->add_control(
+            'show_play_button',
+            array(
+                'label' => esc_html__( 'Show Play Button', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
+                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            )
+        );
+
+        $this->add_control(
+            'play_button_type',
+            array(
+                'label'   => esc_html__( 'Play Button Type', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => 'icon',
+                'toggle'  => false,
+                'options' => array(
+                    'icon' => array(
+                        'title' => esc_html__( 'Icon', 'easy-elementor-addons' ),
+                        'icon'  => 'fa fa-play',
+                    ),
+                    'image' => array(
+                        'title' => esc_html__( 'Image', 'easy-elementor-addons' ),
+                        'icon'  => 'fa fa-picture-o',
+                    )
+                ),
+                'condition' => array(
+                    'show_play_button' => 'yes',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'play_button_icon',
+            [
+                'label' => __( 'Icon', 'easy-elementor-addons' ),
+                'type' => \Elementor\Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fa fa-play-circle',
+                    'library' => 'solid',
+                ],
+                'condition' => array(
+                    'show_play_button' => 'yes',
+                    'play_button_type' => 'icon',
+                ),
+            ]
+        );
+
+        $this->add_control(
+            'play_button_image',
+            array(
+                'label' => esc_html__( 'Image', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::MEDIA,
+                'condition' => array(
+                    'show_play_button' => 'yes',
+                    'play_button_type' => 'image',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'play_button_color',
+            array(
+                'label' => esc_html__( 'Play Button Color', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::COLOR,
+                'selectors' => array(
+                    '{{WRAPPER}} .eead-video-play-button i' => 'color: {{VALUE}};',
+                ),
+            )
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'thumb_overlay_section',
+            array(
+                'label' => esc_html__( 'Thumbnail Overlay', 'easy-elementor-addons' ),
+            )
+        );
+
+        $this->add_control(
+            'show_thumbnail',
+            array(
+                'label'   => esc_html__( 'Show Custom Thumbnail', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => '',
+            )
+        );
+
+        $this->add_control(
+            'thumbnail',
+            array(
+                'label'     => esc_html__( 'Thumbnail', 'easy-elementor-addons' ),
+                'type'      => Controls_Manager::MEDIA,
+                'dynamic'   => array( 'active' => true ),
+                'condition' => array(
+                    'show_thumbnail' => 'yes',
+                ),
+            )
+        );
+
+        $this->add_group_control(
+            Group_Control_Image_Size::get_type(),
+            array(
+                'name'      => 'thumbnail',
+                'default'   => 'full',
+                'condition' => array(
+                    'show_thumbnail' => 'yes',
+                ),
+            )
+        );
+
+        $this->add_control(
+            'overlay_color',
+            array(
+                'label' => esc_html__( 'Overlay Color', 'easy-elementor-addons' ),
+                'type'  => Controls_Manager::COLOR,
+                'selectors' => array(
+                    '{{WRAPPER}} .eead-video-overlay:before' => 'background-color: {{VALUE}};',
+                ),
+                'separator' => 'before',
+            )
+        );
+
+        $this->end_controls_section();
+
+    }
+
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+        $data_settings = json_encode([
+            'autoplay' => filter_var( $settings['autoplay'], FILTER_VALIDATE_BOOLEAN ),
+        ]);
+
+        $video_url = $this->get_video_url();
+        if( !$video_url ) { return; }
+
+        ?>
+        <div class="eead-video-block eead-video-aspect-ratio-<?php echo $settings['aspect_ratio']; ?>" data-settings='<?php echo $data_settings; ?>'>
+            <?php 
+                if( $settings['lightbox'] != 'yes' ){
+                    echo $this->get_video_block(); 
+                }
+                $this->get_overlay();
+            ?>
+        </div> 
+        <?php
+    }
+
+    protected function get_overlay() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_render_attribute('overlay', [
+            'class' => 'eead-video-overlay'
+        ]);
+
+        $thumb_url  = $this->get_thumbnail_url();
+        if($thumb_url) {
+            $this->add_render_attribute( 'overlay', [
+                'class' => 'eead-video-overlay-custom-bg', 
+                'style' => sprintf( 'background-image: url(%s);', $thumb_url )
+            ]);
+        }
+        ?>
+        <div <?php $this->print_render_attribute_string( 'overlay' ); ?>>
+            <?php if ( $settings['show_play_button'] == 'yes' ) {
+                $this->get_play_button();
+            } ?>
+        </div>
+        <?php
+    }
+
+    protected function get_play_button() {
+        $settings = $this->get_settings_for_display();
+        $this->add_render_attribute( 'play_button', [
+            'class' => 'eead-video-play-button', 
+            'role'  => 'button'
+        ]);
+        ?>
+        <div <?php $this->print_render_attribute_string( 'play_button' ); ?>><?php
+            if ( $settings['play_button_type'] === 'icon' ) {
+                \Elementor\Icons_Manager::render_icon( $settings['play_button_icon'], [ 'aria-hidden' => 'true' ] );
+            } elseif ( 'image' === $settings['play_button_type'] ) {
+                echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'play_button_image');
+            } ?>
+        </div>
+        <?php
+    }
+
+    protected function get_video_block() {
+        $settings = $this->get_settings_for_display();
+   
+        $video_url  = $this->get_video_url();
+        if( $settings['video_type'] === 'self_hosted' ) { 
+            $self_hosted_params = $this->get_self_hosted_params();
+            $video_url = $this->get_video_url();
+
+            $this->add_render_attribute( 'video_player', 'class', 'eead-video-player' );
+            $this->add_render_attribute( 'video_player', 'class', sprintf( 'eead-%s-video-player', esc_attr( $settings['self_hosted_player'] ) ) );
+            $this->add_render_attribute( 'video_player', 'src', $video_url );
+            $this->add_render_attribute( 'video_player', $self_hosted_params );
+
+            if ( $settings['show_play_button'] == 'yes' ) {
+                $this->add_render_attribute( 'video_player', 'class', 'eead-custom-play-button' );
+            }
+
+            $video_html = '<video ' . $this->get_render_attribute_string( 'video_player' ) . '></video>';
+        }
+        else {
+            $embed_params  = $this->get_embed_params();
+            $embed_options = $this->get_embed_options();
+            
+            $embed_attr = [
+                'class' => 'eead-video-iframe',
+                'allow' => 'autoplay;encrypted-media',
+            ];
+
+            $video_html = Embed::get_embed_html( $video_url, $embed_params, $embed_options, $embed_attr );
+        }
+        return $video_html;
+    }
+
+    public function get_embed_params() {
+        $settings = $this->get_settings_for_display();
+
+        $params = array();
+        $params_dictionary = array();
+
+        if( $settings['video_type'] == 'youtube' ) {
+
+                $params_dictionary = [
+                    'autoplay' => 'autoplay',
+                    'loop' => 'loop',
+                    'controls' => 'controls',
+                    'mute' => 'mute',
+                    'yt_suggested_videos' =>'rel',
+                    'yt_modestbranding' => 'modestbranding',
+                ];
+
+                if ( $settings['loop'] ) {
+                    $video_properties = Embed::get_video_properties( esc_url( $settings['youtube_url'] ) );
+
+                    $params['playlist'] = $video_properties['video_id'];
+                }
+
+                $params['wmode'] = 'opaque';
+                $params['start'] = $settings['start_time'];
+                $params['end']   = $settings['end_time'];
+
+        } else if( $settings['video_type'] == 'vimeo' ) {
+
+                $params_dictionary = [
+                    'autoplay' => 'autoplay',
+                    'loop' => 'loop',
+                    'mute' => 'muted',
+                ];
+
+                if ( !empty( $settings['vimeo_controls_color'] ) ) {
+                    $params['color'] = str_replace( '#', '', $settings['vimeo_controls_color'] );
+                }
+
+                $params['autopause'] = '0';
+        }
+
+        foreach ( $params_dictionary as $setting_name => $param_name ) {
+
+            $param_value = $settings[ $setting_name ] == 'yes' ? '1' : '0';
+
+            $params[ $param_name ] = $param_value;
+        }
+
+        return $params;
+    }
+
+    public function get_embed_options() {
+        $settings = $this->get_settings_for_display();
+
+        $embed_settings = [];
+
+        if ( $settings['video_type'] == 'youtube' ) {
+            $embed_settings['privacy'] = $settings['yt_privacy_mode'] == 'yes' ? true : null;
+        }
+        else if( $settings['video_type'] == 'vimeo' ) {
+            $embed_settings['start'] = $settings['start_time'];
+        }
+
+        $thumb_url = $this->get_thumbnail_url();
+
+        $embed_settings['lazy_load'] = !empty( $thumb_url );
+
+        return $embed_settings;
+    }
+
+    public function get_thumbnail_url() {
+        $settings  = $this->get_settings_for_display();
+        $thumb_url = '';
+        $has_thumb = !empty( $settings['thumbnail']['url'] ) && filter_var( $settings['show_thumbnail'], FILTER_VALIDATE_BOOLEAN );
+
+        if ( $has_thumb ) { 
+            $thumb_url = Group_Control_Image_Size::get_attachment_image_src( $settings['thumbnail']['id'], 'thumbnail', $settings );
+        } 
+        else if( in_array( $settings['video_type'], ['youtube', 'vimeo'] ) ) {
+            $thumb_url = $this->get_iframe_thumbnail_url( $this->get_video_url() );
+        }
+
+        if ( empty( $thumb_url ) ) { return ''; }
+
+        return esc_url( $thumb_url );
+    }
+
+    public function get_iframe_thumbnail_url( $url ) {
+        $settings  = $this->get_settings_for_display();
+
+        $oembed = _wp_oembed_get_object();
+        $data   = $oembed->get_data( $url );
+
+        $thumb_url = $data->thumbnail_url;
+
+        if ( $settings['video_type'] === 'youtube' ) {
+
+            $url_fetch = explode("v=", $url);
+            $videoid = $url_fetch[1];
+            $thumb_url = 'http://img.youtube.com/vi/'.$videoid.'/maxresdefault.jpg';
+        }
+
+        return esc_url( $thumb_url );
+    }
+
+    public function get_self_hosted_params() {
+        $settings = $this->get_settings_for_display();
+
+        $params = array();
+        $options = [ 'autoplay', 'loop', 'controls' ];
+
+        foreach ( $options as $param_name ) {
+            if ( $settings[ $param_name ] == 'yes' ) {
+                $params[ $param_name ] = '';
+            }
+        }
+
+        if ( $settings['mute'] == 'yes' ) {
+            $params['muted'] = '';
+        }
+
+        if ( $settings['download_button'] != 'yes' ) {
+            $params['controlsList'] = 'nodownload';
+        }
+
+        if ( !empty( $settings['poster']['url'] ) ) {
+            $params['poster'] = esc_url( $settings['poster']['url'] );
+        }
+
+        return $params;
+    }
+
+    protected function get_video_url() {
+        $settings = $this->get_settings_for_display();
+        $video_url = ''; 
+        if( $settings['video_type'] == 'self_hosted' ) {
+            $video_url = $settings['self_hosted_url']['url'] ? $settings['self_hosted_url']['url'] : '';
+
+            if( empty($video_url) ) {
+                $video_url = wp_get_attachment_url( $settings['self_hosted_url'] );
+            }
+
+            if( !$video_url ) {
+                return '';
+            }
+
+            if( $settings['start_time'] || $settings['end_time'] ) {
+                $video_url .= '#t=';
+                if($settings['start_time']) {
+                    $video_url .= $settings['start_time'];
+                }
+                if($settings['start_time']) {
+                    $video_url .= ','.$settings['end_time'];
+                }
+            }
+
+        }
+        else {
+            $video_url = $settings[ $settings['video_type'] . '_url' ];
+        }
+        return esc_url($video_url);
+    }
+
+}
