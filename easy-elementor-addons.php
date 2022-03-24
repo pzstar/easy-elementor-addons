@@ -4,7 +4,7 @@
  * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
  * Description: Elementor addons for WordPress Themes developed by HashThemes https://hashthemes.com
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: HashThemes
  * Author URI: https://hashthemes.com/
  * Text Domain: easy-elementor-addons
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
     die();
 }
 
-define('EEAD_VERSION', '1.0.2');
+define('EEAD_VERSION', '1.0.3');
 
 define('EEAD_FILE', __FILE__);
 define('EEAD_PLUGIN_BASENAME', plugin_basename(EEAD_FILE));
@@ -47,7 +47,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             add_action('init', array($this, 'load_plugin_textdomain'));
 
             // Run On Plugin Activation 
-            register_activation_hook(__FILE__, array( $this, 'plugin_activation' ));
+            register_activation_hook(__FILE__, array($this, 'plugin_activation'));
 
             // Load necessary files.
             add_action('plugins_loaded', array($this, 'init'));
@@ -118,8 +118,8 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
         public function plugin_activation() {
             $widgets = $this->get_all_default_widgets();
-            if(get_option( 'eead_widgets' ) == false ) {
-                update_option( 'eead_widgets', $widgets );
+            if (get_option('eead_widgets') == false) {
+                update_option('eead_widgets', $widgets);
             }
         }
 
@@ -180,9 +180,10 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'popup-video',
                 'filterable-gallery'
             ];
-            
+
             return $modules_list;
         }
+
     }
 
 }

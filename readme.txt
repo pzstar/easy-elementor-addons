@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, block elements, elementor widgets
 Requires at least: 5.0
 Tested up to: 5.9
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,6 +18,7 @@ Easy Elementor Addons is a highly editable addon for Elementor with limitless po
 Easy Elementor Addons is built using all the modern trends and is well optimized with speed and SEO. So, you can be assured that the extension won’t make any impact on the SEO or the speed of your WordPress website. 
 
 <p><a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank">See Demos of All Elementor Widgets</a></p>
+<p>Want to test all Elementor widgets and their settings without installing on your website? <a href="https://demo.tastewp.com/easy-elementor-addons" target="_blank">Test Dashboard Settings Here</a></p>
 
 <h3>Elements Available in the Extension:</h3>
 
@@ -120,8 +121,11 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 1.0.3 =
+* Refinement in Elementor Widgets
+
 = 1.0.2 =
-* Compatibility fix with the latest WordPress version 1.0.2
+* Compatibility fix with the latest WordPress version
 
 = 1.0.1 =
 * Elementor depreciated error fixed
