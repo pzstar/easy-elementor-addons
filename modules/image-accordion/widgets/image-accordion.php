@@ -2,11 +2,6 @@
 
 namespace EasyElementorAddons\Modules\ImageAccordion\Widgets;
 
-// If this file is called directly, abort.
-if ( !defined( 'ABSPATH' ) ) {
-    exit;
-}
-
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
@@ -14,6 +9,10 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Repeater;
 use Elementor\Utils;
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
 
 class ImageAccordion extends Widget_Base {
     public function get_name() {
@@ -25,7 +24,7 @@ class ImageAccordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eaicon-image-accrodion';
+        return 'eicon-accordion';
     }
 
     /** Category */
@@ -44,7 +43,7 @@ class ImageAccordion extends Widget_Base {
         ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         /**
          * Image accordion Adder
          */        

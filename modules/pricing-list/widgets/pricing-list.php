@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Repeater;
 use Elementor\Utils;
 use EasyElementorAddons\Group_Control_Query;
@@ -44,7 +42,7 @@ class PricingList extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'section_content', [
@@ -242,10 +240,6 @@ class PricingList extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3' => 'color: {{VALUE}}',
             ],
@@ -256,10 +250,6 @@ class PricingList extends Widget_Base {
                 'title_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item h3' => 'border-color: {{VALUE}}',
             ],
@@ -271,7 +261,6 @@ class PricingList extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3',
                 ]
         );
@@ -300,10 +289,6 @@ class PricingList extends Widget_Base {
                 'content_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-each-pricing-item,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item,
@@ -316,10 +301,6 @@ class PricingList extends Widget_Base {
                 'item_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item' => 'border-color: {{VALUE}}',
             ],
@@ -374,10 +355,6 @@ class PricingList extends Widget_Base {
                 'description_color', [
             'label' => esc_html__('Description Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description' => 'color: {{VALUE}}',
             ],
@@ -388,10 +365,6 @@ class PricingList extends Widget_Base {
                 'description_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-each-pricing-item .eead-pricing-item-description' => 'border-color: {{VALUE}}',
             ],
@@ -403,7 +376,6 @@ class PricingList extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'description_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description',
                 ]
         );
@@ -433,10 +405,6 @@ class PricingList extends Widget_Base {
                 'price_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
@@ -449,10 +417,6 @@ class PricingList extends Widget_Base {
                 'price_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
@@ -465,7 +429,6 @@ class PricingList extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'price_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
              {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
              {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small',

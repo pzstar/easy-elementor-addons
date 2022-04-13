@@ -7,9 +7,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Core\Schemes\Typography;
 use Elementor\Icons_Manager;
-use Elementor\Core\Schemes\Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -33,7 +31,7 @@ class StepFlow extends Widget_Base {
 	 	return [ 'easy-elementor-addons' ];
  	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		$this->start_controls_section(
 			'step_flow_settings_section',
@@ -411,7 +409,6 @@ class StepFlow extends Widget_Base {
 			[
 				'name' => 'badge_typography',
 				'selector' => '{{WRAPPER}} .eead-steps-label',
-				'scheme' => Typography::TYPOGRAPHY_4,
 				'condition' => [
 					'badge!' => '',
 				],
@@ -492,7 +489,6 @@ class StepFlow extends Widget_Base {
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .eead-steps-title',
-				'scheme' => Typography::TYPOGRAPHY_2,
 			]
 		);
 
@@ -541,7 +537,6 @@ class StepFlow extends Widget_Base {
 			[
 				'name' => 'description_typography',
 				'selector' => '{{WRAPPER}} .eead-step-description',
-				'scheme' => Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -731,10 +726,6 @@ class StepFlow extends Widget_Base {
                 'readmore_color_normal', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore' => 'color: {{VALUE}}',
             ],
@@ -745,10 +736,6 @@ class StepFlow extends Widget_Base {
                 'readmore_bg_color_normal', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore' => 'background: {{VALUE}}',
             ],
@@ -759,10 +746,6 @@ class StepFlow extends Widget_Base {
                 'readmore_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore' => 'border: 1px solid {{VALUE}}',
             ],
@@ -781,10 +764,6 @@ class StepFlow extends Widget_Base {
                 'readmore_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'color: {{VALUE}}',
             ],
@@ -795,10 +774,6 @@ class StepFlow extends Widget_Base {
                 'readmore_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'background: {{VALUE}}',
             ],
@@ -809,10 +784,6 @@ class StepFlow extends Widget_Base {
                 'readmore_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'border: 1px solid {{VALUE}}',
             ],
@@ -827,7 +798,6 @@ class StepFlow extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'readmore_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-step-flow-readmore',
             'separator' => 'before',
                 ]

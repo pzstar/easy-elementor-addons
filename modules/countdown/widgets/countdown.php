@@ -9,7 +9,6 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Plugin;
-use \Elementor\Core\Schemes\Typography;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -49,7 +48,7 @@ class Countdown extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'eead_section_countdown_general_settings',
@@ -566,7 +565,6 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eead_countdown_separator_typography',
-                'scheme'    => Typography::TYPOGRAPHY_2,
                 'selector'  => '{{WRAPPER}} .eead-countdown-digits::after',
                 'condition' => [
                     'eead_countdown_separator' => 'eead-countdown-show-separator',
@@ -641,7 +639,6 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eead_countdown_expire_title_typography',
-                'scheme'   => Typography::TYPOGRAPHY_2,
                 'selector'  => '{{WRAPPER}} .eead-countdown-finish-message .expiry-title',
                 'condition' => [
                     'countdown_expire_type' => 'text',
@@ -689,7 +686,6 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eead_countdown_expire_message_typography',
-                'scheme'    => Typography::TYPOGRAPHY_2,
                 'selector'  => '.eead-countdown-finish-text',
                 'condition' => [
                     'countdown_expire_type' => 'text',
@@ -1035,7 +1031,6 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'eead_countdown_digit_typography',
-                'scheme'   => Typography::TYPOGRAPHY_2,
                 'selector' => '{{WRAPPER}} .eead-countdown-digits',
             ]
         );
@@ -1067,7 +1062,6 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'eead_countdown_label_typography',
-                'scheme'   => Typography::TYPOGRAPHY_2,
                 'selector' => '{{WRAPPER}} .eead-countdown-label',
             ]
         );

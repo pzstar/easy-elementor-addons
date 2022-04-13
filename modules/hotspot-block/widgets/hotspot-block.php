@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Repeater;
 use Elementor\Utils;
 use EasyElementorAddons\Group_Control_Query;
@@ -44,7 +42,7 @@ class HotspotBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'items', [
@@ -317,10 +315,6 @@ class HotspotBlock extends Widget_Base {
                 'pulse_color', [
             'label' => esc_html__('Pulse Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a .pulse,
                  {{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a .pulse' => 'border: 5px solid {{VALUE}}',
@@ -400,10 +394,6 @@ class HotspotBlock extends Widget_Base {
                 'icon_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a,
@@ -416,10 +406,6 @@ class HotspotBlock extends Widget_Base {
                 'icon_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'color: {{VALUE}}',
@@ -491,10 +477,6 @@ class HotspotBlock extends Widget_Base {
                 'image_icon_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => 'transparent',
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'background: {{VALUE}}',
@@ -575,10 +557,6 @@ class HotspotBlock extends Widget_Base {
                 'tooltip_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#f1f0e4',
             'selectors' => [
                 '{{WRAPPER}} .eead-each-spot-content' => 'background: {{VALUE}}',
@@ -631,10 +609,6 @@ class HotspotBlock extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-each-spot-content h2' => 'color: {{VALUE}}',
@@ -646,7 +620,6 @@ class HotspotBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'total-plus'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-each-spot-content h2',
                 ]
         );
@@ -676,10 +649,6 @@ class HotspotBlock extends Widget_Base {
                 'description_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#909090',
             'selectors' => [
                 '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description' => 'color: {{VALUE}}',
@@ -691,7 +660,6 @@ class HotspotBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'description_typography',
             'label' => esc_html__('Typography', 'total-plus'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description',
                 ]
         );

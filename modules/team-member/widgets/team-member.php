@@ -13,8 +13,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if (!defined('ABSPATH')) {
@@ -47,7 +45,7 @@ class TeamMember extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_image',
@@ -473,7 +471,6 @@ class TeamMember extends Widget_Base {
             [
                 'name'                  => 'member_position_typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .eead-team-member-position',
             ]
         );
@@ -536,7 +533,6 @@ class TeamMember extends Widget_Base {
             [
                 'name'                  => 'member_description_typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .eead-team-member-description',
                 'condition'             => [
                     'team_member_description_switch' => 'yes',

@@ -8,7 +8,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
 
@@ -43,7 +42,7 @@ class DualButton extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'dual_btn_settings_field',

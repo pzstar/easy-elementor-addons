@@ -6,7 +6,6 @@ namespace EasyElementorAddons\Modules\FlipBox\Widgets;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Image_Size;
@@ -52,7 +51,7 @@ class FlipBox extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
     	$this->start_controls_section(
 			'section_side_a_content',
@@ -852,7 +851,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     => 'front_title_typography',
 				'label'    => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .eead-flip-box-front .eead-flip-box-layer-title',
 			]
 		);
@@ -887,7 +885,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     => 'front_description_typography',
 				'label'    => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .eead-flip-box-front .eead-flip-box-layer-desc',
 			]
 		);
@@ -1066,7 +1063,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'      => 'back_title_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .eead-flip-box-back .eead-flip-box-layer-title',
 				'condition' => [
 					'back_title_text!' => '',
@@ -1123,7 +1119,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'      => 'description_typography_b',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .eead-flip-box-back .eead-flip-box-layer-desc',
 			]
 		);
@@ -1233,7 +1228,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-flip-box-button',
 			]
 		);

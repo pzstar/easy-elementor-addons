@@ -10,7 +10,6 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if (!defined('ABSPATH')) {
@@ -47,7 +46,7 @@ class DualHeading extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_dual_heading',
@@ -278,7 +277,6 @@ class DualHeading extends Widget_Base {
             [
                 'name'                  => 'first_typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .eead-first-text',
                 'separator'             => 'before',
             ]
@@ -457,7 +455,6 @@ class DualHeading extends Widget_Base {
             [
                 'name'                  => 'second_typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .eead-second-text',
                 'separator'             => 'before',
             ]

@@ -47,7 +47,7 @@ class AdvancedIconBox extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_content_icon_box',

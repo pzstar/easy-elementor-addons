@@ -2,6 +2,8 @@
 
 namespace EasyElementorAddons;
 
+use Elementor\Controls_Manager;
+
 // Exit if accessed directly
 if (!defined('ABSPATH'))
     exit;
@@ -30,7 +32,7 @@ class Sticky_Column {
         $section->add_control(
                 'eea_sidebar_sticky', [
             'label' => esc_html__('Enable Sticky Sidebar', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'default' => '',
             'render_type' => 'template',
             'return_value' => 'true',
@@ -40,7 +42,7 @@ class Sticky_Column {
         $section->add_control(
                 'eea_sidebar_sticky_top_spacing', array(
             'label' => esc_html__('Top Spacing(px)', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::NUMBER,
+            'type' => Controls_Manager::NUMBER,
             'default' => 50,
             'min' => 0,
             'max' => 500,
@@ -55,7 +57,7 @@ class Sticky_Column {
         $section->add_control(
                 'eea_sidebar_sticky_bottom_spacing', array(
             'label' => esc_html__('Bottom Spacing(px)', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::NUMBER,
+            'type' => Controls_Manager::NUMBER,
             'default' => 50,
             'min' => 0,
             'max' => 500,
@@ -69,7 +71,7 @@ class Sticky_Column {
 
         $section->add_control(
                 'hr', [
-            'type' => \Elementor\Controls_Manager::DIVIDER,
+            'type' => Controls_Manager::DIVIDER,
                 ]
         );
     }

@@ -5,8 +5,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 
@@ -40,7 +38,7 @@ class TestimonialSlider extends Widget_Base {
         return [ 'owlcarousel' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 	   $this->start_controls_section(
                 'section_content', [
             'label' => esc_html__('Content', 'easy-elementor-addons'),
@@ -318,10 +316,6 @@ class TestimonialSlider extends Widget_Base {
                 'content_bg_color', [
             'label' => esc_html__('Backgrond Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-each-slider' => 'background-color: {{VALUE}}',
             ],
@@ -332,10 +326,6 @@ class TestimonialSlider extends Widget_Base {
                 'content_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-block.style1.eead-testimonial-slider .eead-testimonial-each-slider' => 'border: 5px solid {{VALUE}}',
             ],
@@ -377,10 +367,6 @@ class TestimonialSlider extends Widget_Base {
                 'name_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-member-name' => 'color: {{VALUE}}'
             ],
@@ -391,7 +377,6 @@ class TestimonialSlider extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'name_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-member-name',
                 ]
         );
@@ -421,10 +406,6 @@ class TestimonialSlider extends Widget_Base {
                 'designation_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-member-designation' => 'color: {{VALUE}}',
             ],
@@ -435,7 +416,6 @@ class TestimonialSlider extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'designation_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-member-designation',
                 ]
         );
@@ -465,10 +445,6 @@ class TestimonialSlider extends Widget_Base {
                 'testimonial_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'color: {{VALUE}}',
             ],
@@ -479,7 +455,6 @@ class TestimonialSlider extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'testimonial_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt',
                 ]
         );
@@ -488,10 +463,6 @@ class TestimonialSlider extends Widget_Base {
                 'backquote_color', [
             'label' => esc_html__('Backquote Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-backquote' => 'color: {{VALUE}}',
             ],
@@ -515,10 +486,6 @@ class TestimonialSlider extends Widget_Base {
                 'testimonial_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content:before' => 'background: {{VALUE}}',
             ],
@@ -590,10 +557,6 @@ class TestimonialSlider extends Widget_Base {
                 'testimonial_title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content h3' => 'color: {{VALUE}}',
             ],
@@ -604,7 +567,6 @@ class TestimonialSlider extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'testimonial_title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-content h3',
                 ]
         );
@@ -745,10 +707,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot' => 'background-color: {{VALUE}}',
             ],
@@ -759,10 +717,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot' => 'border-color: {{VALUE}}',
             ],
@@ -781,10 +735,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_color_active', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
             ],
@@ -795,10 +745,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_border_color_active', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot.active' => 'border-color: {{VALUE}}',
             ],
@@ -817,10 +763,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'background-color: {{VALUE}}',
             ],
@@ -831,10 +773,6 @@ class TestimonialSlider extends Widget_Base {
                 'dot_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'border-color: {{VALUE}}',
             ],
@@ -903,10 +841,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'background-color: {{VALUE}}',
             ],
@@ -917,10 +851,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'color: {{VALUE}}',
             ],
@@ -931,10 +861,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'border-color: {{VALUE}}',
             ],
@@ -953,10 +879,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'background-color: {{VALUE}}',
             ],
@@ -967,10 +889,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'color: {{VALUE}}',
             ],
@@ -981,10 +899,6 @@ class TestimonialSlider extends Widget_Base {
                 'arrow_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'border-color: {{VALUE}}',
             ],

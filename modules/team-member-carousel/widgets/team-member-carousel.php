@@ -12,8 +12,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,7 +36,7 @@ class TeamMemberCarousel extends Widget_Base {
 	 	return [ 'easy-elementor-addons' ];
  	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_team_member',
 			array(
@@ -671,7 +669,6 @@ class TeamMemberCarousel extends Widget_Base {
 			array(
 				'name'     => 'member_name_typography',
 				'label'    => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-team-member-name',
 			)
 		);
@@ -714,7 +711,6 @@ class TeamMemberCarousel extends Widget_Base {
 			array(
 				'name'     => 'member_position_typography',
 				'label'    => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-team-member-position',
 			)
 		);
@@ -757,7 +753,6 @@ class TeamMemberCarousel extends Widget_Base {
 			array(
 				'name'     => 'member_description_typography',
 				'label'    => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-team-member-description',
 			)
 		);
@@ -1465,7 +1460,6 @@ class TeamMemberCarousel extends Widget_Base {
 			array(
 				'name'      => 'fraction_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .swiper-pagination-fraction',
 				'condition' => array(
 					'dots'            => 'yes',

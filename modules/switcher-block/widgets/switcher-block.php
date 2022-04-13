@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Plugin;
@@ -45,7 +43,7 @@ class SwitcherBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'switch_a', [
@@ -231,7 +229,6 @@ class SwitcherBlock extends Widget_Base {
                     Group_Control_Typography::get_type(), [
                 'name' => 'switch_text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'scheme' => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab h3',
                     ]
             );
@@ -240,10 +237,6 @@ class SwitcherBlock extends Widget_Base {
                     'border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section' => 'border: 2px solid {{VALUE}}',
                     '{{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab,
@@ -327,10 +320,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_normal_bg_color', [
                     'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active)' => 'background-color: {{VALUE}}',
                     ],
@@ -341,10 +330,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_normal_color', [
                     'label' => esc_html__('Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) h3' => 'color: {{VALUE}}',
                     ],
@@ -355,10 +340,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_icon_normal_color', [
                     'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) i' => 'color: {{VALUE}}',
                     ],
@@ -377,10 +358,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_active_bg_color', [
                     'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab.active' => 'background-color: {{VALUE}}',
                         '{{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab.active:before' => 'border-color: {{VALUE}} transparent transparent transparent'
@@ -392,10 +369,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_active_color', [
                     'label' => esc_html__('Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active h3' => 'color: {{VALUE}}',
                     ],
@@ -406,10 +379,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_icon_active_color', [
                     'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                     'type' => Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => Color::get_type(),
-                        'value' => Color::COLOR_1,
-                    ],
                     'selectors' => [
                         '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active i' => 'color: {{VALUE}}',
                     ],
@@ -428,10 +397,6 @@ class SwitcherBlock extends Widget_Base {
                     'switch_hover_normal_bg_color', [
                         'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section .eead-switch-tab:before,
                              {{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab:before,
@@ -446,10 +411,6 @@ class SwitcherBlock extends Widget_Base {
                     'switch_hover_normal_color', [
                         'label' => esc_html__('Color', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover h3' => 'color: {{VALUE}}',
                         ],
@@ -460,10 +421,6 @@ class SwitcherBlock extends Widget_Base {
                     'switch_icon_hover_normal_color', [
                         'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover i' => 'color: {{VALUE}}',
                         ],
@@ -487,7 +444,6 @@ class SwitcherBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'switch_content_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-switcher-container .eead-switch-container',
                 ]
         );
@@ -496,10 +452,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_content_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-switcher-container .eead-switch-container' => 'background: {{VALUE}}',
             ],
@@ -510,10 +462,6 @@ class SwitcherBlock extends Widget_Base {
                 'switch_content_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-switcher-container .eead-switch-container' => 'color: {{VALUE}}',
             ],

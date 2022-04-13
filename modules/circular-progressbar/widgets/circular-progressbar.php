@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use EasyElementorAddons\Group_Control_Query;
 use EasyElementorAddons\Group_Control_Header;
 
@@ -46,7 +44,7 @@ class CircularProgressbar extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_content',
@@ -122,10 +120,6 @@ class CircularProgressbar extends Widget_Base {
                 'box_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-circular-progressbar-box' => 'background: {{VALUE}}',
             ],
@@ -145,10 +139,6 @@ class CircularProgressbar extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-circular-progressbar-box h2.text' => 'color: {{VALUE}}',
             ],
@@ -159,7 +149,6 @@ class CircularProgressbar extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-circular-progressbar-box h2.text',
                 ]
         );
@@ -189,10 +178,6 @@ class CircularProgressbar extends Widget_Base {
                 'percent_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-circular-progressbar-box .percent .number h2' => 'color: {{VALUE}}',
             ],
@@ -203,7 +188,6 @@ class CircularProgressbar extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'percent_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .percent .number h2',
                 ]
         );
@@ -221,10 +205,6 @@ class CircularProgressbar extends Widget_Base {
                 'progressbar_text_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-circular-progressbar-box .percent svg circle:nth-child(1)' => 'stroke: {{VALUE}}',
             ],
@@ -235,10 +215,6 @@ class CircularProgressbar extends Widget_Base {
                 'progress_indication_color', [
             'label' => esc_html__('Progress Indication Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-circular-progressbar-box .percent svg circle:nth-child(2)' => 'stroke: {{VALUE}}',
             ],

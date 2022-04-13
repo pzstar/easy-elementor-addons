@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -44,7 +42,7 @@ class AnimatedHeading extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'header_content', [
@@ -308,10 +306,6 @@ class AnimatedHeading extends Widget_Base {
                 'background_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#FFFFFF',
             'selectors' => [
                 '{{WRAPPER}} .eead-animated-heading-wrap' => 'background: {{VALUE}}',
@@ -323,10 +317,6 @@ class AnimatedHeading extends Widget_Base {
                 'text_color', [
             'label' => esc_html__('Pre/Post Text Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-animated-heading-wrap .eead-pre-heading,
@@ -339,10 +329,6 @@ class AnimatedHeading extends Widget_Base {
                 'animated_text_color', [
             'label' => esc_html__('Animated Text Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-animated-heading-wrap .eead-animated-heading' => 'color: {{VALUE}}',
@@ -354,7 +340,6 @@ class AnimatedHeading extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'text_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-animated-heading-wrap',
                 ]
         );

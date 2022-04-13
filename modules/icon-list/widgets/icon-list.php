@@ -13,7 +13,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -45,7 +44,7 @@ class IconList extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_list',
@@ -358,10 +357,6 @@ class IconList extends Widget_Base {
                 'label'                 => __( 'Color', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#ddd',
-                'scheme'                => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_3,
-                ],
                 'condition'             => [
                     'divider'  => 'yes',
                 ],
@@ -454,10 +449,6 @@ class IconList extends Widget_Base {
                 'selectors'             => [
                     '{{WRAPPER}} .eead-list-items .eead-icon-list-icon' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-list-items .eead-icon-list-icon svg' => 'fill: {{VALUE}};',
-                ],
-                'scheme'                => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_1,
                 ],
             ]
         );
@@ -593,10 +584,6 @@ class IconList extends Widget_Base {
                 'selectors'             => [
                     '{{WRAPPER}} .eead-icon-list-item:hover .eead-icon-wrapper' => 'border-color: {{VALUE}};',
                 ],
-                'scheme'                => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_2,
-                ],
             ]
         );
 
@@ -652,10 +639,6 @@ class IconList extends Widget_Base {
                 'selectors'             => [
                     '{{WRAPPER}} .eead-icon-list-text' => 'color: {{VALUE}};',
                 ],
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_2,
-                ],
             ]
         );
 
@@ -676,7 +659,6 @@ class IconList extends Widget_Base {
             [
                 'name'                  => 'text_typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Schemes\Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .eead-icon-list-text',
             ]
         );

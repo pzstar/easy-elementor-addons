@@ -11,8 +11,6 @@ use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,7 +43,7 @@ class PopupModal extends Widget_Base {
 		return [ 'micromodal','mcscrollbar' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		$this->start_controls_section(
 			'section_content',
@@ -511,7 +509,6 @@ class PopupModal extends Widget_Base {
 			array(
 				'name'      => 'title_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-title.modal__title',
 				'condition' => array(
 					'popup_title' => 'yes',
@@ -614,7 +611,6 @@ class PopupModal extends Widget_Base {
 			array(
 				'name'      => 'content_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-content.modal__content',
 				'condition' => array(
 					'popup_type' => 'content',
@@ -909,7 +905,6 @@ class PopupModal extends Widget_Base {
 			array(
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'    => Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .eead-modal-popup-btn',
 				'condition' => array(
 					'trigger_type' => 'button',

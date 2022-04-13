@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Group_Control_Border;
@@ -54,7 +52,7 @@ class SliderBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'content_section', [
@@ -345,10 +343,6 @@ class SliderBlock extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-cap-title' => 'color: {{VALUE}}',
             ]
@@ -359,10 +353,6 @@ class SliderBlock extends Widget_Base {
                 'title_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-cap-title span' => 'background-color: {{VALUE}}',
             ],
@@ -373,7 +363,6 @@ class SliderBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-slide-cap-title',
                 ]
         );
@@ -415,10 +404,6 @@ class SliderBlock extends Widget_Base {
                 'caption_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-cap-desc' => 'color: {{VALUE}}',
             ]
@@ -429,7 +414,6 @@ class SliderBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'caption_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-slide-cap-desc',
                 ]
         );
@@ -459,7 +443,6 @@ class SliderBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'button_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-slide-button a',
                 ]
         );
@@ -478,10 +461,6 @@ class SliderBlock extends Widget_Base {
                 'button_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-button a' => 'background-color: {{VALUE}}',
             ]
@@ -492,10 +471,6 @@ class SliderBlock extends Widget_Base {
                 'button_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-button a' => 'color: {{VALUE}}',
             ]
@@ -525,10 +500,6 @@ class SliderBlock extends Widget_Base {
                 'button_bg_hover_color', [
             'label' => esc_html__('Background Color (Hover)', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-button:hover a' => 'background-color: {{VALUE}}',
             ]
@@ -539,10 +510,6 @@ class SliderBlock extends Widget_Base {
                 'button_hover_color', [
             'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-slide-button:hover a' => 'color: {{VALUE}}',
             ]
@@ -648,10 +615,6 @@ class SliderBlock extends Widget_Base {
                 'dot_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot' => 'background-color: {{VALUE}}',
             ],
@@ -662,10 +625,6 @@ class SliderBlock extends Widget_Base {
                 'dot_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot' => 'border-color: {{VALUE}}',
             ],
@@ -684,10 +643,6 @@ class SliderBlock extends Widget_Base {
                 'dot_color_active', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
             ],
@@ -698,10 +653,6 @@ class SliderBlock extends Widget_Base {
                 'dot_border_color_active', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot.active' => 'border-color: {{VALUE}}',
             ],
@@ -720,10 +671,6 @@ class SliderBlock extends Widget_Base {
                 'dot_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'background-color: {{VALUE}}',
             ],
@@ -734,10 +681,6 @@ class SliderBlock extends Widget_Base {
                 'dot_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'border-color: {{VALUE}}',
             ],
@@ -807,10 +750,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'background-color: {{VALUE}}',
             ],
@@ -821,10 +760,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'color: {{VALUE}}',
             ],
@@ -835,10 +770,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'border-color: {{VALUE}}',
             ],
@@ -857,10 +788,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'background-color: {{VALUE}}',
             ],
@@ -871,10 +798,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'color: {{VALUE}}',
             ],
@@ -885,10 +808,6 @@ class SliderBlock extends Widget_Base {
                 'arrow_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'border-color: {{VALUE}}',
             ],

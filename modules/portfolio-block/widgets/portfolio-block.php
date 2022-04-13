@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Border;
 use Elementor\Repeater;
 use Elementor\Utils;
@@ -53,7 +51,7 @@ class PortfolioBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'items', [
@@ -518,10 +516,6 @@ class PortfolioBlock extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-portfolio-lists .eead-portfolio-card .eead-portfolio-details .eead-portfolio-title h2' => 'color: {{VALUE}}',
             ],
@@ -532,7 +526,6 @@ class PortfolioBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-portfolio-lists .eead-portfolio-card .eead-portfolio-details .eead-portfolio-title h2',
                 ]
         );
@@ -615,10 +608,6 @@ class PortfolioBlock extends Widget_Base {
                             'link_btn_color_normal', [
                         'label' => esc_html__('Color (Normal)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-link-btn' => 'color: {{VALUE}}',
                         ],
@@ -629,10 +618,6 @@ class PortfolioBlock extends Widget_Base {
                             'link_btn_bg_color_normal', [
                         'label' => esc_html__('Background Color (Normal)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-link-btn' => 'background: {{VALUE}}',
                         ],
@@ -643,10 +628,6 @@ class PortfolioBlock extends Widget_Base {
                             'link_btn_color_hover', [
                         'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-link-btn:hover' => 'color: {{VALUE}}',
                         ],
@@ -657,10 +638,6 @@ class PortfolioBlock extends Widget_Base {
                             'link_btn_bg_color_hover', [
                         'label' => esc_html__('Background Color (Hover)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-link-btn:hover' => 'background: {{VALUE}}',
                         ],
@@ -679,10 +656,6 @@ class PortfolioBlock extends Widget_Base {
                             'zoom_btn_color_normal', [
                         'label' => esc_html__('Color (Normal)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-zoom-portfolio' => 'color: {{VALUE}}',
                         ],
@@ -693,10 +666,6 @@ class PortfolioBlock extends Widget_Base {
                             'zoom_btn_bg_color_normal', [
                         'label' => esc_html__('Background Color (Normal)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-zoom-portfolio' => 'background: {{VALUE}}',
                         ],
@@ -707,10 +676,6 @@ class PortfolioBlock extends Widget_Base {
                             'zoom_btn_color_hover', [
                         'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-zoom-portfolio:hover' => 'color: {{VALUE}}',
                         ],
@@ -721,10 +686,6 @@ class PortfolioBlock extends Widget_Base {
                             'zoom_btn_bg_color_hover', [
                         'label' => esc_html__('Background Color (Hover)', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-portfolio-button a.eead-zoom-portfolio:hover' => 'background: {{VALUE}}',
                         ],
@@ -768,10 +729,6 @@ class PortfolioBlock extends Widget_Base {
                 'category_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-portfolio-lists .eead-portfolio-card .eead-portfolio-details .eead-portfolio-category' => 'color: {{VALUE}}',
             ],
@@ -782,10 +739,6 @@ class PortfolioBlock extends Widget_Base {
                 'category_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-portfolio-lists .eead-portfolio-card .eead-portfolio-details .eead-portfolio-category' => 'background: {{VALUE}}',
             ],
@@ -815,10 +768,6 @@ class PortfolioBlock extends Widget_Base {
                 'dot_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot' => 'background-color: {{VALUE}}',
@@ -848,10 +797,6 @@ class PortfolioBlock extends Widget_Base {
                 'dot_color_active', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
@@ -881,10 +826,6 @@ class PortfolioBlock extends Widget_Base {
                 'dot_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'background-color: {{VALUE}}',
@@ -1043,10 +984,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'background-color: {{VALUE}}',
             ],
@@ -1057,10 +994,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'color: {{VALUE}}',
             ],
@@ -1071,10 +1004,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button' => 'border-color: {{VALUE}}',
             ],
@@ -1093,10 +1022,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'background-color: {{VALUE}}',
             ],
@@ -1107,10 +1032,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'color: {{VALUE}}',
             ],
@@ -1121,10 +1042,6 @@ class PortfolioBlock extends Widget_Base {
                 'arrow_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .owl-nav button:hover' => 'border-color: {{VALUE}}',
             ],

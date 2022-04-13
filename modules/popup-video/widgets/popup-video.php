@@ -40,7 +40,7 @@ class PopupVideo extends Widget_Base {
         return [ 'magnific-popup' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 	   $this->start_controls_section(
             'eead_video_popup_content_section',

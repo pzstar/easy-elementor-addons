@@ -9,7 +9,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -33,7 +32,7 @@ class OnePageNavigation extends Widget_Base {
 	 	return [ 'easy-elementor-addons' ];
  	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		$this->start_controls_section(
 			'section_nav_dots',
@@ -623,7 +622,6 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'name'                  => 'tooltip_typography',
 				'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-				'scheme'                => Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .eead-nav-dot-tooltip',
 				'condition'             => [
 					'nav_tooltip'  => 'yes',

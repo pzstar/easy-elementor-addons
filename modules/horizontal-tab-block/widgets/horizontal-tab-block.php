@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
@@ -41,7 +39,7 @@ class HorizontalTabBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'section_content', [
@@ -291,7 +289,6 @@ class HorizontalTabBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab span',
                 ]
         );
@@ -346,10 +343,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'title_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tab,
                  {{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style2 .eead-tab,
@@ -362,10 +355,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tab,
                  {{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style2 .eead-tab,
@@ -387,10 +376,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'title_bg_color_active', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tab:hover' => 'box-shadow: inset 0 100px 0 0 {{VALUE}}',
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tab.active,
@@ -405,10 +390,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'title_color_active', [
             'label' => esc_html__('Title Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tab.active,
                  {{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style2 .eead-tab,
@@ -421,10 +402,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'title_border_color_active', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style1 .eead-tabs' => 'border-bottom: 5px solid {{VALUE}}',
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style2 .eead-tab.active' => 'border-top-color: {{VALUE}}',
@@ -450,10 +427,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'tab_content_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-tab-container .eead-tab-content' => 'color: {{VALUE}}',
             ],
@@ -464,10 +437,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'tab_content_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-tab-container .eead-tab-content' => 'background-color: {{VALUE}}',
             ],
@@ -478,10 +447,6 @@ class HorizontalTabBlock extends Widget_Base {
                 'tab_content_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-horizontal-tab-section.eead-tab-section.style3 .eead-tab-content .eead-each-content' => 'border-top: 5px solid {{VALUE}}',
             ],
@@ -494,7 +459,6 @@ class HorizontalTabBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'tab_content_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-tab-container .eead-tab-content',
                 ]
         );

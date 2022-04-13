@@ -9,8 +9,6 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Background;
 use Elementor\Utils;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -42,7 +40,7 @@ class ScrollImage extends Widget_Base {
         return [ 'lightgallery' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_image',
 			[
@@ -368,10 +366,6 @@ class ScrollImage extends Widget_Base {
                 'link_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-link-wrapper a' => 'background: {{VALUE}}',
@@ -383,10 +377,6 @@ class ScrollImage extends Widget_Base {
                 'link_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-link-wrapper a' => 'color: {{VALUE}}',
@@ -398,10 +388,6 @@ class ScrollImage extends Widget_Base {
                 'link_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-link-wrapper a' => 'border: 1px solid {{VALUE}}',
@@ -448,10 +434,6 @@ class ScrollImage extends Widget_Base {
                 'caption_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-scroll-image-container .eead-image-caption .eead-caption-text' => 'color: {{VALUE}}',
@@ -463,10 +445,6 @@ class ScrollImage extends Widget_Base {
                 'caption_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-scroll-image-container .eead-image-caption .eead-caption-text' => 'background: {{VALUE}}',
             ],
@@ -477,7 +455,6 @@ class ScrollImage extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'caption_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-image-caption .eead-caption-text',
                 ]
         );
@@ -507,10 +484,6 @@ class ScrollImage extends Widget_Base {
                 'badge_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#f92b2b',
             'selectors' => [
                 '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'background: {{VALUE}}',
@@ -522,10 +495,6 @@ class ScrollImage extends Widget_Base {
                 'badge_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge span' => 'color: {{VALUE}}',
@@ -537,7 +506,6 @@ class ScrollImage extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'badge_typography',
             'label' => esc_html__('Badge', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge span',
                 ]
         );

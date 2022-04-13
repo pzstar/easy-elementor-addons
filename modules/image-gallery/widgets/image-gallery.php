@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use EasyElementorAddons\Group_Control_Query;
 use EasyElementorAddons\Group_Control_Header;
 use Elementor\Repeater;
@@ -51,7 +49,7 @@ class ImageGallery extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
 
         $this->start_controls_section(
@@ -361,10 +359,6 @@ class ImageGallery extends Widget_Base {
                             'filter_text_color', [
                         'label' => esc_html__('Color', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-image-gallery-container .eead-gallery-filters .eead-gallery-filter' => 'color: {{VALUE}}',
                         ],
@@ -375,7 +369,6 @@ class ImageGallery extends Widget_Base {
                             Group_Control_Typography::get_type(), [
                         'name' => 'filter_typography',
                         'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                        'scheme' => Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .eead-image-gallery-container .eead-gallery-filters .eead-gallery-filter:not(.eead-active)',
                             ]
                     );
@@ -392,10 +385,6 @@ class ImageGallery extends Widget_Base {
                             'filter_active_text_color', [
                         'label' => esc_html__('Active Color', 'easy-elementor-addons'),
                         'type' => Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' => Color::get_type(),
-                            'value' => Color::COLOR_1,
-                        ],
                         'selectors' => [
                             '{{WRAPPER}} .eead-image-gallery-container .eead-gallery-filters .eead-gallery-filter.eead-active' => 'color: {{VALUE}}',
                         ],
@@ -406,7 +395,6 @@ class ImageGallery extends Widget_Base {
                             Group_Control_Typography::get_type(), [
                         'name' => 'active_filter_typography',
                         'label' => esc_html__('Active Typography', 'easy-elementor-addons'),
-                        'scheme' => Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .eead-image-gallery-container .eead-gallery-filters .eead-gallery-filter.eead-active',
                             ]
                     );
@@ -428,10 +416,6 @@ class ImageGallery extends Widget_Base {
                 'overlay_color', [
             'label' => esc_html__('Overlay Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-item-inner::after' => 'background: {{VALUE}}',
             ],
@@ -451,10 +435,6 @@ class ImageGallery extends Widget_Base {
                 'zoom_button_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail a' => 'color: {{VALUE}}',
             ],
@@ -465,10 +445,6 @@ class ImageGallery extends Widget_Base {
                 'zoom_button_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail a' => 'background: {{VALUE}}',
             ],
@@ -488,10 +464,6 @@ class ImageGallery extends Widget_Base {
                 'description_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail p' => 'color: {{VALUE}}',
             ],
@@ -502,7 +474,6 @@ class ImageGallery extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'description_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail p',
                 ]
         );
@@ -520,10 +491,6 @@ class ImageGallery extends Widget_Base {
                 'image_title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail .eead-caption-title' => 'color: {{VALUE}}',
             ],
@@ -534,7 +501,6 @@ class ImageGallery extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'image_title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-image-gallery-wrapper .eead-gallery-image-detail .eead-caption-title',
                 ]
         );

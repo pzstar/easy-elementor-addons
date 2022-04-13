@@ -5,7 +5,6 @@ namespace EasyElementorAddons\Modules\AdvancedHeading\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
@@ -50,7 +49,7 @@ class AdvancedHeading extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
     	$this->start_controls_section(
 			'section_content_heading',
@@ -67,15 +66,15 @@ class AdvancedHeading extends Widget_Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' => 'center',
@@ -196,15 +195,15 @@ class AdvancedHeading extends Widget_Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'selectors' => [
@@ -363,7 +362,6 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'sub_heading_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-sub-heading',
 			]
 		);
@@ -583,7 +581,6 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'main_heading_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div',
 			]
 		);
@@ -711,7 +708,6 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'mainh_split_text_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -940,7 +936,6 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'advanced_heading_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 				'separator' => 'before',
 			]

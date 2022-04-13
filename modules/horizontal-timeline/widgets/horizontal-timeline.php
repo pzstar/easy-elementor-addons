@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Border;
 use Elementor\Repeater;
 use Elementor\Utils;
@@ -53,7 +51,7 @@ class HorizontalTimeline extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'items', [
@@ -308,10 +306,6 @@ class HorizontalTimeline extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-title h2 a' => 'color: {{VALUE}}',
             ],
@@ -322,7 +316,6 @@ class HorizontalTimeline extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-htimeline-title h2 a',
                 ]
         );
@@ -386,10 +379,6 @@ class HorizontalTimeline extends Widget_Base {
                 'description_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-description' => 'color: {{VALUE}}',
             ],
@@ -400,7 +389,6 @@ class HorizontalTimeline extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'description_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-htimeline-description',
                 ]
         );
@@ -440,10 +428,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_color_normal', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a' => 'color: {{VALUE}}',
             ],
@@ -454,10 +438,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_bg_color_normal', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a' => 'background: {{VALUE}}',
             ],
@@ -468,10 +448,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a' => 'border: 1px solid {{VALUE}}',
             ],
@@ -490,10 +466,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a:hover' => 'color: {{VALUE}}',
             ],
@@ -504,10 +476,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a:hover' => 'background: {{VALUE}}',
             ],
@@ -518,10 +486,6 @@ class HorizontalTimeline extends Widget_Base {
                 'readmore_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-more-button a:hover' => 'border: 1px solid {{VALUE}}',
             ],
@@ -536,7 +500,6 @@ class HorizontalTimeline extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'readmore_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-more-button a',
             'separator' => 'before',
                 ]
@@ -591,10 +554,6 @@ class HorizontalTimeline extends Widget_Base {
                 'meta_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-meta,
                  {{WRAPPER}} .style2 .eead-htimeline-item:nth-child(even) .eead-htimeline-meta' => 'color: {{VALUE}}',
@@ -606,10 +565,6 @@ class HorizontalTimeline extends Widget_Base {
                 'meta_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-meta,
                  {{WRAPPER}} .style2 .eead-htimeline-item:nth-child(even) .eead-htimeline-meta' => 'background: {{VALUE}}',
@@ -621,7 +576,6 @@ class HorizontalTimeline extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'meta_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-htimeline-meta',
                 ]
         );
@@ -684,10 +638,6 @@ class HorizontalTimeline extends Widget_Base {
                 'time_point_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-item .eead-point-icon i,
                  {{WRAPPER}} .eead-htimeline-item .eead-point-text' => 'color: {{VALUE}}',
@@ -699,10 +649,6 @@ class HorizontalTimeline extends Widget_Base {
                 'time_point_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-item .eead-point-icon,
                  {{WRAPPER}} .eead-htimeline-item .eead-point-text' => 'background: {{VALUE}}',
@@ -714,10 +660,6 @@ class HorizontalTimeline extends Widget_Base {
                 'time_point_outline_color', [
             'label' => esc_html__('Outline Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .style1 .eead-point-icon,
                  {{WRAPPER}} .style1 .eead-point-text,
@@ -735,10 +677,6 @@ class HorizontalTimeline extends Widget_Base {
                 'timeline_color', [
             'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-wrap .style1 .eead-point-icon:before, 
                  {{WRAPPER}} .eead-htimeline-wrap .style1 .eead-point-text:before,
@@ -757,10 +695,6 @@ class HorizontalTimeline extends Widget_Base {
                 'timeline_circle_color', [
             'label' => esc_html__('Circle Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-htimeline-wrap .style3 .eead-htimeline-circle' => 'background: {{VALUE}}'
             ],
@@ -772,7 +706,6 @@ class HorizontalTimeline extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'time_point_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-htimeline-item .eead-point-text',
                 ]
         );

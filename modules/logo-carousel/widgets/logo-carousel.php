@@ -10,8 +10,6 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -51,7 +49,7 @@ class LogoCarousel extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'section_content', [
@@ -380,10 +378,6 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => __( 'Background Color', 'easy-elementor-addons' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => \Elementor\Core\Schemes\Color::get_type(),
-                    'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
                      {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
@@ -448,10 +442,6 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => __( 'Border Color', 'easy-elementor-addons' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => \Elementor\Core\Schemes\Color::get_type(),
-                    'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
                      {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
@@ -547,10 +537,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
             ],
@@ -561,10 +547,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
             ],
@@ -583,10 +565,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_color_active', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
             ],
@@ -597,10 +575,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_border_color_active', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
             ],
@@ -619,10 +593,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
             ],
@@ -633,10 +603,6 @@ class LogoCarousel extends Widget_Base {
                 'dot_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
             ],
@@ -693,10 +659,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'background-color: {{VALUE}}',
             ],
@@ -707,10 +669,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'color: {{VALUE}}',
             ],
@@ -721,10 +679,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_border_color_normal', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-color: {{VALUE}}',
             ],
@@ -743,10 +697,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_bg_color_hover', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
             ],
@@ -757,10 +707,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_color_hover', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
             ],
@@ -771,10 +717,6 @@ class LogoCarousel extends Widget_Base {
                 'arrow_border_color_hover', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
             ],

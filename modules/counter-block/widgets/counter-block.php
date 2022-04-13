@@ -50,7 +50,7 @@ class CounterBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'counter', [
@@ -148,10 +148,6 @@ class CounterBlock extends Widget_Base {
                 'box_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-counter' => 'background: {{VALUE}}',
             ],
@@ -162,10 +158,6 @@ class CounterBlock extends Widget_Base {
                 'box_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#4ec5ef',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .style1 .eead-counter, 
@@ -207,10 +199,6 @@ class CounterBlock extends Widget_Base {
                 'icon_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .eead-counter-icon i' => 'color: {{VALUE}}',
@@ -224,10 +212,6 @@ class CounterBlock extends Widget_Base {
                 'icon_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
@@ -294,10 +278,6 @@ class CounterBlock extends Widget_Base {
                 'pre_text_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text' => 'color: {{VALUE}}',
@@ -309,7 +289,6 @@ class CounterBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'pre_text_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text',
                 ]
         );
@@ -339,10 +318,6 @@ class CounterBlock extends Widget_Base {
                 'counter_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer' => 'color: {{VALUE}}',
@@ -354,7 +329,6 @@ class CounterBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer',
                 ]
         );
@@ -384,10 +358,6 @@ class CounterBlock extends Widget_Base {
                 'post_text_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text' => 'color: {{VALUE}}',
@@ -399,7 +369,6 @@ class CounterBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'post_text_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text',
                 ]
         );
@@ -429,10 +398,6 @@ class CounterBlock extends Widget_Base {
                 'counter_title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'color: {{VALUE}}',
@@ -444,7 +409,6 @@ class CounterBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-title',
                 ]
         );

@@ -10,8 +10,6 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -43,7 +41,7 @@ class LinkEffect extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'section_link_effects',
@@ -173,7 +171,6 @@ class LinkEffect extends Widget_Base {
             [
                 'name'                  => 'typography',
                 'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'                => Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} a.eead-link',
             ]
         );

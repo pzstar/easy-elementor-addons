@@ -8,8 +8,6 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
-use \Elementor\Core\Schemes\Typography;
-use \Elementor\Core\Schemes\Color;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
@@ -44,7 +42,7 @@ class FeatureList extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'eead_section_feature_list_content_settings',
@@ -161,10 +159,6 @@ class FeatureList extends Widget_Base {
             [
                 'label'            => esc_html__( 'Icon Color', 'easy-elementor-addons' ),
                 'type'             => Controls_Manager::COLOR,
-                'scheme'           => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition'        => [
                     'eead_feature_list_icon_enable_each_style' => 'on',
@@ -176,10 +170,6 @@ class FeatureList extends Widget_Base {
             [
                 'label'            => esc_html__( 'Icon Background', 'easy-elementor-addons' ),
                 'type'             => Controls_Manager::COLOR,
-                'scheme'           => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition'        => [
                     'eead_feature_list_icon_enable_each_style' => 'on',
@@ -191,10 +181,6 @@ class FeatureList extends Widget_Base {
             [
                 'label'            => esc_html__( 'Icon Box Background', 'easy-elementor-addons' ),
                 'type'             => Controls_Manager::COLOR,
-                'scheme'           => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition'        => [
                     'eead_feature_list_icon_enable_each_style' => 'on',
@@ -645,10 +631,6 @@ class FeatureList extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title > a, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title:visited' => 'color: {{VALUE}};',
                 ],
-                'scheme'    => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
             ]
         );
 
@@ -657,7 +639,6 @@ class FeatureList extends Widget_Base {
             [
                 'name'     => 'eead_feature_list_title_typography',
                 'selector' => '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title a',
-                'scheme'   => Typography::TYPOGRAPHY_1,
             ]
         );
 
@@ -680,10 +661,6 @@ class FeatureList extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-content' => 'color: {{VALUE}};',
                 ],
-                'scheme'    => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_3,
-                ],
             ]
         );
 
@@ -692,7 +669,6 @@ class FeatureList extends Widget_Base {
             [
                 'name'           => 'eead_feature_list_description_typography',
                 'selector'       => '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-content',
-                'scheme'         => Typography::TYPOGRAPHY_3,
                 'fields_options' => [
                     'font_size' => ['default' => ['unit' => 'px', 'size' => 16]],
                 ],
@@ -718,10 +694,6 @@ class FeatureList extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list-subtitle' => 'color: {{VALUE}};',
                 ],
-                'scheme'    => [
-                    'type'  => Color::get_type(),
-                    'value' => Color::COLOR_3,
-                ],
             ]
         );
 
@@ -730,7 +702,6 @@ class FeatureList extends Widget_Base {
             [
                 'name'           => 'eead_feature_list_subtitle_typography',
                 'selector'       => '{{WRAPPER}} .eead-feature-list-subtitle',
-                'scheme'         => Typography::TYPOGRAPHY_3,
                 'fields_options' => [
                     'font_size' => ['default' => ['unit' => 'px', 'size' => 13]],
                 ],

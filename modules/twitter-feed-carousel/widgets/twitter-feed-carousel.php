@@ -47,7 +47,7 @@ class TwitterFeedCarousel extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'eead_section_twitter_feed_carousel_acc_settings',

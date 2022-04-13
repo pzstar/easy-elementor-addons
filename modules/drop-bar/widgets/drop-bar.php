@@ -6,7 +6,6 @@ namespace EasyElementorAddons\Modules\DropBar\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
@@ -50,7 +49,7 @@ class DropBar extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
     	$this->start_controls_section(
 			'section_content_dropbar',
@@ -416,19 +415,19 @@ class DropBar extends Widget_Base {
 				'options' => [
 					'left'    => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-center',
+						'icon' => ' eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-justify',
+						'icon' => ' eicon-text-align-justify',
 					],
 				],
 				'prefix_class' => 'elementor%s-align-',
@@ -526,7 +525,6 @@ class DropBar extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .eead-dropbar-button',
 			]
 		);
@@ -687,7 +685,6 @@ class DropBar extends Widget_Base {
 			[
 				'name'     => 'content_box_text_typography',
 				'label'    => esc_html__( 'Typography', 'easy-elementor-addons' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} #eead-drop-{{ID}}.eead-drop .eead-drop-content',
 			]
 		);

@@ -12,8 +12,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 
 if (!defined('ABSPATH')) {
@@ -46,7 +44,7 @@ class ToggleBlock extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
        $this->start_controls_section(
             'section_primary',
@@ -553,7 +551,6 @@ class ToggleBlock extends Widget_Base {
             [
                 'name'              => 'label_typography',
                 'label'             => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'            => Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .eead-primary-toggle-label,
                                         {{WRAPPER}} .eead-secondary-toggle-label',
             ]
@@ -701,7 +698,6 @@ class ToggleBlock extends Widget_Base {
             [
                 'name'              => 'content_typography',
                 'label'             => __( 'Typography', 'easy-elementor-addons' ),
-                'scheme'            => Typography::TYPOGRAPHY_4,
                 'selector'          => '{{WRAPPER}} .eead-toggle-content-wrap',
             ]
         );

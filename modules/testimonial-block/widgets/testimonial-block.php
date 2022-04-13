@@ -5,8 +5,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -30,7 +28,7 @@ class TestimonialBlock extends Widget_Base {
 	 	return [ 'easy-elementor-addons' ];
  	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
                 'section_content', [
             'label' => esc_html__('Content', 'easy-elementor-addons'),
@@ -138,10 +136,6 @@ class TestimonialBlock extends Widget_Base {
                 'content_bg_color', [
             'label' => esc_html__('Backgrond Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-block.style1, 
                  {{WRAPPER}} .eead-testimonial-block.style2,
@@ -154,10 +148,6 @@ class TestimonialBlock extends Widget_Base {
                 'content_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-block.style1' => 'border: 5px solid {{VALUE}}',
             ],
@@ -198,10 +188,6 @@ class TestimonialBlock extends Widget_Base {
                 'name_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-member-name' => 'color: {{VALUE}}'
             ],
@@ -212,7 +198,6 @@ class TestimonialBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'name_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-member-name',
                 ]
         );
@@ -242,10 +227,6 @@ class TestimonialBlock extends Widget_Base {
                 'designation_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-member-designation' => 'color: {{VALUE}}',
             ],
@@ -256,7 +237,6 @@ class TestimonialBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'designation_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-member-designation',
                 ]
         );
@@ -286,10 +266,6 @@ class TestimonialBlock extends Widget_Base {
                 'testimonial_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'color: {{VALUE}}',
             ],
@@ -300,7 +276,6 @@ class TestimonialBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'testimonial_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt',
                 ]
         );
@@ -309,10 +284,6 @@ class TestimonialBlock extends Widget_Base {
                 'backquote_color', [
             'label' => esc_html__('Backquote Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-backquote' => 'color: {{VALUE}}',
             ],
@@ -336,10 +307,6 @@ class TestimonialBlock extends Widget_Base {
                 'testimonial_border_color', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content:before' => 'background: {{VALUE}}',
             ],
@@ -407,10 +374,6 @@ class TestimonialBlock extends Widget_Base {
                 'testimonial_title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-testimonial-content h3' => 'color: {{VALUE}}',
             ],
@@ -421,7 +384,6 @@ class TestimonialBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'testimonial_title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-testimonial-content h3',
                 ]
         );

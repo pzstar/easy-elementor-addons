@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Repeater;
 use Elementor\Utils;
 use DateTime;
@@ -47,7 +45,7 @@ class BusinessHour extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /** Enable 24-hour Time format depending on global WP settings. */
         $time_24hr = false;
@@ -460,10 +458,6 @@ class BusinessHour extends Widget_Base {
                 'content_bg_color', [
             'label' => esc_html__('Content Background', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-header-content' => 'background-color: {{VALUE}}',
@@ -487,10 +481,6 @@ class BusinessHour extends Widget_Base {
                 'time_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-header-inner .eead-current-time' => 'color: {{VALUE}}',
@@ -504,7 +494,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'time_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-header-inner .eead-current-time',
             'condition' => [
                 'header_content_type' => 'date'
@@ -543,10 +532,6 @@ class BusinessHour extends Widget_Base {
                 'date_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-header-inner .eead-current-date' => 'color: {{VALUE}}',
@@ -560,7 +545,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'date_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-header-inner .eead-current-date',
             'condition' => [
                 'header_content_type' => 'date'
@@ -599,10 +583,6 @@ class BusinessHour extends Widget_Base {
                 'status_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-open-status,
@@ -617,7 +597,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'status_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-open-status, {{WRAPPER}} .eead-close-status',
             'condition' => [
                 'header_content_type' => 'status'
@@ -657,10 +636,6 @@ class BusinessHour extends Widget_Base {
                 'custom_msg_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-custom-text' => 'color: {{VALUE}}',
@@ -674,7 +649,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'custom_msg_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-custom-text',
             'condition' => [
                 'header_content_type' => 'text'
@@ -711,10 +685,6 @@ class BusinessHour extends Widget_Base {
                 'footer_content_bg_color', [
             'label' => esc_html__('Content Background', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-footer-content' => 'background-color: {{VALUE}}',
@@ -738,10 +708,6 @@ class BusinessHour extends Widget_Base {
                 'footer_time_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-footer-inner .eead-current-time' => 'color: {{VALUE}}',
@@ -755,7 +721,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'footer_time_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-footer-inner .eead-current-time',
             'condition' => [
                 'footer_content_type' => 'date'
@@ -794,10 +759,6 @@ class BusinessHour extends Widget_Base {
                 'footer_date_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-footer-inner .eead-current-date' => 'color: {{VALUE}}',
@@ -811,7 +772,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'footer_date_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-footer-inner .eead-current-date',
             'condition' => [
                 'footer_content_type' => 'date'
@@ -850,10 +810,6 @@ class BusinessHour extends Widget_Base {
                 'footer_status_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-footer-inner .eead-open-status,
@@ -868,7 +824,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'footer_status_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-footer-inner .eead-open-status, {{WRAPPER}} .eead-footer-inner .eead-close-status',
             'condition' => [
                 'footer_content_type' => 'status'
@@ -908,10 +863,6 @@ class BusinessHour extends Widget_Base {
                 'footer_custom_msg_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-footer-inner .eead-custom-text' => 'color: {{VALUE}}',
@@ -925,7 +876,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'footer_custom_msg_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-footer-inner .eead-custom-text',
             'condition' => [
                 'footer_content_type' => 'text'
@@ -1018,10 +968,6 @@ class BusinessHour extends Widget_Base {
                 'current_day_bg_color', [
             'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#ccc',
             'selectors' => [
                 '{{WRAPPER}} .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}',
@@ -1033,10 +979,6 @@ class BusinessHour extends Widget_Base {
                 'work_day_bg_color', [
             'label' => esc_html__('Work Days Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-business-hour-row' => 'background-color: {{VALUE}}',
@@ -1058,10 +1000,6 @@ class BusinessHour extends Widget_Base {
                 'day_text_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-business-hour-details .eead-business-day' => 'color: {{VALUE}}',
@@ -1072,7 +1010,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'day_text_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-business-hour-details .eead-business-day',
                 ]
         );
@@ -1103,10 +1040,6 @@ class BusinessHour extends Widget_Base {
                 'business_time_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'default' => '#333',
             'selectors' => [
                 '{{WRAPPER}} .eead-business-hour-details .eead-business-time' => 'color: {{VALUE}}',
@@ -1117,7 +1050,6 @@ class BusinessHour extends Widget_Base {
         $this->add_group_control( Group_Control_Typography::get_type(), [
             'name' => 'business_time_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-business-hour-details .eead-business-time',
                 ]
         );
@@ -1138,10 +1070,6 @@ class BusinessHour extends Widget_Base {
                 'closed_all_day_color', [
             'label' => esc_html__('Closed All Day Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'separator' => 'before',
             'default' => '#333',
             'selectors' => [

@@ -7,8 +7,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Core\Schemes\Color;
-use Elementor\Core\Schemes\Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
@@ -38,7 +36,7 @@ class PieChart extends Widget_Base {
 		return [ 'chart' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		$this->start_controls_section(
 			'section_chart_data',

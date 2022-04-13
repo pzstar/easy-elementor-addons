@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Utils;
 use Elementor\Repeater;
 use EasyElementorAddons\Group_Control_Query;
@@ -48,7 +46,7 @@ class Progressbar extends Widget_Base {
     }
 
     /** Controls */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
                 'progressbar', [
@@ -106,10 +104,6 @@ class Progressbar extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-progress h2' => 'color: {{VALUE}}',
             ],
@@ -120,7 +114,6 @@ class Progressbar extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-progress h2',
                 ]
         );
@@ -150,10 +143,6 @@ class Progressbar extends Widget_Base {
                 'percent_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-progress-bar-length span' => 'color: {{VALUE}}',
             ],
@@ -164,7 +153,6 @@ class Progressbar extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'percent_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-progress-bar-length span',
                 ]
         );
