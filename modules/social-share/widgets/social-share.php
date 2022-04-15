@@ -508,8 +508,6 @@ class SocialShare extends Widget_Base {
         );
 
         $this->end_controls_section();
-
-        $this->end_controls_section();
     }
 
     /** Render Layout */

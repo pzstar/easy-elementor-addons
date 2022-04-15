@@ -7,6 +7,10 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
+use Elementor\Utils;
+use Elementor\Repeater;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Control_Media;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -45,14 +49,14 @@ class TestimonialSlider extends Widget_Base {
                 ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
                 'image', [
             'label' => __('Choose Image', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::MEDIA,
+            'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => \Elementor\Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src(),
             ],
                 ]
         );
@@ -60,7 +64,7 @@ class TestimonialSlider extends Widget_Base {
         $repeater->add_control(
                 'name', [
             'label' => __('Name', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'John Doe'
                 ]
@@ -69,7 +73,7 @@ class TestimonialSlider extends Widget_Base {
         $repeater->add_control(
                 'designation', [
             'label' => __('Designation', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Support Engineer'
                 ]
@@ -78,7 +82,7 @@ class TestimonialSlider extends Widget_Base {
         $repeater->add_control(
                 'testimonial_title', [
             'label' => __('Testimonial Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => ''
                 ]
@@ -87,7 +91,7 @@ class TestimonialSlider extends Widget_Base {
         $repeater->add_control(
                 'testimonial_content', [
             'label' => __('Testimonial Content', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'type' => Controls_Manager::TEXTAREA,
             'rows' => 8,
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Quisque maximus ex eros, at tincidunt arcu placerat tempus. Quisque at lacinia mauris, a auctor urna. Donec laoreet tincidunt nisi ac sodales.'
                 ]
@@ -96,7 +100,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'testimonials', [
             'label' => __('Testimonials', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::REPEATER,
+            'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'title_field' => '{{{ name }}}',
                 ]
@@ -111,7 +115,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-                \Elementor\Group_Control_Image_Size::get_type(), [
+                Group_Control_Image_Size::get_type(), [
             'name' => 'thumb',
             'exclude' => ['custom'],
             'include' => [],
@@ -122,7 +126,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'image_shape', [
             'label' => __('Image Shape', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'eead-square',
             'options' => [
                 'eead-square' => __('Square', 'easy-elementor-addons'),
@@ -134,7 +138,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'layout', [
             'label' => __('Layout', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
                 'style1' => __('Style 1', 'easy-elementor-addons'),
@@ -155,7 +159,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'autoplay', [
             'label' => __('Autoplay', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -166,7 +170,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'pause_on_hover', [
             'label' => __('Pause on Hover', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -180,7 +184,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'infinite', [
             'label' => __('Infinite Loop', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -191,7 +195,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'autoplay_speed', [
             'label' => __('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SLIDER,
+            'type' => Controls_Manager::SLIDER,
             'size_units' => ['s'],
             'range' => [
                 's' => [
@@ -221,7 +225,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'dots', [
             'label' => __('Navigation Dots', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -232,7 +236,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'arrows', [
             'label' => __('Navigation Arrow', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -243,7 +247,7 @@ class TestimonialSlider extends Widget_Base {
         $this->add_control(
                 'auto_height', [
             'label' => __('Auto Height', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -346,7 +350,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
+            Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'testimonial_box_shadow',
                 'label' => __( 'Box Shadow', 'easy-elementor-addons' ),
@@ -916,18 +920,18 @@ class TestimonialSlider extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $testimonial_class = [
-                            $settings['image_shape'],
-                            $settings['layout']
-                        ];
+            $settings['image_shape'],
+            $settings['layout']
+        ];
         ?>
         <div class="eead-testimonial-block eead-testimonial-slider <?php echo esc_attr(implode(' ', $testimonial_class)) ?>">
-            <?php  
-            if($settings['layout'] == 'style1') {
-                $this->get_style1();
-            } else if($settings['layout'] == 'style2') {
-                $this->get_style2();
-            } else if($settings['layout'] == 'style3') {
+            <?php                
+            if($settings['layout'] == 'style3') {
                 $this->get_style3();
+            }else if($settings['layout'] == 'style2') {
+                $this->get_style2();
+            }else {
+                $this->get_style1();
             }
             ?>
         </div>
@@ -946,11 +950,11 @@ class TestimonialSlider extends Widget_Base {
                 <div class="eead-testimonial-each-slider">
                     <div class="eead-testimonial-image">
                         <?php
-                        $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
+                        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
                         if (!$image_url) {
-                            $image_url = \Elementor\Utils::get_placeholder_image_src();
+                            $image_url = Utils::get_placeholder_image_src();
                         }
-                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item['image'])) . '" />';
+                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
                         ?>
                     </div>
 
@@ -1012,11 +1016,11 @@ class TestimonialSlider extends Widget_Base {
                     <div class="eead-footer-section">
                         <div class="eead-testimonial-image">
                             <?php
-                        $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
+                        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
                         if (!$image_url) {
-                            $image_url = \Elementor\Utils::get_placeholder_image_src();
+                            $image_url = Utils::get_placeholder_image_src();
                         }
-                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item['image'])) . '" />';
+                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
                         ?>
                         </div>
 
@@ -1064,11 +1068,11 @@ class TestimonialSlider extends Widget_Base {
 
                     <div class="eead-testimonial-image">
                         <?php
-                        $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
+                        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
                         if (!$image_url) {
-                            $image_url = \Elementor\Utils::get_placeholder_image_src();
+                            $image_url = Utils::get_placeholder_image_src();
                         }
-                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item['image'])) . '" />';
+                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
                         ?>
                     </div>
 
@@ -1099,11 +1103,11 @@ class TestimonialSlider extends Widget_Base {
             'dots' => $settings['dots'] == 'yes' ? true : false,
             'arrows' => $settings['arrows'] == 'yes' ? true : false,
             'items' => (int) $settings['slides_to_show']['size'],
-            'items_tablet' => (int) $settings['slides_to_show_tablet']['size'],
-            'items_mobile' => (int) $settings['slides_to_show_mobile']['size'],
+            'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
+            'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
             'margin' => (int) $settings['slides_margin']['size'],
-            'margin_tablet' => (int) $settings['slides_margin_tablet']['size'],
-            'margin_mobile' => (int) $settings['slides_margin_mobile']['size'],
+            'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
+            'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
             'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
             'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
         );

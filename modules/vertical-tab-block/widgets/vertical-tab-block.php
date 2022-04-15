@@ -7,8 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
@@ -269,7 +267,6 @@ class VerticalTabBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'title_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab span',
                 ]
         );
@@ -324,10 +321,6 @@ class VerticalTabBlock extends Widget_Base {
                 'title_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab,
                 {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab,
@@ -340,10 +333,6 @@ class VerticalTabBlock extends Widget_Base {
                 'title_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab,
                  {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab,
@@ -365,10 +354,6 @@ class VerticalTabBlock extends Widget_Base {
                 'title_bg_color_active', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active,
                  {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active,
@@ -382,10 +367,6 @@ class VerticalTabBlock extends Widget_Base {
                 'title_color_active', [
             'label' => esc_html__('Title Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active,
                  {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active,
@@ -398,10 +379,6 @@ class VerticalTabBlock extends Widget_Base {
                 'title_border_color_active', [
             'label' => esc_html__('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active:before,
                  {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active:after, 
@@ -430,10 +407,6 @@ class VerticalTabBlock extends Widget_Base {
                 'tab_content_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
-            'scheme' => [
-                'type' => Color::get_type(),
-                'value' => Color::COLOR_1,
-            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-tab-container .eead-tab-content' => 'color: {{VALUE}}',
             ],
@@ -445,10 +418,6 @@ class VerticalTabBlock extends Widget_Base {
             [
                 'label' => __( 'Border Color', 'plugin-domain' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => \Elementor\Core\Schemes\Color::get_type(),
-                    'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content' => 'border: 1px solid {{VALUE}}',
                 ],
@@ -460,7 +429,6 @@ class VerticalTabBlock extends Widget_Base {
                 Group_Control_Typography::get_type(), [
             'name' => 'tab_content_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'scheme' => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .eead-tab-container .eead-tab-content',
                 ]
         );

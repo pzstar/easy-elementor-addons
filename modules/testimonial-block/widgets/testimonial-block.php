@@ -5,6 +5,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
+use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -38,9 +39,9 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'image', [
             'label' => __('Choose Image', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::MEDIA,
+            'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => \Elementor\Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src(),
             ],
                 ]
         );
@@ -48,7 +49,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'name', [
             'label' => __('Name', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'John Doe'
                 ]
@@ -57,7 +58,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'designation', [
             'label' => __('Designation', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Support Engineer'
                 ]
@@ -66,7 +67,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'testimonial_title', [
             'label' => __('Testimonial Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => ''
                 ]
@@ -75,7 +76,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'testimonial_content', [
             'label' => __('Testimonial', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'type' => Controls_Manager::TEXTAREA,
             'rows' => 8,
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.'
                 ]
@@ -90,7 +91,7 @@ class TestimonialBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-                \Elementor\Group_Control_Image_Size::get_type(), [
+                Group_Control_Image_Size::get_type(), [
             'name' => 'thumb',
             'exclude' => ['custom'],
             'include' => [],
@@ -101,7 +102,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'image_shape', [
             'label' => __('Image Shape', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'eead-square',
             'options' => [
                 'eead-square' => __('Square', 'easy-elementor-addons'),
@@ -113,7 +114,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_control(
                 'layout', [
             'label' => __('Layout', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
                 'style1' => __('Style 1', 'easy-elementor-addons'),
@@ -412,7 +413,7 @@ class TestimonialBlock extends Widget_Base {
             if($settings['layout'] == 'style1') {
             ?>
                 <div class="eead-testimonial-image">
-                    <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
+                    <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
                 </div>
 
                 <div class="eead-testimonial-holder">
@@ -457,7 +458,7 @@ class TestimonialBlock extends Widget_Base {
 
                 <div class="eead-footer-section">
                     <div class="eead-testimonial-image">
-                        <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
+                        <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
                     </div>
 
                     <div class="eead-testimonial-name-wrap">
@@ -488,7 +489,7 @@ class TestimonialBlock extends Widget_Base {
                 </div> 
 
                 <div class="eead-testimonial-image">
-                    <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
+                    <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
                 </div>
 
                 <div class="eead-testimonial-name-wrap">

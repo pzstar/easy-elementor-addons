@@ -736,11 +736,11 @@ class LogoCarousel extends Widget_Base {
         $target = $settings['link_new_tab'] ? '_blank' : '_self';
         $params = array(
             'items' => (int) $settings['slides_to_show']['size'],
-            'items_tablet' => (int) $settings['slides_to_show_tablet']['size'],
-            'items_mobile' => (int) $settings['slides_to_show_mobile']['size'],
+            'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
+            'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
             'margin' => (int) $settings['slides_margin']['size'],
-            'margin_tablet' => (int) $settings['slides_margin_tablet']['size'],
-            'margin_mobile' => (int) $settings['slides_margin_mobile']['size'],
+            'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
+            'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
             'autoplay' => $settings['autoplay'] && $settings['autoplay'] == 'yes' ? true : false,
             'loop' => $settings['infinite'] && $settings['infinite'] == 'yes' ? true : false,
             'pause' => isset($settings['autoplay_speed']['size']) ? (int) $settings['autoplay_speed']['size'] * 1000 : 500,
@@ -750,8 +750,8 @@ class LogoCarousel extends Widget_Base {
             'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
             'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
             'stagepadding' => (int) $settings['slides_stagepadding']['size'],
-            'stagepadding_tablet' => (int) $settings['slides_stagepadding_tablet']['size'],
-            'stagepadding_mobile' => (int) $settings['slides_stagepadding_mobile']['size'],
+            'stagepadding_tablet' => (int) isset($settings['slides_stagepadding_tablet']['size']) ? $settings['slides_stagepadding_tablet']['size'] : 0,
+            'stagepadding_mobile' => (int) isset($settings['slides_stagepadding_mobile']['size']) ? $settings['slides_stagepadding_mobile']['size'] : 0,
             'center_image_bigger' => $settings['center_image_bigger'] == 'yes' ? true : false,
         );
         $params = json_encode($params);

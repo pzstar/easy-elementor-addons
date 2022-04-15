@@ -5,7 +5,6 @@ namespace EasyElementorAddons\Modules\TwitterFeed\Widgets;
 use \Elementor\Controls_Manager;
 use \Elementor\Plugin;
 use \Elementor\Widget_Base;
-use \Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -241,10 +240,6 @@ class TwitterFeed extends Widget_Base {
             [
                 'label'     => __( 'Display Link Color', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'condition' => [
                     'display_mode_collection' => 'timeline',
                     'embed_type'              => 'collection',
@@ -315,10 +310,6 @@ class TwitterFeed extends Widget_Base {
             [
                 'label'     => __( 'Display Link Color', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'condition' => [
 
                     'display_mode_profile' => 'timeline',
@@ -469,10 +460,6 @@ class TwitterFeed extends Widget_Base {
             [
                 'label'     => __( 'Display Link Color', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
                 'condition' => [
                     'embed_type' => [ 'list', 'likes' ],
                 ],
