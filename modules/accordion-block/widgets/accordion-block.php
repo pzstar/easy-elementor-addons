@@ -355,10 +355,10 @@ class AccordionBlock extends Widget_Base {
             <?php foreach ( $accordions as $key => $accordion ) { ?>
                 <?php  
                     $content_height = array(
-                                        'content_height' => $accordion[ 'content_height' ]['size'],
-                                        'content_height_tablet' => $accordion[ 'content_height_tablet' ]['size'],
-                                        'content_height_mobile' => $accordion[ 'content_height_mobile' ]['size'],
-                                        );
+                        'content_height' => $accordion[ 'content_height' ]['size'],
+                        'content_height_tablet' => isset($accordion[ 'content_height_tablet' ]['size']) ? $accordion[ 'content_height_tablet' ]['size'] : 200,
+                        'content_height_mobile' => isset($accordion[ 'content_height_mobile' ]['size']) ? $accordion[ 'content_height_mobile' ]['size'] : 100,
+                    );
                     $params = json_encode($content_height);
                 ?>
                 <div class="eead-each-accordion">

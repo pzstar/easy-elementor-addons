@@ -1100,8 +1100,8 @@ class Countdown extends Widget_Base {
             'class' => [
                 'eead-countdown-container',
                 $settings['eead_countdown_label_view'],
-                $settings['eead_countdown_label_view_tablet'] . '-tablet',
-                $settings['eead_countdown_label_view_mobile'] . '-mobile',
+                (isset($settings['eead_countdown_label_view_tablet']) ? $settings['eead_countdown_label_view_tablet'] : 'eead-countdown-label-block') . '-tablet',
+                (isset($settings['eead_countdown_label_view_mobile']) ? $settings['eead_countdown_label_view_mobile'] : 'eead-countdown-label-block') . '-mobile',
                 $settings['eead_countdown_separator'] === 'eead-countdown-show-separator' ? 'eead-countdown-show-separator eead-countdown-separator-' . $settings['eead_countdown_separator_style'] : '',
             ],
         ] );

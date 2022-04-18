@@ -729,8 +729,8 @@ class FeatureList extends Widget_Base {
             [
                 'class' => [
                     '-icon-position-' . $settings['eead_feature_list_icon_position'],
-                    '-tablet-icon-position-' . $settings['eead_feature_list_icon_position_tablet'],
-                    '-mobile-icon-position-' . $settings['eead_feature_list_icon_position_mobile'],
+                    '-tablet-icon-position-' . (isset($settings['eead_feature_list_icon_position_tablet']) ? $settings['eead_feature_list_icon_position_tablet'] : 'left'),
+                    '-mobile-icon-position-' . (isset($settings['eead_feature_list_icon_position_mobile']) ? $settings['eead_feature_list_icon_position_mobile'] : 'left'),
                 ],
             ]
         );

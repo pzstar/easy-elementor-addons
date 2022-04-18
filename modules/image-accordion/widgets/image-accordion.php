@@ -546,7 +546,7 @@ class ImageAccordion extends Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Border::get_type(),
             [
-                'name'     => 'eead_image_accordion_title_border',
+                'name'     => 'eead_image_accordion_content_border',
                 'label'    => __( 'Border', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay p',
             ]

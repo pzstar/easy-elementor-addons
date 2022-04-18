@@ -8,6 +8,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -52,7 +53,7 @@ class VerticalTabBlock extends Widget_Base {
         $repeater->add_control(
                 'icon', [
             'label' => __('Icon', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::ICONS,
+            'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-star',
                 'library' => 'solid',
@@ -63,7 +64,7 @@ class VerticalTabBlock extends Widget_Base {
         $repeater->add_control(
                 'title', [
             'label' => __('Tab Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Tab Title'
                 ]
@@ -72,7 +73,7 @@ class VerticalTabBlock extends Widget_Base {
         $repeater->add_control(
                 'content_type', [
             'label' => __('Content Type', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'wisiwyg',
             'options' => [
                 'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
@@ -96,7 +97,7 @@ class VerticalTabBlock extends Widget_Base {
             'wisiwyg_content',
             [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
                 'condition'   => [ 'content_type' => 'wisiwyg' ]
             ]
@@ -118,7 +119,7 @@ class VerticalTabBlock extends Widget_Base {
             'enable',
             [
                 'label' => __( 'Enable', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER,
                 'label_on' => __( 'Show', 'easy-elementor-addons' ),
                 'label_off' => __( 'Hide', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
@@ -129,7 +130,7 @@ class VerticalTabBlock extends Widget_Base {
         $this->add_control(
                 'tabs', [
             'label' => __('Plan Feature List', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::REPEATER,
+            'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
                 [
@@ -172,7 +173,7 @@ class VerticalTabBlock extends Widget_Base {
         $this->add_control(
                 'tab_position', [
             'label' => __('Tab Position', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'left',
             'options' => [
                 'left' => __('Left', 'easy-elementor-addons'),
@@ -185,7 +186,7 @@ class VerticalTabBlock extends Widget_Base {
             'tab_layout',
             [
                 'label' => __( 'Style', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
                     'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
@@ -417,7 +418,7 @@ class VerticalTabBlock extends Widget_Base {
             'content_border_color',
             [
                 'label' => __( 'Border Color', 'plugin-domain' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content' => 'border: 1px solid {{VALUE}}',
                 ],
@@ -463,7 +464,7 @@ class VerticalTabBlock extends Widget_Base {
                                 $i++;
                                 ?>
                                 <div class="eead-tab <?php echo $i == 1 ? 'active' : null; ?>" data-tabid="<?php echo $i; ?>">
-                                    <?php \Elementor\Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
+                                    <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
                                     <span><?php echo esc_html($tab['title']); ?></span>
                                 </div>
                                 <?php
