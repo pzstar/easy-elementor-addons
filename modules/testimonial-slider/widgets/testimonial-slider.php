@@ -604,15 +604,15 @@ class TestimonialSlider extends Widget_Base {
                 'options'               => [
                     'flex-start'      => [
                         'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center'    => [
                         'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'flex-end'     => [
                         'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ]
                 ],
                 'default'               => 'center',
@@ -923,17 +923,35 @@ class TestimonialSlider extends Widget_Base {
             $settings['image_shape'],
             $settings['layout']
         ];
+        $params = array(
+            'autoplay' => $settings['autoplay'] == 'yes' ? true : false,
+            'loop' => $settings['infinite'] == 'yes' ? true : false,
+            'pause' => (int) $settings['autoplay_speed']['size'] * 1000,
+            'speed' => (int) $settings['speed'],
+            'dots' => $settings['dots'] == 'yes' ? true : false,
+            'arrows' => $settings['arrows'] == 'yes' ? true : false,
+            'items' => (int) $settings['slides_to_show']['size'],
+            'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
+            'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
+            'margin' => (int) $settings['slides_margin']['size'],
+            'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
+            'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
+            'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
+            'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
+        );
         ?>
         <div class="eead-testimonial-block eead-testimonial-slider <?php echo esc_attr(implode(' ', $testimonial_class)) ?>">
-            <?php                
-            if($settings['layout'] == 'style3') {
-                $this->get_style3();
-            }else if($settings['layout'] == 'style2') {
-                $this->get_style2();
-            }else {
-                $this->get_style1();
-            }
-            ?>
+            <div class="eead-testimonial-all-slides owl-carousel" data-params='<?php echo json_encode($params); ?>'>
+                <?php                
+                if($settings['layout'] == 'style3') {
+                    $this->get_style3();
+                }else if($settings['layout'] == 'style2') {
+                    $this->get_style2();
+                }else {
+                    $this->get_style1();
+                }
+                ?>
+            </div>
         </div>
 
         <?php
@@ -941,11 +959,9 @@ class TestimonialSlider extends Widget_Base {
 
     protected function get_style1() {
         $settings = $this->get_settings_for_display();
-        $params = $this->get_slider_params();
 
         if ($settings['testimonials']) {
         ?>
-        <div class="eead-testimonial-all-slides owl-carousel" data-params='<?php echo $params; ?>'>
             <?php foreach ($settings['testimonials'] as $item) { ?>
                 <div class="eead-testimonial-each-slider">
                     <div class="eead-testimonial-image">
@@ -985,18 +1001,15 @@ class TestimonialSlider extends Widget_Base {
                     </div>  
                 </div>
             <?php } ?>
-        </div>
         <?php 
         } 
     }
 
     protected function get_style2() {
         $settings = $this->get_settings_for_display();
-        $params = $this->get_slider_params();
 
         if ($settings['testimonials']) {
         ?>
-        <div class="eead-testimonial-all-slides owl-carousel" data-params='<?php echo $params; ?>'>
             <?php foreach ($settings['testimonials'] as $item) { ?>
                 <div class="eead-testimonial-each-slider">
                     <div class="eead-testimonial-content">
@@ -1036,18 +1049,15 @@ class TestimonialSlider extends Widget_Base {
                     </div>
                 </div>
             <?php } ?>
-        </div>
         <?php 
         } 
     }
 
     protected function get_style3() {
         $settings = $this->get_settings_for_display();
-        $params = $this->get_slider_params();
 
         if ($settings['testimonials']) {
         ?>
-        <div class="eead-testimonial-all-slides owl-carousel" data-params='<?php echo $params; ?>'>
             <?php foreach ($settings['testimonials'] as $item) { ?>
                 <div class="eead-testimonial-each-slider">
                     <div class="eead-testimonial-backquote"><i class="icofont-quote-left"></i></div>
@@ -1087,32 +1097,9 @@ class TestimonialSlider extends Widget_Base {
                     </div>
                 </div>
             <?php } ?>
-        </div>
         <?php 
         } 
     }
 
-    protected function get_slider_params() {
-        $settings = $this->get_settings_for_display();
-
-        $params = array(
-            'autoplay' => $settings['autoplay'] == 'yes' ? true : false,
-            'loop' => $settings['infinite'] == 'yes' ? true : false,
-            'pause' => (int) $settings['autoplay_speed']['size'] * 1000,
-            'speed' => (int) $settings['speed'],
-            'dots' => $settings['dots'] == 'yes' ? true : false,
-            'arrows' => $settings['arrows'] == 'yes' ? true : false,
-            'items' => (int) $settings['slides_to_show']['size'],
-            'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
-            'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
-            'margin' => (int) $settings['slides_margin']['size'],
-            'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
-            'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
-            'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
-            'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
-        );
-        $params = json_encode($params);
-        return $params;
-    }
 
 }

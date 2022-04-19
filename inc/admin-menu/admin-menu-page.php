@@ -56,111 +56,59 @@ $gmap_access_token = $eead_general_settings['gmap_access_token'] ? $eead_general
 
             <form id="eead-widget-selection-form">
                 <div class="eead-widget-section-inner-wrap">
-                    <?php $this->get_widget_field('Social Share', 'social-share'); ?>
-
-                    <?php $this->get_widget_field('Vertical Timeline', 'vertical-timeline'); ?>
-
-                    <?php $this->get_widget_field('Horizontal Timeline', 'horizontal-timeline'); ?>
-
-                    <?php $this->get_widget_field('Image Comparison', 'image-comparison'); ?>
-
-                    <?php $this->get_widget_field('Hotspot', 'hotspot-block'); ?>
-
-                    <?php $this->get_widget_field('Business Hour', 'business-hour'); ?>
-
-                    <?php $this->get_widget_field('Switcher', 'switcher-block'); ?>
-
-                    <?php $this->get_widget_field('Vertical Tab', 'vertical-tab-block'); ?>
-
-                    <?php $this->get_widget_field('Horizontal Tab', 'horizontal-tab-block'); ?>
-
                     <?php $this->get_widget_field('Accordion', 'accordion-block'); ?>
-
-                    <?php $this->get_widget_field('Animated Heading', 'animated-heading'); ?>
-
-                    <?php $this->get_widget_field('Pricing List', 'pricing-list'); ?>
-
-                    <?php $this->get_widget_field('Pricing Table', 'pricing-table'); ?>
-
-                    <?php $this->get_widget_field('Scroll Image', 'scroll-image'); ?>
-
-                    <?php $this->get_widget_field('Image Gallery', 'image-gallery'); ?>
-
-                    <?php $this->get_widget_field('Video Player', 'video-player'); ?>
-
-                    <?php $this->get_widget_field('Weather Block', 'weather-block'); ?>
-
-                    <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
-
-                    <?php $this->get_widget_field('Progressbar', 'progressbar'); ?>
-
-                    <?php $this->get_widget_field('Counter Block', 'counter-block'); ?>
-
-                    <?php $this->get_widget_field('Portfolio', 'portfolio-block'); ?>
-
                     <?php $this->get_widget_field('Advanced Button', 'advanced-button'); ?>
-
-                    <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box'); ?>
-
                     <?php $this->get_widget_field('Advanced Heading', 'advanced-heading'); ?>
-
-                    <?php $this->get_widget_field('Drop Bar', 'drop-bar'); ?>
-
-                    <?php $this->get_widget_field('Flip Box', 'flip-box'); ?>
-
-                    <?php $this->get_widget_field('Dual Heading', 'dual-heading'); ?>
-
-                    <?php $this->get_widget_field('Link Effect', 'link-effect'); ?>
-
-                    <?php $this->get_widget_field('One Page Navigation', 'one-page-navigation'); ?>
-
-                    <?php $this->get_widget_field('Icon List', 'icon-list'); ?>
-
-                    <?php $this->get_widget_field('Toggle', 'toggle-block'); ?>
-
-                    <?php $this->get_widget_field('Logo Grid', 'logo-grid'); ?>
-
-                    <?php $this->get_widget_field('Logo Carousel', 'logo-carousel'); ?>
-
-                    <?php $this->get_widget_field('Team Member', 'team-member'); ?>
-
-                    <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel'); ?>
-
-                    <?php $this->get_widget_field('Pie Chart', 'pie-chart'); ?>
-
-                    <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
-
-                    <?php $this->get_widget_field('Testimonial', 'testimonial-block'); ?>
-
-                    <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
-
-                    <?php $this->get_widget_field('Slider', 'slider-block'); ?>
-
-                    <?php $this->get_widget_field('Countdown', 'countdown'); ?>
-
-                    <?php $this->get_widget_field('Image Accordion', 'image-accordion'); ?>
-
-                    <?php $this->get_widget_field('Feature List', 'feature-list'); ?>
-
-                    <?php $this->get_widget_field('Twitter Feed', 'twitter-feed'); ?>
-
-                    <?php $this->get_widget_field('Twitter Feed Carousel', 'twitter-feed-carousel'); ?>
-
-                    <?php $this->get_widget_field('Sticky Video', 'sticky-video'); ?>
-
-                    <?php $this->get_widget_field('Dual Button', 'dual-button'); ?>
-
-                    <?php $this->get_widget_field('Step Flow', 'step-flow'); ?>
-
-                    <?php $this->get_widget_field('Lottie', 'lottie'); ?>
-
+                    <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box'); ?>
                     <?php $this->get_widget_field('Advanced Map', 'advanced-map'); ?>
-
-                    <?php $this->get_widget_field('360 Image', 'threesixty-image'); ?>
-
-                    <?php $this->get_widget_field('Popup Video', 'popup-video'); ?>
-
+                    <?php $this->get_widget_field('Animated Heading', 'animated-heading'); ?>
+                    <?php $this->get_widget_field('Business Hour', 'business-hour'); ?>
+                    <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
+                    <?php $this->get_widget_field('Countdown', 'countdown'); ?>
+                    <?php $this->get_widget_field('Counter Block', 'counter-block'); ?>
+                    <?php $this->get_widget_field('Drop Bar', 'drop-bar'); ?>
+                    <?php $this->get_widget_field('Dual Button', 'dual-button'); ?>
+                    <?php $this->get_widget_field('Dual Heading', 'dual-heading'); ?>
+                    <?php $this->get_widget_field('Feature List', 'feature-list'); ?>
                     <?php $this->get_widget_field('Filterable Gallery', 'filterable-gallery'); ?>
+                    <?php $this->get_widget_field('Flip Box', 'flip-box'); ?>
+                    <?php $this->get_widget_field('Horizontal Tab', 'horizontal-tab-block'); ?>
+                    <?php $this->get_widget_field('Horizontal Timeline', 'horizontal-timeline'); ?>
+                    <?php $this->get_widget_field('Hotspot', 'hotspot-block'); ?>
+                    <?php $this->get_widget_field('Icon List', 'icon-list'); ?>
+                    <?php $this->get_widget_field('Image Accordion', 'image-accordion'); ?>
+                    <?php $this->get_widget_field('Image Comparison', 'image-comparison'); ?>
+                    <?php $this->get_widget_field('Image Gallery', 'image-gallery'); ?>
+                    <?php $this->get_widget_field('Link Effect', 'link-effect'); ?>
+                    <?php $this->get_widget_field('Logo Carousel', 'logo-carousel'); ?>
+                    <?php $this->get_widget_field('Logo Grid', 'logo-grid'); ?>
+                    <?php $this->get_widget_field('Lottie', 'lottie'); ?>
+                    <?php $this->get_widget_field('One Page Navigation', 'one-page-navigation'); ?>
+                    <?php $this->get_widget_field('Pie Chart', 'pie-chart'); ?>
+                    <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
+                    <?php $this->get_widget_field('Popup Video', 'popup-video'); ?>
+                    <?php $this->get_widget_field('Portfolio', 'portfolio-block'); ?>
+                    <?php $this->get_widget_field('Pricing List', 'pricing-list'); ?>
+                    <?php $this->get_widget_field('Pricing Table', 'pricing-table'); ?>
+                    <?php $this->get_widget_field('Progressbar', 'progressbar'); ?>
+                    <?php $this->get_widget_field('Scroll Image', 'scroll-image'); ?>
+                    <?php $this->get_widget_field('Slider', 'slider-block'); ?>
+                    <?php $this->get_widget_field('Social Share', 'social-share'); ?>
+                    <?php $this->get_widget_field('Step Flow', 'step-flow'); ?>
+                    <?php $this->get_widget_field('Sticky Video', 'sticky-video'); ?>
+                    <?php $this->get_widget_field('Switcher', 'switcher-block'); ?>
+                    <?php $this->get_widget_field('Team Member', 'team-member'); ?>
+                    <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel'); ?>
+                    <?php $this->get_widget_field('Testimonial', 'testimonial-block'); ?>
+                    <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
+                    <?php $this->get_widget_field('360 Image', 'threesixty-image'); ?>
+                    <?php $this->get_widget_field('Toggle', 'toggle-block'); ?>
+                    <?php $this->get_widget_field('Twitter Feed', 'twitter-feed'); ?>
+                    <?php $this->get_widget_field('Twitter Feed Carousel', 'twitter-feed-carousel'); ?>
+                    <?php $this->get_widget_field('Vertical Tab', 'vertical-tab-block'); ?>
+                    <?php $this->get_widget_field('Vertical Timeline', 'vertical-timeline'); ?>
+                    <?php $this->get_widget_field('Video Player', 'video-player'); ?>
+                    <?php $this->get_widget_field('Weather Block', 'weather-block'); ?>
                 </div>
                 <div class="eaad-save-button-wrap">
                     <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php _e('Save', 'easy-elementor-addons'); ?></button>

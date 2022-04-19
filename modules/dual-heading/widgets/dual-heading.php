@@ -138,15 +138,15 @@ class DualHeading extends Widget_Base {
                 'options'               => [
                     'left'      => [
                         'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center'    => [
                         'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'     => [
                         'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'               => '',

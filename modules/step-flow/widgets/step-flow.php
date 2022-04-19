@@ -161,19 +161,19 @@ class StepFlow extends Widget_Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justify', 'easy-elementor-addons' ),
-						'icon' => 'fas fa-align-justify',
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
 				'default' => 'center',

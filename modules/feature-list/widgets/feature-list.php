@@ -61,11 +61,11 @@ class FeatureList extends Widget_Base {
                 'options'     => [
                     'icon'  => [
                         'title' => esc_html__( 'Icon', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-star',
+                        'icon'  => 'eicon-star',
                     ],
                     'image' => [
                         'title' => esc_html__( 'Image', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-picture-o',
+                        'icon'  => 'eicon-image',
                     ],
                 ],
                 'default'     => 'icon',
@@ -295,15 +295,15 @@ class FeatureList extends Widget_Base {
                 'options'         => [
                     'left'  => [
                         'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'top'   => [
                         'title' => esc_html__( 'Top', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'         => 'left',
@@ -323,19 +323,19 @@ class FeatureList extends Widget_Base {
                 'options'   => [
                     'left'    => [
                         'title' => __( 'Left', 'elementor' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center'  => [
                         'title' => __( 'Center', 'elementor' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'   => [
                         'title' => __( 'Right', 'elementor' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                     'justify' => [
                         'title' => __( 'Justified', 'elementor' ),
-                        'icon'  => 'fa fa-align-justify',
+                        'icon'  => 'eicon-text-align-justify',
                     ],
                 ],
                 'condition' => [

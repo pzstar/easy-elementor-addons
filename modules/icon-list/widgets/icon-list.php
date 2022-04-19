@@ -81,11 +81,11 @@ class IconList extends Widget_Base {
                     ),
                     'icon'   => array(
                         'title' => esc_html__( 'Icon', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-star',
+                        'icon'  => 'eicon-star',
                     ),
                     'image'  => array(
                         'title' => esc_html__( 'Image', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-picture-o',
+                        'icon'  => 'eicon-image',
                     ),
                     'number' => array(
                         'title' => esc_html__( 'Number', 'easy-elementor-addons' ),

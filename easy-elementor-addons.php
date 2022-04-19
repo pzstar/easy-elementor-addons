@@ -118,9 +118,9 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
         public function plugin_activation() {
             $widgets = $this->get_all_default_widgets();
-            // if (get_option('eead_widgets') == false) {
+            if (get_option('eead_widgets') == false) {
                 update_option('eead_widgets', $widgets);
-            // }
+            }
         }
 
         public function get_all_default_widgets() {

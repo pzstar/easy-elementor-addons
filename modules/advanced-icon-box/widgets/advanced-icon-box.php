@@ -68,11 +68,11 @@ class AdvancedIconBox extends Widget_Base {
                 'options'      => [
                     'icon' => [
                         'title' => esc_html__('Icon', 'easy-elementor-addons'),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'eicon-star'
                     ],
                     'image' => [
                         'title' => esc_html__('Image', 'easy-elementor-addons'),
-                        'icon'  => 'far fa-image'
+                        'icon'  => 'eicon-image'
                     ]
                 ]
             ]
@@ -253,19 +253,19 @@ class AdvancedIconBox extends Widget_Base {
                 'options' => [
                     'left' => [
                         'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                     'justify' => [
                         'title' => __( 'Justified', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-justify',
+                        'icon'  => 'eicon-text-align-justify',
                     ],
                 ],
                 'selectors' => [

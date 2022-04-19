@@ -453,15 +453,15 @@ class PopupModal extends Widget_Base {
 				'options'   => array(
 					'flex-start'   => array(
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center' => array(
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'flex-end'  => array(
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => '',
@@ -566,19 +566,19 @@ class PopupModal extends Widget_Base {
 				'options'   => array(
 					'left'    => array(
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center'  => array(
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'right'   => array(
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 					'justify' => array(
 						'title' => __( 'Justified', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-justify',
+						'icon'  => 'eicon-text-align-justify',
 					),
 				),
 				'default'   => '',
@@ -1083,15 +1083,15 @@ class PopupModal extends Widget_Base {
 				'options'   => array(
 					'flex-start'    => array(
 						'title' => __( 'Left', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					),
 					'center'  => array(
 						'title' => __( 'Center', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					),
 					'flex-end'   => array(
 						'title' => __( 'Right', 'easy-elementor-addons' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					),
 				),
 				'default'   => 'flex-end',

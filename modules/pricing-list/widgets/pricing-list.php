@@ -191,15 +191,15 @@ class PricingList extends Widget_Base {
                 'options'      => [
                     'left'    => [
                         'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'alternate' => [
                         'title' => esc_html__( 'Alternate', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fas fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ]
                 ],
             ]

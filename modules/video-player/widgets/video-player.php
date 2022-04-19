@@ -354,7 +354,7 @@ class VideoPlayer extends Widget_Base {
                     ),
                     'image' => array(
                         'title' => esc_html__( 'Image', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-picture-o',
+                        'icon'  => 'eicon-image',
                     )
                 ),
                 'condition' => array(
@@ -369,7 +369,7 @@ class VideoPlayer extends Widget_Base {
                 'label' => __( 'Icon', 'easy-elementor-addons' ),
                 'type' => \Elementor\Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-play-circle',
+                    'value' => 'eicon-play-o',
                     'library' => 'solid',
                 ],
                 'condition' => array(
@@ -471,9 +471,7 @@ class VideoPlayer extends Widget_Base {
         ?>
         <div class="eead-video-block eead-video-aspect-ratio-<?php echo $settings['aspect_ratio']; ?>" data-settings='<?php echo $data_settings; ?>'>
             <?php 
-                if( $settings['lightbox'] != 'yes' ){
-                    echo $this->get_video_block(); 
-                }
+                echo $this->get_video_block(); 
                 $this->get_overlay();
             ?>
         </div> 

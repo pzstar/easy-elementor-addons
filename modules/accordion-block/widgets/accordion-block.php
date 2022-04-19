@@ -295,6 +295,24 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
+                'icon_background_width', [
+            'label' => __('Icon Background Width', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => 10,
+                    'max' => 120,
+                    'step' => 1,
+                ]
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-accordion-container.style1 .eead-accordion-icon' => 'width: {{SIZE}}{{UNIT}};',
+            ],
+                ]
+        );
+
+        $this->add_control(
             'title_padding',
             [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),

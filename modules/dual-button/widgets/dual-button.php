@@ -361,7 +361,7 @@ class DualButton extends Widget_Base {
         $this->start_controls_section(
             'section_style_primary_button',
             [
-                'label' => __( 'Secondary Button', 'easy-elementor-addons' ),
+                'label' => __( 'Primary Button', 'easy-elementor-addons' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
