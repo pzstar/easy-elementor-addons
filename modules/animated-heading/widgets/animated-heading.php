@@ -54,7 +54,7 @@ class AnimatedHeading extends Widget_Base {
             'pre_heading',
             [
                 'label' => __( 'Pre Heading', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__( 'Hello I am', 'easy-elementor-addons' ),
                 'placeholder' => esc_html__( 'Type your pre heading here.', 'easy-elementor-addons' ),
@@ -65,7 +65,7 @@ class AnimatedHeading extends Widget_Base {
             'animated_heading',
             [
                 'label' => __( 'Heading', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__( 'Animated,Morphing,Awesome.', 'easy-elementor-addons' ),
                 'placeholder' => esc_html__( 'Type your text here.', 'easy-elementor-addons' ),
@@ -77,7 +77,7 @@ class AnimatedHeading extends Widget_Base {
             'post_heading',
             [
                 'label' => esc_html__( 'Post Heading', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__( 'Heading', 'easy-elementor-addons' ),
                 'placeholder' => esc_html__( 'Please type the post heading here.', 'easy-elementor-addons' ),
@@ -88,7 +88,7 @@ class AnimatedHeading extends Widget_Base {
             'heading_link',
             [
                 'label' => __( 'Link', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::URL,
+                'type' => Controls_Manager::URL,
                 'placeholder' => __( 'https://your-link.com', 'easy-elementor-addons' ),
                 'show_external' => true,
                 'default' => [

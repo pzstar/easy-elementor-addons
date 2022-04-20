@@ -92,6 +92,54 @@ if (!function_exists('get_element_position')) {
 
 }
 
+if (!function_exists('eead_anime_animation_easing')) {
+
+    function eead_anime_animation_easing(){
+         return array(
+            'linear'  => esc_html__( 'Linear', 'easy-elementor-addons' ),
+            'easeOutQuad'  => esc_html__( 'Ease-Out Quad', 'easy-elementor-addons' ),
+            'easeInQuad'  => esc_html__( 'Ease-In Quad', 'easy-elementor-addons' ),
+            'easeInOutQuad'  => esc_html__( 'Ease-InOut Quad', 'easy-elementor-addons' ),
+            
+            'easeOutCubic'  => esc_html__( 'Ease-Out Cubic', 'easy-elementor-addons' ),                   
+            'easeInCubic'  => esc_html__( 'Ease-In Cubic', 'easy-elementor-addons' ),
+            'easeInOutCubic'  => esc_html__( 'Ease-InOut Cubic', 'easy-elementor-addons' ),
+            
+            'easeOutQuart'  => esc_html__( 'Ease-Out Quart', 'easy-elementor-addons' ),
+            'easeInQuart'  => esc_html__( 'Ease-In Quart', 'easy-elementor-addons' ),
+            'easeInOutQuart'  => esc_html__( 'Ease-InOut Quart', 'easy-elementor-addons' ),
+            
+            'easeOutQuint'  => esc_html__( 'ease-Out Quint', 'easy-elementor-addons' ),                   
+            'easeInQuint'  => esc_html__( 'ease-In Quint', 'easy-elementor-addons' ),
+            'easeInOutQuint'  => esc_html__( 'ease-InOut Quint', 'easy-elementor-addons' ),
+            
+            'easeOutSine'  => esc_html__( 'Ease-Out Sine', 'easy-elementor-addons' ),
+            'easeInSine'  => esc_html__( 'Ease-In Sine', 'easy-elementor-addons' ),
+            'easeInOutSine'  => esc_html__( 'Ease-InOut Sine', 'easy-elementor-addons' ),
+            
+            'easeOutExpo'  => esc_html__( 'Ease-Out Expo', 'easy-elementor-addons' ),
+            'easeInExpo'  => esc_html__( 'Ease-In Expo', 'easy-elementor-addons' ),
+            'easeInOutExpo'  => esc_html__( 'Ease-InOut Expo', 'easy-elementor-addons' ),
+            
+            'easeOutElastic'  => esc_html__( 'Ease-Out Elastic', 'easy-elementor-addons' ),
+            'easeInElastic'  => esc_html__( 'Ease-In Elastic', 'easy-elementor-addons' ),
+            'easeInOutElastic'  => esc_html__( 'Ease-InOut Elastic', 'easy-elementor-addons' ),
+            
+            'easeOutCirc'  => esc_html__( 'Ease-Out Circ', 'easy-elementor-addons' ),
+            'easeInCirc'  => esc_html__( 'Ease-In Circ', 'easy-elementor-addons' ),
+            'easeInOutCirc'  => esc_html__( 'Ease-InOut Circ', 'easy-elementor-addons' ),
+            
+            'easeOutBack'  => esc_html__( 'Ease-Out Back', 'easy-elementor-addons' ),
+            'easeInBack'  => esc_html__( 'Ease-In Back', 'easy-elementor-addons' ),
+            'easeInOutBack'  => esc_html__( 'Ease-InOut Back', 'easy-elementor-addons' ),
+            
+            'easeOutBounce'  => esc_html__( 'Ease-Out Bounce', 'easy-elementor-addons' ),
+            'easeInBounce'  => esc_html__( 'Ease-In Bounce', 'easy-elementor-addons' ),
+            'easeInOutBounce'  => esc_html__( 'Ease-InOut Bounce', 'easy-elementor-addons' ),
+        );
+    }
+}
+
 if (!function_exists('eead_svg_icon')) {
 
     function eead_svg_icon($icon) {
@@ -356,6 +404,48 @@ if (!function_exists('eead_transition_options')) {
         return $transition_options;
     }
 
+}
+
+if (!function_exists('eead_get_elementor_page_list')) { 
+    function eead_get_elementor_page_list() {
+
+        $pagelist = get_posts(
+            array(
+                'post_type' => 'elementor_library',
+                'showposts' => 999,
+            )
+        );
+
+        if ( ! empty( $pagelist ) && ! is_wp_error( $pagelist ) ) {
+
+            foreach ( $pagelist as $post ) {
+                $options[ $post->post_title ] = $post->post_title;
+            }
+
+            update_option( 'temp_count', $options );
+
+            return $options;
+        }
+    }
+}
+
+if (!function_exists('eead_get_item_position')) { 
+    function eead_get_item_position() {
+        $position_options = [
+            ''              => esc_html__('Default', 'easy-elementor-addons'),
+            'top-left'      => esc_html__('Top Left', 'easy-elementor-addons'),
+            'top-center'    => esc_html__('Top Center', 'easy-elementor-addons'),
+            'top-right'     => esc_html__('Top Right', 'easy-elementor-addons'),
+            'center'        => esc_html__('Center', 'easy-elementor-addons'),
+            'center-left'   => esc_html__('Center Left', 'easy-elementor-addons'),
+            'center-right'  => esc_html__('Center Right', 'easy-elementor-addons'),
+            'bottom-left'   => esc_html__('Bottom Left', 'easy-elementor-addons'),
+            'bottom-center' => esc_html__('Bottom Center', 'easy-elementor-addons'),
+            'bottom-right'  => esc_html__('Bottom Right', 'easy-elementor-addons'),
+        ];
+
+        return $position_options;
+    }
 }
 
 if (!function_exists('eead_materialdesignicons_array')) {

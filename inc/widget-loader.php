@@ -142,8 +142,6 @@ class EEAD_Widget_Loader {
 
         wp_register_script('lightgallery', EEAD_URL . 'assets/lib/lightgallery/lightgallery.js', ['jquery'], EEAD_VERSION, true);
 
-        wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.min.js', ['jquery'], EEAD_VERSION);
-
         wp_register_script('isotope', EEAD_URL . 'assets/lib/isotope/isotope.pkgd.min.js', ['jquery', 'imagesloaded'], EEAD_VERSION, true);
 
         wp_register_script('uikit', EEAD_URL . 'assets/lib/uikit/uikit.min.js', ['jquery'], EEAD_VERSION, true);
@@ -151,6 +149,23 @@ class EEAD_Widget_Loader {
         wp_register_script('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/js/owl.carousel.min.js', ['jquery'], EEAD_VERSION, true);
 
         wp_register_script('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
+
+        wp_register_script('tilt-anime', EEAD_URL . 'assets/lib/tilt/tilt-anime.min.js', ['jquery'], EEAD_VERSION);
+        wp_register_script('tilt', EEAD_URL . 'assets/lib/tilt/tilt.js', ['jquery'], EEAD_VERSION);
+
+        // Morph
+        wp_register_script('morph-anime', EEAD_URL . 'assets/lib/morph/morph-anime.js', ['jquery'], EEAD_VERSION);
+        wp_register_script('scrollmonitor', EEAD_URL . 'assets/lib/morph/scrollmonitor.js', array('jquery'), EEAD_VERSION, true);
+        wp_register_script('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.js', array('jquery'), EEAD_VERSION, true);
+
+        // Multi Scroll
+        wp_register_script('multiscroll', EEAD_URL . 'assets/lib/multiscroll/multiscroll.min.js', array('jquery'), EEAD_VERSION, true);
+
+        // Horizontal Scroll
+        wp_register_script('scrollmagic', EEAD_URL . 'assets/lib/scrollmagic/scrollmagic.js', array('jquery'), EEAD_VERSION, true);
+        wp_register_script('tweenmax', EEAD_URL . 'assets/lib/tweenmax/tweenmax.min.js', array('jquery'), EEAD_VERSION, true);
+
+        wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION);
     }
 
     /**
@@ -186,6 +201,9 @@ class EEAD_Widget_Loader {
         wp_register_style('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/css/owl.carousel.min.css', array(), EEAD_VERSION);
 
         wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
+
+        //Morph
+        wp_enqueue_style('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.min.css', array(), EEAD_VERSION);
     }
 
     /**

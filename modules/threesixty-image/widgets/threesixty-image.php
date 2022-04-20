@@ -514,7 +514,7 @@ class ThreesixtyImage extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-       $settings = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
 
         if ( empty( $settings['images'] ) ) { return; }
 

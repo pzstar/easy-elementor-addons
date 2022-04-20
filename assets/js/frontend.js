@@ -39,6 +39,10 @@
                 'eead-popup-video-block.default': EEA.popupVideo,
                 'eead-filterable-gallery.default': EEA.filterableGallery,
                 'eead-hotspot-block.default': EEA.hotspotBlock,
+                'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
+                'eead-multi-scroll.default': EEA.multiScrollBlock,
+                'eead-charts.default': EEA.chartsBlock,
+                'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
             };
 
             $.each(widgets, function (widget, callback) {
@@ -1643,7 +1647,6 @@
         },
 
         imageComparison: function ($scope) {
-
             var $image_compare_main = $scope.find('.eead-image-compare');
             var $image_compare = $scope.find('.image-compare');
 
@@ -1701,7 +1704,6 @@
                 var view = new ImageCompare(element, options).mount();
             });
         },
-
         elementorColumn: function ($scope) {
             var columnId = $scope.data('id');
             var editMode = Boolean(elementor.isEditMode());
@@ -1832,7 +1834,1394 @@
                 $target.data('stickyColumnInit', false);
                 stickyInstance.destroy();
             }
+        },
+
+        multiScrollBlock: function (e, n) {
+            var t = e.find(".eead-multiscroll-wrap"),
+                a = t.data("settings"),
+                i = a.id;
+            function o() {
+                n("#eead-scroll-nav-menu-" + i).removeClass("eead-scroll-responsive"),
+                    n("#eead-multiscroll-" + i).multiscroll({
+                        verticalCentered: !0,
+                        menu: "#eead-scroll-nav-menu-" + i,
+                        sectionsColor: [],
+                        keyboardScrolling: a.keyboard,
+                        navigation: a.dots,
+                        navigationPosition: a.dotsPos,
+                        navigationVPosition: a.dotsVPos,
+                        navigationTooltips: a.dotsText,
+                        navigationColor: "#000",
+                        loopBottom: a.btmLoop,
+                        loopTop: a.topLoop,
+                        css3: !0,
+                        paddingTop: 0,
+                        paddingBottom: 0,
+                        normalScrollElements: null,
+                        touchSensitivity: 5,
+                        leftSelector: ".eead-multiscroll-left-" + i,
+                        rightSelector: ".eead-multiscroll-right-" + i,
+                        sectionSelector: ".eead-multiscroll-temp-" + i,
+                        anchors: a.anchors,
+                        fit: a.fit,
+                        cellHeight: a.cellHeight,
+                        id: i,
+                        leftWidth: a.leftWidth,
+                        rightWidth: a.rightWidth,
+                    });
+            }
+            var r = n(t).find(".eead-multiscroll-left-temp"),
+                s = n(t).find(".eead-multiscroll-right-temp"),
+                l = a.hideTabs,
+                d = a.hideMobs,
+                c = n("body").data("elementor-device-mode");
+            function m() {
+                n(t).parents(".elementor-top-section").removeClass("elementor-section-height-full"),
+                    n.each(s, function (e) {
+                        var t, i;
+                        (t = r[e]),
+                            (i = s[e]),
+                            "mobile" === c
+                                ? (n(t).data("hide-mobs") && n(t).addClass("eead-multiscroll-hide"), n(i).data("hide-mobs") && n(i).addClass("eead-multiscroll-hide"))
+                                : (n(t).data("hide-tabs") && n(t).addClass("eead-multiscroll-hide"), n(i).data("hide-tabs") && n(i).addClass("eead-multiscroll-hide")),
+                            a.rtl ? n(r[e]).insertAfter(s[e]) : n(s[e]).insertAfter(r[e]);
+                    }),
+                    n(t)
+                        .find(".eead-multiscroll-inner")
+                        .removeClass("eead-scroll-fit")
+                        .css("min-height", a.cellHeight + "px");
+            }
+            switch (!0) {
+                case l && d:
+                    ("desktop" === c ? o : m)();
+                    break;
+                case l && !d:
+                    ("mobile" === c || "desktop" === c ? o : m)();
+                    break;
+                case !l && d:
+                    ("tablet" === c || "desktop" === c ? o : m)();
+                    break;
+                case !l && !d:
+                    o();
+            }
+        },
+
+        horizontalScrollBlock: function ($scope, $) {
+            var $hScrollElem = $scope.find(".eead-hscroll-wrap"),
+                hScrollSettings = $hScrollElem.data("settings"),
+                instance = null,
+                disableOn = hScrollSettings.disableOn;
+
+            var templates = hScrollSettings.templates;
+
+            if (!templates.length) return;
+
+            templates.forEach(function (template) {
+
+                if ("id" === template.template_type && "" !== template.section_id) {
+                    if (!$("#" + template.section_id)
+                        .length) {
+                        $hScrollElem.html(
+                            '<div class="eead-error-notice"><span>Section with ID <b>' +
+                            template.section_id +
+                            "</b> does not exist on this page. Please make sure that section ID is properly set from section settings -> Advanced tab -> CSS ID.<span></div>"
+                        );
+                        return;
+                    }
+                }
+            });
+
+            if (disableOn.includes(elementorFrontend.getCurrentDeviceMode())) {
+                $hScrollElem.find('.eead-hscroll-arrow, .eead-hscroll-progress, .eead-hscroll-nav, .eead-hscroll-pagination, .eead-hscroll-fixed-content').remove();
+
+                $hScrollElem.find(".eead-hscroll-temp").each(function (index, slide) {
+                    $(slide).removeClass('eead-hscroll-temp');
+                });
+
+                $hScrollElem.find('.eead-hscroll-sections-wrap').removeClass('eead-hscroll-sections-wrap');
+
+                return;
+            }
+
+            instance = new eeadHorizontalScroll($hScrollElem, hScrollSettings);
+            instance.init();
+        },
+
+        chartsBlock: function ($scope, $) {
+            var $chartElem = $scope.find(".eead-chart-container"),
+                settings = $chartElem.data("settings"),
+                currentDevice = elementorFrontend.getCurrentDeviceMode(),
+                dataSource = $chartElem.data("source"),
+                type = settings.type,
+                eventsArray = [
+                    "mousemove",
+                    "mouseout",
+                    "click",
+                    "touchstart",
+                    "touchmove"
+                ],
+                printVal = settings.printVal,
+                event =
+                    ("pie" === type || "doughnut" === type) && printVal ? false : eventsArray,
+                premiumChartData = $chartElem.data("chart"),
+                data = {
+                    labels: settings.xlabels,
+                    datasets: []
+                },
+                chartInstance = null;
+            if ("desktop" !== currentDevice) {
+                if (settings.legRes)
+                    settings.legDis = false;
+                settings.legPos = settings['legPos_' + currentDevice];
+            }
+
+            function renderChart() {
+                var ctx = document
+                    .getElementById(settings.chartId)
+                    .getContext("2d");
+
+                var globalOptions = {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            top: "polarArea" === type ? 6 : 0
+                        }
+                    },
+                    events: event,
+                    animation: {
+                        duration: settings.duration,
+                        easing: settings.easing,
+                        onComplete: function () {
+                            if (!event) {
+                                this.defaultFontSize = 16;
+                                ctx.font =
+                                    '15px "Helvetica Neue", "Helvetica", "Arial", sans-serif';
+                                ctx.textAlign = "center";
+                                ctx.textBaseline = "bottom";
+
+                                this.data.datasets.forEach(function (dataset) {
+                                    for (var i = 0; i < dataset.data.length; i++) {
+                                        var model =
+                                            dataset._meta[Object.keys(dataset._meta)[0]].data[i]
+                                                ._model,
+                                            total =
+                                                dataset._meta[Object.keys(dataset._meta)[0]].total,
+                                            mid_radius =
+                                                model.innerRadius +
+                                                (model.outerRadius - model.innerRadius) / 2,
+                                            start_angle = model.startAngle,
+                                            end_angle = model.endAngle,
+                                            mid_angle = start_angle + (end_angle - start_angle) / 2;
+                                        var x = mid_radius * Math.cos(mid_angle);
+                                        var y = mid_radius * Math.sin(mid_angle);
+                                        ctx.fillStyle = settings.yTicksCol;
+                                        var percent =
+                                            String(Math.round((dataset.data[i] / total) * 100)) + "%";
+                                        ctx.fillText(percent, model.x + x, model.y + y + 15);
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    tooltips: {
+                        enabled: settings.enTooltips,
+                        mode: settings.modTooltips,
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var prefixString = "";
+                                if ("pie" == type || "doughnut" == type || "polarArea" == type) {
+                                    prefixString = data.labels[tooltipItem.index] + ": ";
+                                }
+                                var dataset = data.datasets[tooltipItem.datasetIndex];
+                                var total = dataset.data.reduce(function (previousValue, currentValue) {
+                                    return parseFloat(previousValue) + parseFloat(currentValue);
+                                });
+                                var currentValue = dataset.data[tooltipItem.index];
+                                var percentage = ((currentValue / total) * 100).toPrecision(3);
+                                return (
+                                    prefixString +
+                                    (settings.percentage ?
+                                        percentage + "%" :
+                                        currentValue)
+                                );
+                            }
+                        }
+                    },
+                    legend: {
+                        display: settings.legDis,
+                        position: settings.legPos,
+                        reverse: settings.legRev,
+                        labels: {
+                            usePointStyle: settings.legCircle,
+                            boxWidth: parseInt(settings.itemWid),
+                            fontColor: settings.legCol,
+                            fontSize: parseInt(settings.legSize)
+                        }
+                    }
+                };
+
+                var multiScaleOptions = {
+                    scales: {
+                        xAxes: [{
+                            barPercentage: settings.xwidth,
+                            display: ("pie" === type || "doughnut" === type) ? false : true,
+                            gridLines: {
+                                display: settings.xGrid,
+                                color: settings.xGridCol,
+                                lineWidth: settings.xGridWidth,
+                                drawBorder: true
+                            },
+                            scaleLabel: {
+                                display: settings.xlabeldis,
+                                labelString: settings.xlabel,
+                                fontColor: settings.xlabelcol,
+                                fontSize: settings.xlabelsize
+                            },
+                            ticks: {
+                                fontSize: settings.xTicksSize,
+                                fontColor: settings.xTicksCol,
+                                stepSize: settings.stepSize,
+                                maxRotation: settings.xTicksRot,
+                                minRotation: settings.xTicksRot,
+                                beginAtZero: settings.xTicksBeg,
+                                callback: function (tick) {
+                                    var locale = settings.locale || false;
+                                    return tick.toLocaleString(locale);
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            display: ("pie" === type || "doughnut" === type) ? false : true,
+                            type: settings.yAxis,
+                            gridLines: {
+                                display: settings.yGrid,
+                                color: settings.yGridCol,
+                                lineWidth: settings.yGridWidth,
+                            },
+                            scaleLabel: {
+                                display: settings.ylabeldis,
+                                labelString: settings.ylabel,
+                                fontColor: settings.ylabelcol,
+                                fontSize: settings.ylabelsize
+                            },
+                            ticks: {
+                                suggestedMin: settings.suggestedMin,
+                                suggestedMax: settings.suggestedMax,
+                                fontSize: settings.yTicksSize,
+                                fontColor: settings.yTicksCol,
+                                beginAtZero: settings.yTicksBeg,
+                                stepSize: settings.stepSize,
+                                callback: function (tick) {
+                                    var locale = settings.locale || false;
+                                    return tick.toLocaleString(locale);
+                                }
+                            }
+                        }]
+                    }
+                };
+
+                var singleScaleOptions = {
+                    scale: {
+                        ticks: {
+                            beginAtZero: settings.yTicksBeg,
+                            stepSize: settings.stepSize,
+                            suggestedMax: settings.suggestedMax,
+                            callback: function (tick) {
+                                var locale = settings.locale || false;
+                                return tick.toLocaleString(locale);
+                            }
+                        }
+                    }
+                };
+
+                chartInstance = new Chart(ctx, {
+                    type: type,
+                    data: data,
+                    options: Object.assign(globalOptions, ("radar" !== type && "polarArea" !== type) ? multiScaleOptions : singleScaleOptions)
+                });
+
+                if ('custom' === dataSource) {
+                    premiumChartData.forEach(function (element) {
+                        if ("pie" !== type && "doughnut" !== type && "polarArea" !== type) {
+                            if ("object" === typeof element.backgroundColor) {
+
+                                //We need to make sure add gradient colors or not.
+                                if ("empty" !== element.backgroundColor[element.backgroundColor.length - 1]) {
+                                    var gradient = ctx.createLinearGradient(0, 0, 0, 600),
+                                        secondColor = element.backgroundColor[1] ?
+                                            element.backgroundColor[1] :
+                                            element.backgroundColor[0];
+                                    gradient.addColorStop(0, element.backgroundColor[0]);
+                                    gradient.addColorStop(1, secondColor);
+                                    element.backgroundColor = gradient;
+                                    element.hoverBackgroundColor = gradient;
+                                }
+                            }
+                        }
+                        data.datasets.push(element);
+                        chartInstance.update();
+                    });
+
+                    $("#" + settings.chartId).on("click", function (evt) {
+                        var activePoint = chartInstance.getElementAtEvent(evt);
+                        if (activePoint[0]) {
+                            var URL =
+                                chartInstance.data.datasets[activePoint[0]._datasetIndex].links[
+                                activePoint[0]._index
+                                ];
+                            if (URL != null && URL != "") {
+                                window.open(URL, settings.target);
+                            }
+                        }
+                    });
+                }
+            }
+            function handleChartData(res) {
+                var rowsData = res.split(/\r?\n|\r/),
+                    labels = (rowsData.shift()).split(premiumChartData.separator);
+
+                data.labels = labels;
+                rowsData.forEach(function (row, index) {
+                    if (row.length !== 0) {
+                        var colData = {};
+
+                        colData.data = row.split(premiumChartData.separator);
+                        //add properties only if repeater element exists
+                        if (premiumChartData.props[index]) {
+                            colData.borderColor = premiumChartData.props[index].borderColor;
+                            colData.borderWidth = premiumChartData.props[index].borderWidth;
+                            colData.backgroundColor = premiumChartData.props[index].backgroundColor;
+                            colData.hoverBackgroundColor = premiumChartData.props[index].hoverBackgroundColor;
+                            colData.label = premiumChartData.props[index].title;
+                        }
+
+                        data.datasets.push(colData);
+                        chartInstance.update();
+
+                    }
+                });
+            }
+            var $checkModal = $chartElem.closest(".eead-modal-box-modal");
+            if ($checkModal.length || "load" === settings.event) {
+                getChartData();
+            } else {
+                new Waypoint({
+                    element: $("#" + settings.chartId),
+                    offset: Waypoint.viewportHeight() - 250,
+                    triggerOnce: true,
+                    handler: function () {
+                        getChartData();
+                        this.destroy();
+                    }
+                });
+            }
+            function getChartData() {
+                if ('custom' === dataSource) {
+                    renderChart();
+                } else {
+                    $chartElem.append('<div class="totalplus-loading-feed"><div class="totalplus-loader"></div></div>');
+                    if (premiumChartData.url) {
+                        $.ajax({
+                            url: premiumChartData.url,
+                            type: "GET",
+                            success: function (res) {
+                                console.log(res);
+                                $chartElem.find(".eead-loading-feed").remove();
+                                renderChart();
+                                handleChartData(res);
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        });
+                    }
+                }
+            }
+        },
+        tiltHoverImageBlock: function ($scope) {
+            var tiltImageBlock = $scope.find('a.eead-tilter'),tiltSettings = [
+                {},
+                {
+                    movement: {
+                        imgWrapper : {
+                            translation : {x: 10, y: 10, z: 30},
+                            rotation : {x: 0, y: -10, z: 0},
+                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        },
+                        lines : {
+                            translation : {x: 10, y: 10, z: [0,70]},
+                            rotation : {x: 0, y: 0, z: -2},
+                            reverseAnimation : {duration : 2000, easing : 'easeOutExpo'}
+                        },
+                        caption : {
+                            rotation : {x: 0, y: 0, z: 2},
+                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        },
+                        overlay : {
+                            translation : {x: 10, y: -10, z: 0},
+                            rotation : {x: 0, y: 0, z: 2},
+                            reverseAnimation : {duration : 2000, easing : 'easeOutExpo'}
+                        },
+                        shine : {
+                            translation : {x: 100, y: 100, z: 0},
+                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        imgWrapper : {
+                            rotation : {x: -5, y: 10, z: 0},
+                            reverseAnimation : {duration : 900, easing : 'easeOutCubic'}
+                        },
+                        caption : {
+                            translation : {x: 30, y: 30, z: [0,40]},
+                            rotation : {x: [0,15], y: 0, z: 0},
+                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        },
+                        overlay : {
+                            translation : {x: 10, y: 10, z: [0,20]},
+                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        },
+                        shine : {
+                            translation : {x: 100, y: 100, z: 0},
+                            reverseAnimation : {duration : 900, easing : 'easeOutCubic'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        imgWrapper : {
+                            rotation : {x: -5, y: 10, z: 0},
+                            reverseAnimation : {duration : 50, easing : 'easeOutQuad'}
+                        },
+                        caption : {
+                            translation : {x: 20, y: 20, z: 0},
+                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        },
+                        overlay : {
+                            translation : {x: 5, y: -5, z: 0},
+                            rotation : {x: 0, y: 0, z: 6},
+                            reverseAnimation : {duration : 1000, easing : 'easeOutQuad'}
+                        },
+                        shine : {
+                            translation : {x: 50, y: 50, z: 0},
+                            reverseAnimation : {duration : 50, easing : 'easeOutQuad'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        imgWrapper : {
+                            translation : {x: 0, y: -8, z: 0},
+                            rotation : {x: 3, y: 3, z: 0},
+                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        },
+                        lines : {
+                            translation : {x: 15, y: 15, z: [0,15]},
+                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        },
+                        overlay : {
+                            translation : {x: 0, y: 8, z: 0},
+                            reverseAnimation : {duration : 600, easing : 'easeOutExpo'}
+                        },
+                        caption : {
+                            translation : {x: 10, y: -15, z: 0},
+                            reverseAnimation : {duration : 900, easing : 'easeOutExpo'}
+                        },
+                        shine : {
+                            translation : {x: 50, y: 50, z: 0},
+                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        lines : {
+                            translation : {x: -5, y: 5, z: 0},
+                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        },
+                        caption : {
+                            translation : {x: 15, y: 15, z: 0},
+                            rotation : {x: 0, y: 0, z: 3},
+                            reverseAnimation : {duration : 1500, easing : 'easeOutElastic', elasticity : 700}
+                        },
+                        overlay : {
+                            translation : {x: 15, y: -15, z: 0},
+                            reverseAnimation : {duration : 500,easing : 'easeOutExpo'}
+                        },
+                        shine : {
+                            translation : {x: 50, y: 50, z: 0},
+                            reverseAnimation : {duration : 500, easing : 'easeOutExpo'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        imgWrapper : {
+                            translation : {x: 5, y: 5, z: 0},
+                            reverseAnimation : {duration : 800, easing : 'easeOutQuart'}
+                        },
+                        caption : {
+                            translation : {x: 10, y: 10, z: [0,50]},
+                            reverseAnimation : {duration : 1000, easing : 'easeOutQuart'}
+                        },
+                        shine : {
+                            translation : {x: 50, y: 50, z: 0},
+                            reverseAnimation : {duration : 800, easing : 'easeOutQuart'}
+                        }
+                    }
+                },
+                {
+                    movement: {
+                        lines : {
+                            translation : {x: 40, y: 40, z: 0},
+                            reverseAnimation : {duration : 1500, easing : 'easeOutElastic'}
+                        },
+                        caption : {
+                            translation : {x: 20, y: 20, z: 0},
+                            rotation : {x: 0, y: 0, z: -5},
+                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        },
+                        overlay : {
+                            translation : {x: -30, y: -30, z: 0},
+                            rotation : {x: 0, y: 0, z: 3},
+                            reverseAnimation : {duration : 750, easing : 'easeOutExpo'}
+                        },
+                        shine : {
+                            translation : {x: 100, y: 100, z: 0},
+                            reverseAnimation : {duration : 750, easing : 'easeOutExpo'}
+                        }
+                    }
+                }
+            ];
+            new TiltFx( tiltImageBlock[0], tiltSettings[ tiltImageBlock.data('hoverstyle') ] );
         }
     };
     $(window).on('elementor/frontend/init', EEA.init);
+
+    window.eeadHorizontalScroll = function ($elem, settings) {
+        var self = this,
+            id = settings.id,
+            count = settings.templates.length,
+            editMode = elementorFrontend.isEditMode(),
+            currentDevice = elementorFrontend.getCurrentDeviceMode(),
+            progressOffset = 300,
+            currentActiveArr = [],
+            currentActive = 0,
+            prevActive = -1,
+            loop = settings.loop,
+            snapScroll = 'snap' === settings.snap,
+            controller = false,
+            isScrolling = false,
+            scene = null,
+            offset = null,
+            horizontalSlide = null,
+            rtlMode = settings.rtl,
+            scrollEvent = null,
+            dimensions = null;
+
+        $elem.find(".eead-hscroll-temp").each(function (index, template) {
+
+            var hideOn = $(template).data('hide');
+
+            if (-1 < hideOn.indexOf(currentDevice)) {
+                hideSection(template, index);
+            }
+
+        });
+
+        function hideSection(template, index) {
+
+            if (0 !== count) {
+                count--;
+                $(template).remove();
+                $elem.find('.eead-hscroll-total-slides').html(count > 9 ? count : ('0' + count));
+                $elem.find('.eead-hscroll-nav-item[data-slide="section_' + id + index + '"]').remove();
+            }
+
+            if (0 === count) {
+                $elem.find('.eead-hscroll-arrow, .eead-hscroll-nav, .eead-hscroll-pagination').remove();
+            }
+
+            if (settings.opacity) {
+                $elem.find(".eead-hscroll-temp:first").removeClass("eead-hscroll-hide");
+            }
+
+        }
+
+        var $slides = $elem.find(".eead-hscroll-temp");
+
+        if (settings.opacity)
+            var targetIndex = 0;
+
+        if (rtlMode)
+            targetIndex = count - 1;
+
+
+        if ("desktop" !== currentDevice) {
+            if (snapScroll && settings.disableSnap) {
+                snapScroll = false;
+                settings.enternace = false;
+            }
+            if ("tablet" === currentDevice) {
+                progressOffset = 100;
+            } else if ("mobile" === currentDevice) {
+                progressOffset = 50;
+            }
+        } else if (snapScroll) {
+            progressOffset = 30;
+        }
+
+        var $nav = $(".eead-hscroll-nav-item", $elem),
+            $arrows = $(".eead-hscroll-wrap-icon", $elem);
+
+        self.init = function () {
+
+            if (!count) return;
+
+            self.setLayout();
+
+            self.setSectionsData();
+
+            self.handleAnimations();
+
+            self.setScene();
+
+            if (!loop) self.checkActive();
+
+            scene.on("progress", self.onProgress);
+
+            $nav.on("click.eeadHorizontalScroll", self.onNavDotClick);
+
+            $arrows.on("click.eeadHorizontalScroll", self.onNavArrowClick);
+
+            self.checkRemoteAnchors();
+
+            self.checkLocalAnchors();
+
+            $(document).on('elementor/popup/show', function () {
+                self.checkLocalAnchors();
+            });
+
+            $(window)
+                .on("resize", self.refresh);
+
+            if (snapScroll)
+                document.addEventListener ?
+                    document.addEventListener("wheel", self.onScroll, {
+                        passive: false
+                    }) :
+                    document.attachEvent("onmousewheel", self.onScroll);
+
+            if (settings.keyboard)
+                document.addEventListener ?
+                    document.addEventListener("keydown", self.onKeyboardPress) :
+                    document.attachEvent("keydown", self.onKeyboardPress);
+
+            if (snapScroll) {
+                $(window)
+                    .on("load", function () {
+                        var windowOuterHeight = $(window).outerHeight();
+
+                        if (offset - windowOuterHeight < 150)
+                            return;
+
+                        if (0 === currentActive) {
+                            elementorFrontend.waypoint(
+                                $elem,
+                                function (direction) {
+                                    if ("down" === direction) {
+                                        self.scrollToSlide(0);
+                                    }
+                                }, {
+                                offset: 150,
+                                triggerOnce: false
+                            }
+                            );
+                        }
+                    });
+            }
+        };
+
+        self.checkLocalAnchors = function () {
+
+            $("a").on("click", function (event) {
+
+                var href = $(this).attr("href");
+
+                if (href) {
+
+                    href = href.replace('#/', '');
+
+                    self.checkAnchors(href);
+                }
+
+            });
+
+        }
+
+        self.checkRemoteAnchors = function () {
+
+            var url = new URL(window.location.href);
+
+            if (!url)
+                return;
+
+            var slideID = url.searchParams.get("slide");
+
+            if (slideID)
+                self.checkAnchors(slideID);
+
+        };
+
+        self.checkAnchors = function (href) {
+
+            var $slide = $elem.find(".eead-hscroll-temp[data-section='" + href + "']");
+
+            if (!$slide.length)
+                return;
+
+            var slideIndex = $slide.index();
+
+            self.scrollToSlide(slideIndex, "anchors");
+
+        };
+
+        self.onKeyboardPress = function (e) {
+            if ("BEFORE" === scene.state()) {
+                return;
+            } else {
+                var downKeyCodes = [40, 34],
+                    upKeyCodes = [38, 33];
+
+                if ("AFTER" === scene.state()) {
+                    if (-1 !== $.inArray(e.keyCode, upKeyCodes)) {
+                        var lastScrollOffset = self.getScrollOffset(
+                            $slides.eq(count - 1)
+                        );
+
+                        if (
+                            e.pageY - lastScrollOffset <= 300 &&
+                            e.pageY - lastScrollOffset > 100
+                        ) {
+
+                            self.preventDefault(event);
+                            self.scrollToSlide(count - 1);
+
+
+                        } else if (e.pageY - lastScrollOffset < 100) {
+
+                            self.preventDefault(event);
+                            self.scrollToSlide(count - 2);
+                        }
+
+                        return;
+                    }
+                } else {
+
+                    if (-1 !== $.inArray(e.keyCode, downKeyCodes)) {
+                        if (isScrolling) {
+                            self.preventDefault(event);
+                            return;
+                        }
+
+                        self.goToNext();
+                    }
+
+
+                    if (-1 !== $.inArray(e.keyCode, upKeyCodes)) {
+                        if (isScrolling) {
+                            self.preventDefault(event);
+                            return;
+                        }
+
+                        self.goToPrev("keyboard");
+                    }
+                }
+            }
+        };
+
+        self.getResponsiveControlValue = function (ID) {
+
+            var value = settings[ID];
+
+            if ("desktop" !== currentDevice) {
+                value = settings[ID + "_" + currentDevice];
+            }
+
+            return value;
+
+        };
+
+        self.setScene = function () {
+
+            controller = new ScrollMagic.Controller();
+
+            horizontalSlide = new TimelineMax();
+
+            self.setHorizontalSlider();
+
+            var scrollSpeed = self.getResponsiveControlValue('speed');
+
+            if ("desktop" === currentDevice) {
+                scrollSpeed = scrollSpeed * 100 + "%";
+            } else {
+                scrollSpeed = scrollSpeed * $elem.outerHeight();
+            }
+
+
+            scene = new ScrollMagic.Scene({
+                triggerElement: "#eead-hscroll-spacer-" + id,
+                triggerHook: "onLeave",
+                duration: scrollSpeed
+            })
+                .setPin("#eead-hscroll-wrap-" + id, {
+                    pushFollowers: true
+                })
+                .setTween(horizontalSlide)
+                .addTo(controller);
+
+        };
+
+        self.getDimensions = function () {
+
+            var firstWidth = $slides.eq(0).innerWidth(),
+                distance = firstWidth * (count - 1),
+                progressWidth = firstWidth * count;
+
+            var slidesInViewPort = self.getResponsiveControlValue('slides'),
+                distanceBeyond = self.getResponsiveControlValue('distance');
+
+            distance = distance - (1 - 1 / slidesInViewPort) * $elem.outerWidth();
+
+            distance = distanceBeyond + distance;
+
+            if (rtlMode)
+                $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
+
+            var ease = Power2.easeOut;
+
+            ease = Power0.easeNone;
+
+            return {
+                distance: distance,
+                progressBar: progressWidth,
+                ease: ease
+            };
+
+        };
+
+        self.setHorizontalSlider = function (progress) {
+
+            // horizontalSlide = new TimelineMax();
+
+            dimensions = self.getDimensions();
+
+            horizontalSlide
+                .to("#eead-hscroll-scroller-wrap-" + id, 1, { x: rtlMode ? "0px" : -dimensions.distance, ease: dimensions.ease }, 0)
+                .to("#eead-hscroll-progress-line-" + id, 1, { width: dimensions.progressBar + "px", ease: dimensions.ease }, 0);
+
+            if ('undefined' !== typeof progress) {
+                scene.progress(0);
+                scene.update(true);
+            }
+
+        }
+
+        self.setLayout = function () {
+            $elem
+                .closest("section.elementor-section-height-full")
+                .removeClass("elementor-section-height-full");
+        };
+
+        self.setSectionsData = function () {
+
+            var slidesInViewPort = self.getResponsiveControlValue('slides');
+
+            var slideWidth = 100 / slidesInViewPort;
+
+            $elem
+                .find(".eead-hscroll-slider")
+                .css("width", count * slideWidth + "%");
+
+            $elem.find(".eead-hscroll-temp")
+                .css("width", 100 / count + "%");
+
+            var scrollSpeed = self.getResponsiveControlValue('speed');
+
+            var width = parseFloat(
+                $elem.find(".eead-hscroll-sections-wrap")
+                    .width() / count
+            ),
+                winHeight = $(window)
+                    .height() * scrollSpeed;
+
+            $slides.each(function (index, template) {
+
+                if ($(template)
+                    .data("section")) {
+                    var id = $(template)
+                        .data("section");
+                    self.getSectionContent(id);
+                }
+
+                var position = index * width;
+                $(template)
+                    .attr("data-position", position);
+            });
+
+            offset = $elem.offset()
+                .top;
+
+            $slides.each(function (index, template) {
+                var scrollOffset = (index * winHeight) / (count - 1);
+
+                $(template)
+                    .attr("data-scroll-offset", offset + scrollOffset);
+            });
+        };
+
+        self.onScroll = function (event) {
+            if (isScrolling && null !== event) self.preventDefault(event);
+
+
+            var delta = self.getDirection(event),
+                state = scene.state(),
+                direction = 0 > delta ? "down" : "up";
+
+            if ("up" === direction && "AFTER" === scene.state()) {
+                var lastScrollOffset = self.getScrollOffset(
+                    $slides.eq(count - 1)
+                );
+
+                if (
+                    window.pageYOffset - lastScrollOffset <= 300 &&
+                    window.pageYOffset - lastScrollOffset > 100
+                )
+                    self.scrollToSlide(count - 1);
+            }
+
+            if ("DURING" === state) {
+                if ("down" === direction) {
+                    if (!isScrolling && count - 1 !== currentActive) {
+                        self.goToNext();
+                    }
+                } else if ("up" === direction) {
+                    if (!isScrolling && 0 !== currentActive) self.goToPrev();
+                }
+
+                if (
+                    (0 !== currentActive && "up" === direction) || ("down" === direction && count - 1 !== currentActive)
+                ) {
+                    self.preventDefault(event);
+                }
+            }
+        };
+
+        self.getDirection = function (e) {
+            e = window.event || e;
+            var t = Math.max(
+                -1,
+                Math.min(1, e.wheelDelta || -e.deltaY || -e.detail)
+            );
+            return t;
+        };
+
+        self.setSnapScroll = function (event) {
+            var direction = event.scrollDirection;
+
+            if (
+                (0 !== currentActive && "REVERSE" === direction) ||
+                "FORWARD" === direction
+            ) {
+                if (null !== scrollEvent) self.preventDefault(scrollEvent);
+            }
+
+            var $nextArrow = $(".eead-hscroll-next", $elem),
+                $prevArrow = $(".eead-hscroll-prev", $elem);
+
+            if ("FORWARD" === direction) {
+                if (!isScrolling && count - 1 !== currentActive) {
+                    $nextArrow.trigger("click.eeadHorizontalScroll");
+                }
+            } else {
+                if (!isScrolling && 0 !== currentActive)
+                    $prevArrow.trigger("click.eeadHorizontalScroll");
+            }
+        };
+
+        self.refresh = function () {
+
+            // dimensions = self.getDimensions();
+
+            // horizontalSlide
+            //     .to("#eead-hscroll-scroller-wrap-" + id, 1, { x: "-980", ease: Power0.easeNone }, 0);
+
+
+            setTimeout(function () {
+                var sceneProgress = scene.progress();
+                self.setHorizontalSlider(sceneProgress);
+            }, 200);
+
+            // self.setScene();
+        };
+
+        self.onProgress = function () {
+
+            var progressFillWidth = $elem.find(".eead-hscroll-progress-line").outerWidth(),
+                elemWidth = $elem.outerWidth();
+
+            $slides.each(function (index) {
+
+                var scrollOffset = $slides.eq(index - 1).data("scroll-offset"),
+                    scrollPosition = $(this).data("position");
+
+                if (settings.opacity && targetIndex !== index) {
+
+                    if (window.pageYOffset >= scrollOffset + elemWidth / 8) {
+                        $(this).removeClass("eead-hscroll-hide");
+                    } else {
+                        $(this).addClass("eead-hscroll-hide");
+                    }
+
+                }
+
+                if (progressFillWidth >= scrollPosition - progressOffset) {
+
+                    if (settings.enternace && !isScrolling)
+                        self.triggerAnimations();
+
+                    if (-1 === currentActiveArr.indexOf(index)) {
+                        currentActiveArr.push(index);
+
+                        currentActive = index;
+                        self.onSlideChange();
+                    }
+
+                } else {
+
+                    if (-1 !== currentActiveArr.indexOf(index)) {
+                        currentActiveArr.pop();
+
+                        currentActive = currentActiveArr[currentActiveArr.length - 1];
+                        self.onSlideChange();
+                    }
+
+                }
+            });
+        };
+
+        self.onSlideChange = function () {
+
+            prevActive = currentActive;
+
+            self.addBackgroundLayer();
+
+            if (settings.pagination && !snapScroll) {
+
+                var text = currentActive + 1 > 9 ? "" : "0";
+                $elem
+                    .find(".eead-hscroll-current-slide")
+                    .text(text + (currentActive + 1));
+            }
+
+            $nav.removeClass("active");
+
+            $elem
+                .find(".eead-hscroll-nav-item")
+                .eq(currentActive)
+                .addClass("active");
+
+            self.checkActive();
+
+            if (settings.enternace && !isScrolling)
+                self.restartAnimations(currentActive);
+        };
+
+        self.addBackgroundLayer = function () {
+
+            if ($elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").length) {
+                $elem.find(".eead-hscroll-layer-active").removeClass("eead-hscroll-layer-active");
+
+                $elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").addClass("eead-hscroll-layer-active");
+            }
+
+        };
+
+        self.getSectionContent = function (sectionID) {
+            if (!$("#" + sectionID)
+                .length) return;
+
+            var htmlContent = $("#" + sectionID);
+
+            if (!editMode) {
+                $("#eead-hscroll-scroller-wrap-" + id)
+                    .find('div[data-section="' + sectionID + '"]')
+                    .append(htmlContent);
+            } else {
+                $slides.find(".elementor-element-overlay")
+                    .remove();
+                $("#eead-hscroll-scroller-wrap-" + id)
+                    .find('div[data-section="' + sectionID + '"]')
+                    .append(htmlContent.clone(true));
+            }
+        };
+
+        self.checkActive = function () {
+            if (!$arrows.length) return;
+
+            if (loop) {
+                if (-1 === currentActive) {
+                    currentActive = count - 1;
+                } else if (count === currentActive) {
+                    currentActive = 0;
+                }
+            } else {
+                if (0 === currentActive) {
+                    $elem
+                        .find(".eead-hscroll-arrow-left")
+                        .addClass("eead-hscroll-arrow-hidden");
+                } else {
+                    $elem
+                        .find(".eead-hscroll-arrow-left")
+                        .removeClass("eead-hscroll-arrow-hidden");
+                }
+
+                if (count - 1 === currentActive) {
+                    $elem
+                        .find(".eead-hscroll-arrow-right")
+                        .addClass("eead-hscroll-arrow-hidden");
+                } else {
+                    $elem
+                        .find(".eead-hscroll-arrow-right")
+                        .removeClass("eead-hscroll-arrow-hidden");
+                }
+            }
+
+        };
+
+        self.onNavDotClick = function () {
+            if (isScrolling) return;
+
+            var $item = $(this),
+                index = $item.index();
+
+            if (index === prevActive && "DURING" === scene.state()) return;
+
+
+            currentActive = index;
+
+            self.scrollToSlide(index);
+        };
+
+        self.onNavArrowClick = function (e) {
+            if (isScrolling) return;
+
+            if ($(e.target).hasClass("eead-hscroll-prev") || $(e.target).find(".eead-hscroll-prev").length) {
+                self.goToPrev();
+            } else if ($(e.target).hasClass("eead-hscroll-next") || $(e.target).find(".eead-hscroll-next").length) {
+                self.goToNext();
+            }
+
+        };
+
+        self.goToNext = function () {
+            if (isScrolling) return;
+
+            currentActive++;
+
+            if (loop) {
+                if (-1 === currentActive) {
+                    currentActive = count - 1;
+                } else if (count === currentActive) {
+                    currentActive = 0;
+                }
+            }
+
+            self.scrollToSlide(currentActive);
+        };
+
+        self.goToPrev = function (trigger) {
+
+            if (isScrolling || ("keyboard" === trigger && currentActive === 0))
+                return;
+
+            currentActive--;
+
+
+            if (loop) {
+                if (-1 === currentActive) {
+                    currentActive = count - 1;
+                } else if (count === currentActive) {
+                    currentActive = 0;
+                }
+            }
+
+            self.scrollToSlide(currentActive);
+        };
+
+        self.scrollToSlide = function (slideIndex, scrollSrc) {
+
+            var targetOffset = self.getScrollOffset($slides.eq(slideIndex));
+
+            if (!scrollSrc) {
+                if (isScrolling) return;
+            }
+
+
+            if (0 > currentActive || count - 1 < currentActive) return;
+
+            isScrolling = true;
+
+            prevActive = slideIndex;
+
+            var spacerHeight = $("#eead-hscroll-spacer-" + id).outerHeight();
+
+            TweenMax.to(window, 1.5, {
+                scrollTo: {
+                    y: targetOffset - spacerHeight
+                },
+                ease: Power3.easeOut,
+                onComplete: self.afterSlideChange
+            });
+
+            if (settings.pagination && snapScroll)
+                $elem
+                    .find(".eead-hscroll-current-slide")
+                    .removeClass("zoomIn animated");
+
+            if (settings.pagination && snapScroll) {
+                setTimeout(function () {
+
+                    if (
+                        currentActive + 1 !=
+                        $elem.find(".eead-hscroll-current-slide")
+                            .text()
+                    ) {
+                        //Lead zero
+                        var text = currentActive + 1 > 9 ? "" : "0";
+                        $elem
+                            .find(".eead-hscroll-current-slide")
+                            .text(text + (currentActive + 1))
+                            .addClass("zoomIn animated");
+                    }
+                }, 1000);
+            }
+
+            if (settings.enternace) {
+                setTimeout(function () {
+                    self.setAnimations();
+                }, 1000);
+            }
+
+            if (snapScroll) {
+                setTimeout(function () {
+                    isScrolling = false;
+                }, 1500);
+            }
+        };
+
+        self.afterSlideChange = function () {
+            isScrolling = false;
+        };
+
+        self.handleAnimations = function () {
+            if (settings.enternace) {
+
+                self.hideAnimations();
+
+                elementorFrontend.waypoint($elem, function () {
+                    // self.setAnimations();
+                });
+            } else {
+                self.unsetAnimations();
+            }
+        };
+
+        self.hideAnimations = function () {
+
+            $slides.find(".elementor-invisible").addClass("eead-hscroll-elem-hidden");
+
+        };
+
+        self.unsetAnimations = function () {
+            $slides.find(".elementor-invisible")
+                .each(function (index, elem) {
+                    $(elem)
+                        .removeClass("elementor-invisible");
+                });
+        };
+
+        self.setAnimations = function () {
+
+            self.restartAnimations();
+
+            self.triggerAnimations();
+        };
+
+        self.restartAnimations = function (slideIndex) {
+            var $unactiveSlides = $slides.filter(function (index) {
+                return index !== slideIndex;
+            });
+
+            $unactiveSlides.find(".animated")
+                .each(function (index, elem) {
+                    var settings = $(elem)
+                        .data("settings");
+
+                    if (undefined === settings) return;
+
+                    var animation = settings._animation || settings.animation;
+
+                    $(elem)
+                        .removeClass("animated " + animation)
+                        .addClass("elementor-invisible");
+                });
+        };
+
+        self.triggerAnimations = function () {
+
+            $slides
+                .eq(currentActive)
+                .find(".elementor-invisible")
+                .each(function (index, elem) {
+                    var settings = $(elem)
+                        .data("settings");
+
+                    if (undefined === settings) return;
+
+                    if (!settings._animation && !settings.animation) return;
+
+                    var delay = settings._animation_delay ?
+                        settings._animation_delay :
+                        0,
+                        animation = settings._animation || settings.animation;
+
+                    setTimeout(function () {
+                        $(elem)
+                            .removeClass("elementor-invisible eead-hscroll-elem-hidden")
+                            .addClass(animation + " animated");
+                    }, delay);
+                });
+        };
+
+        self.getScrollOffset = function (item) {
+            if (!$(item)
+                .length) return;
+
+            return $(item)
+                .data("scroll-offset");
+        };
+
+        self.preventDefault = function (event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        };
+    };
 }(jQuery, window.elementorFrontend));
+
+    
