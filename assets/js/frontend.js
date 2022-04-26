@@ -43,16 +43,15 @@
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
+                'eead-slinky-vertical-menu-block.default': EEA.slinkyVerticalMenuBlock,
             };
 
             $.each(widgets, function (widget, callback) {
                 elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
             });
-
             elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
 
             if (elementorFrontend.isEditMode() == true) {
-
                 elementor.hooks.addAction("panel/open_editor/widget/eead-sticky-video-block", function (panel, model, view) {
                     var interval;
                     model.attributes.settings.on("change:eead_sticky_width", function () {
@@ -73,7 +72,6 @@
                     });
                 });
             }
-
         },
 
         hotspotBlock: function ($scope) {
@@ -90,24 +88,24 @@
                 });
             } else {
                 $scope.find('.eead-hotspot-section:not(.eead-open-onclick) .eead-hotspot-item a').hover(
-                        function () {
-                            $(this).addClass('active');
-                        },
-                        function () {
-                            $(this).removeClass('active');
-                        }
+                    function () {
+                        $(this).addClass('active');
+                    },
+                    function () {
+                        $(this).removeClass('active');
+                    }
                 );
             }
         },
 
         filterableGallery: function ($scope) {
             var filterControls = $scope.find(".fg-layout-3-filter-controls").eq(0),
-                    filterTrigger = $scope.find("#fg-filter-trigger"),
-                    form = $scope.find(".fg-layout-3-search-box"),
-                    input = $scope.find("#fg-search-box-input"),
-                    searchRegex,
-                    buttonFilter,
-                    timer;
+                filterTrigger = $scope.find("#fg-filter-trigger"),
+                form = $scope.find(".fg-layout-3-search-box"),
+                input = $scope.find("#fg-search-box-input"),
+                searchRegex,
+                buttonFilter,
+                timer;
 
             if (form.length) {
                 form.on("submit", function (e) {
@@ -124,13 +122,12 @@
             });
 
             if (elementorFrontend.isEditMode() == false) {
-
                 var $gallery = $(".eead-filter-gallery-container", $scope),
-                        $settings = $gallery.data("settings"),
-                        fg_items = $gallery.data("gallery-items"),
-                        $layout_mode = $settings.grid_style === "masonry" ? "masonry" : "fitRows",
-                        $gallery_enabled = $settings.gallery_enabled === "yes",
-                        $init_show_setting = $gallery.data("init-show");
+                    $settings = $gallery.data("settings"),
+                    fg_items = $gallery.data("gallery-items"),
+                    $layout_mode = $settings.grid_style === "masonry" ? "masonry" : "fitRows",
+                    $gallery_enabled = $settings.gallery_enabled === "yes",
+                    $init_show_setting = $gallery.data("init-show");
                 fg_items.splice(0, $init_show_setting);
 
                 var gwrap = $(".eead-filter-gallery-wrapper");
@@ -147,7 +144,6 @@
                     filter: function filter() {
                         var $this = $(this);
                         var $result = searchRegex ? $this.text().match(searchRegex) : true;
-
                         if (buttonFilter === undefined) {
                             if (layoutMode !== "layout_3") {
                                 buttonFilter = $scope.find(".eead-filter-gallery-control ul li").first().data("filter");
@@ -181,7 +177,6 @@
                     var $this = $(this);
                     buttonFilter = $(this).attr("data-filter");
                     var $tspan = $scope.find("#fg-filter-trigger > span");
-
                     if ($tspan.length) {
                         $tspan.text($this.text());
                     }
@@ -228,12 +223,12 @@
                 $scope.on("click", ".eead-gallery-load-more", function (e) {
                     e.preventDefault();
                     var $this = $(this),
-                            $init_show = $(".eead-filter-gallery-container", $scope).children(".eead-filterable-gallery-item-wrap").length,
-                            $total_items = $gallery.data("total-gallery-items"),
-                            $images_per_page = $gallery.data("images-per-page"),
-                            $nomore_text = $gallery.data("nomore-item-text"),
-                            filter_enable = $(".eead-filter-gallery-control", $scope).length,
-                            $items = [];
+                        $init_show = $(".eead-filter-gallery-container", $scope).children(".eead-filterable-gallery-item-wrap").length,
+                        $total_items = $gallery.data("total-gallery-items"),
+                        $images_per_page = $gallery.data("images-per-page"),
+                        $nomore_text = $gallery.data("nomore-item-text"),
+                        filter_enable = $(".eead-filter-gallery-control", $scope).length,
+                        $items = [];
                     var filter_name = $(".eead-filter-gallery-control li.active", $scope).data('filter');
 
                     if (filterControls.length > 0) {
@@ -243,13 +238,13 @@
                     var item_found = 0;
                     var index_list = [];
                     var _iterator = _createForOfIteratorHelper(fg_items.entries()),
-                            _step;
+                        _step;
 
                     try {
                         for (_iterator.s(); !(_step = _iterator.n()).done; ) {
                             var _step$value = _slicedToArray(_step.value, 2),
-                                    index = _step$value[0],
-                                    item = _step$value[1];
+                                index = _step$value[0],
+                                item = _step$value[1];
                             if (filter_name !== '' && filter_name !== '*' && filter_enable) {
                                 var element = $($(item)[0]);
                                 if (element.is(filter_name)) {
@@ -299,7 +294,6 @@
 
                 // Safari: hide filter menu
                 $(document).on('mouseup', function (e) {
-
                     if (!filterTrigger.is(e.target) && filterTrigger.has(e.target).length === 0) {
                         filterControls.removeClass("open-filters");
                     }
@@ -316,7 +310,6 @@
             function _iterableToArrayLimit(arr, i) {
                 if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr)))
                     return;
-
                 var _arr = [];
                 var _n = true;
                 var _d = false;
@@ -325,7 +318,7 @@
                     for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
                         _arr.push(_s.value);
                         if (i && _arr.length === i)
-                            break;
+                        break;
                     }
                 } catch (err) {
                     _d = true;
@@ -333,10 +326,10 @@
                 } finally {
                     try {
                         if (!_n && _i["return"] != null)
-                            _i["return"]();
+                        _i["return"]();
                     } finally {
                         if (_d)
-                            throw _e;
+                        throw _e;
                     }
                 }
                 return _arr;
@@ -344,7 +337,7 @@
 
             function _arrayWithHoles(arr) {
                 if (Array.isArray(arr))
-                    return arr;
+                return arr;
             }
             function _createForOfIteratorHelper(o, allowArrayLike) {
                 var it;
@@ -403,7 +396,7 @@
 
             function _unsupportedIterableToArray(o, minLen) {
                 if (!o)
-                    return;
+                return;
                 if (typeof o === "string")
                     return _arrayLikeToArray(o, minLen);
                 var n = Object.prototype.toString.call(o).slice(8, -1);
@@ -428,10 +421,7 @@
 
         popupVideo: function ($scope) {
             $(document).ready(function () {
-                if ($(".eead-video-popup").length > 0 &&
-                        $(".eead-video-popup").magnificPopup({type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !0, fixedContentPos: !1}) &&
-                        $("#wp-admin-bar-elementor_edit_page-default").length > 0)
-                {
+                if ($(".eead-video-popup").length > 0 && $(".eead-video-popup").magnificPopup({type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !0, fixedContentPos: !1}) && $("#wp-admin-bar-elementor_edit_page-default").length > 0) {
                     let t = $("#wp-admin-bar-elementor_edit_page-default").children("li");
                     $(t).map(function (t, n) {
                         var i = $(n).find(".elementor-edit-link-title");
@@ -457,12 +447,10 @@
             var image = $scope.find('.eead-threesixty-rotation-img');
             var zoom = magnify_glass.data('zoom');
             var play_btn = $scope.find('.eead-threesixty-rotation-play');
-
             var crl = circlr(cls, {play: true});
 
             if (autoplay === 'on') {
                 var autoplay_btn = $scope.find('.eead-threesixty-rotation-autoplay');
-
                 setTimeout(function () {
                     crl.play();
                     image.remove();
@@ -487,9 +475,7 @@
             }
 
             magnify_glass.on('click', function (el) {
-
                 var img_block = $scope.find('img');
-
                 img_block.each(function () {
                     var style = $(this).attr('style');
                     if (style.indexOf("block") !== -1) {
@@ -504,7 +490,6 @@
                 var targetEl = $(e.target);
                 var magnifier = $scope.find('.eead-img-magnifier-glass');
                 var iconElem = magnify_glass.find('i');
-
                 if (magnifier.length && targetEl[0] !== iconElem[0]) {
                     magnifier.remove();
                     magnify_glass.removeAttr('style');
@@ -533,7 +518,6 @@
                 var $markers = $el.find('.marker');
                 var styles = $el.data('style');
                 var prevent_scroll = $el.data('scroll');
-
                 var mapOption = {
                     zoom: zoom,
                     scrollwheel: scrollwheel,
@@ -626,7 +610,6 @@
             }
 
             function center_map(map, zoom) {
-
                 var bounds = new google.maps.LatLngBounds();
 
                 // loop markers and create bounds
@@ -647,11 +630,8 @@
         },
 
         stickyVideo: function ($scope) {
-
-
             $(".eead-sticky-player-close", $scope).hide();
             var element = $scope.find(".eead-sticky-video-player2");
-
             var eeadDomHeight = 0;
             var videoIsActive = "off";
             var sticky = element.data("sticky") ? element.data("sticky") : '';
@@ -674,7 +654,6 @@
                     PlayerPlay(playerAbc, element);
                 }
             }
-
 
             if (overlay === "yes" && autoplay === "yes") {
                 var overlayElm = element.prev();
@@ -731,7 +710,6 @@
             jQuery(window).scroll(function () {
                 var scrollTop = jQuery(window).scrollTop();
                 var scrollBottom = jQuery(document).height() - scrollTop;
-
                 if (scrollBottom > jQuery(window).height() + 400) {
                     if (scrollTop >= eeadDomHeight) {
                         if (videoIsActive == "on") {
@@ -758,19 +736,15 @@
                 if (p == "top-left") {
                     jQuery(".eead-sticky-video-player2.out").css({"top": "40px", "left": "40px"});
                 }
-
                 if (p == "top-right") {
                     jQuery(".eead-sticky-video-player2.out").css({"top": "40px", "right": "40px"});
                 }
-
                 if (p == "bottom-right") {
                     jQuery(".eead-sticky-video-player2.out").css({"bottom": "40px", "right": "40px"});
                 }
-
                 if (p == "bottom-left") {
                     jQuery(".eead-sticky-video-player2.out").css({"bottom": "40px", "left": "40px"});
                 }
-
                 jQuery(".eead-sticky-video-player2.out").css({"width": w + "px", "height": h + "px"});
             }
 
@@ -824,37 +798,29 @@
         },
 
         imageAccordion: function ($scope) {
-
             var imageAccordion = $scope.find(".eead-img-accordion").eq(0),
-                    id = imageAccordion.data("img-accordion-id") !== undefined ? imageAccordion.data("img-accordion-id") : "",
-                    type = imageAccordion.data("img-accordion-type") !== undefined ? imageAccordion.data("img-accordion-type") : "",
-                    click_count = 0,
-                    image_accordion_hover_element_id = "#eead-img-accordion-" + id + " .eead-image-accordion-hover";
+                id = imageAccordion.data("img-accordion-id") !== undefined ? imageAccordion.data("img-accordion-id") : "",
+                type = imageAccordion.data("img-accordion-type") !== undefined ? imageAccordion.data("img-accordion-type") : "",
+                click_count = 0,
+                image_accordion_hover_element_id = "#eead-img-accordion-" + id + " .eead-image-accordion-hover";
 
-            if (type === "on_click")
-            {
+            if (type === "on_click") {
                 $(image_accordion_hover_element_id).on("click", function (e) {
-
                     var $this = $(this);
-
-                    if (!$(this).hasClass("overlay-active"))
-                    {
+                    if (!$(this).hasClass("overlay-active")) {
                         e.preventDefault();
                     }
 
                     $(image_accordion_hover_element_id, $scope).removeClass("overlay-active");
 
-                    if (click_count == 0)
-                    {
-                        if ($(image_accordion_hover_element_id).hasClass('overlay-active'))
-                        {
+                    if (click_count == 0) {
+                        if ($(image_accordion_hover_element_id).hasClass('overlay-active')) {
                             $(image_accordion_hover_element_id).removeClass("overlay-active");
                         }
                         click_count++;
                     }
 
                     $(image_accordion_hover_element_id).css("flex", "1");
-
                     $this.find(".overlay").parent(".eead-image-accordion-hover").addClass("overlay-active");
                     $(image_accordion_hover_element_id).find(".overlay-inner").removeClass("overlay-inner-show");
                     $this.find(".overlay-inner").addClass("overlay-inner-show");
@@ -862,8 +828,7 @@
                 });
             } else {
                 $(image_accordion_hover_element_id).on('hover', function () {
-                    if ($(image_accordion_hover_element_id).hasClass('overlay-active'))
-                    {
+                    if ($(image_accordion_hover_element_id).hasClass('overlay-active')) {
                         $(image_accordion_hover_element_id + ".overlay-active").css("flex", "1");
                         $(image_accordion_hover_element_id).removeClass("overlay-active");
                         $(image_accordion_hover_element_id + " .overlay .overlay-inner").removeClass('overlay-inner-show');
@@ -874,11 +839,11 @@
 
         countdown: function ($scope) {
             var $coundDown = $scope.find(".eead-countdown-wrapper").eq(0),
-                    $countdown_id = $coundDown.data("countdown-id") !== "" ? $coundDown.data("countdown-id") : "",
-                    $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
-                    $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
-                    $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
-                    $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
+                $countdown_id = $coundDown.data("countdown-id") !== "" ? $coundDown.data("countdown-id") : "",
+                $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
+                $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
+                $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
+                $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
 
             var countDown = $("#eead-countdown-" + $countdown_id);
             countDown.countdown({
@@ -890,15 +855,12 @@
                     }
                 }
             });
-
         },
 
         popupModal: function ($scope) {
             var $open = $scope.find('.eead-popup-modal-trigger');
-
             $open.on('click', function () {
                 var $id = $(this).data('id');
-
                 MicroModal.show('eead-popup-modal-' + $id, {
                     awaitCloseAnimation: true,
                     openClass: 'open',
@@ -914,13 +876,9 @@
         },
 
         sliderBlock: function ($scope) {
-
             var $ele = $scope.find('.eead-slider');
-
-            if ($ele.find('.eead-slide').length > 0)
-            {
+            if ($ele.find('.eead-slide').length > 0) {
                 var params = JSON.parse($ele.attr('data-params'));
-
                 var sliderObj = {
                     items: 1,
                     mouseDrag: false,
@@ -939,14 +897,12 @@
                 if ($('.eead-slider').attr('data-transition') == 'fade') {
                     sliderObj.animateOut = 'fadeOut';
                 }
-
                 $('.eead-slider').owlCarousel(sliderObj);
             }
         },
 
         testimonialSlider: function ($scope) {
             var $ele = $scope.find('.eead-testimonial-block');
-
             if ($ele.find('.eead-testimonial-all-slides').length > 0) {
                 var params = JSON.parse($ele.find('.eead-testimonial-all-slides').attr('data-params'));
                 $ele.find('.eead-testimonial-all-slides').owlCarousel({
@@ -1012,12 +968,10 @@
         },
 
         pieChart: function ($scope) {
-
             var $container = $scope.find('.eead-pie-chart-container'),
-                    $canvas = $scope.find('.eead-pie-chart')[0],
-                    data = $container.data('chart') || {},
-                    options = $container.data('options') || {};
-
+                $canvas = $scope.find('.eead-pie-chart')[0],
+                data = $container.data('chart') || {},
+                options = $container.data('options') || {};
             var chartInstance = new Chart($canvas, {
                 type: 'pie',
                 data: data,
@@ -1035,12 +989,10 @@
         },
 
         teamMemberCarouselBlock: function ($scope, $) {
-
             var $carousel = $scope.find('.eead-swiper-slider').eq(0),
-                    $slider_options = JSON.parse($carousel.attr('data-slider-settings'));
+                $slider_options = JSON.parse($carousel.attr('data-slider-settings'));
 
             var mySwiper = new Swiper($carousel, $slider_options);
-
             if ($scope.find('.eead-swiper-slider').length > 0) {
                 setTimeout(function () {
                     mySwiper.update();
@@ -1063,7 +1015,6 @@
                 });
 
                 $section_secondary.toggle();
-
                 if ($label_primary.hasClass('eead-toggle-active')) {
                     $label_primary.removeClass('eead-toggle-active');
                     $label_secondary.addClass('eead-toggle-active');
@@ -1093,22 +1044,19 @@
         },
 
         onePageNav: function ($scope) {
-
             var nav_el = $scope.find('.eead-one-page-nav').eq(0);
-
             var $section_id = '#' + nav_el.data('section-id'),
-                    $top_offset = nav_el.data('top-offset'),
-                    $scroll_speed = nav_el.data('scroll-speed'),
-                    $scroll_wheel = nav_el.data('scroll-wheel'),
-                    $scroll_touch = nav_el.data('scroll-touch'),
-                    $scroll_keys = nav_el.data('scroll-keys'),
-                    $target_dot = $section_id + ' .eead-one-page-nav-item a',
-                    $active_item = $section_id + ' .eead-one-page-nav-item.active';
+                $top_offset = nav_el.data('top-offset'),
+                $scroll_speed = nav_el.data('scroll-speed'),
+                $scroll_wheel = nav_el.data('scroll-wheel'),
+                $scroll_touch = nav_el.data('scroll-touch'),
+                $scroll_keys = nav_el.data('scroll-keys'),
+                $target_dot = $section_id + ' .eead-one-page-nav-item a',
+                $active_item = $section_id + ' .eead-one-page-nav-item.active';
 
             $($target_dot).on('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-
                 if ($('#' + $(this).data('row-id')).length === 0) {
                     return;
                 }
@@ -1124,7 +1072,6 @@
                 $(this).parent().addClass('active');
                 return false;
             });
-
             updateDot();
 
             $(window).on('scroll', function () {
@@ -1145,11 +1092,11 @@
             // When Mouse Wheel Scrolled
             if ($scroll_wheel === 'on') {
                 var lastAnimation = 0,
-                        quietPeriod = 500,
-                        animationTime = 800,
-                        startX,
-                        startY,
-                        timestamp;
+                    quietPeriod = 500,
+                    animationTime = 800,
+                    startX,
+                    startY,
+                    timestamp;
 
                 $(document).on('mousewheel DOMMouseScroll', function (e) {
                     var timeNow = new Date().getTime();
@@ -1318,7 +1265,6 @@
                 if ($tab_id) {
                     $scope.find('.eead-tab').removeClass('active');
                     $(this).addClass('active');
-
                     $scope.find('.eead-each-content').removeClass('eead-active');
                     $scope.find('.eead-tab-content').find('.eead-content-' + $tab_id).addClass('eead-active');
                     $scope.find('.eead-each-content').hide();
@@ -1333,7 +1279,6 @@
                 if ($tab_id) {
                     $scope.find('.eead-tab').removeClass('active');
                     $(this).addClass('active');
-
                     $scope.find('.eead-each-content').hide();
                     $scope.find('.eead-tab-content').find('.eead-content-' + $tab_id).fadeIn();
                 }
@@ -1384,21 +1329,19 @@
 
         videoPlayer: function ($scope) {
             var video = $scope.find('.eead-video-block'),
-                    videoPlayer = $scope.find('.eead-video-player'),
-                    overlay = $scope.find('.eead-video-overlay'),
-                    iframe = $scope.find('.eead-video-iframe'),
-                    hasOverlay = overlay.length > 0,
-                    settings = video.data('settings') || {},
-                    autoplay = settings.autoplay || false;
+                videoPlayer = $scope.find('.eead-video-player'),
+                overlay = $scope.find('.eead-video-overlay'),
+                iframe = $scope.find('.eead-video-iframe'),
+                hasOverlay = overlay.length > 0,
+                settings = video.data('settings') || {},
+                autoplay = settings.autoplay || false;
 
             if (overlay[0]) {
                 overlay.on('click.eead-video-block', function (event) {
                     if (videoPlayer[0]) {
                         videoPlayer[0].play();
-
                         overlay.remove();
                         hasOverlay = false;
-
                         return;
                     }
 
@@ -1421,18 +1364,14 @@
                 });
             }
 
-
             function playIframeVideo() {
                 var lazyLoad = iframe.data('lazy-load');
-
                 if (lazyLoad) {
                     iframe.attr('src', lazyLoad);
                 }
-
                 if (!autoplay) {
                     iframe[0].src = iframe[0].src.replace('&autoplay=0', '&autoplay=1');
                 }
-
                 overlay.remove();
                 hasOverlay = false;
             }
@@ -1443,16 +1382,14 @@
             var $widget_id = $scope.data('id');
             var $gallery = $scope.find('.eead-image-gallery-wrapper').eq(0);
             var $settings = $gallery_container.data('settings');
-
             if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                 var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
-
                 var $isotope_args = {
-                    itemSelector: '.eead-gallery-item',
-                    layoutMode: layout,
-                    percentPosition: true,
-                },
-                        $isotope_gallery = {};
+                        itemSelector: '.eead-gallery-item',
+                        layoutMode: layout,
+                        percentPosition: true,
+                    },
+                    $isotope_gallery = {};
 
                 $scope.imagesLoaded(function () {
                     $isotope_gallery = $gallery.isotope($isotope_args);
@@ -1469,13 +1406,12 @@
 
                 $scope.on('click', '.eead-gallery-filter', function () {
                     var $this = $(this),
-                            filterValue = $this.attr('data-filter'),
-                            filter_index = $this.attr('data-gallery-index'),
-                            $gallery_items = $gallery.find(filterValue);
+                        filterValue = $this.attr('data-filter'),
+                        filter_index = $this.attr('data-gallery-index'),
+                        $gallery_items = $gallery.find(filterValue);
 
                     $this.siblings().removeClass('eead-active');
                     $this.addClass('eead-active');
-
                     $isotope_gallery.isotope({filter: filterValue});
                 });
 
@@ -1491,7 +1427,6 @@
 
         horizontalTimelineCarousel: function ($scope) {
             var $element = $scope.find('.eead-htimeline-lists');
-
             $scope.find(".eead-horizontal-timeline-scrollbar").mCustomScrollbar({
                 theme: "dark",
                 scrollInertia: 500,
@@ -1517,7 +1452,6 @@
         businessHours: function ($scope) {
             var $container = $scope.find('.eead-business-hour-section');
             var $businessHours = $container.find('.eead-current-time');
-
             if (!$container.length) {
                 return;
             }
@@ -1563,8 +1497,8 @@
 
         animatedHeading: function ($scope, $) {
             var $heading = $scope.find('.eead-animated-heading-wrap > *'),
-                    $animatedHeading = $scope.find('.eead-animated-heading'),
-                    $settings = $scope.find('.eead-animated-heading').data('settings');
+                $animatedHeading = $scope.find('.eead-animated-heading'),
+                $settings = $scope.find('.eead-animated-heading').data('settings');
 
             if (!$heading.length) {
                 return;
@@ -1584,7 +1518,6 @@
         },
 
         accordionBlock: function ($scope) {
-
             var accordion = $scope.find('.eead-each-accordion');
             var windowsize = window.innerWidth;
 
@@ -1602,7 +1535,6 @@
                         } else {
                             eachTitle.next().css({'height': eachHeight.content_height_mobile + 'px'});
                         }
-
                     }
 
                     // On Accordion Click
@@ -1626,7 +1558,6 @@
                     });
                 });
             }
-
         },
 
         switcherBlock: function ($scope) {
@@ -1649,32 +1580,26 @@
         imageComparison: function ($scope) {
             var $image_compare_main = $scope.find('.eead-image-compare');
             var $image_compare = $scope.find('.image-compare');
-
             if (!$image_compare.length) {
                 return;
             }
 
             var $settings = $image_compare.data('settings');
-
-            var
-                    default_offset_pct = $settings.default_offset_pct,
-                    orientation = $settings.orientation,
-                    before_label = $settings.before_label,
-                    after_label = $settings.after_label,
-                    no_overlay = $settings.no_overlay,
-                    on_hover = $settings.on_hover,
-                    add_circle_blur = $settings.add_circle_blur,
-                    add_circle_shadow = $settings.add_circle_shadow,
-                    add_circle = $settings.add_circle,
-                    smoothing = $settings.smoothing,
-                    smoothing_amount = $settings.smoothing_amount,
-                    bar_color = $settings.bar_color,
-                    move_slider_on_hover = $settings.move_slider_on_hover;
-
+            var default_offset_pct = $settings.default_offset_pct,
+                orientation = $settings.orientation,
+                before_label = $settings.before_label,
+                after_label = $settings.after_label,
+                no_overlay = $settings.no_overlay,
+                on_hover = $settings.on_hover,
+                add_circle_blur = $settings.add_circle_blur,
+                add_circle_shadow = $settings.add_circle_shadow,
+                add_circle = $settings.add_circle,
+                smoothing = $settings.smoothing,
+                smoothing_amount = $settings.smoothing_amount,
+                bar_color = $settings.bar_color,
+                move_slider_on_hover = $settings.move_slider_on_hover;
             var viewers = document.querySelectorAll('#' + $settings.id);
-
             var options = {
-
                 // UI Theme Defaults
                 controlColor: bar_color,
                 controlShadow: add_circle_shadow,
@@ -1735,8 +1660,8 @@
 
                     $(window).resize(function () {
                         var currentDeviceMode = elementorFrontend.getCurrentDeviceMode(),
-                                availableDevices = ['desktop', 'tablet'],
-                                isInit = $scope.attr('data-sticky-column');
+                            availableDevices = ['desktop', 'tablet'],
+                            isInit = $scope.attr('data-sticky-column');
 
                         if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
                             if (isInit === 'false') {
@@ -1762,10 +1687,8 @@
                         stickyInstanceOptions.innerWrapperSelector = '.elementor-widget-wrap';
                     }
                     $scope.css({display: 'block'});
-
                     stickyInstanceOptions.topSpacing = settings['topSpacing'];
                     stickyInstanceOptions.bottomSpacing = settings['bottomSpacing'];
-
                     var stickyInstance = new StickySidebar($scope[0], stickyInstanceOptions);
                     $scope.attr('data-sticky-column', 'true');
                     stickyInstance.updateSticky();
@@ -1794,26 +1717,23 @@
 
         columnEditorSettings: function (columnId) {
             var editorElements = null,
-                    columnData = {};
+                columnData = {};
 
             if (!window.elementor.hasOwnProperty('elements')) {
                 return false;
             }
 
             editorElements = window.elementor.elements;
-
             if (!editorElements.models) {
                 return false;
             }
 
             $.each(editorElements.models, function (index, obj) {
-
                 $.each(obj.attributes.elements.models, function (index, obj) {
                     if (columnId == obj.id) {
                         columnData = obj.attributes.settings.attributes;
                     }
                 });
-
             });
 
             return {
@@ -1825,7 +1745,6 @@
 
         resizeSticky: function ($target) {
             var currentDeviceMode = elementorFrontend.getCurrentDeviceMode();
-
             if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
                 $target.data('stickyColumnInit', true);
                 stickyInstance = new StickySidebar($target[0], stickyInstanceOptions);
@@ -1886,10 +1805,7 @@
                                 : (n(t).data("hide-tabs") && n(t).addClass("eead-multiscroll-hide"), n(i).data("hide-tabs") && n(i).addClass("eead-multiscroll-hide")),
                             a.rtl ? n(r[e]).insertAfter(s[e]) : n(s[e]).insertAfter(r[e]);
                     }),
-                    n(t)
-                        .find(".eead-multiscroll-inner")
-                        .removeClass("eead-scroll-fit")
-                        .css("min-height", a.cellHeight + "px");
+                    n(t).find(".eead-multiscroll-inner").removeClass("eead-scroll-fit").css("min-height", a.cellHeight + "px");
             }
             switch (!0) {
                 case l && d:
@@ -1911,13 +1827,11 @@
                 hScrollSettings = $hScrollElem.data("settings"),
                 instance = null,
                 disableOn = hScrollSettings.disableOn;
-
             var templates = hScrollSettings.templates;
 
             if (!templates.length) return;
 
             templates.forEach(function (template) {
-
                 if ("id" === template.template_type && "" !== template.section_id) {
                     if (!$("#" + template.section_id)
                         .length) {
@@ -1933,13 +1847,10 @@
 
             if (disableOn.includes(elementorFrontend.getCurrentDeviceMode())) {
                 $hScrollElem.find('.eead-hscroll-arrow, .eead-hscroll-progress, .eead-hscroll-nav, .eead-hscroll-pagination, .eead-hscroll-fixed-content').remove();
-
                 $hScrollElem.find(".eead-hscroll-temp").each(function (index, slide) {
                     $(slide).removeClass('eead-hscroll-temp');
                 });
-
                 $hScrollElem.find('.eead-hscroll-sections-wrap').removeClass('eead-hscroll-sections-wrap');
-
                 return;
             }
 
@@ -2396,6 +2307,14 @@
                 }
             ];
             new TiltFx( tiltImageBlock[0], tiltSettings[ tiltImageBlock.data('hoverstyle') ] );
+        },
+        slinkyVerticalMenuBlock : function ($scope) {
+            var $vrMenu = $scope.find('.eead-slinky-vertical-menu');
+            var $settings = $vrMenu.attr('id');
+            if (!$vrMenu.length) {
+                return;
+            }
+            const slinky = $('#'+$settings).slinky();
         }
     };
     $(window).on('elementor/frontend/init', EEA.init);
@@ -2422,17 +2341,13 @@
             dimensions = null;
 
         $elem.find(".eead-hscroll-temp").each(function (index, template) {
-
             var hideOn = $(template).data('hide');
-
             if (-1 < hideOn.indexOf(currentDevice)) {
                 hideSection(template, index);
             }
-
         });
 
         function hideSection(template, index) {
-
             if (0 !== count) {
                 count--;
                 $(template).remove();
@@ -2481,23 +2396,16 @@
             if (!count) return;
 
             self.setLayout();
-
             self.setSectionsData();
-
             self.handleAnimations();
-
             self.setScene();
 
             if (!loop) self.checkActive();
 
             scene.on("progress", self.onProgress);
-
             $nav.on("click.eeadHorizontalScroll", self.onNavDotClick);
-
             $arrows.on("click.eeadHorizontalScroll", self.onNavArrowClick);
-
             self.checkRemoteAnchors();
-
             self.checkLocalAnchors();
 
             $(document).on('elementor/popup/show', function () {
@@ -2508,84 +2416,59 @@
                 .on("resize", self.refresh);
 
             if (snapScroll)
-                document.addEventListener ?
-                    document.addEventListener("wheel", self.onScroll, {
-                        passive: false
-                    }) :
-                    document.attachEvent("onmousewheel", self.onScroll);
+            document.addEventListener ? document.addEventListener("wheel", self.onScroll, {passive: false}) : document.attachEvent("onmousewheel", self.onScroll);
 
             if (settings.keyboard)
-                document.addEventListener ?
-                    document.addEventListener("keydown", self.onKeyboardPress) :
-                    document.attachEvent("keydown", self.onKeyboardPress);
+            document.addEventListener ? document.addEventListener("keydown", self.onKeyboardPress) : document.attachEvent("keydown", self.onKeyboardPress);
 
             if (snapScroll) {
-                $(window)
-                    .on("load", function () {
-                        var windowOuterHeight = $(window).outerHeight();
+                $(window).on("load", function () {
+                    var windowOuterHeight = $(window).outerHeight();
 
-                        if (offset - windowOuterHeight < 150)
-                            return;
+                    if (offset - windowOuterHeight < 150)
+                        return;
 
-                        if (0 === currentActive) {
-                            elementorFrontend.waypoint(
-                                $elem,
-                                function (direction) {
-                                    if ("down" === direction) {
-                                        self.scrollToSlide(0);
-                                    }
-                                }, {
-                                offset: 150,
-                                triggerOnce: false
-                            }
-                            );
+                    if (0 === currentActive) {
+                        elementorFrontend.waypoint(
+                            $elem,
+                            function (direction) {
+                                if ("down" === direction) {
+                                    self.scrollToSlide(0);
+                                }
+                            }, {
+                            offset: 150,
+                            triggerOnce: false
                         }
-                    });
+                        );
+                    }
+                });
             }
         };
 
         self.checkLocalAnchors = function () {
-
             $("a").on("click", function (event) {
-
                 var href = $(this).attr("href");
-
                 if (href) {
-
                     href = href.replace('#/', '');
-
                     self.checkAnchors(href);
                 }
-
             });
-
         }
 
         self.checkRemoteAnchors = function () {
-
             var url = new URL(window.location.href);
-
-            if (!url)
-                return;
+            if (!url) return;
 
             var slideID = url.searchParams.get("slide");
-
-            if (slideID)
-                self.checkAnchors(slideID);
-
+            if (slideID) self.checkAnchors(slideID);
         };
 
         self.checkAnchors = function (href) {
-
             var $slide = $elem.find(".eead-hscroll-temp[data-section='" + href + "']");
-
-            if (!$slide.length)
-                return;
+            if (!$slide.length) return;
 
             var slideIndex = $slide.index();
-
             self.scrollToSlide(slideIndex, "anchors");
-
         };
 
         self.onKeyboardPress = function (e) {
@@ -2600,42 +2483,31 @@
                         var lastScrollOffset = self.getScrollOffset(
                             $slides.eq(count - 1)
                         );
-
                         if (
                             e.pageY - lastScrollOffset <= 300 &&
                             e.pageY - lastScrollOffset > 100
                         ) {
-
                             self.preventDefault(event);
                             self.scrollToSlide(count - 1);
-
-
                         } else if (e.pageY - lastScrollOffset < 100) {
-
                             self.preventDefault(event);
                             self.scrollToSlide(count - 2);
                         }
-
                         return;
                     }
                 } else {
-
                     if (-1 !== $.inArray(e.keyCode, downKeyCodes)) {
                         if (isScrolling) {
                             self.preventDefault(event);
                             return;
                         }
-
                         self.goToNext();
                     }
-
-
                     if (-1 !== $.inArray(e.keyCode, upKeyCodes)) {
                         if (isScrolling) {
                             self.preventDefault(event);
                             return;
                         }
-
                         self.goToPrev("keyboard");
                     }
                 }
@@ -2643,25 +2515,17 @@
         };
 
         self.getResponsiveControlValue = function (ID) {
-
             var value = settings[ID];
-
             if ("desktop" !== currentDevice) {
                 value = settings[ID + "_" + currentDevice];
             }
-
             return value;
-
         };
 
         self.setScene = function () {
-
             controller = new ScrollMagic.Controller();
-
             horizontalSlide = new TimelineMax();
-
             self.setHorizontalSlider();
-
             var scrollSpeed = self.getResponsiveControlValue('speed');
 
             if ("desktop" === currentDevice) {
@@ -2670,22 +2534,14 @@
                 scrollSpeed = scrollSpeed * $elem.outerHeight();
             }
 
-
             scene = new ScrollMagic.Scene({
                 triggerElement: "#eead-hscroll-spacer-" + id,
                 triggerHook: "onLeave",
                 duration: scrollSpeed
-            })
-                .setPin("#eead-hscroll-wrap-" + id, {
-                    pushFollowers: true
-                })
-                .setTween(horizontalSlide)
-                .addTo(controller);
-
+            }).setPin("#eead-hscroll-wrap-" + id, {pushFollowers: true}).setTween(horizontalSlide).addTo(controller);
         };
 
         self.getDimensions = function () {
-
             var firstWidth = $slides.eq(0).innerWidth(),
                 distance = firstWidth * (count - 1),
                 progressWidth = firstWidth * count;
@@ -2694,14 +2550,12 @@
                 distanceBeyond = self.getResponsiveControlValue('distance');
 
             distance = distance - (1 - 1 / slidesInViewPort) * $elem.outerWidth();
-
             distance = distanceBeyond + distance;
 
             if (rtlMode)
-                $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
+            $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
 
             var ease = Power2.easeOut;
-
             ease = Power0.easeNone;
 
             return {
@@ -2713,9 +2567,7 @@
         };
 
         self.setHorizontalSlider = function (progress) {
-
             // horizontalSlide = new TimelineMax();
-
             dimensions = self.getDimensions();
 
             horizontalSlide
@@ -2726,66 +2578,44 @@
                 scene.progress(0);
                 scene.update(true);
             }
-
         }
 
         self.setLayout = function () {
-            $elem
-                .closest("section.elementor-section-height-full")
-                .removeClass("elementor-section-height-full");
+            $elem.closest("section.elementor-section-height-full").removeClass("elementor-section-height-full");
         };
 
         self.setSectionsData = function () {
-
             var slidesInViewPort = self.getResponsiveControlValue('slides');
-
             var slideWidth = 100 / slidesInViewPort;
+            $elem.find(".eead-hscroll-slider").css("width", count * slideWidth + "%");
 
-            $elem
-                .find(".eead-hscroll-slider")
-                .css("width", count * slideWidth + "%");
-
-            $elem.find(".eead-hscroll-temp")
-                .css("width", 100 / count + "%");
+            $elem.find(".eead-hscroll-temp").css("width", 100 / count + "%");
 
             var scrollSpeed = self.getResponsiveControlValue('speed');
 
-            var width = parseFloat(
-                $elem.find(".eead-hscroll-sections-wrap")
-                    .width() / count
-            ),
-                winHeight = $(window)
-                    .height() * scrollSpeed;
+            var width = parseFloat($elem.find(".eead-hscroll-sections-wrap").width() / count),
+                winHeight = $(window).height() * scrollSpeed;
 
             $slides.each(function (index, template) {
-
                 if ($(template)
                     .data("section")) {
                     var id = $(template)
                         .data("section");
                     self.getSectionContent(id);
                 }
-
                 var position = index * width;
-                $(template)
-                    .attr("data-position", position);
+                $(template).attr("data-position", position);
             });
 
-            offset = $elem.offset()
-                .top;
-
+            offset = $elem.offset().top;
             $slides.each(function (index, template) {
                 var scrollOffset = (index * winHeight) / (count - 1);
-
-                $(template)
-                    .attr("data-scroll-offset", offset + scrollOffset);
+                $(template).attr("data-scroll-offset", offset + scrollOffset);
             });
         };
 
         self.onScroll = function (event) {
             if (isScrolling && null !== event) self.preventDefault(event);
-
-
             var delta = self.getDirection(event),
                 state = scene.state(),
                 direction = 0 > delta ? "down" : "up";
@@ -2795,11 +2625,8 @@
                     $slides.eq(count - 1)
                 );
 
-                if (
-                    window.pageYOffset - lastScrollOffset <= 300 &&
-                    window.pageYOffset - lastScrollOffset > 100
-                )
-                    self.scrollToSlide(count - 1);
+                if (window.pageYOffset - lastScrollOffset <= 300 && window.pageYOffset - lastScrollOffset > 100)
+                self.scrollToSlide(count - 1);
             }
 
             if ("DURING" === state) {
@@ -2811,9 +2638,7 @@
                     if (!isScrolling && 0 !== currentActive) self.goToPrev();
                 }
 
-                if (
-                    (0 !== currentActive && "up" === direction) || ("down" === direction && count - 1 !== currentActive)
-                ) {
+                if ((0 !== currentActive && "up" === direction) || ("down" === direction && count - 1 !== currentActive)) {
                     self.preventDefault(event);
                 }
             }
@@ -2821,20 +2646,13 @@
 
         self.getDirection = function (e) {
             e = window.event || e;
-            var t = Math.max(
-                -1,
-                Math.min(1, e.wheelDelta || -e.deltaY || -e.detail)
-            );
+            var t = Math.max(-1, Math.min(1, e.wheelDelta || -e.deltaY || -e.detail));
             return t;
         };
 
         self.setSnapScroll = function (event) {
             var direction = event.scrollDirection;
-
-            if (
-                (0 !== currentActive && "REVERSE" === direction) ||
-                "FORWARD" === direction
-            ) {
+            if ((0 !== currentActive && "REVERSE" === direction) || "FORWARD" === direction) {
                 if (null !== scrollEvent) self.preventDefault(scrollEvent);
             }
 
@@ -2847,38 +2665,29 @@
                 }
             } else {
                 if (!isScrolling && 0 !== currentActive)
-                    $prevArrow.trigger("click.eeadHorizontalScroll");
+                $prevArrow.trigger("click.eeadHorizontalScroll");
             }
         };
 
         self.refresh = function () {
-
             // dimensions = self.getDimensions();
-
-            // horizontalSlide
-            //     .to("#eead-hscroll-scroller-wrap-" + id, 1, { x: "-980", ease: Power0.easeNone }, 0);
-
-
+            // horizontalSlide.to("#eead-hscroll-scroller-wrap-" + id, 1, { x: "-980", ease: Power0.easeNone }, 0);
             setTimeout(function () {
                 var sceneProgress = scene.progress();
                 self.setHorizontalSlider(sceneProgress);
             }, 200);
-
             // self.setScene();
         };
 
         self.onProgress = function () {
-
             var progressFillWidth = $elem.find(".eead-hscroll-progress-line").outerWidth(),
                 elemWidth = $elem.outerWidth();
 
             $slides.each(function (index) {
-
                 var scrollOffset = $slides.eq(index - 1).data("scroll-offset"),
                     scrollPosition = $(this).data("position");
 
                 if (settings.opacity && targetIndex !== index) {
-
                     if (window.pageYOffset >= scrollOffset + elemWidth / 8) {
                         $(this).removeClass("eead-hscroll-hide");
                     } else {
@@ -2888,22 +2697,18 @@
                 }
 
                 if (progressFillWidth >= scrollPosition - progressOffset) {
-
                     if (settings.enternace && !isScrolling)
                         self.triggerAnimations();
 
                     if (-1 === currentActiveArr.indexOf(index)) {
                         currentActiveArr.push(index);
-
                         currentActive = index;
                         self.onSlideChange();
                     }
 
                 } else {
-
                     if (-1 !== currentActiveArr.indexOf(index)) {
                         currentActiveArr.pop();
-
                         currentActive = currentActiveArr[currentActiveArr.length - 1];
                         self.onSlideChange();
                     }
@@ -2913,26 +2718,15 @@
         };
 
         self.onSlideChange = function () {
-
             prevActive = currentActive;
-
             self.addBackgroundLayer();
-
             if (settings.pagination && !snapScroll) {
-
                 var text = currentActive + 1 > 9 ? "" : "0";
-                $elem
-                    .find(".eead-hscroll-current-slide")
-                    .text(text + (currentActive + 1));
+                $elem.find(".eead-hscroll-current-slide").text(text + (currentActive + 1));
             }
 
             $nav.removeClass("active");
-
-            $elem
-                .find(".eead-hscroll-nav-item")
-                .eq(currentActive)
-                .addClass("active");
-
+            $elem.find(".eead-hscroll-nav-item").eq(currentActive).addClass("active");
             self.checkActive();
 
             if (settings.enternace && !isScrolling)
@@ -2940,10 +2734,8 @@
         };
 
         self.addBackgroundLayer = function () {
-
             if ($elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").length) {
                 $elem.find(".eead-hscroll-layer-active").removeClass("eead-hscroll-layer-active");
-
                 $elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").addClass("eead-hscroll-layer-active");
             }
 
@@ -2954,7 +2746,6 @@
                 .length) return;
 
             var htmlContent = $("#" + sectionID);
-
             if (!editMode) {
                 $("#eead-hscroll-scroller-wrap-" + id)
                     .find('div[data-section="' + sectionID + '"]')
@@ -3003,34 +2794,25 @@
 
         self.onNavDotClick = function () {
             if (isScrolling) return;
-
             var $item = $(this),
                 index = $item.index();
-
             if (index === prevActive && "DURING" === scene.state()) return;
-
-
             currentActive = index;
-
             self.scrollToSlide(index);
         };
 
         self.onNavArrowClick = function (e) {
             if (isScrolling) return;
-
             if ($(e.target).hasClass("eead-hscroll-prev") || $(e.target).find(".eead-hscroll-prev").length) {
                 self.goToPrev();
             } else if ($(e.target).hasClass("eead-hscroll-next") || $(e.target).find(".eead-hscroll-next").length) {
                 self.goToNext();
             }
-
         };
 
         self.goToNext = function () {
             if (isScrolling) return;
-
             currentActive++;
-
             if (loop) {
                 if (-1 === currentActive) {
                     currentActive = count - 1;
@@ -3038,18 +2820,13 @@
                     currentActive = 0;
                 }
             }
-
             self.scrollToSlide(currentActive);
         };
 
         self.goToPrev = function (trigger) {
-
-            if (isScrolling || ("keyboard" === trigger && currentActive === 0))
-                return;
+            if (isScrolling || ("keyboard" === trigger && currentActive === 0)) return;
 
             currentActive--;
-
-
             if (loop) {
                 if (-1 === currentActive) {
                     currentActive = count - 1;
@@ -3062,18 +2839,15 @@
         };
 
         self.scrollToSlide = function (slideIndex, scrollSrc) {
-
             var targetOffset = self.getScrollOffset($slides.eq(slideIndex));
 
             if (!scrollSrc) {
                 if (isScrolling) return;
             }
 
-
             if (0 > currentActive || count - 1 < currentActive) return;
 
             isScrolling = true;
-
             prevActive = slideIndex;
 
             var spacerHeight = $("#eead-hscroll-spacer-" + id).outerHeight();
@@ -3087,24 +2861,14 @@
             });
 
             if (settings.pagination && snapScroll)
-                $elem
-                    .find(".eead-hscroll-current-slide")
-                    .removeClass("zoomIn animated");
+                $elem.find(".eead-hscroll-current-slide").removeClass("zoomIn animated");
 
             if (settings.pagination && snapScroll) {
                 setTimeout(function () {
-
-                    if (
-                        currentActive + 1 !=
-                        $elem.find(".eead-hscroll-current-slide")
-                            .text()
-                    ) {
+                    if (currentActive + 1 != $elem.find(".eead-hscroll-current-slide").text()) {
                         //Lead zero
                         var text = currentActive + 1 > 9 ? "" : "0";
-                        $elem
-                            .find(".eead-hscroll-current-slide")
-                            .text(text + (currentActive + 1))
-                            .addClass("zoomIn animated");
+                        $elem.find(".eead-hscroll-current-slide").text(text + (currentActive + 1)).addClass("zoomIn animated");
                     }
                 }, 1000);
             }
@@ -3128,9 +2892,7 @@
 
         self.handleAnimations = function () {
             if (settings.enternace) {
-
                 self.hideAnimations();
-
                 elementorFrontend.waypoint($elem, function () {
                     // self.setAnimations();
                 });
@@ -3140,23 +2902,17 @@
         };
 
         self.hideAnimations = function () {
-
             $slides.find(".elementor-invisible").addClass("eead-hscroll-elem-hidden");
-
         };
 
         self.unsetAnimations = function () {
-            $slides.find(".elementor-invisible")
-                .each(function (index, elem) {
-                    $(elem)
-                        .removeClass("elementor-invisible");
-                });
+            $slides.find(".elementor-invisible").each(function (index, elem) {
+                $(elem).removeClass("elementor-invisible");
+            });
         };
 
         self.setAnimations = function () {
-
             self.restartAnimations();
-
             self.triggerAnimations();
         };
 
@@ -3165,53 +2921,40 @@
                 return index !== slideIndex;
             });
 
-            $unactiveSlides.find(".animated")
-                .each(function (index, elem) {
-                    var settings = $(elem)
-                        .data("settings");
+            $unactiveSlides.find(".animated").each(function (index, elem) {
+                var settings = $(elem).data("settings");
+                if (undefined === settings) return;
 
-                    if (undefined === settings) return;
-
-                    var animation = settings._animation || settings.animation;
-
-                    $(elem)
-                        .removeClass("animated " + animation)
-                        .addClass("elementor-invisible");
-                });
+                var animation = settings._animation || settings.animation;
+                $(elem).removeClass("animated " + animation).addClass("elementor-invisible");
+            });
         };
 
         self.triggerAnimations = function () {
+            $slides.eq(currentActive).find(".elementor-invisible").each(function (index, elem) {
+                var settings = $(elem)
+                    .data("settings");
 
-            $slides
-                .eq(currentActive)
-                .find(".elementor-invisible")
-                .each(function (index, elem) {
-                    var settings = $(elem)
-                        .data("settings");
+                if (undefined === settings) return;
 
-                    if (undefined === settings) return;
+                if (!settings._animation && !settings.animation) return;
 
-                    if (!settings._animation && !settings.animation) return;
+                var delay = settings._animation_delay ?
+                    settings._animation_delay :
+                    0,
+                    animation = settings._animation || settings.animation;
 
-                    var delay = settings._animation_delay ?
-                        settings._animation_delay :
-                        0,
-                        animation = settings._animation || settings.animation;
-
-                    setTimeout(function () {
-                        $(elem)
-                            .removeClass("elementor-invisible eead-hscroll-elem-hidden")
-                            .addClass(animation + " animated");
-                    }, delay);
-                });
+                setTimeout(function () {
+                    $(elem)
+                        .removeClass("elementor-invisible eead-hscroll-elem-hidden")
+                        .addClass(animation + " animated");
+                }, delay);
+            });
         };
 
         self.getScrollOffset = function (item) {
-            if (!$(item)
-                .length) return;
-
-            return $(item)
-                .data("scroll-offset");
+            if (!$(item).length) return;
+            return $(item).data("scroll-offset");
         };
 
         self.preventDefault = function (event) {

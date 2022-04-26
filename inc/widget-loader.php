@@ -98,8 +98,7 @@ class EEAD_Widget_Loader {
         }
     }
 
-    function register_controls() {
-        
+    public function register_controls() {
     }
 
     /**
@@ -115,41 +114,23 @@ class EEAD_Widget_Loader {
             wp_register_script('gmap-api', '//maps.google.com/maps/api/js?sensor=true', ['jquery'], EEAD_VERSION, true);
         }
         wp_script_add_data('eead-gmap', 'async/defer', true);
-
         wp_register_script('circlr', EEAD_URL . 'assets/lib/threesixty-rotation/circlr.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('simple-magnify', EEAD_URL . 'assets/lib/threesixty-rotation/simple-magnify.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('magnific-popup', EEAD_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('countdown', EEAD_URL . 'assets/lib/countdown/countdown.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('image-compare', EEAD_URL . 'assets/lib/image-compare/image-compare-viewer.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('micromodal', EEAD_URL . 'assets/lib/micromodal/micromodal.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('morphext', EEAD_URL . 'assets/lib/morphext/morphext' . $suffix . '.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('typed', EEAD_URL . 'assets/lib/typed/typed' . $suffix . '.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('jclock', EEAD_URL . 'assets/lib/jclock/jquery.jclock' . $suffix . '.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('waypoint', EEAD_URL . 'assets/lib/waypoint/waypoint.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('odometer', EEAD_URL . 'assets/lib/odometer/odometer.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('lightgallery', EEAD_URL . 'assets/lib/lightgallery/lightgallery.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('isotope', EEAD_URL . 'assets/lib/isotope/isotope.pkgd.min.js', ['jquery', 'imagesloaded'], EEAD_VERSION, true);
-
         wp_register_script('uikit', EEAD_URL . 'assets/lib/uikit/uikit.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/js/owl.carousel.min.js', ['jquery'], EEAD_VERSION, true);
-
         wp_register_script('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
-
         wp_register_script('tilt-anime', EEAD_URL . 'assets/lib/tilt/tilt-anime.min.js', ['jquery'], EEAD_VERSION);
         wp_register_script('tilt', EEAD_URL . 'assets/lib/tilt/tilt.js', ['jquery'], EEAD_VERSION);
 
@@ -166,6 +147,9 @@ class EEAD_Widget_Loader {
         wp_register_script('tweenmax', EEAD_URL . 'assets/lib/tweenmax/tweenmax.min.js', array('jquery'), EEAD_VERSION, true);
 
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION);
+
+        // Slinky Vertical Menu
+        wp_register_script('slinky', EEAD_URL . 'assets/lib/slinky/slinky.js', array('jquery'), EEAD_VERSION, true);
     }
 
     /**
@@ -187,19 +171,12 @@ class EEAD_Widget_Loader {
      */
     public function register_frontend_styles() {
         wp_register_style('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.css', array(), EEAD_VERSION);
-
         wp_register_style('magnific-popup', EEAD_URL . 'assets/lib/magnific-popup/magnific-popup.css', array(), EEAD_VERSION);
-
         wp_register_style('image-compare', EEAD_URL . 'assets/lib/image-compare/image-compare.css', array(), EEAD_VERSION);
-
         wp_register_style('micromodal', EEAD_URL . 'assets/lib/micromodal/micromodal.min.css', '', EEAD_VERSION);
-
         wp_register_style('odometer-theme-default', EEAD_URL . 'assets/lib/odometer/odometer-theme-default.css', '', EEAD_VERSION);
-
         wp_register_style('lightgallery', EEAD_URL . 'assets/lib/lightgallery/lightgallery.css', array(), EEAD_VERSION);
-
         wp_register_style('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/css/owl.carousel.min.css', array(), EEAD_VERSION);
-
         wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
 
         //Morph

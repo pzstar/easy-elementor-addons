@@ -100,39 +100,39 @@ if (!function_exists('eead_anime_animation_easing')) {
             'easeOutQuad'  => esc_html__( 'Ease-Out Quad', 'easy-elementor-addons' ),
             'easeInQuad'  => esc_html__( 'Ease-In Quad', 'easy-elementor-addons' ),
             'easeInOutQuad'  => esc_html__( 'Ease-InOut Quad', 'easy-elementor-addons' ),
-            
+
             'easeOutCubic'  => esc_html__( 'Ease-Out Cubic', 'easy-elementor-addons' ),                   
             'easeInCubic'  => esc_html__( 'Ease-In Cubic', 'easy-elementor-addons' ),
             'easeInOutCubic'  => esc_html__( 'Ease-InOut Cubic', 'easy-elementor-addons' ),
-            
+
             'easeOutQuart'  => esc_html__( 'Ease-Out Quart', 'easy-elementor-addons' ),
             'easeInQuart'  => esc_html__( 'Ease-In Quart', 'easy-elementor-addons' ),
             'easeInOutQuart'  => esc_html__( 'Ease-InOut Quart', 'easy-elementor-addons' ),
-            
+
             'easeOutQuint'  => esc_html__( 'ease-Out Quint', 'easy-elementor-addons' ),                   
             'easeInQuint'  => esc_html__( 'ease-In Quint', 'easy-elementor-addons' ),
             'easeInOutQuint'  => esc_html__( 'ease-InOut Quint', 'easy-elementor-addons' ),
-            
+
             'easeOutSine'  => esc_html__( 'Ease-Out Sine', 'easy-elementor-addons' ),
             'easeInSine'  => esc_html__( 'Ease-In Sine', 'easy-elementor-addons' ),
             'easeInOutSine'  => esc_html__( 'Ease-InOut Sine', 'easy-elementor-addons' ),
-            
+
             'easeOutExpo'  => esc_html__( 'Ease-Out Expo', 'easy-elementor-addons' ),
             'easeInExpo'  => esc_html__( 'Ease-In Expo', 'easy-elementor-addons' ),
             'easeInOutExpo'  => esc_html__( 'Ease-InOut Expo', 'easy-elementor-addons' ),
-            
+
             'easeOutElastic'  => esc_html__( 'Ease-Out Elastic', 'easy-elementor-addons' ),
             'easeInElastic'  => esc_html__( 'Ease-In Elastic', 'easy-elementor-addons' ),
             'easeInOutElastic'  => esc_html__( 'Ease-InOut Elastic', 'easy-elementor-addons' ),
-            
+
             'easeOutCirc'  => esc_html__( 'Ease-Out Circ', 'easy-elementor-addons' ),
             'easeInCirc'  => esc_html__( 'Ease-In Circ', 'easy-elementor-addons' ),
             'easeInOutCirc'  => esc_html__( 'Ease-InOut Circ', 'easy-elementor-addons' ),
-            
+
             'easeOutBack'  => esc_html__( 'Ease-Out Back', 'easy-elementor-addons' ),
             'easeInBack'  => esc_html__( 'Ease-In Back', 'easy-elementor-addons' ),
             'easeInOutBack'  => esc_html__( 'Ease-InOut Back', 'easy-elementor-addons' ),
-            
+
             'easeOutBounce'  => esc_html__( 'Ease-Out Bounce', 'easy-elementor-addons' ),
             'easeInBounce'  => esc_html__( 'Ease-In Bounce', 'easy-elementor-addons' ),
             'easeInOutBounce'  => esc_html__( 'Ease-InOut Bounce', 'easy-elementor-addons' ),
@@ -446,6 +446,38 @@ if (!function_exists('eead_get_item_position')) {
 
         return $position_options;
     }
+}
+
+if (!function_exists('eead_get_menu')) { 
+    function eead_get_menu() {
+        $menus = wp_get_nav_menus();
+        $items = [0 => esc_html__('Select Menu', 'easy-elementor-addons')];
+        foreach ($menus as $menu) {
+            $items[$menu->slug] = $menu->name;
+        }
+        return $items;
+    }
+}
+
+function eead_get_post_types($args = []) {
+
+    $post_type_args = [
+        'show_in_nav_menus' => true,
+    ];
+
+    if (!empty($args['post_type'])) {
+        $post_type_args['name'] = $args['post_type'];
+    }
+
+    $_post_types = get_post_types($post_type_args, 'objects');
+
+    $post_types = ['0' => esc_html__('Select Type', 'easy-elementor-addons')];
+
+    foreach ($_post_types as $post_type => $object) {
+        $post_types[$post_type] = $object->label;
+    }
+
+    return $post_types;
 }
 
 if (!function_exists('eead_materialdesignicons_array')) {

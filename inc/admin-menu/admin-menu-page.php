@@ -99,6 +99,7 @@ $gmap_access_token = $eead_general_settings['gmap_access_token'] ? $eead_general
                     <?php $this->get_widget_field('Scroll Image', 'scroll-image'); ?>
                     <?php $this->get_widget_field('Scroll Nav', 'scroll-nav'); ?>
                     <?php $this->get_widget_field('Slider', 'slider-block'); ?>
+                    <?php $this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu'); ?>
                     <?php $this->get_widget_field('Social Share', 'social-share'); ?>
                     <?php $this->get_widget_field('Step Flow', 'step-flow'); ?>
                     <?php $this->get_widget_field('Sticky Video', 'sticky-video'); ?>

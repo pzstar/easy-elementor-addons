@@ -169,6 +169,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'scroll-image',
                 'scroll-nav',
                 'slider-block',
+                'slinky-vertical-menu',
                 'social-share',
                 'step-flow',
                 'sticky-video',
