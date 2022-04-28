@@ -26,7 +26,9 @@ Class Extender {
             'background-overlay',
             'wrapper-link',
             'notation',
-            'tooltip'
+            'tooltip',
+            'tile-scroll',
+            'section-sticky'
         );
         return $extenders;
     }
@@ -87,6 +89,8 @@ Class Extender {
         wp_register_script('wrapper-link', EEAD_URL . 'inc/extenders/assets/js/wrapper-link.js', [], '1.0', true);
         wp_register_script('eead-background-overlay', EEAD_URL . 'inc/extenders/assets/js/background-overlay.js', [], '1.0', true);
         wp_register_script('eead-notation', EEAD_URL . 'inc/extenders/assets/js/notation.js', [], '1.0', true);
+        wp_register_script('eead-tile-scroll', EEAD_URL . 'inc/extenders/assets/js/eead-tile-scroll.js', [], '1.0', true);
+        wp_register_script('eead-section-sticky', EEAD_URL . 'inc/extenders/assets/js/eead-section-sticky.js', [], '1.0', true);
         wp_enqueue_script('eead-extenders', EEAD_URL . 'inc/extenders/assets/js/extenders.js', [], '1.0', true);
         wp_enqueue_style('eead-extenders', EEAD_URL . 'inc/extenders/assets/css/extenders.css', [], '1.0');
     }

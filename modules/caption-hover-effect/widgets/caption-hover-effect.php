@@ -1,0 +1,142 @@
+<?php
+
+namespace EasyElementorAddons\Modules\CaptionHoverEffect\Widgets;
+
+// Elementor Classes
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Typography;
+use Elementor\Repeater;
+use Elementor\Utils;
+use DateTime;
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ * Tiled Posts Widget
+ */
+class CaptionHoverEffect extends Widget_Base {
+
+    /** Widget Name */
+    public function get_name() {
+        return 'eead-caption-hover-effect';
+    }
+
+    /** Widget Title */
+    public function get_title() {
+        return esc_html__('Caption Hover Effect', 'easy-elementor-addons');
+    }
+
+    /** Icon */
+    public function get_icon() {
+        return 'eicon-click';
+    }
+
+    /** Category */
+    public function get_categories() {
+        return ['easy-elementor-addons'];
+    }
+
+    public function get_script_depends() {
+        return [ 'modernizr-custom' ];
+    }
+
+    /** Controls */
+    protected function register_controls() {
+        $this->start_controls_section(
+                'content_section', [
+            'label' => esc_html__('Content', 'easy-elementor-addons'),
+                ]
+        );
+
+        $this->add_control(
+            'image',
+            [
+                'label'   => esc_html__( 'Caption Image', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => Utils::get_placeholder_image_src(),
+                ]
+            ]
+        );
+
+        $this->add_control(
+                'title', [
+            'label' => __('Title', 'easy-elementor-addons'),
+            'type' => Controls_Manager::TEXT,
+            'label_block' => true,
+            'placeholder' => __('Enter your title here', 'easy-elementor-addons'),
+            'default' => __('Heading', 'easy-elementor-addons')
+                ]
+        );
+
+        $this->add_control(
+                'content', [
+            'label' => __('Content', 'easy-elementor-addons'),
+            'type' => Controls_Manager::TEXTAREA,
+            'label_block' => true,
+            'placeholder' => __('Enter your content here', 'easy-elementor-addons'),
+            'default' => __('Sub Heading', 'easy-elementor-addons')
+                ]
+        );
+
+        $this->add_control(
+            'effect_style', [
+                'label'   => esc_html__( 'Hover Effect', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'cs-style-1',
+                'options' => [
+                    'cs-style-1'   => esc_html__( 'Effect 1', 'easy-elementor-addons' ),
+                    'cs-style-2'   => esc_html__( 'Effect 2', 'easy-elementor-addons' ),
+                    'cs-style-3'   => esc_html__( 'Effect 3', 'easy-elementor-addons' ),
+                    'cs-style-4'   => esc_html__( 'Effect 4', 'easy-elementor-addons' ),
+                    'cs-style-5'   => esc_html__( 'Effect 5', 'easy-elementor-addons' ),
+                    'cs-style-6'   => esc_html__( 'Effect 6', 'easy-elementor-addons' ),
+                    'cs-style-7'   => esc_html__( 'Effect 7', 'easy-elementor-addons' ),
+                ]
+            ]
+        );
+
+        $this->add_control(
+                'button_text', [
+            'label' => __('Button Text', 'easy-elementor-addons'),
+            'type' => Controls_Manager::TEXT,
+            'label_block' => true,
+            'placeholder' => __('Enter your button text here', 'easy-elementor-addons'),
+            'default' => __('Click Here', 'easy-elementor-addons')
+                ]
+        );
+
+        $this->end_controls_section();
+    }
+
+
+    /** Render Layout */
+    protected function render() {
+        $settings     = $this->get_settings_for_display();
+        $image_id = $settings['image']['id'];
+        $title = $settings['title'];
+        $content = $settings['content'];
+        $image_url = Group_Control_Image_Size::get_attachment_image_src($image_id, 'thumb', $settings);
+        if (!$image_url) {
+            $image_url = Utils::get_placeholder_image_src();
+        }
+        $this->add_render_attribute( 'wrapper', 'class', $settings['effect_style'] );
+        ?>
+        <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+            <figure>
+                <img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_attr($title) ?>">
+                <figcaption>
+                    <h3><?php echo esc_html($title) ?></h3>
+                    <span><?php echo esc_html($content); ?></span>
+                    <a href="http://dribbble.com/shots/1115632-Camera">Take a look</a>
+                </figcaption>
+            </figure>
+        </div>
+        <?php
+    }
+
+}

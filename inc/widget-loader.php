@@ -150,6 +150,12 @@ class EEAD_Widget_Loader {
 
         // Slinky Vertical Menu
         wp_register_script('slinky', EEAD_URL . 'assets/lib/slinky/slinky.js', array('jquery'), EEAD_VERSION, true);
+
+        // LordIcon
+        wp_register_script('lordicon', EEAD_URL . 'assets/lib/lordicon/lordicon.min.js', array('jquery'), EEAD_VERSION, true);
+
+        //Modernizr
+        wp_register_script('modernizr-custom', EEAD_URL . 'assets/lib/modernizr/modernizr.custom.js', array('jquery'), EEAD_VERSION, true);
     }
 
     /**

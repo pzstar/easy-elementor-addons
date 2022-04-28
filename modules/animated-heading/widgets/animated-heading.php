@@ -51,8 +51,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'pre_heading',
-            [
+            'pre_heading', [
                 'label' => __( 'Pre Heading', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -62,8 +61,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'animated_heading',
-            [
+            'animated_heading', [
                 'label' => __( 'Heading', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -74,8 +72,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'post_heading',
-            [
+            'post_heading', [
                 'label' => esc_html__( 'Post Heading', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -85,8 +82,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'heading_link',
-            [
+            'heading_link', [
                 'label' => __( 'Link', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::URL,
                 'placeholder' => __( 'https://your-link.com', 'easy-elementor-addons' ),
@@ -100,8 +96,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'layout',
-            [
+            'layout', [
                 'label' => __( 'Layout', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -113,8 +108,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'alignment',
-            array(
+            'alignment', [
                 'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'default' => 'center',
@@ -132,12 +126,11 @@ class AnimatedHeading extends Widget_Base {
                         'icon'  => 'eicon-h-align-right',
                     ),
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'html_tag',
-            [
+            'html_tag', [
                 'label'   => esc_html__( 'HTML Tag', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
@@ -149,8 +142,7 @@ class AnimatedHeading extends Widget_Base {
 
         /* Animation Settings */
         $this->start_controls_section(
-            'animation_settings',
-            [
+            'animation_settings', [
                 'label'     => esc_html__( 'Animation', 'easy-elementor-addons' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -161,8 +153,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'heading_animation',
-            [
+            'heading_animation', [
                 'label'       => esc_html__( 'Animation', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::ANIMATION,
                 'default'     => 'fadeIn',
@@ -176,8 +167,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'heading_animation_duration',
-            [
+            'heading_animation_duration', [
                 'label'   => esc_html__( 'Animation Duration', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'label_block' => true,
@@ -195,8 +185,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'heading_animation_delay',
-            [
+            'heading_animation_delay', [
                 'label'     => esc_html__( 'Animation Delay (ms)', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 2500,
@@ -214,8 +203,7 @@ class AnimatedHeading extends Widget_Base {
 
         /* Typed Heading Settings */
         $this->start_controls_section(
-            'typed_settings',
-            [
+            'typed_settings', [
                 'label'     => esc_html__( 'Animation', 'easy-elementor-addons' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -226,8 +214,7 @@ class AnimatedHeading extends Widget_Base {
         );
     
         $this->add_control(
-            'type_speed',
-            [
+            'type_speed', [
                 'label'     => esc_html__( 'Type Speed', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 60,
@@ -238,8 +225,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'start_delay',
-            [
+            'start_delay', [
                 'label'     => esc_html__( 'Start Delay', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 1,
@@ -250,8 +236,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'back_speed',
-            [
+            'back_speed', [
                 'label'     => esc_html__( 'Back Speed', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 30,
@@ -262,8 +247,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'back_delay',
-            [
+            'back_delay', [
                 'label'     => esc_html__( 'Back Delay', 'easy-elementor-addons' ) . ' (ms)',
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 500,
@@ -274,8 +258,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'loop',
-            [
+            'loop', [
                 'label'     => esc_html__( 'Loop', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::SWITCHER,
                 'default'   => 'yes',
@@ -283,8 +266,7 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'loop_count',
-            [
+            'loop_count', [
                 'label'     => esc_html__( 'Loop Count', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 0,
@@ -295,8 +277,7 @@ class AnimatedHeading extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'text_style',
-            [
+            'text_style', [
                 'label'     => esc_html__( 'Text', 'easy-elementor-addons' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
             ]
@@ -418,25 +399,22 @@ class AnimatedHeading extends Widget_Base {
                 }
                 echo sprintf( '<a %1$s>', $this->get_render_attribute_string( 'url' ) );
             }
-            ?>
-            
-                <?php if( $settings[ 'pre_heading' ] ) { ?>
-                    <div class="eead-pre-heading"><?php echo esc_html( $settings[ 'pre_heading' ] ); ?></div>
+            if( $settings[ 'pre_heading' ] ) { ?>
+                <div class="eead-pre-heading"><?php echo esc_html( $settings[ 'pre_heading' ] ); ?></div>
+            <?php } 
+                if( $settings[ 'animated_heading' ] ) { ?>
+                    <div <?php echo $this->get_render_attribute_string( 'animated-heading' ); ?>>
+                        <?php
+                            if( $settings[ 'layout' ] != 'typed' ) { 
+                                echo rtrim(esc_attr($settings['animated_heading']), ',');
+                            }
+                        ?>
+                    </div>
                 <?php } ?>
 
-                    <?php if( $settings[ 'animated_heading' ] ) { ?>
-                        <div <?php echo $this->get_render_attribute_string( 'animated-heading' ); ?>>
-                            <?php
-                                if( $settings[ 'layout' ] != 'typed' ) { 
-                                    echo rtrim(esc_attr($settings['animated_heading']), ',');
-                                }
-                            ?>
-                        </div>
-                    <?php } ?>
-
-                <?php if( $settings[ 'post_heading' ] ) { ?>
-                    <div class="eead-post-heading"><?php echo esc_html( $settings[ 'post_heading' ] ); ?></div>
-                <?php } ?>
+            <?php if( $settings[ 'post_heading' ] ) { ?>
+                <div class="eead-post-heading"><?php echo esc_html( $settings[ 'post_heading' ] ); ?></div>
+            <?php } ?>
 
             <?php if ( ! empty( $settings['heading_link']['url'] ) ) { echo '</a>'; } ?>
 
@@ -444,7 +422,5 @@ class AnimatedHeading extends Widget_Base {
 
         <?php
     }
-
-  
 
 }

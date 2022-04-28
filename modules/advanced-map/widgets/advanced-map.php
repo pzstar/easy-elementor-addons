@@ -48,8 +48,7 @@ class AdvancedMap extends Widget_Base {
     protected function register_controls() {
 
     	$this->start_controls_section(
-			'marker_controls_section',
-			[
+			'marker_controls_section', [
 				'label' => __( 'Markers', 'easy-elementor-addons' ),
 			]
 		);
@@ -70,8 +69,7 @@ class AdvancedMap extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'lat',
-			[
+			'lat', [
 				'label'       => __( 'Latitude', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [
@@ -82,8 +80,7 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'long',
-			[
+			'long', [
 				'label'       => __( 'Longitude', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [
@@ -94,8 +91,7 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'address',
-			[
+			'address', [
 				'label'       => __( 'Address', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'dynamic'     => [
@@ -106,16 +102,14 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'icon',
-			[
+			'icon', [
 				'label' => __( 'Icon', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::MEDIA,
 			]
 		);
 
 		$repeater->add_control(
-			'icon_size',
-			[
+			'icon_size', [
 				'label'   => __( 'Icon Size', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range'   => [
@@ -132,8 +126,7 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'info_window_onload',
-			[
+			'info_window_onload', [
 				'label'        => __( 'Info Window On Load', 'easy-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
@@ -144,8 +137,7 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-			'markers',
-			[
+			'markers', [
 				'label'   => __( 'Markers', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
@@ -162,15 +154,13 @@ class AdvancedMap extends Widget_Base {
 		$this->end_controls_section();
 
     	$this->start_controls_section(
-			'general',
-			[
+			'general', [
 				'label' => __( 'General Settings', 'easy-elementor-addons' ),
 			]
 		);
 
 		$this->add_responsive_control(
-			'height',
-			[
+			'height', [
 				'label'     => __( 'Height', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 300,
@@ -179,9 +169,9 @@ class AdvancedMap extends Widget_Base {
 				],
 			]
 		);
+
 		$this->add_control(
-			'zoom',
-			[
+			'zoom', [
 				'label'   => __( 'Zoom', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range'   => [
@@ -198,8 +188,7 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-			'animate',
-			[
+			'animate', [
 				'label'        => __( 'Animate Marker', 'easy-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
@@ -289,8 +278,7 @@ class AdvancedMap extends Widget_Base {
         );
 
         $this->add_control(
-			'snazzy_style',
-			[
+			'snazzy_style', [
 				'label'       => __( 'Snazzy Style', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'separator'   => 'before',
@@ -343,5 +331,4 @@ class AdvancedMap extends Widget_Base {
 			<?php
 		}
     }
-   
 }

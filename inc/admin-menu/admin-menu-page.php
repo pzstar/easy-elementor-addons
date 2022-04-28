@@ -62,7 +62,9 @@ $gmap_access_token = $eead_general_settings['gmap_access_token'] ? $eead_general
                     <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box'); ?>
                     <?php $this->get_widget_field('Advanced Map', 'advanced-map'); ?>
                     <?php $this->get_widget_field('Animated Heading', 'animated-heading'); ?>
+                    <?php $this->get_widget_field('Animated Icon', 'animated-icon'); ?>
                     <?php $this->get_widget_field('Business Hour', 'business-hour'); ?>
+                    <?php $this->get_widget_field('Caption Hover Effect', 'caption-hover-effect'); ?>
                     <?php $this->get_widget_field('Charts', 'charts'); ?>
                     <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
                     <?php $this->get_widget_field('Countdown', 'countdown'); ?>
@@ -93,6 +95,7 @@ $gmap_access_token = $eead_general_settings['gmap_access_token'] ? $eead_general
                     <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
                     <?php $this->get_widget_field('Popup Video', 'popup-video'); ?>
                     <?php $this->get_widget_field('Portfolio', 'portfolio-block'); ?>
+                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid'); ?>
                     <?php $this->get_widget_field('Pricing List', 'pricing-list'); ?>
                     <?php $this->get_widget_field('Pricing Table', 'pricing-table'); ?>
                     <?php $this->get_widget_field('Progressbar', 'progressbar'); ?>

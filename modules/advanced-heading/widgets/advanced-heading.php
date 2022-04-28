@@ -52,15 +52,13 @@ class AdvancedHeading extends Widget_Base {
     protected function register_controls() {
 
     	$this->start_controls_section(
-			'section_content_heading',
-			[
+			'section_content_heading', [
 				'label' => __( 'Heading', 'easy-elementor-addons' ),
 			]
 		);
 
 		$this->add_responsive_control(
-			'align',
-			[
+			'align', [
 				'label'   => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
@@ -86,8 +84,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'sub_heading',
-			[
+			'sub_heading', [
 				'label'       => __( 'Sub Heading', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
@@ -98,8 +95,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading',
-			[
+			'main_heading', [
 				'label'       => __( 'Main Heading', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
@@ -109,8 +105,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'split_main_heading',
-			[
+			'split_main_heading', [
 				'label'     => __( 'Split Main Heading', 'easy-elementor-addons' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::SWITCHER,
@@ -118,8 +113,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'split_text',
-			[
+			'split_text', [
 				'label'       => __( 'Split Text', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
@@ -134,8 +128,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'link',
-			[
+			'link', [
 				'label'       => __( 'Link', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
@@ -144,8 +137,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'header_size',
-			[
+			'header_size', [
 				'label'   => __( 'HTML Tag', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => eead_html_tags(),
@@ -155,17 +147,15 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		$this->start_controls_section(
-			'section_content_advanced_heading',
-			[
+			'section_content_advanced_heading', [
 				'label' 	=> __( 'Advanced Heading', 'easy-elementor-addons' )
 			]
 		);
 
 		$this->add_control(
-			'advanced_heading_visibility',
-			[
+			'advanced_heading_visibility', [
 				'label'     => __( 'Enable', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'	=> 'yes'
@@ -173,8 +163,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading',
-			[
+			'advanced_heading', [
 				'label'       => __( 'Advanced Heading', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
@@ -188,8 +177,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'advanced_heading_align',
-			[
+			'advanced_heading_align', [
 				'label'   => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
@@ -215,10 +203,8 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-
 		$this->add_responsive_control(
-			'advanced_heading_x_position',
-			[
+			'advanced_heading_x_position', [
 				'label'   => __( 'X Offset', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
@@ -243,8 +229,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'advanced_heading_y_position',
-			[
+			'advanced_heading_y_position', [
 				'label'   => __( 'Y Offset', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
@@ -269,8 +254,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_origin',
-			[
+			'advanced_heading_origin', [
 				'label'       => __( 'Rotate Origin', 'easy-elementor-addons' ),
 				'description' => __( 'Please set the rotate value to make it work.', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::SELECT,
@@ -283,10 +267,8 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		
 		$this->add_responsive_control(
-			'advanced_heading_rotate',
-			[
+			'advanced_heading_rotate', [
 				'label'   => __( 'Rotate', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
@@ -317,8 +299,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_hide',
-			[
+			'advanced_heading_hide', [
 				'label'       => __( 'Hide On Devices', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'm',
@@ -337,8 +318,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_style_sub_heading',
-			[
+			'section_style_sub_heading', [
 				'label'     => __( 'Sub Heading', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
@@ -348,8 +328,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'sub_heading_color',
-			[
+			'sub_heading_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -359,24 +338,21 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name'     => 'sub_heading_typography',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-sub-heading',
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
+			Group_Control_Text_Shadow::get_type(), [
 				'name'     => 'sub_heading_text_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-sub-heading',
 			]
 		);
 
 		$this->add_control(
-			'sub_heading_style',
-			[
+			'sub_heading_style', [
 				'label'   => __( 'Style', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
@@ -388,8 +364,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'sub_heading_style_color',
-			[
+			'sub_heading_style_color', [
 				'label'     => __( 'Style Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -402,8 +377,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'sub_heading_style_width',
-			[
+			'sub_heading_style_width', [
 				'label' => __( 'Width', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
@@ -422,8 +396,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'sub_heading_style_height',
-			[
+			'sub_heading_style_height', [
 				'label' => __( 'Height', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
@@ -442,8 +415,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'sub_heading_style_align',
-			[
+			'sub_heading_style_align', [
 				'label'   => __( 'Style Position', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
@@ -460,8 +432,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'sub_heading_style_indent',
-			[
+			'sub_heading_style_indent', [
 				'label'   => __( 'Style Spacing', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
@@ -486,8 +457,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_style_main_heading',
-			[
+			'section_style_main_heading', [
 				'label'     => __( 'Main Heading', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
@@ -499,15 +469,13 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_tabs('tabs_style_main_heading');
 
 		$this->start_controls_tab(
-			'tab_style_normal',
-			[
+			'tab_style_normal', [
 				'label' => esc_html__('Normal', 'easy-elementor-addons')
 			]
 		);
 
 		$this->add_control(
-			'main_heading_color',
-			[
+			'main_heading_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -517,8 +485,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading_background',
-			[
+			'main_heading_background', [
 				'label'     => __( 'Background', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -528,8 +495,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'main_heading_padding',
-			[
+			'main_heading_padding', [
 				'label'      => esc_html__('Padding', 'easy-elementor-addons'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
@@ -540,8 +506,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+			Group_Control_Border::get_type(), [
 				'name'        => 'main_heading_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
@@ -550,8 +515,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading_radius',
-			[
+			'main_heading_radius', [
 				'label'      => esc_html__('Radius', 'easy-elementor-addons'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -562,32 +526,28 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
+			Group_Control_Box_Shadow::get_type(), [
 				'name'     => 'main_heading_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
+			Group_Control_Text_Shadow::get_type(), [
 				'name'     => 'main_heading_text_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name'     => 'main_heading_typography',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div',
 			]
 		);
 
 		$this->add_control(
-			'heading_mainh_split_text',
-			[
+			'heading_mainh_split_text', [
 				'label'     => __( 'Split Text', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
@@ -598,8 +558,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'mainh_split_text_color',
-			[
+			'mainh_split_text_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
@@ -614,8 +573,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'mainh_split_text_background',
-			[
+			'mainh_split_text_background', [
 				'label'     => __( 'Background', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -647,8 +605,7 @@ class AdvancedHeading extends Widget_Base {
         );
 
 		$this->add_responsive_control(
-			'mainh_split_text_padding',
-			[
+			'mainh_split_text_padding', [
 				'label'      => esc_html__('Padding', 'easy-elementor-addons'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
@@ -663,8 +620,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+			Group_Control_Border::get_type(), [
 				'name'        => 'mainh_split_text_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
@@ -677,8 +633,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'mainh_split_text_radius',
-			[
+			'mainh_split_text_radius', [
 				'label'      => esc_html__('Radius', 'easy-elementor-addons'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -693,8 +648,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
+			Group_Control_Box_Shadow::get_type(), [
 				'name'      => 'mainh_split_text_shadow',
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
 				'condition' => [
@@ -705,8 +659,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name'      => 'mainh_split_text_typography',
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
 				'condition' => [
@@ -719,15 +672,13 @@ class AdvancedHeading extends Widget_Base {
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
-			'tab_style_advanced',
-			[
+			'tab_style_advanced', [
 				'label' => esc_html__('Advanced', 'easy-elementor-addons')
 			]
 		);
 
 		$this->add_control(
-			'main_heading_advanced_color',
-			[
+			'main_heading_advanced_color', [
 				'label'        => __( 'Advanced Style', 'easy-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'prefix_class' => 'eead-ep-main-color-',
@@ -736,8 +687,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
+			Group_Control_Background::get_type(), [
 				'name'     => 'main_heading_advanced_color',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
 			]
@@ -748,8 +698,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->end_controls_tabs();		
 
 		$this->add_control(
-			'main_heading_style',
-			[
+			'main_heading_style', [
 				'label'   => __( 'Style', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
@@ -761,8 +710,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading_style_color',
-			[
+			'main_heading_style_color', [
 				'label'     => __( 'Style Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -775,8 +723,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'main_heading_style_width',
-			[
+			'main_heading_style_width', [
 				'label' => __( 'Width', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
@@ -795,8 +742,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'main_heading_style_height',
-			[
+			'main_heading_style_height', [
 				'label' => __( 'Height', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
@@ -815,8 +761,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading_style_align',
-			[
+			'main_heading_style_align', [
 				'label'   => __( 'Style Position', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'bottom',
@@ -833,8 +778,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'main_heading_style_indent',
-			[
+			'main_heading_style_indent', [
 				'label'   => __( 'Style Spacing', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
@@ -859,8 +803,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_style_advanced_heading',
-			[
+			'section_style_advanced_heading', [
 				'label'     => __( 'Advanced Heading', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
@@ -872,8 +815,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_advanced_color',
-			[
+			'advanced_heading_advanced_color', [
 				'label'        => __( 'Advanced Style', 'easy-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'prefix_class' => 'eead-ep-advanced-color-',
@@ -882,8 +824,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
+			Group_Control_Background::get_type(), [
 				'name'      => 'advanced_heading_advanced_color',
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 				'condition' => [
@@ -893,8 +834,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_color',
-			[
+			'advanced_heading_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -905,10 +845,9 @@ class AdvancedHeading extends Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
-			'advanced_heading_background_color',
-			[
+			'advanced_heading_background_color', [
 				'label'     => __( 'Background Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
@@ -921,8 +860,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_padding',
-			[
+			'advanced_heading_padding', [
 				'label'      => __( 'Padding', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
@@ -933,8 +871,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name'      => 'advanced_heading_typography',
 				'selector'  => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 				'separator' => 'before',
@@ -942,17 +879,14 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
+			Group_Control_Text_Shadow::get_type(), [
 				'name'     => 'advanced_heading_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 			]
 		);
 
-
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+			Group_Control_Border::get_type(), [
 				'name'        => 'advanced_heading_border',
 				'label'       => __( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
@@ -963,8 +897,7 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_border_radius',
-			[
+			'advanced_heading_border_radius', [
 				'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -976,16 +909,14 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
+			Group_Control_Box_Shadow::get_type(), [
 				'name'     => 'advanced_heading_box_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 			]
 		);
 
 		$this->add_control(
-			'advanced_heading_opacity',
-			[
+			'advanced_heading_opacity', [
 				'label' => __( 'Opacity', 'easy-elementor-addons' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
@@ -1048,7 +979,6 @@ class AdvancedHeading extends Widget_Base {
 			$main_heading = '<div '.$this->get_render_attribute_string( 'main_heading' ).'>' . esc_html($settings['main_heading']) . '</div>';
 
 			$main_heading = '<div class="eead-main-heading">' . $main_heading . $split_heading . $mainh_style . '</div>';
-
 		}
 
 		if ( ! empty( $settings['link']['url'] ) ) {

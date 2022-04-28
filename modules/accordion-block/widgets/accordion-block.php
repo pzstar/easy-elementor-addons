@@ -55,8 +55,7 @@ class AccordionBlock extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'keep_open',
-            [
+            'keep_open', [
                 'label' => __( 'Show Content', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __( 'Yes', 'easy-elementor-addons' ),
@@ -67,8 +66,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => __( 'Accordion', 'easy-elementor-addons' )
@@ -76,8 +74,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'content_type',
-            [
+            'content_type', [
                 'label' => __( 'Content Type', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
@@ -89,8 +86,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'elementor_template',
-            [
+            'elementor_template', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -101,8 +97,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'wisiwyg_content',
-            [
+            'wisiwyg_content', [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::WYSIWYG,
                 'default' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' ),
@@ -144,8 +139,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'items',
-            [
+            'items', [
                 'label' => __( 'Items', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -159,8 +153,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'accordion_open_icon',
-            [
+            'accordion_open_icon', [
                 'label'       => __( 'Open Icon', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
@@ -186,8 +179,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'accordion_close_icon',
-            [
+            'accordion_close_icon', [
                 'label'       => __( 'Close Icon', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon_active',
@@ -216,8 +208,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'layout',
-            [
+            'layout', [
                 'label' => __( 'Style', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -237,7 +228,7 @@ class AccordionBlock extends Widget_Base {
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
-        
+
         $this->add_control(
                 'title_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
@@ -313,8 +304,7 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'title_padding',
-            [
+            'title_padding', [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -323,7 +313,7 @@ class AccordionBlock extends Widget_Base {
                 ],
             ]
         );
-        
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -332,7 +322,7 @@ class AccordionBlock extends Widget_Base {
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
-        
+
         $this->add_control(
                 'content_bg_color', [
             'label' => esc_html__('Background Color', 'easy-elementor-addons'),
@@ -440,5 +430,4 @@ class AccordionBlock extends Widget_Base {
 
         return $content;
     }
-
 }

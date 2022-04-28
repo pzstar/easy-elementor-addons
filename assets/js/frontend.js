@@ -44,6 +44,8 @@
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
                 'eead-slinky-vertical-menu-block.default': EEA.slinkyVerticalMenuBlock,
+                'eead-portfolio-grid.default': EEA.portfolioGrid,
+                'eead-caption-hover-effect.default': EEA.captionHoverEffect,
             };
 
             $.each(widgets, function (widget, callback) {
@@ -2315,6 +2317,125 @@
                 return;
             }
             const slinky = $('#'+$settings).slinky();
+        },
+        portfolioGrid: function ($scope) {
+            $scope.find("form.eead-fpg-toolbar").each(function () {
+                var i = $(this).attr("id");
+                document.getElementById(i).reset();
+            });
+            var n = $scope.find("input[name='filter']:checked").val();
+            n && "all" != n && i.find(".eead-fpg-container li").each(function () {
+                var i = $(this);
+                i.filter("[data-filter~=" + n + "]").length ? i.show() : i.hide();
+            }),
+            $scope.find(".eead-fpg-container").fadeIn(200);
+            $scope.find("li.eead-fpg-mobile-icon").on("click", function (e) {
+                i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").toggle();
+            }),
+            $(window).on("resize", function () {
+                $(window).width() > 767 ? i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
+            }),
+            $scope.find("input[name='view']").change(function () {
+                $scope.find(".eead-fpg-view-options label").removeClass("active"),
+                $scope.find("input[name='view']:checked").parent().find("label").addClass("active"),
+                "show-grid" == $(this).val() ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-list-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-grid-view"))
+                : "show-list" == $(this).val() && ($scope.find(".eead-fpg-container").removeClass("eead-fpg-grid-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-list-view"));
+            }),
+            $scope.find("input[name='filter']").change(function () {
+                var n = $(this).val();
+                $scope.find(".eead-fpg-search-wrapper li label").removeClass("active"),
+                $scope.find("input[name='filter']:checked").parent().find("label").addClass("active"),
+                "all" === n ? (i.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
+                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
+                $scope.find(".eead-fpg-container").fadeOut(200, function () {
+                    $scope.find(".eead-fpg-container li").show(),
+                    $(this).fadeIn(200, function () {
+                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                    });
+                }))
+                : ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
+                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
+                $scope.find(".eead-fpg-container").fadeOut(200, function () {
+                    $scope.find(".eead-fpg-container li").each(function () {
+                        var e = $(this);
+                        e.filter("[data-filter~=" + n + "]").length ? e.show() : e.hide();
+                    }),
+                    $(this).fadeIn(200, function () {
+                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                    });
+                }));
+            });
+        },
+        captionHoverEffect: function($scope) {
+            if( Modernizr.touch ) {
+                function classReg( className ) {
+                    return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+                }
+
+                // classList support for class management
+                // altho to be fair, the api sucks because it won't accept multiple classes at once
+                var hasClass, addClass, removeClass;
+
+                if ( 'classList' in document.documentElement ) {
+                    hasClass = function( elem, c ) {
+                        return elem.classList.contains( c );
+                    };
+                    addClass = function( elem, c ) {
+                        elem.classList.add( c );
+                    };
+                    removeClass = function( elem, c ) {
+                        elem.classList.remove( c );
+                    };
+                }
+                else {
+                    hasClass = function( elem, c ) {
+                        return classReg( c ).test( elem.className );
+                    };
+                    addClass = function( elem, c ) {
+                        if ( !hasClass( elem, c ) ) {
+                                elem.className = elem.className + ' ' + c;
+                        }
+                    };
+                    removeClass = function( elem, c ) {
+                        elem.className = elem.className.replace( classReg( c ), ' ' );
+                    };
+                }
+
+                function toggleClass( elem, c ) {
+                    var fn = hasClass( elem, c ) ? removeClass : addClass;
+                    fn( elem, c );
+                }
+
+                var classie = {
+                    // full names
+                    hasClass: hasClass,
+                    addClass: addClass,
+                    removeClass: removeClass,
+                    toggleClass: toggleClass,
+                    // short names
+                    has: hasClass,
+                    add: addClass,
+                    remove: removeClass,
+                    toggle: toggleClass
+                };
+
+                // transport
+                if ( typeof define === 'function' && define.amd ) {
+                    // AMD
+                    define( classie );
+                } else {
+                    // browser global
+                    window.classie = classie;
+                }
+
+                el = $scope.find( 'figcaption > a' )[0];
+                el.addEventListener( 'touchstart', function(e) {
+                    e.stopPropagation();
+                }, false );
+                el.addEventListener( 'touchstart', function(e) {
+                    classie.toggle( this, 'cs-hover' );
+                }, false );
+            }
         }
     };
     $(window).on('elementor/frontend/init', EEA.init);
