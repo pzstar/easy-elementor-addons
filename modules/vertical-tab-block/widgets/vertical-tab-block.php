@@ -9,6 +9,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
 use Elementor\Icons_Manager;
+use Elementor\Repeater;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -48,7 +49,7 @@ class VerticalTabBlock extends Widget_Base {
                 ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
                 'icon', [
@@ -94,8 +95,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'wisiwyg_content',
-            [
+            'wisiwyg_content', [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
@@ -104,8 +104,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'elementor_template',
-            [
+            'elementor_template', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -116,8 +115,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'enable',
-            [
+            'enable', [
                 'label' => __( 'Enable', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __( 'Show', 'easy-elementor-addons' ),
@@ -183,8 +181,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'tab_layout',
-            [
+            'tab_layout', [
                 'label' => __( 'Style', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -309,7 +306,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'style_tabs'
+            'style_tabs'
         );
 
         $this->start_controls_tab(
@@ -415,8 +412,7 @@ class VerticalTabBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'content_border_color',
-            [
+            'content_border_color', [
                 'label' => __( 'Border Color', 'plugin-domain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -535,7 +531,6 @@ class VerticalTabBlock extends Widget_Base {
             $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
         } else {
             $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
-
             foreach ( $templates as $template ) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
                 $types[$template['template_id']]            = $template['type'];
@@ -550,26 +545,22 @@ class VerticalTabBlock extends Widget_Base {
     }
 
     protected function get_pages() {
-        $pages = get_pages( array(
+        $pages = get_pages(array(
             'order'   => 'ASC'
-        ) );
+        ));
 
         $_pages = [];
 
         foreach( $pages as $key => $object ) {
             $_pages[$object->ID] = ucfirst($object->post_title); 
         }
-
         return $_pages;
     }
 
     private function eead_template_edit_link($template_id) {
         if ( $this->elementor()->editor->is_edit_mode() ) {
-
             $url = add_query_arg(['elementor' => ''], get_permalink($template_id));
-
             $output = '<a class="eead-template-edit-link" href="'.esc_url($url).'" title="'.esc_html__('Edit Template', 'easy-elementor-addons').'" target="_blank"><i class="eicon-edit"></i></a>';
-
             return $output;
         }
     }

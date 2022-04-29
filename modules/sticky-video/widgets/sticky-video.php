@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Sticky Video Widget
  */
 class StickyVideo extends Widget_Base {
 
@@ -37,8 +37,7 @@ class StickyVideo extends Widget_Base {
         return ['easy-elementor-addons'];
     }
 
-    public function get_style_depends()
-    {
+    public function get_style_depends() {
         return [
             'font-awesome-5-all',
             'font-awesome-4-shim',
@@ -46,8 +45,7 @@ class StickyVideo extends Widget_Base {
         ];
     }
 
-    public function get_script_depends()
-    {
+    public function get_script_depends() {
         return [
             'font-awesome-4-shim',
             'plyr'
@@ -55,22 +53,17 @@ class StickyVideo extends Widget_Base {
     }
 
     /** Controls */
-    protected function register_controls()
-    {
-        /**
-         * General
-         */
+    protected function register_controls() {
+
         $this->start_controls_section(
-            'eead_section_video_settings',
-            [
+            'eead_section_video_settings', [
                 'label' => esc_html__('Video', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'eead_is_sticky',
-            [
+            'eead_is_sticky', [
                 'label' => __('Sticky', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -85,8 +78,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_sticky_position',
-            [
+            'eead_sticky_position', [
                 'label' => __('Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -103,8 +95,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_source',
-            [
+            'eead_video_source', [
                 'label' => __('Source', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'youtube',
@@ -117,8 +108,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_link_youtube',
-            [
+            'eead_link_youtube', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic'   => ['active' => true],
@@ -132,8 +122,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_link_vimeo',
-            [
+            'eead_link_vimeo', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic'     => [ 'active' => true ],
@@ -147,8 +136,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_link_dailymotion',
-            [
+            'eead_link_dailymotion', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic'     => [ 'active' => true ],
@@ -161,8 +149,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_link_external',
-            [
+            'eead_link_external', [
                 'label' => __('External URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -173,8 +160,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_hosted_url',
-            [
+            'eead_hosted_url', [
                 'label' => __('Choose File', 'elementor'),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
@@ -192,8 +178,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_external_url',
-            [
+            'eead_external_url', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic'     => [ 'active' => true ],
@@ -208,8 +193,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_self_hosted_link',
-            [
+            'eead_video_self_hosted_link', [
                 'label' => __('Choose File', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'label_block' => true,
@@ -221,8 +205,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_start_time',
-            [
+            'eead_start_time', [
                 'label' => __('Start Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -237,8 +220,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_end_time',
-            [
+            'eead_end_time', [
                 'label' => __('End Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -253,8 +235,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_autoplay',
-            [
+            'eead_autoplay', [
                 'label' => __('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -265,8 +246,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_mute',
-            [
+            'eead_mute', [
                 'label' => __('Mute', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -276,8 +256,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_loop',
-            [
+            'eead_loop', [
                 'label' => __('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -287,8 +266,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_show_bar',
-            [
+            'eead_show_bar', [
                 'label' => __('Show Bar', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -302,16 +280,14 @@ class StickyVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_video_image_overlay_section',
-            [
+            'eead_video_image_overlay_section', [
                 'label' => __('Image Overlay', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'eead_overlay_options',
-            [
+            'eead_overlay_options', [
                 'label' => __('Image Overlay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -323,8 +299,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_overlay_image',
-            [
+            'eead_overlay_image', [
                 'label' => __('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'label_block' => true,
@@ -336,9 +311,9 @@ class StickyVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'default' => 'full',
                 'name' => 'eead_overlay_image_size',
                 'condition' => [
@@ -348,8 +323,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_overlay_play_icon',
-            [
+            'eead_overlay_play_icon', [
                 'label' => __('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
@@ -362,8 +336,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_icon_new',
-            [
+            'eead_icon_new', [
                 'label' => esc_html__('Choose Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
@@ -380,12 +353,8 @@ class StickyVideo extends Widget_Base {
 
         $this->end_controls_section();
 
-        /**
-         * Style Tab Started
-         */
         $this->start_controls_section(
-            'eead_sticky_video_interface',
-            [
+            'eead_sticky_video_interface', [
                 'label' => __('Sticky Video Interface', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -394,10 +363,8 @@ class StickyVideo extends Widget_Base {
             ]
         );
 
-
         $this->add_control(
-            'eead_sticky_width',
-            [
+            'eead_sticky_width', [
                 'label' => __('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 100,
@@ -414,8 +381,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_sticky_height',
-            [
+            'eead_sticky_height', [
                 'label' => __('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 55,
@@ -431,11 +397,8 @@ class StickyVideo extends Widget_Base {
             ]
         );
 
-
-
         $this->add_control(
-            'eead_scroll_height_display_sticky',
-            [
+            'eead_scroll_height_display_sticky', [
                 'label' => __('Show Sticky Video On Scroll Height (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -456,8 +419,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_sticky_close_button_color',
-            [
+            'eead_sticky_close_button_color', [
                 'label' => __('Close Button Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'condition' => [
@@ -472,16 +434,14 @@ class StickyVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_sh_player_section',
-            [
+            'eead_sh_player_section', [
                 'label' => __('Player', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'eead_sh_video_width',
-            [
+            'eead_sh_video_width', [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
@@ -503,8 +463,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_sh_video_border_type',
-            [
+            'eead_sh_video_border_type', [
                 'label' => __('Border Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
@@ -522,8 +481,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_sh_video_border_width',
-            [
+            'eead_sh_video_border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px'],
@@ -534,8 +492,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_sh_video_border_color',
-            [
+            'eead_sh_video_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -546,8 +503,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_sh_video_border_radius',
-            [
+            'eead_sh_video_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -562,16 +518,14 @@ class StickyVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_sh_player_interface_section',
-            [
+            'eead_sh_player_interface_section', [
                 'label' => __('Interface', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_sh_video_interface_color',
-            [
+            'eead_sh_video_interface_color', [
                 'label' => esc_html__('Interface Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#7b6ccc',
@@ -586,8 +540,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_sh_play_button_size',
-            [
+            'eead_sh_play_button_size', [
                 'label' => __('Play Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -611,16 +564,14 @@ class StickyVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_sh_player_bar_section',
-            [
+            'eead_sh_player_bar_section', [
                 'label' => __('Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'eead_sh_player_bar_padding',
-            [
+            'eead_sh_player_bar_padding', [
                 'label' => __('Bar Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -642,8 +593,7 @@ class StickyVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_sh_bar_margin',
-            [
+            'eead_sh_bar_margin', [
                 'label' => esc_html__('Bar Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px'],
@@ -656,8 +606,7 @@ class StickyVideo extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function render()
-    {
+    protected function render() {
         $settings = $this->get_settings_for_display();
         $iconNew = $settings['eead_icon_new'];
         $sticky = $settings['eead_is_sticky'];
@@ -680,8 +629,7 @@ class StickyVideo extends Widget_Base {
                 }
 
                 $this->add_render_attribute(
-                    'esvp_overlay_wrapper',
-                    [
+                    'esvp_overlay_wrapper', [
                         'class' => 'eead-overlay',
                         'style' => "background-image:url('" . $settings['eead_overlay_image']['url'] . "');",
                     ]
@@ -691,23 +639,21 @@ class StickyVideo extends Widget_Base {
                 <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper') ?>>
                     <div class="eead-overlay-icon"><?php echo $icon; ?></div>
                 </div>
-
                 <?php
-            }
+                }
 
-            $this->add_render_attribute(
-                'esvp_overlay_wrapper2',
-                [
-                    'class' => 'eead-sticky-video-player2',
-                    'data-sticky' => $sticky,
-                    'data-position' => $settings['eead_sticky_position'],
-                    'data-sheight' => $settings['eead_sticky_height'],
-                    'data-swidth' => $settings['eead_sticky_width'],
-                    'data-scroll_height' => $settings['eead_scroll_height_display_sticky']['size'],
-                    'data-autoplay' => $autoplay,
-                    'data-overlay' => ($settings['eead_overlay_options'] == 'yes') ? $settings['eead_overlay_options'] : 'no',
-                ]
-            );
+                $this->add_render_attribute(
+                    'esvp_overlay_wrapper2', [
+                        'class' => 'eead-sticky-video-player2',
+                        'data-sticky' => $sticky,
+                        'data-position' => $settings['eead_sticky_position'],
+                        'data-sheight' => $settings['eead_sticky_height'],
+                        'data-swidth' => $settings['eead_sticky_width'],
+                        'data-scroll_height' => $settings['eead_scroll_height_display_sticky']['size'],
+                        'data-autoplay' => $autoplay,
+                        'data-overlay' => ($settings['eead_overlay_options'] == 'yes') ? $settings['eead_overlay_options'] : 'no',
+                    ]
+                );
             ?>
             <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper2') ?>>
                 <?php  
@@ -727,8 +673,7 @@ class StickyVideo extends Widget_Base {
         <?php
     }
 
-    protected function eead_get_youtube_player()
-    {
+    protected function eead_get_youtube_player() {
         $settings = $this->get_settings_for_display();
         $id = $this->eead_get_url_id();
         $autoplay = $settings['eead_autoplay'];
@@ -745,16 +690,14 @@ class StickyVideo extends Widget_Base {
             $lp = '"loop": {"active": false}';
         }
 
-        return '<div
-            id="eead-player-' . $this->get_id() . '"
+        return '<div id="eead-player-' . $this->get_id() . '"
             data-plyr-provider="youtube"
             data-plyr-embed-id="' . esc_attr($id) . '"
             data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}"
-        ></div>';
+            ></div>';
     }
 
-    protected function eead_get_vimeo_player()
-    {
+    protected function eead_get_vimeo_player() {
         $settings = $this->get_settings_for_display();
         $id = $this->eead_get_url_id();
         $autoplay = $settings['eead_autoplay'];
@@ -782,8 +725,7 @@ class StickyVideo extends Widget_Base {
         return $html;
     }
 
-    protected function eead_get_self_hosted_player()
-    {
+    protected function eead_get_self_hosted_player() {
         $settings = $this->get_settings_for_display();
         $id = $this->get_id();
         $video = ($settings['eead_external_url'] != '') ? $settings['eead_external_url'] : $settings['eead_hosted_url']['url'];
@@ -816,8 +758,7 @@ class StickyVideo extends Widget_Base {
         return $html;
     }
 
-    protected function eead_get_url_id()
-    {
+    protected function eead_get_url_id() {
         $settings = $this->get_settings_for_display();
 
         if ( $settings['eead_video_source'] === 'youtube' ) {
@@ -837,6 +778,5 @@ class StickyVideo extends Widget_Base {
 
         return $id;
     }
-
 
 }

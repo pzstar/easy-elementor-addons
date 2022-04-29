@@ -14,13 +14,13 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Animated Icon Widget
  */
 class AnimatedIcon extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-animated-heading-block';
+        return 'eead-animated-icon-block';
     }
 
     /** Widget Title */
@@ -108,7 +108,7 @@ class AnimatedIcon extends Widget_Base {
             'eead_animation_trigger', [
                 'label' => esc_html__( 'Animation Trigger', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'hover',
+                'default' => 'loop',
                 'description' => esc_html__('Method that makes the icon animate', 'easy-elementor-addons'),
                 'options' => [
                     'loop' => esc_html__( 'Loop(always animate)', 'easy-elementor-addons' ),
@@ -153,83 +153,16 @@ class AnimatedIcon extends Widget_Base {
             )
         );
 
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_content', [
-                'label' => esc_html__( 'Content', 'easy-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
         $this->add_control(
-            'eead_show_title', [
-                'label'     => __( 'Show Title', 'easy-elementor-addons' ),
-                'separator' => 'before',
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'yes'
-            ]
-        );
-
-        $this->add_control(
-            'eead_title', [
-                'label'       => __( 'Title', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => [ 'active' => true ],
-                'default'     => __( 'Lordicon', 'easy-elementor-addons' ),
-                'condition'     => [
-                    'eead_show_title'  => 'yes'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_show_text', [
-                'label'     => __( 'Show Text', 'easy-elementor-addons' ),
-                'separator' => 'before',
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'eead_text', [
-                'label'       => __( 'Title', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::WYSIWYG,
-                'dynamic'     => [ 'active' => true ],
-                'condition'     => [
-                    'eead_show_text'  => 'yes'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_show_button', [
-                'label'     => __( 'Show Button', 'easy-elementor-addons' ),
-                'separator' => 'before',
-                'type'      => Controls_Manager::SWITCHER,
-            ]
-        );
-
-        $this->add_control(
-            'eead_button_text', [
-                'label'       => __( 'Button Text', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => [ 'active' => true ],
-                'condition'     => [
-                    'eead_show_button'  => 'yes'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_button_url', [
-                'label'       => __( 'Button Link', 'easy-elementor-addons' ),
+            'eead_icon_link', [
+                'label'       => __( 'Link', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::URL,
-                'dynamic'     => [ 'active' => true ],
-                'condition'     => [
-                    'eead_show_button'  => 'yes'
+                'dynamic'     => [
+                    'active' => true,
+                ],
+                'placeholder' => __( 'https://your-link.com', 'easy-elementor-addons' ),
+                'default'     => [
+                    'url' => '#',
                 ],
             ]
         );
@@ -299,95 +232,6 @@ class AnimatedIcon extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'eead_icon_background', [
-                'label'     => __( 'Icon Background', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR
-            ]
-        );
-
-        $this->add_control(
-            'eead_icon_shape_type', [
-                'label' => esc_html__( 'Shape Type', 'easy-elementor-addons' ),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'hover',
-                'description' => esc_html__('Method that makes the icon animate', 'easy-elementor-addons'),
-                'options' => [
-                    'radius' => esc_html__( 'Radius', 'easy-elementor-addons' ),
-                    'clip-path' => esc_html__( 'Clip Path', 'easy-elementor-addons' )
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_icon_radius', [
-                'label'      => esc_html__('Icon Radius', 'easy-elementor-addons'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'condition'     => [
-                    'eead_icon_shape_type'  => 'radius'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_icon_shape', [
-                'label' => esc_html__( 'Shape Type', 'easy-elementor-addons' ),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'hover',
-                'description' => esc_html__('Method that makes the icon animate', 'easy-elementor-addons'),
-                'options' => [
-                    '' => esc_html__( 'None', 'easy-elementor-addons' ),
-                    'triangle' => esc_html__( 'Triangle', 'easy-elementor-addons' ),
-                    'trapezoid' => esc_html__( 'Trapezoid', 'easy-elementor-addons' ),
-                    'parallelogram' => esc_html__( 'Parallelogram', 'easy-elementor-addons' ),
-                    'rhombus' => esc_html__( 'Rhombus', 'easy-elementor-addons' ),
-                    'pentagon' => esc_html__( 'Pentagon', 'easy-elementor-addons' ),
-                    'hexagon' => esc_html__( 'Hexagon', 'easy-elementor-addons' ),
-                    'heptagon' => esc_html__( 'Heptagon', 'easy-elementor-addons' ),
-                    'octagon' => esc_html__( 'Octagon', 'easy-elementor-addons' ),
-                    'nonagon' => esc_html__( 'Nonagon', 'easy-elementor-addons' ),
-                    'decagon' => esc_html__( 'Decagon', 'easy-elementor-addons' ),
-                    'bevel' => esc_html__( 'Bevel', 'easy-elementor-addons' ),
-                    'polygon' => esc_html__( 'Polygon', 'easy-elementor-addons' ),
-                ],
-                'condition'     => [
-                    'eead_icon_shape_type'  => 'clip-path'
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_icon_padding', [
-                'label'      => esc_html__('Icon Padding', 'easy-elementor-addons'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
-                'name'     => 'eead_icon_shadow',
-                // 'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_icon_margin', [
-                'label'      => esc_html__('Icon Margin', 'easy-elementor-addons'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ]
-            ]
-        );
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_box_styles', [
-                'label' => esc_html__( 'Box', 'easy-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
         $this->end_controls_section();
 
     }
@@ -404,25 +248,12 @@ class AnimatedIcon extends Widget_Base {
                 $icon_url = !empty($settings['eead_url']) ? $settings['eead_url'] : '';
             }
             ?>
-            <a href="#">
+            <a href="<?php echo esc_url($settings['eead_icon_link']['url']) ?>">
                 <div>
                     <lord-icon src="<?php echo esc_url($icon_url) ?>" trigger="<?php echo esc_attr($settings['eead_animation_trigger']) ?>" target="<?php echo esc_attr($settings['eead_animation_target']) ?>" stroke="<?php echo esc_attr($settings['eead_icon_stroke']['size']) ?>" colors="primary:<?php echo esc_attr($settings['eead_color_one']) ?>,secondary:<?php echo esc_attr($settings['eead_color_two']) ?>">
                     </lord-icon>
                 </div>
             </a>
-            <div class="eead-lord-icon-content">
-                <?php if($settings['eead_show_title'] == 'yes') : ?>
-                    <div class="eead-box-title"><?php echo esc_html($settings['eead_title']) ?></div>
-                <?php endif;?>
-                <?php if($settings['eead_show_text'] == 'yes') : ?>
-                    <div class="eead-box-text"><?php echo esc_html($settings['eead_text']) ?></div>  
-                <?php endif;?>
-                <?php if($settings['eead_show_button'] == 'yes') : ?>
-                    <div class="eead-box-button">
-                        <a class="eead-btn " href="# "><?php echo esc_html($settings['eead_button_text']) ?></a>
-                    </div>
-                <?php endif;?>
-            </div>
         </div>
         <?php
     }

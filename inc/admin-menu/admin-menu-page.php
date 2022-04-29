@@ -1,7 +1,7 @@
 <?php
 $eead_general_settings = get_option('eead_general_settings');
 $eead_widgets = get_option('eead_widgets');
-$gmap_access_token = $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
+$gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
 //echo '<pre>';print_r($eead_general_settings);echo '</pre>';
 //echo '<pre>';print_r($eead_widgets);echo '</pre>';
 ?>

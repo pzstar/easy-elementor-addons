@@ -63,6 +63,15 @@ class CaptionHoverEffect extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+                Group_Control_Image_Size::get_type(), [
+            'name' => 'image',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'full',
+                ]
+        );
+
         $this->add_control(
                 'title', [
             'label' => __('Title', 'easy-elementor-addons'),
@@ -101,6 +110,31 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
+                'margin_heading', [
+            'label' => esc_html__('Margin Heading(%)', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['%'],
+            'range' => [
+                '%' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 1
+                ],
+            ],
+            'default' => [
+                'unit' => '%',
+                'size' => 60,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .cs-style-6 figcaption h3, {{WRAPPER}} .cs-style-7 figcaption h3' => 'margin-top : {{SIZE}}{{UNIT}};',
+            ],
+            'condition' => [
+                'effect_style' => array('cs-style-6', 'cs-style-7'),
+            ],
+                ]
+        );
+
+        $this->add_control(
                 'button_text', [
             'label' => __('Button Text', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
@@ -110,9 +144,86 @@ class CaptionHoverEffect extends Widget_Base {
                 ]
         );
 
+        $this->add_control(
+            'button_link', [
+                'label'       => __( 'Link', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::URL,
+                'dynamic'     => [
+                    'active' => true,
+                ],
+                'placeholder' => __( 'https://your-link.com', 'easy-elementor-addons' ),
+                'default'     => [
+                    'url' => '#',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+                'settings_section', [
+            'label' => esc_html__('Settings', 'easy-elementor-addons'),
+            'tab' => Controls_Manager::TAB_STYLE,
+                ]
+        );
+
+        $this->add_control(
+                'figcaption_color', [
+            'label' => esc_html__('Figcaption Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#ed4e6e',
+            'selectors' => [
+                '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'color: {{VALUE}}',
+            ]
+                ]
+        );
+
+        $this->add_control(
+                'figcaption_bg_color', [
+            'label' => esc_html__('Figcaption Background Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#2c3f52',
+            'selectors' => [
+                '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'background: {{VALUE}}',
+            ]
+                ]
+        );
+
+        $this->add_control(
+                'figcaption_heading_color', [
+            'label' => esc_html__('Heading Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#fff',
+            'selectors' => [
+                '{{WRAPPER}} .eead-caption-hover-effect figcaption h3' => 'color: {{VALUE}}',
+            ]
+                ]
+        );
+
+        $this->add_control(
+                'figcaption_button_text_color', [
+            'label' => esc_html__('Button Text Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#fff',
+            'selectors' => [
+                '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'color: {{VALUE}}',
+            ]
+                ]
+        );
+
+        $this->add_control(
+                'figcaption_button_text_bg_color', [
+            'label' => esc_html__('Button Background Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#ed4e6e',
+            'selectors' => [
+                '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'background: {{VALUE}}',
+            ]
+                ]
+        );
+
         $this->end_controls_section();
     }
-
 
     /** Render Layout */
     protected function render() {
@@ -120,23 +231,27 @@ class CaptionHoverEffect extends Widget_Base {
         $image_id = $settings['image']['id'];
         $title = $settings['title'];
         $content = $settings['content'];
-        $image_url = Group_Control_Image_Size::get_attachment_image_src($image_id, 'thumb', $settings);
+        $button_text = $settings['button_text'];
+        $button_link_url = $settings['button_link']['url'];
+        $image_url = Group_Control_Image_Size::get_attachment_image_src($image_id, 'image', $settings);
         if (!$image_url) {
             $image_url = Utils::get_placeholder_image_src();
         }
         $this->add_render_attribute( 'wrapper', 'class', $settings['effect_style'] );
+        $this->add_render_attribute( 'wrapper', 'class', 'eead-caption-hover-effect' );
         ?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
             <figure>
-                <img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_attr($title) ?>">
+                <div>
+                    <img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_attr($title) ?>">
+                </div>
                 <figcaption>
                     <h3><?php echo esc_html($title) ?></h3>
                     <span><?php echo esc_html($content); ?></span>
-                    <a href="http://dribbble.com/shots/1115632-Camera">Take a look</a>
+                    <a href="<?php echo esc_url($button_link_url); ?>"><?php echo esc_html($button_text); ?></a>
                 </figcaption>
             </figure>
         </div>
         <?php
     }
-
 }

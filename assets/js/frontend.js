@@ -2333,7 +2333,7 @@
                 i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").toggle();
             }),
             $(window).on("resize", function () {
-                $(window).width() > 767 ? i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
+                $(window).width() > 767 ? $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
             }),
             $scope.find("input[name='view']").change(function () {
                 $scope.find(".eead-fpg-view-options label").removeClass("active"),
@@ -2345,7 +2345,7 @@
                 var n = $(this).val();
                 $scope.find(".eead-fpg-search-wrapper li label").removeClass("active"),
                 $scope.find("input[name='filter']:checked").parent().find("label").addClass("active"),
-                "all" === n ? (i.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
+                "all" === n ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
                 $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
                 $scope.find(".eead-fpg-container").fadeOut(200, function () {
                     $scope.find(".eead-fpg-container li").show(),

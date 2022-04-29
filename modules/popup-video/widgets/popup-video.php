@@ -43,16 +43,14 @@ class PopupVideo extends Widget_Base {
 	protected function register_controls() {
 		
 	   $this->start_controls_section(
-            'eead_video_popup_content_section',
-            [
+            'eead_video_popup_content_section', [
                 'label' => esc_html__( 'Video', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_button_style',
-            [
+            'eead_video_popup_button_style', [
                 'label' => esc_html__( 'Button Style', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'icon',
@@ -64,9 +62,8 @@ class PopupVideo extends Widget_Base {
             ]
         );
 
-         $this->add_control(
-            'eead_video_popup_button_title',
-            [
+        $this->add_control(
+            'eead_video_popup_button_title', [
                 'label' =>esc_html__( 'Button Title', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -79,11 +76,10 @@ class PopupVideo extends Widget_Base {
                     'active' => true,
                 ],
             ]
-         );
+        );
 
-         $this->add_control(
-            'eead_video_popup_button_icons__switch',
-            [
+        $this->add_control(
+            'eead_video_popup_button_icons__switch', [
                 'label' => esc_html__('Enable Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -96,9 +92,8 @@ class PopupVideo extends Widget_Base {
             ]
         );
 
-         $this->add_control(
-            'eead_video_popup_button_icons',
-            [
+        $this->add_control(
+            'eead_video_popup_button_icons', [
                 'label' =>esc_html__( 'Button Icon', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
@@ -112,10 +107,10 @@ class PopupVideo extends Widget_Base {
                     'eead_video_popup_button_icons__switch' => 'yes'
                 ]
             ]
-         );
-         $this->add_control(
-            'eead_video_popup_icon_align',
-            [
+        );
+
+        $this->add_control(
+            'eead_video_popup_icon_align', [
                 'label' =>esc_html__( 'Icon Position', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'before',
@@ -130,9 +125,8 @@ class PopupVideo extends Widget_Base {
             ]
         );
 
-         $this->add_control(
-            'eead_video_popup_video_type',
-            [
+        $this->add_control(
+            'eead_video_popup_video_type', [
                 'label'     => esc_html__( 'Video Type', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'youtube',
@@ -143,8 +137,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_url',
-            [
+            'eead_video_popup_url', [
                 'label' => esc_html__( 'URL to embed', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXT,
                 'input_type' => 'url',
@@ -157,8 +150,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_video_ripple_effect',
-            [
+            'eead_video_popup_video_ripple_effect', [
                 'label' =>esc_html__( 'Ripple Effect Button', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -166,21 +158,19 @@ class PopupVideo extends Widget_Base {
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
-         );
+        );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_video_popup_controls_section',
-            [
+            'eead_video_popup_controls_section', [
                 'label' => esc_html__( 'Play Settings', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_start_time',
-            [
+            'eead_video_popup_start_time', [
                 'label' => esc_html__( 'Start Time (in sec)', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'input_type' => 'number',
@@ -191,8 +181,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_end_time',
-            [
+            'eead_video_popup_end_time', [
                 'label' => esc_html__( 'End Time (in sec)', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'input_type' => 'number',
@@ -201,9 +190,9 @@ class PopupVideo extends Widget_Base {
                 'condition' => ['eead_video_popup_video_type' => 'youtube']
             ]
         );
+
         $this->add_control(
-            'eead_video_popup_auto_play',
-            [
+            'eead_video_popup_auto_play', [
                 'label' => esc_html__( 'Auto Play', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -214,8 +203,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_video_mute',
-            [
+            'eead_video_popup_video_mute', [
                 'label' => esc_html__( 'Mute', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -226,8 +214,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_video_loop',
-            [
+            'eead_video_popup_video_loop', [
                 'label' => esc_html__( 'Loop', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -238,8 +225,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_popup_video_player_control',
-            [
+            'eead_video_popup_video_player_control', [
                 'label' => esc_html__( 'Player Control', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -252,8 +238,7 @@ class PopupVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_video_popup_style_section',
-            [
+            'eead_video_popup_style_section', [
                 'label' => esc_html__( 'Wrapper', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -264,7 +249,6 @@ class PopupVideo extends Widget_Base {
                 'label'          =>esc_html__( 'Alignment', 'easy-elementor-addons' ),
                 'type'           => Controls_Manager::CHOOSE,
                 'options'        => [
-
                     'left'       => [
                         'title'  =>esc_html__( 'Left', 'easy-elementor-addons' ),
                         'icon'   => 'eicon-text-align-left',
@@ -290,8 +274,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_wrap_padding',
-            [
+            'eead_video_wrap_padding', [
                 'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px' ],
@@ -302,8 +285,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'eead_video_wrap_border',
                 'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .video-content',
@@ -311,8 +293,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_video_wrap_border_radius',
-            [
+            'eead_video_wrap_border_radius', [
                 'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
@@ -324,20 +305,15 @@ class PopupVideo extends Widget_Base {
 
         $this->end_controls_section();
 
-
-
-        /* Style Controls */
         $this->start_controls_section(
-            'eead_video_popup_section_style',
-            [
+            'eead_video_popup_section_style', [
                 'label' =>esc_html__( 'Button', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_btn_ripple_color',
-            [
+            'eead_video_popup_btn_ripple_color', [
                 'label' => esc_html__( 'Ripple Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -353,8 +329,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_icon_size',
-            [
+            'eead_video_popup_icon_size', [
                 'label' => esc_html__( 'Icon Size', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -377,8 +352,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_btn_width',
-            [
+            'eead_video_popup_btn_width', [
                 'label' => esc_html__( 'Width', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -405,8 +379,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_btn_height',
-            [
+            'eead_video_popup_btn_height', [
                 'label' => esc_html__( 'Height', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -432,8 +405,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_btn_line_height',
-            [
+            'eead_video_popup_btn_line_height', [
                 'label' => esc_html__( 'Line height', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -461,15 +433,13 @@ class PopupVideo extends Widget_Base {
         $this->start_controls_tabs( 'eead_video_popup_button_style_tabs' );
 
         $this->start_controls_tab(
-            'eead_video_popup_button_normal',
-            [
+            'eead_video_popup_button_normal', [
                 'label' =>esc_html__( 'Normal', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_btn_text_color',
-            [
+            'eead_video_popup_btn_text_color', [
                 'label' =>esc_html__( 'Text Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
@@ -479,6 +449,7 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_group_control(
             Group_Control_Background::get_type(),
             array(
@@ -491,15 +462,13 @@ class PopupVideo extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'eead_video_popup_btn_tab_button_hover',
-            [
+            'eead_video_popup_btn_tab_button_hover', [
                 'label' =>esc_html__( 'Hover', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_btn_hover_color',
-            [
+            'eead_video_popup_btn_hover_color', [
                 'label' =>esc_html__( 'Text Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
@@ -520,11 +489,11 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
 
         $this->add_responsive_control(
-            'eead_video_popup_text_padding',
-            [
+            'eead_video_popup_text_padding', [
                 'label' =>esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -536,17 +505,15 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_control(
-            'button_typography_shadow',
-            [
+            'button_typography_shadow', [
                 'label' => __( 'Typography & Shadows', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::HEADING,
+                'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'eead_video_popup_btn_typography',
                 'label' =>esc_html__( 'Text Typography', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-video-popup-btn',
@@ -554,8 +521,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'eead_video_popup_btn_box_shadow',
                 'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-video-popup-btn',
@@ -563,8 +529,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Text_Shadow::get_type(),
-            [
+            Group_Control_Text_Shadow::get_type(), [
                 'name' => 'eead_video_popup_btn_text_shadow',
                 'label' => esc_html__( 'Text Shadow', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-video-popup-btn',
@@ -574,16 +539,14 @@ class PopupVideo extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_video_popup_border_style',
-            [
+            'eead_video_popup_border_style', [
                 'label' =>esc_html__( 'Border', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_btn_border_style',
-            [
+            'eead_video_popup_btn_border_style', [
                 'label' => esc_html_x( 'Border Type', 'Border Control', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -599,9 +562,9 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'eead_video_popup_btn_border_dimensions',
-            [
+            'eead_video_popup_btn_border_dimensions', [
                 'label' => esc_html_x( 'Width', 'Border Control', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'selectors' => [
@@ -609,17 +572,17 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->start_controls_tabs( 'eead_video_popup__button_border_style' );
+
         $this->start_controls_tab(
-            'eead_video_popup__button_border_normal',
-            [
+            'eead_video_popup__button_border_normal', [
                 'label' =>esc_html__( 'Normal', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'eead_video_popup_btn_border_color',
-            [
+            'eead_video_popup_btn_border_color', [
                 'label' => esc_html_x( 'Color', 'Border Control', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -628,17 +591,17 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'eead_video_popup_btn_tab_button_border_hover',
-            [
+            'eead_video_popup_btn_tab_button_border_hover', [
                 'label' =>esc_html__( 'Hover', 'easy-elementor-addons' ),
             ]
         );
+
         $this->add_control(
-            'eead_video_popup_btn_hover_border_color',
-            [
+            'eead_video_popup_btn_hover_border_color', [
                 'label' => esc_html_x( 'Color', 'Border Control', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -647,11 +610,13 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
+
         $this->add_responsive_control(
-            'eead_video_popup_btn_border_radius',
-            [
+            'eead_video_popup_btn_border_radius', [
                 'label' =>esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
@@ -666,11 +631,11 @@ class PopupVideo extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_video_popup_icon_style',
-            [
+            'eead_video_popup_icon_style', [
                 'label' => esc_html__( 'Icon', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -681,8 +646,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_icon_padding_right',
-            [
+            'eead_video_popup_icon_padding_right', [
                 'label' => esc_html__( 'Padding Right', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -712,8 +676,7 @@ class PopupVideo extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_video_popup_icon_padding_left',
-            [
+            'eead_video_popup_icon_padding_left', [
                 'label' => esc_html__( 'Padding Left', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
@@ -769,22 +732,22 @@ class PopupVideo extends Widget_Base {
                     <?php if($eead_video_popup_button_style == 'text') { ?>
                         <span><?php echo esc_html($eead_video_popup_button_title); ?></span>
                     <?php } ?>
-                    
-                    <?php 
-                    if($eead_video_popup_button_style == 'icon' && !empty($eead_video_popup_button_icons)) { 
-                        echo $this->video_icon(); 
-                    } 
+
+                    <?php
+                    if($eead_video_popup_button_style == 'icon' && !empty($eead_video_popup_button_icons)) {
+                        echo $this->video_icon();
+                    }
                     if($eead_video_popup_button_style == 'both') { 
-                        if($eead_video_popup_icon_align == 'before' && !empty($eead_video_popup_button_icons)) { 
-                            echo $this->video_icon(); 
-                        } 
+                        if($eead_video_popup_icon_align == 'before' && !empty($eead_video_popup_button_icons)) {
+                            echo $this->video_icon();
+                        }
                         ?>
                         <span><?php echo esc_html($eead_video_popup_button_title); ?></span>
-                        <?php 
-                        if($eead_video_popup_icon_align == 'after' && !empty($eead_video_popup_button_icons)) { 
+                        <?php
+                        if($eead_video_popup_icon_align == 'after' && !empty($eead_video_popup_button_icons)) {
                             echo $this->video_icon(); 
-                        } 
-                    } 
+                        }
+                    }
                     ?>
                 </a>
             </div>

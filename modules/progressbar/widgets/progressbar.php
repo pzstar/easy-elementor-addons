@@ -65,8 +65,7 @@ class Progressbar extends Widget_Base {
         );
 
         $repeater->add_control(
-            'progressbar_percentage',
-            [
+            'progressbar_percentage', [
                 'label' => __( 'Percentage', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -77,8 +76,7 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'progressbar_block',
-            [
+            'progressbar_block', [
                 'label' => __( 'Progress Bars', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -130,7 +128,7 @@ class Progressbar extends Widget_Base {
                 ]
         );
 
-        $this->end_controls_section();   
+        $this->end_controls_section();
 
         $this->start_controls_section(
                 'percent_style', [
@@ -169,7 +167,7 @@ class Progressbar extends Widget_Base {
                 ]
         );
 
-        $this->end_controls_section();   
+        $this->end_controls_section();
 
         $this->start_controls_section(
                 'progressbar_style', [
@@ -179,8 +177,7 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progressbar_bg_color',
                 'label' => __( 'Background Color', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],
@@ -189,8 +186,7 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progress_indication_color',
                 'label' => __( 'Progress Indication Color', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],
@@ -261,7 +257,6 @@ class Progressbar extends Widget_Base {
             ?>
             </div>
         </div>
-                         
         <?php
     }
 }

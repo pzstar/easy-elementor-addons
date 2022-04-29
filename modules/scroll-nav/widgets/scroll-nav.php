@@ -302,7 +302,7 @@ class ScrollNav extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		$this->start_controls_section(
 			'section_content_tooltip', [
 				'label'     => __( 'Tooltip', 'easy-elementor-addons' ),
@@ -311,8 +311,6 @@ class ScrollNav extends Widget_Base {
 				]
 			]
 		);
-
-		
 
 		$this->add_control(
 			'dotnav_tooltip_animation', [
@@ -329,8 +327,6 @@ class ScrollNav extends Widget_Base {
 				'render_type'  => 'template',
 			]
 		);
-
-
 
 		$this->add_control(
 			'dotnav_tooltip_placement', [
@@ -920,7 +916,6 @@ class ScrollNav extends Widget_Base {
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-arrow' => 'border-right-color: {{VALUE}}',
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-arrow'   => 'border-top-color: {{VALUE}}',
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-arrow'=> 'border-bottom-color: {{VALUE}}',
-
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-arrow'=> 'color: {{VALUE}}',
 				],
 				'condition' => [
@@ -1082,13 +1077,11 @@ class ScrollNav extends Widget_Base {
 				<?php echo esc_attr($list['nav_title']); ?>
 				<?php if ($list['scroll_nav_icon']['value']) : ?>
 					<span class="eead-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
-
 						<?php if ( $is_new || $migrated ) :
 							Icons_Manager::render_icon( $list['scroll_nav_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
 						else : ?>
 							<i class="<?php echo esc_attr( $list['nav_icon'] ); ?>" aria-hidden="true"></i>
 						<?php endif; ?>
-
 					</span>
 				<?php endif; ?>
 			</a>

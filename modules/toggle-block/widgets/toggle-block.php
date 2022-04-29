@@ -13,7 +13,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 
-
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
@@ -47,15 +46,13 @@ class ToggleBlock extends Widget_Base {
     protected function register_controls() {
 
        $this->start_controls_section(
-            'section_primary',
-            [
+            'section_primary', [
                 'label'                 => __( 'Primary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'primary_label',
-            [
+            'primary_label', [
                 'label'                 => __( 'Label', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::TEXT,
                 'default'               => __( 'Annual', 'easy-elementor-addons' ),
@@ -63,8 +60,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'primary_content_type',
-            [
+            'primary_content_type', [
                 'label'                 => __( 'Content Type', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
@@ -77,8 +73,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'primary_templates',
-            [
+            'primary_templates', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -90,8 +85,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'primary_content',
-            [
+            'primary_content', [
                 'label'                 => __( 'Content', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::WYSIWYG,
                 'default'               => __( 'Primary Content', 'easy-elementor-addons' ),
@@ -102,8 +96,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'primary_image',
-            [
+            'primary_image', [
                 'label'                 => __( 'Image', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::MEDIA,
                 'default'               => [
@@ -116,8 +109,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name'                  => 'primary_image',
                 'default'               => 'full',
                 'separator'             => 'none',
@@ -130,15 +122,13 @@ class ToggleBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_secondary',
-            [
+            'section_secondary', [
                 'label'                 => __( 'Secondary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'secondary_label',
-            [
+            'secondary_label', [
                 'label'                 => __( 'Label', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::TEXT,
                 'default'               => __( 'Lifetime', 'easy-elementor-addons' ),
@@ -146,8 +136,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'secondary_content_type',
-            [
+            'secondary_content_type', [
                 'label'                 => __( 'Content Type', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
@@ -160,8 +149,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'secondary_templates',
-            [
+            'secondary_templates', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -173,8 +161,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'secondary_content',
-            [
+            'secondary_content', [
                 'label'                 => __( 'Content', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::WYSIWYG,
                 'default'               => __( 'Secondary Content', 'easy-elementor-addons' ),
@@ -185,8 +172,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'secondary_image',
-            [
+            'secondary_image', [
                 'label'                 => __( 'Image', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::MEDIA,
                 'default'               => [
@@ -199,8 +185,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name'                  => 'secondary_image',
                 'default'               => 'full',
                 'separator'             => 'none',
@@ -213,15 +198,13 @@ class ToggleBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_settings',
-            [
+            'section_settings', [
                 'label'                 => __( 'Settings', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'default_display',
-            [
+            'default_display', [
                 'label'                 => __( 'Default Display', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
@@ -233,8 +216,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_style',
-            [
+            'switch_style', [
                 'label'                 => __( 'Switch Style', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
@@ -247,8 +229,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'toggle_position',
-            [
+            'toggle_position', [
                 'label'                 => __( 'Toggle Position', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SELECT,
                 'options'               => [
@@ -264,16 +245,14 @@ class ToggleBlock extends Widget_Base {
 
         /* Style Settings */
         $this->start_controls_section(
-            'section_toggle_switch_style',
-            [
+            'section_toggle_switch_style', [
                 'label'             => __( 'Switch', 'easy-elementor-addons' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'toggle_switch_alignment',
-            [
+            'toggle_switch_alignment', [
                 'label'                 => __( 'Alignment', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'default'               => 'center',
@@ -297,8 +276,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'toggle_switch_size',
-            [
+            'toggle_switch_size', [
                 'label'                 => __( 'Switch Controller Size', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'size_units'            => [ 'px' ],
@@ -321,8 +299,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'toggle_switch_spacing',
-            [
+            'toggle_switch_spacing', [
                 'label'                 => __( 'Labels Spacing', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'size_units'            => [ 'px', '%' ],
@@ -344,8 +321,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'toggle_switch_gap',
-            [
+            'toggle_switch_gap', [
                 'label'                 => __( 'Content Spacing', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'size_units'            => [ 'px', '%' ],
@@ -370,15 +346,13 @@ class ToggleBlock extends Widget_Base {
         $this->start_controls_tabs( 'tabs_switch' );
 
         $this->start_controls_tab(
-            'tab_switch_primary',
-            [
+            'tab_switch_primary', [
                 'label'             => __( 'Primary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'              => 'toggle_switch_primary_background',
                 'types'             => [ 'classic', 'gradient' ],
                 'selector'          => '{{WRAPPER}} .eead-toggle-slider',
@@ -386,8 +360,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name'                  => 'toggle_switch_primary_border',
                 'label'                 => __( 'Border', 'easy-elementor-addons' ),
                 'placeholder'           => '1px',
@@ -398,8 +371,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'toggle_switch_primary_border_radius',
-            [
+            'toggle_switch_primary_border_radius', [
                 'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => [ 'px', '%' ],
@@ -416,15 +388,13 @@ class ToggleBlock extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_switch_secondary',
-            [
+            'tab_switch_secondary', [
                 'label'             => __( 'Secondary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'              => 'toggle_switch_secondary_background',
                 'types'             => [ 'classic', 'gradient' ],
                 'selector'          => '{{WRAPPER}} .eead-toggle-switch-on .eead-toggle-slider, {{WRAPPER}} .eead-toggle-switch:checked + .eead-toggle-slider',
@@ -432,8 +402,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name'                  => 'toggle_switch_secondary_border',
                 'label'                 => __( 'Border', 'easy-elementor-addons' ),
                 'placeholder'           => '1px',
@@ -444,8 +413,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'toggle_switch_secondary_border_radius',
-            [
+            'toggle_switch_secondary_border_radius', [
                 'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => [ 'px', '%' ],
@@ -464,8 +432,7 @@ class ToggleBlock extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-            'switch_controller_heading',
-            [
+            'switch_controller_heading', [
                 'label'                 => __( 'Controller', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
@@ -474,81 +441,73 @@ class ToggleBlock extends Widget_Base {
 
         $this->start_controls_tabs( 'tabs_switch_controller' );
 
-            $this->start_controls_tab(
-                'tab_controller_primary',
-                [
-                    'label'             => __( 'Primary', 'easy-elementor-addons' ),
-                ]
-            );
+        $this->start_controls_tab(
+            'tab_controller_primary', [
+                'label'             => __( 'Primary', 'easy-elementor-addons' ),
+            ]
+        );
 
-                $this->add_group_control(
-                    Group_Control_Background::get_type(),
-                    [
-                        'name'              => 'primary_toggle_controller_background',
-                        'types'             => [ 'classic', 'gradient' ],
-                        'selector'          => '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before',
-                    ]
-                );
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name'              => 'primary_toggle_controller_background',
+                'types'             => [ 'classic', 'gradient' ],
+                'selector'          => '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before',
+            ]
+        );
 
-                $this->add_control(
-                    'primary_toggle_controller_border_radius',
-                    [
-                        'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
-                        'type'                  => Controls_Manager::DIMENSIONS,
-                        'size_units'            => [ 'px', '%' ],
-                        'selectors'             => [
-                            '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                        ],
-                    ]
-                );
+        $this->add_control(
+            'primary_toggle_controller_border_radius', [
+                'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
+                'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => [ 'px', '%' ],
+                'selectors'             => [
+                    '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
-            $this->end_controls_tab();
+        $this->end_controls_tab();
 
-            $this->start_controls_tab(
-                'tab_controller_secondary',
-                [
-                    'label'             => __( 'Secondary', 'easy-elementor-addons' ),
-                ]
-            );
+        $this->start_controls_tab(
+            'tab_controller_secondary', [
+                'label'             => __( 'Secondary', 'easy-elementor-addons' ),
+            ]
+        );
 
-                $this->add_group_control(
-                    Group_Control_Background::get_type(),
-                    [
-                        'name'              => 'secondary_toggle_controller_background',
-                        'types'             => [ 'classic', 'gradient' ],
-                        'selector'          => '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before',
-                    ]
-                );
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name'              => 'secondary_toggle_controller_background',
+                'types'             => [ 'classic', 'gradient' ],
+                'selector'          => '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before',
+            ]
+        );
 
-                $this->add_control(
-                    'secondary_toggle_controller_border_radius',
-                    [
-                        'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
-                        'type'                  => Controls_Manager::DIMENSIONS,
-                        'size_units'            => [ 'px', '%' ],
-                        'selectors'             => [
-                            '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                        ],
-                    ]
-                );
+        $this->add_control(
+            'secondary_toggle_controller_border_radius', [
+                'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
+                'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => [ 'px', '%' ],
+                'selectors'             => [
+                    '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
-            $this->end_controls_tab();
+        $this->end_controls_tab();
 
         $this->end_controls_tabs();
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_label_style',
-            [
+            'section_label_style', [
                 'label'             => __( 'Labels', 'easy-elementor-addons' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name'              => 'label_typography',
                 'label'             => __( 'Typography', 'easy-elementor-addons' ),
                 'selector'          => '{{WRAPPER}} .eead-primary-toggle-label,
@@ -557,8 +516,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'label_horizontal_position',
-            [
+            'label_horizontal_position', [
                 'label'                 => __( 'Position', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'label_block'           => false,
@@ -591,15 +549,13 @@ class ToggleBlock extends Widget_Base {
         $this->start_controls_tabs( 'tabs_label_style' );
 
         $this->start_controls_tab(
-            'tab_label_primary',
-            [
+            'tab_label_primary', [
                 'label'             => __( 'Primary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'label_text_color_primary',
-            [
+            'label_text_color_primary', [
                 'label'             => __( 'Text Color', 'easy-elementor-addons' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
@@ -610,8 +566,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'label_active_text_color_primary',
-            [
+            'label_active_text_color_primary', [
                 'label'             => __( 'Active Text Color', 'easy-elementor-addons' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
@@ -624,15 +579,13 @@ class ToggleBlock extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_label_secondary',
-            [
+            'tab_label_secondary', [
                 'label'             => __( 'Secondary', 'easy-elementor-addons' ),
             ]
         );
 
         $this->add_control(
-            'label_text_color_secondary',
-            [
+            'label_text_color_secondary', [
                 'label'             => __( 'Text Color', 'easy-elementor-addons' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
@@ -643,8 +596,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'label_active_text_color_secondary',
-            [
+            'label_active_text_color_secondary', [
                 'label'             => __( 'Active Text Color', 'easy-elementor-addons' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
@@ -655,21 +607,20 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_style',
-            [
+            'section_content_style', [
                 'label'             => __( 'Content', 'easy-elementor-addons' ),
                 'tab'               => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'content_alignment',
-            [
+            'content_alignment', [
                 'label'                 => __( 'Alignment', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'default'               => 'center',
@@ -694,8 +645,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name'              => 'content_typography',
                 'label'             => __( 'Typography', 'easy-elementor-addons' ),
                 'selector'          => '{{WRAPPER}} .eead-toggle-content-wrap',
@@ -703,8 +653,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'content_text_color',
-            [
+            'content_text_color', [
                 'label'             => __( 'Text Color', 'easy-elementor-addons' ),
                 'type'              => Controls_Manager::COLOR,
                 'default'           => '',
@@ -715,8 +664,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'              => 'content_background',
                 'types'             => [ 'classic', 'gradient' ],
                 'selector'          => '{{WRAPPER}} .eead-toggle-content-wrap',
@@ -724,8 +672,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name'                  => 'content_border',
                 'label'                 => __( 'Border', 'easy-elementor-addons' ),
                 'placeholder'           => '1px',
@@ -734,8 +681,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'content_border_radius',
-            [
+            'content_border_radius', [
                 'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => [ 'px', '%' ],
@@ -746,8 +692,7 @@ class ToggleBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'content_padding',
-            [
+            'content_padding', [
                 'label'                 => __( 'Padding', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => [ 'px', '%' ],
@@ -765,14 +710,10 @@ class ToggleBlock extends Widget_Base {
         $primary_secondary = $is_primary == 'yes' ? 'primary' : 'secondary'; 
 
         if ( $settings[$primary_secondary.'_content_type'] === 'content' ) {
-
             echo $this->parse_text_editor( $settings[$primary_secondary.'_content'] );
-
         } 
         else if ( $settings[$primary_secondary.'_content_type'] === 'image' ) {
-
             echo Group_Control_Image_Size::get_attachment_image_html( $settings, $primary_secondary.'_image', $primary_secondary.'_image' );
-
         } 
         else if ( $settings[$primary_secondary.'_content_type'] === 'template' ) {
             if ( !empty( $settings[$primary_secondary.'_templates'] ) ) {
@@ -780,7 +721,6 @@ class ToggleBlock extends Widget_Base {
                 $template_id = $settings[$primary_secondary.'_templates'];
                 echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $template_id );
             }
-
         }
     }
 
@@ -789,7 +729,7 @@ class ToggleBlock extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $id       = esc_attr($this->get_id());
         $default_display = $settings['default_display'];
-       
+
         ?>
         <div class='eead-toggle-container' id='eead-toggle-container-<?php echo $id ?>'>
             <?php

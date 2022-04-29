@@ -5,6 +5,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -168,8 +169,7 @@ class TestimonialBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
                 'label' => __( 'Box Shadow', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-testimonial-block',
@@ -411,7 +411,7 @@ class TestimonialBlock extends Widget_Base {
         <div class="eead-testimonial-block <?php echo esc_attr($settings['image_shape']) .' '. esc_attr($settings['layout']) ?>">
             <?php 
             if($settings['layout'] == 'style1') {
-            ?>
+                ?>
                 <div class="eead-testimonial-image">
                     <?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'image'); ?>
                 </div>
@@ -454,7 +454,7 @@ class TestimonialBlock extends Widget_Base {
                         echo '</div>';
                     }
                     ?>
-                </div> 
+                </div>
 
                 <div class="eead-footer-section">
                     <div class="eead-testimonial-image">

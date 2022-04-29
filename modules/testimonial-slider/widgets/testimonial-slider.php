@@ -338,8 +338,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'each_slide_padding',
-            [
+            'each_slide_padding', [
                 'label'      => esc_html__( 'Slide Item Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -350,8 +349,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
                 'label' => __( 'Box Shadow', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-testimonial-each-slider',
@@ -597,8 +595,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'dots_align',
-            [
+            'dots_align', [
                 'label'                 => __( 'Alignment', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'options'               => [
@@ -662,8 +659,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_radius',
-            [
+            'dots_border_radius', [
                 'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
@@ -674,8 +670,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding',
-            [
+            'dots_padding', [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -686,8 +681,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_margin',
-            [
+            'dots_margin', [
                 'label'      => esc_html__( 'Margin', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -808,8 +802,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_radius',
-            [
+            'arrow_border_radius', [
                 'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
@@ -820,8 +813,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding',
-            [
+            'arrow_padding', [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -832,7 +824,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'arrow_tabs'
+            'arrow_tabs'
         );
 
         $this->start_controls_tab(
@@ -987,7 +979,7 @@ class TestimonialSlider extends Widget_Base {
                                 echo '</div>';
                             }
                             ?>
-                        </div> 
+                        </div>
 
                         <div class="eead-testimonial-name-wrap">
                             <h1 class="eead-testimonial-member-name">
@@ -1024,7 +1016,7 @@ class TestimonialSlider extends Widget_Base {
                             echo '</div>';
                         }
                         ?>
-                    </div> 
+                    </div>
 
                     <div class="eead-footer-section">
                         <div class="eead-testimonial-image">
@@ -1074,7 +1066,7 @@ class TestimonialSlider extends Widget_Base {
                             echo '</div>';
                         }
                         ?>
-                    </div> 
+                    </div>
 
                     <div class="eead-testimonial-image">
                         <?php
@@ -1100,6 +1092,4 @@ class TestimonialSlider extends Widget_Base {
         <?php 
         } 
     }
-
-
 }

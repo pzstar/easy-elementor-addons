@@ -44,91 +44,84 @@ class PopupModal extends Widget_Base {
 	}
 
 	protected function register_controls() {
-		
+
 		$this->start_controls_section(
-			'section_content',
-			array(
+			'section_content', [
 				'label' => __( 'Content', 'easy-elementor-addons' ),
-			)
+			]
 		);
 
 		$this->add_control(
-			'popup_title',
-			array(
+			'popup_title', [
 				'label'        => __( 'Enable Title', 'easy-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 				'label_on'     => __( 'Yes', 'easy-elementor-addons' ),
 				'label_off'    => __( 'No', 'easy-elementor-addons' ),
 				'return_value' => 'yes',
-			)
+			]
 		);
 
 		$this->add_control(
-			'title',
-			array(
+			'title', [
 				'label'     => __( 'Title', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
 				),
 				'default'   => __( 'Modal Title', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'popup_type',
-			array(
+			'popup_type', [
 				'label'   => __( 'Type', 'easy-elementor-addons' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
+				'options' => [
 					'image'       => __( 'Image', 'easy-elementor-addons' ),
 					'content'     => __( 'Content', 'easy-elementor-addons' ),
 					'template'    => __( 'Saved Templates', 'easy-elementor-addons' ),
 					'custom-html' => __( 'Custom HTML', 'easy-elementor-addons' ),
-				),
+				],
 				'default' => 'image',
-			)
+			]
 		);
 
 		$this->add_control(
-			'image',
-			array(
+			'image', [
 				'label'     => __( 'Choose Image', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::MEDIA,
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'default'   => array(
+				],
+				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'content',
-			array(
+			'content', [
 				'label'     => __( 'Content', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::WYSIWYG,
 				'default'   => __( "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 'easy-elementor-addons' ),
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_type' => 'content',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-            'templates',
-            [
+            'templates', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -141,20 +134,18 @@ class PopupModal extends Widget_Base {
         );
 
 		$this->add_control(
-			'custom_html',
-			array(
+			'custom_html', [
 				'label'     => __( 'Custom HTML', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CODE,
 				'language'  => 'html',
-				'condition' => array(
+				'condition' => [
 					'popup_type' => 'custom-html',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button',
-			array(
+			'close_button', [
 				'label'              => __( 'Show Close Button', 'easy-elementor-addons' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
@@ -162,252 +153,233 @@ class PopupModal extends Widget_Base {
 				'label_off'          => __( 'No', 'easy-elementor-addons' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_layout',
-			array(
+			'section_layout', [
 				'label' => __( 'Layout', 'easy-elementor-addons' ),
-			)
+			]
 		);
 
 		$this->add_control(
-			'layout_type',
-			array(
+			'layout_type', [
 				'label'              => __( 'Layout', 'easy-elementor-addons' ),
 				'type'               => Controls_Manager::SELECT,
-				'options'            => array(
+				'options'            => [
 					'standard'   => __( 'Standard', 'easy-elementor-addons' ),
 					// 'fullscreen' => __( 'Fullscreen', 'easy-elementor-addons' ),
-				),
+				],
 				'default'            => 'standard',
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_responsive_control(
-			'popup_width',
-			array(
+			'popup_width', [
 				'label'      => __( 'Width', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => '550',
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 1920,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-container.modal__container' => 'width: {{SIZE}}{{UNIT}}; max-width: unset;',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'layout_type' => 'standard',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'popup_height',
-			array(
+			'popup_height', [
 				'label'      => __( 'Height', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => '550',
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 0,
 						'max'  => 1920,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-container.modal__container' => 'height: {{SIZE}}{{UNIT}}; max-height: unset;',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'layout_type' => 'standard',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_trigger',
-			array(
+			'section_trigger', [
 				'label' => __( 'Trigger', 'easy-elementor-addons' ),
-			)
+			]
 		);
 
 		$this->add_control(
-			'trigger_type',
-			array(
+			'trigger_type', [
 				'label'     => __( 'Type', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'button',
-				'options'   => array(
+				'options'   => [
 					'button' => __( 'Button', 'easy-elementor-addons' ),
 					'icon'   => __( 'Icon', 'easy-elementor-addons' ),
 					'image'  => __( 'Image', 'easy-elementor-addons' ),
-				)
-			)
+				]
+			]
 		);
 
 		$this->add_control(
-			'button_text',
-			array(
+			'button_text', [
 				'label'     => __( 'Button Text', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __( 'Click Here', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'select_button_icon',
-			array(
+			'select_button_icon', [
 				'label'            => __( 'Button Icon', 'easy-elementor-addons' ),
 				'type'             => Controls_Manager::ICONS,
-				'condition'        => array(
+				'condition'        => [
 					'trigger_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_icon_position',
-			array(
+			'button_icon_position', [
 				'label'     => __( 'Icon Position', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'after',
-				'options'   => array(
+				'options'   => [
 					'after'  => __( 'After', 'easy-elementor-addons' ),
 					'before' => __( 'Before', 'easy-elementor-addons' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'select_trigger_icon',
-			array(
+			'select_trigger_icon', [
 				'label'            => __( 'Icon', 'easy-elementor-addons' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'trigger_icon',
-				'condition'        => array(
+				'condition'        => [
 					'trigger_type' => 'icon',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'trigger_image',
-			array(
+			'trigger_image', [
 				'label'     => __( 'Choose Image', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::MEDIA,
-				'dynamic'   => array(
+				'dynamic'   => [
 					'active' => true,
-				),
-				'default'   => array(
+				],
+				'default'   => [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_popup_window_style',
-			array(
+			'section_popup_window_style', [
 				'label' => __( 'Popup', 'easy-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			array(
+			Group_Control_Background::get_type(), [
 				'name'     => 'popup_bg',
 				'label'    => __( 'Background', 'easy-elementor-addons' ),
-				'types'    => array( 'classic', 'gradient' ),
+				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .eead-popup-modal-container.modal__container',
-			)
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			array(
+			Group_Control_Border::get_type(), [
 				'name'        => 'popup_border',
 				'label'       => __( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .eead-popup-modal-container.modal__container',
-			)
+			]
 		);
 
 		$this->add_control(
-			'popup_border_radius',
-			array(
+			'popup_border_radius', [
 				'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-container.modal__container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'popup_padding',
-			array(
+			'popup_padding', [
 				'label'      => __( 'Padding', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-container.modal__container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			array(
+			Group_Control_Box_Shadow::get_type(), [
 				'name'      => 'popup_box_shadow',
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-container.modal__container',
 				'separator' => 'before',
-			)
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_popup_overlay_style',
-			array(
+			'section_popup_overlay_style', [
 				'label' => __( 'Overlay', 'easy-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			]
 		);
 
 		$this->add_control(
-			'overlay_switch',
-			array(
+			'overlay_switch', [
 				'label'              => __( 'Overlay', 'easy-elementor-addons' ),
 				'type'               => Controls_Manager::SWITCHER,
 				'default'            => 'yes',
@@ -415,920 +387,867 @@ class PopupModal extends Widget_Base {
 				'label_off'          => __( 'Hide', 'easy-elementor-addons' ),
 				'return_value'       => 'yes',
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			array(
+			Group_Control_Background::get_type(), [
 				'name'      => 'overlay_bg',
 				'label'     => __( 'Background', 'easy-elementor-addons' ),
 				'types'     => array( 'classic', 'gradient' ),
 				'exclude'   => array( 'image' ),
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-overlay.modal__overlay',
-				'condition' => array(
+				'condition' => [
 					'overlay_switch' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_title_style',
-			array(
+			'section_title_style', [
 				'label'     => __( 'Title', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'title_align',
-			array(
+			'title_align', [
 				'label'     => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'flex-start'   => array(
+				'options'   => [
+					'flex-start'   => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'flex-end'  => array(
+					],
+					'flex-end'  => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-				),
+					],
+				],
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-header.modal__header' => 'display:flex; justify-content: {{VALUE}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'title_bg',
-			array(
+			'title_bg', [
 				'label'     => __( 'Background Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-header.modal__header' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'title_color',
-			array(
+			'title_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-title.modal__title' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			array(
+			Group_Control_Typography::get_type(), [
 				'name'      => 'title_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-title.modal__title',
-				'condition' => array(
+				'condition' => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			array(
+			Group_Control_Border::get_type(), [
 				'name'        => 'title_border',
 				'label'       => __( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .eead-popup-modal-header.modal__header',
-				'condition'   => array(
+				'condition'   => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'title_padding',
-			array(
+			'title_padding', [
 				'label'      => __( 'Padding', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-header.modal__header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'popup_title' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_popup_content_style',
-			array(
+			'section_popup_content_style', [
 				'label'     => __( 'Content', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'popup_type' => 'content',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'content_align',
-			array(
+			'content_align', [
 				'label'     => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'left'    => array(
+				'options'   => [
+					'left'    => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center'  => array(
+					],
+					'center'  => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'right'   => array(
+					],
+					'right'   => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-					'justify' => array(
+					],
+					'justify' => [
 						'title' => __( 'Justified', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-justify',
-					),
-				),
+					],
+				],
 				'default'   => '',
-				'selectors' => array(
-					'{{WRAPPER}} .eead-popup-modal-content.modal__content'   => 'text-align: {{VALUE}};',
-				),
-				'condition' => array(
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal-content.modal__content' => 'text-align: {{VALUE}};',
+				],
+				'condition' => [
 					'popup_type' => 'content',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'content_text_color',
-			array(
+			'content_text_color', [
 				'label'     => __( 'Text Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-content.modal__content' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'popup_type' => 'content',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			array(
+			Group_Control_Typography::get_type(), [
 				'name'      => 'content_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-content.modal__content',
-				'condition' => array(
+				'condition' => [
 					'popup_type' => 'content',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'scroll_bar_style',
-			array(
+			'scroll_bar_style', [
 				'label'     => __( 'Scroll Bar', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE
-			)
+			]
 		);
 
 		$this->add_control(
-			'dragger_bar_color',
-			array(
+			'dragger_bar_color', [
 				'label'     => __( 'Dragger Bar Normal Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#444',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-container.mCustomScrollbar .mCSB_dragger_bar' => 'background-color: {{VALUE}}',
-				)
-			)
+				]
+			]
 		);
 
 		$this->add_control(
-			'dragger_bar_hover_color',
-			array(
+			'dragger_bar_hover_color', [
 				'label'     => __( 'Dragger Bar Hover Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#444',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-container.mCustomScrollbar .mCSB_dragger:hover .mCSB_dragger_bar,
 					 {{WRAPPER}} .eead-popup-modal-container.mCustomScrollbar .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar' => 'background-color: {{VALUE}}',
-				)
-			)
+				]
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_icon_style',
-			array(
+			'section_icon_style', [
 				'label'     => __( 'Trigger Icon/Image', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'trigger_type!' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'icon_align',
-			array(
+			'icon_align', [
 				'label'     => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'left',
-				'options'   => array(
-					'flex-start'   => array(
+				'options'   => [
+					'flex-start'   => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-center',
-					),
-					'flex-end'  => array(
+					],
+					'flex-end'  => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-right',
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-wrap'   => 'display: flex;justify-content: {{VALUE}};',
-				),
-				'condition' => array(
-					'trigger_type' => array( 'icon', 'image' ),
-				),
-			)
+				],
+				'condition' => [
+					'trigger_type' => [ 'icon', 'image' ],
+				],
+			]
 		);
 
 		$this->add_control(
-			'icon_color',
-			array(
+			'icon_color', [
 				'label'     => __( 'Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-trigger-icon'     => 'color: {{VALUE}}',
 					'{{WRAPPER}} .eead-trigger-icon svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'icon',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'icon_size',
-			array(
+			'icon_size', [
 				'label'      => __( 'Size', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+				'default'    => [
 					'size' => '28',
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range'      => [
+					'px' => [
 						'min'  => 10,
 						'max'  => 80,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-trigger-icon' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'trigger_type' => 'icon',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'icon_image_width',
-			array(
+			'icon_image_width', [
 				'label'      => __( 'Width', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'range'      => array(
-					'px' => array(
+				'range'      => [
+					'px' => [
 						'min'  => 10,
 						'max'  => 1200,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-trigger-image' => 'width: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'trigger_type' => 'image',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_modal_button_style',
-			array(
+			'section_modal_button_style', [
 				'label'     => __( 'Trigger Button', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'button_align',
-			array(
+			'button_align', [
 				'label'     => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'left',
-				'options'   => array(
-					'left'   => array(
+				'options'   => [
+					'left'   => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-left',
-					),
-					'center' => array(
+					],
+					'center' => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-center',
-					),
-					'right'  => array(
+					],
+					'right'  => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-h-align-right',
-					),
-				),
-				'selectors' => array(
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-wrap.wrapper'   => 'text-align: {{VALUE}};',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_size',
-			array(
+			'button_size', [
 				'label'     => __( 'Size', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'md',
-				'options'   => array(
+				'options'   => [
 					'xs' => __( 'Extra Small', 'easy-elementor-addons' ),
 					'sm' => __( 'Small', 'easy-elementor-addons' ),
 					'md' => __( 'Medium', 'easy-elementor-addons' ),
 					'lg' => __( 'Large', 'easy-elementor-addons' ),
 					'xl' => __( 'Extra Large', 'easy-elementor-addons' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_button_style' );
 
 		$this->start_controls_tab(
-			'tab_button_normal',
-			array(
+			'tab_button_normal', [
 				'label'     => __( 'Normal', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_bg_color_normal',
-			array(
+			'button_bg_color_normal', [
 				'label'     => __( 'Background Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-modal-popup-btn' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_text_color_normal',
-			array(
+			'button_text_color_normal', [
 				'label'     => __( 'Text Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-modal-popup-btn' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .eead-modal-popup-btn svg' => 'fill: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			array(
+			Group_Control_Border::get_type(), [
 				'name'        => 'button_border_normal',
 				'label'       => __( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .eead-modal-popup-btn',
-				'condition'   => array(
+				'condition'   => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_border_radius',
-			array(
+			'button_border_radius', [
 				'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-modal-popup-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			array(
+			Group_Control_Typography::get_type(), [
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'easy-elementor-addons' ),
 				'selector'  => '{{WRAPPER}} .eead-modal-popup-btn',
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'button_padding',
-			array(
+			'button_padding', [
 				'label'      => __( 'Padding', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', 'em', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-modal-popup-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			array(
+			Group_Control_Box_Shadow::get_type(), [
 				'name'      => 'button_box_shadow',
 				'selector'  => '{{WRAPPER}} .eead-modal-popup-btn',
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_icon_heading',
-			array(
+			'button_icon_heading', [
 				'label'     => __( 'Button Icon', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'button_icon_margin',
-			array(
+			'button_icon_margin', [
 				'label'       => __( 'Margin', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
+				'size_units'  => [ 'px', '%' ],
+				'placeholder' => [
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .eead-modal-popup-btn .eead-button-icon' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'trigger_type' => 'button',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
-			'tab_button_hover',
-			array(
+			'tab_button_hover', [
 				'label'     => __( 'Hover', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_bg_color_hover',
-			array(
+			'button_bg_color_hover', [
 				'label'     => __( 'Background Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-modal-popup-btn:hover' => 'background-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_text_color_hover',
-			array(
+			'button_text_color_hover', [
 				'label'     => __( 'Text Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-modal-popup-btn:hover' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_border_color_hover',
-			array(
+			'button_border_color_hover', [
 				'label'     => __( 'Border Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-modal-popup-btn:hover' => 'border-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'button_animation',
-			array(
+			'button_animation', [
 				'label'     => __( 'Animation', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::HOVER_ANIMATION,
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			array(
+			Group_Control_Box_Shadow::get_type(), [
 				'name'      => 'button_box_shadow_hover',
 				'selector'  => '{{WRAPPER}} .eead-modal-popup-btn:hover',
-				'condition' => array(
+				'condition' => [
 					'trigger_type' => 'button',
 					'button_text!' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
+
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_close_button_style',
-			array(
+			'section_close_button_style', [
 				'label'     => __( 'Close Button', 'easy-elementor-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array(
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'close_button_align',
-			array(
+			'close_button_align', [
 				'label'     => __( 'Alignment', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
-				'options'   => array(
-					'flex-start'    => array(
+				'options'   => [
+					'flex-start'    => [
 						'title' => __( 'Left', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-left',
-					),
-					'center'  => array(
+					],
+					'center'  => [
 						'title' => __( 'Center', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-center',
-					),
-					'flex-end'   => array(
+					],
+					'flex-end'   => [
 						'title' => __( 'Right', 'easy-elementor-addons' ),
 						'icon'  => 'eicon-text-align-right',
-					),
-				),
+					],
+				],
 				'default'   => 'flex-end',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-close-btn-wrap'   => 'display: flex; justify-content: {{VALUE}};',
-				)
-			)
+				]
+			]
 		);
 
 		$this->add_control(
-			'close_button_weight',
-			array(
+			'close_button_weight', [
 				'label'     => __( 'Weight', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'normal',
-				'options'   => array(
+				'options'   => [
 					'normal' => __( 'Normal', 'easy-elementor-addons' ),
 					'bold'   => __( 'Bold', 'easy-elementor-addons' ),
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'close_button' => 'yes',
-				),
-				'selectors' => array(
+				],
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close span' => 'font-weight: {{VALUE}}',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'close_button_size',
-			array(
-				'label'      => __( 'Size', 'easy-elementor-addons' ),
-				'type'       => Controls_Manager::SLIDER,
-				'default'    => array(
+			'close_button_size', [
+				'label' => __( 'Size', 'easy-elementor-addons' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
 					'size' => '28',
 					'unit' => 'px',
-				),
-				'range'      => array(
-					'px' => array(
+				],
+				'range' => [
+					'px' => [
 						'min'  => 10,
 						'max'  => 80,
 						'step' => 1,
-					),
-				),
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+					],
+				],
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close span ' => 'font-size: {{SIZE}}{{UNIT}}',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_close_button_style' );
 
 		$this->start_controls_tab(
-			'tab_close_button_normal',
-			array(
+			'tab_close_button_normal', [
 				'label'     => __( 'Normal', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button_color_normal',
-			array(
+			'close_button_color_normal', [
 				'label'     => __( 'Icon Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close span' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			array(
+			Group_Control_Background::get_type(), [
 				'name'      => 'close_button_bg',
 				'label'     => __( 'Background', 'easy-elementor-addons' ),
-				'types'     => array( 'classic', 'gradient' ),
-				'exclude'   => array( 'image' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'exclude'   => [ 'image' ],
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-close.modal__close',
-				'condition' => array(
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			array(
+			Group_Control_Border::get_type(), [
 				'name'        => 'close_button_border_normal',
 				'label'       => __( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .eead-popup-modal-close.modal__close',
-				'condition'   => array(
+				'condition'   => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button_border_radius',
-			array(
+			'close_button_border_radius', [
 				'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'close_button_margin',
-			array(
+			'close_button_margin', [
 				'label'       => __( 'Margin', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
+				'size_units'  => [ 'px', '%' ],
+				'placeholder' => [
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close' => 'margin-top: {{TOP}}{{UNIT}}; margin-left: {{LEFT}}{{UNIT}}; margin-right: {{RIGHT}}{{UNIT}}; margin-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_responsive_control(
-			'close_button_padding',
-			array(
+			'close_button_padding', [
 				'label'       => __( 'Padding', 'easy-elementor-addons' ),
 				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => array( 'px', '%' ),
-				'placeholder' => array(
+				'size_units'  => [ 'px', '%' ],
+				'placeholder' => [
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'selectors'   => array(
+				],
+				'selectors'   => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close' => 'padding-top: {{TOP}}{{UNIT}}; padding-left: {{LEFT}}{{UNIT}}; padding-right: {{RIGHT}}{{UNIT}}; padding-bottom: {{BOTTOM}}{{UNIT}};',
-				),
-				'condition'   => array(
+				],
+				'condition'   => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
-			'tab_close_button_hover',
-			array(
+			'tab_close_button_hover', [
 				'label'     => __( 'Hover', 'easy-elementor-addons' ),
-				'condition' => array(
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button_color_hover',
-			array(
+			'close_button_color_hover', [
 				'label'     => __( 'Icon Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close:hover span' => 'color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			array(
+			Group_Control_Background::get_type(), [
 				'name'      => 'close_button_bg_hover',
 				'label'     => __( 'Background', 'easy-elementor-addons' ),
-				'types'     => array( 'classic', 'gradient' ),
+				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .eead-popup-modal-close.modal__close:hover',
-				'condition' => array(
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button_border_hover',
-			array(
+			'close_button_border_hover', [
 				'label'     => __( 'Border Color', 'easy-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array(
+				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close:hover' => 'border-color: {{VALUE}}',
-				),
-				'condition' => array(
+				],
+				'condition' => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
-			'close_button_border_radius_hover',
-			array(
+			'close_button_border_radius_hover', [
 				'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
 					'{{WRAPPER}} .eead-popup-modal-close.modal__close:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-				'condition'  => array(
+				],
+				'condition'  => [
 					'close_button' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
+
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
@@ -1338,7 +1257,7 @@ class PopupModal extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();	
 		$id = esc_attr($this->get_id());
-		
+
 		// Modal Popup Window
 		if ( $settings['trigger_type'] == 'button' ) {
 
@@ -1358,10 +1277,10 @@ class PopupModal extends Widget_Base {
 		}
 		?>
 		<div class="eead-popup-modal-wrap wrapper">
-			
+
 			<?php  
 			if ( $settings['trigger_type'] == 'button' ) {
-				
+
 				printf( '<span %1$s>', $this->get_render_attribute_string( 'button' ) );
 				if ( $settings['button_icon_position'] == 'before' ) {
 					if ( !empty($settings['select_button_icon']) ) {
@@ -1409,11 +1328,9 @@ class PopupModal extends Widget_Base {
 			?>
 		</div>
 
-
 	    <div class="eead-popup-modal modal micromodal-slide" id="eead-popup-modal-<?php echo esc_attr($id); ?>" aria-hidden="true">
 	      <div class="eead-popup-modal-overlay modal__overlay" tabindex="-1" data-micromodal-close>
 	        <div class="eead-popup-modal-container modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-	          
 	          	<?php if($settings['close_button'] == 'yes') { ?>
 	          		<div class="eead-popup-close-btn-wrap">
 						<button class="eead-popup-modal-close modal__close" aria-label="Close modal" data-micromodal-close><span class="icofont-close-line" data-micromodal-close></span></button>
@@ -1454,7 +1371,6 @@ class PopupModal extends Widget_Base {
 					} 
 					?>	
 				</main>
-
 	        </div>
 	      </div>
 	    </div>

@@ -32,19 +32,16 @@ class StepFlow extends Widget_Base {
  	}
 
 	protected function register_controls() {
-		
+
 		$this->start_controls_section(
-			'step_flow_settings_section',
-			[
+			'step_flow_settings_section', [
 				'label' => __( 'Step Flow', 'easy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
-		
 		$this->add_control(
-			'selected_icon',
-			[
+			'selected_icon', [
 				'label' => __( 'Icon', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::ICONS,
 				'label_block' => true,
@@ -54,11 +51,9 @@ class StepFlow extends Widget_Base {
 				]
 			]
 		);
-	
 
 		$this->add_control(
-			'badge',
-			[
+			'badge', [
 				'label' => __( 'Badge', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'placeholder' => __( 'Badge', 'easy-elementor-addons' ),
@@ -71,8 +66,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'title',
-			[
+			'title', [
 				'label' => __( 'Title', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
@@ -86,8 +80,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'description',
-			[
+			'description', [
 				'label' => __( 'Description', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'placeholder' => __( 'Description', 'easy-elementor-addons' ),
@@ -99,8 +92,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'link',
-			[
+			'link', [
 				'label' => __( 'Link', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::URL,
 				'placeholder' => 'https://example.com',
@@ -111,8 +103,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'readmore_link_text',
-			[
+			'readmore_link_text', [
 				'label' => __( 'Readmore Link Text', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
@@ -128,16 +119,14 @@ class StepFlow extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'additional_settings',
-			[
+			'additional_settings', [
 				'label' => __( 'Additional Settings', 'easy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
 		$this->add_control(
-			'title_tag',
-			[
+			'title_tag', [
 				'label' => __( 'Title Tag', 'easy-elementor-addons' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'separator' => 'before',
@@ -154,8 +143,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'content_alignment',
-			[
+			'content_alignment', [
 				'label' => __( 'Alignment', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
@@ -185,8 +173,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'show_indicator',
-			[
+			'show_indicator', [
 				'label' => __( 'Show Direction', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => __( 'Yes', 'easy-elementor-addons' ),
@@ -199,20 +186,15 @@ class StepFlow extends Widget_Base {
 
 		$this->end_controls_section();
 
-		/*
-		** Style Controls
-		*/
 		$this->start_controls_section(
-			'_section_icon_style',
-			[
+			'_section_icon_style', [
 				'label' => __( 'Icon', 'easy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
-			'icon_size',
-			[
+			'icon_size', [
 				'label' => __( 'Size', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
@@ -234,8 +216,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'icon_padding',
-			[
+			'icon_padding', [
 				'label' => __( 'Padding', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
@@ -253,8 +234,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'icon_spacing',
-			[
+			'icon_spacing', [
 				'label' => __( 'Bottom Spacing', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
@@ -271,8 +251,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+			Group_Control_Border::get_type(), [
 				'name' => 'icon_border',
 				'label' => __( 'Border', 'easy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .eead-steps-icon',
@@ -280,8 +259,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'icon_border_radius',
-			[
+			'icon_border_radius', [
 				'label' => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -292,16 +270,14 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
+			Group_Control_Box_Shadow::get_type(), [
 				'name' => 'icon_box_shadow',
 				'selector' => '{{WRAPPER}} .eead-steps-icon',
 			]
 		);
 
 		$this->add_control(
-			'icon_color',
-			[
+			'icon_color', [
 				'label' => __( 'Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -311,8 +287,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'icon_background_color',
-			[
+			'icon_background_color', [
 				'label' => __( 'Background Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -324,8 +299,7 @@ class StepFlow extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'_section_badge_style',
-			[
+			'_section_badge_style', [
 				'label' => __('Badge', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
@@ -335,8 +309,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'badge_padding',
-			[
+			'badge_padding', [
 				'label' => __( 'Padding', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -350,8 +323,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+			Group_Control_Border::get_type(), [
 				'name' => 'badge_border',
 				'label' => __( 'Border', 'easy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .eead-steps-label',
@@ -362,8 +334,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'badge_border_radius',
-			[
+			'badge_border_radius', [
 				'label' => __( 'Border Radius', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
@@ -377,8 +348,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'badge_color',
-			[
+			'badge_color', [
 				'label' => __( 'Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
@@ -391,8 +361,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'badge_background_color',
-			[
+			'badge_background_color', [
 				'label' => __( 'Background Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
@@ -405,8 +374,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name' => 'badge_typography',
 				'selector' => '{{WRAPPER}} .eead-steps-label',
 				'condition' => [
@@ -418,16 +386,14 @@ class StepFlow extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'_section_title_style',
-			[
+			'_section_title_style', [
 				'label' => __( 'Title', 'easy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
-			'title_spacing',
-			[
+			'title_spacing', [
 				'label' => __( 'Bottom Spacing', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
@@ -438,8 +404,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'title_color',
-			[
+			'title_color', [
 				'label' => __( 'Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -449,8 +414,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'title_link_color',
-			[
+			'title_link_color', [
 				'label' => __( 'Link Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
@@ -463,8 +427,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'title_hover_color',
-			[
+			'title_hover_color', [
 				'label' => __( 'Hover Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
@@ -477,16 +440,14 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
+			Group_Control_Text_Shadow::get_type(), [
 				'name' => 'title_shadow',
 				'selector' => '{{WRAPPER}} .eead-steps-title',
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .eead-steps-title',
 			]
@@ -514,8 +475,7 @@ class StepFlow extends Widget_Base {
         );
 
 		$this->add_control(
-			'description_color',
-			[
+			'description_color', [
 				'label' => __( 'Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -525,16 +485,14 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			[
+			Group_Control_Text_Shadow::get_type(), [
 				'name' => 'description_shadow',
 				'selector' => '{{WRAPPER}} .eead-step-description',
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
+			Group_Control_Typography::get_type(), [
 				'name' => 'description_typography',
 				'selector' => '{{WRAPPER}} .eead-step-description',
 			]
@@ -555,16 +513,14 @@ class StepFlow extends Widget_Base {
         $this->end_controls_section();
 
 		$this->start_controls_section(
-			'_section_direction_style',
-			[
+			'_section_direction_style', [
 				'label' => __( 'Direction', 'easy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
-			'direction_style',
-			[
+			'direction_style', [
 				'label' => __( 'Style', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
@@ -581,8 +537,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'direction_width',
-			[
+			'direction_width', [
 				'label' => __( 'Width', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
@@ -599,8 +554,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'direction_angle',
-			[
+			'direction_angle', [
 				'label' => __( 'Angle', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['deg'],
@@ -626,8 +580,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_control(
-			'direction_offset_toggle',
-			[
+			'direction_offset_toggle', [
 				'label' => __( 'Offset', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::POPOVER_TOGGLE,
 				'label_off' => __( 'None', 'easy-elementor-addons' ),
@@ -639,8 +592,7 @@ class StepFlow extends Widget_Base {
 		$this->start_popover();
 
 		$this->add_responsive_control(
-			'direction_offset_y',
-			[
+			'direction_offset_y', [
 				'label' => __( 'Offset Top', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
@@ -664,8 +616,7 @@ class StepFlow extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'direction_offset_x',
-			[
+			'direction_offset_x', [
 				'label' => __( 'Offset Left', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
@@ -692,8 +643,7 @@ class StepFlow extends Widget_Base {
 		$this->end_popover();
 
 		$this->add_control(
-			'direction_color',
-			[
+			'direction_color', [
 				'label' => __( 'Color', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -887,8 +837,7 @@ class StepFlow extends Widget_Base {
 			printf( '<%1$s %2$s>%3$s</%1$s>',
 				$settings['title_tag'],
 				$this->get_render_attribute_string( 'title' ),
-				$title
-			);
+				$title );
 			?>
 
 			<?php if ( $settings['description'] ) { ?>

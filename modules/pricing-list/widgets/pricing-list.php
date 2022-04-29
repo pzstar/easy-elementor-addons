@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 } 
 
 /**
- * Tiled Posts Widget
+ * Pricing List Widget
  */
 class PricingList extends Widget_Base {
 
@@ -50,20 +50,20 @@ class PricingList extends Widget_Base {
                 ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
                 'image', [
             'label' => __('Choose Image', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::MEDIA,
+            'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => \Elementor\Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src(),
             ],
                 ]
         );
 
         $repeater->add_group_control(
-                \Elementor\Group_Control_Image_Size::get_type(), [
+                Group_Control_Image_Size::get_type(), [
             'name' => 'thumb',
             'exclude' => ['custom'],
             'include' => [],
@@ -74,7 +74,7 @@ class PricingList extends Widget_Base {
         $repeater->add_control(
                 'title', [
             'label' => __('Pricing Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Pricing'
                 ]
@@ -83,7 +83,7 @@ class PricingList extends Widget_Base {
         $repeater->add_control(
                 'currency', [
             'label' => __('Currency Symbol', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '$'
                 ]
@@ -92,7 +92,7 @@ class PricingList extends Widget_Base {
         $repeater->add_control(
                 'price', [
             'label' => __('Price', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '500'
                 ]
@@ -102,7 +102,7 @@ class PricingList extends Widget_Base {
             'description',
             [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
                 'default' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' ),
                 'placeholder' => __( 'Type your item description here', 'easy-elementor-addons' ),
@@ -112,7 +112,7 @@ class PricingList extends Widget_Base {
         $repeater->add_control(
                 'link', [
             'label' => __('Link', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::URL,
+            'type' => Controls_Manager::URL,
             'show_external' => true,
             'default' => [
                 'url' => '#',
@@ -125,7 +125,7 @@ class PricingList extends Widget_Base {
         $repeater->add_control(
                 'is_featured', [
             'label' => __('Is Featured', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -135,7 +135,7 @@ class PricingList extends Widget_Base {
         $this->add_control(
                 'pricing_lists', [
             'label' => __('Pricing Lists', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::REPEATER,
+            'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
                 [
@@ -172,7 +172,7 @@ class PricingList extends Widget_Base {
         $this->add_control(
                 'layout', [
             'label' => __('Layout', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
                 'style1' => __('Style 1', 'easy-elementor-addons'),
@@ -208,7 +208,7 @@ class PricingList extends Widget_Base {
         $this->add_control(
                 'title_link_enable', [
             'label' => __('Link On Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -218,7 +218,7 @@ class PricingList extends Widget_Base {
         $this->add_control(
                 'image_link_enable', [
             'label' => __('Link On Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -226,7 +226,6 @@ class PricingList extends Widget_Base {
         );
 
         $this->end_controls_section();
-
 
         // Style Settings
         $this->start_controls_section(
@@ -312,7 +311,7 @@ class PricingList extends Widget_Base {
             'content_padding',
             [
                 'label' => __( 'Padding', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -332,10 +331,10 @@ class PricingList extends Widget_Base {
                     'step' => 1,
                 ]
             ],
-            // 'default' => [
-            //     'unit' => 'px',
-            //     'size' => 20,
-            // ],
+            'default' => [
+                'unit' => 'px',
+                'size' => 20,
+            ],
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-list-section .eead-each-pricing-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
             ],
@@ -390,9 +389,8 @@ class PricingList extends Widget_Base {
             ]
                 ]
         );
-        
-        $this->end_controls_section();
 
+        $this->end_controls_section();
 
         $this->start_controls_section(
                 'price_style', [
@@ -439,7 +437,7 @@ class PricingList extends Widget_Base {
             'price_padding',
             [
                 'label' => __( 'Padding', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
@@ -488,7 +486,7 @@ class PricingList extends Widget_Base {
         ?>
         <div class="eead-pricing-list-section <?php echo esc_attr($settings['layout']); ?>">
             <div class="eead-pricing-list-wrap <?php echo isset($alignment_class) ? $alignment_class : ''; ?>">
-                
+
                 <?php foreach ($settings[ 'pricing_lists' ] as $lists) { ?>
                     <div class="eead-each-pricing-item">
 
@@ -497,10 +495,10 @@ class PricingList extends Widget_Base {
                                 <?php 
                                     $link = $lists['link']['url'] ? esc_url($lists['link']['url']) : '#';
                                     if($settings['image_link_enable'] == 'yes') {
-                                        $image = \Elementor\Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
+                                        $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
                                         printf( '<a href=%1$s>%2$s</a>', $link, $image );
                                     } else {
-                                        echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
+                                        echo Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
                                     }
                                 ?>
                                 <?php 

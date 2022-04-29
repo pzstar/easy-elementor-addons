@@ -55,6 +55,7 @@ class AdminClass {
         if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
 
             $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
+            update_option('eead_widgets', array());
             $update_widgets = update_option('eead_widgets', $data_ar);
             if ($update_widgets) {
                 echo 'yes';

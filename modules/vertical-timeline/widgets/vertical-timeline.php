@@ -298,7 +298,6 @@ class VerticalTimeline extends Widget_Base {
 
         $this->end_controls_section();
 
-
         /* Style Tab */
         $this->start_controls_section(
                 'content_style', [
@@ -613,7 +612,6 @@ class VerticalTimeline extends Widget_Base {
 
         $this->end_controls_section();
 
-
         $this->start_controls_section(
                 'meta_style', [
             'label' => esc_html__('Meta', 'easy-elementor-addons'),
@@ -846,7 +844,6 @@ class VerticalTimeline extends Widget_Base {
                                         }
                                         ?>
                                     </div>
-
 
                                     <div class="eead-vtimeline-description">
                                         <p><?php echo esc_html($item['description']); ?></p>

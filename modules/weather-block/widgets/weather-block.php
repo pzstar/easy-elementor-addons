@@ -9,6 +9,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use EasyElementorAddons\Group_Control_Query;
 use EasyElementorAddons\Group_Control_Header;
+use Elementor\Group_Control_Background;
 use JsonMachine\JsonMachine;
 use DateTime;
 
@@ -44,16 +45,14 @@ class WeatherBlock extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'layout_section',
-            [
+            'layout_section', [
                 'label' => __( 'Layout Section', 'easy-elementor-addons' )
             ]
         );
 
         /* API */
         $this->add_control(
-            'api_key',
-            [
+            'api_key', [
                 'label' => esc_html__( 'API Key', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -65,8 +64,7 @@ class WeatherBlock extends Widget_Base {
 
         /* Country */
         $this->add_control(
-            'country_location',
-            [
+            'country_location', [
                 'label' => esc_html__( 'Country', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => false,
@@ -78,8 +76,7 @@ class WeatherBlock extends Widget_Base {
 
         /* City */
         $this->add_control(
-            'city_location',
-            [
+            'city_location', [
                 'label' => esc_html__( 'City', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -91,8 +88,7 @@ class WeatherBlock extends Widget_Base {
 
         /* Language */
         $this->add_control(
-            'country_language',
-            [
+            'country_language', [
                 'label' => esc_html__( 'Language', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => false,
@@ -104,8 +100,7 @@ class WeatherBlock extends Widget_Base {
 
         /* Units */
         $this->add_control(
-            'temperature_units',
-            [
+            'temperature_units', [
                 'label' => esc_html__( 'Units', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -118,8 +113,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'cache_expiration',
-            [
+            'cache_expiration', [
                 'label' => __( 'Cache Expiration(sec)', 'easy-elementor-addons' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'description' => __( 'Please set the expiration time in seconds.', 'easy-elementor-addons' ),
@@ -132,8 +126,7 @@ class WeatherBlock extends Widget_Base {
 
         /* Round */
         $this->add_control(
-            'round',
-            [
+            'round', [
                 'label' => esc_html__( 'Round', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -142,8 +135,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_humidity',
-            [
+            'hide_humidity', [
                 'label' => esc_html__( 'Hide Humidity', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -152,8 +144,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_preassure',
-            [
+            'hide_preassure', [
                 'label' => esc_html__( 'Hide Preassure', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -162,8 +153,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_wind_speed',
-            [
+            'hide_wind_speed', [
                 'label' => esc_html__( 'Hide Wind Speed', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -172,8 +162,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_day',
-            [
+            'hide_day', [
                 'label' => esc_html__( 'Hide Day', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -182,8 +171,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_weather_description',
-            [
+            'hide_weather_description', [
                 'label' => esc_html__( 'Hide Description', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -192,8 +180,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_bottom_box',
-            [
+            'hide_bottom_box', [
                 'label' => esc_html__( 'Hide Bottom', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -202,8 +189,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'layout',
-            [
+            'layout', [
                 'label' => __( 'Style', 'easy-elementor-addons' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -439,8 +425,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'top_box_bg_color',
                 'label' => __( 'Background', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],
@@ -471,8 +456,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'middle_box_bg_color',
                 'label' => __( 'Background', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],
@@ -501,8 +485,7 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'bottom_box_bg_color',
                 'label' => __( 'Background', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],

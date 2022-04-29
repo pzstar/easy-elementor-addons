@@ -8,13 +8,15 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
+use Elementor\Repeater;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
 /**
- * Tiled Posts Widget
+ * Pricing Table Widget
  */
 class PricingTable extends Widget_Base {
 
@@ -50,7 +52,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'title', [
             'label' => __('Pricing Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Pricing'
                 ]
@@ -59,7 +61,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'currency', [
             'label' => __('Currency Symbol', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '$'
                 ]
@@ -68,7 +70,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'price', [
             'label' => __('Price', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '500'
                 ]
@@ -77,18 +79,18 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'price_per', [
             'label' => __('Price Per(/month, /year)', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '/year'
                 ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
                 'list', [
             'label' => __('Features', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
                 ]
         );
@@ -96,7 +98,7 @@ class PricingTable extends Widget_Base {
         $repeater->add_control(
                 'feature_icon', [
             'label' => __('Button Icon', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::ICONS,
+            'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-check',
                 'library' => 'solid',
@@ -107,7 +109,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'feature_list', [
             'label' => __('Plan Feature List', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::REPEATER,
+            'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
                 [
@@ -127,7 +129,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'link_text', [
             'label' => __('Button Text', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Buy Now'
                 ]
@@ -136,7 +138,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'link', [
             'label' => __('Button Link', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::URL,
+            'type' => Controls_Manager::URL,
             'show_external' => true,
             'default' => [
                 'url' => '#',
@@ -149,7 +151,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'link_icon', [
             'label' => __('Button Icon', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::ICONS,
+            'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-long-arrow-alt-right',
                 'library' => 'solid',
@@ -160,7 +162,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'header_icon', [
             'label' => __('Header Icon', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::ICONS,
+            'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-home',
                 'library' => 'solid',
@@ -172,7 +174,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'is_featured', [
             'label' => __('Is Featured', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
+            'type' => Controls_Manager::SWITCHER,
             'label_on' => __('Yes', 'easy-elementor-addons'),
             'label_off' => __('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
@@ -190,7 +192,7 @@ class PricingTable extends Widget_Base {
         $this->add_control(
                 'layout', [
             'label' => __('Layout', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
                 'style1' => __('Style 1', 'easy-elementor-addons'),
@@ -210,8 +212,7 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'      => 'main_container_background_color',
                 'types'     => [ 'classic', 'gradient' ],
                 'selector'  => '{{WRAPPER}} .eead-pricing-main'
@@ -249,8 +250,7 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'      => 'title_background_color',
                 'types'     => [ 'classic', 'gradient' ],
                 'selector'  => '{{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-title,
@@ -276,7 +276,7 @@ class PricingTable extends Widget_Base {
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header .eead-pricing-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
             ],
-            'condition' => [ 'layout' => 'style1' ] 
+            'condition' => [ 'layout' => 'style1' ]
         ]);
 
         $this->add_control(
@@ -288,7 +288,7 @@ class PricingTable extends Widget_Base {
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header .eead-pricing-title' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
             ],
-            'condition' => [ 'layout' => 'style3' ] 
+            'condition' => [ 'layout' => 'style3' ]
         ]);
 
         $this->end_controls_section();
@@ -312,8 +312,7 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'      => 'icon_bg_color',
                 'types'     => [ 'classic', 'gradient' ],
                 'selector'  => '{{WRAPPER}} .eead-header-icon'
@@ -340,8 +339,7 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name'      => 'price_bg_color',
                 'types'     => [ 'classic', 'gradient' ],
                 'selector'  => '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-price,
@@ -474,64 +472,62 @@ class PricingTable extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'button_tabs'
+            'button_tabs'
         );
 
-            $this->start_controls_tab(
-                    'button_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                    ]
-            );
+        $this->start_controls_tab(
+                'button_style_normal_tab', [
+            'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                ]
+        );
 
-                $this->add_group_control(
-                    Group_Control_Background::get_type(),
-                    [
-                        'name'      => 'button_bg_color',
-                        'types'     => [ 'classic', 'gradient' ],
-                        'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a, 
-                                        {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button',
-                    ]
-                );
+        $this->add_group_control(
+                Group_Control_Background::get_type(), [
+            'name'      => 'button_bg_color',
+            'types'     => [ 'classic', 'gradient' ],
+            'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a, 
+            {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button',
+                ]
+        );
 
-                $this->add_control(
-                        'button_color', [
-                    'label' => esc_html__('Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+                'button_color', [
+            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-            $this->end_controls_tab();
+        $this->end_controls_tab();
 
-            $this->start_controls_tab(
-                    'button_style_active_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                    ]
-            );
+        $this->start_controls_tab(
+                'button_style_active_tab', [
+            'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                ]
+        );
 
-                $this->add_group_control(
-                    Group_Control_Background::get_type(),
-                    [
-                        'name'      => 'button_bg_active_color',
-                        'types'     => [ 'classic', 'gradient' ],
-                        'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover, 
-                                        {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button:hover',
-                    ]
-                );
+        $this->add_group_control(
+                Group_Control_Background::get_type(), [
+            'name'      => 'button_bg_active_color',
+            'types'     => [ 'classic', 'gradient' ],
+            'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover, 
+            {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button:hover',
+                ]
+        );
 
-                $this->add_control(
-                        'button_active_color', [
-                    'label' => esc_html__('Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+                'button_active_color', [
+            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-            $this->end_controls_tab();
+        $this->end_controls_tab();
 
         $this->end_controls_tabs();
 
@@ -553,12 +549,11 @@ class PricingTable extends Widget_Base {
         ?>
 
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
-
             <div class="eead-pricing-header">
-                
+
                 <?php if($settings['layout'] == 'style2') { ?>
                     <span class="eead-header-icon">
-                        <?php \Elementor\Icons_Manager::render_icon($settings['header_icon'], ['aria-hidden' => 'true']); ?>
+                        <?php Icons_Manager::render_icon($settings['header_icon'], ['aria-hidden' => 'true']); ?>
                     </span>
                 <?php } ?>
 
@@ -580,7 +575,6 @@ class PricingTable extends Widget_Base {
             </div>
 
             <div class="eead-pricing-main">
-
                 <?php if($settings['layout'] == 'style1') { ?>
                     <div class="eead-pricing-price">
                         <span class="eead-currency"><?php echo esc_html($settings['currency']); ?></span>
@@ -595,7 +589,7 @@ class PricingTable extends Widget_Base {
                     <div class="eead-pricing-button">
                         <a href="<?php echo esc_url($settings['link']['url']); ?>" <?php echo $target . $nofollow; ?>>
                             <?php echo wp_kses_post($settings['link_text']); ?> 
-                            <span class="eead-pricing-link-icon"><?php \Elementor\Icons_Manager::render_icon($settings['link_icon'], ['aria-hidden' => 'true']); ?></span>
+                            <span class="eead-pricing-link-icon"><?php Icons_Manager::render_icon($settings['link_icon'], ['aria-hidden' => 'true']); ?></span>
                         </a>
                     </div>
                 <?php } ?>
@@ -610,7 +604,7 @@ class PricingTable extends Widget_Base {
             echo '<ul class="eead-pricing-list">';
             foreach ($settings['feature_list'] as $item) {
                 echo '<li>';
-                \Elementor\Icons_Manager::render_icon($item['feature_icon'], ['aria-hidden' => 'true']);
+                Icons_Manager::render_icon($item['feature_icon'], ['aria-hidden' => 'true']);
                 echo wp_kses_post($item['list']);
                 echo '</li>';
             }

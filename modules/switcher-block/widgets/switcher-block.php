@@ -52,8 +52,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'title_a',
-            [
+            'title_a', [
                 'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => __( 'Switch A', 'easy-elementor-addons' )
@@ -61,8 +60,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_a',
-            [
+            'icon_a', [
                 'label' => __( 'Icon', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -73,10 +71,9 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'content_type_a',
-            [
+            'content_type_a', [
                 'label' => __( 'Content Type', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
                     'elementor_template'  => __( 'Elementor Template', 'easy-elementor-addons' ),
@@ -86,8 +83,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'elementor_template_a',
-            [
+            'elementor_template_a', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -98,10 +94,9 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'wisiwyg_content_a',
-            [
+            'wisiwyg_content_a', [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::WYSIWYG,
                 'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons' ),
                 'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
                 'condition'   => [ 'content_type_a' => 'wisiwyg' ]
@@ -117,8 +112,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'title_b',
-            [
+            'title_b', [
                 'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => __( 'Switch B', 'easy-elementor-addons' )
@@ -126,8 +120,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_b',
-            [
+            'icon_b', [
                 'label' => __( 'Icon', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -138,10 +131,9 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'content_type_b',
-            [
+            'content_type_b', [
                 'label' => __( 'Content Type', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
                     'elementor_template'  => __( 'Elementor Template', 'easy-elementor-addons' ),
@@ -151,8 +143,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'elementor_template_b',
-            [
+            'elementor_template_b', [
                 'label'       => __( 'Select Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT,
                 'default'     => '0',
@@ -163,10 +154,9 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'wisiwyg_content_b',
-            [
+            'wisiwyg_content_b', [
                 'label' => __( 'Description', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::WYSIWYG,
                 'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons' ),
                 'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
                 'condition'   => [ 'content_type_b' => 'wisiwyg' ]
@@ -182,10 +172,9 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_style',
-            [
+            'switch_style', [
                 'label' => __( 'Style', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
                     'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
@@ -225,211 +214,211 @@ class SwitcherBlock extends Widget_Base {
                 ]
         );
 
-            $this->add_group_control(
-                    Group_Control_Typography::get_type(), [
-                'name' => 'switch_text_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab h3',
-                    ]
-            );
+        $this->add_group_control(
+                Group_Control_Typography::get_type(), [
+            'name' => 'switch_text_typography',
+            'label' => esc_html__('Typography', 'easy-elementor-addons'),
+            'selector' => '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab h3',
+                ]
+        );
 
-            $this->add_control(
-                    'border_color', [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section' => 'border: 2px solid {{VALUE}}',
-                    '{{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab,
-                     {{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab' => 'border: 3px solid {{VALUE}}'
-                ],
-                    ]
-            );
+        $this->add_control(
+                'border_color', [
+            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section' => 'border: 2px solid {{VALUE}}',
+                '{{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab,
+                 {{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab' => 'border: 3px solid {{VALUE}}'
+            ],
+                ]
+        );
 
-            $this->add_control(
-                'switch_alignment',
-                array(
-                    'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
-                    'type'    => Controls_Manager::CHOOSE,
-                    'default' => 'eead-align-center',
-                    'options' => array(
-                        'eead-align-left'   => array(
-                            'title' => esc_html__( 'Switch A', 'easy-elementor-addons' ),
-                            'icon'  => 'eicon-h-align-left',
-                        ),
-                        'eead-align-center'  => array(
-                            'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
-                            'icon'  => 'eicon-h-align-center',
-                        ),
-                        'eead-align-right'  => array(
-                            'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
-                            'icon'  => 'eicon-h-align-right',
-                        ),
-                    )
+        $this->add_control(
+            'switch_alignment',
+            array(
+                'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
+                'type'    => Controls_Manager::CHOOSE,
+                'default' => 'eead-align-center',
+                'options' => array(
+                    'eead-align-left'   => array(
+                        'title' => esc_html__( 'Switch A', 'easy-elementor-addons' ),
+                        'icon'  => 'eicon-h-align-left',
+                    ),
+                    'eead-align-center'  => array(
+                        'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
+                        'icon'  => 'eicon-h-align-center',
+                    ),
+                    'eead-align-right'  => array(
+                        'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
+                        'icon'  => 'eicon-h-align-right',
+                    ),
                 )
-            );
+            )
+        );
 
-            $this->add_control( 'icon_size', [
-                'label' => __('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 80,
-                        'step' => 1,
-                    ]
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 30,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
-                    ]
-            );
+        $this->add_control( 'icon_size', [
+            'label' => __('Icon Size', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => 10,
+                    'max' => 80,
+                    'step' => 1,
+                ]
+            ],
+            'default' => [
+                'unit' => 'px',
+                'size' => 30,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
+            ],
+                ]
+        );
 
-            $this->add_control( 'tab_margin_bottom', [
-                'label' => __('Margin Bottom', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-switcher-tab-section' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-                    ]
-            );
+        $this->add_control( 'tab_margin_bottom', [
+            'label' => __('Margin Bottom', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px'],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 1,
+                ]
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+            ],
+                ]
+        );
 
-            $this->start_controls_tabs(
-                    'switch_tabs'
-            );
+        $this->start_controls_tabs(
+            'switch_tabs'
+        );
 
-                $this->start_controls_tab(
-                        'switch_style_normal_tab', [
-                    'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                        ]
-                );
+        $this->start_controls_tab(
+                'switch_style_normal_tab', [
+            'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                ]
+        );
 
-                $this->add_control(
-                'switch_normal_bg_color', [
-                    'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active)' => 'background-color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_normal_bg_color', [
+            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active)' => 'background-color: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->add_control(
-                'switch_normal_color', [
-                    'label' => esc_html__('Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) h3' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_normal_color', [
+            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) h3' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->add_control(
-                'switch_icon_normal_color', [
-                    'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) i' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_icon_normal_color', [
+            'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab:not(.active) i' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->end_controls_tab();
+        $this->end_controls_tab();
 
-                $this->start_controls_tab(
-                        'switch_style_active_tab', [
-                    'label' => esc_html__('Active', 'easy-elementor-addons'),
-                        ]
-                );
+        $this->start_controls_tab(
+                'switch_style_active_tab', [
+            'label' => esc_html__('Active', 'easy-elementor-addons'),
+                ]
+        );
 
-                $this->add_control(
-                'switch_active_bg_color', [
-                    'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab.active' => 'background-color: {{VALUE}}',
-                        '{{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab.active:before' => 'border-color: {{VALUE}} transparent transparent transparent'
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_active_bg_color', [
+            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-tab-section .eead-switch-tab.active' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab.active:before' => 'border-color: {{VALUE}} transparent transparent transparent'
+            ],
+                ]
+        );
 
-                $this->add_control(
-                'switch_active_color', [
-                    'label' => esc_html__('Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active h3' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_active_color', [
+            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active h3' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->add_control(
-                'switch_icon_active_color', [
-                    'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
-                    'type' => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active i' => 'color: {{VALUE}}',
-                    ],
-                        ]
-                );
+        $this->add_control(
+        'switch_icon_active_color', [
+            'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab.active i' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->end_controls_tab();
+        $this->end_controls_tab();
 
-                $this->start_controls_tab(
-                        'switch_style_hover_tab', [
-                    'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                        ]
-                );
+        $this->start_controls_tab(
+                'switch_style_hover_tab', [
+            'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                ]
+        );
 
-                    $this->add_control(
-                    'switch_hover_normal_bg_color', [
-                        'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                        'type' => Controls_Manager::COLOR,
-                        'selectors' => [
-                            '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section .eead-switch-tab:before,
-                             {{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab:before,
-                             {{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab:hover,
-                             {{WRAPPER}} .eead-switcher-container.style4 .eead-switch-tab:hover,
-                             {{WRAPPER}} .eead-switcher-container.style5 .eead-switch-tab:hover' => 'background: {{VALUE}}',
-                        ],
-                            ]
-                    );
-        
-                    $this->add_control(
-                    'switch_hover_normal_color', [
-                        'label' => esc_html__('Color', 'easy-elementor-addons'),
-                        'type' => Controls_Manager::COLOR,
-                        'selectors' => [
-                            '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover h3' => 'color: {{VALUE}}',
-                        ],
-                            ]
-                    );
-        
-                    $this->add_control(
-                    'switch_icon_hover_normal_color', [
-                        'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
-                        'type' => Controls_Manager::COLOR,
-                        'selectors' => [
-                            '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover i' => 'color: {{VALUE}}',
-                        ],
-                            ]
-                    );
+        $this->add_control(
+        'switch_hover_normal_bg_color', [
+            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container.style1 .eead-switcher-tab-section .eead-switch-tab:before,
+                 {{WRAPPER}} .eead-switcher-container.style2 .eead-switch-tab:before,
+                 {{WRAPPER}} .eead-switcher-container.style3 .eead-switch-tab:hover,
+                 {{WRAPPER}} .eead-switcher-container.style4 .eead-switch-tab:hover,
+                 {{WRAPPER}} .eead-switcher-container.style5 .eead-switch-tab:hover' => 'background: {{VALUE}}',
+            ],
+                ]
+        );
 
-                $this->end_controls_tab();
+        $this->add_control(
+        'switch_hover_normal_color', [
+            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover h3' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
 
-            $this->end_controls_tabs();
+        $this->add_control(
+        'switch_icon_hover_normal_color', [
+            'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .eead-switcher-container .eead-switcher-tab-section .eead-switch-tab:hover i' => 'color: {{VALUE}}',
+            ],
+                ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -438,7 +427,7 @@ class SwitcherBlock extends Widget_Base {
             'label' => esc_html__('Content', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
-        ); 
+        );
 
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
@@ -457,7 +446,7 @@ class SwitcherBlock extends Widget_Base {
             ],
                 ]
         );
-        
+
         $this->add_control(
                 'switch_content_color', [
             'label' => esc_html__('Color', 'easy-elementor-addons'),
@@ -469,8 +458,7 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_content_padding',
-            [
+            'switch_content_padding', [
                 'label'                 => __( 'Padding', 'easy-elementor-addons' ),
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => [ 'px', 'em', '%' ],
@@ -487,7 +475,6 @@ class SwitcherBlock extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
         $active_switch = $settings['active_switch'];
 
         ?>
@@ -521,7 +508,7 @@ class SwitcherBlock extends Widget_Base {
                     </div>
 
                     <div class="eead-switch-b-content eead-switch-content <?php echo $active_switch == 'switch_b' ? 'active' : '' ?>" style="<?php echo $active_switch == 'switch_b' ? 'display: block;' : 'display: none;'; ?>">
-                        <?php 
+                        <?php
                         if( $settings['content_type_b'] == 'wisiwyg' ) {
                             echo $this->wisiwyg_text_parser( $settings[ 'wisiwyg_content_b' ] );
                         } else if( $settings[ 'content_type_b' ] == 'elementor_template' ) {

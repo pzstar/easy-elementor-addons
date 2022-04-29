@@ -46,18 +46,15 @@ class TwitterFeedCarousel extends Widget_Base {
     }
 
     /** Controls */
-    protected function register_controls()
-    {
+    protected function register_controls() {
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_acc_settings',
-            [
+            'eead_section_twitter_feed_carousel_acc_settings', [
                 'label' => esc_html__('Account Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_ac_name',
-            [
+            'eead_twitter_feed_ac_name', [
                 'label' => esc_html__('Username', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '@hash_themes',
@@ -68,8 +65,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_hashtag_name',
-            [
+            'eead_twitter_feed_hashtag_name', [
                 'label' => esc_html__('Hashtag Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -79,8 +75,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_consumer_key',
-            [
+            'eead_twitter_feed_consumer_key', [
                 'label' => esc_html__('Consumer Key', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -90,8 +85,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_consumer_secret',
-            [
+            'eead_twitter_feed_consumer_secret', [
                 'label' => esc_html__('Consumer Secret', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -101,8 +95,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_data_cache_limit',
-            [
+            'eead_twitter_feed_data_cache_limit', [
                 'label' => __('Data Cache Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 1,
@@ -114,15 +107,13 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_layout_settings',
-            [
+            'eead_section_twitter_feed_carousel_layout_settings', [
                 'label' => esc_html__('Layout Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_length',
-            [
+            'eead_twitter_feed_content_length', [
                 'label' => esc_html__('Content Length', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -133,8 +124,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_post_limit',
-            [
+            'eead_twitter_feed_post_limit', [
                 'label' => esc_html__('Post Limit', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -143,8 +133,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_media',
-            [
+            'eead_twitter_feed_media', [
                 'label' => esc_html__('Show Media Elements', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('yes', 'easy-elementor-addons'),
@@ -157,15 +146,13 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_settings',
-            [
+            'eead_section_twitter_feed_carousel_card_settings', [
                 'label' => esc_html__('Card Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_avatar',
-            [
+            'eead_twitter_feed_show_avatar', [
                 'label' => esc_html__('Show Avatar', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('yes', 'easy-elementor-addons'),
@@ -176,8 +163,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_style',
-            [
+            'eead_twitter_feed_avatar_style', [
                 'label' => __('Avatar Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -192,8 +178,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_date',
-            [
+            'eead_twitter_feed_show_date', [
                 'label' => esc_html__('Show Date', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('yes', 'easy-elementor-addons'),
@@ -204,8 +189,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_read_more',
-            [
+            'eead_twitter_feed_show_read_more', [
                 'label' => esc_html__('Show Read More', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('yes', 'easy-elementor-addons'),
@@ -215,10 +199,8 @@ class TwitterFeedCarousel extends Widget_Base {
             ]
         );
 
-       
-
         $this->end_controls_section();
-        
+
         $this->start_controls_section(
                 'carousel_settings', [
             'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
@@ -402,7 +384,6 @@ class TwitterFeedCarousel extends Widget_Base {
                 ]
         );
 
-        
         $this->add_control(
                 'center_image_bigger', [
             'label' => __('Center Image Bigger', 'easy-elementor-addons'),
@@ -423,16 +404,14 @@ class TwitterFeedCarousel extends Widget_Base {
          * -------------------------------------------
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_style_settings',
-            [
+            'eead_section_twitter_feed_carousel_card_style_settings', [
                 'label' => esc_html__('Card Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_bg_color',
-            [
+            'eead_twitter_feed_card_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -443,8 +422,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_twitter_feed_card_container_padding',
-            [
+            'eead_twitter_feed_card_container_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -456,8 +434,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'eead_twitter_feed_card_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner',
@@ -465,8 +442,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_border_radius',
-            [
+            'eead_twitter_feed_card_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -481,8 +457,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'eead_twitter_feed_card_shadow',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner',
             ]
@@ -494,15 +469,14 @@ class TwitterFeedCarousel extends Widget_Base {
          * Card Hover Style
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_card_hover_settings',
-            [
+            'eead_section_twitter_feed_card_hover_settings', [
                 'label' => esc_html__('Card Hover Style', 'easy-elementor-addons'),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
+
         $this->add_control(
-            'eead_twitter_feed_card_hover_title_color',
-            [
+            'eead_twitter_feed_card_hover_title_color', [
                 'label'     => __('Title Color', 'easy-elementor-addons'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -510,9 +484,9 @@ class TwitterFeedCarousel extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'eead_twitter_feed_card_hover_content_color',
-            [
+            'eead_twitter_feed_card_hover_content_color', [
                 'label'     => __('Content Color', 'easy-elementor-addons'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -520,9 +494,9 @@ class TwitterFeedCarousel extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'eead_twitter_feed_card_hover_link_color',
-            [
+            'eead_twitter_feed_card_hover_link_color', [
                 'label'     => __('Link Color', 'easy-elementor-addons'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -530,9 +504,9 @@ class TwitterFeedCarousel extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'eead_twitter_feed_card_hover_date_color',
-            [
+            'eead_twitter_feed_card_hover_date_color', [
                 'label'     => __('Date Color', 'easy-elementor-addons'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -542,8 +516,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_border_hover_color',
-            [
+            'eead_twitter_feed_card_border_hover_color', [
                 'label'     => __('Border Color', 'easy-elementor-addons'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -553,8 +526,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
+            \Elementor\Group_Control_Background::get_type(), [
                 'name'     => 'eead_twitter_feed_card_hover_bg',
                 'label'    => __('Background', 'easy-elementor-addons'),
                 'types'    => ['classic', 'gradient'],
@@ -563,8 +535,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
+            \Elementor\Group_Control_Box_Shadow::get_type(), [
                 'name'     => 'eead_twitter_feed_card_hover_shadow',
                 'label'    => __('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner:hover',
@@ -577,24 +548,21 @@ class TwitterFeedCarousel extends Widget_Base {
          * Tab Style (Twitter Feed Typography Style)
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_typo_settings',
-            [
+            'eead_section_twitter_feed_carousel_card_typo_settings', [
                 'label' => esc_html__('Color &amp; Typography', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_title_heading',
-            [
+            'eead_twitter_feed_title_heading', [
                 'label' => esc_html__('Title Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_title_color',
-            [
+            'eead_twitter_feed_title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -605,16 +573,15 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'eead_twitter_feed_title_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-author',
             ]
         );
+
         // Content Style
         $this->add_control(
-            'eead_twitter_feed_content_heading',
-            [
+            'eead_twitter_feed_content_heading', [
                 'label' => esc_html__('Content Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -622,8 +589,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_color',
-            [
+            'eead_twitter_feed_content_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -634,8 +600,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'eead_twitter_feed_content_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-content p',
             ]
@@ -643,8 +608,7 @@ class TwitterFeedCarousel extends Widget_Base {
 
         // Content Link Style
         $this->add_control(
-            'eead_twitter_feed_content_link_heading',
-            [
+            'eead_twitter_feed_content_link_heading', [
                 'label' => esc_html__('Link Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -652,8 +616,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_link_color',
-            [
+            'eead_twitter_feed_content_link_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -664,8 +627,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_link_hover_color',
-            [
+            'eead_twitter_feed_content_link_hover_color', [
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -676,8 +638,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'eead_twitter_feed_content_link_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-content a',
             ]
@@ -689,8 +650,7 @@ class TwitterFeedCarousel extends Widget_Base {
          * Avatar Style
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_avatar_style',
-            [
+            'eead_section_twitter_feed_avatar_style', [
                 'label'     => esc_html__('Avatar', 'easy-elementor-addons'),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -700,8 +660,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_width',
-            [
+            'eead_twitter_feed_avatar_width', [
                 'label'      => __('Width', 'easy-elementor-addons'),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
@@ -727,8 +686,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_height',
-            [
+            'eead_twitter_feed_avatar_height', [
                 'label'      => __('Height', 'easy-elementor-addons'),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
@@ -749,18 +707,16 @@ class TwitterFeedCarousel extends Widget_Base {
             ]
         );
 
-
         $this->add_group_control(
-            \Elementor\Group_Control_Border::get_type(),
-            [
+            \Elementor\Group_Control_Border::get_type(), [
                 'name'     => 'eead_twitter_feed_avatar_border',
                 'label'    => __('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-avatar img',
             ]
         );
+
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
+            \Elementor\Group_Control_Box_Shadow::get_type(), [
                 'name'     => 'eead_twitter_feed_avatar_shadow',
                 'label'    => __('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-avatar img',
@@ -768,29 +724,6 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->end_controls_section();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         $this->start_controls_section(
                 'dot_style', [
@@ -800,8 +733,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_width',
-            [
+            'dots_border_width', [
                 'label'      => esc_html__( 'Border Width', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
@@ -812,8 +744,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_radius',
-            [
+            'dots_border_radius', [
                 'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
@@ -824,8 +755,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding',
-            [
+            'dots_padding', [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -946,8 +876,7 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding',
-            [
+            'arrow_padding', [
                 'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
@@ -1032,8 +961,8 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function render()
-    {
+    protected function render() {
+
         $settings = $this->get_settings_for_display();
 
         $params = array(
@@ -1057,6 +986,7 @@ class TwitterFeedCarousel extends Widget_Base {
             'center_image_bigger' => $settings['center_image_bigger'] == 'yes' ? true : false,
         );
         $params = json_encode($params);
+
         ?>
         <div class="eead-twitter-feed eead-twitter-feed-carousel swiper-container eead-twitter-feed-<?php echo $this->get_id() ?>" <?php //echo $this->get_render_attribute_string('eead-twitter-feed-carousel-wrap'); ?>>
             <div class="swiper-wrapper eead-twitter-feed-carousel-slides owl-carousel" data-params='<?php echo $params; ?>'>
@@ -1155,7 +1085,7 @@ class TwitterFeedCarousel extends Widget_Base {
             <div class="eead-twitter-feed-item <?php echo $class; ?>">
                 <div class="eead-twitter-feed-item-inner">
                     <div class="eead-twitter-feed-item-header">
-            
+
                         <?php if ( $settings[ 'eead_twitter_feed_show_avatar' ] == 'true' ) { ?>
                             <a class="eead-twitter-feed-item-avatar avatar-<?php echo $settings[ 'eead_twitter_feed_avatar_style' ]; ?>" href="//twitter.com/<?php echo $settings[ 'eead_twitter_feed_ac_name' ]; ?>" target="_blank">
                                 <img src="<?php echo esc_url($item[ 'user' ][ 'profile_image_url_https' ]); ?>">
@@ -1163,9 +1093,7 @@ class TwitterFeedCarousel extends Widget_Base {
                         <?php } ?>
 
                         <a class="eead-twitter-feed-item-meta" href="//twitter.com/<?php echo $settings[ 'eead_twitter_feed_ac_name' ]; ?>" target="_blank">
-
                             <span class="eead-twitter-feed-item-author"><?php echo $item[ 'user' ][ 'name' ]; ?></span>
-
                         </a>
 
                         <?php if ( $settings[ 'eead_twitter_feed_show_date' ] == 'true' ) { ?>

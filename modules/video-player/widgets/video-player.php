@@ -51,85 +51,79 @@ class VideoPlayer extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_video',
-            array(
+            'section_video', [
                 'label' => esc_html__( 'Video', 'easy-elementor-addons' ),
-            )
+            ]
         );
 
         $this->add_control(
-            'video_type',
-            array(
+            'video_type', [
                 'label'   => esc_html__( 'Video Type', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'self_hosted',
-                'options' => array(
+                'options' => [
                     'youtube'     => esc_html__( 'YouTube', 'easy-elementor-addons' ),
                     'vimeo'       => esc_html__( 'Vimeo', 'easy-elementor-addons' ),
                     'self_hosted' => esc_html__( 'Self Hosted', 'easy-elementor-addons' ),
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'youtube_url',
-            array(
+            'youtube_url', [
                 'label'       => esc_html__( 'Youtube URL', 'easy-elementor-addons' ),
                 'label_block' => true,
                 'type'        => Controls_Manager::TEXT,
                 'placeholder' => esc_html__( 'Enter your URL', 'easy-elementor-addons' ),
                 'default'     => 'https://www.youtube.com/watch?v=nZYqLR_DBqw',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'youtube',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'vimeo_url',
-            array(
+            'vimeo_url', [
                 'label'       => esc_html__( 'Vimeo URL', 'easy-elementor-addons' ),
                 'label_block' => true,
                 'type'        => Controls_Manager::TEXT,
                 'placeholder' => esc_html__( 'Enter your URL', 'easy-elementor-addons' ),
                 'default'     => 'https://vimeo.com/456168511',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'vimeo',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'y_setting_header', array(
+            'y_setting_header', [
                 'label' => __( 'Youtube Options', 'plugin-name' ),
-                'type' => \Elementor\Controls_Manager::HEADING,
+                'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'youtube',
                     'controls'   => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'yt_modestbranding',
-            array(
+            'yt_modestbranding', [
                 'label'     => esc_html__( 'Modest Branding', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'     => '',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'youtube',
                     'controls'   => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'yt_privacy_mode',
-            array(
+            'yt_privacy_mode', [
                 'label'       => esc_html__( 'Privacy Mode', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SWITCHER,
                 'description' => esc_html__( 'If switched off, YouTube will save visitors data on your website only when video is played.', 'easy-elementor-addons' ),
@@ -137,322 +131,299 @@ class VideoPlayer extends Widget_Base {
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'     => '',
-                'condition'   => array(
+                'condition'   => [
                     'video_type' => 'youtube',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'yt_suggested_videos',
-            array(
+            'yt_suggested_videos', [
                 'label'   => esc_html__( 'Suggested Videos', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => '',
-                'options' => array(
+                'options' => [
                     ''    => esc_html__( 'Current Video Channel', 'easy-elementor-addons' ),
                     'yes' => esc_html__( 'Any Video', 'easy-elementor-addons' ),
-                ),
+                ],
                 'separator' => 'after',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'youtube',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'self_hosted_player',
-            array(
+            'self_hosted_player', [
                 'label'   => esc_html__( 'Player', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'html5',
-                'options' => array(
+                'options' => [
                     'html5' => esc_html__( 'HTML5 Player', 'easy-elementor-addons' ),
-                ),
-                'condition' => array(
+                ],
+                'condition' => [
                     'video_type' => 'self_hosted',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'self_hosted_url',
-            array(
+            'self_hosted_url', [
                 'label'      => esc_html__( 'Self Hosted URL', 'easy-elementor-addons' ),
                 'type'       => Controls_Manager::MEDIA,
                 'media_type' => 'video',
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'self_hosted',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'start_time',
-            array(
+            'start_time', [
                 'label'     => esc_html__( 'Start Time (seconds)', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
-                'condition' => array(
+                'condition' => [
                     'loop' => '',
-                ),
+                ],
                 'separator' => 'before'
-            )
+            ]
         );
 
         $this->add_control(
-            'end_time',
-            array(
+            'end_time', [
                 'label'     => esc_html__( 'End Time (seconds)', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::NUMBER,
-                'condition' => array(
+                'condition' => [
                     'loop'       => '',
                     'video_type' => ['youtube', 'self_hosted'],
-                ),
+                ],
                 'separator' => 'after'
-            )
+            ]
         );
 
         $this->add_control(
-            'aspect_ratio',
-            array(
+            'aspect_ratio', [
                 'label'   => esc_html__( 'Aspect Ratio', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => '16-9',
-                'options' => array(
+                'options' => [
                     '16-9' => '16:9',
                     '21-9' => '21:9',
                     '9-16' => '9:16',
                     '4-3'  => '4:3',
                     '3-2'  => '3:2',
                     '1-1'  => '1:1',
-                ),
-                'condition' => array(
+                ],
+                'condition' => [
                     'video_type' => ['youtube', 'vimeo'],
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'download_button',
-            array(
+            'download_button', [
                 'label'       => esc_html__( 'Download Button', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'     => '',
-                'condition' => array(
+                'condition' => [
                     'video_type'         => 'self_hosted',
                     'self_hosted_player' => 'html5',
                     'controls'           => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'poster',
-            array(
+            'poster', [
                 'label' => esc_html__( 'Poster', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::MEDIA,
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'self_hosted',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'autoplay',
-            array(
+            'autoplay', [
                 'label'   => esc_html__( 'Autoplay', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SWITCHER,
-            )
+            ]
         );
 
         $this->add_control(
-            'loop',
-            array(
+            'loop', [
                 'label'   => esc_html__( 'Loop', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'   => ''
-            )
+            ]
         );
 
         $this->add_control(
-            'controls',
-            array(
+            'controls', [
                 'label'     => esc_html__( 'Player Controls', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'   => '',
-                'condition' => array(
+                'condition' => [
                     'video_type!' => 'vimeo',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'mute',
-            array(
+            'mute', [
                 'label'   => esc_html__( 'Mute', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default'   => ''
-            )
+            ]
         );
 
         $this->add_control(
-            'vimeo_controls_color',
-            array(
+            'vimeo_controls_color', [
                 'label' => esc_html__( 'Controls Color', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::COLOR,
                 'alpha' => false,
-                'condition' => array(
+                'condition' => [
                     'video_type' => 'vimeo',
-                ),
-            )
+                ],
+            ]
         );
-        
+
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'play_button_section',
-            array(
+            'play_button_section', [
                 'label' => esc_html__( 'Play Button', 'easy-elementor-addons' ),
-            )
+            ]
         );
 
         $this->add_control(
-            'show_play_button',
-            array(
+            'show_play_button', [
                 'label' => esc_html__( 'Show Play Button', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::SWITCHER,
                 'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
-            )
+            ]
         );
 
         $this->add_control(
-            'play_button_type',
-            array(
+            'play_button_type', [
                 'label'   => esc_html__( 'Play Button Type', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'default' => 'icon',
                 'toggle'  => false,
-                'options' => array(
-                    'icon' => array(
+                'options' => [
+                    'icon' => [
                         'title' => esc_html__( 'Icon', 'easy-elementor-addons' ),
                         'icon'  => 'fa fa-play',
-                    ),
-                    'image' => array(
+                    ],
+                    'image' => [
                         'title' => esc_html__( 'Image', 'easy-elementor-addons' ),
                         'icon'  => 'eicon-image',
-                    )
-                ),
-                'condition' => array(
+                    ]
+                ],
+                'condition' => [
                     'show_play_button' => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
             'play_button_icon',
             [
                 'label' => __( 'Icon', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::ICONS,
+                'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'eicon-play-o',
                     'library' => 'solid',
                 ],
-                'condition' => array(
+                'condition' => [
                     'show_play_button' => 'yes',
                     'play_button_type' => 'icon',
-                ),
+                ],
             ]
         );
 
         $this->add_control(
-            'play_button_image',
-            array(
+            'play_button_image', [
                 'label' => esc_html__( 'Image', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::MEDIA,
-                'condition' => array(
+                'condition' => [
                     'show_play_button' => 'yes',
                     'play_button_type' => 'image',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'play_button_color',
-            array(
+            'play_button_color', [
                 'label' => esc_html__( 'Play Button Color', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::COLOR,
-                'selectors' => array(
+                'selectors' => [
                     '{{WRAPPER}} .eead-video-play-button i' => 'color: {{VALUE}};',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'thumb_overlay_section',
-            array(
+            'thumb_overlay_section', [
                 'label' => esc_html__( 'Thumbnail Overlay', 'easy-elementor-addons' ),
-            )
+            ]
         );
 
         $this->add_control(
-            'show_thumbnail',
-            array(
+            'show_thumbnail', [
                 'label'   => esc_html__( 'Show Custom Thumbnail', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => '',
-            )
+            ]
         );
 
         $this->add_control(
-            'thumbnail',
-            array(
+            'thumbnail', [
                 'label'     => esc_html__( 'Thumbnail', 'easy-elementor-addons' ),
                 'type'      => Controls_Manager::MEDIA,
-                'dynamic'   => array( 'active' => true ),
-                'condition' => array(
+                'dynamic'   => ['active' => true],
+                'condition' => [
                     'show_thumbnail' => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            array(
+            Group_Control_Image_Size::get_type(), [
                 'name'      => 'thumbnail',
                 'default'   => 'full',
-                'condition' => array(
+                'condition' => [
                     'show_thumbnail' => 'yes',
-                ),
-            )
+                ],
+            ]
         );
 
         $this->add_control(
-            'overlay_color',
-            array(
+            'overlay_color', [
                 'label' => esc_html__( 'Overlay Color', 'easy-elementor-addons' ),
                 'type'  => Controls_Manager::COLOR,
-                'selectors' => array(
+                'selectors' => [
                     '{{WRAPPER}} .eead-video-overlay:before' => 'background-color: {{VALUE}};',
-                ),
+                ],
                 'separator' => 'before',
-            )
+            ]
         );
 
         $this->end_controls_section();
@@ -466,7 +437,9 @@ class VideoPlayer extends Widget_Base {
         ]);
 
         $video_url = $this->get_video_url();
-        if( !$video_url ) { return; }
+        if( !$video_url ) {
+            return;
+        }
 
         ?>
         <div class="eead-video-block eead-video-aspect-ratio-<?php echo $settings['aspect_ratio']; ?>" data-settings='<?php echo $data_settings; ?>'>
@@ -520,7 +493,7 @@ class VideoPlayer extends Widget_Base {
 
     protected function get_video_block() {
         $settings = $this->get_settings_for_display();
-   
+
         $video_url  = $this->get_video_url();
         if( $settings['video_type'] === 'self_hosted' ) { 
             $self_hosted_params = $this->get_self_hosted_params();
@@ -540,7 +513,7 @@ class VideoPlayer extends Widget_Base {
         else {
             $embed_params  = $this->get_embed_params();
             $embed_options = $this->get_embed_options();
-            
+
             $embed_attr = [
                 'class' => 'eead-video-iframe',
                 'allow' => 'autoplay;encrypted-media',
@@ -559,38 +532,38 @@ class VideoPlayer extends Widget_Base {
 
         if( $settings['video_type'] == 'youtube' ) {
 
-                $params_dictionary = [
-                    'autoplay' => 'autoplay',
-                    'loop' => 'loop',
-                    'controls' => 'controls',
-                    'mute' => 'mute',
-                    'yt_suggested_videos' =>'rel',
-                    'yt_modestbranding' => 'modestbranding',
-                ];
+            $params_dictionary = [
+                'autoplay' => 'autoplay',
+                'loop' => 'loop',
+                'controls' => 'controls',
+                'mute' => 'mute',
+                'yt_suggested_videos' =>'rel',
+                'yt_modestbranding' => 'modestbranding',
+            ];
 
-                if ( $settings['loop'] ) {
-                    $video_properties = Embed::get_video_properties( esc_url( $settings['youtube_url'] ) );
+            if ( $settings['loop'] ) {
+                $video_properties = Embed::get_video_properties( esc_url( $settings['youtube_url'] ) );
 
-                    $params['playlist'] = $video_properties['video_id'];
-                }
+                $params['playlist'] = $video_properties['video_id'];
+            }
 
-                $params['wmode'] = 'opaque';
-                $params['start'] = $settings['start_time'];
-                $params['end']   = $settings['end_time'];
+            $params['wmode'] = 'opaque';
+            $params['start'] = $settings['start_time'];
+            $params['end']   = $settings['end_time'];
 
         } else if( $settings['video_type'] == 'vimeo' ) {
 
-                $params_dictionary = [
-                    'autoplay' => 'autoplay',
-                    'loop' => 'loop',
-                    'mute' => 'muted',
-                ];
+            $params_dictionary = [
+                'autoplay' => 'autoplay',
+                'loop' => 'loop',
+                'mute' => 'muted',
+            ];
 
-                if ( !empty( $settings['vimeo_controls_color'] ) ) {
-                    $params['color'] = str_replace( '#', '', $settings['vimeo_controls_color'] );
-                }
+            if ( !empty( $settings['vimeo_controls_color'] ) ) {
+                $params['color'] = str_replace( '#', '', $settings['vimeo_controls_color'] );
+            }
 
-                $params['autopause'] = '0';
+            $params['autopause'] = '0';
         }
 
         foreach ( $params_dictionary as $setting_name => $param_name ) {
