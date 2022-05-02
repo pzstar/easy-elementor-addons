@@ -43,7 +43,7 @@ class TestimonialSlider extends Widget_Base {
     }
 
 	protected function register_controls() {
-	   $this->start_controls_section(
+        $this->start_controls_section(
                 'section_content', [
             'label' => esc_html__('Content', 'easy-elementor-addons'),
                 ]

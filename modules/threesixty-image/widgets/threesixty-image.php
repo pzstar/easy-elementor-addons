@@ -28,7 +28,7 @@ class ThreesixtyImage extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Threesixty Image', 'easy-elementor-addons');
+        return esc_html__('360 Image', 'easy-elementor-addons');
     }
 
     /** Icon */

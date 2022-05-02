@@ -181,6 +181,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'team-member-carousel',
                 'testimonial-block',
                 'testimonial-slider',
+                'threed-text',
                 'threesixty-image',
                 'tilt-hover-image',
                 'toggle-block',
@@ -189,7 +190,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'vertical-tab-block',
                 'vertical-timeline',
                 'video-player',
-                'weather-block'
+                'weather-block',
             ];
 
             return $modules_list;

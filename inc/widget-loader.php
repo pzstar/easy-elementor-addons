@@ -154,8 +154,11 @@ class EEAD_Widget_Loader {
         // LordIcon
         wp_register_script('lordicon', EEAD_URL . 'assets/lib/lordicon/lordicon.min.js', array('jquery'), EEAD_VERSION, true);
 
-        //Modernizr
+        // Modernizr
         wp_register_script('modernizr-custom', EEAD_URL . 'assets/lib/modernizr/modernizr.custom.js', array('jquery'), EEAD_VERSION, true);
+
+        // Z Text
+        wp_register_script('z-text', EEAD_URL . 'assets/lib/ztext/ztext.min.js', [], EEAD_VERSION, true);
     }
 
     /**

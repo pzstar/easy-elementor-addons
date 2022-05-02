@@ -111,6 +111,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel'); ?>
                     <?php $this->get_widget_field('Testimonial', 'testimonial-block'); ?>
                     <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
+                    <?php $this->get_widget_field('3D Text', 'threed-text'); ?>
                     <?php $this->get_widget_field('360 Image', 'threesixty-image'); ?>
                     <?php $this->get_widget_field('Tilt Hover Image', 'tilt-hover-image'); ?>
                     <?php $this->get_widget_field('Toggle', 'toggle-block'); ?>
