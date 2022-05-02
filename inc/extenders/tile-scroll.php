@@ -35,6 +35,7 @@ Class TileScroll {
         $settings = $section->get_settings_for_display();
         if ('yes' === $settings['eead_tile_scroll_show']) {
             wp_enqueue_script('eead-tile-scroll');
+            wp_enqueue_script('eead-tileimage');
         }
     }
 
