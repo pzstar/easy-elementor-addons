@@ -388,7 +388,7 @@
      * Update one ore more scene(s) according to the scroll position of the container.
      * This is the equivalent to `Scene.update()`.
      * The update method calculates the scene's start and end position (based on the trigger element, trigger hook, duration and offset) and checks it against the current scroll position of the container.
-     * It then updates the current scene state accordingly (or does nothing, if the state is already correct) – Pins will be set to their correct position and tweens will be updated to their correct progress.
+     * It then updates the current scene state accordingly (or does nothing, if the state is already correct) â€“ Pins will be set to their correct position and tweens will be updated to their correct progress.
      * _**Note:** This method gets called constantly whenever Controller detects a change. The only application for you is if you change something outside of the realm of ScrollMagic, like moving the trigger or changing tween parameters._
      * @public
      * @example
@@ -474,14 +474,14 @@
          *
          * // define a new scroll position modification function (jQuery animate instead of jump)
          * controller.scrollTo(function (newScrollPos) {
-         *	$("html, body").animate({scrollTop: newScrollPos});
+         *  $("html, body").animate({scrollTop: newScrollPos});
          * });
          * controller.scrollTo(100); // call as usual, but the new function will be used instead
          *
          * // define a new scroll function with an additional parameter
          * controller.scrollTo(function (newScrollPos, message) {
          *  console.log(message);
-         *	$(this).animate({scrollTop: newScrollPos});
+         *  $(this).animate({scrollTop: newScrollPos});
          * });
          * // call as usual, but supply an extra parameter to the defined custom function
          * controller.scrollTo(100, "my message");
@@ -489,18 +489,18 @@
          * // define a new scroll function with an additional parameter containing multiple variables
          * controller.scrollTo(function (newScrollPos, options) {
          *  someGlobalVar = options.a + options.b;
-         *	$(this).animate({scrollTop: newScrollPos});
+         *  $(this).animate({scrollTop: newScrollPos});
          * });
          * // call as usual, but supply an extra parameter containing multiple options
          * controller.scrollTo(100, {a: 1, b: 2});
          *
          * // define a new scroll function with a callback supplied as an additional parameter
          * controller.scrollTo(function (newScrollPos, callback) {
-         *	$(this).animate({scrollTop: newScrollPos}, 400, "swing", callback);
+         *  $(this).animate({scrollTop: newScrollPos}, 400, "swing", callback);
          * });
          * // call as usual, but supply an extra parameter, which is used as a callback in the previously defined custom scroll function
          * controller.scrollTo(100, function() {
-         *	console.log("scroll has finished.");
+         *  console.log("scroll has finished.");
          * });
          *
          * @param {mixed} scrollTarget - The supplied argument can be one of these types:
@@ -513,7 +513,7 @@
          *  It may also optionally receive an optional additional parameter (see below)
          *  _**NOTE:**
          *  All other options will still work as expected, using the new function to scroll._
-         * @param {mixed} [additionalParameter] - If a custom scroll function was defined (see above 4.), you may want to supply additional parameters to it, when calling it. You can do this using this parameter – see examples for details. Please note, that this parameter will have no effect, if you use the default scrolling function.
+         * @param {mixed} [additionalParameter] - If a custom scroll function was defined (see above 4.), you may want to supply additional parameters to it, when calling it. You can do this using this parameter â€“ see examples for details. Please note, that this parameter will have no effect, if you use the default scrolling function.
          * @returns {Controller} Parent object for chaining.
          */
         this.scrollTo = function (scrollTarget, additionalParameter) {
@@ -575,7 +575,7 @@
          *
          * // set a new scroll position calculation method
          * controller.scrollPos(function () {
-         *	return this.info("vertical") ? -mychildcontainer.y : -mychildcontainer.x
+         *  return this.info("vertical") ? -mychildcontainer.y : -mychildcontainer.x
          * });
          *
          * @param {function} [scrollPosMethod] - The function to be used for the scroll position calculation of the container.
@@ -751,14 +751,14 @@
      * @example
      * // create a standard scene and add it to a controller
      * new ScrollMagic.Scene()
-     *		.addTo(controller);
+     *      .addTo(controller);
      *
      * // create a scene with custom options and assign a handler to it.
      * var scene = new ScrollMagic.Scene({
-     * 		duration: 100,
-     *		offset: 200,
-     *		triggerHook: "onEnter",
-     *		reverse: false
+     *      duration: 100,
+     *      offset: 200,
+     *      triggerHook: "onEnter",
+     *      reverse: false
      * });
      *
      * @param {object} [options] - Options for the Scene. The options can be updated at any time.
@@ -853,7 +853,7 @@
          *
          * @example
          * scene.on("start", function (event) {
-         * 	console.log("Hit start point of scene.");
+         *  console.log("Hit start point of scene.");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -874,7 +874,7 @@
          *
          * @example
          * scene.on("end", function (event) {
-         * 	console.log("Hit end point of scene.");
+         *  console.log("Hit end point of scene.");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -895,7 +895,7 @@
          *
          * @example
          * scene.on("enter", function (event) {
-         * 	console.log("Scene entered.");
+         *  console.log("Scene entered.");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -916,7 +916,7 @@
          *
          * @example
          * scene.on("leave", function (event) {
-         * 	console.log("Scene left.");
+         *  console.log("Scene left.");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -934,7 +934,7 @@
          *
          * @example
          * scene.on("update", function (event) {
-         * 	console.log("Scene updated.");
+         *  console.log("Scene updated.");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -954,7 +954,7 @@
          *
          * @example
          * scene.on("progress", function (event) {
-         * 	console.log("Scene progress changed to " + event.progress);
+         *  console.log("Scene progress changed to " + event.progress);
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -972,7 +972,7 @@
          *
          * @example
          * scene.on("change", function (event) {
-         * 	console.log("Scene Property \"" + event.what + "\" changed to " + event.newval);
+         *  console.log("Scene Property \"" + event.what + "\" changed to " + event.newval);
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -993,7 +993,7 @@
          *
          * @example
          * scene.on("shift", function (event) {
-         * 	console.log("Scene moved, because the " + event.reason + " has changed.)");
+         *  console.log("Scene moved, because the " + event.reason + " has changed.)");
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -1036,7 +1036,7 @@
          *
          * @example
          * scene.on("add", function (event) {
-         * 	console.log('Scene was added to a new controller.');
+         *  console.log('Scene was added to a new controller.');
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -1054,7 +1054,7 @@
          *
          * @example
          * scene.on("remove", function (event) {
-         * 	console.log('Scene was removed from its controller.');
+         *  console.log('Scene was removed from its controller.');
          * });
          *
          * @property {object} event - The event Object passed to each callback
@@ -1069,7 +1069,7 @@
          *
          * @example
          * function callback (event) {
-         * 		console.log("Event fired! (" + event.type + ")");
+         *      console.log("Event fired! (" + event.type + ")");
          * }
          * // add listeners
          * scene.on("change update progress start end enter leave", callback);
@@ -1108,7 +1108,7 @@
          *
          * @example
          * function callback (event) {
-         * 		console.log("Event fired! (" + event.type + ")");
+         *      console.log("Event fired! (" + event.type + ")");
          * }
          * // add listeners
          * scene.on("change update", callback);
@@ -1325,7 +1325,7 @@
          * Updates the Scene to reflect the current state.
          * This is the equivalent to `Controller.updateScene(scene, immediately)`.
          * The update method calculates the scene's start and end position (based on the trigger element, trigger hook, duration and offset) and checks it against the current scroll position of the container.
-         * It then updates the current scene state accordingly (or does nothing, if the state is already correct) – Pins will be set to their correct position and tweens will be updated to their correct progress.
+         * It then updates the current scene state accordingly (or does nothing, if the state is already correct) â€“ Pins will be set to their correct position and tweens will be updated to their correct progress.
          * This means an update doesn't necessarily result in a progress change. The `progress` event will be fired if the progress has indeed changed between this update and the last.
          * _**NOTE:** This method gets called constantly whenever ScrollMagic detects a change. The only application for you is if you change something outside of the realm of ScrollMagic, like moving the trigger or changing tween parameters._
          * @method ScrollMagic.Scene#update
@@ -2576,7 +2576,7 @@
          * ------------------------------
          */
 
-        // extend obj – same as jQuery.extend({}, objA, objB)
+        // extend obj â€“ same as jQuery.extend({}, objA, objB)
         U.extend = function (obj) {
             obj = obj || {};
             for (i = 1; i < arguments.length; i++) {
@@ -2832,16 +2832,93 @@
     return ScrollMagic;
 }));
 
-/*!
- * ScrollToPlugin 3.6.1
- * https://greensock.com
- *
- * @license Copyright 2021, GreenSock. All rights reserved.
- * Subject to the terms at https://greensock.com/standard-license or for Club GreenSock members, the agreement issued with that membership.
- * @author: Jack Doyle, jack@greensock.com
- */
 
-!function (t, e) { "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define(["exports"], e) : e((t = t || self).window = t.window || {}) }(this, function (e) { "use strict"; function k() { return "undefined" != typeof window } function l() { return i || k() && (i = window.gsap) && i.registerPlugin && i } function m(t) { return "string" == typeof t } function n(t) { return "function" == typeof t } function o(t, e) { var o = "x" === e ? "Width" : "Height", n = "scroll" + o, r = "client" + o; return t === x || t === u || t === c ? Math.max(u[n], c[n]) - (x["inner" + o] || u[r] || c[r]) : t[n] - t["offset" + o] } function p(t, e) { var o = "scroll" + ("x" === e ? "Left" : "Top"); return t === x && (null != t.pageXOffset ? o = "page" + e.toUpperCase() + "Offset" : t = null != u[o] ? u : c), function () { return t[o] } } function r(t, e) { if (!(t = a(t)[0]) || !t.getBoundingClientRect) return console.warn("scrollTo target doesn't exist. Using 0") || { x: 0, y: 0 }; var o = t.getBoundingClientRect(), n = !e || e === x || e === c, r = n ? { top: u.clientTop - (x.pageYOffset || u.scrollTop || c.scrollTop || 0), left: u.clientLeft - (x.pageXOffset || u.scrollLeft || c.scrollLeft || 0) } : e.getBoundingClientRect(), i = { x: o.left - r.left, y: o.top - r.top }; return !n && e && (i.x += p(e, "x")(), i.y += p(e, "y")()), i } function s(t, e, n, i, l) { return isNaN(t) || "object" == typeof t ? m(t) && "=" === t.charAt(1) ? parseFloat(t.substr(2)) * ("-" === t.charAt(0) ? -1 : 1) + i - l : "max" === t ? o(e, n) - l : Math.min(o(e, n), r(t, e)[n] - l) : parseFloat(t) - l } function t() { i = l(), k() && i && document.body && (x = window, c = document.body, u = document.documentElement, a = i.utils.toArray, i.config({ autoKillThreshold: 7 }), g = i.config(), f = 1) } var i, f, x, u, c, a, g, y = { version: "3.6.1", name: "scrollTo", rawVars: 1, register: function register(e) { i = e, t() }, init: function init(e, o, r, i, l) { f || t(); var u = this; u.isWin = e === x, u.target = e, u.tween = r, o = function _clean(t, e, o, r) { if (n(t) && (t = t(e, o, r)), "object" != typeof t) return m(t) && "max" !== t && "=" !== t.charAt(1) ? { x: t, y: t } : { y: t }; if (t.nodeType) return { y: t, x: t }; var i, l = {}; for (i in t) l[i] = "onAutoKill" !== i && n(t[i]) ? t[i](e, o, r) : t[i]; return l }(o, i, e, l), u.vars = o, u.autoKill = !!o.autoKill, u.getX = p(e, "x"), u.getY = p(e, "y"), u.x = u.xPrev = u.getX(), u.y = u.yPrev = u.getY(), null != o.x ? (u.add(u, "x", u.x, s(o.x, e, "x", u.x, o.offsetX || 0), i, l), u._props.push("scrollTo_x")) : u.skipX = 1, null != o.y ? (u.add(u, "y", u.y, s(o.y, e, "y", u.y, o.offsetY || 0), i, l), u._props.push("scrollTo_y")) : u.skipY = 1 }, render: function render(t, e) { for (var n, r, i, l, s, u = e._pt, f = e.target, p = e.tween, c = e.autoKill, a = e.xPrev, y = e.yPrev, d = e.isWin; u;)u.r(t, u.d), u = u._next; n = d || !e.skipX ? e.getX() : a, i = (r = d || !e.skipY ? e.getY() : y) - y, l = n - a, s = g.autoKillThreshold, e.x < 0 && (e.x = 0), e.y < 0 && (e.y = 0), c && (!e.skipX && (s < l || l < -s) && n < o(f, "x") && (e.skipX = 1), !e.skipY && (s < i || i < -s) && r < o(f, "y") && (e.skipY = 1), e.skipX && e.skipY && (p.kill(), e.vars.onAutoKill && e.vars.onAutoKill.apply(p, e.vars.onAutoKillParams || []))), d ? x.scrollTo(e.skipX ? n : e.x, e.skipY ? r : e.y) : (e.skipY || (f.scrollTop = e.y), e.skipX || (f.scrollLeft = e.x)), e.xPrev = e.x, e.yPrev = e.y }, kill: function kill(t) { var e = "scrollTo" === t; !e && "scrollTo_x" !== t || (this.skipX = 1), !e && "scrollTo_y" !== t || (this.skipY = 1) } }; y.max = o, y.getOffset = r, y.buildGetter = p, l() && i.registerPlugin(y), e.ScrollToPlugin = y, e.default = y; if (typeof (window) === "undefined" || window !== e) { Object.defineProperty(e, "__esModule", { value: !0 }) } else { delete e.default } });
+/*!
+ * VERSION: 1.9.2
+ * DATE: 2019-02-07
+ * UPDATES AND DOCS AT: http://greensock.com
+ *
+ * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
+ * This work is subject to the terms at http://greensock.com/standard-license or for
+ * Club GreenSock members, the software agreement that was issued with your membership.
+ *
+ * @author: Jack Doyle, jack@greensock.com
+ **/
+var _gsScope = "undefined" != typeof module && module.exports && "undefined" != typeof global ? global : this || window;
+(_gsScope._gsQueue || (_gsScope._gsQueue = [])).push(function () {
+    "use strict";
+    var a = (_gsScope.document || {}).documentElement,
+        b = _gsScope,
+        c = function (c, d) {
+            var e = "x" === d ? "Width" : "Height",
+                f = "scroll" + e,
+                g = "client" + e,
+                h = document.body;
+            return c === b || c === a || c === h ? Math.max(a[f], h[f]) - (b["inner" + e] || a[g] || h[g]) : c[f] - c["offset" + e]
+        },
+        d = function (a) {
+            return "string" == typeof a && (a = TweenLite.selector(a)), a.length && a !== b && a[0] && a[0].style && !a.nodeType && (a = a[0]), a === b || a.nodeType && a.style ? a : null
+        },
+        e = function (c, d) {
+            var e = "scroll" + ("x" === d ? "Left" : "Top");
+            return c === b && (null != c.pageXOffset ? e = "page" + d.toUpperCase() + "Offset" : c = null != a[e] ? a : document.body),
+                function () {
+                    return c[e]
+                }
+        },
+        f = function (c, f) {
+            var g = d(c).getBoundingClientRect(),
+                h = document.body,
+                i = !f || f === b || f === h,
+                j = i ? {
+                    top: a.clientTop - (window.pageYOffset || a.scrollTop || h.scrollTop || 0),
+                    left: a.clientLeft - (window.pageXOffset || a.scrollLeft || h.scrollLeft || 0)
+                } : f.getBoundingClientRect(),
+                k = {
+                    x: g.left - j.left,
+                    y: g.top - j.top
+                };
+            return !i && f && (k.x += e(f, "x")(), k.y += e(f, "y")()), k
+        },
+        g = function (a, b, d, e) {
+            var g = typeof a;
+            return isNaN(a) ? "string" === g && "=" === a.charAt(1) ? parseInt(a.charAt(0) + "1", 10) * parseFloat(a.substr(2)) + e : "max" === a ? c(b, d) : Math.min(c(b, d), f(a, b)[d]) : parseFloat(a)
+        },
+        h = _gsScope._gsDefine.plugin({
+            propName: "scrollTo",
+            API: 2,
+            global: !0,
+            version: "1.9.2",
+            init: function (a, c, d) {
+                return this._wdw = a === b, this._target = a, this._tween = d, "object" != typeof c ? (c = {
+                    y: c
+                }, "string" == typeof c.y && "max" !== c.y && "=" !== c.y.charAt(1) && (c.x = c.y)) : c.nodeType && (c = {
+                    y: c,
+                    x: c
+                }), this.vars = c, this._autoKill = c.autoKill !== !1, this.getX = e(a, "x"), this.getY = e(a, "y"), this.x = this.xPrev = this.getX(), this.y = this.yPrev = this.getY(), null != c.x ? (this._addTween(this, "x", this.x, g(c.x, a, "x", this.x) - (c.offsetX || 0), "scrollTo_x", !0), this._overwriteProps.push("scrollTo_x")) : this.skipX = !0, null != c.y ? (this._addTween(this, "y", this.y, g(c.y, a, "y", this.y) - (c.offsetY || 0), "scrollTo_y", !0), this._overwriteProps.push("scrollTo_y")) : this.skipY = !0, !0
+            },
+            set: function (a) {
+                this._super.setRatio.call(this, a);
+                var d = this._wdw || !this.skipX ? this.getX() : this.xPrev,
+                    e = this._wdw || !this.skipY ? this.getY() : this.yPrev,
+                    f = e - this.yPrev,
+                    g = d - this.xPrev,
+                    i = h.autoKillThreshold;
+                this.x < 0 && (this.x = 0), this.y < 0 && (this.y = 0), this._autoKill && (!this.skipX && (g > i || -i > g) && d < c(this._target, "x") && (this.skipX = !0), !this.skipY && (f > i || -i > f) && e < c(this._target, "y") && (this.skipY = !0), this.skipX && this.skipY && (this._tween.kill(), this.vars.onAutoKill && this.vars.onAutoKill.apply(this.vars.onAutoKillScope || this._tween, this.vars.onAutoKillParams || []))), this._wdw ? b.scrollTo(this.skipX ? d : this.x, this.skipY ? e : this.y) : (this.skipY || (this._target.scrollTop = this.y), this.skipX || (this._target.scrollLeft = this.x)), this.xPrev = this.x, this.yPrev = this.y
+            }
+        }),
+        i = h.prototype;
+    h.max = c, h.getOffset = f, h.buildGetter = e, h.autoKillThreshold = 7, i._kill = function (a) {
+        return a.scrollTo_x && (this.skipX = !0), a.scrollTo_y && (this.skipY = !0), this._super._kill.call(this, a)
+    }
+}), _gsScope._gsDefine && _gsScope._gsQueue.pop()(),
+    function (a) {
+        "use strict";
+        var b = function () {
+            return (_gsScope.GreenSockGlobals || _gsScope)[a]
+        };
+        "undefined" != typeof module && module.exports ? (require("../TweenLite.min.js"), module.exports = b()) : "function" == typeof define && define.amd && define(["TweenLite"], b)
+    }("ScrollToPlugin");
 
 /*! ScrollMagic v2.0.7 | (c) 2019 Jan Paepke (@janpaepke) | license & info: http://scrollmagic.io */
 ! function (e, n) {

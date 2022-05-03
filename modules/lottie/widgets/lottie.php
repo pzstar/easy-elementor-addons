@@ -16,12 +16,6 @@ if (!defined('ABSPATH')) {
  */
 class Lottie extends Widget_Base {
 
-    public function __construct( $data = [], $args = null ) {
-        parent::__construct( $data, $args );
-        wp_register_script( 'lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', null, EEAD_VERSION, true );
-        wp_register_script( 'lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true );
-    }
-
     public function get_script_depends() {
         return ['lottie', 'lottie-init'];
     }

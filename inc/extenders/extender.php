@@ -76,11 +76,11 @@ Class Extender {
     }
 
     public function extenders_scripts() {
-        if ($this->is_extender_active('custom-cursor')) {
-            wp_enqueue_script('custom-cursor', EEAD_URL . 'inc/extenders/assets/js/custom-cursor.js', [], '1.0', true);
-            wp_enqueue_script('paper-core', EEAD_URL . 'assets/lib/paper/paper-core.js', [], '1.0', true);
-            wp_enqueue_script('simplex-noise', EEAD_URL . 'assets/lib/simplex-noise/simplex-noise.min.js', [], '1.0', true);
-        }
+        // if ($this->is_extender_active('custom-cursor')) {
+            wp_register_script('custom-cursor', EEAD_URL . 'inc/extenders/assets/js/custom-cursor.js', [], '1.0', true);
+        //     wp_enqueue_script('paper-core', EEAD_URL . 'assets/lib/paper/paper-core.js', [], '1.0', true);
+        //     wp_enqueue_script('simplex-noise', EEAD_URL . 'assets/lib/simplex-noise/simplex-noise.min.js', [], '1.0', true);
+        // }
         if ($this->is_extender_active('tooltip')) {
             wp_register_script('tltp-anime', EEAD_URL . 'inc/extenders/assets/js/anime.min.js', [], '1.0', true);
             wp_register_script('charming', EEAD_URL . 'inc/extenders/assets/js/charming.min.js', [], '1.0', true);

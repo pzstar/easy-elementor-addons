@@ -145,6 +145,7 @@ class EEAD_Widget_Loader {
         // Horizontal Scroll
         wp_register_script('scrollmagic', EEAD_URL . 'assets/lib/scrollmagic/scrollmagic.js', array('jquery'), EEAD_VERSION, true);
         wp_register_script('tweenmax', EEAD_URL . 'assets/lib/tweenmax/tweenmax.min.js', array('jquery'), EEAD_VERSION, true);
+        wp_register_script('hscroll', EEAD_URL . 'assets/js/hscroll.js', array('jquery'), EEAD_VERSION, true);
 
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION);
 
@@ -159,6 +160,10 @@ class EEAD_Widget_Loader {
 
         // Z Text
         wp_register_script('z-text', EEAD_URL . 'assets/lib/ztext/ztext.min.js', [], EEAD_VERSION, true);
+
+        // Lottie
+        wp_register_script( 'lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', null, EEAD_VERSION, true );
+        wp_register_script( 'lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true );
     }
 
     /**

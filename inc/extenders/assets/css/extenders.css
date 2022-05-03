@@ -770,3 +770,85 @@ html.has-scroll-dragging {
     --tiles-height: 240px;
   }
 }
+
+
+/* Cursor */
+.eead-global-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  cursor: none;
+  pointer-events: none;
+  text-align: center; }
+  .eead-global-cursor .eead-cursor-img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .eead-global-cursor .eead-cursor-follow-text {
+    display: inline;
+    vertical-align: middle;
+    white-space: nowrap; }
+  .eead-global-cursor .eead-cursor-icon-svg {
+    display: block; }
+
+.eead-cursor-ftext .eead-global-cursor,
+.eead-cursor-fimage .eead-global-cursor {
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear; }
+
+.eead-cursor-icon .eead-global-cursor,
+.eead-cursor-img .eead-global-cursor,
+.eead-cursor-lottie .eead-global-cursor {
+  -webkit-transition: left 0s linear, top 0s linear;
+  transition: left 0s linear, top 0s linear; }
+
+.eead-pulse-yes {
+  -webkit-animation: hvr-pulse-grow 0.5s ease-in-out alternate infinite;
+          animation: hvr-pulse-grow 0.5s ease-in-out alternate infinite; }
+
+.eead-buzz-yes {
+  -webkit-animation: hvr-buzz 0.5s ease-in-out alternate infinite;
+          animation: hvr-buzz 0.5s ease-in-out alternate infinite; }
+
+.eead-cursor-not-active {
+  display: none !important; }
+
+.eead-gCursor-yes:not(.eead-cursor-fimage):not(.eead-cursor-ftext) * {
+  cursor: none !important; }
+
+.eead-gCursor-yes.eead-cursor-ftext * {
+  cursor: default; }
+
+.eead-gCursor-yes.eead-cursor-fimage * {
+  cursor: default; }
+
+/* Buzz */
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg); }
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg); } }
+
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(3deg);
+    transform: translateX(3px) rotate(3deg); }
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-3deg);
+    transform: translateX(-3px) rotate(-3deg); } }
+
+/* Pulse Grow */
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }

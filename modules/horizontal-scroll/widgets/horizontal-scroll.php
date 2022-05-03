@@ -46,20 +46,6 @@ class HorizontalScroll extends Widget_Base {
     /** Controls */
     protected function register_controls() {
 
-        $has_custom_breakpoints = \Elementor\Plugin::$instance->breakpoints->has_custom_breakpoints();
-
-        $extra_devices_sm = ! $has_custom_breakpoints ? array() : array(
-            'tablet_extra' => __( 'Tablet Extra', 'easy-elementor-addons' ),
-            'mobile_extra' => __( 'Mobile Extra', 'easy-elementor-addons' ),
-        );
-
-        $extra_devices = ! $has_custom_breakpoints ? array() : array(
-            'widescreen'   => __( 'Widescreen', 'easy-elementor-addons' ),
-            'laptop'       => __( 'laptop', 'easy-elementor-addons' ),
-            'tablet_extra' => __( 'Tablet Extra', 'easy-elementor-addons' ),
-            'mobile_extra' => __( 'Mobile Extra', 'easy-elementor-addons' ),
-        );
-
         $this->start_controls_section(
             'content_templates', [
                 'label' => __( 'Content', 'easy-elementor-addons' ),
