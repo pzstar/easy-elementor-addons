@@ -1023,12 +1023,12 @@
 	            };
 	        },
 
-	        onElementChange: debounce(function (prop) {
+	        onElementChange: function (prop) {
 	            if (prop.indexOf('eead_tltp_') !== -1) {
 	                this.instance.destroy();
 	                this.run();
 	            }
-	        }, 400),
+	        },
 
 	        settings: function (key) {
 	            return this.getElementSettings('eead_tltp_' + key);

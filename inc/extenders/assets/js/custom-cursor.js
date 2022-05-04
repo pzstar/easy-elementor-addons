@@ -4,6 +4,10 @@
 
         var eeadGlobalCursorHandler = function ($scope, $) {
 
+            if (!$scope.hasClass('eead-gCursor-yes')) {
+                return;
+            }
+
             var $eleType = $scope.data('element_type'),
                 $eleId = $scope.data("id"),
                 $eleInfo = {},
@@ -51,7 +55,13 @@
                     handleSvgIcon(settings.elementSettings.value.url, $eleId);
                 }
 
-                var types = ['icon', 'image'],
+                if ('lottie' === settings.cursorType) {
+                    var $item = $scope.find('.eead-lottie-animation'),
+                        instance = new eeadLottieAnimations($item);
+                    instance.init();
+                }
+
+                var types = ['icon', 'image', 'lottie'],
                     props = {
                         extraTop: 0,
                         extraLeft: 0,
@@ -133,6 +143,8 @@
                 } else if ('ftext' === settings.cursorType) {
                     cursorHtml += '<p class="eead-cursor-follow-text">' + escapeHtml(settings.elementSettings.text) + '</p>';
 
+                } else {
+                    cursorHtml += '<div class="eead-lottie-animation eead-cursor-lottie-icon" data-lottie-url="' + settings.elementSettings.url + '" data-lottie-loop="' + settings.elementSettings.loop + '" data-lottie-reverse="' + settings.elementSettings.reverse + '" ></div>';
                 }
 
                 return cursorHtml;
@@ -217,5 +229,232 @@
 
         elementorFrontend.hooks.addAction("frontend/element_ready/global", eeadGlobalCursorHandler);
     });
+
+    window.eeadLottieAnimations = function ($elem) {
+        var self = this,
+            $lottie = null;
+
+        if ($elem.hasClass("eead-lottie-animation")) {
+            $lottie = $elem;
+        } else {
+            $lottie = $elem.find(".eead-lottie-animation");
+        }
+
+        self.init = function () {
+
+            //Check if widget has been initialized before
+            if ($lottie.data('initialized')) {
+                return;
+            }
+
+            //Mark widget as initialized
+            $lottie.data('initialized', true);
+
+            // Search for elements with the .lottie and/or .bodymovin class
+            //lottie.searchAnimations();
+
+            var loop = $lottie.data("lottie-loop"),
+                reverse = $lottie.data("lottie-reverse"),
+                trigger = $lottie.data("lottie-hover"),
+                speed = $lottie.data("lottie-speed"),
+                scroll = $lottie.data("lottie-scroll"),
+                viewPort = $lottie.data("lottie-viewport"),
+                renderer = $lottie.data("lottie-render");
+
+            var animItem = lottie.loadAnimation({
+                container: $lottie[0],
+                renderer: renderer || 'svg',
+                loop: loop ? true : false,
+                path: $lottie.data("lottie-url"),
+                autoplay: true,
+            });
+
+            if (reverse) {
+                animItem.setDirection(-1);
+            }
+
+            if (speed && 1 !== speed) {
+                animItem.setSpeed(speed);
+            }
+
+            animItem.addEventListener('DOMLoaded', function () {
+                if (scroll || viewPort) {
+                    var animateInstance = null,
+                        scrollSpeed = $lottie.data("scroll-speed"),
+                        scrollStart = $lottie.data("scroll-start"),
+                        scrollEnd = $lottie.data("scroll-end");
+                    animItem.pause();
+                    var animateSettings = {
+                        elType: 'SECTION',
+                        animate: {
+                            speed: viewPort ? "viewport" : scrollSpeed,
+                            range: {
+                                start: scrollStart,
+                                end: scrollEnd
+                            }
+                        },
+                        effects: ['animate']
+                    };
+                    animateInstance = new eeadEffects($lottie[0], animateSettings, animItem);
+                    animateInstance.init();
+                }
+                if (trigger) {
+                    animItem.pause();
+                    $elem.hover(function () {
+                        animItem.play();
+                    }, function () {
+                        animItem.pause();
+                    });
+                }
+            });
+        };
+    };
+
+    window.eeadEffects = function (element, settings, lottieInstance) {
+        var self = this,
+            $el = $(element),
+            scrolls = $el.data("scrolls"),
+            elementSettings = settings,
+            elType = elementSettings.elType;
+        self.elementRules = {};
+        self.init = function () {
+            if (scrolls || 'SECTION' === elType) {
+                if (!elementSettings.effects.length) {
+                    return;
+                }
+                self.setDefaults();
+                elementorFrontend.elements.$window.on('scroll load', self.initScroll);
+            } else {
+                elementorFrontend.elements.$window.off('scroll load', self.initScroll);
+                return;
+            }
+        };
+
+        self.setDefaults = function () {
+            elementSettings.defaults = {};
+            elementSettings.defaults.axis = 'y';
+        };
+
+        self.getPercents = function () {
+            var dimensions = self.getDimensions();
+            elementTopWindowPoint = dimensions.elementTop - pageYOffset,
+                elementEntrancePoint = elementTopWindowPoint - innerHeight;
+            passedRangePercents = 100 / dimensions.range * (elementEntrancePoint * -1);
+            return passedRangePercents;
+        };
+
+        self.initScroll = function () {
+            self.initScrollEffects();
+        };
+
+        self.initScrollEffects = function () {
+            var percents = self.getPercents();
+            var elemSettings = $el.closest(".elementor-element").data("settings");
+
+            if (elemSettings && "fixed" === elemSettings._position) {
+                percents = self.getLottieViewportHeightPercentage();
+            }
+            if (elementSettings.effects.includes('animate')) {
+                self.animate(percents, elementSettings.animate);
+            }
+            if (elementSettings.effects.includes('translateY')) {
+                self.transform('translateY', percents, elementSettings.vscroll);
+            }
+        };
+
+        self.getLottieViewportHeightPercentage = function () {
+            var offsetObj = elementSettings.animate.range;
+            var limitPageHeight = window.innerHeight;
+            var offsetStart = offsetObj.start || 0,
+                offsetEnd = offsetObj.end || 0,
+                initialPageHeight = limitPageHeight || document.documentElement.scrollHeight - document.documentElement.clientHeight,
+                heightOffset = initialPageHeight * offsetStart / 100,
+                pageRange = initialPageHeight + heightOffset + initialPageHeight * offsetEnd / 100,
+                scrollPos = document.documentElement.scrollTop + document.body.scrollTop + heightOffset;
+            return scrollPos / pageRange * 100;
+        };
+
+        self.getDimensions = function () {
+            var elementOffset = $el.offset();
+            var dimensions = {
+                elementHeight: $el.outerHeight(),
+                elementWidth: $el.outerWidth(),
+                elementTop: elementOffset.top,
+                elementLeft: elementOffset.left
+            };
+            dimensions.range = dimensions.elementHeight + innerHeight;
+            return dimensions;
+        };
+
+        self.getStep = function (percents, options) {
+            return -(percents - 50) * options.speed;
+        };
+
+        self.animate = function (percents, data) {
+            var stopFrame = lottieInstance.totalFrames;
+            if (data.range) {
+                if (data.range.start > percents) {
+                    percents = data.range.start;
+                }
+                if (data.range.end < percents) {
+                    percents = data.range.end;
+                }
+            }
+            var currframe = ((percents) / 100) * (stopFrame);
+
+            //Check if element is visible
+            if (data.speed === "viewport") {
+                if (data.range.start !== percents && data.range.end !== percents) {
+                    lottieInstance.play();
+                } else {
+                    lottieInstance.pause();
+                }
+            } else {
+                lottieInstance.goToAndStop(currframe, true);
+            }
+        };
+
+        self.transform = function (action, percents, data) {
+            if ('down' === data.direction) {
+                percents = 100 - percents;
+            }
+
+            if (data.range) {
+                if (data.range.start > percents) {
+                    percents = data.range.start;
+                }
+
+                if (data.range.end < percents) {
+                    percents = data.range.end;
+                }
+            }
+            elementSettings.defaults.unit = 'px';
+            self.updateElement('transform', action, self.getStep(percents, data) + elementSettings.defaults.unit);
+        };
+
+        self.updateElement = function (propName, key, value) {
+            if (!self.elementRules[propName]) {
+                self.elementRules[propName] = {};
+            }
+
+            if (!self.elementRules[propName][key]) {
+                self.elementRules[propName][key] = true;
+
+                self.updateElementRule(propName);
+            }
+
+            var cssVarKey = '--' + key;
+            element.style.setProperty(cssVarKey, value);
+        };
+
+        self.updateElementRule = function (rule) {
+            var cssValue = '';
+            $.each(self.elementRules[rule], function (variableKey) {
+                cssValue += variableKey + '(var(--' + variableKey + '))';
+            });
+
+            $el.css(rule, cssValue);
+        };
+    };
 
 })(jQuery);

@@ -29,8 +29,8 @@ Class CustomCursor {
     public function __construct() {
         // Enqueue the required CSS/JS file.
 
-        add_action( 'elementor/preview/enqueue_scripts', array( $this, 'section_custom_cursor_before_render' ) );
-        add_action( 'elementor/frontend/section/before_render', [$this, 'section_custom_cursor_before_render'], 10, 1 );
+        add_action( 'elementor/preview/enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+        add_action( 'elementor/frontend/section/before_render', [$this, 'enqueue_scripts'], 10, 1 );
 
         // Creates EEAD Global Cursor tab at the end of Advanced tab.
         add_action( 'elementor/element/section/section_advanced/after_section_end', array( $this, 'register_controls' ), 10 );
@@ -56,14 +56,18 @@ Class CustomCursor {
      * @since 1.6.5
      * @access public
      */
-    public static function section_custom_cursor_before_render() {
+    public static function enqueue_scripts() {
 
         if ( ! wp_script_is( 'tweenmax', 'enqueued' ) ) {
             wp_enqueue_script( 'tweenmax' );
         }
 
-        if ( ! wp_script_is( 'eead-cursor', 'enqueued' ) ) {
+        if ( ! wp_script_is( 'custom-cursor', 'enqueued' ) ) {
             wp_enqueue_script( 'custom-cursor' );
+        }
+
+        if ( ! wp_script_is( 'lottie', 'enqueued' ) ) {
+            wp_enqueue_script( 'lottie' );
         }
     }
 
@@ -97,6 +101,7 @@ Class CustomCursor {
                 'options'      => array(
                     'icon'   => __( 'Icon', 'easy-elementor-addons' ),
                     'image'  => __( 'Image', 'easy-elementor-addons' ),
+                    'lottie' => __( 'Lottie', 'easy-elementor-addons' ),
                     'fimage' => __( 'Follow Image', 'easy-elementor-addons' ),
                     'ftext'  => __( 'Follow Text', 'easy-elementor-addons' ),
                 ),
@@ -244,6 +249,48 @@ Class CustomCursor {
         );
 
         $elems->add_control(
+            'eead_cursor_lottie_url',
+            array(
+                'label'       => __( 'Animation JSON URL', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::TEXT,
+                'dynamic'     => array( 'active' => true ),
+                'description' => 'Get JSON code URL from <a href="https://lottiefiles.com/" target="_blank">here</a>',
+                'label_block' => true,
+                'condition'   => array(
+                    'eead_global_cursor_switcher' => 'yes',
+                    'eead_cursor_type'                 => 'lottie',
+                ),
+            )
+        );
+
+        $elems->add_control(
+            'eead_cursor_loop',
+            array(
+                'label'        => __( 'Loop', 'easy-elementor-addons' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'return_value' => 'true',
+                'default'      => 'true',
+                'condition'    => array(
+                    'eead_global_cursor_switcher' => 'yes',
+                    'eead_cursor_type'                 => 'lottie',
+                ),
+            )
+        );
+
+        $elems->add_control(
+            'eead_cursor_reverse',
+            array(
+                'label'        => __( 'Reverse', 'easy-elementor-addons' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'return_value' => 'true',
+                'condition'    => array(
+                    'eead_global_cursor_switcher' => 'yes',
+                    'eead_cursor_type'                 => 'lottie',
+                ),
+            )
+        );
+
+        $elems->add_control(
             'eead_cursor_div',
             array(
                 'type'      => Controls_Manager::DIVIDER,
@@ -278,6 +325,7 @@ Class CustomCursor {
                     '{{WRAPPER}}.eead-cursor-icon .eead-global-cursor-{{ID}} i,
                     {{WRAPPER}}.eead-cursor-image .eead-global-cursor-{{ID}},
                     {{WRAPPER}}.eead-cursor-fimage .eead-global-cursor-{{ID}},
+                    {{WRAPPER}}.eead-cursor-lottie .eead-global-cursor-{{ID}} .eead-cursor-lottie-icon,
                     {{WRAPPER}}.eead-cursor-icon .eead-global-cursor-{{ID}} .eead-cursor-icon-svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 
                 ),
@@ -481,6 +529,10 @@ Class CustomCursor {
                     elementSettings.xpos = settings.eead_cursor_xpos.size;
                     elementSettings.ypos = settings.eead_cursor_ypos.size;
 
+                } else if ( 'lottie' === cursorType ) {
+                    elementSettings.url     = settings.eead_cursor_lottie_url;
+                    elementSettings.loop    = settings.eead_cursor_loop;
+                    elementSettings.reverse = settings.eead_cursor_reverse;
                 }
 
                 cursorSettings.elementSettings = elementSettings;
@@ -554,6 +606,11 @@ Class CustomCursor {
                 $elems_settings['text'] = $settings['eead_cursor_ftext'];
                 $elems_settings['xpos'] = $settings['eead_cursor_xpos']['size'];
                 $elems_settings['ypos'] = $settings['eead_cursor_ypos']['size'];
+
+            } elseif ( 'lottie' === $cursor_type ) {
+                $elems_settings['url']     = esc_url( $settings['eead_cursor_lottie_url'] );
+                $elems_settings['loop']    = $settings['eead_cursor_loop'];
+                $elems_settings['reverse'] = $settings['eead_cursor_reverse'];
 
             }
 
