@@ -21,7 +21,7 @@ class CircularProgressbar extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-circular-progressbar';
+        return 'eead-circular-progressbar-block';
     }
 
     /** Widget Title */

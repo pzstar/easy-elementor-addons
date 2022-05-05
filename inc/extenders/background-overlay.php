@@ -252,20 +252,15 @@ Class BackgroundOverlay {
 
     public function background_overlay_render( $widget ) {
         $settings = $widget->get_settings_for_display();
-
         if ( in_array( $widget->get_name(), [ 'column', 'section' ] ) ) {
             return;
         }
-
         if ( Plugin::instance()->editor->is_edit_mode() ) {
             return;
         }
-
         $overlay_bg       = isset( $settings['eead_background_overlay_background'] ) ? $settings['eead_background_overlay_background'] : '';
         $overlay_bg_hover = isset( $settings['eead_background_overlay_hover_background'] ) ? $settings['eead_background_overlay_hover_background'] : '';
-
         $has_background_overlay = ( in_array( $overlay_bg, [ 'classic', 'gradient' ], true ) || in_array( $overlay_bg_hover, [ 'classic', 'gradient' ], true ) );
-
         if ( $has_background_overlay ) {
             $widget->add_render_attribute( '_wrapper', 'class', 'eead-background-overlay-yes' );
             wp_enqueue_script( 'eead-background-overlay' );

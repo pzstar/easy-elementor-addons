@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Animated Heading Widget
  */
 class AnimatedHeading extends Widget_Base {
 

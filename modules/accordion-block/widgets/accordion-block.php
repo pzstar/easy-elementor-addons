@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Accordion Block Widget
  */
 class AccordionBlock extends Widget_Base {
 
@@ -401,7 +401,6 @@ class AccordionBlock extends Widget_Base {
 
     // Elementor Saved Template 
     protected function get_elementor_templates() {
-
         $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
         $types     = [];
 
@@ -415,7 +414,6 @@ class AccordionBlock extends Widget_Base {
                 $types[$template['template_id']]            = $template['type'];
             }
         }
-
         return $template_options;
     }
 
@@ -427,7 +425,6 @@ class AccordionBlock extends Widget_Base {
         $content = shortcode_unautop( $content );
         $content = do_shortcode( $content );
         $content = wptexturize( $content );
-
         return $content;
     }
 }

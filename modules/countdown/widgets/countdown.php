@@ -21,7 +21,7 @@ class Countdown extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-countdown';
+        return 'eead-countdown-block';
     }
 
     /** Widget Title */

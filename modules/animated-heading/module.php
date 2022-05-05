@@ -19,5 +19,4 @@ class Module extends Module_Base {
         ];
         return $widgets;
     }
-
 }

@@ -10,7 +10,6 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
-
 use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
@@ -21,7 +20,7 @@ class HorizontalScroll extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-horizontal-scroll';
+        return 'eead-horizontal-scroll-block';
     }
 
     /** Widget Title */
@@ -71,6 +70,31 @@ class HorizontalScroll extends Widget_Base {
                     'id'       => __( 'Section ID', 'easy-elementor-addons' ),
                 ),
                 'default' => 'id',
+            ]
+        );
+
+        $temp_repeater->add_control(
+            'live_temp_content', [
+                'label'       => __( 'Template Title', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::TEXT,
+                'classes'     => 'eead-live-temp-title control-hidden',
+                'label_block' => true,
+                'condition'   => array(
+                    'template_type' => 'template',
+                ),
+            ]
+        );
+
+        $temp_repeater->add_control(
+            'section_template_live', [
+                'type'        => Controls_Manager::BUTTON,
+                'label_block' => true,
+                'button_type' => 'default eead-btn-block',
+                'text'        => __( 'Create / Edit Template', 'easy-elementor-addons' ),
+                'event'       => 'createLiveTemp',
+                'condition'   => array(
+                    'template_type' => 'template',
+                ),
             ]
         );
 
@@ -172,11 +196,37 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
+            'fixed_content_heading', [
+                'label' => esc_html__( 'Fixed Content Template', 'easy-elementor-addons' ),
+                'separator'   => 'before',
+                'type'  => Controls_Manager::HEADING,
+            ]
+        );
+
+        $this->add_control(
+            'live_temp_content_extra', [
+                'label'       => __( 'Template Title', 'easy-elementor-addons' ),
+                'type'        => Controls_Manager::TEXT,
+                'classes'     => 'eead-live-temp-title control-hidden',
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'fixed_template_live', [
+                'type'        => Controls_Manager::BUTTON,
+                'label_block' => true,
+                'button_type' => 'default eead-btn-block',
+                'text'        => __( 'Create / Edit Template', 'easy-elementor-addons' ),
+                'event'       => 'createLiveTemp',
+            ]
+        );
+
+        $this->add_control(
             'fixed_template', [
                 'label'       => __( 'Fixed Content Template', 'easy-elementor-addons' ),
                 'type'        => Controls_Manager::SELECT2,
                 'options'     => eead_get_elementor_page_list(),
-                'separator'   => 'before',
                 'label_block' => true,
                 'multiple'    => false,
             ]
@@ -1273,11 +1323,11 @@ class HorizontalScroll extends Widget_Base {
                     endforeach;
 
                     ?>
-                <?php if ( ! empty( $settings['fixed_template'] ) ) : ?>
+                <?php if ( ! empty( $settings['fixed_template'] ) || ! empty( $settings['live_temp_content_extra'] ) ) : ?>
                     <div class="eead-hscroll-fixed-content">
                         <?php
-                            $template_title = $settings['fixed_template'];
-                            echo $this->getTemplateInstance()->get_template_content( $template_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            $template_title = empty( $settings['fixed_template'] ) ? $settings['live_temp_content_extra'] : $settings['fixed_template'];
+                            echo $this->get_el_template_content( $template_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ?>
                     </div>
                     <?php
@@ -1341,7 +1391,7 @@ class HorizontalScroll extends Widget_Base {
                             <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'section_' . $index ) ); ?>>
                                 <?php
                                 if ( 'template' === $section['template_type'] ) {
-                                    $template_title = $section['section_template'];
+                                    $template_title = empty( $section['section_template'] ) ? $section['live_temp_content'] : $section['section_template'];
                                     echo $this->get_template_content( $template_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                                 ?>
@@ -1437,5 +1487,29 @@ class HorizontalScroll extends Widget_Base {
         $template = get_page_by_title( $title, OBJECT, 'elementor_library' );
         $template_id = isset( $template->ID ) ? $template->ID : $title;
         return $template_id;
+    }
+
+    /**
+     * Get Elementor Template HTML Content
+     *
+     * @since 3.6.0
+     * @access public
+     *
+     * @param string|int $title   Template Title||id.
+     * @param bool   $id          indicates if $title is the template title or id.
+     *
+     * @return $template_content string HTML Markup of the selected template.
+     */
+    public function get_el_template_content( $title, $id = false ) {
+        $frontend = Plugin::$instance->frontend;
+        if ( ! $id ) {
+            $id = $this->get_id_by_title( $title );
+
+            $id = apply_filters( 'wpml_object_id', $id, 'elementor_library', true );
+        } else {
+            $id = $title;
+        }
+        $template_content = $frontend->get_builder_content_for_display( $id, true );
+        return $template_content;
     }
 }

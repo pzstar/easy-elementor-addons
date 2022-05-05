@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Advanced Icon Widget
  */
 class AdvancedIconBox extends Widget_Base {
 

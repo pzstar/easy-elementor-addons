@@ -23,7 +23,7 @@ class TiltHoverImage extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-tilt-hover-image';
+        return 'eead-tilt-hover-image-block';
     }
 
     /** Widget Title */

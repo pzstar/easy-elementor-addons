@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-circular-progressbar';
+        return 'eead-circular-progressbar-block';
     }
 
     public function get_widgets() {

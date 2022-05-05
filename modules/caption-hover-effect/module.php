@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-caption-hover-effect';
+        return 'eead-caption-hover-effect-block';
     }
 
     public function get_widgets() {

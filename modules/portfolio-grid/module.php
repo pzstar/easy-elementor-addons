@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-portfolio-grid';
+        return 'eead-portfolio-grid-block';
     }
 
     public function get_widgets() {

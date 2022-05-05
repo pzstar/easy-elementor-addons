@@ -24,6 +24,7 @@ Class Notation {
     public function __construct() {
         add_action('elementor/element/common/_section_style/after_section_end', [$this, 'register_section']);
         add_action('elementor/element/common/section_eead_notation_controls/before_section_end', [$this, 'register_controls'], 10, 2);
+
         // render scripts
         add_action('elementor/frontend/widget/before_render', [$this, 'should_script_enqueue']);
         add_action('elementor/preview/enqueue_scripts', [$this, 'enqueue_scripts']);
@@ -64,6 +65,7 @@ Class Notation {
                 ],
             ]
         );
+
         $repeater->add_control(
             'eead_notation_type', [
                 'label'   => esc_html__('Select Style', 'easy-elementor-addons'),
@@ -80,6 +82,7 @@ Class Notation {
                 ],
             ]
         );
+
         $repeater->add_control(
             'eead_notation_bracket_on', [
                 'label'       => esc_html__('Bracket On', 'easy-elementor-addons'),
@@ -91,12 +94,14 @@ Class Notation {
                 ],
             ]
         );
+
         $repeater->add_control(
             'eead_notation_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type'  => Controls_Manager::COLOR,
             ]
         );
+
         $repeater->add_control(
             'eead_notation_anim_duration', [
                 'label'   => esc_html__('Animation Duration', 'easy-elementor-addons'),
@@ -114,6 +119,7 @@ Class Notation {
                 ],
             ]
         );
+
         $repeater->add_control(
             'eead_notation_stroke_width', [
                 'label'   => esc_html__('Stroke Width', 'easy-elementor-addons'),

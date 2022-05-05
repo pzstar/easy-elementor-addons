@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Drop Bar Widget
  */
 class DropBar extends Widget_Base {
 

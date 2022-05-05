@@ -70,6 +70,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             require EEAD_PATH . 'inc/icon-manager.php';
             require EEAD_PATH . 'inc/sticky-column.php';
             require EEAD_PATH . 'inc/admin-menu/admin-menu-class.php';
+            require EEAD_PATH . 'inc/live-editor/live-editor-class.php';
 
             /** Includes the autoloader for libraries installed with Composer. */
             require EEAD_PATH . 'vendor/autoload.php';

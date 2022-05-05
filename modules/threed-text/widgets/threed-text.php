@@ -259,7 +259,7 @@ class ThreedText extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $fade = $settings == 'yes' ? 'true' : 'false';
+        $fade = $settings['fade'] == 'yes' ? 'true' : 'false';
         $html_tag = $settings['html_tag'];;
 
         $this->add_render_attribute( 'ztext', 'class', 'eead-z-text' );
@@ -294,4 +294,46 @@ class ThreedText extends Widget_Base {
         </div>
        <?php
     }
+
+    protected function content_template() {
+        ?>
+
+        <#
+        var fade = settings.fade == 'yes' ? 'true' : 'false';
+        var html_tag = settings.html_tag;
+        view.addRenderAttribute( 'ztext', {
+        'class': 'eead-z-text',
+        'class': 'eead-align-' + settings.alignment,
+        'data-z': 'true',
+        'data-z-depth': settings.depth.size + 'px',
+        'data-z-layers': settings.layers.size,
+        'data-z-perspective': settings.perspective.size + 'px',
+        'data-z-fade': fade,
+        'data-z-direction': settings.direction,
+        'data-z-event': settings.event,
+        'data-z-eventDirection': settings.event_direction,
+        'data-z-eventRotation': settings.event_rotation.size + 'deg',
+        });
+        #>
+        <div class="container">
+            <#
+            if(settings.seperate_letter == 'yes'){
+                texts = settings.text.split("");
+                _.each( texts, function( text, index ) {
+                #>
+                    <{{{html_tag}}} {{{ view.getRenderAttributeString('ztext') }}}>
+                    {{{text}}}
+                    </{{{html_tag}}}>
+                <#
+                })
+            } else{
+            #>
+                <{{{html_tag}}} {{{ view.getRenderAttributeString('ztext') }}}>
+                {{{settings.text}}}
+                </{{{html_tag}}}>
+            <# } #>
+        </div>
+        <?php
+    }
+
 }

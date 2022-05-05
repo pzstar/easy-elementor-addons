@@ -12,13 +12,13 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Advanced Map Widget
  */
 class AdvancedMap extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-advanced-map';
+        return 'eead-advanced-map-block';
     }
 
     /** Widget Title */
@@ -56,8 +56,7 @@ class AdvancedMap extends Widget_Base {
 		$map_key = 'AIzaSyBWbk2I3GRGYSSOU1tld0TIpfa_rSBbd6M';
 		if ( ! isset( $map_key ) || $map_key === '' ) {
 			$this->add_control(
-				'notice',
-				[
+				'notice', [
 					'type' => Controls_Manager::RAW_HTML,
 					'raw'  => '<div class="eead-notice">
                                 To add google map api key <a target="_blank" href="' . admin_url( 'admin.php?page=eead' ) . '">Click Here.</a>
@@ -292,11 +291,9 @@ class AdvancedMap extends Widget_Base {
     /** Render Layout */
     protected function render() {
 		$settings = $this->get_settings_for_display();
-
 		$markers = $settings['markers'];
 
 		if ( $settings['drggable'] === 'false' ) {
-
             $this->add_render_attribute( 'wrapper', [
 	        	'data-gestureHandling'	 => 'none'
 			]);

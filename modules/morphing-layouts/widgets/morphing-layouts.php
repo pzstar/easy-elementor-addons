@@ -46,15 +46,14 @@ class MorphingLayouts extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'content_section',
-            [
+            'content_section', [
                 'label' => esc_html__( 'Content', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
+
         $this->add_control(
-            'morph_layout',
-            [
+            'morph_layout', [
                 'label' => esc_html__( 'Morphing Layout', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
@@ -66,15 +65,16 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->start_controls_tabs( 'morph_width_height' );
-        $this->start_controls_tab( 'morph_mw_mh',
-            [
+
+        $this->start_controls_tab( 'morph_mw_mh', [
                 'label' => esc_html__( 'Max-Size', 'easy-elementor-addons' ),
             ]
         );
+
         $this->add_responsive_control(
-            'morph_maxwidth',
-            [
+            'morph_maxwidth', [
                 'label' => esc_html__( 'Maximum Width', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -89,9 +89,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_responsive_control(
-            'morph_maxheight',
-            [
+            'morph_maxheight', [
                 'label' => esc_html__( 'Maximum Height', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -106,15 +106,16 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
-        $this->start_controls_tab( 'viebox_mw_mh',
-            [
+
+        $this->start_controls_tab( 'viebox_mw_mh', [
                 'label' => esc_html__( 'ViewBox Size', 'easy-elementor-addons' ),
             ]
         );
+
         $this->add_responsive_control(
-            'viewbox_width',
-            [
+            'viewbox_width', [
                 'label' => esc_html__( 'ViewBox Width', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -126,9 +127,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_responsive_control(
-            'viewbox_height',
-            [
+            'viewbox_height', [
                 'label' => esc_html__( 'ViewBox Height', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -140,11 +141,13 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
+
         $this->add_control(
-            'morph_align',
-            [
+            'morph_align', [
                 'label' => esc_html__( 'Alignment', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -169,10 +172,11 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater = new Repeater();
+
         $repeater->add_control(
-            'layouts',
-            [
+            'layouts', [
                 'label' => esc_html__( 'Morphing Style', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style-1-a',
@@ -196,9 +200,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'custom_layouts',
-            [
+            'custom_layouts', [
                 'label' => esc_html__( 'Custom Morphing Code', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
@@ -208,9 +212,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'fixed_scroll_alt',
-            [
+            'fixed_scroll_alt', [
                 'label' => esc_html__( 'Fixed Scroll Alternate', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
@@ -237,9 +241,9 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
             ]
         );
+
         $repeater->add_control(
-            'custom_layouts_alt',
-            [
+            'custom_layouts_alt', [
                 'label' => esc_html__( 'Custom Alternate Morphing Code', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
@@ -251,14 +255,14 @@ class MorphingLayouts extends Widget_Base {
         );
         
         $repeater->start_controls_tabs( 'add_options_tabs' );
-        $repeater->start_controls_tab( 'tab_path_option',
-            [
+
+        $repeater->start_controls_tab( 'tab_path_option', [
                 'label' => esc_html__( 'Path', 'easy-elementor-addons' ),
             ]
         );
+
         $repeater->add_control(
-            'path_duration',
-            [
+            'path_duration', [
                 'label' => esc_html__( 'Path Duration', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -275,9 +279,9 @@ class MorphingLayouts extends Widget_Base {
                 
             ]
         );
+
         $repeater->add_control(
-            'path_elasticity',
-            [
+            'path_elasticity', [
                 'label' => esc_html__( 'Elasticity', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -294,24 +298,25 @@ class MorphingLayouts extends Widget_Base {
                 
             ]
         );
+
         $repeater->add_control(
-            'path_easing',
-            [
+            'path_easing', [
                 'label' => esc_html__( 'Path Easing', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'easeOutElastic',
                 'options' => eead_anime_animation_easing(),
             ]
         );
+
         $repeater->end_controls_tab();
-        $repeater->start_controls_tab( 'tab_svg_option',
-            [
+
+        $repeater->start_controls_tab( 'tab_svg_option', [
                 'label' => esc_html__( 'SVG', 'easy-elementor-addons' ),              
             ]
         );
+
         $repeater->add_control(
-            'svg_duration',
-            [
+            'svg_duration', [
                 'label' => esc_html__( 'SVG Duration', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -328,24 +333,25 @@ class MorphingLayouts extends Widget_Base {
                 
             ]
         );
+
         $repeater->add_control(
-            'svg_easing',
-            [
+            'svg_easing', [
                 'label' => esc_html__( 'SVG Easing', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'easeOutElastic',
                 'options' => eead_anime_animation_easing(),
             ]
         );
+
         $repeater->end_controls_tab();
-        $repeater->start_controls_tab( 'tab_fill_option',
-            [
+
+        $repeater->start_controls_tab( 'tab_fill_option', [
                 'label' => esc_html__( 'Fill Color', 'easy-elementor-addons' ),               
             ]
         );
+
         $repeater->add_control(
-            'fill_duration',
-            [
+            'fill_duration', [
                 'label' => esc_html__( 'Fill Duration', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -362,18 +368,18 @@ class MorphingLayouts extends Widget_Base {
                 
             ]
         );
+
         $repeater->add_control(
-            'fill_easing',
-            [
+            'fill_easing', [
                 'label' => esc_html__( 'Fill Easing', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'linear',
                 'options' => eead_anime_animation_easing(),
             ]
         );
+
         $repeater->add_control(
-            'fill_color_loop',
-            [
+            'fill_color_loop', [
                 'label' => esc_html__( 'Fill Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -382,9 +388,9 @@ class MorphingLayouts extends Widget_Base {
                 'description' => esc_html__('If, Select "Fixed Scroll" Morphing type then use on Fill Color.','easy-elementor-addons'),
             ]
         );
+
         $repeater->add_control(
-            'fill_color',
-            [
+            'fill_color', [
                 'label' => esc_html__( 'Fill Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'condition'    => [
@@ -392,19 +398,21 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->end_controls_tab();
+
         $repeater->end_controls_tabs();
+
         $repeater->add_control(
-            'extra_options',
-            [
+            'extra_options', [
                 'label' => esc_html__( 'Additional Options', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
         );
+
         $repeater->add_control(
-            'scaleX',
-            [
+            'scaleX', [
                 'label' => esc_html__( 'ScaleX', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -420,9 +428,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'scaleY',
-            [
+            'scaleY', [
                 'label' => esc_html__( 'ScaleY', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -438,9 +446,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'rotate',
-            [
+            'rotate', [
                 'label' => esc_html__( 'Rotate', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -456,9 +464,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'trans_x',
-            [
+            'trans_x', [
                 'label' => esc_html__( 'Horizontal Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -474,9 +482,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $repeater->add_control(
-            'trans_y',
-            [
+            'trans_y', [
                 'label' => esc_html__( 'Vertical Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -492,9 +500,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'morphing_loop',
-            [
+            'morphing_loop', [
                 'label' => esc_html__( 'Svg Morphing Loop', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -511,9 +519,9 @@ class MorphingLayouts extends Widget_Base {
                 'title_field' => '{{{ layouts }}}',
             ]
         );
+
         $this->add_control(
-            'morph_type',
-            [
+            'morph_type', [
                 'label' => esc_html__( 'Select Type', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'color',
@@ -525,9 +533,9 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
             ]
         );
+
         $this->add_control(
-            'morph_color',
-            [
+            'morph_color', [
                 'label' => esc_html__( 'Fill Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,              
                 'condition'    => [
@@ -535,9 +543,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_x1',
-            [
+            'grad_x1', [
                 'label' => esc_html__( 'Position X1', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -549,9 +557,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_x2',
-            [
+            'grad_x2', [
                 'label' => esc_html__( 'Position X2', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -563,9 +571,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_y1',
-            [
+            'grad_y1', [
                 'label' => esc_html__( 'Position Y1', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -577,9 +585,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_y2',
-            [
+            'grad_y2', [
                 'label' => esc_html__( 'Position Y2', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -591,18 +599,19 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->start_controls_tabs( 'gradient_tabs' );
-        $this->start_controls_tab( 'tab_grad_color1',
-            [
+
+        $this->start_controls_tab( 'tab_grad_color1', [
                 'label' => esc_html__( 'Color 1', 'easy-elementor-addons' ),
                 'condition'    => [
                     'morph_type' => [ 'gradient' ],
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_color1',
-            [
+            'grad_color1', [
                 'label' => esc_html__( 'Color 1', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,              
                 'condition'    => [
@@ -610,9 +619,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_color1_offset',
-            [
+            'grad_color1_offset', [
                 'label' => esc_html__( 'Offset', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -631,9 +640,10 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
-        $this->start_controls_tab( 'tab_grad_color2',
-            [
+
+        $this->start_controls_tab( 'tab_grad_color2', [
                 'label' => esc_html__( 'Color 2', 'easy-elementor-addons' ),
                 'condition'    => [
                     'morph_type' => [ 'gradient' ],
@@ -641,8 +651,7 @@ class MorphingLayouts extends Widget_Base {
             ]
         );      
         $this->add_control(
-            'grad_color2',
-            [
+            'grad_color2', [
                 'label' => esc_html__( 'Color 2', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,              
                 'condition'    => [
@@ -650,9 +659,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'grad_color2_offset',
-            [
+            'grad_color2_offset', [
                 'label' => esc_html__( 'Offset', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -671,11 +680,13 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
+
         $this->add_control(
-            'morph_image',
-            [
+            'morph_image', [
                 'label' => esc_html__( 'Masking Image', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -686,9 +697,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_x',
-            [
+            'image_x', [
                 'label' => esc_html__( 'Position X', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -700,9 +711,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_y',
-            [
+            'image_y', [
                 'label' => esc_html__( 'Position Y', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -714,9 +725,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_dimension',
-            [
+            'image_dimension', [
                 'label' => esc_html__( 'Image Dimension', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::IMAGE_DIMENSIONS,
                 'description' => esc_html__( 'Set custom width or height to keep the original size ratio.', 'easy-elementor-addons' ),
@@ -729,9 +740,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'custom_morph_path_blobmaker',
-            [
+            'custom_morph_path_blobmaker', [
                 'label' => esc_html__( 'Custom SVG from Blob Maker?', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -741,9 +752,9 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
             ]
         );
+
         $this->add_control(
-            'morphing_overflow',
-            [
+            'morphing_overflow', [
                 'label' => esc_html__( 'Overflow Morphing', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Hidden', 'easy-elementor-addons' ),
@@ -756,9 +767,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'morph_fixed_scroll_bg',
-            [
+            'morph_fixed_scroll_bg', [
                 'label' => esc_html__( 'Body Background', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'On', 'easy-elementor-addons' ),
@@ -770,9 +781,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'fixed_scroll_bg',
                 'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient'],
@@ -783,17 +794,18 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_section();
+
         $this->start_controls_section(
-            'morph_path_style',
-            [
+            'morph_path_style', [
                 'label' => esc_html__( 'Morphing Style', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,               
             ]
         );
+
         $this->add_control(
-            'hover_path',
-            [
+            'hover_path', [
                 'label' => esc_html__( 'Morphing Change Hover', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
@@ -804,9 +816,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'duration',
-            [
+            'duration', [
                 'label' => esc_html__( 'Duration', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -823,9 +835,9 @@ class MorphingLayouts extends Widget_Base {
                 
             ]
         );
+
         $this->add_control(
-            'morph_easing',
-            [
+            'morph_easing', [
                 'label' => esc_html__( 'Easing', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'linear',
@@ -833,17 +845,17 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
             ]
         );
+
         $this->add_control(
-            'adv_options',
-            [
+            'adv_options', [
                 'label' => esc_html__( 'Additional Options', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
         );
+
         $this->add_control(
-            'scaleX',
-            [
+            'scaleX', [
                 'label' => esc_html__( 'ScaleX', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -859,9 +871,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'scaleY',
-            [
+            'scaleY', [
                 'label' => esc_html__( 'ScaleY', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -877,9 +889,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'rotate',
-            [
+            'rotate', [
                 'label' => esc_html__( 'Rotate', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -895,9 +907,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'trans_x',
-            [
+            'trans_x', [
                 'label' => esc_html__( 'Horizontal Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -913,9 +925,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'trans_y',
-            [
+            'trans_y', [
                 'label' => esc_html__( 'Vertical Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -931,10 +943,11 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_section();
+
         $this->start_controls_section(
-            'masking_image_style',
-            [
+            'masking_image_style', [
                 'label' => esc_html__( 'Image Style', 'easy-elementor-addons' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition'    => [
@@ -942,9 +955,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_duration',
-            [
+            'image_duration', [
                 'label' => esc_html__( 'Image Duration', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -960,9 +973,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_elasticity',
-            [
+            'image_elasticity', [
                 'label' => esc_html__( 'Image Elasticity', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -978,16 +991,16 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
-        
+
         $this->start_controls_tabs( 'image_style_tabs' );
-        $this->start_controls_tab( 'tab_image_normal',
-            [
+
+        $this->start_controls_tab( 'tab_image_normal', [
                 'label' => esc_html__( 'Normal', 'easy-elementor-addons' ),               
             ]
         );
+
         $this->add_control(
-            'image_scaleX',
-            [
+            'image_scaleX', [
                 'label' => esc_html__( 'ScaleX', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1003,9 +1016,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_scaleY',
-            [
+            'image_scaleY', [
                 'label' => esc_html__( 'ScaleY', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1021,9 +1034,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_rotate',
-            [
+            'image_rotate', [
                 'label' => esc_html__( 'Rotate', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1039,9 +1052,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_trans_x',
-            [
+            'image_trans_x', [
                 'label' => esc_html__( 'Horizontal Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1057,9 +1070,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_trans_y',
-            [
+            'image_trans_y', [
                 'label' => esc_html__( 'Vertical Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1075,24 +1088,25 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
-        $this->start_controls_tab( 'tab_image_hover',
-            [
+
+        $this->start_controls_tab( 'tab_image_hover', [
                 'label' => esc_html__( 'Hover', 'easy-elementor-addons' ),                
             ]
         );
+
         $this->add_control(
-            'image_on_hover',
-            [
+            'image_on_hover', [
                 'label' => esc_html__( 'Image Hover', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
                 'label_off' => esc_html__( 'No', 'easy-elementor-addons' ),
             ]
         );
+
         $this->add_control(
-            'image_hover_scaleX',
-            [
+            'image_hover_scaleX', [
                 'label' => esc_html__( 'ScaleX', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1111,9 +1125,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_hover_scaleY',
-            [
+            'image_hover_scaleY', [
                 'label' => esc_html__( 'ScaleY', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1132,9 +1146,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_hover_rotate',
-            [
+            'image_hover_rotate', [
                 'label' => esc_html__( 'Rotate', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1153,9 +1167,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_hover_trans_x',
-            [
+            'image_hover_trans_x', [
                 'label' => esc_html__( 'Horizontal Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1174,9 +1188,9 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->add_control(
-            'image_hover_trans_y',
-            [
+            'image_hover_trans_y', [
                 'label' => esc_html__( 'Vertical Adjust', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1195,8 +1209,11 @@ class MorphingLayouts extends Widget_Base {
                 ],
             ]
         );
+
         $this->end_controls_tab();
+
         $this->end_controls_tabs();
+
         $this->end_controls_section();
     }
 
@@ -1204,7 +1221,6 @@ class MorphingLayouts extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();              
         $data_attr='';
-        
         $uid=uniqid("morph");
         $data_class = $uid;
         $data_class .= ' morph-'.esc_attr($this->get_id());
@@ -1221,19 +1237,16 @@ class MorphingLayouts extends Widget_Base {
             $data_class .= ' morph-fixed';
             $data_attr .= ' data-morphfixed="yes"';
         }
-        
+
         $data_attr .= ' data-id="'.esc_attr($uid).'"';
         $data_attr .= ' data-morph-id="morph-'.esc_attr($this->get_id()).'"';
-        
-        
         $first_morph=$first_morph_alt='';
         $json_arr=array();
-        
-        
-        $i=0;   $morph_style='';    
+        $i=0;
+        $morph_style='';
+
         if(!empty($settings["morphing_loop"])){
             foreach ( $settings['morphing_loop'] as $index => $item ) :
-                
                 if($item["layouts"]!='custom'){
                     if($i>0 || (!empty($settings['morph_layout']) && $settings['morph_layout']=='fixed_scroll')){
                         $json_arr["path"][]=$this->get_morphing_style($item["layouts"]);
@@ -1264,10 +1277,8 @@ class MorphingLayouts extends Widget_Base {
                 $json_arr['animation']['path']["duration"][]=(!empty($item["path_duration"]["size"])) ? $item["path_duration"]["size"] : 3000;
                 $json_arr['animation']['path']["easing"][]=(!empty($item["path_easing"])) ? $item["path_easing"] : 'easeOutElastic';
                 $json_arr['animation']['path']["elasticity"][]=(!empty($item["path_elasticity"]['size'])) ? $item["path_elasticity"]['size'] : 600;
-                
                 $json_arr['animation']['svg']["duration"][]=(!empty($item["svg_duration"]['size'])) ? $item["svg_duration"]['size'] : 2000;
                 $json_arr['animation']['svg']["easing"][]=(!empty($item["svg_easing"])) ? $item["svg_easing"] : 'easeOutElastic';
-                
                 $json_arr['animation']['fill']["duration"][]=(!empty($item["fill_duration"]['size'])) ? $item["fill_duration"]['size'] : 500;
                 $json_arr['animation']['fill']["easing"][]=(!empty($item["fill_easing"])) ? $item["fill_easing"] : 'linear';
                 if(!empty($item['fill_color_loop']) && $item['fill_color_loop']=='yes'){
@@ -1275,13 +1286,12 @@ class MorphingLayouts extends Widget_Base {
                 }else{
                     $json_arr['animation']['fill']["color"][]=(!empty($settings["morph_color"])) ? $settings["morph_color"] : 'none';
                 }
-                
+
                 $json_arr['animation']["scaleX"][]=(!empty($item["scaleX"]['size'])) ? $item["scaleX"]['size'] : 1;
                 $json_arr['animation']["scaleY"][]=(!empty($item["scaleY"]['size'])) ? $item["scaleY"]['size'] : 1;
                 $json_arr['animation']["rotate"][]=(!empty($item["rotate"]['size'])) ? $item["rotate"]['size'] : 0;
                 $json_arr['animation']["tx"][]=(!empty($item['trans_x']['size'])) ? $item['trans_x']['size'] : 0;
                 $json_arr['animation']["ty"][]=(!empty($item['trans_y']['size'])) ? $item['trans_y']['size'] : 0;
-                
                 $i++;
             endforeach;
             if(!empty($settings['morph_layout']) && $settings['morph_layout']!='fixed_scroll'){
@@ -1293,7 +1303,7 @@ class MorphingLayouts extends Widget_Base {
                 $first_morph=$json_arr["path"][0];
             }
         }
-        
+
         if(!empty($settings['scaleX']['size'])){
             $json_arr["scaleX"]=$settings['scaleX']['size'];
         }
@@ -1313,13 +1323,12 @@ class MorphingLayouts extends Widget_Base {
             $json_arr['hover_path']='no';
         }
         $json_array=json_encode($json_arr);
-        
-        
+
         $morph_width=(!empty($settings['morph_maxwidth']['size'])) ? $settings['morph_maxwidth']['size'] : 1200;
         $morph_height=(!empty($settings['morph_maxheight']['size'])) ? $settings['morph_maxheight']['size'] : 550;
         $viewbox_width=(!empty($settings['viewbox_width']['size'])) ? $settings['viewbox_width']['size'] : 600;
         $viewbox_height=(!empty($settings['viewbox_height']['size'])) ? $settings['viewbox_height']['size'] : 600;
-        
+
         $data_attr .= ' data-morph-width="'.$morph_width.'"';
         $data_attr .= (!empty($settings['morph_maxwidth_tablet']['size'])) ? ' data-morph-wt="'.$settings['morph_maxwidth_tablet']['size'].'"' : 'data-morph-width-tablet=""';
         $data_attr .= (!empty($settings['morph_maxwidth_mobile']['size'])) ? ' data-morph-wm="'.$settings['morph_maxwidth_mobile']['size'].'"' : 'data-morph-width-mobile=""';
@@ -1332,12 +1341,12 @@ class MorphingLayouts extends Widget_Base {
         $data_attr .= ' data-viewbox-height="'.$viewbox_height.'"';
         $data_attr .= (!empty($settings['viewbox_height_tablet']['size'])) ? ' data-viewbox-ht="'.$settings['viewbox_height_tablet']['size'].'"' : 'data-viewbox-height-tablet=""';
         $data_attr .= (!empty($settings['viewbox_height_mobile']['size'])) ? ' data-viewbox-hm="'.$settings['viewbox_height_mobile']['size'].'"' : 'data-viewbox-height-mobile=""';
-        
+
         $shape_trasnform ='';
         if($morph_style=='yes' || $settings['custom_morph_path_blobmaker']=='yes'){
             $shape_trasnform =' transform="translate(300,300)"';
         }
-        
+
         $image_json_array=$gradient_svg=$fill_style=$clippath_st=$clippath_end=$image_clip='';
         if(!empty($settings["morph_type"]) && $settings["morph_type"]=='gradient'){
             $grad_color1=(!empty($settings['grad_color1'])) ? $settings['grad_color1'] : "rgb(95,54,152)";
@@ -1348,17 +1357,17 @@ class MorphingLayouts extends Widget_Base {
             $grad_x2=(!empty($settings['grad_x2'])) ? $settings['grad_x2'].'%' : "100%";
             $grad_y1=(!empty($settings['grad_y1'])) ? $settings['grad_y1'].'%' : "70.711%";
             $grad_y2=(!empty($settings['grad_y2'])) ? $settings['grad_y2'].'%' : "100%";
-                        
+
             $gradient_svg='<linearGradient id="mo_'.esc_attr($this->get_id()).'" x1="'.esc_attr($grad_x1).'" x2="'.esc_attr($grad_x2).'" y1="'.esc_attr($grad_y1).'" y2="'.esc_attr($grad_y2).'"><stop offset="'.esc_attr($grad_color1_offset).'" stop-color="'.esc_attr($grad_color1).'" stop-opacity="1" /><stop offset="'.esc_attr($grad_color2_offset).'" stop-color="'.esc_attr($grad_color2).'" stop-opacity="1" /></linearGradient>';
             $fill_style = 'style="fill:url(#mo_'.esc_attr($this->get_id()).');"';
-            
+
         }else if(!empty($settings["morph_type"]) && $settings["morph_type"]=='image'){
             $morph_image=(!empty($settings['morph_image']["url"])) ? $settings['morph_image']["url"] : '';
             $image_x=(!empty($settings['image_x']["size"])) ? $settings['image_x']["size"].'%' : '0';
             $image_y=(!empty($settings['image_y']["size"])) ? $settings['image_y']["size"].'%' : '0';
             $image_width=(!empty($settings['image_dimension']["width"])) ? $settings['image_dimension']["width"].'px' : '100%';
             $image_height=(!empty($settings['image_dimension']["height"])) ? $settings['image_dimension']["height"].'px' : '100%';
-            
+
             $image_json=array();            
             $image_json['scaleX']=(!empty($settings["image_scaleX"]["size"])) ? $settings["image_scaleX"]["size"] : 1;
             $image_json['scaleY']=(!empty($settings["image_scaleY"]["size"])) ? $settings["image_scaleY"]["size"] : 1;
@@ -1368,7 +1377,7 @@ class MorphingLayouts extends Widget_Base {
             $image_json['duration']=(!empty($settings["image_duration"]["size"])) ? $settings["image_duration"]["size"] : 800;
             $image_json['elasticity']=(!empty($settings["image_elasticity"]["size"])) ? $settings["image_elasticity"]["size"] : 300;                        
             $image_hover='';
-            
+
             $image_json['image_hover']=(!empty($settings["image_on_hover"])) ? 'yes' : 'no';
             if(!empty($settings['image_on_hover']) && $settings['image_on_hover']=='yes'){
                 $image_json['hover_scaleX']=(!empty($settings["image_hover_scaleX"]["size"])) ? $settings["image_hover_scaleX"]["size"] : 1;
@@ -1382,11 +1391,10 @@ class MorphingLayouts extends Widget_Base {
             $clippath_end='</clipPath>';
             
             $image_clip='<g clip-path="url(#mo_'.esc_attr($this->get_id()).')"><image class="morph-image" xlink:href="'.esc_url($morph_image).'" x="'.esc_attr($image_x).'" y="'.esc_attr($image_y).'" height="'.esc_attr($image_height).'" width="'.esc_attr($image_width).'" ></image></g>';
-            
-        }else{
+        } else{
             $fill_style = 'style="fill:'.esc_attr($settings["morph_color"]).'"';;
         }
-        
+
         $output ='<div class="plus-morphing-svg-wrapper '.$data_class.'" id="'.esc_attr($uid).'" '.$data_attr.' data-morph=\'' . $json_array . '\' data-morphimage=\''.$image_json_array.'\'>';
             $output .='<svg class="morph" width="'.$morph_width.'" height="'.$morph_height.'" viewBox="0 0 '.$viewbox_width.' '.$viewbox_height.'">';
                 $output .= $clippath_st.$gradient_svg.'<path '.$fill_style.' d="'.$first_morph.'" '.$shape_trasnform.'  />'.$clippath_end.$image_clip;
@@ -1447,5 +1455,4 @@ class MorphingLayouts extends Widget_Base {
         }
         return $output;
     }
-
 }

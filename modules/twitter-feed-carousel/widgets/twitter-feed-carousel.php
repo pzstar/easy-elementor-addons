@@ -19,7 +19,7 @@ class TwitterFeedCarousel extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-twitter-feed-carousel';
+        return 'eead-twitter-feed-carousel-block';
     }
 
     /** Widget Title */

@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Advanced Button Widget
  */
 class AdvancedButton extends Widget_Base {
 
@@ -595,7 +595,6 @@ class AdvancedButton extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-
         $this->add_render_attribute( 'wrapper', 'class', 'eead-ep-button-wrapper' );
 
         if ( ! empty( $settings['link']['url'] ) ) {
@@ -616,7 +615,6 @@ class AdvancedButton extends Widget_Base {
 
         if ( $settings['add_custom_attributes'] and ! empty( $settings['custom_attributes'] ) ) {
             $attributes = explode( "\n", $settings['custom_attributes'] );
-
             $reserved_attr = [ 'href', 'target' ];
 
             foreach ( $attributes as $attribute ) {
@@ -660,10 +658,8 @@ class AdvancedButton extends Widget_Base {
         $this->add_render_attribute( 'content-wrapper', 'class', ( 'top' == $settings['icon_align'] ) ? 'eead-flex eead-flex-column' : '' );
         $this->add_render_attribute( 'content-wrapper', 'class', ( 'bottom' == $settings['icon_align'] ) ? 'eead-flex eead-flex-column-reverse' : '' );
         $this->add_render_attribute( 'content-wrapper', 'data-text', esc_attr($settings['text']));
-
         $this->add_render_attribute( 'icon-align', 'class', 'elementor-align-icon-' . $settings['icon_align'] );
         $this->add_render_attribute( 'icon-align', 'class', 'eead-ep-button-icon' );
-
         $this->add_render_attribute( 'text', 'class', 'eead-ep-button-text' );
         $this->add_inline_editing_attributes( 'text', 'none' );
 

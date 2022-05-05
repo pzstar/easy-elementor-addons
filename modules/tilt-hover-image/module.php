@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-tilt-hover-image';
+        return 'eead-tilt-hover-image-block';
     }
 
     public function get_widgets() {

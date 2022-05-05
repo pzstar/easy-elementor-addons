@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-advanced-map';
+        return 'eead-advanced-map-block';
     }
 
     public function get_widgets() {
@@ -19,5 +19,4 @@ class Module extends Module_Base {
         ];
         return $widgets;
     }
-
 }

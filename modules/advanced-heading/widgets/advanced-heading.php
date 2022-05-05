@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Advanced Heading Widget
  */
 class AdvancedHeading extends Widget_Base {
 

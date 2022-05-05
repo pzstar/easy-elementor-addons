@@ -227,14 +227,10 @@ Class SectionSticky {
     }
 
     public function sticky_script_render($section) {
-
         if ( $section->get_settings('section_sticky_on') == 'yes' ) {
             wp_enqueue_script('eead-section-sticky');
         }
-
     }
-
-
 }
 
 SectionSticky::instance();

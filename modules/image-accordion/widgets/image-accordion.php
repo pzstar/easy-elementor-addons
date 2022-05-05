@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
 class ImageAccordion extends Widget_Base {
     public function get_name() {
-        return 'eead-image-accordion';
+        return 'eead-image-accordion-block';
     }
 
     public function get_title() {
