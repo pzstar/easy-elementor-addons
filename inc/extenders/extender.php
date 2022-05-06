@@ -90,9 +90,8 @@ Class Extender {
         wp_register_script('wrapper-link', EEAD_URL . 'inc/extenders/assets/js/wrapper-link.js', [], EEAD_VERSION, true);
         wp_register_script('eead-background-overlay', EEAD_URL . 'inc/extenders/assets/js/background-overlay.js', [], EEAD_VERSION, true);
         wp_register_script('eead-notation', EEAD_URL . 'inc/extenders/assets/js/notation.js', [], EEAD_VERSION, true);
-        wp_register_script('eead-tile-scroll', EEAD_URL . 'inc/extenders/assets/js/eead-tile-scroll.js', [], EEAD_VERSION, true);
+        wp_enqueue_script('eead-tile-scroll', EEAD_URL . 'inc/extenders/assets/js/eead-tile-scroll.js', [], EEAD_VERSION, true);
         wp_register_script('eead-section-sticky', EEAD_URL . 'inc/extenders/assets/js/eead-section-sticky.js', [], EEAD_VERSION, true);
-        wp_register_script('eead-tileimage', EEAD_URL . 'inc/extenders/assets/js/tileimage.js', [], EEAD_VERSION, true);
     }
 
     public function include_conditions() {
