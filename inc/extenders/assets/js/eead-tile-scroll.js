@@ -26,17 +26,17 @@ $(window).on('elementor/frontend/init', function () {
                 if ($('#' + tileScroll_ID).length === 0) {
                     let display = this.settings('display');
                     var $content = `
-                        <div id="${tileScroll_ID}" class="tiles tiles--rotated">
+                        <section id="${tileScroll_ID}" class="tiles tiles--rotated data-scroll-section">
                             <div class="eead_tiles__wrap">`;
                             this.settings('elements').forEach(element => {
                                 let images = element.eead_tile_scroll_images;
-                                $content += `<div class="tiles__line" data-scroll="" data-scroll-speed="-1" data-scroll-target="${tileScroll_ID}" data-scroll-direction="horizontal">`;
+                                $content += `<div data-scroll class="tiles__line" data-scroll-speed="2" data-scroll-direction="horizontal">`;
                                 images.forEach(image => {
                                     $content += `<div class="eead_tiles__line-img" style="background-image:url(${image.url})"></div>`;
                                 });
                                 $content += `</div>`;
                             });
-                    $content += `</div></div>`;
+                    $content += `</div></section>`;
                     $(widgetContainer).prepend($content);
                 }
             }
