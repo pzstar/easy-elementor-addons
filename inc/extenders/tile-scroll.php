@@ -121,6 +121,22 @@ Class TileScroll {
                 ]
         );
 
+        $elems->add_control(
+                'eead_tile_style', [
+            'label' => esc_html__('Tile Style', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SELECT,
+            'default' => 'normal',
+            'options' => [
+                'normal' => esc_html__('Normal Layout', 'easy-elementor-addons'),
+                'brick' => esc_html__('Brick Layout', 'easy-elementor-addons'),
+            ],
+            'condition' => [
+                'eead_tile_show' => 'yes'
+            ],
+            'prefix_class' => 'eead-tile-',
+                ]
+        );
+
         $elems->add_responsive_control(
                 'eead_tile_image_width', [
             'label' => esc_html__('Image Width', 'easy-elementor-addons'),
@@ -129,13 +145,18 @@ Class TileScroll {
             'range' => [
                 'px' => [
                     'min' => 10,
-                    'max' => 600,
+                    'max' => 1000,
                     'step' => 1,
                 ],
                 'vw' => [
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
+                ],
+                'em' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 0.1,
                 ]
             ],
             'selectors' => [
@@ -155,13 +176,18 @@ Class TileScroll {
             'range' => [
                 'px' => [
                     'min' => 10,
-                    'max' => 600,
+                    'max' => 1000,
                     'step' => 1,
                 ],
                 'vw' => [
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
+                ],
+                'em' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 0.1,
                 ]
             ],
             'selectors' => [
@@ -198,7 +224,7 @@ Class TileScroll {
             ]
                 ]
         );
-        
+
         $elems->add_control(
                 'eead_tile_translate_popover', [
             'label' => esc_html__('Offset', 'easy-elementor-addons'),
@@ -272,7 +298,7 @@ Class TileScroll {
         );
 
         $elems->end_popover();
-        
+
         $elems->add_control(
                 'eead_tile_rotate_popover', [
             'label' => esc_html__('Rotate', 'easy-elementor-addons'),
@@ -387,7 +413,7 @@ Class TileScroll {
                 ]
         );
 
-        $elems->end_popover(); 
+        $elems->end_popover();
 
         $elems->add_control(
                 'eead_tile_scale_popover', [
@@ -484,7 +510,27 @@ Class TileScroll {
 
         $elems->end_popover();
 
-        $transform_origin_conditions = [];
+        $transform_origin_conditions = array(
+            'terms' => array(
+                array(
+                    'name' => 'eead_tile_show',
+                    'value' => 'yes',
+                ),
+                array(
+                    'relation' => 'or',
+                    'terms' => array(
+                        array(
+                            'name' => 'eead_tile_rotate_popover',
+                            'value!' => '',
+                        ),
+                        array(
+                            'name' => 'eead_tile_scale_popover',
+                            'value!' => '',
+                        ),
+                    ),
+                ),
+            ),
+        );
 
         $elems->add_responsive_control(
                 'eead_tile_x_anchor_point', [
