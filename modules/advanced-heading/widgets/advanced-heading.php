@@ -22,7 +22,7 @@ class AdvancedHeading extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-advanced-heading-block';
+        return 'eead-advanced-heading';
     }
 
     /** Widget Title */

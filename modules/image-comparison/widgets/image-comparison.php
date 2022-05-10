@@ -23,7 +23,7 @@ class ImageComparison extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-image-comparison-block';
+        return 'eead-image-comparison';
     }
 
     /** Widget Title */

@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-drop-bar-block';
+        return 'eead-drop-bar';
     }
 
     public function get_widgets() {

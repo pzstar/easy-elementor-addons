@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-sticky-video-block';
+        return 'eead-sticky-video';
     }
 
     public function get_widgets() {

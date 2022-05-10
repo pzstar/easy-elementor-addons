@@ -22,7 +22,7 @@ class CaptionHoverEffect extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-caption-hover-effect-block';
+        return 'eead-caption-hover-effect';
     }
 
     /** Widget Title */

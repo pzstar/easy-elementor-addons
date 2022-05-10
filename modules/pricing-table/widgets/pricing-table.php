@@ -22,7 +22,7 @@ class PricingTable extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-pricing-table-block';
+        return 'eead-pricing-table';
     }
 
     /** Widget Title */

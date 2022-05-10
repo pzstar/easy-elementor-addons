@@ -66,6 +66,36 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_control(
+                'depth', [
+            'label' => esc_html__('Depth', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => ['px', 'em', 'rem', '%'],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                ],
+                'em' => [
+                    'min' => 0,
+                    'max' => 10,
+                ],
+                'rem' => [
+                    'min' => 0,
+                    'max' => 10,
+                ],
+                '%' => [
+                    'min' => 0,
+                    'max' => 100,
+                ],
+            ],
+            'default' => [
+                'size' => 10,
+                'unit' => 'px',
+            ]
+                ]
+        );
+
+        $this->add_control(
             'alignment', [
                 'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
                 'type'    => Controls_Manager::CHOOSE,
@@ -97,30 +127,13 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_control(
-                'depth', [
-            'label' => esc_html__('Depth', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 100,
-                ],
-            ],
-            'default' => [
-                'size' => 10,
-                'unit' => 'px',
-            ]
-                ]
-        );
-
-        $this->add_control(
                 'layers', [
             'label' => esc_html__('Layers', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
                     'min' => 0,
-                    'max' => 10,
+                    'max' => 100,
                 ],
             ],
             'default' => [
@@ -193,12 +206,12 @@ class ThreedText extends Widget_Base {
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'deg' => [
-                    'min' => 0,
+                    'min' => -360,
                     'max' => 360,
                 ],
             ],
             'default' => [
-                'size' => 0,
+                'size' => 10,
                 'unit' => 'deg',
             ]
                 ]
@@ -218,9 +231,16 @@ class ThreedText extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'text_style', [
-                'label'     => esc_html__( 'Text', 'easy-elementor-addons' ),
+            'style', [
+                'label'     => esc_html__( 'Style', 'easy-elementor-addons' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'depth_color', [
+                'label'     => esc_html__('Depth Color', 'easy-elementor-addons'),
+                'type'      => Controls_Manager::COLOR,
             ]
         );
 
@@ -264,7 +284,6 @@ class ThreedText extends Widget_Base {
 
         $this->add_render_attribute( 'ztext', 'class', 'eead-z-text' );
         $this->add_render_attribute( 'ztext', 'class', 'eead-align-'.$settings['alignment'] );
-        $this->add_render_attribute( 'ztext', 'data-z', "true" );
         $this->add_render_attribute( 'ztext', 'data-z-depth', $settings['depth']['size'].'px' );
         $this->add_render_attribute( 'ztext', 'data-z-layers', $settings['layers']['size'] );
         $this->add_render_attribute( 'ztext', 'data-z-perspective', $settings['perspective']['size'].'px' );

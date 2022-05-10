@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PopupVideo extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-popup-video-block';
+		return 'eead-popup-video';
 	}
 
 	public function get_title() {

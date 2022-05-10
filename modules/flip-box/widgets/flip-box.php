@@ -24,7 +24,7 @@ class FlipBox extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-flip-box-block';
+        return 'eead-flip-box';
     }
 
     /** Widget Title */

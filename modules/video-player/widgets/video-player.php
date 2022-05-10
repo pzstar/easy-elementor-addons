@@ -25,7 +25,7 @@ class VideoPlayer extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-video-player-block';
+        return 'eead-video-player';
     }
 
     public function get_script_depends() {

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SlinkyVerticalMenu extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-slinky-vertical-menu-block';
+		return 'eead-slinky-vertical-menu';
 	}
 
 	public function get_title() {

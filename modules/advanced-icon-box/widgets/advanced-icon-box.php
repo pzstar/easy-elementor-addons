@@ -24,7 +24,7 @@ class AdvancedIconBox extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-advanced-icon-box-block';
+        return 'eead-advanced-icon-box';
     }
 
     /** Widget Title */

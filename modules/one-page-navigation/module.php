@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-one-page-nav-block';
+        return 'eead-one-page-nav';
     }
 
     public function get_widgets() {

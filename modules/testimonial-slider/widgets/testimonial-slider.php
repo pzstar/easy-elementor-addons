@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TestimonialSlider extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-testimonial-slider-block';
+		return 'eead-testimonial-slider';
 	}
 
 	public function get_title() {

@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ScrollNav extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-scroll-nav-block';
+		return 'eead-scroll-nav';
 	}
 
 	public function get_title() {

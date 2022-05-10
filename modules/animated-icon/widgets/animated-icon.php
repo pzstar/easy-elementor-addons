@@ -20,7 +20,7 @@ class AnimatedIcon extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-animated-icon-block';
+        return 'eead-animated-icon';
     }
 
     /** Widget Title */

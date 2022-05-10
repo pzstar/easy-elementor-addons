@@ -70,7 +70,7 @@ Class SectionSticky {
                 'label'     => esc_html__('Active Background Color', 'easy-elementor-addons'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}.eead-sticky.eead-active' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}}.uk-sticky.uk-active' => 'background-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'section_sticky_on' => 'yes',
@@ -84,7 +84,7 @@ Class SectionSticky {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}}.eead-sticky.eead-active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}.uk-sticky.uk-active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition'  => [
                     'section_sticky_on' => 'yes',
@@ -96,7 +96,7 @@ Class SectionSticky {
             Group_Control_Box_Shadow::get_type(), [
                 'label'     => esc_html__('Active Box Shadow', 'easy-elementor-addons'),
                 'name'      => 'section_sticky_active_shadow',
-                'selector'  => '{{WRAPPER}}.eead-sticky.eead-active',
+                'selector'  => '{{WRAPPER}}.uk-sticky.uk-active',
                 'condition' => [
                     'section_sticky_on' => 'yes',
                 ],
@@ -164,7 +164,7 @@ Class SectionSticky {
                     'section_sticky_on' => 'yes',
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}}.eead-sticky.eead-active' => 'z-index: {{VALUE}};',
+                    '{{WRAPPER}}.uk-sticky.uk-active' => 'z-index: {{VALUE}};',
                 ],
             ]
         );
@@ -221,7 +221,7 @@ Class SectionSticky {
                 $sticky_option['media'] = 'media: ' . $settings['section_sticky_off_media'];
             }
 
-            $section->add_render_attribute('_wrapper', 'data-eead-sticky', implode(";", $sticky_option));
+            $section->add_render_attribute('_wrapper', 'uk-sticky', implode(";", $sticky_option));
             $section->add_render_attribute('_wrapper', 'class', 'eead-sticky');
         }
     }
@@ -229,6 +229,7 @@ Class SectionSticky {
     public function sticky_script_render($section) {
         if ( $section->get_settings('section_sticky_on') == 'yes' ) {
             wp_enqueue_script('eead-section-sticky');
+            wp_enqueue_script('uikit');
         }
     }
 }

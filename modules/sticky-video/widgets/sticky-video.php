@@ -19,7 +19,7 @@ class StickyVideo extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-sticky-video-block';
+        return 'eead-sticky-video';
     }
 
     /** Widget Title */

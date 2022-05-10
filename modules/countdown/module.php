@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-countdown-block';
+        return 'eead-countdown';
     }
 
     public function get_widgets() {

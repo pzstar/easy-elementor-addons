@@ -22,7 +22,7 @@ class LogoCarousel extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-logo-carousel-block';
+        return 'eead-logo-carousel';
     }
 
     /** Widget Title */

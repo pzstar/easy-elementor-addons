@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-image-gallery-block';
+        return 'eead-image-gallery';
     }
 
     public function get_widgets() {

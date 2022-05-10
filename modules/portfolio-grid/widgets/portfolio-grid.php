@@ -24,7 +24,7 @@ class PortfolioGrid extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-portfolio-grid-block';
+        return 'eead-portfolio-grid';
     }
 
     /** Widget Title */

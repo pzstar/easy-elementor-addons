@@ -23,7 +23,7 @@ class ThreesixtyImage extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-threesixty-image-block';
+        return 'eead-threesixty-image';
     }
 
     /** Widget Title */

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TeamMemberCarousel extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-team-member-carousel-block';
+		return 'eead-team-member-carousel';
 	}
 
 	public function get_title() {

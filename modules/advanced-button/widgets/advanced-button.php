@@ -22,7 +22,7 @@ class AdvancedButton extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-advanced-button-block';
+        return 'eead-advanced-button';
     }
 
     /** Widget Title */

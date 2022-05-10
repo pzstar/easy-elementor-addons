@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-business-hour-block';
+        return 'eead-business-hour';
     }
 
     public function get_widgets() {

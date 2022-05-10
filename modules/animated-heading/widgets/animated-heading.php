@@ -19,7 +19,7 @@ class AnimatedHeading extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-animated-heading-block';
+        return 'eead-animated-heading';
     }
 
     /** Widget Title */

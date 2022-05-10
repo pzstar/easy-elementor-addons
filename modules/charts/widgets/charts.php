@@ -22,7 +22,7 @@ class Charts extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-charts-block';
+        return 'eead-charts';
     }
 
     /** Widget Title */

@@ -5,47 +5,48 @@
         init: function () {
 
             var widgets = {
-                'eead-image-comparison-block.default': EEA.imageComparison,
-                'eead-switcher-block.default': EEA.switcherBlock,
                 'eead-accordion-block.default': EEA.accordionBlock,
-                'eead-animated-heading-block.default': EEA.animatedHeading,
-                'eead-business-hour-block.default': EEA.businessHours,
-                'eead-scroll-image-block.default': EEA.scrollImage,
-                'eead-horizontal-timeline-block.default': EEA.horizontalTimelineCarousel,
-                'eead-image-gallery-block.default': EEA.imageGallery,
-                'eead-video-player-block.default': EEA.videoPlayer,
-                'eead-circular-progressbar-block.default': EEA.circularProgressBar,
-                'eead-progressbar-block.default': EEA.progressBar,
-                'eead-vertical-tab-block.default': EEA.verticalTabsBlock,
-                'eead-horizontal-tab-block.default': EEA.horizontalTabsBlock,
+                'eead-advanced-map.default': EEA.advancedMap,
+                'eead-advanced-icon-box.default': EEA.advancedIconBox,
+                'eead-animated-heading.default': EEA.animatedHeading,
+                'eead-business-hour.default': EEA.businessHours,
+                'eead-countdown.default': EEA.countdown,
                 'eead-counter-block.default': EEA.counterBlock,
-                'eead-portfolio-block.default': EEA.portfolioBlock,
-                'eead-advanced-icon-box-block.default': EEA.advancedIconBox,
-                'eead-one-page-nav-block.default': EEA.onePageNav,
-                'eead-toggle-block.default': EEA.toggleBlock,
-                'eead-team-member-carousel-block.default': EEA.teamMemberCarouselBlock,
-                'eead-pie-chart-block.default': EEA.pieChart,
-                'eead-logo-carousel-block.default': EEA.logoCarousel,
-                'eead-testimonial-slider-block.default': EEA.testimonialSlider,
-                'eead-slider-block.default': EEA.sliderBlock,
-                'eead-popup-modal-block.default': EEA.popupModal,
-                'eead-countdown-block.default': EEA.countdown,
-                'eead-image-accordion-block.default': EEA.imageAccordion,
-                'eead-twitter-feed-carousel-block.default': EEA.twitterFeedCarousel,
-                'eead-sticky-video-block.default': EEA.stickyVideo,
-                'eead-advanced-map-block.default': EEA.advancedMap,
-                'eead-threesixty-image-block.default': EEA.threesixtyImage,
-                'eead-offcanvas-header-block.default': EEA.offcanvasHeader,
-                'eead-popup-video-block.default': EEA.popupVideo,
-                'eead-filterable-gallery-block.default': EEA.filterableGallery,
+                'eead-circular-progressbar.default': EEA.circularProgressBar,
+                'eead-caption-hover-effect.default': EEA.captionHoverEffect,
+                'eead-charts.default': EEA.chartsBlock,
+                'eead-filterable-gallery.default': EEA.filterableGallery,
+                'eead-horizontal-timeline.default': EEA.horizontalTimelineCarousel,
                 'eead-hotspot-block.default': EEA.hotspotBlock,
-                'eead-horizontal-scroll-block.default': EEA.horizontalScrollBlock,
-                'eead-multi-scroll-block.default': EEA.multiScrollBlock,
-                'eead-charts-block.default': EEA.chartsBlock,
-                'eead-tilt-hover-image-block.default': EEA.tiltHoverImageBlock,
-                'eead-slinky-vertical-menu-block.default': EEA.slinkyVerticalMenuBlock,
-                'eead-portfolio-grid-block.default': EEA.portfolioGrid,
-                'eead-caption-hover-effect-block.default': EEA.captionHoverEffect,
+                'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
+                'eead-horizontal-tab-block.default': EEA.horizontalTabsBlock,
+                'eead-image-comparison.default': EEA.imageComparison,
+                'eead-image-gallery.default': EEA.imageGallery,
+                'eead-image-accordion.default': EEA.imageAccordion,
+                'eead-logo-carousel.default': EEA.logoCarousel,
+                'eead-multi-scroll.default': EEA.multiScrollBlock,
+                'eead-one-page-nav.default': EEA.onePageNav,
+                'eead-offcanvas-header.default': EEA.offcanvasHeader,
+                'eead-portfolio-block.default': EEA.portfolioBlock,
+                'eead-popup-modal.default': EEA.popupModal,
+                'eead-progressbar.default': EEA.progressBar,
+                'eead-pie-chart.default': EEA.pieChart,
+                'eead-popup-video.default': EEA.popupVideo,
+                'eead-portfolio-grid.default': EEA.portfolioGrid,
+                'eead-switcher-block.default': EEA.switcherBlock,
+                'eead-scroll-image.default': EEA.scrollImage,
+                'eead-slider-block.default': EEA.sliderBlock,
+                'eead-sticky-video.default': EEA.stickyVideo,
+                'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
+                'eead-toggle-block.default': EEA.toggleBlock,
+                'eead-threesixty-image.default': EEA.threesixtyImage,
+                'eead-threed-text.default': EEA.threedTextBlock,
+                'eead-testimonial-slider.default': EEA.testimonialSlider,
+                'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
+                'eead-team-member-carousel.default': EEA.teamMemberCarouselBlock,
+                'eead-video-player.default': EEA.videoPlayer,
+                'eead-vertical-tab-block.default': EEA.verticalTabsBlock,
+                'eead-twitter-feed-carousel.default': EEA.twitterFeedCarousel,
             };
 
             $.each(widgets, function (widget, callback) {
@@ -2366,6 +2367,7 @@
                 }));
             });
         },
+
         captionHoverEffect: function($scope) {
             if( Modernizr.touch ) {
                 function classReg( className ) {
@@ -2436,6 +2438,52 @@
                     classie.toggle( this, 'cs-hover' );
                 }, false );
             }
+        },
+
+        threedTextBlock: function ($scope) {
+            var ztext = $scope.find('.eead-z-text'),
+                options = {
+                    depth: '30px',
+                    layers: 8,
+                };
+            if (ztext.data('zDepth')) {
+                options.depth = ztext.data('zDepth') || '30px';
+            }
+            if (ztext.data('zLayers')) {
+                options.layers = ztext.data('zLayers') || 3;
+            }
+            if (ztext.data('zPerspective')) {
+                options.perspective = ztext.data('zPerspective') || '500px';
+            }
+            // options.fade = !!zFade;
+            // if (ztext.data('zDirection')) {
+            //     options.direction = ztext.data('zDirection') || 'forwards';
+            // }
+            if (ztext.data('zEvent')) {
+                options.event = ztext.data('zEvent') || 'pointer';
+            }
+            if (ztext.data('zEventrotation') && ztext.data('zEvent') != 'none') {
+                options.eventRotation = this.settings('event_rotation.size') + 'deg' || '35deg';
+            }
+            if (ztext.data('zEventdirection') && ztext.data('zEvent') != 'none') {
+                options.eventDirection = ztext.data('zEventdirection') || 'default';
+            }
+
+            var $text = $($widgetIdSelect).html();
+            $($widgetIdSelect).parent().append('<div class="ep-z-text-duplicate" style="display:none;">' + $text + '</div>');
+
+            $text = $($widgetIdSelect).parent().find('.ep-z-text-duplicate:first').html();
+
+            $($widgetIdSelect).find('.z-text').remove();
+            // $text = 'abc';
+
+            // var ztxt = new Ztextify($widgetIdSelect, options, $text);
+
+
+            // if (this.settings('depth_color')) {
+            //     var depthColor = this.settings('depth_color') || '#fafafa';
+            //     $($widgetIdSelect).find('.z-layers .z-layer:not(:first-child)').css('color', depthColor);
+            // }
         }
     };
     $(window).on('elementor/frontend/init', EEA.init);

@@ -20,7 +20,7 @@ class HorizontalTabBlock extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-horizontal-tab-block';
+        return 'eead-horizontal-tab';
     }
 
     /** Widget Title */

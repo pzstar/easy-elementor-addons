@@ -24,7 +24,7 @@ class HorizontalTimeline extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-horizontal-timeline-block';
+        return 'eead-horizontal-timeline';
     }
 
     /** Widget Title */

@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-team-member-carousel-block';
+        return 'eead-team-member-carousel';
     }
 
     public function get_widgets() {

@@ -25,7 +25,7 @@ class IconList extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-icon-list-block';
+        return 'eead-icon-list';
     }
 
     /** Widget Title */

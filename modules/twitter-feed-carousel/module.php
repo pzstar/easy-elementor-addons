@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-twitter-feed-carousel-block';
+        return 'eead-twitter-feed-carousel';
     }
 
     public function get_widgets() {

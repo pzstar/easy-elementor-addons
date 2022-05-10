@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PieChart extends Widget_Base {
 
 	public function get_name() {
-		return 'eead-pie-chart-block';
+		return 'eead-pie-chart';
 	}
 
 	public function get_title() {

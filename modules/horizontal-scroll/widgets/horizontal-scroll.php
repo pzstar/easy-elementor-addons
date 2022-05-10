@@ -20,7 +20,7 @@ class HorizontalScroll extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-horizontal-scroll-block';
+        return 'eead-horizontal-scroll';
     }
 
     /** Widget Title */

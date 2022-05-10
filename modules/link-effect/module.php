@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-link-effect-block';
+        return 'eead-link-effect';
     }
 
     public function get_widgets() {

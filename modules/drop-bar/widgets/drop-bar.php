@@ -22,7 +22,7 @@ class DropBar extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-drop-bar-block';
+        return 'eead-drop-bar';
     }
 
     /** Widget Title */

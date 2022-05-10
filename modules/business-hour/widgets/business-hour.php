@@ -22,7 +22,7 @@ class BusinessHour extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-business-hour-block';
+        return 'eead-business-hour';
     }
 
     /** Widget Title */

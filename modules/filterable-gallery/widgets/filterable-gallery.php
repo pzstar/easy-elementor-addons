@@ -23,7 +23,7 @@ class FilterableGallery extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-filterable-gallery-block';
+        return 'eead-filterable-gallery';
     }
 
     /** Widget Title */

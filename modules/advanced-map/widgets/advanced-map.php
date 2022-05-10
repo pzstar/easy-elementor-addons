@@ -18,7 +18,7 @@ class AdvancedMap extends Widget_Base {
 
     /** Widget Name */
     public function get_name() {
-        return 'eead-advanced-map-block';
+        return 'eead-advanced-map';
     }
 
     /** Widget Title */
