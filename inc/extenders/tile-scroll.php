@@ -11,6 +11,7 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Image_Size;
 
 Class TileScroll {
 
@@ -108,6 +109,16 @@ Class TileScroll {
                 [],
             ],
                 ]
+        );
+
+        $elems->add_group_control(
+                Group_Control_Image_Size::get_type(), array(
+            'name' => 'eead_tile_thumbnail',
+            'default' => 'full',
+            'condition' => array(
+                'eead_tile_show' => 'yes'
+            ),
+                )
         );
 
         $elems->end_controls_tab();
@@ -521,11 +532,13 @@ Class TileScroll {
                     'terms' => array(
                         array(
                             'name' => 'eead_tile_rotate_popover',
-                            'value!' => '',
+                            'operator' => '!=',
+                            'value' => '',
                         ),
                         array(
                             'name' => 'eead_tile_scale_popover',
-                            'value!' => '',
+                            'operator' => '!=',
+                            'value' => '',
                         ),
                     ),
                 ),
@@ -638,8 +651,14 @@ Class TileScroll {
                         <div class='eead-tiles-row'>
                             <?php
                             foreach ($elements['eead_tile_images'] as $image) :
+                                $image_src_url = Group_Control_Image_Size::get_attachment_image_src($image['id'], 'eead_tile_thumbnail', $settings);
+                                if (empty($image_src_url)) {
+                                    $image_src = $image['url'];
+                                } else {
+                                    $image_src = $image_src_url;
+                                }
                                 ?>
-                                <div class='eead-tiles-row-img' style='background-image:url(<?php echo $image['url']; ?>)'></div>
+                                <div class='eead-tiles-row-img' style='background-image:url(<?php echo $image_src; ?>)'></div>
                                 <?php
                             endforeach;
                             ?>
@@ -663,8 +682,18 @@ Class TileScroll {
             <div class='eead-tiles-wrap'>
                 <# _.each( settings.eead_tile_elements, function( elements, index ) { #>
                 <div data-scroll class='eead-tiles-row' data-scroll-speed='2' data-scroll-direction='horizontal'>
-                    <# _.each( elements.eead_tile_images, function( image, index ) { #>
-                    <div class='eead-tiles-row-img' style='background-image:url({{image.url}})'></div>
+                    <# _.each( elements.eead_tile_images, function( image, index ) { 
+                    var imageObj = {
+                    id: image.id,
+                    url: image.url,
+                    size: settings.eead_tile_thumbnail_size,
+                    dimension: image.thumbnail_custom_dimension,
+                    model: view.getEditModel()
+                    },
+
+                    image_url = elementor.imagesManager.getImageUrl( imageObj );
+                    #>
+                    <div class='eead-tiles-row-img' style='background-image:url({{image_url}})'></div>
                     <# }) #>
                 </div>
                 <# }) #>
