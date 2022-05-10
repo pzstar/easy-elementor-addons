@@ -4,8 +4,10 @@ namespace EasyElementorAddons\Modules\ThreedText\Widgets;
 
 // Elementor Classes
 use Elementor\Widget_Base;
+use Elementor\Control_Media;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -39,10 +41,45 @@ class ThreedText extends Widget_Base {
 
     /* Controls */
     protected function register_controls() {
+        $transform_prefix_class = 'eead-';
+        $transform_return_value = 'transform';
+
         $this->start_controls_section(
                 'section_content', [
             'label' => esc_html__('Content', 'easy-elementor-addons'),
                 ]
+        );
+
+        $this->add_control(
+                'eead_media_type', array(
+            'label' => __('Media Type', 'totalplus'),
+            'type' => Controls_Manager::SELECT,
+            'options' => array(
+                'image' => __('Image', 'totalplus'),
+                'text' => __('Text', 'totalplus'),
+            ),
+            'default' => 'image',
+                )
+        );
+
+        $this->add_group_control(
+                Group_Control_Image_Size::get_type(), array(
+            'name' => 'thumbnail',
+            'default' => 'full',
+            'condition' => array(
+                'eead_media_type' => 'image',
+            ),
+                )
+        );
+
+        $this->add_control(
+                'eead_image', array(
+            'label' => __('Upload Image', 'totalplus'),
+            'type' => Controls_Manager::MEDIA,
+            'condition' => array(
+                'eead_media_type' => 'image',
+            ),
+                )
         );
 
         $this->add_control(
@@ -51,17 +88,9 @@ class ThreedText extends Widget_Base {
                 'type'        => Controls_Manager::TEXTAREA,
                 'dynamic'     => [ 'active' => true ],
                 'default'     => esc_html__( '3D Text', 'easy-elementor-addons' ),
-            ]
-        );
-
-        $this->add_control(
-            'seperate_letter', [
-                'label' => __( 'Seperate Each Letter', 'easy-elementor-addons' ),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => __( 'No', 'easy-elementor-addons' ),
-                'return_value' => 'yes',
-                'default' => '',
+                'condition' => array(
+                    'eead_media_type' => 'text',
+                ),
             ]
         );
 
@@ -228,6 +257,197 @@ class ThreedText extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+                'eead_threed_text_rotate_popover', [
+            'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+            'type' => Controls_Manager::POPOVER_TOGGLE,
+            'prefix_class' => $transform_prefix_class,
+            'return_value' => $transform_return_value,
+            'condition' => [
+                'event' => 'none',
+            ],
+                ]
+        );
+
+        $this->start_popover();
+
+        $this->add_responsive_control(
+                'eead_threed_text_rotateZ_effect', [
+            'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => -360,
+                    'max' => 360,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateZ: {{SIZE}}deg',
+            ],
+            'condition' => [
+                'event' => 'none',
+            ],
+                ]
+        );
+
+        $this->add_control(
+                'eead_threed_text_rotate_3d', [
+            'label' => esc_html__('3D Rotate', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => esc_html__('On', 'easy-elementor-addons'),
+            'label_off' => esc_html__('Off', 'easy-elementor-addons'),
+            'condition' => [
+                'event' => 'none',
+            ],
+                ]
+        );
+
+        $this->add_responsive_control(
+                'eead_threed_text_rotateX_effect', [
+            'label' => esc_html__('Rotate X', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => -360,
+                    'max' => 360,
+                ],
+            ],
+            'condition' => [
+                'event' => 'none',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateX: {{SIZE}}deg;',
+            ],
+                ]
+        );
+
+        $this->add_responsive_control(
+                'eead_threed_text_rotateY_effect', [
+            'label' => esc_html__('Rotate Y', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => -360,
+                    'max' => 360,
+                ],
+            ],
+            'condition' => [
+                'event' => 'none',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateY: {{SIZE}}deg;',
+            ],
+                ]
+        );
+
+        $this->add_responsive_control(
+                'eead_threed_text_perspective_effect', [
+            'label' => esc_html__('Perspective', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 1000,
+                ],
+            ],
+            'desktop_default' => [
+                'size' => 500,
+                'unit' => 'px',
+            ],
+            'condition' => [
+                'event' => 'none',
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-perspective: {{SIZE}}px',
+            ],
+                ]
+        );
+
+        $this->end_popover();
+
+        $this->add_control(
+                'eead_threed_text_scale_popover', [
+            'label' => esc_html__('Scale', 'easy-elementor-addons'),
+            'type' => Controls_Manager::POPOVER_TOGGLE,
+            'prefix_class' => $transform_prefix_class,
+            'return_value' => $transform_return_value,
+            'condition' => [
+                'event' => 'none',
+            ],
+                ]
+        );
+
+        $transform_origin_conditions = array(
+            'terms' => array(
+                array(
+                    'relation' => 'or',
+                    'terms' => array(
+                        array(
+                            'name' => 'eead_threed_text_rotate_popover',
+                            'operator' => '!=',
+                            'value' => '',
+                        ),
+                        array(
+                            'name' => 'eead_threed_text_scale_popover',
+                            'operator' => '!=',
+                            'value' => '',
+                        ),
+                    ),
+                ),
+            ),
+        );
+
+        $this->add_responsive_control(
+                'eead_threed_text_x_anchor_point', [
+            'label' => esc_html__('X Anchor Point', 'easy-elementor-addons'),
+            'type' => Controls_Manager::CHOOSE,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__('Left', 'easy-elementor-addons'),
+                    'icon' => 'eicon-h-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__('Center', 'easy-elementor-addons'),
+                    'icon' => 'eicon-h-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__('Right', 'easy-elementor-addons'),
+                    'icon' => 'eicon-h-align-right',
+                ],
+            ],
+            'conditions' => $transform_origin_conditions,
+            'separator' => 'before',
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-origin-x: {{VALUE}}',
+            ],
+                ]
+        );
+
+        $this->add_responsive_control(
+                'eead_threed_text_y_anchor_point', [
+            'label' => esc_html__('Y Anchor Point', 'easy-elementor-addons'),
+            'type' => Controls_Manager::CHOOSE,
+            'options' => [
+                'top' => [
+                    'title' => esc_html__('Top', 'easy-elementor-addons'),
+                    'icon' => 'eicon-v-align-top',
+                ],
+                'center' => [
+                    'title' => esc_html__('Center', 'easy-elementor-addons'),
+                    'icon' => 'eicon-v-align-middle',
+                ],
+                'bottom' => [
+                    'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                    'icon' => 'eicon-v-align-bottom',
+                ],
+            ],
+            'conditions' => $transform_origin_conditions,
+            'selectors' => [
+                '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-origin-y: {{VALUE}}',
+            ],
+                ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -294,65 +514,20 @@ class ThreedText extends Widget_Base {
         $this->add_render_attribute( 'ztext', 'data-z-eventRotation', $settings['event_rotation']['size'].'deg' );
         ?>
         <div class="container">
-            <?php
-            if($settings['seperate_letter'] == 'yes'){
-                $texts = str_split($settings['text']);
-                foreach($texts as $text) :
-                ?>
-                    <<?php echo esc_attr($html_tag); ?> <?php echo $this->get_render_attribute_string( 'ztext' ); ?>>
-                    <?php echo esc_html($text) ?>
-                    </<?php echo esc_attr($html_tag); ?>>
+            <<?php echo esc_attr($html_tag); ?> <?php echo $this->get_render_attribute_string( 'ztext' ); ?>>
+            <?php 
+            if ('image' === $settings['eead_media_type']) {
+                $image_src = $settings['eead_image'];
+                $image_src_size = Group_Control_Image_Size::get_attachment_image_src($image_src['id'], 'thumbnail', $settings);
+                $alt = Control_Media::get_image_alt($settings['eead_image']);?>
+                <img src="<?php echo esc_url($image_src_size); ?>" class="ht--al-image" alt="<?php echo esc_attr($alt); ?>">
                 <?php
-                endforeach;
-            } else{
-            ?>
-                <<?php echo esc_attr($html_tag); ?> <?php echo $this->get_render_attribute_string( 'ztext' ); ?>>
-                <?php echo esc_html($settings['text']) ?>
-                </<?php echo esc_attr($html_tag); ?>>
-            <?php } ?>
+            } elseif ('text' === $settings['eead_media_type']) {
+                echo esc_html($settings['text']);
+            }?>
+            </<?php echo esc_attr($html_tag); ?>>
         </div>
        <?php
-    }
-
-    protected function content_template() {
-        ?>
-
-        <#
-        var fade = settings.fade == 'yes' ? 'true' : 'false';
-        var html_tag = settings.html_tag;
-        view.addRenderAttribute( 'ztext', {
-        'class': 'eead-z-text',
-        'class': 'eead-align-' + settings.alignment,
-        'data-z': 'true',
-        'data-z-depth': settings.depth.size + 'px',
-        'data-z-layers': settings.layers.size,
-        'data-z-perspective': settings.perspective.size + 'px',
-        'data-z-fade': fade,
-        'data-z-direction': settings.direction,
-        'data-z-event': settings.event,
-        'data-z-eventDirection': settings.event_direction,
-        'data-z-eventRotation': settings.event_rotation.size + 'deg',
-        });
-        #>
-        <div class="container">
-            <#
-            if(settings.seperate_letter == 'yes'){
-                texts = settings.text.split("");
-                _.each( texts, function( text, index ) {
-                #>
-                    <{{{html_tag}}} {{{ view.getRenderAttributeString('ztext') }}}>
-                    {{{text}}}
-                    </{{{html_tag}}}>
-                <#
-                })
-            } else{
-            #>
-                <{{{html_tag}}} {{{ view.getRenderAttributeString('ztext') }}}>
-                {{{settings.text}}}
-                </{{{html_tag}}}>
-            <# } #>
-        </div>
-        <?php
     }
 
 }

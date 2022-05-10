@@ -2446,46 +2446,43 @@
                     depth: '30px',
                     layers: 8,
                 };
+
             if (ztext.data('zDepth')) {
                 options.depth = ztext.data('zDepth') || '30px';
             }
+
             if (ztext.data('zLayers')) {
                 options.layers = ztext.data('zLayers') || 3;
             }
+
             if (ztext.data('zPerspective')) {
                 options.perspective = ztext.data('zPerspective') || '500px';
             }
-            // options.fade = !!zFade;
-            // if (ztext.data('zDirection')) {
-            //     options.direction = ztext.data('zDirection') || 'forwards';
-            // }
+
+            if (ztext.data('zFade')) {
+                options.fade = ztext.data('zFade');
+            }
+
+            if (ztext.data('zDirection')) {
+                options.direction = ztext.data('zDirection') || 'forwards';
+            }
+
             if (ztext.data('zEvent')) {
                 options.event = ztext.data('zEvent') || 'pointer';
             }
+
             if (ztext.data('zEventrotation') && ztext.data('zEvent') != 'none') {
-                options.eventRotation = this.settings('event_rotation.size') + 'deg' || '35deg';
+                options.eventRotation = ztext.data('zEventrotation') || '35deg';
             }
+
             if (ztext.data('zEventdirection') && ztext.data('zEvent') != 'none') {
                 options.eventDirection = ztext.data('zEventdirection') || 'default';
             }
 
-            var $text = $($widgetIdSelect).html();
-            $($widgetIdSelect).parent().append('<div class="ep-z-text-duplicate" style="display:none;">' + $text + '</div>');
-
-            $text = $($widgetIdSelect).parent().find('.ep-z-text-duplicate:first').html();
-
-            $($widgetIdSelect).find('.z-text').remove();
-            // $text = 'abc';
-
-            // var ztxt = new Ztextify($widgetIdSelect, options, $text);
-
-
-            // if (this.settings('depth_color')) {
-            //     var depthColor = this.settings('depth_color') || '#fafafa';
-            //     $($widgetIdSelect).find('.z-layers .z-layer:not(:first-child)').css('color', depthColor);
-            // }
+            var ztxt = new Ztextify('.eead-z-text', options);
         }
     };
+
     $(window).on('elementor/frontend/init', EEA.init);
 
     window.eeadHorizontalScroll = function ($elem, settings) {
@@ -3134,6 +3131,5 @@
             }
         };
     };
-}(jQuery, window.elementorFrontend));
 
-    
+}(jQuery, window.elementorFrontend));

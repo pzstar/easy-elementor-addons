@@ -543,4 +543,83 @@
 @keyframes hvr-pulse-grow {
     to {
         -webkit-transform: scale(1.1);
-        transform: scale(1.1); } }
+        transform: scale(1.1); 
+    } 
+}
+
+/* Advanced Tile Scroll */
+.elementor-section.has-eead-advanced-tile-scroll {
+    overflow: hidden;
+}
+
+.eead-advanced-tile-scroll {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.eead-advanced-tile-scroll__wrap {
+    width: 150%;
+    --eead-advanced-tile-scrollwrap-height: var(--eead-advanced-tile-scroll-height);
+    height: var(--eead-advanced-tile-scrollwrap-height);
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.eead-advanced-tile-scroll__line {
+    display: flex;
+}
+
+.eead-advanced-tile-scroll__line-img {
+    flex: none;
+    width: calc(var(--eead-advanced-tile-scroll-item-width, 16.6666%) - var(--eead-advanced-tile-scroll-margin, 2vw) * 2);
+    height: calc(var(--eead-advanced-tile-scrollwrap-height) / 3 - (3 * var(--eead-advanced-tile-scroll-margin, 2vw) / 2));
+    margin: var(--eead-advanced-tile-scroll-margin, 2vw);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.eead-advanced-tile-scroll--horizontal .eead-advanced-tile-scroll__wrap {
+    --eead-advanced-tile-scrollwrap-height: calc(var(--eead-advanced-tile-scroll-height) * 1.8);
+}
+
+.eead-advanced-tile-scroll--horizontal .eead-advanced-tile-scroll__line-img {
+    width: calc(var(--eead-advanced-tile-scroll-item-width, 16.6666%) - var(--eead-advanced-tile-scroll-margin, 1vw) * 2);
+    height: calc(var(--eead-advanced-tile-scrollwrap-height) / 5 - (4 * var(--eead-advanced-tile-scroll-margin, 1vw) / 2));
+}
+
+.eead-advanced-tile-scroll--vertical .eead-advanced-tile-scroll__wrap {
+    width: 100%;
+    display: flex;
+    --eead-advanced-tile-scrollwrap-height: calc(var(--tiles-height, 140vh) * 1.4);
+    transform: translate3d(0, -50%, 0);
+    left: 0;
+    top: 50%;
+}
+
+.eead-advanced-tile-scroll--vertical .eead-advanced-tile-scroll__line {
+    width: 25%;
+    padding: 0 calc(var(--eead-advanced-tile-scroll-margin, 2rem) / 2);
+    display: block;
+}
+
+.eead-advanced-tile-scroll--vertical .eead-advanced-tile-scroll__line-img {
+    width: 100%;
+    height: calc(var(--eead-advanced-tile-scroll-height, 52vw) / 1.95 );
+    margin: var(--eead-advanced-tile-scroll-margin, 2rem) 0;
+}
+
+
+
+/* Threed Text */
+.eead-z-text {
+    -webkit-transform: perspective(var(--eead-ztext-transform-perspective,0)) rotate(var(--eead-ztext-transform-rotateZ,0)) rotateX(var(--eead-ztext-transform-rotateX,0)) rotateY(var(--eead-ztext-transform-rotateY,0)) translate(var(--eead-ztext-transform-translate,0)) translateX(var(--eead-ztext-transform-translateX,0)) translateY(var(--eead-ztext-transform-translateY,0)) scaleX(var(--eead-ztext-transform-scaleX, var(--eead-ztext-transform-scale, 1))) scaleY(var(--eead-ztext-transform-scaleY, var(--eead-ztext-transform-scale, 1)));
+    transform: perspective(var(--eead-ztext-transform-perspective,0)) rotate(var(--eead-ztext-transform-rotateZ,0)) rotateX(var(--eead-ztext-transform-rotateX,0)) rotateY(var(--eead-ztext-transform-rotateY,0)) translate(var(--eead-ztext-transform-translate,0)) translateX(var(--eead-ztext-transform-translateX,0)) translateY(var(--eead-ztext-transform-translateY,0)) scaleX(var(--eead-ztext-transform-scaleX, var(--eead-ztext-transform-scale, 1))) scaleY(var(--eead-ztext-transform-scaleY, var(--eead-ztext-transform-scale, 1)));
+    -webkit-transform-origin: var(--eead-ztext-transform-origin-y) var(--eead-ztext-transform-origin-x);
+    -ms-transform-origin: var(--eead-ztext-transform-origin-y) var(--eead-ztext-transform-origin-x);
+    transform-origin: var(--eead-ztext-transform-origin-y) var(--eead-ztext-transform-origin-x);
+}
