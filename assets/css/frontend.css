@@ -12480,3 +12480,11 @@ body.rtl .eead-fpg-toolbar .eead-fpg-view-options {
         min-width: 300px;
     }
 }
+
+/* Text Marquee */
+.eead-text-stroke-effect.eead-text-marquee {
+    color: transparent!important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #333;
+    text-shadow: none;
+}

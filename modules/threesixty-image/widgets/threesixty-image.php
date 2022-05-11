@@ -488,9 +488,9 @@ class ThreesixtyImage extends Widget_Base {
         $this->add_render_attribute('wrapper', 'class', 'eead-threesixty-rotation-wrapper');
 
         $this->add_render_attribute( 'rotation', [
-                'class' => 'eead-threesixty-rotation-inner',
-                'id' => 'eead-threesixty-rotation' . $this->get_id(),
-                'data-selector' => 'eead-threesixty-rotation' . $this->get_id()
+            'class' => 'eead-threesixty-rotation-inner',
+            'id' => 'eead-threesixty-rotation' . $this->get_id(),
+            'data-selector' => 'eead-threesixty-rotation' . $this->get_id()
         ]);
 
         if( 'autoplay' === $settings['auto_play'] ){

@@ -182,6 +182,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'team-member-carousel',
                 'testimonial-block',
                 'testimonial-slider',
+                'text-marquee',
                 'threed-text',
                 'threesixty-image',
                 'tilt-hover-image',

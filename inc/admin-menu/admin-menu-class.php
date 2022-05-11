@@ -42,6 +42,7 @@ class AdminClass {
                 $settings_ar[$value['name']] = $value['value'];
             }
             $update = update_option('eead_general_settings', $settings_ar);
+
             if ($update) {
                 echo 'yes';
             } else {
@@ -57,16 +58,19 @@ class AdminClass {
             $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
             update_option('eead_widgets', array());
             $update_widgets = update_option('eead_widgets', $data_ar);
-            if ($update_widgets) {
+
+            if ($update_widgets || empty($data_ar)) {
                 echo 'yes';
             } else {
                 echo 'no';
             }
+
         }
         die();
     }
 
     public function get_widget_field($label, $val) {
+
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         if (isset($eead_widgets) && in_array($val, $eead_widgets)) {
             $selected = 'checked';
@@ -74,6 +78,7 @@ class AdminClass {
             $selected = '';
         }
         ?>
+
         <div class="eead-widget-wrap">
             <span><?php _e($label, 'easy-elementor-addons') ?></span>
             <div class="eead-checkbox">
@@ -81,6 +86,7 @@ class AdminClass {
                 <label></label>
             </div>
         </div>
+
         <?php
     }
 

@@ -2,11 +2,9 @@
 $eead_general_settings = get_option('eead_general_settings');
 $eead_widgets = get_option('eead_widgets');
 $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
-//echo '<pre>';print_r($eead_general_settings);echo '</pre>';
-//echo '<pre>';print_r($eead_widgets);echo '</pre>';
 ?>
-<div class="eead-wrap">
 
+<div class="eead-wrap">
 
     <div class="eead-admin-header-section">
         <h1 class="eead-admin-header-text"><?php echo esc_html('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?></h1>
@@ -37,7 +35,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <div class="eead-settings-field">
                         <label><?php _e('Google Map Access Token', 'easy-elementor-addons') ?></label>
                         <div class="eead-settings-input-field">
-                            <input type="text" name="gmap_access_token" id="eead_gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo $gmap_access_token; ?>">
+                            <input type="text" name="gmap_access_token" id="eead_gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo esc_attr($gmap_access_token); ?>">
                         </div>
                     </div>
                 </div>
@@ -111,6 +109,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel'); ?>
                     <?php $this->get_widget_field('Testimonial', 'testimonial-block'); ?>
                     <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
+                    <?php $this->get_widget_field('Text Marquee', 'text-marquee'); ?>
                     <?php $this->get_widget_field('3D Text', 'threed-text'); ?>
                     <?php $this->get_widget_field('360 Image', 'threesixty-image'); ?>
                     <?php $this->get_widget_field('Tilt Hover Image', 'tilt-hover-image'); ?>
@@ -123,7 +122,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Weather Block', 'weather-block'); ?>
                 </div>
                 <div class="eaad-save-button-wrap">
-                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php _e('Save', 'easy-elementor-addons'); ?></button>
+                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
                 </div>
             </form>
         </div>

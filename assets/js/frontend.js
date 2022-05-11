@@ -38,6 +38,7 @@
                 'eead-slider-block.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
+                'eead-text-marquee.default': EEA.textMarquee,
                 'eead-toggle-block.default': EEA.toggleBlock,
                 'eead-threesixty-image.default': EEA.threesixtyImage,
                 'eead-threed-text.default': EEA.threedTextBlock,
@@ -2445,7 +2446,8 @@
                 options = {
                     depth: '30px',
                     layers: 8,
-                };
+                },
+                element_id = '.elementor-element-' + $scope.data('id') + ' .eead-z-text';
 
             if (ztext.data('zDepth')) {
                 options.depth = ztext.data('zDepth') || '30px';
@@ -2479,7 +2481,11 @@
                 options.eventDirection = ztext.data('zEventdirection') || 'default';
             }
 
-            var ztxt = new Ztextify('.eead-z-text', options);
+            var ztxt = new Ztextify(element_id, options);
+        },
+
+        textMarquee: function ($scope) {
+            $scope.find('.eead-text-marquee').marquee();
         }
     };
 

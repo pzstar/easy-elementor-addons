@@ -105,14 +105,17 @@ class EEAD_Widget_Loader {
      * Register Frontend Scripts
      */
     public function register_frontend_scripts() {
+
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         $eead_general_settings = get_option('eead_general_settings', true);
         $gmap_access_token = isset($eead_general_settings['gmap_access_token']) ? $eead_general_settings['gmap_access_token'] : null;
+
         if ($gmap_access_token) {
             wp_register_script('gmap-api', '//maps.googleapis.com/maps/api/js?key=' . $gmap_access_token, ['jquery'], EEAD_VERSION, true);
         } else {
             wp_register_script('gmap-api', '//maps.google.com/maps/api/js?sensor=true', ['jquery'], EEAD_VERSION, true);
         }
+
         wp_script_add_data('eead-gmap', 'async/defer', true);
         wp_register_script('circlr', EEAD_URL . 'assets/lib/threesixty-rotation/circlr.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('simple-magnify', EEAD_URL . 'assets/lib/threesixty-rotation/simple-magnify.js', ['jquery'], EEAD_VERSION, true);
@@ -162,14 +165,18 @@ class EEAD_Widget_Loader {
         wp_register_script('z-text', EEAD_URL . 'assets/lib/ztext/ztext.min.js', [], EEAD_VERSION, true);
 
         // Lottie
-        wp_register_script( 'lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', null, EEAD_VERSION, true );
-        wp_register_script( 'lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true );
+        wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', null, EEAD_VERSION, true );
+        wp_register_script('lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true);
+
+        // Text Marquee
+        wp_register_script('text-marquee', EEAD_URL . 'assets/lib/marquee/jquery.marquee.min.js', array('jquery'), EEAD_VERSION, true);
     }
 
     /**
      * Enqueue Frontend Scripts
      */
     public function enqueue_frontend_scripts() {
+
         wp_enqueue_script('theia-sticky-sidebar-js', EEAD_URL . 'assets/lib/theia-sticky-sidebar/theia-sticky-sidebar-js.js', [], EEAD_VERSION, true);
         wp_enqueue_script('jQuery-cookie', EEAD_URL . 'assets/lib/jquery-cookie/jquery.cookie.js', ['jquery'], EEAD_VERSION, true);
         wp_enqueue_script('eead-frontend-script', EEAD_URL . 'assets/js/frontend.js', ['jquery', 'jquery-ui-draggable'], EEAD_VERSION, true);
@@ -178,12 +185,14 @@ class EEAD_Widget_Loader {
             'ajax_url' => admin_url('admin-ajax.php'),
             'gallery_ajax_action' => 'loadmore_gallery',
         ]);
+
     }
 
     /**
      * Register Frontend Styles
      */
     public function register_frontend_styles() {
+
         wp_register_style('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.css', array(), EEAD_VERSION);
         wp_register_style('magnific-popup', EEAD_URL . 'assets/lib/magnific-popup/magnific-popup.css', array(), EEAD_VERSION);
         wp_register_style('image-compare', EEAD_URL . 'assets/lib/image-compare/image-compare.css', array(), EEAD_VERSION);
@@ -195,17 +204,20 @@ class EEAD_Widget_Loader {
 
         //Morph
         wp_enqueue_style('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.min.css', array(), EEAD_VERSION);
+
     }
 
     /**
      * Enqueue Frontend Styles
      */
     public function enqueue_frontend_styles() {
+
         wp_enqueue_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
         wp_enqueue_style('icofont', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
         wp_enqueue_style('animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-responsive', EEAD_URL . 'assets/css/responsive.css', '', EEAD_VERSION);
+
     }
 
     /**
