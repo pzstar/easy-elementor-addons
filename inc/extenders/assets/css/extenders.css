@@ -613,8 +613,6 @@
     margin: var(--eead-advanced-tile-scroll-margin, 2rem) 0;
 }
 
-
-
 /* Threed Text */
 .eead-z-text {
     -webkit-transform: perspective(var(--eead-ztext-transform-perspective,0)) rotate(var(--eead-ztext-transform-rotateZ,0)) rotateX(var(--eead-ztext-transform-rotateX,0)) rotateY(var(--eead-ztext-transform-rotateY,0)) translate(var(--eead-ztext-transform-translate,0)) translateX(var(--eead-ztext-transform-translateX,0)) translateY(var(--eead-ztext-transform-translateY,0)) scaleX(var(--eead-ztext-transform-scaleX, var(--eead-ztext-transform-scale, 1))) scaleY(var(--eead-ztext-transform-scaleY, var(--eead-ztext-transform-scale, 1)));

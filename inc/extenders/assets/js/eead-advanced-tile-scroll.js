@@ -21,8 +21,8 @@ $(window).on('elementor/frontend/init', function () {
             var tileScroll_ID = 'eead-advanced-tile-scroll-container-' + this.$element.data('id'),
                 widgetID = this.$element.data('id'),
                 widgetContainer = $('.elementor-element-' + widgetID);
-console.log(this);
-console.log(this.settings());
+
+
             if (this.settings('show') == 'yes') {
                 if ($('#' + tileScroll_ID).length === 0) {
                     let display = this.settings('display');
@@ -32,9 +32,9 @@ console.log(this.settings());
 
                         this.settings('elements').forEach(element => {
 
-                            let images = element.element_pack_tile_scroll_images;
-                            let x_start = element.element_pack_tile_scroll_x_start.size;
-                            let x_end = element.element_pack_tile_scroll_x_end.size;
+                            let images = element.eead_advanced_tile_scroll_images;
+                            let x_start = element.eead_advanced_tile_scroll_x_start.size;
+                            let x_end = element.eead_advanced_tile_scroll_x_end.size;
 
                             if (display === 'horizontal') {
                                 var parallax = 'uk-parallax="target: .elementor-element-' + widgetID + '; viewport: 1.1; x:' + x_start + ',' + x_end + '"';
@@ -52,6 +52,7 @@ console.log(this.settings());
                         });
 
                     $content += `</div></div>`;
+                console.log($content);
 
                     $(widgetContainer).prepend($content);
                 }
