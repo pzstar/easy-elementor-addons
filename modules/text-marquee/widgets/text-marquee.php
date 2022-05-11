@@ -59,6 +59,10 @@ class TextMarquee extends Widget_Base {
                         'step' => 100,
                     ],
                 ],
+                'default' => [
+                    'size' => 500,
+                    'unit' => 'px',
+                ],
             ]
         );
 
@@ -88,6 +92,10 @@ class TextMarquee extends Widget_Base {
                         'step' => 1,
                     ],
                 ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
             ]
         );
 
@@ -102,6 +110,10 @@ class TextMarquee extends Widget_Base {
                         'max' => 1000,
                         'step' => 1,
                     ],
+                ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px',
                 ],
             ]
         );
@@ -189,15 +201,15 @@ class TextMarquee extends Widget_Base {
 	/** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute('wrapper', 'class', 'eead-text-marquee');
 
         $this->add_render_attribute('wrapper', [
-                'data-speed' => $settings['text_speed']['size'],
-                'data-direction' => $settings['text_direction'],
-                'data-gap' => $settings['text_gap']['size'],
-                'data-delayBeforeStart' => $settings['text_before_start']['size'],
-                'data-duplicated' => $settings['text_duplicated'] == 'yes' ? 'true' : 'false',
-                'data-pauseOnHover' => $settings['text_pause_on_hover'] == 'yes' ? 'true' : 'false'
+            'class' => 'eead-text-marquee',
+            'data-speed' => $settings['text_speed']['size'],
+            'data-direction' => $settings['text_direction'],
+            'data-gap' => $settings['text_gap']['size'],
+            'data-delayBeforeStart' => $settings['text_before_start']['size'],
+            'data-duplicated' => $settings['text_duplicated'] == 'yes' ? 'true' : 'false',
+            'data-pauseOnHover' => $settings['text_pause_on_hover'] == 'yes' ? 'true' : 'false'
         ]);
 
         if($settings['text_stroke_effect'] == 'yes'){

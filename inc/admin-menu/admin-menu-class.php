@@ -10,6 +10,7 @@ class AdminClass {
     public function __construct() {
         add_action('wp_ajax_admin_settings_save', [$this, 'eead_settings_save']);
         add_action('wp_ajax_eead_widgets_save', [$this, 'eead_widgets_save']);
+        add_action('wp_ajax_eead_extenders_save', [$this, 'eead_extenders_save']);
 
         add_action('admin_menu', [$this, 'eead_register_admin_menu'], 20);
         add_action('admin_enqueue_scripts', [$this, 'eead_admin_enqueue_scripts'], 2000);
@@ -69,6 +70,23 @@ class AdminClass {
         die();
     }
 
+    public function eead_extenders_save() {
+        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
+
+            $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
+            update_option('eead_extenders', array());
+            $update_extenders = update_option('eead_extenders', $data_ar);
+
+            if ($update_extenders || empty($data_ar)) {
+                echo 'yes';
+            } else {
+                echo 'no';
+            }
+
+        }
+        die();
+    }
+
     public function get_widget_field($label, $val) {
 
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
@@ -83,6 +101,27 @@ class AdminClass {
             <span><?php _e($label, 'easy-elementor-addons') ?></span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo $val ?>" <?php echo $selected; ?>>
+                <label></label>
+            </div>
+        </div>
+
+        <?php
+    }
+
+    public function get_extender_field($label, $val) {
+
+        $eead_extenders = get_option('eead_extenders') ? get_option('eead_extenders') : array();
+        if (isset($eead_extenders) && in_array($val, $eead_extenders)) {
+            $selected = 'checked';
+        } else {
+            $selected = '';
+        }
+        ?>
+
+        <div class="eead-extender-wrap">
+            <span><?php _e($label, 'easy-elementor-addons') ?></span>
+            <div class="eead-checkbox">
+                <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo $val ?>" <?php echo $selected; ?>>
                 <label></label>
             </div>
         </div>
