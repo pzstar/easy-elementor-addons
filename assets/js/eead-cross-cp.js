@@ -110,14 +110,14 @@
                     icon: "eead-dash-icon",
                     callback: function () {
                         var a = {};
-                        a.eletype = "widget" == c[e] ? f.model.get("widgetType") : null, a.elecode = f.model.toJSON(), xdLocalStorage.setItem("premium-c-p-element", JSON.stringify(a)), console.log(a)
+                        a.eletype = "widget" == c[e] ? f.model.get("widgetType") : null, a.elecode = f.model.toJSON(), xdLocalStorage.setItem("eead-c-p-element", JSON.stringify(a)), console.log(a)
                     }
                 }, {
                     name: "eead_paste",
                     title: "EEAD | Paste Element",
                     icon: "eead-dash-icon",
                     callback: function () {
-                        xdLocalStorage.getItem("premium-c-p-element", function (a) {
+                        xdLocalStorage.getItem("eead-c-p-element", function (a) {
                             EEADCopyPasteHandler.b(JSON.parse(a.value), f)
                         })
                     }
@@ -133,7 +133,7 @@
                         var allSections = copiedSections.map(function (e) {
                             return e.model.toJSON();
                         });
-                        xdLocalStorage.setItem('premium-c-p-all', JSON.stringify(allSections), function (a) {
+                        xdLocalStorage.setItem('eead-c-p-all', JSON.stringify(allSections), function (a) {
                             elementor.notifications.showToast({
                                 message: elementor.translate('Copied')
                             });
@@ -146,7 +146,7 @@
                     icon: "eead-dash-icon",
                     callback: function () {
                         var allSections = '';
-                        xdLocalStorage.getItem('premium-c-p-all', function (a) {
+                        xdLocalStorage.getItem('eead-c-p-all', function (a) {
                             allSections = JSON.parse(a.value);
                             EEADCopyPasteHandler.pasteAll(JSON.stringify(allSections));
                         });

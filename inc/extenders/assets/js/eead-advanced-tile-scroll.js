@@ -30,8 +30,7 @@ $(window).on('elementor/frontend/init', function () {
                     <div id="${tileScroll_ID}" class="eead-advanced-tile-scroll eead-advanced-tile-scroll--${display}">
                         <div class="eead-advanced-tile-scroll__wrap">`;
 
-                        this.settings('elements').forEach(element => {
-
+                        $.each(this.settings('elements'), function(index, element) {
                             let images = element.eead_advanced_tile_scroll_images;
                             let x_start = element.eead_advanced_tile_scroll_x_start.size;
                             let x_end = element.eead_advanced_tile_scroll_x_end.size;
@@ -44,7 +43,7 @@ $(window).on('elementor/frontend/init', function () {
 
                             $content += `<div class="eead-advanced-tile-scroll__line" ${parallax}>`;
 
-                            images.forEach(image => {
+                            $.each(images, function(index, image) {
                                 $content += `<div class=" eead-advanced-tile-scroll__line-img" style="background-image:url(${image.url})" loading="lazy"></div>`;
                             });
 
@@ -52,7 +51,6 @@ $(window).on('elementor/frontend/init', function () {
                         });
 
                     $content += `</div></div>`;
-                console.log($content);
 
                     $(widgetContainer).prepend($content);
                 }
