@@ -74,8 +74,6 @@ class TextMarquee extends Widget_Base {
                 'options' => [
                     'left'  => __( 'Left', 'easy-elementor-addons' ),
                     'right'  => __( 'Right', 'easy-elementor-addons' ),
-                    'up' => __( 'Up', 'easy-elementor-addons' ),
-                    'down' => __( 'Down', 'easy-elementor-addons' ),
                 ],
             ]
         );
