@@ -63,7 +63,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -74,7 +73,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -85,7 +83,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -96,7 +93,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -107,7 +103,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -118,7 +113,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -129,7 +123,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -140,7 +133,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -151,7 +143,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -162,7 +153,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -173,7 +163,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -184,7 +173,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -195,7 +183,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -206,7 +193,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -217,7 +203,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -228,7 +213,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -444,7 +428,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
@@ -455,7 +438,6 @@ class SocialShare extends Widget_Base {
             'label_on' => esc_html__('On', 'easy-elementor-addons'),
             'label_off' => esc_html__('Off', 'easy-elementor-addons'),
             'return_value' => 'yes',
-            'default' => false,
                 ]
         );
 
