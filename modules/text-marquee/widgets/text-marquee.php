@@ -49,9 +49,9 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_speed', [
-                'label' => __( 'Speed', 'easy-elementor-addons'),
+                'label' => __('Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 100,
@@ -68,19 +68,19 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_direction', [
-                'label' => __( 'Direction', 'easy-elementor-addons' ),
+                'label' => __('Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
                 'options' => [
-                    'left'  => __( 'Left', 'easy-elementor-addons' ),
-                    'right'  => __( 'Right', 'easy-elementor-addons' ),
+                    'left'  => __('Left', 'easy-elementor-addons'),
+                    'right'  => __('Right', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'text_gap', [
-                'label' => __( 'Gap', 'easy-elementor-addons'),
+                'label' => __('Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -99,7 +99,7 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_before_start', [
-                'label' => __( 'Before Start', 'easy-elementor-addons'),
+                'label' => __('Before Start', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -214,7 +214,10 @@ class TextMarquee extends Widget_Base {
             $this->add_render_attribute('wrapper', 'class', 'eead-text-stroke-effect');
         }
         ?>
-        <div <?php $this->print_render_attribute_string('wrapper'); ?>><?php echo esc_html($settings['text']); ?></div>
+
+        <div <?php $this->print_render_attribute_string('wrapper'); ?>>
+            <?php echo esc_html($settings['text']); ?>
+        </div>
         <?php
     }
 

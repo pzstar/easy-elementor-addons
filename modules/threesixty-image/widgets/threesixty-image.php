@@ -42,7 +42,7 @@ class ThreesixtyImage extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'circlr', 'simple-magnify' ];
+        return ['circlr', 'simple-magnify'];
     }
 
     /** Controls */
@@ -71,38 +71,38 @@ class ThreesixtyImage extends Widget_Base {
 
         $this->add_control(
             'auto_play', [
-                'label' => __( 'Autoplay', 'easy-elementor-addons' ),
+                'label' => __('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'autoplay'  => __( 'Autoplay', 'easy-elementor-addons' ),
-                    'button'  => __( 'Button Play', 'easy-elementor-addons' ),
-                    'none' => __( 'None', 'easy-elementor-addons' ),
+                    'autoplay'  => __('Autoplay', 'easy-elementor-addons'),
+                    'button'  => __('Button Play', 'easy-elementor-addons'),
+                    'none' => __('None', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'button_align', [
-                'label' => __( 'Button Alignment', 'easy-elementor-addons' ),
+                'label' => __('Button Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
+                        'title' => __('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
+                        'title' => __('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
+                        'title' => __('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}}  .eead-threesixty-rotation-wrapper .eead-threesixty-rotation-autoplay-button' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-threesixty-rotation-wrapper .eead-threesixty-rotation-autoplay-button' => 'text-align: {{VALUE}};',
                 ],
                 'style_transfer' => true,
                 'condition' => [
@@ -138,19 +138,19 @@ class ThreesixtyImage extends Widget_Base {
 
         $this->add_control(
             'wrapper_align', [
-                'label' => __( 'Alignment', 'easy-elementor-addons' ),
+                'label' => __('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
+                        'title' => __('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
+                        'title' => __('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
+                        'title' => __('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -173,7 +173,7 @@ class ThreesixtyImage extends Widget_Base {
 
         $this->add_control(
             'wrapper_width', [
-                'label' => __( 'Width', 'easy-elementor-addons' ),
+                'label' => __('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range' => [
@@ -246,9 +246,9 @@ class ThreesixtyImage extends Widget_Base {
                 'type' => Controls_Manager::HIDDEN,
                 'default' => 'left',
                 'selectors' => [
-                    '(desktop){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding.LEFT || 0}}{{wrapper_padding.UNIT}}; right:auto;',
-                    '(tablet){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding_tablet.LEFT}}{{wrapper_padding_tablet.UNIT}}; right:auto;',
-                    '(mobile){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding_mobile.LEFT}}{{wrapper_padding_mobile.UNIT}}; right:auto;',
+                    '(desktop){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding.LEFT || 0}}{{wrapper_padding.UNIT}}; right:auto;',
+                    '(tablet){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding_tablet.LEFT}}{{wrapper_padding_tablet.UNIT}}; right:auto;',
+                    '(mobile){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'left: {{wrapper_padding_mobile.LEFT}}{{wrapper_padding_mobile.UNIT}}; right:auto;',
                 ],
                 'condition' => [
                     'sticky_title!' => '',
@@ -263,9 +263,9 @@ class ThreesixtyImage extends Widget_Base {
                 'type' => Controls_Manager::HIDDEN,
                 'default' => 'right',
                 'selectors' => [
-                    '(desktop){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding.RIGHT || 0}}{{wrapper_padding.UNIT}}; left:auto;',
-                    '(tablet){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding_tablet.RIGHT}}{{wrapper_padding_tablet.UNIT}}; left:auto;',
-                    '(mobile){{WRAPPER}}  .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding_mobile.RIGHT}}{{wrapper_padding_mobile.UNIT}}; left:auto;',
+                    '(desktop){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding.RIGHT || 0}}{{wrapper_padding.UNIT}}; left:auto;',
+                    '(tablet){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding_tablet.RIGHT}}{{wrapper_padding_tablet.UNIT}}; left:auto;',
+                    '(mobile){{WRAPPER}} .eead-threesixty-rotation-wrapper  span.eead-threesixty-rotation-sticky-title' => 'right: {{wrapper_padding_mobile.RIGHT}}{{wrapper_padding_mobile.UNIT}}; left:auto;',
                 ],
                 'condition' => [
                     'sticky_title!' => '',
@@ -291,7 +291,7 @@ class ThreesixtyImage extends Widget_Base {
             'glass_icon_size', [
                 'label' => __('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px'],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -300,7 +300,7 @@ class ThreesixtyImage extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-threesixty-rotation-wrapper  .eead-threesixty-rotation-magnify i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-threesixty-rotation-wrapper .eead-threesixty-rotation-magnify i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -310,16 +310,16 @@ class ThreesixtyImage extends Widget_Base {
                 'label' => __('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-threesixty-rotation-wrapper  .eead-threesixty-rotation-magnify i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-threesixty-rotation-wrapper .eead-threesixty-rotation-magnify i' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_responsive_control(
             'glass_width', [
-                'label' => __( 'Width', 'easy-elementor-addons' ),
+                'label' => __('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px',  ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -460,9 +460,9 @@ class ThreesixtyImage extends Widget_Base {
 
         $this->add_control(
             'button_space_top', [
-                'label' => __( 'Space Top', 'easy-elementor-addons'),
+                'label' => __('Space Top', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -482,23 +482,24 @@ class ThreesixtyImage extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-
-        if ( empty( $settings['images'] ) ) { return; }
+        if (empty($settings['images'])) {
+            return;
+        }
 
         $this->add_render_attribute('wrapper', 'class', 'eead-threesixty-rotation-wrapper');
 
-        $this->add_render_attribute( 'rotation', [
+        $this->add_render_attribute('rotation', [
             'class' => 'eead-threesixty-rotation-inner',
             'id' => 'eead-threesixty-rotation' . $this->get_id(),
             'data-selector' => 'eead-threesixty-rotation' . $this->get_id()
         ]);
 
-        if( 'autoplay' === $settings['auto_play'] ){
+        if('autoplay' === $settings['auto_play']){
             $this->add_render_attribute('rotation', 'data-autoplay', 'on');
         }
 
-        if ( $settings['magnify'] === 'yes' ) {
-            $this->add_render_attribute( 'magnify_glass', [
+        if ($settings['magnify'] === 'yes') {
+            $this->add_render_attribute('magnify_glass', [
                 'class' => 'eead-threesixty-rotation-magnify',
                 'data-zoom' => esc_html($settings['zoom'])
             ]);
@@ -517,7 +518,7 @@ class ThreesixtyImage extends Widget_Base {
                     <img data-src="<?php echo esc_url($item['url']); ?>">
                 <?php } ?>
 
-                <div class="eead-threesixty-rotation-img" style='background-image:url("<?php echo EEAD_URL . 'assets/img/360_view.svg';?>")'></div>
+                <div class="eead-threesixty-rotation-img" style='background-image:url("<?php echo esc_url(EEAD_URL . 'assets/img/360_view.svg'); ?>")'></div>
             </div>
 
             <?php if ($settings['auto_play'] === 'autoplay') { ?>

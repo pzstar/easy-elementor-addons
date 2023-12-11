@@ -408,6 +408,7 @@ class TestimonialBlock extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
+
         <div class="eead-testimonial-block <?php echo esc_attr($settings['image_shape']) .' '. esc_attr($settings['layout']) ?>">
             <?php 
             if($settings['layout'] == 'style1') {

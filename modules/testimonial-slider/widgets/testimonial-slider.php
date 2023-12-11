@@ -23,7 +23,7 @@ class TestimonialSlider extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Testimonial Slider', 'easy-elementor-addons' );
+		return esc_html__('Testimonial Slider', 'easy-elementor-addons');
 	}
 
 	public function get_icon() {
@@ -31,15 +31,15 @@ class TestimonialSlider extends Widget_Base {
 	}
 
 	public function get_categories() {
-	 	return [ 'easy-elementor-addons' ];
+	 	return ['easy-elementor-addons'];
  	}
 
     public function get_style_depends() {
-        return [ 'owlcarousel' ];
+        return ['owlcarousel'];
     }
 
     public function get_script_depends() {
-        return [ 'owlcarousel' ];
+        return ['owlcarousel'];
     }
 
 	protected function register_controls() {
@@ -339,10 +339,10 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_control(
             'each_slide_padding', [
-                'label'      => esc_html__( 'Slide Item Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
+                'label' => esc_html__( 'Slide Item Padding', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-each-slider' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
                 ],
             ]
@@ -596,25 +596,25 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_responsive_control(
             'dots_align', [
-                'label'                 => __( 'Alignment', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::CHOOSE,
-                'options'               => [
-                    'flex-start'      => [
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
+                'label' => __('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => __('Left', 'easy-elementor-addons'),
                         'icon'  => 'eicon-text-align-left',
                     ],
-                    'center'    => [
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-center',
+                    'center' => [
+                        'title' => __('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
                     ],
-                    'flex-end'     => [
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-right',
+                    'flex-end' => [
+                        'title' => __('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
-                'default'               => 'center',
-                'selectors'             => [
-                    '{{WRAPPER}} .owl-dots'   => 'display:flex; justify-content: {{VALUE}}; align-items: center;',
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .owl-dots' => 'display:flex; justify-content: {{VALUE}}; align-items: center;',
                 ],
             ]
         );
@@ -650,20 +650,20 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'        => 'dot_border',
-                'label'       => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'name' => 'dot_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .owl-dots .owl-dot',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .owl-dots .owl-dot',
             ]
         );
 
         $this->add_control(
             'dots_border_radius', [
-                'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -671,10 +671,10 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_control(
             'dots_padding', [
-                'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
                 ],
             ]
@@ -682,10 +682,10 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_control(
             'dots_margin', [
-                'label'      => esc_html__( 'Margin', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
                 ],
             ]
@@ -793,20 +793,20 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'        => 'arrow_border',
-                'label'       => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'name' => 'arrow_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .owl-nav button',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .owl-nav button',
             ]
         );
 
         $this->add_control(
             'arrow_border_radius', [
-                'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -814,10 +814,10 @@ class TestimonialSlider extends Widget_Base {
 
         $this->add_control(
             'arrow_padding', [
-                'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
                 ],
             ]
@@ -1001,8 +1001,8 @@ class TestimonialSlider extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         if ($settings['testimonials']) {
-        ?>
-            <?php foreach ($settings['testimonials'] as $item) { ?>
+            foreach ($settings['testimonials'] as $item) {
+                ?>
                 <div class="eead-testimonial-each-slider">
                     <div class="eead-testimonial-content">
                         <?php
@@ -1021,12 +1021,14 @@ class TestimonialSlider extends Widget_Base {
                     <div class="eead-footer-section">
                         <div class="eead-testimonial-image">
                             <?php
-                        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
-                        if (!$image_url) {
-                            $image_url = Utils::get_placeholder_image_src();
-                        }
-                        echo '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
-                        ?>
+                            $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
+
+                            if (!$image_url) {
+                                $image_url = Utils::get_placeholder_image_src();
+                            }
+
+                            echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
+                            ?>
                         </div>
 
                         <div class="eead-testimonial-name-wrap">
@@ -1052,7 +1054,9 @@ class TestimonialSlider extends Widget_Base {
         ?>
             <?php foreach ($settings['testimonials'] as $item) { ?>
                 <div class="eead-testimonial-each-slider">
-                    <div class="eead-testimonial-backquote"><i class="icofont-quote-left"></i></div>
+                    <div class="eead-testimonial-backquote">
+                        <i class="icofont-quote-left"></i>
+                    </div>
 
                     <div class="eead-testimonial-content">
                         <?php

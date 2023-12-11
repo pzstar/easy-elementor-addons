@@ -36,7 +36,7 @@ class ThreedText extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'z-text' ];
+        return ['z-text'];
     }
 
     /* Controls */
@@ -52,11 +52,11 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
                 'eead_media_type', array(
-            'label' => __('Media Type', 'totalplus'),
+            'label' => __('Media Type', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'options' => array(
-                'image' => __('Image', 'totalplus'),
-                'text' => __('Text', 'totalplus'),
+                'image' => __('Image', 'easy-elementor-addons'),
+                'text' => __('Text', 'easy-elementor-addons'),
             ),
             'default' => 'image',
                 )
@@ -74,7 +74,7 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
                 'eead_image', array(
-            'label' => __('Upload Image', 'totalplus'),
+            'label' => __('Upload Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'condition' => array(
                 'eead_media_type' => 'image',
@@ -84,10 +84,10 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'text', [
-                'label'       => esc_html__( '3D Text Content', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXTAREA,
-                'dynamic'     => [ 'active' => true ],
-                'default'     => esc_html__( '3D Text', 'easy-elementor-addons' ),
+                'label' => esc_html__('3D Text Content', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
+                'default' => esc_html__('3D Text', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_media_type' => 'text',
                 ),
@@ -126,21 +126,21 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'alignment', [
-                'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::CHOOSE,
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => array(
-                    'left'   => array(
-                        'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                    'left' => array(
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
                     'center' => array(
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-center',
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
                     ),
-                    'right'  => array(
-                        'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                    'right' => array(
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 ),
             ]
@@ -148,8 +148,8 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'html_tag', [
-                'label'   => esc_html__( 'HTML Tag', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+                'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
                 'default' => 'h1',
             ]
@@ -174,13 +174,13 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'direction', [
-                'label'   => esc_html__( 'Direction', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+                'label' => esc_html__('Direction', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'both',
                 'options' => [
-                    'both'   => esc_html__( 'Both', 'easy-elementor-addons' ),
-                    'backwards'   => esc_html__( 'Backwards', 'easy-elementor-addons' ),
-                    'forwards'   => esc_html__( 'Forwards', 'easy-elementor-addons' )
+                    'both' => esc_html__('Both', 'easy-elementor-addons'),
+                    'backwards' => esc_html__('Backwards', 'easy-elementor-addons'),
+                    'forwards' => esc_html__('Forwards', 'easy-elementor-addons')
                 ]
             ]
         );
@@ -204,27 +204,27 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'event', [
-                'label'   => esc_html__( 'Event', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+                'label' => esc_html__('Event', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'pointer',
                 'options' => [
-                    'none'   => esc_html__( 'None', 'easy-elementor-addons' ),
-                    'pointer'   => esc_html__( 'Pointer', 'easy-elementor-addons' ),
-                    'scroll'   => esc_html__( 'Scroll', 'easy-elementor-addons' ),
-                    'scrollX'   => esc_html__( 'Scroll X', 'easy-elementor-addons' ),
-                    'scrollY'   => esc_html__( 'Scroll Y', 'easy-elementor-addons' ),
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'pointer' => esc_html__('Pointer', 'easy-elementor-addons'),
+                    'scroll' => esc_html__('Scroll', 'easy-elementor-addons'),
+                    'scrollX' => esc_html__('Scroll X', 'easy-elementor-addons'),
+                    'scrollY' => esc_html__('Scroll Y', 'easy-elementor-addons'),
                 ]
             ]
         );
 
         $this->add_control(
             'event_direction', [
-                'label'   => esc_html__( 'Event Direction', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+                'label' => esc_html__('Event Direction', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => [
-                    'default'   => esc_html__( 'Default', 'easy-elementor-addons' ),
-                    'reverse'   => esc_html__( 'Reverse', 'easy-elementor-addons' )
+                    'default' => esc_html__('Default', 'easy-elementor-addons'),
+                    'reverse' => esc_html__('Reverse', 'easy-elementor-addons')
                 ]
             ]
         );
@@ -248,10 +248,10 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'fade', [
-                'label' => __( 'Fade', 'easy-elementor-addons' ),
+                'label' => __('Fade', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => __( 'No', 'easy-elementor-addons' ),
+                'label_on' => __('Yes', 'easy-elementor-addons'),
+                'label_off' => __('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -452,15 +452,15 @@ class ThreedText extends Widget_Base {
 
         $this->start_controls_section(
             'style', [
-                'label'     => esc_html__( 'Style', 'easy-elementor-addons' ),
-                'tab'       => Controls_Manager::TAB_STYLE,
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'depth_color', [
-                'label'     => esc_html__('Depth Color', 'easy-elementor-addons'),
-                'type'      => Controls_Manager::COLOR,
+                'label' => esc_html__('Depth Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
             ]
         );
 
@@ -502,19 +502,21 @@ class ThreedText extends Widget_Base {
         $fade = $settings['fade'] == 'yes' ? 'true' : 'false';
         $html_tag = $settings['html_tag'];;
 
-        $this->add_render_attribute( 'ztext', 'class', 'eead-z-text' );
-        $this->add_render_attribute( 'ztext', 'class', 'eead-align-'.$settings['alignment'] );
-        $this->add_render_attribute( 'ztext', 'data-z-depth', $settings['depth']['size'].'px' );
-        $this->add_render_attribute( 'ztext', 'data-z-layers', $settings['layers']['size'] );
-        $this->add_render_attribute( 'ztext', 'data-z-perspective', $settings['perspective']['size'].'px' );
-        $this->add_render_attribute( 'ztext', 'data-z-fade', $fade );
-        $this->add_render_attribute( 'ztext', 'data-z-direction', $settings['direction'] );
-        $this->add_render_attribute( 'ztext', 'data-z-event', $settings['event'] );
-        $this->add_render_attribute( 'ztext', 'data-z-eventDirection', $settings['event_direction'] );
-        $this->add_render_attribute( 'ztext', 'data-z-eventRotation', $settings['event_rotation']['size'].'deg' );
+        $this->add_render_attribute('ztext', 'class', 'eead-z-text');
+        $this->add_render_attribute('ztext', 'class', 'eead-align-'.$settings['alignment']);
+        $this->add_render_attribute('ztext', 'data-z-depth', $settings['depth']['size'] . 'px');
+        $this->add_render_attribute('ztext', 'data-z-layers', $settings['layers']['size'] );
+        $this->add_render_attribute('ztext', 'data-z-perspective', $settings['perspective']['size'] . 'px');
+        $this->add_render_attribute('ztext', 'data-z-fade', $fade);
+        $this->add_render_attribute('ztext', 'data-z-direction', $settings['direction']);
+        $this->add_render_attribute('ztext', 'data-z-event', $settings['event']);
+        $this->add_render_attribute('ztext', 'data-z-eventDirection', $settings['event_direction']);
+        $this->add_render_attribute('ztext', 'data-z-eventRotation', $settings['event_rotation']['size'].'deg');
         ?>
+
         <div class="container">
-            <<?php echo esc_attr($html_tag); ?> <?php echo $this->get_render_attribute_string( 'ztext' ); ?>>
+            <<?php echo esc_attr($html_tag); ?> <?php echo $this->get_render_attribute_string('ztext'); ?>>
+
             <?php 
             if ('image' === $settings['eead_media_type']) {
                 $image_src = $settings['eead_image'];
@@ -522,6 +524,7 @@ class ThreedText extends Widget_Base {
                 $alt = Control_Media::get_image_alt($settings['eead_image']);?>
                 <img src="<?php echo esc_url($image_src_size); ?>" class="ht--al-image" alt="<?php echo esc_attr($alt); ?>">
                 <?php
+
             } elseif ('text' === $settings['eead_media_type']) {
                 echo esc_html($settings['text']);
             }?>
