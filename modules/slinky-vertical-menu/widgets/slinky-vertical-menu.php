@@ -11,7 +11,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
 use EasyElementorAddons\Modules\SlinkyVerticalMenu\EEAD_Slinky_Vertical_Menu_Walker;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -22,7 +22,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Slinky Vertical Menu', 'easy-elementor-addons' );
+		return esc_html__('Slinky Vertical Menu', 'easy-elementor-addons');
 	}
 
 	public function get_icon() {
@@ -30,36 +30,36 @@ class SlinkyVerticalMenu extends Widget_Base {
 	}
 
 	public function get_categories() {
-	 	return [ 'easy-elementor-addons' ];
+	 	return ['easy-elementor-addons'];
  	}
 
  	public function get_style_depends() {
-        return [  ];
+        return [];
     }
 
     public function get_script_depends() {
-        return [ 'slinky' ];
+        return ['slinky'];
     }
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_static_menu', [
-				'label'     => __('Layout', 'easy-elementor-addons'),
-				'tab'       => Controls_Manager::TAB_CONTENT,
+				'label' => __('Layout', 'easy-elementor-addons'),
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
 		$this->add_control(
 			'dynamic_menu', [
-				'label'   => esc_html__('Dynamic Menu', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::SWITCHER,
+				'label' => __('Dynamic Menu', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'navbar', [
-				'label'   => esc_html__('Select Menu', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::SELECT,
+				'label' => __('Select Menu', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
 				'options' => eead_get_menu(),
 				'default' => 0,
 				'condition' => ['dynamic_menu' => 'yes'],
@@ -70,9 +70,9 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$repeater->add_control(
 			'menu_title', [
-				'label'       => __('Menu Title', 'easy-elementor-addons'),
-				'type'        => Controls_Manager::TEXT,
-				'dynamic'     => ['active' => true],
+				'label' => __('Menu Title', 'easy-elementor-addons'),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'label_block' => true,
 				'condition' => [
 					'menu_type!' => 'child_end'
@@ -82,14 +82,14 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$repeater->add_control(
 			'menu_type', [
-				'label'       => __('Select Item Type', 'easy-elementor-addons'),
-				'type'        => Controls_Manager::SELECT,
-				'dynamic'     => ['active' => true],
+				'label' => __('Select Item Type', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'dynamic' => ['active' => true],
 				'label_block' => true,
-				'options' 	  => [
-					'item'      => 'Item',
+				'options' => [
+					'item' => 'Item',
 					'child_start' => 'Child Start',
-					'child_end'   => 'Child End',
+					'child_end' => 'Child End',
 				],
 				'default' => 'item',
 			]
@@ -97,9 +97,9 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$repeater->add_control(
 			'menu_link', [
-				'label'       => __('Link', 'easy-elementor-addons'),
-				'type'        => Controls_Manager::URL,
-				'dynamic'     => ['active' => true],
+				'label' => __('Link', 'easy-elementor-addons'),
+				'type' => Controls_Manager::URL,
+				'dynamic' => ['active' => true],
 				'default' => [
 					'url' => '#',
 				],
@@ -123,83 +123,84 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'menus', [
-				'label'   => __('Menu Items', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::REPEATER,
+				'label' => __('Menu Items', 'easy-elementor-addons'),
+				'type' => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'condition' => ['dynamic_menu' => ''],
 				'separator' => 'before',
 				'default' => [
 					[
-						'menu_title'   => __('About', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('About', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
-						'menu_title'   => __('Gallery', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Gallery', 'easy-elementor-addons'),
+						'menu_link' => '#',
 						'menu_type' => 'child_start'
 					],
 					[
-						'menu_title'   => __('Gallery 01', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Gallery 01', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
-						'menu_title'   => __('Gallery 02', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Gallery 02', 'easy-elementor-addons'),
+						'menu_link' => '#',
 						'menu_type' => 'child_start'
 					],
 					[
-						'menu_title'   => __('Sub Gallery 01', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Sub Gallery 01', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
-						'menu_title'   => __('Sub Gallery 02', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Sub Gallery 02', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
-						'menu_title'   => __('Sub Gallery 03', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Sub Gallery 03', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
 						'menu_type' => 'child_end'
 					],
 					[
-						'menu_title'   => __('Gallery 03', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Gallery 03', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 					[
 						'menu_type' => 'child_end'
 					],
 					[
-						'menu_title'   => __('Contacts', 'easy-elementor-addons'),
-						'menu_link'    => '#',
+						'menu_title' => __('Contacts', 'easy-elementor-addons'),
+						'menu_link' => '#',
 					],
 				],
-				'title_field' => '{{{ elementor.helpers.renderIcon( this, menu_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <# print( (menu_type == "child_start" ) ? "<b>[ Child Start:</b> " + menu_title : menu_title ) #><# print( (menu_type == "child_end" ) ? "<b>Child End ]</b>" : "" ) #>',
+				'title_field' => '{{{ elementor.helpers.renderIcon( this, menu_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} <# print((menu_type == "child_start") ? "<b>[ Child Start:</b> " + menu_title : menu_title ) #><# print( (menu_type == "child_end" ) ? "<b>Child End ]</b>" : "" ) #>',
 			]
 		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'slinky_vertical_menu_additional', [
-				'label'     => __('Additional Settings', 'easy-elementor-addons'),
+				'label' => __('Additional Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'show_sticky', [
-				'label'   => esc_html__('Show Sticky', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::SWITCHER,
+				'label' => esc_html__('Show Sticky', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_responsive_control(
 			'menu_width', [
-				'label'   => esc_html__('Menu Max Width', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::SLIDER,
+				'label' => esc_html__('Menu Max Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
-						'min'  => 100,
-						'max'  => 1200,
+						'min' => 100,
+						'max' => 1200,
 					],
 				],
 				'selectors' => [
@@ -210,8 +211,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_responsive_control(
 			'menu_text_alignment', [
-				'label'   => __('Text Alignemnt', 'easy-elementor-addons'),
-				'type'    => Controls_Manager::CHOOSE,
+				'label' => __('Text Alignemnt', 'easy-elementor-addons'),
+				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
 						'title' => __('Left', 'easy-elementor-addons'),
@@ -237,8 +238,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 		//Style
 		$this->start_controls_section(
 			'slinky_vertical_menu_item', [
-				'label'     => __('Menu Items', 'easy-elementor-addons'),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'label' => __('Menu Items', 'easy-elementor-addons'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -252,8 +253,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'menu_link_color', [
-				'label'     => esc_html__('Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu li.eead-menu-item > a span ' => 'color: {{VALUE}};',
 				],
@@ -263,9 +264,9 @@ class SlinkyVerticalMenu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(), [
 				'name' => 'menu_link_background',
-				'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
+				'label' => esc_html__('Background', 'easy-elementor-addons'),
+				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu li > a',
 				'fields_options' => [
 					'background' => [
@@ -280,7 +281,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
-				'name'     => 'menu_border',
+				'name' => 'menu_border',
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu li > a',
 				'separator' => 'before'
 			]
@@ -288,10 +289,10 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_responsive_control(
 			'menu_border_radius', [
-				'label'      => esc_html__('Border Radius', 'easy-elementor-addons'),
-				'type'       => Controls_Manager::DIMENSIONS,
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu  li > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
@@ -299,10 +300,10 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_responsive_control(
 			'main_menu_bg_link_padding', [
-				'label'      => esc_html__('Padding', 'easy-elementor-addons'),
-				'type'       => Controls_Manager::DIMENSIONS,
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu li > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'render_type' => 'template'
@@ -312,7 +313,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 		$this->add_responsive_control(
 			'menu_spacing', [
 				'label' => esc_html__('Space Between', 'easy-elementor-addons'),
-				'type'  => Controls_Manager::SLIDER,
+				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
 				],
@@ -337,7 +338,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
-				'name'     => 'menu_typography',
+				'name' => 'menu_typography',
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu li > a',
 				'render_type' => 'template'
 			]
@@ -353,8 +354,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'menu_link_color_hover', [
-				'label'     => esc_html__('Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu li.eead-menu-item:hover > a span' => 'color: {{VALUE}};',
 				],
@@ -364,9 +365,9 @@ class SlinkyVerticalMenu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(), [
 				'name' => 'link_background_hover',
-				'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
+				'label' => esc_html__('Background', 'easy-elementor-addons'),
+				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu li:hover > a',
 				'fields_options' => [
 					'background' => [
@@ -381,8 +382,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'menu_border_color_hover', [
-				'label'     => esc_html__('Border Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu li:hover > a' => 'border-color: {{VALUE}};',
 				],
@@ -400,8 +401,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->start_controls_section(
 			'slinky_vertical_menu_indicator', [
-				'label'     => __('Indicator', 'easy-elementor-addons'),
-				'tab'       => Controls_Manager::TAB_STYLE,
+				'label' => __('Indicator', 'easy-elementor-addons'),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -417,8 +418,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'indicator_color', [
-				'label'     => __('Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => __('Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after' => 'color: {{VALUE}}',
 				],
@@ -428,40 +429,40 @@ class SlinkyVerticalMenu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(), [
 				'name' => 'indicator_background',
-				'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
+				'label' => esc_html__('Background', 'easy-elementor-addons'),
+				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
-				'name'      => 'indicator_border',
-				'label'     => __('Border', 'easy-elementor-addons'),
-				'selector'  => '{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after',
+				'name' => 'indicator_border',
+				'label' => __('Border', 'easy-elementor-addons'),
+				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after',
 				'separator' => 'before'
 			]
 		);
 
 		$this->add_responsive_control(
 			'indicator_radius', [
-				'label'                 => __('Border Radius', 'easy-elementor-addons'),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => ['px', '%', 'em'],
-				'selectors'             => [
-					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after'    => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->add_responsive_control(
 			'indicator_padding', [
-				'label'                 => __('Padding', 'easy-elementor-addons'),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => ['px', '%', 'em'],
-				'selectors'             => [
-					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after'    => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label' => __('Padding', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'render_type' => 'template'
 			]
@@ -469,10 +470,10 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_responsive_control(
 			'indicator_margin', [
-				'label'                 => __('Margin', 'easy-elementor-addons'),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => ['px', '%', 'em'],
-				'selectors'             => [
+				'label' => __('Margin', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after'    => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'render_type' => 'template'
@@ -481,7 +482,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
-				'name'     => 'indicator_typography',
+				'name' => 'indicator_typography',
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after',
 				'render_type' => 'template'
 			]
@@ -497,8 +498,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 		$this->add_control(
 			'indicator_hover_color', [
-				'label'     => __('Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => __('Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu .header:hover a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next:hover:after' => 'color: {{VALUE}}',
 				],
@@ -508,17 +509,17 @@ class SlinkyVerticalMenu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(), [
 				'name' => 'indicator_hover_background',
-				'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-				'types' => [ 'classic', 'gradient' ],
-				'exclude' => [ 'image' ],
+				'label' => esc_html__('Background', 'easy-elementor-addons'),
+				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
 				'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu .header:hover a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next:hover:after',
 			]
 		);
 
 		$this->add_control(
 			'indicator_border_color_hover', [
-				'label'     => esc_html__('Border Color', 'easy-elementor-addons'),
-				'type'      => Controls_Manager::COLOR,
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-slinky-vertical-menu .header:hover a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next:hover:after' => 'border-color: {{VALUE}};',
 				],
@@ -598,24 +599,26 @@ class SlinkyVerticalMenu extends Widget_Base {
 
 	protected function dynamic_menu() {
 		$settings = $this->get_settings_for_display();
-		$id       = 'eead-slinky-vertical-menu-' . $this->get_id();
+		$id = 'eead-slinky-vertical-menu-' . $this->get_id();
+
 		if (!$settings['navbar']) {
 			element_pack_alert(__('Please select a Menu From Setting!', 'easy-elementor-addons'));
 		}
+
 		$nav_menu = !empty($settings['navbar']) ? wp_get_nav_menu_object($settings['navbar']) : false;
 		if (!$nav_menu) {
 			return;
 		}
 		$nav_menu_args = array(
-			'fallback_cb'    => false,
-			'container'      => false,
-			'menu_id'        => $id,
-			'menu_class'     => 'slinky-vertical-menu',
+			'fallback_cb' => false,
+			'container' => false,
+			'menu_id' => $id,
+			'menu_class' => 'slinky-vertical-menu',
 			'theme_location' => 'default_navmenu', // creating a fake location for better functional control
-			'menu'           => $nav_menu,
-			'echo'           => true,
-			'depth'          => 0,
-			'walker'         => new EEAD_Slinky_Vertical_Menu_Walker
+			'menu' => $nav_menu,
+			'echo' => true,
+			'depth' => 0,
+			'walker' => new EEAD_Slinky_Vertical_Menu_Walker
 		);
 
 		wp_nav_menu(apply_filters('widget_nav_menu_args', $nav_menu_args, $nav_menu, $settings));

@@ -4,8 +4,9 @@ namespace EasyElementorAddons\Modules\StickyVideo;
 
 use EasyElementorAddons\Base\Module_Base;
 
-if (!defined('ABSPATH'))
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
+}
 
 class Module extends Module_Base {
 

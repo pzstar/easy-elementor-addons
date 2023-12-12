@@ -53,15 +53,15 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_control(
             'title_a', [
-                'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::TEXT,
-                'default' => __( 'Switch A', 'easy-elementor-addons' )
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Switch A', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'icon_a', [
-                'label' => __( 'Icon', 'easy-elementor-addons' ),
+                'label' => __('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fa fa-star',
@@ -72,34 +72,34 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_control(
             'content_type_a', [
-                'label' => __( 'Content Type', 'easy-elementor-addons' ),
+                'label' => __('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
-                    'elementor_template'  => __( 'Elementor Template', 'easy-elementor-addons' ),
-                    'wisiwyg' => __( 'WISIWYG', 'easy-elementor-addons' ),
+                    'elementor_template'  => __('Elementor Template', 'easy-elementor-addons'),
+                    'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'elementor_template_a', [
-                'label'       => __( 'Select Template', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => '0',
-                'options'     => $this->get_elementor_templates(),
+                'label' => __('Select Template', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '0',
+                'options' => $this->get_elementor_templates(),
                 'label_block' => 'true',
-                'condition'   => [ 'content_type_a' => 'elementor_template' ]
+                'condition' => ['content_type_a' => 'elementor_template']
             ]
         );
 
         $this->add_control(
             'wisiwyg_content_a', [
-                'label' => __( 'Description', 'easy-elementor-addons' ),
+                'label' => __('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons' ),
-                'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
-                'condition'   => [ 'content_type_a' => 'wisiwyg' ]
+                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
+                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'condition' => ['content_type_a' => 'wisiwyg']
             ]
         );
 
@@ -113,15 +113,15 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_control(
             'title_b', [
-                'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::TEXT,
-                'default' => __( 'Switch B', 'easy-elementor-addons' )
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Switch B', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'icon_b', [
-                'label' => __( 'Icon', 'easy-elementor-addons' ),
+                'label' => __('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fa fa-star',
@@ -132,34 +132,34 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_control(
             'content_type_b', [
-                'label' => __( 'Content Type', 'easy-elementor-addons' ),
+                'label' => __('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
-                    'elementor_template'  => __( 'Elementor Template', 'easy-elementor-addons' ),
-                    'wisiwyg' => __( 'WISIWYG', 'easy-elementor-addons' ),
+                    'elementor_template'  => __('Elementor Template', 'easy-elementor-addons'),
+                    'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'elementor_template_b', [
-                'label'       => __( 'Select Template', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => '0',
-                'options'     => $this->get_elementor_templates(),
+                'label' => __('Select Template', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '0',
+                'options' => $this->get_elementor_templates(),
                 'label_block' => 'true',
-                'condition'   => [ 'content_type_b' => 'elementor_template' ]
+                'condition' => ['content_type_b' => 'elementor_template']
             ]
         );
 
         $this->add_control(
             'wisiwyg_content_b', [
-                'label' => __( 'Description', 'easy-elementor-addons' ),
+                'label' => __('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons' ),
-                'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
-                'condition'   => [ 'content_type_b' => 'wisiwyg' ]
+                'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
+                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'condition' => ['content_type_b' => 'wisiwyg']
             ]
         );
 
@@ -173,36 +173,35 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_control(
             'switch_style', [
-                'label' => __( 'Style', 'easy-elementor-addons' ),
+                'label' => __('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
-                    'style2' => __( 'Style 2', 'easy-elementor-addons' ),
-                    'style3' => __( 'Style 3', 'easy-elementor-addons' ),
-                    'style4' => __( 'Style 4', 'easy-elementor-addons' ),
-                    'style5' => __( 'Style 5', 'easy-elementor-addons' ),
+                    'style1'  => __('Style 1', 'easy-elementor-addons'),
+                    'style2' => __('Style 2', 'easy-elementor-addons'),
+                    'style3' => __('Style 3', 'easy-elementor-addons'),
+                    'style4' => __('Style 4', 'easy-elementor-addons'),
+                    'style5' => __('Style 5', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
-            'active_switch',
-            array(
-                'label'   => esc_html__( 'Active Switch', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::CHOOSE,
+            'active_switch', [
+                'label' => esc_html__('Active Switch', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'default' => 'switch_a',
                 'options' => array(
-                    'switch_a'   => array(
-                        'title' => esc_html__( 'Switch A', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                    'switch_a' => array(
+                        'title' => esc_html__('Switch A', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
-                    'switch_b'  => array(
-                        'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                    'switch_b' => array(
+                        'title' => esc_html__('Switch B', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
@@ -235,29 +234,28 @@ class SwitcherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_alignment',
-            array(
-                'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::CHOOSE,
+            'switch_alignment', [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'default' => 'eead-align-center',
                 'options' => array(
                     'eead-align-left'   => array(
-                        'title' => esc_html__( 'Switch A', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                        'title' => esc_html__('Switch A', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
-                    'eead-align-center'  => array(
-                        'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-center',
+                    'eead-align-center' => array(
+                        'title' => esc_html__('Switch B', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
                     ),
-                    'eead-align-right'  => array(
-                        'title' => esc_html__( 'Switch B', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                    'eead-align-right' => array(
+                        'title' => esc_html__('Switch B', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 )
-            )
+            ]
         );
 
-        $this->add_control( 'icon_size', [
+        $this->add_control('icon_size', [
             'label' => __('Icon Size', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
@@ -278,7 +276,7 @@ class SwitcherBlock extends Widget_Base {
                 ]
         );
 
-        $this->add_control( 'tab_margin_bottom', [
+        $this->add_control('tab_margin_bottom', [
             'label' => __('Margin Bottom', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
@@ -459,11 +457,11 @@ class SwitcherBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'switch_content_padding', [
-                'label'                 => __( 'Padding', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', 'em', '%' ],
-                'separator'             => 'before',
-                'selectors'             => [
+                'label' => __('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'separator' => 'before',
+                'selectors' => [
                     '{{WRAPPER}} .eead-switcher-container .eead-switch-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -485,34 +483,34 @@ class SwitcherBlock extends Widget_Base {
                         <?php if($settings['icon_a']) {
                             \Elementor\Icons_Manager::render_icon($settings['icon_a'], ['aria-hidden' => 'true']);
                         } ?>
-                        <h3><?php echo esc_html( $settings['title_a'] ) ?></h3>
+                        <h3><?php echo esc_html($settings['title_a']) ?></h3>
                     </div>
 
                     <div class="eead-switch-b <?php echo $active_switch == 'switch_b' ? 'active' : '' ?> eead-switch-tab">
                         <?php if($settings['icon_b']) {
                             \Elementor\Icons_Manager::render_icon($settings['icon_b'], ['aria-hidden' => 'true']);
                         } ?>
-                        <h3><?php echo esc_html( $settings['title_b'] ) ?></h3>
+                        <h3><?php echo esc_html($settings['title_b']) ?></h3>
                     </div>
                 </div>
 
                 <div class="eead-switch-container">
                     <div class="eead-switch-a-content eead-switch-content <?php echo $active_switch == 'switch_a' ? 'active' : '' ?>" style="<?php echo $active_switch == 'switch_a' ? 'display: block;' : 'display: none;'; ?>">
                         <?php 
-                        if( $settings['content_type_a'] == 'wisiwyg' ) {
-                            echo $this->wisiwyg_text_parser( $settings[ 'wisiwyg_content_a' ] );
-                        } else if( $settings[ 'content_type_a' ] == 'elementor_template' ) {
-                            echo $this->elementor()->frontend->get_builder_content_for_display( $settings['elementor_template_a'] );
+                        if($settings['content_type_a'] == 'wisiwyg') {
+                            echo $this->wisiwyg_text_parser($settings['wisiwyg_content_a']);
+                        } else if($settings['content_type_a'] == 'elementor_template') {
+                            echo $this->elementor()->frontend->get_builder_content_for_display($settings['elementor_template_a']);
                         }
                         ?>
                     </div>
 
                     <div class="eead-switch-b-content eead-switch-content <?php echo $active_switch == 'switch_b' ? 'active' : '' ?>" style="<?php echo $active_switch == 'switch_b' ? 'display: block;' : 'display: none;'; ?>">
                         <?php
-                        if( $settings['content_type_b'] == 'wisiwyg' ) {
-                            echo $this->wisiwyg_text_parser( $settings[ 'wisiwyg_content_b' ] );
-                        } else if( $settings[ 'content_type_b' ] == 'elementor_template' ) {
-                            echo $this->elementor()->frontend->get_builder_content_for_display( $settings['elementor_template_b'] );
+                        if ($settings['content_type_b'] == 'wisiwyg') {
+                            echo $this->wisiwyg_text_parser($settings['wisiwyg_content_b']);
+                        } else if ($settings['content_type_b'] == 'elementor_template') {
+                            echo $this->elementor()->frontend->get_builder_content_for_display($settings['elementor_template_b']);
                         }
                         ?>
                     </div>
@@ -526,16 +524,15 @@ class SwitcherBlock extends Widget_Base {
     protected function get_elementor_templates() {
 
         $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
-        $types     = [];
+        $types = [];
 
-        if ( empty($templates) ) {
+        if (empty($templates)) {
             $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
         } else {
             $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
-
-            foreach ( $templates as $template ) {
+            foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
-                $types[$template['template_id']]            = $template['type'];
+                $types[$template['template_id']] = $template['type'];
             }
         }
 

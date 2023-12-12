@@ -111,7 +111,7 @@ class StickyVideo extends Widget_Base {
             'eead_link_youtube', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic'   => ['active' => true],
+                'dynamic' => ['active' => true],
                 'placeholder' => __('Enter your URL (YouTube)', 'easy-elementor-addons'),
                 'label_block' => false,
                 'default' => 'https://www.youtube.com/watch?v=MLpWrANjFbI',
@@ -125,7 +125,7 @@ class StickyVideo extends Widget_Base {
             'eead_link_vimeo', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic'     => [ 'active' => true ],
+                'dynamic' => ['active' => true],
                 'placeholder' => __('Enter your URL (Vimeo)', 'easy-elementor-addons'),
                 'label_block' => false,
                 'default' => 'https://vimeo.com/76979871',
@@ -139,7 +139,7 @@ class StickyVideo extends Widget_Base {
             'eead_link_dailymotion', [
                 'label' => __('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic'     => [ 'active' => true ],
+                'dynamic' => ['active' => true],
                 'placeholder' => __('Enter your URL (Dailymotion)', 'easy-elementor-addons'),
                 'label_block' => true,
                 'condition' => [
@@ -161,7 +161,7 @@ class StickyVideo extends Widget_Base {
 
         $this->add_control(
             'eead_hosted_url', [
-                'label' => __('Choose File', 'elementor'),
+                'label' => __('Choose File', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
                     'active' => true,
@@ -340,9 +340,9 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Choose Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
-                'default'               => [
-                    'value'     => 'fa fa-play-circle',
-                    'library'   => 'fa-solid',
+                'default' => [
+                    'value' => 'fa fa-play-circle',
+                    'library' => 'fa-solid',
                 ],
                 'condition' => [
                     'eead_overlay_options' => 'yes',
@@ -636,7 +636,7 @@ class StickyVideo extends Widget_Base {
                 );
                 ?>
 
-                <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper') ?>>
+                <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper'); ?>>
                     <div class="eead-overlay-icon"><?php echo $icon; ?></div>
                 </div>
                 <?php
@@ -655,16 +655,18 @@ class StickyVideo extends Widget_Base {
                     ]
                 );
             ?>
-            <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper2') ?>>
-                <?php  
+            <div <?php $this->print_render_attribute_string('esvp_overlay_wrapper2'); ?>>
+                <?php
                 if ('youtube' == $settings['eead_video_source']) {
-                    echo $this->eead_get_youtube_player();
+                    echo wp_kses_post($this->eead_get_youtube_player());
                 }
+
                 if ('vimeo' == $settings['eead_video_source']) {
-                    echo $this->eead_get_vimeo_player();
+                    echo wp_kses_post($this->eead_get_vimeo_player());
                 }
+
                 if ('self_hosted' == $settings['eead_video_source']) {
-                    echo $this->eead_get_self_hosted_player();
+                    echo wp_kses_post($this->eead_get_self_hosted_player());
                 }
                 ?>
                 <span class="eead-sticky-player-close"><i class="fa fa-times-circle"></i></span>
@@ -693,8 +695,8 @@ class StickyVideo extends Widget_Base {
         return '<div id="eead-player-' . $this->get_id() . '"
             data-plyr-provider="youtube"
             data-plyr-embed-id="' . esc_attr($id) . '"
-            data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}"
-            ></div>';
+            data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}">
+            </div>';
     }
 
     protected function eead_get_vimeo_player() {
@@ -715,11 +717,11 @@ class StickyVideo extends Widget_Base {
 
         ob_start();
         ?>
-            <div id="eead-player-<?php echo $this->get_id(); ?>"
-                 data-plyr-provider="vimeo"
-                 data-plyr-embed-id="<?php echo esc_attr($id); ?>"
-                 data-plyr-config="{<?php echo esc_attr($am); ?>, <?php echo esc_attr($lp); ?>}">
-            </div>
+        <div id="eead-player-<?php echo $this->get_id(); ?>"
+            data-plyr-provider="vimeo"
+            data-plyr-embed-id="<?php echo esc_attr($id); ?>"
+            data-plyr-config="{<?php echo esc_attr($am); ?>, <?php echo esc_attr($lp); ?>}">
+        </div>
         <?php
         $html = ob_get_clean();
         return $html;
@@ -749,31 +751,31 @@ class StickyVideo extends Widget_Base {
 
         ob_start();
         ?>
-        <video class="eead-player" id="eead-player-<?php echo $id; ?>" playsinline controls data-plyr-config="{<?php echo esc_attr($am);  ?>, <?php echo esc_attr($lp); ?>}">
+        <video class="eead-player" id="eead-player-<?php echo $id; ?>" playsinline controls data-plyr-config="{<?php echo esc_attr($am); ?>, <?php echo esc_attr($lp); ?>}">
             <source src="<?php echo esc_attr($video); ?>#t=<?php echo esc_attr($startTime); ?>,<?php echo esc_attr($endTime); ?>" type="video/mp4" />
         </video>
         <?php
-        $html = ob_get_clean();
-
-        return $html;
+        return ob_get_clean();
     }
 
     protected function eead_get_url_id() {
         $settings = $this->get_settings_for_display();
 
-        if ( $settings['eead_video_source'] === 'youtube' ) {
+        if ($settings['eead_video_source'] === 'youtube') {
             $url = $settings['eead_link_youtube'];
             $link = explode('=', parse_url($url, PHP_URL_QUERY));
             $id = $link[1];
         }
-        else if ( $settings['eead_video_source'] === 'vimeo' ) {
+
+        else if ($settings['eead_video_source'] === 'vimeo') {
             $url = $settings['eead_link_vimeo'];
             $link = explode('/', $url);
             $id = $link[3];
         }
-        else if ( $settings['eead_video_source'] === 'self_hosted' ) {
+
+        else if ($settings['eead_video_source'] === 'self_hosted') {
             $external_url = $settings['eead_link_external'];
-            $id = ( $external_url == 'yes' ) ? $settings['eead_external_url'] : $settings['eead_hosted_url']['url'];
+            $id = ($external_url == 'yes') ? $settings['eead_external_url'] : $settings['eead_hosted_url']['url'];
         }
 
         return $id;

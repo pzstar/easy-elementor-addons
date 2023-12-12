@@ -41,231 +41,214 @@ class ImageGallery extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'lightgallery' ];
+        return ['lightgallery'];
     }
 
     public function get_script_depends() {
-        return [ 'lightgallery','isotope','imagesloaded' ];
+        return ['lightgallery','isotope','imagesloaded'];
     }
 
     /** Controls */
     protected function register_controls() {
 
-
         $this->start_controls_section(
-            'section_gallery',
-            array(
-                'label' => __( 'Gallery', 'easy-elementor-addons' ),
-            )
+            'section_gallery', [
+                'label' => __('Gallery', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'gallery_type',
-            array(
-                'label'   => __( 'Gallery Type', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'gallery_type', [
+                'label' => __('Gallery Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'filterable',
                 'options' => array(
-                    'default'   => __( 'Default', 'easy-elementor-addons' ),
-                    'filterable' => __( 'Filterable', 'easy-elementor-addons' ),
+                    'default' => __('Default', 'easy-elementor-addons'),
+                    'filterable' => __('Filterable', 'easy-elementor-addons'),
                 ),
-            )
+            ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'filter_label',
-            array(
-                'label'       => __( 'Filter Label', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'default'     => '',
+            'filter_label', [
+                'label' => __('Filter Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '',
                 'placeholder' => '',
-                'dynamic'     => array(
-                    'active' => true,
-                ),
-            )
-        );
-
-        $repeater->add_control(
-            'image_group',
-            array(
-                'label'   => __( 'Add Images', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::GALLERY,
                 'dynamic' => array(
                     'active' => true,
                 ),
-            )
+            ]
+        );
+
+        $repeater->add_control(
+            'image_group', [
+                'label' => __('Add Images', 'easy-elementor-addons'),
+                'type' => Controls_Manager::GALLERY,
+                'dynamic' => array(
+                    'active' => true,
+                ),
+            ]
         );
 
         $this->add_control(
-            'gallery_images',
-            array(
-                'label'       => __( 'Gallery Images', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::REPEATER,
-                'fields'      => $repeater->get_controls(),
+            'gallery_images', [
+                'label' => __('Gallery Images', 'easy-elementor-addons'),
+                'type' => Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
                 'title_field' => '',
-                'separator'   => 'before',
-                'condition'   => array(
+                'separator' => 'before',
+                'condition' => array(
                     'gallery_type' => 'filterable',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'image_group_standard',
-            array(
-                'label'     => __( 'Add Images', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::GALLERY,
-                'dynamic'   => array(
+            'image_group_standard', [
+                'label' => __('Add Images', 'easy-elementor-addons'),
+                'type' => Controls_Manager::GALLERY,
+                'dynamic' => array(
                     'active' => true,
                 ),
                 'separator' => 'before',
                 'condition' => array(
                     'gallery_type' => 'default',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'filter_section',
-            array(
-                'label'     => __( 'Filter', 'easy-elementor-addons' ),
+            'filter_section', [
+                'label' => __('Filter', 'easy-elementor-addons'),
                 'condition' => array(
                     'gallery_type' => 'filterable',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'show_filter',
-            array(
-                'label'     => __( 'Show Filter', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => '',
+            'show_filter', [
+                'label' => __('Show Filter', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => '',
                 'condition' => array(
                     'gallery_type' => 'filterable',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'filter_all_label',
-            array(
-                'label'     => __( 'All Filter Label', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::TEXT,
-                'default'   => __( 'All', 'easy-elementor-addons' ),
+            'filter_all_label', [
+                'label' => __('All Filter Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('All', 'easy-elementor-addons'),
                 'condition' => array(
-                    'gallery_type'  => 'filterable',
+                    'gallery_type' => 'filterable',
                     'show_filter' => 'yes',
                 ),
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'filter_alignment',
-            array(
-                'label'       => __( 'Align', 'easy-elementor-addons' ),
+            'filter_alignment', [
+                'label' => __('Align', 'easy-elementor-addons'),
                 'label_block' => false,
-                'type'        => Controls_Manager::CHOOSE,
-                'default'     => 'right-align',
-                'options'     => array(
-                    'left-align'   => array(
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'right-align',
+                'options' => array(
+                    'left-align' => array(
+                        'title' => __('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
                     'center-align' => array(
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-center',
+                        'title' => __('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
                     ),
-                    'right-align'  => array(
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                    'right-align' => array(
+                        'title' => __('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 ),
-                'selectors'   => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-gallery-filters.left-align' => 'justify-content: flex-start;',
                     '{{WRAPPER}} .eead-gallery-filters.right-align' => 'justify-content: flex-end;',
                     '{{WRAPPER}} .eead-gallery-filters.center-align' => 'justify-content: center;',
                 ),
-                'condition'   => array(
-                    'gallery_type'  => 'filterable',
+                'condition' => array(
+                    'gallery_type' => 'filterable',
                     'show_filter' => 'yes',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'caption_section',
-            array(
-                'label'     => __( 'Caption', 'easy-elementor-addons' ),
-            )
+            'caption_section', [
+                'label' => __('Caption', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'show_caption',
-            array(
-                'label'     => __( 'Show Caption', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
-                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+            'show_caption', [
+                'label' => __('Show Caption', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
-                'default'   => 'yes',
-            )
+                'default' => 'yes',
+            ]
         );
         
         $this->add_control(
-            'caption_type',
-            array(
-                'label'   => __( 'Caption Type', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'caption_type', [
+                'label' => __('Caption Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'caption',
                 'options' => array(
-                    'caption'   => __( 'Image Caption', 'easy-elementor-addons' ),
-                    'title' => __( 'Image Title', 'easy-elementor-addons' ),
-                    'description' => __( 'Image Description', 'easy-elementor-addons' ),
-                    'title_description' => __( 'Title & Description', 'easy-elementor-addons' )
+                    'caption'   => __('Image Caption', 'easy-elementor-addons'),
+                    'title' => __('Image Title', 'easy-elementor-addons'),
+                    'description' => __('Image Description', 'easy-elementor-addons'),
+                    'title_description' => __('Title & Description', 'easy-elementor-addons')
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'settings_section',
-            array(
-                'label'     => __( 'Settings', 'easy-elementor-addons' ),
-            )
+            'settings_section', [
+                'label' => __('Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'show_lightbox',
-            array(
-                'label'     => __( 'Show Lightbox', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'easy-elementor-addons' ),
-                'label_off'    => esc_html__( 'No', 'easy-elementor-addons' ),
+            'show_lightbox', [
+                'label' => __('Show Lightbox', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
-                'default'   => 'yes',
-            )
+                'default' => 'yes',
+            ]
         );
 
         $this->add_control(
-            'layout',
-            array(
-                'label'   => __( 'Layout', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'layout', [
+                'label' => __('Layout', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'grid',
                 'options' => array(
-                    'grid'      => __( 'Grid', 'easy-elementor-addons' ),
-                    'masonry'   => __( 'Masonry', 'easy-elementor-addons' ),
-                    // 'justified' => __( 'Justified', 'easy-elementor-addons' ),
+                    'grid' => __('Grid', 'easy-elementor-addons'),
+                    'masonry' => __('Masonry', 'easy-elementor-addons'),
+                    // 'justified' => __('Justified', 'easy-elementor-addons'),
                 ),
-            )
+            ]
         );
 
         $this->add_control(
@@ -538,53 +521,56 @@ class ImageGallery extends Widget_Base {
 
             <?php $this->render_filters(); ?>
 
-            <div class="eead-image-gallery-wrapper <?php echo $layout; ?>">
-            <?php foreach ($images as $key => $value) {   
+            <div class="eead-image-gallery-wrapper <?php echo esc_attr($layout); ?>">
+            <?php
+            foreach ($images as $key => $value) {   
                 $filter_label = $settings['gallery_type'] == 'filterable'? $value['filter_label']: '';
                 ?>
-                <div class="eead-gallery-item <?php echo strtolower( str_replace(' ', '-', $filter_label) ); ?>">
+                <div class="eead-gallery-item <?php echo esc_attr(strtolower(str_replace(' ', '-', $filter_label))); ?>">
                     <div class="eead-gallery-item-inner">
-                        <img class="eead-gallery-image" src="<?php echo $value['url']; ?>" >
-                        
+                        <img class="eead-gallery-image" src="<?php echo esc_url($value['url']); ?>">
+
                         <div class="eead-gallery-image-detail">
-                            <?php if( $settings['show_lightbox'] == 'yes' ) { ?>
+                            <?php if($settings['show_lightbox'] == 'yes') { ?>
                                 <a href="<?php echo esc_url($value['url']); ?>" class="eead-gallery-lightbox">
                                     <i class="fa fa-search"></i>
                                 </a>
                             <?php } ?>
+
                             <?php $this->get_caption($value['id']); ?>
                         </div>
                     </div>
                 </div>
-            <?php 
+                <?php
             }  
             ?>
             </div>
-        </div>  
+        </div>
         <?php
     }
 
     protected function get_caption($image_id) {
         $settings = $this->get_settings_for_display();
 
-        if( $settings['show_caption'] == 'yes' ) { 
+        if ($settings['show_caption'] == 'yes') { 
             $image_desc = get_post($image_id);
-            if($settings['caption_type'] == 'caption') {
+            if ($settings['caption_type'] == 'caption') {
                 $caption_text = $image_desc->post_excerpt;
-            } else if($settings['caption_type'] == 'title') {
+            } else if ($settings['caption_type'] == 'title') {
                 $caption_text = $image_desc->post_title;
             } else if ($settings['caption_type'] == 'description') {
                 $caption_text = $image_desc->post_content;
             } else if ($settings['caption_type'] == 'title_description') {
-            ?>
+                ?>
                 <h2 class="eead-caption-title"><?php echo esc_html($image_desc->post_title); ?></h2>
                 <p class="eead-caption-desc"><?php echo esc_html($image_desc->post_content); ?></p>
-            <?php
+                <?php
             }
-            
-            if($settings['caption_type'] != 'title_description') { ?>                            
-                <p><?php echo $caption_text; ?></p>
-            <?php
+
+            if ($settings['caption_type'] != 'title_description') {
+                ?>                            
+                <p><?php echo esc_html($caption_text); ?></p>
+                <?php
             }
         } 
     }
@@ -594,14 +580,14 @@ class ImageGallery extends Widget_Base {
         $gallery_type = $settings['gallery_type'];
         $gallery = [];
 
-        if( $gallery_type == 'filterable' ) {
+        if ($gallery_type == 'filterable') {
             $i = 0;
-            foreach( $settings['gallery_images'] as $key=> $item ) {
-                foreach ( $item['image_group'] as $key2=>$image ) {
+            foreach ($settings['gallery_images'] as $key => $item) {
+                foreach ($item['image_group'] as $key2 => $image) {
                     $gallery[$i]['id'] = $image['id'];
                     $gallery[$i]['url'] = $image['url'];
                     $index = $key + 1;
-                    $gallery[$i]['filter_label'] = !empty($item['filter_label']) ? $item['filter_label'] : 'Group-'.$index;
+                    $gallery[$i]['filter_label'] = !empty($item['filter_label']) ? $item['filter_label'] : 'Group-' . $index;
                     $i++;
                 }
             }
@@ -611,32 +597,33 @@ class ImageGallery extends Widget_Base {
 
     protected function render_filters() {
         $settings = $this->get_settings_for_display();
-        if ( $settings['gallery_type'] == 'filterable' and $settings['show_filter'] === 'yes' ) {
+        if ($settings['gallery_type'] == 'filterable' and $settings['show_filter'] === 'yes') {
             
-            $gallery  = $settings['gallery_images'];
+            $gallery = $settings['gallery_images'];
             if(!empty($gallery)) {
-            ?>
-            <div class="eead-gallery-filters <?php echo $settings['filter_alignment']; ?>">
-                <div class="eead-gallery-filter eead-active" data-filter="*" data-gallery-index="all">
-                    <?php 
-                        $all_label = ( '' !== $settings['filter_all_label'] ) ? esc_html($settings['filter_all_label']) : esc_html__( 'All', 'easy-elementor-addons' );
-                    echo $all_label;
+                ?>
+                <div class="eead-gallery-filters <?php echo $settings['filter_alignment']; ?>">
+                    <div class="eead-gallery-filter eead-active" data-filter="*" data-gallery-index="all">
+                        <?php echo ('' !== $settings['filter_all_label']) ? esc_html($settings['filter_all_label']) : esc_html__('All', 'easy-elementor-addons'); ?>
+                    </div>
+
+                    <?php
+                    foreach ($gallery as $index => $item) {
+                        $filter_label = $item['filter_label'];
+                        $filter_name = $item['filter_label'];
+                        if (empty($filter_label)) {
+                            $filter_label = __('Group ', 'easy-elementor-addons');
+                            $filter_label .= ($index + 1);
+                            $filter_name = __('Group-', 'easy-elementor-addons');
+                            $filter_name .= ($index + 1);
+                        }
+                        ?>
+                        <div class="eead-gallery-filter" data-filter=".<?php echo esc_attr(strtolower(str_replace(' ', '-', $filter_name))); ?>" data-gallery-index="eead-group-<?php echo esc_attr($index + 1); ?>"><?php echo wp_kses_post($filter_label); ?></div>
+                        <?php
+                    }
                     ?>
                 </div>
                 <?php
-                foreach ( $gallery as $index => $item ) {
-                    $filter_label = $item['filter_label'];
-                    $filter_name = $item['filter_label'];
-                    if ( empty( $filter_label ) ) {
-                        $filter_label  = __( 'Group ', 'easy-elementor-addons' );
-                        $filter_label .= ( $index + 1 );
-                        $filter_name  = __( 'Group-', 'easy-elementor-addons' );
-                        $filter_name .= ( $index + 1 );                    }
-                    ?>
-                    <div class="eead-gallery-filter" data-filter=".<?php echo strtolower(str_replace(' ', '-', $filter_name)); ?>" data-gallery-index="eead-group-<?php echo ( $index + 1 ); ?>"><?php echo wp_kses_post( $filter_label ); ?></div>
-                <?php } ?>
-            </div>
-            <?php
             }
         }
     }

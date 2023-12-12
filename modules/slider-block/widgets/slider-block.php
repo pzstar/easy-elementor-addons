@@ -44,11 +44,11 @@ class SliderBlock extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'owlcarousel' ];
+        return ['owlcarousel'];
     }
 
     public function get_script_depends() {
-        return [ 'owlcarousel' ];
+        return ['owlcarousel'];
     }
 
     /** Controls */
@@ -64,7 +64,7 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_image', [
-                'label' => __( 'Choose Image', 'easy-elementor-addons' ),
+                'label' => __('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -74,7 +74,7 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_title', [
-                'label' => __( 'Title', 'easy-elementor-addons' ),
+                'label' => __('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -82,27 +82,27 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_caption', [
-                'label' => __( 'Subtitle', 'easy-elementor-addons' ),
+                'label' => __('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
-                'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
+                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'slider_button_text', [
-                'label' => __( 'Button Text', 'easy-elementor-addons' ),
+                'label' => __('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __( 'Details', 'easy-elementor-addons' ),
+                'default' => __('Details', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'slider_button_link', [
-                'label' => __( 'Button Link', 'easy-elementor-addons' ),
+                'label' => __('Button Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => __( 'Enter URL', 'easy-elementor-addons' ),
+                'placeholder' => __('Enter URL', 'easy-elementor-addons'),
                 'show_external' => true,
                 'default' => [
                     'url' => '',
@@ -114,25 +114,25 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_text_alignment', [
-                'label' => __( 'Text Alignment', 'easy-elementor-addons' ),
+                'label' => __('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'center',
                 'options' => [
-                    'center'  => __( 'Center', 'easy-elementor-addons' ),
-                    'left' => __( 'Left', 'easy-elementor-addons' ),
-                    'right' => __( 'Right', 'easy-elementor-addons' )
+                    'center'  => __('Center', 'easy-elementor-addons'),
+                    'left' => __('Left', 'easy-elementor-addons'),
+                    'right' => __('Right', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_control(
             'slider_block', [
-                'label' => __( 'Sliders', 'easy-elementor-addons' ),
+                'label' => __('Sliders', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'slider_title' => __( 'Slider #1', 'easy-elementor-addons' ),
+                        'slider_title' => __('Slider #1', 'easy-elementor-addons'),
                     ]
                 ],
                 'title_field' => '{{{ slider_title }}}',
@@ -150,20 +150,20 @@ class SliderBlock extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Image_Size::get_type(), [
-                'name'    => 'thumbnail', 
-                'label'   => __( 'Image Size', 'easy-elementor-addons' ),
+                'name' => 'thumbnail', 
+                'label' => __('Image Size', 'easy-elementor-addons'),
                 'default' => 'full',
             ]
         );
 
         $this->add_control(
             'slider_transition', [
-                'label' => __( 'Slider Transition', 'easy-elementor-addons' ),
+                'label' => __('Slider Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'slide',
                 'options' => [
-                    'slide'  => __( 'Slide', 'easy-elementor-addons' ),
-                    'fade' => __( 'Fade', 'easy-elementor-addons' )
+                    'slide'  => __('Slide', 'easy-elementor-addons'),
+                    'fade' => __('Fade', 'easy-elementor-addons')
                 ],
             ]
         );
@@ -287,20 +287,20 @@ class SliderBlock extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'                  => 'box_border',
-                'label'                 => __( 'Border', 'easy-elementor-addons' ),
-                'placeholder'           => '1px',
-                'default'               => '1px',
-                'selector'              => '{{WRAPPER}} .eead-slide-caption',
+                'name' => 'box_border',
+                'label' => __( 'Border', 'easy-elementor-addons' ),
+                'placeholder' => '1px',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .eead-slide-caption',
             ]
         );
 
         $this->add_control(
             'box_border_radius', [
-                'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __( 'Border Radius', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -308,10 +308,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'box_padding', [
-                'label'                 => __( 'Padding', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __( 'Padding', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -356,10 +356,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'title_padding', [
-                'label'                 => __( 'Padding', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-title span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -367,10 +367,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'title_border_radius', [
-                'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-title span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -405,10 +405,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'caption_margin', [
-                'label'                 => __( 'Margin', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -463,11 +463,11 @@ class SliderBlock extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'                  => 'button_border',
-                'label'                 => __( 'Border', 'easy-elementor-addons' ),
-                'placeholder'           => '1px',
-                'default'               => '1px',
-                'selector'              => '{{WRAPPER}} .eead-slide-button a',
+                'name' => 'button_border',
+                'label' => __('Border', 'easy-elementor-addons'),
+                'placeholder' => '1px',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .eead-slide-button a',
             ]
         );
 
@@ -501,11 +501,11 @@ class SliderBlock extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'                  => 'button_border_hover',
-                'label'                 => __( 'Border', 'easy-elementor-addons' ),
-                'placeholder'           => '1px',
-                'default'               => '1px',
-                'selector'              => '{{WRAPPER}} .eead-slide-button a:hover',
+                'name' => 'button_border_hover',
+                'label' => __('Border', 'easy-elementor-addons'),
+                'placeholder' => '1px',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .eead-slide-button a:hover',
             ]
         );
 
@@ -515,10 +515,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'button_border_radius', [
-                'label'                 => __( 'Border Radius', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' => 'before'
@@ -527,10 +527,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'button_padding', [
-                'label'                 => __( 'Padding', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'label' => __('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-slide-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -547,10 +547,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'dots_border_width', [
-                'label'      => esc_html__( 'Border Width', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [
+                'label' => esc_html__( 'Border Width', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -558,10 +558,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'dots_border_radius', [
-                'label'      => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
+                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
-                'selectors'  => [
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -569,10 +569,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'dots_padding', [
-                'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -680,32 +680,32 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'arrow_position', [
-                'label' => __( 'Slider Transition', 'easy-elementor-addons' ),
+                'label' => __('Slider Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-arrow-outside',
                 'options' => [
-                    'eead-arrow-inside'  => __( 'Inside', 'easy-elementor-addons' ),
-                    'eead-arrow-outside' => __( 'Outside', 'easy-elementor-addons' )
+                    'eead-arrow-inside' => __('Inside', 'easy-elementor-addons'),
+                    'eead-arrow-outside' => __('Outside', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name'        => 'arrow_border',
-                'label'       => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'name' => 'arrow_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .owl-nav button',
+                'default' => '1px',
+                'selector' => '{{WRAPPER}} .owl-nav button',
             ]
         );
 
         $this->add_control(
             'arrow_padding', [
-                'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
                 ],
             ]
@@ -832,9 +832,9 @@ class SliderBlock extends Widget_Base {
                         <div class="eead-slide">
                             <?php
                             if ($image) {
-                                $image_url = Group_Control_Image_Size::get_attachment_image_src( $slider['slider_image']['id'], 'thumbnail', $settings );
-            
-                                if ( $image_url ) {
+                                $image_url = Group_Control_Image_Size::get_attachment_image_src($slider['slider_image']['id'], 'thumbnail', $settings);
+
+                                if ($image_url) {
                                     echo '<img src="' . esc_url( $image_url ) . '">';
                                 } else {
                                     echo '<img src="' . esc_url( $slider['slider_image']['url'] ) . '">';

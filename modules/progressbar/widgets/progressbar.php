@@ -42,7 +42,7 @@ class Progressbar extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'waypoint' ];
+        return ['waypoint'];
     }
 
     /** Controls */
@@ -58,7 +58,7 @@ class Progressbar extends Widget_Base {
 
         $repeater->add_control(
             'progressbar_title', [
-                'label' => __( 'Title', 'easy-elementor-addons' ),
+                'label' => __('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -66,7 +66,7 @@ class Progressbar extends Widget_Base {
 
         $repeater->add_control(
             'progressbar_percentage', [
-                'label' => __( 'Percentage', 'easy-elementor-addons' ),
+                'label' => __('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 100,
@@ -77,12 +77,12 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
             'progressbar_block', [
-                'label' => __( 'Progress Bars', 'easy-elementor-addons' ),
+                'label' => __('Progress Bars', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'progressbar_title' => __( 'Progress Bar #1', 'easy-elementor-addons' ),
+                        'progressbar_title' => __('Progress Bar #1', 'easy-elementor-addons'),
                     ]
                 ],
                 'title_field' => '{{{ progressbar_title }}}',
@@ -179,8 +179,8 @@ class Progressbar extends Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progressbar_bg_color',
-                'label' => __( 'Background Color', 'easy-elementor-addons' ),
-                'types' => [ 'classic', 'gradient' ],
+                'label' => __('Background Color', 'easy-elementor-addons'),
+                'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-progress-bar',
             ]
         );
@@ -188,8 +188,8 @@ class Progressbar extends Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progress_indication_color',
-                'label' => __( 'Progress Indication Color', 'easy-elementor-addons' ),
-                'types' => [ 'classic', 'gradient' ],
+                'label' => __('Progress Indication Color', 'easy-elementor-addons'),
+                'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-progress-bar-length',
             ]
         );
@@ -241,20 +241,20 @@ class Progressbar extends Widget_Base {
         ?>
         <div class="eead-progressbar-container">
             <div class="eead-progress-bar-sec">
-            <?php
-            foreach ($progressbars as $key => $progressbar) {
-            ?>
-                <div class="eead-progress">
-                    <h2><?php echo esc_html($progressbar['progressbar_title']); ?></h2>
-                    <div class="eead-progress-bar" data-width="<?php echo absint($progressbar['progressbar_percentage']); ?>">
-                        <div class="eead-progress-bar-length">
-                            <span><?php echo absint($progressbar['progressbar_percentage']) . "%"; ?></span>
+                <?php
+                foreach ($progressbars as $key => $progressbar) {
+                    ?>
+                    <div class="eead-progress">
+                        <h2><?php echo esc_html($progressbar['progressbar_title']); ?></h2>
+                        <div class="eead-progress-bar" data-width="<?php echo absint($progressbar['progressbar_percentage']); ?>">
+                            <div class="eead-progress-bar-length">
+                                <span><?php echo absint($progressbar['progressbar_percentage']) . "%"; ?></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php 
-            }
-            ?>
+                    <?php
+                }
+                ?>
             </div>
         </div>
         <?php

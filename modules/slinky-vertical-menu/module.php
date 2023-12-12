@@ -5,8 +5,9 @@ namespace EasyElementorAddons\Modules\SlinkyVerticalMenu;
 use EasyElementorAddons\Base\Module_Base;
 use Walker_Nav_Menu;
 
-if (!defined('ABSPATH'))
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
+}
 
 class Module extends Module_Base {
 
@@ -25,6 +26,7 @@ class Module extends Module_Base {
 
 class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
     var $has_child = false;
+
     public function start_lvl(&$output, $depth = 0, $args = array()) {
         $output .= '<ul>';
     }
@@ -34,8 +36,8 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
     }
 
     public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-        $data    = array();
-        $class   = '';
+        $data = array();
+        $class = '';
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         if ($classes) {
             $class = trim(preg_replace('/menu-item(.+)/', '', implode(' ', $classes)));
@@ -59,8 +61,7 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
         // is current item ?
         if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
             $data['data-menu-active'] = 2;
-
-            // home/frontpage item
+        // home/frontpage item
         } elseif (preg_replace('/#(.+)$/', '', $item->url) == 'index.php' && (is_home() || is_front_page())) {
             $data['data-menu-active'] = 2;
         }
@@ -94,7 +95,7 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
 
         // escape link title
         $item->title = $item->title; //htmlspecialchars($item->title, ENT_COMPAT, "UTF-8");
-        $classes     = trim(preg_replace('/menu-item(.+)/', '', implode(' ', $classes)));
+        $classes = trim(preg_replace('/menu-item(.+)/', '', implode(' ', $classes)));
 
         if ($args->walker->has_children) {
             $classes = 'has-arrow';
@@ -111,14 +112,12 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
             //     $type = 'separator-text';
             // }
 
-            $format     = '%s<a href="#" %s>%s</a>%s';
-
+            $format = '%s<a href="#" %s>%s</a>%s';
             $attributes = ' class="' . $classes . '"';
         } else {
             $attributes .= ' class="' . $classes . '"';
             $format = '%s<a%s>%s</a>%s';
         }
-
 
         if (isset($item->icon)) {
             $icon = "<span class=\"bdt-margin-small-right\" bdt-icon=\"icon: {$item->icon}\"></span>";

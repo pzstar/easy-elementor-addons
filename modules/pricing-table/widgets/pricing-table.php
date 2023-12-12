@@ -251,11 +251,11 @@ class PricingTable extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Background::get_type(), [
-                'name'      => 'title_background_color',
-                'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-title,
-                                {{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header,
-                                {{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header'
+                'name' => 'title_background_color',
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-title,
+                    {{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header,
+                    {{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header'
             ]
         );
 
@@ -276,7 +276,7 @@ class PricingTable extends Widget_Base {
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header .eead-pricing-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
             ],
-            'condition' => [ 'layout' => 'style1' ]
+            'condition' => ['layout' => 'style1']
         ]);
 
         $this->add_control(
@@ -288,7 +288,7 @@ class PricingTable extends Widget_Base {
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header .eead-pricing-title' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
             ],
-            'condition' => [ 'layout' => 'style3' ]
+            'condition' => ['layout' => 'style3']
         ]);
 
         $this->end_controls_section();
@@ -313,9 +313,9 @@ class PricingTable extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Background::get_type(), [
-                'name'      => 'icon_bg_color',
-                'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .eead-header-icon'
+                'name' => 'icon_bg_color',
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .eead-header-icon'
             ]
         );
 
@@ -340,10 +340,10 @@ class PricingTable extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Background::get_type(), [
-                'name'      => 'price_bg_color',
-                'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-price,
-                                {{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-header'
+                'name' => 'price_bg_color',
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-price,
+                    {{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-header'
             ]
         );
 
@@ -380,7 +380,7 @@ class PricingTable extends Widget_Base {
             'name' => 'price_per_typography',
             'label' => esc_html__('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-pricing-price .eead-currency,
-                           {{WRAPPER}} .eead-pricing-price .eead-price-per',
+                {{WRAPPER}} .eead-pricing-price .eead-price-per',
                 ]
         );
 
@@ -483,9 +483,9 @@ class PricingTable extends Widget_Base {
 
         $this->add_group_control(
                 Group_Control_Background::get_type(), [
-            'name'      => 'button_bg_color',
-            'types'     => [ 'classic', 'gradient' ],
-            'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a, 
+            'name' => 'button_bg_color',
+            'types' => ['classic', 'gradient'],
+            'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a, 
             {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button',
                 ]
         );
@@ -510,9 +510,9 @@ class PricingTable extends Widget_Base {
 
         $this->add_group_control(
                 Group_Control_Background::get_type(), [
-            'name'      => 'button_bg_active_color',
-            'types'     => [ 'classic', 'gradient' ],
-            'selector'  => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover, 
+            'name' => 'button_bg_active_color',
+            'types' => [ 'classic', 'gradient' ],
+            'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover, 
             {{WRAPPER}} .eead-pricing.eead-style4 .eead-pricing-button:hover',
                 ]
         );
@@ -544,20 +544,18 @@ class PricingTable extends Widget_Base {
             $featured_class,
             $settings['layout']
         );
-        $target = $settings['link']['is_external'] ? ' target="_blank"' : '';
-        $nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
         ?>
 
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
             <div class="eead-pricing-header">
 
-                <?php if($settings['layout'] == 'style2') { ?>
+                <?php if ($settings['layout'] == 'style2') { ?>
                     <span class="eead-header-icon">
                         <?php Icons_Manager::render_icon($settings['header_icon'], ['aria-hidden' => 'true']); ?>
                     </span>
                 <?php } ?>
 
-                <?php if( $settings['layout'] == 'style1' || $settings['layout'] == 'style3' ) { ?>
+                <?php if ($settings['layout'] == 'style1' || $settings['layout'] == 'style3') { ?>
                     <h2 class="eead-pricing-title"><?php echo esc_html($settings['title']); ?></h2>
                 <?php } ?>
 
@@ -569,13 +567,13 @@ class PricingTable extends Widget_Base {
                     </div>
                 <?php } ?>
 
-                <?php if( $settings['layout'] == 'style2' ) { ?>
+                <?php if ($settings['layout'] == 'style2') { ?>
                     <h2 class="eead-pricing-title"><?php echo esc_html($settings['title']); ?></h2>
                 <?php } ?>
             </div>
 
             <div class="eead-pricing-main">
-                <?php if($settings['layout'] == 'style1') { ?>
+                <?php if ($settings['layout'] == 'style1') { ?>
                     <div class="eead-pricing-price">
                         <span class="eead-currency"><?php echo esc_html($settings['currency']); ?></span>
                         <span class="eead-price"><?php echo esc_html($settings['price']); ?></span>
@@ -587,7 +585,7 @@ class PricingTable extends Widget_Base {
 
                 <?php if (!empty($settings['link']['url'])) { ?>
                     <div class="eead-pricing-button">
-                        <a href="<?php echo esc_url($settings['link']['url']); ?>" <?php echo $target . $nofollow; ?>>
+                        <a href="<?php echo esc_url($settings['link']['url']); ?>" <?php echo ($settings['link']['is_external'] ? ' target="_blank"' : '') . ($settings['link']['nofollow'] ? ' rel="nofollow"' : ''); ?>>
                             <?php echo wp_kses_post($settings['link_text']); ?> 
                             <span class="eead-pricing-link-icon"><?php Icons_Manager::render_icon($settings['link_icon'], ['aria-hidden' => 'true']); ?></span>
                         </a>

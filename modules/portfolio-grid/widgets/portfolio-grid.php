@@ -43,11 +43,11 @@ class PortfolioGrid extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'eead-portfolio-grid', 'dashicons' ];
+        return ['eead-portfolio-grid', 'dashicons'];
     }
 
     public function get_script_depends() {
-        return [ 'eead-portfolio-grid' ];
+        return ['eead-portfolio-grid'];
     }
 
     /** Controls */
@@ -55,7 +55,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_section(
             'grid_items_section', [
-                'label' => esc_html__( 'Grid Items', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid Items', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -64,7 +64,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_control(
             'image', [
-                'label' => esc_html__( 'Image', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -74,7 +74,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_control(
             'title', [
-                'label' => esc_html__( 'Title', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'dynamic' => [
@@ -85,7 +85,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_control(
             'info', [
-                'label' => esc_html__( 'Info', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'dynamic' => [
@@ -96,9 +96,9 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_control(
             'website_link', [
-                'label' => esc_html__( 'Link to', 'easy-elementor-addons' ),
+                'label' => esc_html__('Link to', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://www.example.com', 'easy-elementor-addons' ),
+                'placeholder' => esc_html__('https://www.example.com', 'easy-elementor-addons'),
                 'show_external' => true,
                 'default' => [
                     'url' => '',
@@ -113,7 +113,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_control(
             'item_filter_ids', [
-                'label' => esc_html__( 'Filter ID(s)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filter ID(s)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'dynamic' => [
@@ -124,7 +124,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_responsive_control(
             'column_width', [
-                'label' => esc_html__( 'Column Width', 'easy-elementor-addons' ),
+                'label' => esc_html__('Column Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -137,7 +137,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater->add_responsive_control(
             'column_height', [
-                'label' => esc_html__( 'Column Height', 'easy-elementor-addons' ),
+                'label' => esc_html__('Column Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -150,32 +150,32 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'list', [
-                'label' => esc_html__( 'Portfolio Items', 'easy-elementor-addons' ),
+                'label' => esc_html__('Portfolio Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'show_label' => false,
                 'default' => [
                     [
-                        'title' => esc_html__( 'Title 1', 'easy-elementor-addons' ),
-                        'info' => esc_html__( 'Lorem ipsum dolor...', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Title 1', 'easy-elementor-addons'),
+                        'info' => esc_html__('Lorem ipsum dolor...', 'easy-elementor-addons'),
                         'image' => Utils::get_placeholder_image_src(),
                         'item_filter_ids' => 'filter-1 filter-2'
                     ],
                     [
-                        'title' => esc_html__( 'Title 2', 'easy-elementor-addons' ),
-                        'info' => esc_html__( 'Lorem ipsum dolor...', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Title 2', 'easy-elementor-addons'),
+                        'info' => esc_html__('Lorem ipsum dolor...', 'easy-elementor-addons'),
                         'image' => Utils::get_placeholder_image_src(),
                         'item_filter_ids' => 'filter-2'
                     ],
                     [
-                        'title' => esc_html__( 'Title 3', 'easy-elementor-addons' ),
-                        'info' => esc_html__( 'Lorem ipsum dolor...', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Title 3', 'easy-elementor-addons'),
+                        'info' => esc_html__('Lorem ipsum dolor...', 'easy-elementor-addons'),
                         'image' => Utils::get_placeholder_image_src(),
                         'item_filter_ids' => 'filter-3'
                     ],
                     [
-                        'title' => esc_html__( 'Title 4', 'easy-elementor-addons' ),
-                        'info' => esc_html__( 'Lorem ipsum dolor...', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Title 4', 'easy-elementor-addons'),
+                        'info' => esc_html__('Lorem ipsum dolor...', 'easy-elementor-addons'),
                         'image' => Utils::get_placeholder_image_src(),
                         'item_filter_ids' => 'filter-2 filter-3'
                     ]
@@ -192,7 +192,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'title_html_tag', [
-                'label' => esc_html__( 'Title HTML Tag', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -210,7 +210,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'info_html_tag', [
-                'label' => esc_html__( 'Info HTML Tag', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -228,7 +228,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'img_size', [
-                'label' => esc_html__( 'Image Size', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'large',
                 'options' => eead_get_image_sizes(),
@@ -237,15 +237,15 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'layout_default', [
-                'label' => esc_html__( 'Default Layout', 'easy-elementor-addons' ),
+                'label' => esc_html__('Default Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'eead-fpg-grid-view' => [
-                        'title' => esc_html__( 'Grid', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Grid', 'easy-elementor-addons'),
                         'icon' => 'fas fa-th-large',
                     ],
                     'eead-fpg-list-view' => [
-                        'title' => esc_html__( 'List', 'easy-elementor-addons' ),
+                        'title' => esc_html__('List', 'easy-elementor-addons'),
                         'icon' => 'fas fa-th-list',
                     ],
                 ],
@@ -256,10 +256,10 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'layout_menu', [
-                'label' => esc_html__( 'Show Layout Switcher', 'easy-elementor-addons' ),
+                'label' => esc_html__('Show Layout Switcher', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => esc_html__( 'No', 'easy-elementor-addons' ),
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'show_label' => true,
@@ -270,7 +270,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_section(
             'filters_section', [
-                'label' => esc_html__( 'Filters', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filters', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -279,7 +279,7 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater2->add_control(
             'filter_name', [
-                'label' => esc_html__( 'Filter Name', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filter Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'dynamic' => [
@@ -290,8 +290,8 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater2->add_control(
             'filter_id', [
-                'label' => esc_html__( 'Filter ID', 'easy-elementor-addons' ),
-                'description' => esc_html__( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-Z 0-9  & underscore chars without spaces.', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filter ID', 'easy-elementor-addons'),
+                'description' => esc_html__('Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-Z 0-9  & underscore chars without spaces.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'dynamic' => [
@@ -302,11 +302,11 @@ class PortfolioGrid extends Widget_Base {
 
         $repeater2->add_control(
             'filter_default', [
-                'label' => esc_html__( 'Default Filter', 'easy-elementor-addons' ),
-                'description' => esc_html__( 'There must be a default filter in the menu.', 'easy-elementor-addons' ),
+                'label' => esc_html__('Default Filter', 'easy-elementor-addons'),
+                'description' => esc_html__('There must be a default filter in the menu.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => esc_html__( 'No', 'easy-elementor-addons' ),
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => '',
                 'show_label' => true,
@@ -315,27 +315,27 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'list2', [
-                'label' => esc_html__( 'Filters', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filters', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'show_label' => false,
                 'default' => [
                     [
-                        'filter_name' => esc_html__( 'All', 'easy-elementor-addons' ),
-                        'filter_id' => esc_html__( 'all', 'easy-elementor-addons' ),
+                        'filter_name' => esc_html__('All', 'easy-elementor-addons'),
+                        'filter_id' => esc_html__('all', 'easy-elementor-addons'),
                         'filter_default' => 'yes'
                     ],
                     [
-                        'filter_name' => esc_html__( 'Filter 1', 'easy-elementor-addons' ),
-                        'filter_id' => esc_html__( 'filter-1', 'easy-elementor-addons' )
+                        'filter_name' => esc_html__('Filter 1', 'easy-elementor-addons'),
+                        'filter_id' => esc_html__('filter-1', 'easy-elementor-addons')
                     ],
                     [
-                        'filter_name' => esc_html__( 'Filter 2', 'easy-elementor-addons' ),
-                        'filter_id' => esc_html__( 'filter-2', 'easy-elementor-addons' )
+                        'filter_name' => esc_html__('Filter 2', 'easy-elementor-addons'),
+                        'filter_id' => esc_html__('filter-2', 'easy-elementor-addons')
                     ],
                     [
-                        'filter_name' => esc_html__( 'Filter 3', 'easy-elementor-addons' ),
-                        'filter_id' => esc_html__( 'filter-3', 'easy-elementor-addons' )
+                        'filter_name' => esc_html__('Filter 3', 'easy-elementor-addons'),
+                        'filter_id' => esc_html__('filter-3', 'easy-elementor-addons')
                     ]
                     ],
                     'title_field' => '{{{ filter_name }}}',
@@ -350,10 +350,10 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'filter_menu', [
-                'label' => esc_html__( 'Show Menu', 'easy-elementor-addons' ),
+                'label' => esc_html__('Show Menu', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => esc_html__( 'No', 'easy-elementor-addons' ),
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'show_label' => true,
@@ -365,14 +365,14 @@ class PortfolioGrid extends Widget_Base {
         // section start
         $this->start_controls_section(
             'grid_item_style', [
-                'label' => esc_html__( 'Grid Item', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid Item', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'grid_item_bg', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0, 0, 0, 0.1)',
                 'selectors' => [
@@ -384,16 +384,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'grid_item_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container li .eead-fpg-inner'
             ]
         );
 
         $this->add_control(
             'grid_item_border_radius', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container li .eead-fpg-inner' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -403,7 +403,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'grid_item_shadow',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container li .eead-fpg-inner'
             ]
         );
@@ -413,14 +413,14 @@ class PortfolioGrid extends Widget_Base {
         // section start
         $this->start_controls_section(
             'grid_view_style', [
-                'label' => esc_html__( 'Grid View', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid View', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'grid_item_animation', [
-                'label' => esc_html__( 'Hover Animation', 'easy-elementor-addons' ),
+                'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION
             ]
         );
@@ -433,9 +433,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_item_width', [
-                'label' => esc_html__( 'Max. Item Width', 'easy-elementor-addons' ),
+                'label' => esc_html__('Max. Item Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 100,
@@ -455,9 +455,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_gap', [
-                'label' => esc_html__( 'Grid Gap (px)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid Gap (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -483,19 +483,19 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'grid_txt_placement', [
-                'label' => esc_html__( 'Text Box Placement', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Placement', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'below-img',
                 'options' => [
-                    'in-img'  => esc_html__( 'On the image', 'easy-elementor-addons' ),
-                    'below-img' => esc_html__( 'Below the image', 'easy-elementor-addons' ),
+                    'in-img'  => esc_html__('On the image', 'easy-elementor-addons'),
+                    'below-img' => esc_html__('Below the image', 'easy-elementor-addons'),
                 ]
             ]
         );
 
         $this->add_responsive_control(
             'grid_view_img_height', [
-                'label' => esc_html__( 'Grid Item Height', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid Item Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 100,
                 'max' => 2000,
@@ -509,19 +509,19 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_v_align', [
-                'label' => esc_html__( 'Text Box Vertical Align', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Vertical Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'flex-start' => [
-                        'title' => esc_html__( 'Start', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Start', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'flex-end' => [
-                        'title' => esc_html__( 'End', 'easy-elementor-addons' ),
+                        'title' => esc_html__('End', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -536,19 +536,19 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_text_align', [
-                'label' => esc_html__( 'Text Align', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -562,7 +562,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'grid_view_txt_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption',
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
@@ -570,9 +570,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'grid_view_txt_border_radius', [
-                'label' => esc_html__( 'Text Box Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};',
                 ],
@@ -582,9 +582,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_txt_padding', [
-                'label' => esc_html__( 'Text Box Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -593,9 +593,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_txt_margin', [
-                'label' => esc_html__( 'Text Box Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -610,11 +610,11 @@ class PortfolioGrid extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs( 'tabs_overlay_style' );
+        $this->start_controls_tabs('tabs_overlay_style');
 
         $this->start_controls_tab(
             'tab_overlay_normal', [
-                'label' => esc_html__( 'Overlay', 'easy-elementor-addons'),
+                'label' => esc_html__('Overlay', 'easy-elementor-addons'),
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
         );
@@ -622,8 +622,8 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'grid_view_txt_bg',
-                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-                'types' => [ 'classic', 'gradient' ],
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption',
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
@@ -633,7 +633,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_overlay_hover', [
-                'label' => esc_html__( 'Overlay Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Overlay Hover', 'easy-elementor-addons'),
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
         );
@@ -641,8 +641,8 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'grid_view_txt_bg_hover',
-                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-                'types' => [ 'classic', 'gradient' ],
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption:hover',
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
@@ -661,15 +661,14 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'grid_view_title_typography',
-                'label' => esc_html__( 'Title Typography', 'easy-elementor-addons' ),
-                
+                'label' => esc_html__('Title Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view li .eead-fpg-title',
             ]
         );
 
         $this->add_control(
             'grid_view_title_color', [
-                'label' => esc_html__( 'Title Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -680,9 +679,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_title_margin', [
-                'label' => esc_html__( 'Title Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view li .eead-fpg-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -692,15 +691,14 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'grid_view_info_typography',
-                
-                'label' => esc_html__( 'Info Typography', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view li .eead-fpg-info',
             ]
         );
 
         $this->add_control(
             'grid_view_info_color', [
-                'label' => esc_html__( 'Info Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -711,9 +709,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_info_margin', [
-                'label' => esc_html__( 'Info Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view li .eead-fpg-info' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -728,9 +726,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'grid_view_img_padding', [
-                'label' => esc_html__( 'Image Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -739,9 +737,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'grid_view_img_border_radius', [
-                'label' => esc_html__( 'Image Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view img' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -752,16 +750,16 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_section(
             'list_view_style', [
-                'label' => esc_html__( 'List View', 'easy-elementor-addons' ),
+                'label' => esc_html__('List View', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'list_view_img_width', [
-                'label' => esc_html__( 'Image Width (px)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Width (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -781,9 +779,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_grid_gap', [
-                'label' => esc_html__( 'Grid Gap (px)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Grid Gap (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -810,19 +808,19 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_text_align', [
-                'label' => esc_html__( 'Text Align', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -835,9 +833,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_txt_padding', [
-                'label' => esc_html__( 'Text Box Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Text Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view figcaption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -853,7 +851,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'list_view_title_typography',
-                'label' => esc_html__( 'Title Typography', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title Typography', 'easy-elementor-addons'),
                 
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li .eead-fpg-title',
             ]
@@ -861,7 +859,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'list_view_title_color', [
-                'label' => esc_html__( 'Title Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -872,9 +870,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_title_margin', [
-                'label' => esc_html__( 'Title Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Title Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li .eead-fpg-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -884,15 +882,14 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'list_view_info_typography',
-                
-                'label' => esc_html__( 'Info Typography', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li .eead-fpg-info',
             ]
         );
 
         $this->add_control(
             'list_view_info_color', [
-                'label' => esc_html__( 'Info Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -903,9 +900,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_info_margin', [
-                'label' => esc_html__( 'Info Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Info Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li .eead-fpg-info' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -920,9 +917,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'list_view_img_padding', [
-                'label' => esc_html__( 'Image Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -931,9 +928,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'list_view_img_border_radius', [
-                'label' => esc_html__( 'Image Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Image Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view img' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -944,7 +941,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_section(
             'toolbar_style', [
-                'label' => esc_html__( 'Toolbar', 'easy-elementor-addons' ),
+                'label' => esc_html__('Toolbar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -952,8 +949,8 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'toolbar_bg',
-                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
-                'types' => [ 'classic', 'gradient' ],
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar',
             ]
         );
@@ -961,16 +958,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'toolbar_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar'
             ]
         );
 
         $this->add_control(
             'toolbar_border_radius', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -980,7 +977,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'toolbar_shadow',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar'
             ]
         );
@@ -993,9 +990,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'toolbar_padding', [
-                'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1004,9 +1001,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'toolbar_margin', [
-                'label' => esc_html__( 'Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1018,7 +1015,7 @@ class PortfolioGrid extends Widget_Base {
         // section start
         $this->start_controls_section(
             'filters_style', [
-                'label' => esc_html__( 'Filters', 'easy-elementor-addons' ),
+                'label' => esc_html__('Filters', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => ['filter_menu' => 'yes']
             ]
@@ -1027,22 +1024,21 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'filters_typography',
-                
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label',
             ]
         );
 
-        $this->start_controls_tabs( 'tabs_filters_style' );
+        $this->start_controls_tabs('tabs_filters_style');
 
         $this->start_controls_tab(
             'tab_filters_normal', [
-                'label' => esc_html__( 'Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'filters_color', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -1053,7 +1049,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'filters_bg_color', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.1)',
                 'selectors' => [
@@ -1065,16 +1061,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'filters_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label'
             ]
         );
 
         $this->add_control(
             'filters_border_radius', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -1084,7 +1080,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filters_shadow',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label'
             ]
         );
@@ -1093,13 +1089,13 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_filters_hover', [
-                'label' => esc_html__( 'Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'filters_color_hover', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
@@ -1111,7 +1107,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'filters_bg_color_hover', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -1124,16 +1120,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'filters_border_hover',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li label.active'
             ]
         );
 
         $this->add_control(
             'filters_border_radius_hover', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label:hover' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li label.active' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
@@ -1144,7 +1140,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filters_shadow_hover',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li label.active'
             ]
         );
@@ -1161,9 +1157,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'filters_max_width', [
-                'label' => esc_html__( 'Max. Label Width', 'easy-elementor-addons' ),
+                'label' => esc_html__('Max. Label Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 100,
@@ -1183,9 +1179,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'filters_padding', [
-                'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1194,9 +1190,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'filters_margin', [
-                'label' => esc_html__( 'Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon)' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1208,7 +1204,7 @@ class PortfolioGrid extends Widget_Base {
         // section start
         $this->start_controls_section(
             'mobile_menu_style', [
-                'label' => esc_html__( 'Mobile Menu Icon', 'easy-elementor-addons' ),
+                'label' => esc_html__('Mobile Menu Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => ['filter_menu' => 'yes']
             ]
@@ -1216,9 +1212,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'mobile_menu_icon_size', [
-                'label' => esc_html__( 'Icon Size (px)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Icon Size (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -1237,17 +1233,17 @@ class PortfolioGrid extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs( 'tabs_mobile_menu_style' );
+        $this->start_controls_tabs('tabs_mobile_menu_style');
 
         $this->start_controls_tab(
             'tab_mobile_menu_normal', [
-                'label' => esc_html__( 'Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'mobile_menu_color', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
@@ -1258,7 +1254,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'mobile_menu_bg_color', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111',
                 'selectors' => [
@@ -1270,16 +1266,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'mobile_menu_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label'
             ]
         );
 
         $this->add_control(
             'mobile_menu_border_radius', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -1298,13 +1294,13 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_mobile_menu_hover', [
-                'label' => esc_html__( 'Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'mobile_menu_color_hover', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
@@ -1315,7 +1311,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'mobile_menu_bg_color_hover', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -1327,16 +1323,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'mobile_menu_border_hover',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label:hover'
             ]
         );
 
         $this->add_control(
             'mobile_menu_border_radius_hover', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label:hover' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -1346,7 +1342,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'mobile_menu_shadow_hover',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label:hover'
             ]
         );
@@ -1363,9 +1359,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'mobile_menu_padding', [
-                'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1374,9 +1370,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'mobile_menu_margin', [
-                'label' => esc_html__( 'Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1388,7 +1384,7 @@ class PortfolioGrid extends Widget_Base {
         // section start
         $this->start_controls_section(
             'layout_style', [
-                'label' => esc_html__( 'Layout Menu', 'easy-elementor-addons' ),
+                'label' => esc_html__('Layout Menu', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => ['layout_menu' => 'yes']
             ]
@@ -1396,9 +1392,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'layout_icon_size', [
-                'label' => esc_html__( 'Icon Size (px)', 'easy-elementor-addons' ),
+                'label' => esc_html__('Icon Size (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px' ],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -1417,17 +1413,17 @@ class PortfolioGrid extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs( 'tabs_layout_style' );
+        $this->start_controls_tabs('tabs_layout_style');
 
         $this->start_controls_tab(
             'tab_layout_normal', [
-                'label' => esc_html__( 'Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'layout_color', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -1438,7 +1434,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'layout_bg_color', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.1)',
                 'selectors' => [
@@ -1450,16 +1446,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'layout_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label'
             ]
         );
 
         $this->add_control(
             'layout_border_radius', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
                 ]
@@ -1469,7 +1465,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'layout_shadow',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label'
             ]
         );
@@ -1478,13 +1474,13 @@ class PortfolioGrid extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_layout_hover', [
-                'label' => esc_html__( 'Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'layout_color_hover', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
@@ -1496,7 +1492,7 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_control(
             'layout_bg_color_hover', [
-                'label' => esc_html__( 'Background Color', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#111111',
                 'selectors' => [
@@ -1509,16 +1505,16 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'layout_border_hover',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label.active'
             ]
         );
 
         $this->add_control(
             'layout_border_radius_hover', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label:hover' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label.active' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
@@ -1529,7 +1525,7 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'layout_shadow_hover',
-                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label.active'
             ]
         );
@@ -1546,9 +1542,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'layout_padding', [
-                'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1557,9 +1553,9 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_responsive_control(
             'layout_margin', [
-                'label' => esc_html__( 'Margin', 'easy-elementor-addons' ),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'rem' ],
+                'size_units' => ['px', '%', 'rem'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1573,73 +1569,99 @@ class PortfolioGrid extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $settings_id = $this->get_id();
-        if ( $settings['list2'] ) { ?>
+        if ($settings['list2']) {
+            ?>
             <form id="tmea_fpg_form-<?php echo $settings_id; ?>" name="tmea_fpg_form-<?php echo $settings_id; ?>" class="eead-fpg-toolbar">
             <?php if ($settings['filter_menu']) { ?>
-            <ul class="eead-fpg-search-wrapper">
-                <li class="eead-fpg-mobile-icon"><label><span class="dashicons dashicons-menu-alt"></span></label></li>
-                <?php foreach ( $settings['list2'] as $item ) { ?> 
-                    <li>
-                        <input id="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" type="radio" <?php if (isset($item['filter_default']) && $item['filter_default']) { ?>checked="checked"<?php } ?> name="filter" value="<?php echo esc_attr($item['filter_id']); ?>" style="display:none">
-                        <label for="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" <?php if (isset($item['filter_default']) && $item['filter_default']) { ?>class="active"<?php } ?>><?php echo $item['filter_name']; ?></label>
+                <ul class="eead-fpg-search-wrapper">
+                    <li class="eead-fpg-mobile-icon">
+                        <label>
+                            <span class="dashicons dashicons-menu-alt"></span>
+                        </label>
                     </li>
-                <?php } ?>
-            </ul>
-            <?php } ?>
-            <?php if ($settings['layout_menu']) { ?>
-            <ul class="eead-fpg-view-options">
-                <li>
-                    <input id="eead-fpg-show-grid-<?php echo $settings_id; ?>" type="radio" <?php if ($settings['layout_default'] == 'eead-fpg-grid-view') { ?>checked="checked"<?php } ?> name="view" value="show-grid" style="display:none">
-                    <label for="eead-fpg-show-grid-<?php echo $settings_id; ?>" <?php if ($settings['layout_default'] == 'eead-fpg-grid-view') { ?>class="active"<?php } ?>><span class="dashicons dashicons-grid-view"></span></label>
-                </li>
-                <li>
-                    <input id="eead-fpg-show-list-<?php echo $settings_id; ?>" type="radio" <?php if ($settings['layout_default'] == 'eead-fpg-list-view') { ?>checked="checked"<?php } ?> name="view" value="show-list" style="display:none">
-                    <label for="eead-fpg-show-list-<?php echo $settings_id; ?>" <?php if ($settings['layout_default'] == 'eead-fpg-list-view') { ?>class="active"<?php } ?>><span class="dashicons dashicons-list-view"></span></label>
-                </li>
-            </ul>
-            <?php } ?>
-            </form>
-        <?php } ?>
+                    <?php foreach ($settings['list2'] as $item) { ?> 
+                        <li>
+                            <input id="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" type="radio" <?php checked((isset($item['filter_default']) && $item['filter_default']), true); ?> name="filter" value="<?php echo esc_attr($item['filter_id']); ?>" style="display:none">
+                            <label for="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" class="<?php echo (isset($item['filter_default']) && $item['filter_default']) ? 'active' : ''); ?>">
+                                <?php echo esc_html($item['filter_name']); ?>
+                            </label>
+                        </li>
+                    <?php } ?>
+                </ul>
+                <?php
+            }
 
-        <?php if ( $settings['list'] ) { ?>
-            <ol class="eead-fpg-container <?php echo $settings['layout_default'] . ' ' . $settings['grid_txt_placement']; ?> eead-fpg-zoom-in" style="display:none;">
-                <?php foreach ( $settings['list'] as $item ) { ?> 
-                <li data-filter="<?php echo $item['item_filter_ids']; ?>" class="elementor-repeater-item-<?php echo $item['_id']; ?>">
+            if ($settings['layout_menu']) {
+                ?>
+                <ul class="eead-fpg-view-options">
+                    <li>
+                        <input id="eead-fpg-show-grid-<?php echo esc_attr($settings_id); ?>" type="radio" <?php checked(($settings['layout_default'] == 'eead-fpg-grid-view'), true); ?> name="view" value="show-grid" style="display:none">
+                        <label for="eead-fpg-show-grid-<?php echo esc_attr($settings_id); ?>" class="<?php echo (($settings['layout_default'] == 'eead-fpg-grid-view') ? 'active' : ''); ?>">
+                            <span class="dashicons dashicons-grid-view"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <input id="eead-fpg-show-list-<?php echo esc_attr($settings_id); ?>" type="radio" <?php checked(($settings['layout_default'] == 'eead-fpg-list-view'), true); ?> name="view" value="show-list" style="display:none">
+                        <label for="eead-fpg-show-list-<?php echo esc_attr($settings_id); ?>" class="<?php echo (($settings['layout_default'] == 'eead-fpg-list-view') ? 'active' : ''); ?>">
+                            <span class="dashicons dashicons-list-view"></span>
+                        </label>
+                    </li>
+                </ul>
+                <?php
+            }
+            ?>
+            </form>
+            <?php
+        }
+
+        if ($settings['list']) {
+            ?>
+            <ol class="eead-fpg-container <?php echo esc_attr($settings['layout_default']) . ' ' . esc_attr($settings['grid_txt_placement']); ?> eead-fpg-zoom-in" style="display:none;">
+                <?php foreach ($settings['list'] as $item) { ?> 
+                <li data-filter="<?php echo esc_attr($item['item_filter_ids']); ?>" class="elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
                     <div class="eead-fpg-inner elementor-animation-<?php echo esc_attr($settings['grid_item_animation']); ?>">
-                    <?php
-                    $target = $item['website_link']['is_external'] ? ' target="_blank"' : '';
-                    $nofollow = $item['website_link']['nofollow'] ? ' rel="nofollow"' : '';
-                    if ($item['website_link']['url']) {
-                        echo '<a href="' . esc_url($item['website_link']['url']) . '"' . $target . $nofollow . '>';
-                    }
-                    ?>
-                    <figure>
                         <?php
-                        $img_url = '';
-                        $img_alt = '';
-                        if ($item['image']['url'] && $item['image']['url'] != Utils::get_placeholder_image_src()) {
-                            $img_array = wp_get_attachment_image_src($item['image']['id'], $settings['img_size'], true);
-                            $img_url = $img_array[0];
-                            $img_alt = get_post_meta( $item['image']['id'], '_wp_attachment_image_alt', true );
-                        } else if ($item['image']['url'] == Utils::get_placeholder_image_src()) {
-                            $img_url = Utils::get_placeholder_image_src();
-                        }
-                        if (!empty($img_url)) {
-                            echo '<img src="' . $img_url . '" alt="' . $img_alt . '" />';
+                        $target = $item['website_link']['is_external'] ? ' target="_blank"' : '';
+                        $nofollow = $item['website_link']['nofollow'] ? ' rel="nofollow"' : '';
+
+                        if ($item['website_link']['url']) {
+                            echo '<a href="' . esc_url($item['website_link']['url']) . '"' . $target . $nofollow . '>';
                         }
                         ?>
-                        <figcaption>
-                            <?php 
-                            if (!empty($item['title'])) {
-                                echo '<' . $settings['title_html_tag'] . ' class="eead-fpg-title">' . $item['title'] . '</' . $settings['title_html_tag'] . '>'; 
+                        <figure>
+                            <?php
+                            $img_url = '';
+                            $img_alt = '';
+
+                            if ($item['image']['url'] && $item['image']['url'] != Utils::get_placeholder_image_src()) {
+                                $img_array = wp_get_attachment_image_src($item['image']['id'], $settings['img_size'], true);
+                                $img_url = $img_array[0];
+                                $img_alt = get_post_meta($item['image']['id'], '_wp_attachment_image_alt', true);
+                            } else if ($item['image']['url'] == Utils::get_placeholder_image_src()) {
+                                $img_url = Utils::get_placeholder_image_src();
                             }
-                            if (!empty($item['info'])) {
-                                echo '<' . $settings['info_html_tag'] . ' class="eead-fpg-info">' . do_shortcode($item['info']) . '</' . $settings['info_html_tag'] . '>'; 
+
+                            if (!empty($img_url)) {
+                                echo '<img src="' . esc_url($img_url) . '" alt="' . esc_attr($img_alt) . '" />';
                             }
                             ?>
-                        </figcaption>
-                    </figure>
-                    <?php if ($item['website_link']['url']) { echo '</a>'; } ?>
+
+                            <figcaption>
+                                <?php 
+                                if (!empty($item['title'])) {
+                                    echo '<' . esc_attr($settings['title_html_tag']) . ' class="eead-fpg-title">' . esc_html($item['title']) . '</' . esc_attr($settings['title_html_tag']) . '>'; 
+                                }
+                                if (!empty($item['info'])) {
+                                    echo '<' . esc_attr($settings['info_html_tag']) . ' class="eead-fpg-info">' . do_shortcode($item['info']) . '</' . esc_attr($settings['info_html_tag']) . '>'; 
+                                }
+                                ?>
+                            </figcaption>
+                        </figure>
+                        <?php
+                        if ($item['website_link']['url']) {
+                            echo '</a>';
+                        }
+                        ?>
                     </div>
                 </li>
             <?php } ?>

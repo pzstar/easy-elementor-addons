@@ -21,7 +21,7 @@ class ScrollImage extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Scroll Image', 'easy-elementor-addons' );
+		return esc_html__('Scroll Image', 'easy-elementor-addons');
 	}
 
 	public function get_icon() {
@@ -29,28 +29,28 @@ class ScrollImage extends Widget_Base {
 	}
 
 	public function get_categories() {
-	 	return [ 'easy-elementor-addons' ];
+	 	return ['easy-elementor-addons'];
  	}
 
  	public function get_style_depends() {
-        return [ 'lightgallery' ];
+        return ['lightgallery'];
     }
 
     public function get_script_depends() {
-        return [ 'lightgallery' ];
+        return ['lightgallery'];
     }
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_image', [
-				'label' => __( 'Image', 'easy-elementor-addons' ),
+				'label' => __('Image', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'image', [
-				'label'   => __( 'Choose Image', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::MEDIA,
+				'label' => __('Choose Image', 'easy-elementor-addons'),
+				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
@@ -59,35 +59,35 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(), [
-				'name'      => 'image_size',
-				'default'   => 'large',
+				'name' => 'image_size',
+				'default' => 'large',
 				'separator' => 'none',
 			]
 		);
 
 		$this->add_control(
 			'image_framing', [
-				'label' => esc_html__( 'Image Framing', 'easy-elementor-addons' ),
-				'type'  => Controls_Manager::SWITCHER,
+				'label' => esc_html__('Image Framing', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'frame', [
-				'label'   => esc_html__( 'Select Frame', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Select Frame', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
 				'default' => 'desktop',
 				'options' => [
-					'desktop'    => esc_html__('Desktop', 'easy-elementor-addons') ,
-					'safari'    => esc_html__('Safari', 'easy-elementor-addons') ,
-					'chrome'     => esc_html__('Chrome', 'easy-elementor-addons') ,
-					'chrome-dark'     => esc_html__('Chrome Dark', 'easy-elementor-addons') ,
-					'firefox'     => esc_html__('Firefox', 'easy-elementor-addons') ,
-					'edge'     	=> esc_html__('Edge', 'easy-elementor-addons') ,
-					'edge-dark'     	=> esc_html__('Edge Dark', 'easy-elementor-addons') ,
+					'desktop' => esc_html__('Desktop', 'easy-elementor-addons') ,
+					'safari' => esc_html__('Safari', 'easy-elementor-addons') ,
+					'chrome' => esc_html__('Chrome', 'easy-elementor-addons') ,
+					'chrome-dark' => esc_html__('Chrome Dark', 'easy-elementor-addons') ,
+					'firefox' => esc_html__('Firefox', 'easy-elementor-addons') ,
+					'edge' => esc_html__('Edge', 'easy-elementor-addons') ,
+					'edge-dark' => esc_html__('Edge Dark', 'easy-elementor-addons') ,
 					'macbookpro' => esc_html__('Macbook Pro', 'easy-elementor-addons') ,
 					'macbookair' => esc_html__('Macbook Air', 'easy-elementor-addons') ,
-					'tablet'     => esc_html__('Tablet', 'easy-elementor-addons') ,
+					'tablet' => esc_html__('Tablet', 'easy-elementor-addons') ,
 				],
 				'condition' => [
 					'image_framing' => 'yes'
@@ -97,14 +97,14 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'max_width', [
-				'label'     => __( 'Width', 'easy-elementor-addons' ),
-				'type'      => Controls_Manager::SLIDER,
+				'label' => __('Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
 				'separator' => 'before',
-				'range'     => [
+				'range' => [
 					'px' => [
 						'step' => 10,
-						'min'  => 5,
-						'max'  => 1200,
+						'min' => 5,
+						'max' => 1200,
 					],
 				],
 				'selectors' => [
@@ -118,13 +118,13 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'min_height', [
-				'label' => __( 'Min Height', 'easy-elementor-addons' ),
-				'type'  => Controls_Manager::SLIDER,
+				'label' => __('Min Height', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
 						'step' => 10,
-						'min'  => 5,
-						'max'  => 1200,
+						'min' => 5,
+						'max' => 1200,
 					],
 				],
 				'default' => [
@@ -141,33 +141,33 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'caption', [
-				'label'       => __( 'Caption', 'easy-elementor-addons' ),
-				'type'        => Controls_Manager::TEXT,
-				'placeholder' => __( 'Enter your image caption', 'easy-elementor-addons' ),
+				'label' => __('Caption', 'easy-elementor-addons'),
+				'type' => Controls_Manager::TEXT,
+				'placeholder' => __('Enter your image caption', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'link_to', [
-				'label'   => __( 'Link To', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => __('Link To', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
 				'default' => 'lightbox',
 				'options' => [
-					'lightbox' => __( 'Lightbox', 'easy-elementor-addons' ),
-					'modal'    => __( 'Modal', 'easy-elementor-addons' ),
-					'external' => __( 'External', 'easy-elementor-addons' ),
-					''         => __( 'None', 'easy-elementor-addons' ),
+					'lightbox' => __('Lightbox', 'easy-elementor-addons'),
+					'modal' => __('Modal', 'easy-elementor-addons'),
+					'external' => __('External', 'easy-elementor-addons'),
+					'' => __('None', 'easy-elementor-addons'),
 				],
 			]
 		);
 
 		$this->add_control(
 			'external_link', [
-				'label'         => __( 'External Link', 'easy-elementor-addons' ),
-				'type'          => Controls_Manager::URL,
+				'label' => __('External Link', 'easy-elementor-addons'),
+				'type' => Controls_Manager::URL,
 				'show_external' => false,
-				'placeholder'   => __( 'https://your-link.com', 'easy-elementor-addons' ),
-				'default'       => [
+				'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+				'default' => [
 					'url' => '#',
 				],
 				'condition' => [
@@ -178,20 +178,20 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'link_icon', [
-				'label'   => __( 'Link Icon', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::CHOOSE,
+				'label' => __('Link Icon', 'easy-elementor-addons'),
+				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'fas fa-link' => [
-						'title' => __( 'Link', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-link',
+						'title' => __('Link', 'easy-elementor-addons'),
+						'icon' => 'fas fa-link',
 					],
 					'fas fa-plus' => [
-						'title' => __( 'Plus', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-plus',
+						'title' => __('Plus', 'easy-elementor-addons'),
+						'icon' => 'fas fa-plus',
 					],
 					'fas fa-search' => [
-						'title' => __( 'Zoom', 'easy-elementor-addons' ),
-						'icon'  => 'fas fa-search',
+						'title' => __('Zoom', 'easy-elementor-addons'),
+						'icon' => 'fas fa-search',
 					],
 				],
 				'default' => 'fa fa-search',
@@ -203,23 +203,23 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'link_icon_position', [
-				'label'     => __( 'Link Icon Position', 'easy-elementor-addons' ),
-				'type'      => Controls_Manager::SELECT,
-				'options'   => [
-			        ''              => esc_html__('Default', 'easy-elementor-addons'),
-			        'top-left'      => esc_html__('Top Left', 'easy-elementor-addons'),
-			        'top-center'    => esc_html__('Top Center', 'easy-elementor-addons'),
-			        'top-right'     => esc_html__('Top Right', 'easy-elementor-addons'),
-			        'center'        => esc_html__('Center', 'easy-elementor-addons'),
-			        'center-left'   => esc_html__('Center Left', 'easy-elementor-addons'),
-			        'center-right'  => esc_html__('Center Right', 'easy-elementor-addons'),
-			        'bottom-left'   => esc_html__('Bottom Left', 'easy-elementor-addons'),
+				'label' => __('Link Icon Position', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+			        '' => esc_html__('Default', 'easy-elementor-addons'),
+			        'top-left' => esc_html__('Top Left', 'easy-elementor-addons'),
+			        'top-center' => esc_html__('Top Center', 'easy-elementor-addons'),
+			        'top-right' => esc_html__('Top Right', 'easy-elementor-addons'),
+			        'center' => esc_html__('Center', 'easy-elementor-addons'),
+			        'center-left' => esc_html__('Center Left', 'easy-elementor-addons'),
+			        'center-right' => esc_html__('Center Right', 'easy-elementor-addons'),
+			        'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
 			        'bottom-center' => esc_html__('Bottom Center', 'easy-elementor-addons'),
-			        'bottom-right'  => esc_html__('Bottom Right', 'easy-elementor-addons'),
+			        'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
 			    ],
-				'default'   => 'center',
+				'default' => 'center',
 				'condition' => [
-					'link_to!'       => '',
+					'link_to!' => '',
 					'image_framing!' => 'yes',
 				],
 			]
@@ -227,14 +227,14 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'image_scroll_option', [
-				'label'   => esc_html__( 'Select Image Scroll', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::SELECT,
+				'label' => esc_html__('Select Image Scroll', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
 				'default' => 'top-bottom',
 				'options' => [
-					'bottom-top'    => esc_html__('Bottom Top', 'easy-elementor-addons') ,
-					'top-bottom'    => esc_html__('Top Bottom', 'easy-elementor-addons') ,
-					'left-right'     => esc_html__('Left right', 'easy-elementor-addons') ,
-					'right-left'     => esc_html__('Right Left', 'easy-elementor-addons') ,
+					'bottom-top' => esc_html__('Bottom Top', 'easy-elementor-addons') ,
+					'top-bottom' => esc_html__('Top Bottom', 'easy-elementor-addons') ,
+					'left-right' => esc_html__('Left right', 'easy-elementor-addons') ,
+					'right-left' => esc_html__('Right Left', 'easy-elementor-addons') ,
 				],
 			]
 		);
@@ -243,22 +243,22 @@ class ScrollImage extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content_badge', [
-				'label'     => __( 'Badge', 'easy-elementor-addons' ),
+				'label' => __('Badge', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'badge', [
-				'label' => __( 'Badge', 'easy-elementor-addons' ),
-				'type'  => Controls_Manager::SWITCHER,
+				'label' => __('Badge', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'badge_text', [
-				'label'       => __( 'Badge Text', 'easy-elementor-addons' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => 'POPULAR',
+				'label' => __('Badge Text', 'easy-elementor-addons'),
+				'type' => Controls_Manager::TEXT,
+				'default' => 'POPULAR',
 				'placeholder' => 'Type Badge Title',
 				'label_block' => true
 			]
@@ -266,7 +266,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
             'badge_horizontal_offset', [
-                'label' => esc_html__( 'Horizontal Offset', 'easy-elementor-addons' ),
+                'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -286,7 +286,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
             'badge_vertical_offset', [
-                'label' => esc_html__( 'Vertical Offset', 'easy-elementor-addons' ),
+                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -306,12 +306,12 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'badge_rotate', [
-				'label'   => esc_html__( 'Rotate', 'easy-elementor-addons' ),
-				'type'    => Controls_Manager::SLIDER,
+				'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
 				],
-				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'devices' => ['desktop', 'tablet', 'mobile'],
 				'tablet_default' => [
 					'size' => 0,
 				],
@@ -320,8 +320,8 @@ class ScrollImage extends Widget_Base {
 				],
 				'range' => [
 					'px' => [
-						'min'  => -360,
-						'max'  => 360,
+						'min' => -360,
+						'max' => 360,
 						'step' => 5,
 					],
 				],
@@ -385,29 +385,28 @@ class ScrollImage extends Widget_Base {
         );
 
         $this->add_control(
-            'caption_alignment',
-            array(
-                'label'   => esc_html__( 'Alignment', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::CHOOSE,
+            'caption_alignment', [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => array(
-                    'left'   => array(
-                        'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                    'left' => array(
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
                     'center' => array(
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-center',
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
                     ),
                     'right'  => array(
-                        'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 ),
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-image-caption .eead-caption-text' => 'text-align: {{VALUE}}',
                 ],
-            )
+            ]
         );
 
         $this->add_control(
@@ -517,70 +516,70 @@ class ScrollImage extends Widget_Base {
 	protected function render_image($settings) {
 		$image_url = Group_Control_Image_Size::get_attachment_image_src($settings['image']['id'], 'image_size', $settings);
 
-		if ( ! $image_url ) {
+		if (!$image_url) {
 			$image_url = $settings['image']['url'];
 		}
 
-		$frame      = $settings['frame'];
-		$max_width  = '1280';
+		$frame = $settings['frame'];
+		$max_width = '1280';
 		$max_height = '720';
 		
 		if ('desktop' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('safari' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('chrome' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('chrome-dark' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('firefox' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('edge' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('edge-dark' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '720';
 		} elseif ('macbookpro' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '815';
 		} elseif ('macbookair' === $frame) {
-			$max_width  = '1280';
+			$max_width = '1280';
 			$max_height = '810';
 		} elseif ('tablet' === $frame) {
-			$max_width  = '768';
+			$max_width = '768';
 			$max_height = '1024';
 		}
 
 		$this->add_render_attribute( 'image-wrapper', [
 			'class' => 'uk-responsive-width',
-			'uk-responsive' => 'width: ' . $max_width . '; height: ' . $max_height
+			'uk-responsive' => 'width: ' . esc_attr($max_width) . '; height: ' . esc_attr($max_height)
 		]);
 
-		if ( $settings['image_scroll_option'] == 'top-bottom' ) {
-			$this->add_render_attribute( 'image', 'class', 'eead-scroll-image eead-scroll-image-top-bottom' );
+		if ($settings['image_scroll_option'] == 'top-bottom') {
+			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-top-bottom');
 		} elseif ( $settings['image_scroll_option'] == 'bottom-top' ) {
-			$this->add_render_attribute( 'image', 'class', 'eead-scroll-image eead-scroll-image-bottom-top' );
+			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-bottom-top');
 		} elseif ( $settings['image_scroll_option'] == 'left-right' ) {
-			$this->add_render_attribute( 'image', 'class', 'eead-scroll-image eead-scroll-image-left-right' );
+			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-left-right');
 		} elseif ( $settings['image_scroll_option'] == 'right-left' ) {
-			$this->add_render_attribute( 'image', 'class', 'eead-scroll-image eead-scroll-image-right-left' );
+			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-right-left');
 		}
 
-		$this->add_render_attribute( 'image', 'style', 'background-image: url(' . esc_url($image_url) . ');' );
+		$this->add_render_attribute('image', 'style', 'background-image: url(' . esc_url($image_url) . ');');
 
-		if ( $settings['image_framing'] ) { ?>
+		if ($settings['image_framing']) { ?>
 			<div class="eead-slider-device-frame">
 				<img src="<?php echo EEAD_ASSETS_URL; ?>img/devices/<?php echo esc_attr( $frame ); ?>.svg" alt="">
-				<div <?php echo $this->get_render_attribute_string( 'image-wrapper' ); ?>>
+				<div <?php echo $this->get_render_attribute_string('image-wrapper'); ?>>
 			<?php } ?>
-				<div <?php echo $this->get_render_attribute_string( 'image' ); ?>></div>
-			<?php if ( $settings['image_framing'] ) { ?>
+				<div <?php echo $this->get_render_attribute_string('image'); ?>></div>
+			<?php if ($settings['image_framing']) { ?>
 				</div>
 			</div>
 		<?php 
@@ -591,79 +590,80 @@ class ScrollImage extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		if ( empty( $settings['image']['url'] ) ) {
+		if (empty($settings['image']['url'])) {
 			return;
 		}
-		$this->add_render_attribute( 'wrapper', 'class', 'eead-scroll-image-wrapper' );
+		$this->add_render_attribute('wrapper', 'class', 'eead-scroll-image-wrapper');
 		
-		if ( $settings['image_framing'] ) {
-			$this->add_render_attribute( 'wrapper', 'class', 'eead-device-slider eead-device-slider-' . esc_attr($settings['frame']) );
+		if ($settings['image_framing']) {
+			$this->add_render_attribute('wrapper', 'class', 'eead-device-slider eead-device-slider-' . esc_attr($settings['frame']));
 			$link_icon_position = 'center';
 		} else {
 			$link_icon_position = $settings['link_icon_position'];
 		}
 
-		if ( $settings['link_to'] !== '' ) {			
-			if ( $settings['link_to'] == 'lightbox' ) {
+		if ($settings['link_to'] !== '') {
+
+			if ($settings['link_to'] == 'lightbox') {
 				$link = $settings['image']['url'];
 			} else {
 				$link = $settings['external_link']['url'];
 			}
 
-			$this->add_render_attribute( 'link', [
+			$this->add_render_attribute('link', [
 				'href' => esc_url($link),
-				'class'=> 'eead-position-'  .esc_attr( $link_icon_position )
+				'class' => 'eead-position-' . esc_attr($link_icon_position)
 			]);
 
-			if ( $settings['link_icon'] ) {
-				$this->add_render_attribute( 'link', [
-					'class'    => 'eead-link-icon ',
+			if ($settings['link_icon']) {
+				$this->add_render_attribute('link', [
+					'class' => 'eead-link-icon ',
 				]);
 
-				$this->add_render_attribute( 'link-wrapper', [
-					'class'    => 'eead-link-wrapper ',
+				$this->add_render_attribute('link-wrapper', [
+					'class' => 'eead-link-wrapper ',
 				]);
 			}
 		}
 
-		if ( $settings['link_to'] === 'lightbox' ) {
+		if ($settings['link_to'] === 'lightbox') {
 
-			$this->add_render_attribute( 'link', [
+			$this->add_render_attribute('link', [
 				'class'	=> 'eead-scroll-image-lightbox-item'
 			]);
 		} 
-		else if ( $settings['link_to'] === 'modal' ) {
-			$this->add_render_attribute( 'link', [
+		else if ($settings['link_to'] === 'modal') {
+			$this->add_render_attribute('link', [
 				'class' => 'eead-scroll-image-iframe-modal',
 				'data-iframe' => 'true',
 				'data-src' => esc_url($link)
 			]);
 		}
 
-		$this->add_render_attribute( 'container', 'class', 'eead-scroll-image-container' );
+		$this->add_render_attribute('container', 'class', 'eead-scroll-image-container');
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
-			<?php if (( $settings['link_to'] !== '' ) && ( $settings['link_icon'] == '' )) { ?>
-				<a target="_blank" <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+		<div <?php echo $this->get_render_attribute_string('container'); ?>>
+			<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] == '')) { ?>
+				<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
 			<?php } ?>
 
-				<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-					<?php if ( !$settings['image_framing'] && !empty($settings['caption']) ) { ?>
+				<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+					<?php if (!$settings['image_framing'] && !empty($settings['caption'])) { ?>
 						<figure class="eead-image-caption">
 					<?php } ?>
 
-						<?php $this->render_image($settings); ?>
+					<?php $this->render_image($settings); ?>
 
-						<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
-							<div <?php echo $this->get_render_attribute_string( 'link-wrapper' ); ?>>
-								<a target="_blank" <?php echo $this->get_render_attribute_string( 'link' ); ?>>
-									<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
-								</a>
-							</div>
-						<?php } ?>
+					<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
+						<div <?php echo $this->get_render_attribute_string('link-wrapper'); ?>>
+							<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
+								<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
+							</a>
+						</div>
+					<?php } ?>
 
-					<?php if ( !$settings['image_framing'] && !empty($settings['caption']) ) { ?>
+					<?php if (!$settings['image_framing'] && !empty($settings['caption'])) { ?>
 							<figcaption class="eead-scroll-image-caption eead-caption-text">
 								<?php echo esc_attr($settings['caption']); ?>
 							</figcaption>
@@ -675,7 +675,7 @@ class ScrollImage extends Widget_Base {
 				</a>
 			<?php } ?>
 
-			<?php if ( $settings['badge'] && $settings['badge_text'] != '' ) : ?>
+			<?php if ($settings['badge'] && $settings['badge_text'] != '') : ?>
 				<div class="eead-scroll-image-badge">
 					<span class="eead-badge eead-padding-small"><?php echo esc_html($settings['badge_text']); ?></span>
 				</div>

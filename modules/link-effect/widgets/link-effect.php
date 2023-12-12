@@ -44,158 +44,148 @@ class LinkEffect extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_link_effects',
-            [
-                'label'                 => __( 'Link Effects', 'easy-elementor-addons' ),
+            'section_link_effects', [
+                'label' => __('Link Effects', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'text',
-            [
-                'label'                 => __( 'Text', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::TEXT,
-                'label_block'           => true,
-                'dynamic'               => [
-                    'active'   => true,
+            'text', [
+                'label' => __('Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'dynamic' => [
+                    'active' => true,
                 ],
-                'default'               => __( 'Click Here', 'easy-elementor-addons' ),
+                'default' => __('Click Here', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'secondary_text',
-            [
-                'label'                 => __( 'Secondary Text', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::TEXT,
-                'dynamic'               => [
-                    'active'   => true,
+            'secondary_text', [
+                'label' => __('Secondary Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => [
+                    'active' => true,
                 ],
-                'default'               => __( 'Click Here', 'easy-elementor-addons' ),
-                'condition'             => [
-                    'effect'    => 'effect-9',
+                'default' => __('Click Here', 'easy-elementor-addons'),
+                'condition' => [
+                    'effect' => 'effect-9',
                 ],
             ]
         );
 
         $this->add_control(
-            'link',
-            [
-                'label'                 => __( 'Link', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::URL,
-                'dynamic'               => [
-                    'active'   => true,
+            'link', [
+                'label' => __('Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::URL,
+                'dynamic' => [
+                    'active' => true,
                 ],
-                'placeholder'           => 'https://www.your-link.com',
-                'default'               => [
+                'placeholder' => 'https://www.your-link.com',
+                'default' => [
                     'url' => '#',
                 ],
             ]
         );
 
         $this->add_control(
-            'effect',
-            [
-                'label'                 => __( 'Animation Effect', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::SELECT,
-                'options'               => [
-                    'effect-1'  => __( 'Border Slide In', 'easy-elementor-addons' ),
-                    'effect-2'  => __( 'Border Slide Out', 'easy-elementor-addons' ),
-                    'effect-3'  => __( 'Brackets', 'easy-elementor-addons' ),
-                    'effect-4'  => __( '3D Cube', 'easy-elementor-addons' ),
-                    'effect-5'  => __( 'Duplicate Text Slide In', 'easy-elementor-addons' ),
-                    'effect-6'  => __( 'Right Angle Slides Down', 'easy-elementor-addons' ),
-                    'effect-7'  => __( 'Second Border Slides Up', 'easy-elementor-addons' ),
-                    'effect-8'  => __( 'Border Translate', 'easy-elementor-addons' ),
-                    'effect-9'  => __( 'Second Text and Borders', 'easy-elementor-addons' ),
-                    'effect-10' => __( 'Duplicate Text Slide Right', 'easy-elementor-addons' ),
-                    'effect-11' => __( 'Text Fill', 'easy-elementor-addons' ),
-                    'effect-12' => __( 'Circle', 'easy-elementor-addons' ),
-                    'effect-13' => __( 'Three Dots', 'easy-elementor-addons' ),
-                    'effect-14' => __( 'Border Switch', 'easy-elementor-addons' ),
-                    'effect-15' => __( 'Scale Down', 'easy-elementor-addons' ),
-                    'effect-16' => __( 'Fall Down', 'easy-elementor-addons' ),
-                    'effect-17' => __( 'Move Up and Push Border', 'easy-elementor-addons' ),
-                    'effect-18' => __( 'Cross Text', 'easy-elementor-addons' ),
-                    'effect-19' => __( '3D Cube Horizontal Side', 'easy-elementor-addons' ),
-                    'effect-20' => __( 'Flip Unfold', 'easy-elementor-addons' ),
-                    'effect-21' => __( 'Dual Borders Translate', 'easy-elementor-addons' ),
+            'effect', [
+                'label' => __('Animation Effect', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'effect-1' => __('Border Slide In', 'easy-elementor-addons'),
+                    'effect-2' => __('Border Slide Out', 'easy-elementor-addons'),
+                    'effect-3' => __('Brackets', 'easy-elementor-addons'),
+                    'effect-4' => __('3D Cube', 'easy-elementor-addons'),
+                    'effect-5' => __('Duplicate Text Slide In', 'easy-elementor-addons'),
+                    'effect-6' => __('Right Angle Slides Down', 'easy-elementor-addons'),
+                    'effect-7' => __('Second Border Slides Up', 'easy-elementor-addons'),
+                    'effect-8' => __('Border Translate', 'easy-elementor-addons'),
+                    'effect-9' => __('Second Text and Borders', 'easy-elementor-addons'),
+                    'effect-10' => __( 'Duplicate Text Slide Right', 'easy-elementor-addons'),
+                    'effect-11' => __( 'Text Fill', 'easy-elementor-addons'),
+                    'effect-12' => __( 'Circle', 'easy-elementor-addons'),
+                    'effect-13' => __( 'Three Dots', 'easy-elementor-addons'),
+                    'effect-14' => __( 'Border Switch', 'easy-elementor-addons'),
+                    'effect-15' => __( 'Scale Down', 'easy-elementor-addons'),
+                    'effect-16' => __( 'Fall Down', 'easy-elementor-addons'),
+                    'effect-17' => __( 'Move Up and Push Border', 'easy-elementor-addons'),
+                    'effect-18' => __( 'Cross Text', 'easy-elementor-addons'),
+                    'effect-19' => __( '3D Cube Horizontal Side', 'easy-elementor-addons'),
+                    'effect-20' => __( 'Flip Unfold', 'easy-elementor-addons'),
+                    'effect-21' => __( 'Dual Borders Translate', 'easy-elementor-addons'),
                 ],
-                'default'               => 'effect-1',
+                'default' => 'effect-1',
             ]
         );
 
         $this->end_controls_section();
 
-       
         $this->start_controls_section(
-            'section_style',
-            [
-                'label'                 => __( 'Link Effects', 'easy-elementor-addons' ),
-                'tab'                   => Controls_Manager::TAB_STYLE,
+            'section_style', [
+                'label' => __('Link Effects', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'align',
-            [
-                'label'                 => __( 'Alignment', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::CHOOSE,
-                'options'               => [
-                    'left'      => [
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-left',
+            'align', [
+                'label' => __('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => __('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
                     ],
-                    'center'    => [
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-center',
+                    'center' => [
+                        'title' => __('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
                     ],
-                    'right'     => [
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-right',
+                    'right' => [
+                        'title' => __('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
                     ],
-                    'justify'   => [
-                        'title' => __( 'Justified', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-text-align-justify',
+                    'justify' => [
+                        'title' => __('Justified', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-justify',
                     ],
                 ],
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}}'   => 'text-align: {{VALUE}};',
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'                  => 'typography',
-                'label'                 => __( 'Typography', 'easy-elementor-addons' ),
-                'selector'              => '{{WRAPPER}} a.eead-link',
+            Group_Control_Typography::get_type(), [
+                'name' => 'typography',
+                'label' => __('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} a.eead-link',
             ]
         );
 
         $this->add_responsive_control(
-            'divider_title_width',
-            [
-                'label'                 => __( 'Width', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'  => 200,
+            'divider_title_width', [
+                'label' => __('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 200,
                 ],
-                'range'                 => [
+                'range' => [
                     'px' => [
-                        'min'   => 1,
-                        'max'   => 1000,
-                        'step'  => 1,
+                        'min' => 1,
+                        'max' => 1000,
+                        'step' => 1,
                     ],
                 ],
-                'size_units'            => [ 'px', '%' ],
-                'selectors'             => [
+                'size_units' => ['px', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-link-effect-19' => 'width: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}} .eead-link-effect-19 span' => 'transform-origin: 50% 50% calc(-{{SIZE}}{{UNIT}}/2)',
                 ],
-                'condition'             => [
+                'condition' => [
                     'effect' => 'effect-19',
                 ],
             ]
@@ -204,43 +194,39 @@ class LinkEffect extends Widget_Base {
         $this->start_controls_tabs( 'tabs_link_style' );
 
         $this->start_controls_tab(
-            'tab_link_normal',
-            [
-                'label'                 => __( 'Normal', 'easy-elementor-addons' ),
+            'tab_link_normal', [
+                'label' => __('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link_color_normal',
-            [
-                'label'                 => __( 'Link Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'link_color_normal', [
+                'label' => __('Link Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} a.eead-link, {{WRAPPER}} .eead-link-effect-10 span, {{WRAPPER}} .eead-link-effect-15:before, {{WRAPPER}} .eead-link-effect-16, {{WRAPPER}} .eead-link-effect-17:before' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'background_color_normal',
-            [
-                'label'                 => __( 'Background Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'background_color_normal', [
+                'label' => __('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} .eead-link-effect-4 span, {{WRAPPER}} .eead-link-effect-10 span, {{WRAPPER}} .eead-link-effect-19 span, {{WRAPPER}} .eead-link-effect-20 span' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'link_border_color',
-            [
-                'label'                 => __( 'Border Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'link_border_color', [
+                'label' => __('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} .eead-link-effect-8:before' => 'border-color: {{VALUE}};',
                     '{{WRAPPER}} .eead-link-effect-11' => 'border-top-color: {{VALUE}};',
                     '{{WRAPPER}} .eead-link-effect-1:after, {{WRAPPER}} .eead-link-effect-2:after, {{WRAPPER}} .eead-link-effect-6:before, {{WRAPPER}} .eead-link-effect-6:after, {{WRAPPER}} .eead-link-effect-7:before, {{WRAPPER}} .eead-link-effect-7:after, {{WRAPPER}} .eead-link-effect-14:before, {{WRAPPER}} .eead-link-effect-14:after, {{WRAPPER}} .eead-link-effect-18:before, {{WRAPPER}} .eead-link-effect-18:after' => 'background: {{VALUE}};',
@@ -253,43 +239,39 @@ class LinkEffect extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_link_hover',
-            [
-                'label'                 => __( 'Hover', 'easy-elementor-addons' ),
+            'tab_link_hover', [
+                'label' => __('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link_color_hover',
-            [
-                'label'                 => __( 'Link Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'link_color_hover', [
+                'label' => __('Link Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} a.eead-link:hover, {{WRAPPER}} .eead-link-effect-10:before, {{WRAPPER}} .eead-link-effect-11:before, {{WRAPPER}} .eead-link-effect-15, {{WRAPPER}} .eead-link-effect-16:before, {{WRAPPER}} .eead-link-effect-20 span:before' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'background_color_hover',
-            [
-                'label'                 => __( 'Background Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'background_color_hover', [
+                'label' => __('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} .eead-link-effect-4 span:before, {{WRAPPER}} .eead-link-effect-10:before, {{WRAPPER}} .eead-link-effect-19 span:before, {{WRAPPER}} .eead-link-effect-20 span:before' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'link_border_color_hover',
-            [
-                'label'                 => __( 'Border Color', 'easy-elementor-addons' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
+            'link_border_color_hover', [
+                'label' => __('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
                     '{{WRAPPER}} .eead-link-effect-8:after' => 'border-color: {{VALUE}};',
                     '{{WRAPPER}} .eead-link-effect-11:before' => 'border-bottom-color: {{VALUE}};',
                     '{{WRAPPER}} .eead-link-effect-9:before, {{WRAPPER}} .eead-link-effect-9:after, {{WRAPPER}} .eead-link-effect-14:hover:before, {{WRAPPER}} .eead-link-effect-14:focus:before, {{WRAPPER}} .eead-link-effect-14:hover:after, {{WRAPPER}} .eead-link-effect-14:focus:after, {{WRAPPER}} .eead-link-effect-17:after, {{WRAPPER}} .eead-link-effect-18:hover:before, {{WRAPPER}} .eead-link-effect-18:focus:before, {{WRAPPER}} .eead-link-effect-18:hover:after, {{WRAPPER}} .eead-link-effect-18:focus:after, {{WRAPPER}} .eead-link-effect-21:before, {{WRAPPER}} .eead-link-effect-21:after' => 'background: {{VALUE}};',
@@ -314,31 +296,24 @@ class LinkEffect extends Widget_Base {
         $effect_one = ['effect-4', 'effect-5', 'effect-19', 'effect-20'];
         $effect_two = ['effect-10','effect-11','effect-15','effect-16','effect-17','effect-18'];
 
-        if(in_array($settings['effect'], $effect_one)) {
-            $this->add_render_attribute( 'eead-link-text', 'data-hover', $link_text );
+        if (in_array($settings['effect'], $effect_one)) {
+            $this->add_render_attribute('eead-link-text', 'data-hover', $link_text);
         }
-        else if( in_array($settings['effect'], $effect_two) ) {
-            $this->add_render_attribute( 'eead-link-text-2', 'data-hover', $link_text );
+        else if (in_array($settings['effect'], $effect_two)) {
+            $this->add_render_attribute('eead-link-text-2', 'data-hover', $link_text);
         }
         ?>
-        <a href='<?php echo esc_url($link); ?>' 
-           class= 'eead-link eead-link-<?php echo $settings['effect']; ?>' 
-           <?php echo $this->get_render_attribute_string( 'eead-link-text-2' ); ?>>
-
-            <span <?php echo $this->get_render_attribute_string( 'eead-link-text' ); ?>>
+        <a href="<?php echo esc_url($link); ?>" class="eead-link eead-link-<?php echo esc_attr($settings['effect']); ?>" <?php echo $this->get_render_attribute_string('eead-link-text-2'); ?>>
+            <span <?php echo $this->get_render_attribute_string('eead-link-text'); ?>>
                 <?php echo esc_html($link_text); ?>
             </span>
 
-            <?php if ( $settings['effect'] === 'effect-9' ) { ?>
+            <?php if ($settings['effect'] === 'effect-9') { ?>
                 <span>
-                    <?php echo esc_attr( $link_secondary_text ); ?>
+                    <?php echo esc_attr($link_secondary_text); ?>
                 </span>
             <?php } ?>
-
         </a>
         <?php
     }
-
-  
-
 }

@@ -473,7 +473,7 @@ class SocialShare extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'text_typography',
-            'label' => esc_html__('Typography', 'total-plus'),
+            'label' => esc_html__('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-social-share-container a',
                 ]
         );
@@ -519,7 +519,7 @@ class SocialShare extends Widget_Base {
         $url = get_the_permalink();
         $icon_alignment_class = 'eead-ssc-align-' . $settings['icon_alignment'];
 
-        echo '<div class="eead-social-share-container ' . $icon_alignment_class . '">';
+        echo '<div class="eead-social-share-container ' . esc_attr($icon_alignment_class) . '">';
 
         if ($facebook == 'yes') {
             echo '<a target="_blank" class="eead-social-share-link eead-facebook" href="http://www.facebook.com/sharer/sharer.php?u=' . esc_url($url) . '&amp;t=' . esc_html($title) . '">';
@@ -528,7 +528,7 @@ class SocialShare extends Widget_Base {
             echo '</a>';
         }
         if ($twitter == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-twitter" href="https://twitter.com/intent/tweet?text=' . esc_html($title) . '&url=' . $url . '">';
+            echo '<a target="_blank" class="eead-social-share-link eead-twitter" href="https://twitter.com/intent/tweet?text=' . esc_html($title) . '&url=' . esc_url($url) . '">';
             echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-twitter"></i>' : null;
             echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Twitter', 'easy-elementor-addons') . '</span>' : null;
             echo '</a>';
