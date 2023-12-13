@@ -5,7 +5,7 @@ namespace EasyElementorAddons\Modules\LogoCarousel\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Image_Size
+use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Group_Control_Background;

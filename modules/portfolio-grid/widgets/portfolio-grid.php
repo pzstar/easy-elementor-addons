@@ -1571,7 +1571,7 @@ class PortfolioGrid extends Widget_Base {
         $settings_id = $this->get_id();
         if ($settings['list2']) {
             ?>
-            <form id="tmea_fpg_form-<?php echo $settings_id; ?>" name="tmea_fpg_form-<?php echo $settings_id; ?>" class="eead-fpg-toolbar">
+            <form id="tmea_fpg_form-<?php echo esc_attr($settings_id); ?>" name="tmea_fpg_form-<?php echo esc_attr($settings_id); ?>" class="eead-fpg-toolbar">
             <?php if ($settings['filter_menu']) { ?>
                 <ul class="eead-fpg-search-wrapper">
                     <li class="eead-fpg-mobile-icon">
@@ -1581,8 +1581,8 @@ class PortfolioGrid extends Widget_Base {
                     </li>
                     <?php foreach ($settings['list2'] as $item) { ?> 
                         <li>
-                            <input id="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" type="radio" <?php checked((isset($item['filter_default']) && $item['filter_default']), true); ?> name="filter" value="<?php echo esc_attr($item['filter_id']); ?>" style="display:none">
-                            <label for="eead-fpg-filter-<?php echo $settings_id; ?>-<?php echo esc_attr($item['filter_id']); ?>" class="<?php echo (isset($item['filter_default']) && $item['filter_default']) ? 'active' : ''); ?>">
+                            <input id="eead-fpg-filter-<?php echo esc_attr($settings_id); ?>-<?php echo esc_attr($item['filter_id']); ?>" type="radio" <?php checked((isset($item['filter_default']) && $item['filter_default']), true); ?> name="filter" value="<?php echo esc_attr($item['filter_id']); ?>" style="display:none">
+                            <label for="eead-fpg-filter-<?php echo esc_attr($settings_id); ?>-<?php echo esc_attr($item['filter_id']); ?>" class="<?php echo ((isset($item['filter_default']) && $item['filter_default']) ? 'active' : ''); ?>">
                                 <?php echo esc_html($item['filter_name']); ?>
                             </label>
                         </li>

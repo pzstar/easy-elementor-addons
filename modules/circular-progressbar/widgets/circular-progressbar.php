@@ -40,22 +40,21 @@ class CircularProgressbar extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'waypoint' ];
+        return ['waypoint'];
     }
 
     /** Controls */
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
-                'label' => esc_html__( 'Circular Progressbar', 'easy-elementor-addons' ),
+            'section_content', [
+                'label' => esc_html__('Circular Progressbar', 'easy-elementor-addons'),
             ]
         );
 
        $this->add_control(
             'progressbar_title', [
-                'label' => __( 'Title', 'easy-elementor-addons' ),
+                'label' => __('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => __('Progress', 'easy-elementor-addons')
@@ -63,9 +62,8 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'progressbar_percentage',
-            [
-                'label' => __( 'Percentage', 'easy-elementor-addons' ),
+            'progressbar_percentage', [
+                'label' => __('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 100,
@@ -229,25 +227,24 @@ class CircularProgressbar extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-
-        <div class="eead-circular-progressbar" data-number='<?php echo esc_attr($settings['progressbar_percentage']); ?>'>
-                <div class="eead-circular-progressbar-box">
-                    <div class="percent">
-                        <svg>
-                            <circle cx="70" cy="70" r="70"></circle>
-                            <circle cx="70" cy="70" r="70"></circle>
-                        </svg>
-                        <div class="number">
-                            <h2>
-                                <?php echo esc_html($settings['progressbar_percentage']); ?>
-                                <span>%</span>
-                            </h2>
-                        </div>
+        <div class="eead-circular-progressbar" data-number="<?php echo esc_attr($settings['progressbar_percentage']); ?>">
+            <div class="eead-circular-progressbar-box">
+                <div class="percent">
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    </svg>
+                    <div class="number">
+                        <h2>
+                            <?php echo esc_html($settings['progressbar_percentage']); ?>
+                            <span>%</span>
+                        </h2>
                     </div>
-                    <h2 class="text">
-                        <?php echo esc_html($settings['progressbar_title']) ?>
-                    </h2>
-                </div>  
+                </div>
+                <h2 class="text">
+                    <?php echo esc_html($settings['progressbar_title']); ?>
+                </h2>
+            </div>
         </div>
         <?php
     }

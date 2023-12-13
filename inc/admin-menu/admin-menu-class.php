@@ -98,7 +98,7 @@ class AdminClass {
         ?>
 
         <div class="eead-widget-wrap">
-            <span><?php _e($label, 'easy-elementor-addons') ?></span>
+            <span><?php esc_html($label) ?></span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo $val ?>" <?php echo $selected; ?>>
                 <label></label>
@@ -119,7 +119,7 @@ class AdminClass {
         ?>
 
         <div class="eead-extender-wrap">
-            <span><?php _e($label, 'easy-elementor-addons') ?></span>
+            <span><?php esc_html($label) ?></span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo $val ?>" <?php echo $selected; ?>>
                 <label></label>

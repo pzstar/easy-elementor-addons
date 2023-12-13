@@ -27,7 +27,7 @@ class Charts extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Charts', 'easy-elementor-addons');
+        return __('Charts', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -41,525 +41,481 @@ class Charts extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'chart' ];
+        return ['chart'];
     }
 
     /** Controls */
     protected function register_controls() {// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 
         $this->start_controls_section(
-            'general_settings',
-            array(
-                'label' => __( 'Charts', 'easy-elementor-addons' ),
-            )
+            'general_settings', [
+                'label' => __('Charts', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'data_source',
-            array(
-                'label'   => __( 'Data Source', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'data_source', [
+                'label' => __('Data Source', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'custom',
                 'options' => array(
-                    'custom' => __( 'Custom', 'easy-elementor-addons' ),
-                    'csv'    => 'CSV' . __( ' File', 'easy-elementor-addons' ),
+                    'custom' => __('Custom', 'easy-elementor-addons'),
+                    'csv' => __('CSV File', 'easy-elementor-addons'),
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'type',
-            array(
-                'label'       => __( 'Layout', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'options'     => array(
-                    'line'          => __( 'Line', 'easy-elementor-addons' ),
-                    'bar'           => __( 'Bar', 'easy-elementor-addons' ),
-                    'horizontalBar' => __( 'Horizontal Bar', 'easy-elementor-addons' ),
-                    'pie'           => __( 'Pie', 'easy-elementor-addons' ),
-                    'radar'         => __( 'Radar', 'easy-elementor-addons' ),
-                    'doughnut'      => __( 'Doughnut', 'easy-elementor-addons' ),
-                    'polarArea'     => __( 'Polar Area', 'easy-elementor-addons' ),
+            'type', [
+                'label' => __('Layout', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'line' => __('Line', 'easy-elementor-addons'),
+                    'bar' => __('Bar', 'easy-elementor-addons'),
+                    'horizontalBar' => __('Horizontal Bar', 'easy-elementor-addons'),
+                    'pie' => __('Pie', 'easy-elementor-addons'),
+                    'radar' => __('Radar', 'easy-elementor-addons'),
+                    'doughnut' => __('Doughnut', 'easy-elementor-addons'),
+                    'polarArea' => __('Polar Area', 'easy-elementor-addons'),
 
                 ),
-                'default'     => 'bar',
+                'default' => 'bar',
                 'label_block' => true,
-            )
+            ]
         );
 
         $this->add_control(
-            'csv_type',
-            array(
-                'label'     => __( 'File Type', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SELECT,
-                'options'   => array(
-                    'file' => __( 'Upload FIle', 'easy-elementor-addons' ),
-                    'url'  => __( 'Remote File', 'easy-elementor-addons' ),
+            'csv_type', [
+                'label' => __('File Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'file' => __('Upload FIle', 'easy-elementor-addons'),
+                    'url' => __('Remote File', 'easy-elementor-addons'),
                 ),
                 'condition' => array(
                     'data_source' => 'csv',
                 ),
-                'default'   => 'file',
-            )
+                'default' => 'file',
+            ]
         );
 
         $this->add_control(
-            'eead_chart_separator',
-            array(
-                'label'       => __( 'Data Separator', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'description' => __( 'Separator between cells data', 'easy-elementor-addons' ),
+            'eead_chart_separator', [
+                'label' => __('Data Separator', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'description' => __('Separator between cells data', 'easy-elementor-addons'),
                 'label_block' => true,
-                'default'     => ',',
-                'condition'   => array(
+                'default' => ',',
+                'condition' => array(
                     'data_source' => 'csv',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'csv_file',
-            array(
-                'label'      => __( 'Upload CSV File', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::MEDIA,
-                'dynamic'    => array( 'active' => true ),
+            'csv_file', [
+                'label' => __('Upload CSV File', 'easy-elementor-addons'),
+                'type' => Controls_Manager::MEDIA,
+                'dynamic' => array('active' => true),
                 'media_type' => array(),
-                'condition'  => array(
+                'condition' => array(
                     'data_source' => 'csv',
-                    'csv_type'    => 'file',
+                    'csv_type' => 'file',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'csv_url',
-            array(
-                'label'       => __( 'File URL', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => array( 'active' => true ),
+            'csv_url', [
+                'label' => __('File URL', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array('active' => true),
                 'label_block' => true,
-                'condition'   => array(
+                'condition' => array(
                     'data_source' => 'csv',
-                    'csv_type'    => 'url',
+                    'csv_type' => 'url',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'x_axis',
-            array(
-                'label' => __( 'X-Axis', 'easy-elementor-addons' ),
-            )
+            'x_axis', [
+                'label' => __('X-Axis', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'x_axis_label_switch',
-            array(
-                'label'        => __( 'Show Axis Label', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'x_axis_label_switch', [
+                'label' => __('Show Axis Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'description'  => __( 'Show or Hide X-Axis Label', 'easy-elementor-addons' ),
-            )
+                'description' => __('Show or Hide X-Axis Label', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'x_axis_label',
-            array(
-                'label'       => __( 'Label', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => array( 'active' => true ),
-                'default'     => 'X-Axis',
+            'x_axis_label', [
+                'label' => __('Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array( 'active' => true ),
+                'default' => 'X-Axis',
                 'label_block' => true,
-                'condition'   => array(
+                'condition' => array(
                     'x_axis_label_switch' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'x_axis_labels',
-            array(
-                'label'       => __( 'Data Labels', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => array( 'active' => true ),
-                'default'     => 'Jan,Feb,Mar,Apr,May',
-                'description' => __( 'Enter labels for X-Axis separated with \' , \' ', 'easy-elementor-addons' ),
+            'x_axis_labels', [
+                'label' => __('Data Labels', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array( 'active' => true ),
+                'default' => 'Jan,Feb,Mar,Apr,May',
+                'description' => __('Enter labels for X-Axis separated with \' , \' ', 'easy-elementor-addons'),
                 'label_block' => true,
-                'condition'   => array(
+                'condition' => array(
                     'data_source' => 'custom',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'x_axis_grid',
-            array(
-                'label'        => __( 'Show Grid Lines', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'x_axis_grid', [
+                'label' => __('Show Grid Lines', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'default'      => 'true',
-                'description'  => __( 'Show or Hide X-Axis Grid Lines', 'easy-elementor-addons' ),
-            )
+                'default' => 'true',
+                'description' => __('Show or Hide X-Axis Grid Lines', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'x_axis_begin',
-            array(
-                'label'        => __( 'Begin at Zero', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
+            'x_axis_begin', [
+                'label' => __('Begin at Zero', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
-                'description'  => __( 'Start X-Axis Labels at zero', 'easy-elementor-addons' ),
-            )
+                'description' => __('Start X-Axis Labels at zero', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'x_axis_label_rotation',
-            array(
-                'label'   => __( 'Labels\' Rotation ', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 360,
+            'x_axis_label_rotation', [
+                'label' => __('Labels\' Rotation ', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 360,
                 'default' => 0,
-            )
+            ]
         );
 
         $this->add_control(
-            'x_column_width',
-            array(
-                'label'     => __( 'Column Width', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => array(
+            'x_column_width', [
+                'label' => __('Column Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => array(
                     'px' => array(
-                        'min'  => 0,
-                        'max'  => 1,
+                        'min' => 0,
+                        'max' => 1,
                         'step' => 0.1,
                     ),
                 ),
                 'condition' => array(
                     'type' => 'bar',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'y_axis',
-            array(
-                'label' => __( 'Y-Axis', 'easy-elementor-addons' ),
-            )
+            'y_axis', [
+                'label' => __('Y-Axis', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'y_axis_label_switch',
-            array(
-                'label'        => __( 'Show Axis Label', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'y_axis_label_switch', [
+                'label' => __('Show Axis Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'description'  => __( 'Show or Hide Y-Axis Label', 'easy-elementor-addons' ),
-            )
+                'description' => __('Show or Hide Y-Axis Label', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'y_axis_label',
-            array(
-                'label'       => __( 'Label', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'dynamic'     => array( 'active' => true ),
-                'default'     => 'Y-Axis',
+            'y_axis_label', [
+                'label' => __('Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array('active' => true),
+                'default' => 'Y-Axis',
                 'label_block' => true,
-                'condition'   => array(
+                'condition' => array(
                     'y_axis_label_switch' => 'true',
                 ),
-            )
+            ]
         );
 
         $data_repeater = new REPEATER();
 
         $data_repeater->add_control(
-            'y_axis_column_title',
-            array(
-                'label'   => __( 'Title', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::TEXT,
-                'dynamic' => array( 'active' => true ),
-            )
+            'y_axis_column_title', [
+                'label' => __('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array('active' => true),
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_column_data',
-            array(
-                'label'       => __( 'Data', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'description' => __( 'Enter Data Numbers for Y-Axis separated with \' , \' ', 'easy-elementor-addons' ),
-                'dynamic'     => array( 'active' => true ),
-
-            )
+            'y_axis_column_data', [
+                'label' => __( 'Data', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::TEXT,
+                'description' => __('Enter Data Numbers for Y-Axis separated with \' , \' ', 'easy-elementor-addons'),
+                'dynamic' => array('active' => true),
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_urls',
-            array(
-                'label'       => __( 'URLs', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'description' => __( 'Enter URLs for each Dataset separated with \' , \' ', 'easy-elementor-addons' ),
+            'y_axis_urls', [
+                'label' => __('URLs', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'description' => __('Enter URLs for each Dataset separated with \' , \' ', 'easy-elementor-addons'),
                 'label_block' => true,
-            )
+            ]
         );
 
         $data_repeater->add_control(
-            'fill_colors_notice',
-            array(
-                'raw'             => '<strong>' . __( 'Please note!', 'easy-elementor-addons' ) . '</strong> ' . __( 'First/Second Fill Color options used together to add a gradient for all charts except Pie, Dounut and Polar Area, Fill Colors option used to add multiple colors, but please make sure First/Second Color options are cleared.', 'easy-elementor-addons' ),
-                'type'            => Controls_Manager::RAW_HTML,
+            'fill_colors_notice', [
+                'raw' => '<strong>' . esc_html__('Please note!', 'easy-elementor-addons') . '</strong> ' . esc_html__('First/Second Fill Color options used together to add a gradient for all charts except Pie, Dounut and Polar Area, Fill Colors option used to add multiple colors, but please make sure First/Second Color options are cleared.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::RAW_HTML,
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
-            )
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_column_color',
-            array(
-                'label' => __( 'First Fill Color', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::COLOR,
-            )
+            'y_axis_column_color', [
+                'label' => __('First Fill Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_column_second_color',
-            array(
-                'label' => __( 'Second Fill Color', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::COLOR,
-            )
+            'y_axis_column_second_color', [
+                'label' => __('Second Fill Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_circle_color',
-            array(
-                'label'       => __( 'Fill Colors', 'easy-elementor-addons' ),
-                'description' => __( 'Enter Colors separated with \' , \', this will work only for pie, doughnut and polar area charts ', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'default'     => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
-                'dynamic'     => array( 'active' => true ),
+            'y_axis_circle_color', [
+                'label' => __('Fill Colors', 'easy-elementor-addons'),
+                'description' => __('Enter Colors separated with \' , \', this will work only for pie, doughnut and polar area charts ', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
+                'dynamic' => array('active' => true),
                 'label_block' => true,
-            )
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_column_border_width',
-            array(
-                'label'   => __( 'Border Width', 'easy-elementor-addons' ),
+            'y_axis_column_border_width', [
+                'label' => __('Border Width', 'easy-elementor-addons'),
                 'default' => 1,
-                'type'    => Controls_Manager::NUMBER,
-            )
+                'type' => Controls_Manager::NUMBER,
+            ]
         );
 
         $data_repeater->add_control(
-            'y_axis_column_border_color',
-            array(
-                'label'   => __( 'Border Color', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::COLOR,
+            'y_axis_column_border_color', [
+                'label' => __('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
-            )
+            ]
         );
 
         $this->add_control(
-            'y_axis_data',
-            array(
-                'label'     => __( 'Data', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::REPEATER,
-                'default'   => array(
+            'y_axis_data', [
+                'label' => __('Data', 'easy-elementor-addons'),
+                'type' => Controls_Manager::REPEATER,
+                'default' => array(
                     array(
-                        'y_axis_column_title' => __( 'Dataset #1', 'easy-elementor-addons' ),
-                        'y_axis_column_data'  => '1,5,2,3,7',
+                        'y_axis_column_title' => __('Dataset #1', 'easy-elementor-addons'),
+                        'y_axis_column_data' => '1,5,2,3,7',
                         'y_axis_column_color' => '#6ec1e4',
                     ),
                     array(
-                        'y_axis_column_title' => __( 'Dataset #2', 'easy-elementor-addons' ),
-                        'y_axis_column_data'  => '2,10,1,5,4',
+                        'y_axis_column_title' => __('Dataset #2', 'easy-elementor-addons'),
+                        'y_axis_column_data' => '2,10,1,5,4',
                         'y_axis_column_color' => '#54595F',
 
                     ),
                 ),
-                'fields'    => $data_repeater->get_controls(),
+                'fields' => $data_repeater->get_controls(),
                 'condition' => array(
                     'data_source' => 'custom',
                 ),
-            )
+            ]
         );
 
-        $csv_repeater = new REPEATER();
+        $csv_repeater = new Repeater();
 
         $csv_repeater->add_control(
-            'dataset_title',
-            array(
-                'label'   => __( 'Title', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::TEXT,
+            'dataset_title', [
+                'label' => __('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'dynamic' => array('active' => true),
+            ]
+        );
+
+        $csv_repeater->add_control(
+            'dataset_color', [
+                'label' => __('Fill Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+            ]
+        );
+
+        $csv_repeater->add_control(
+            'circle_color', [
+                'label' => __('Fill Colors', 'easy-elementor-addons'),
+                'description' => __('Enter Colors separated with \' , \', this will work only for pie, doughnut and polar area charts ', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
                 'dynamic' => array( 'active' => true ),
-            )
-        );
-
-        $csv_repeater->add_control(
-            'dataset_color',
-            array(
-                'label' => __( 'Fill Color', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::COLOR,
-            )
-        );
-
-        $csv_repeater->add_control(
-            'circle_color',
-            array(
-                'label'       => __( 'Fill Colors', 'easy-elementor-addons' ),
-                'description' => __( 'Enter Colors separated with \' , \', this will work only for pie, doughnut and polar area charts ', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'default'     => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
-                'dynamic'     => array( 'active' => true ),
                 'label_block' => true,
-            )
+            ]
         );
 
         $csv_repeater->add_control(
-            'border_width',
-            array(
-                'label'   => __( 'Border Width', 'easy-elementor-addons' ),
+            'border_width', [
+                'label' => __('Border Width', 'easy-elementor-addons'),
                 'default' => 1,
-                'type'    => Controls_Manager::NUMBER,
-            )
+                'type' => Controls_Manager::NUMBER,
+            ]
         );
 
         $csv_repeater->add_control(
-            'dataset_border_color',
-            array(
-                'label'   => __( 'Border Color', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::COLOR,
+            'dataset_border_color', [
+                'label' => __('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
-            )
+            ]
         );
 
         $this->add_control(
-            'dataset_repeater',
-            array(
-                'label'     => __( 'Data', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::REPEATER,
-                'default'   => array(
+            'dataset_repeater', [
+                'label' => __('Data', 'easy-elementor-addons'),
+                'type' => Controls_Manager::REPEATER,
+                'default' => array(
                     array(
-                        'dataset_title' => __( 'Dataset #1', 'easy-elementor-addons' ),
+                        'dataset_title' => __('Dataset #1', 'easy-elementor-addons'),
                         'dataset_color' => '#6ec1e4',
                     ),
                     array(
-                        'dataset_title' => __( 'Dataset #2', 'easy-elementor-addons' ),
+                        'dataset_title' => __('Dataset #2', 'easy-elementor-addons'),
                         'dataset_color' => '#54595F',
-
                     ),
                 ),
-                'fields'    => $csv_repeater->get_controls(),
+                'fields' => $csv_repeater->get_controls(),
                 'condition' => array(
                     'data_source' => 'csv',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'data_type',
-            array(
-                'label'     => __( 'Data Type', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SELECT,
-                'options'   => array(
-                    'linear'      => __( 'Linear', 'easy-elementor-addons' ),
-                    'logarithmic' => __( 'Logarithmic', 'easy-elementor-addons' ),
+            'data_type', [
+                'label' => __('Data Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'linear' => __('Linear', 'easy-elementor-addons'),
+                    'logarithmic' => __('Logarithmic', 'easy-elementor-addons'),
                 ),
-                'default'   => 'linear',
+                'default' => 'linear',
                 'condition' => array(
                     'type!' => 'horizontalBar',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'y_axis_grid',
-            array(
-                'label'        => __( 'Show Grid Lines', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'y_axis_grid', [
+                'label' => __('Show Grid Lines', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'default'      => 'true',
-                'description'  => __( 'Show or Hide Y-Axis Grid Lines', 'easy-elementor-addons' ),
-            )
+                'default' => 'true',
+                'description' => __('Show or Hide Y-Axis Grid Lines', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'y_axis_begin',
-            array(
-                'label'        => __( 'Begin at Zero', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'default'      => 'true',
+            'y_axis_begin', [
+                'label' => __('Begin at Zero', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'true',
                 'return_value' => 'true',
-                'description'  => __( 'Start Y-Axis Data at zero', 'easy-elementor-addons' ),
-            )
+                'description' => __('Start Y-Axis Data at zero', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'y_axis_urls_target',
-            array(
-                'label'        => __( 'Open Links in new tab', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'y_axis_urls_target', [
+                'label' => __('Open Links in new tab', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'default'      => 'true',
-                'condition'    => array(
+                'default' => 'true',
+                'condition' => array(
                     'data_source' => 'custom',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_content',
-            array(
-                'label' => __( 'Title', 'easy-elementor-addons' ),
-            )
+            'title_content', [
+                'label' => __('Title', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'title_switcher',
-            array(
-                'label'        => __( 'Title', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
+            'title_switcher', [
+                'label' => __('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
-            )
+            ]
         );
 
         $this->add_control(
-            'title',
-            array(
-                'label'       => __( 'Title', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::TEXT,
-                'description' => __( 'Enter a Title for the Chart', 'easy-elementor-addons' ),
+            'title', [
+                'label' => __('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'description' => __('Enter a Title for the Chart', 'easy-elementor-addons'),
                 'label_block' => true,
-                'dynamic'     => array( 'active' => true ),
-                'condition'   => array(
+                'dynamic' => array('active' => true),
+                'condition' => array(
                     'title_switcher' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'title_tag',
-            array(
-                'label'       => __( 'HTML Tag', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => 'h3',
-                'options'     => array(
+            'title_tag', [
+                'label' => __('HTML Tag', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h3',
+                'options' => array(
                     'h1' => 'H1',
                     'h2' => 'H2',
                     'h3' => 'H3',
@@ -568,595 +524,549 @@ class Charts extends Widget_Base {
                     'h6' => 'H6',
                 ),
                 'label_block' => true,
-                'condition'   => array(
-                    'title_switcher' => 'true',
-                ),
-            )
-        );
-
-        $this->add_control(
-            'title_position',
-            array(
-                'label'     => __( 'Position', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SELECT,
-                'options'   => array(
-                    'top'    => __( 'Top', 'easy-elementor-addons' ),
-                    'bottom' => __( 'Bottom', 'easy-elementor-addons' ),
-                ),
-                'default'   => 'top',
                 'condition' => array(
                     'title_switcher' => 'true',
                 ),
-            )
+            ]
+        );
+
+        $this->add_control(
+            'title_position', [
+                'label' => __('Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'top' => __('Top', 'easy-elementor-addons'),
+                    'bottom' => __('Bottom', 'easy-elementor-addons'),
+                ),
+                'default' => 'top',
+                'condition' => array(
+                    'title_switcher' => 'true',
+                ),
+            ]
         );
 
         $this->add_responsive_control(
-            'title_align',
-            array(
-                'label'     => __( 'Alignment', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::CHOOSE,
-                'options'   => array(
-                    'left'   => array(
-                        'title' => __( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-left',
+            'title_align', [
+                'label' => __('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => array(
+                    'left' => array(
+                        'title' => __('Left', 'easy-elementor-addons'),
+                        'icon' => 'fa fa-align-left',
                     ),
                     'center' => array(
-                        'title' => __( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-center',
+                        'title' => __('Center', 'easy-elementor-addons'),
+                        'icon' => 'fa fa-align-center',
                     ),
                     'right'  => array(
-                        'title' => __( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'fa fa-align-right',
+                        'title' => __('Right', 'easy-elementor-addons'),
+                        'icon' => 'fa fa-align-right',
                     ),
                 ),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title' => 'text-align: {{VALUE}}',
                 ),
-                'default'   => 'center',
+                'default' => 'center',
                 'condition' => array(
                     'title_switcher' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'advanced',
-            array(
-                'label' => __( 'Advanced Settings', 'easy-elementor-addons' ),
-            )
+            'advanced', [
+                'label' => __('Advanced Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'y_axis_min',
-            array(
-                'label'       => __( 'Minimum Value', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::NUMBER,
-                'description' => __( 'Set Y-axis minimum value, this will be overriden if data has a smaller value or Begin At Zero option is enabled', 'easy-elementor-addons' ),
-                'condition'   => array(
-                    'type!' => array( 'pie', 'doughnut', 'radar', 'polarArea' ),
-                ),
-            )
-        );
-
-        $this->add_control(
-            'y_axis_max',
-            array(
-                'label'       => __( 'Maximum Value', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::NUMBER,
-                'description' => __( 'Set Y-axis maximum value, this will be overriden if data has a larger value', 'easy-elementor-addons' ),
-                'min'         => 0,
-                'default'     => 1,
-                'condition'   => array(
-                    'type!' => array( 'pie', 'doughnut' ),
-                ),
-            )
-        );
-
-        $this->add_control(
-            'step_size',
-            array(
-                'label'     => __( 'Step Size', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::NUMBER,
+            'y_axis_min', [
+                'label' => __('Minimum Value', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'description' => __('Set Y-axis minimum value, this will be overriden if data has a smaller value or Begin At Zero option is enabled', 'easy-elementor-addons'),
                 'condition' => array(
-                    'type!' => array( 'pie', 'doughnut' ),
+                    'type!' => array('pie', 'doughnut', 'radar', 'polarArea'),
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'legend_display',
-            array(
-                'label'        => __( 'Show Legend', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'description'  => __( 'Show or Hide chart legend', 'easy-elementor-addons' ),
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
-                'return_value' => 'true',
-            )
+            'y_axis_max', [
+                'label' => __('Maximum Value', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'description' => __('Set Y-axis maximum value, this will be overriden if data has a larger value', 'easy-elementor-addons'),
+                'min' => 0,
+                'default' => 1,
+                'condition' => array(
+                    'type!' => array('pie', 'doughnut'),
+                ),
+            ]
         );
 
         $this->add_control(
-            'legend_circle',
-            array(
-                'label'        => __( 'Change Legend to Circles', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
+            'step_size', [
+                'label' => __('Step Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'condition' => array(
+                    'type!' => array('pie', 'doughnut'),
+                ),
+            ]
+        );
+
+        $this->add_control(
+            'legend_display', [
+                'label' => __('Show Legend', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'description' => __('Show or Hide chart legend', 'easy-elementor-addons'),
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'condition'    => array(
+            ]
+        );
+
+        $this->add_control(
+            'legend_circle', [
+                'label' => __('Change Legend to Circles', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'true',
+                'condition' => array(
                     'legend_display' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'legend_hide',
-            array(
-                'label'        => __( 'Hide Legend on Tablet/Mobile Devices', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'description'  => __( 'Show or Hide chart legend', 'easy-elementor-addons' ),
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'legend_hide', [
+                'label' => __('Hide Legend on Tablet/Mobile Devices', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'description' => __('Show or Hide chart legend', 'easy-elementor-addons'),
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'condition'    => array(
+                'condition' => array(
                     'legend_display' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'legend_position',
-            array(
-                'label'          => __( 'Legend Position', 'easy-elementor-addons' ),
-                'type'           => Controls_Manager::SELECT,
-                'options'        => array(
-                    'top'    => __( 'Top', 'easy-elementor-addons' ),
-                    'right'  => __( 'Right', 'easy-elementor-addons' ),
-                    'bottom' => __( 'Bottom', 'easy-elementor-addons' ),
-                    'left'   => __( 'Left', 'easy-elementor-addons' ),
+            'legend_position', [
+                'label' => __('Legend Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'top' => __('Top', 'easy-elementor-addons'),
+                    'right' => __('Right', 'easy-elementor-addons'),
+                    'bottom' => __('Bottom', 'easy-elementor-addons'),
+                    'left' => __('Left', 'easy-elementor-addons'),
                 ),
-                'default'        => 'top',
+                'default' => 'top',
                 'tablet_default' => 'top',
                 'mobile_default' => 'top',
-                'condition'      => array(
+                'condition' => array(
                     'legend_display' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'legend_reverse',
-            array(
-                'label'        => __( 'Reverse', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'description'  => __( 'Enable or Disable legend data reverse', 'easy-elementor-addons' ),
+            'legend_reverse', [
+                'label' => __('Reverse', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'description' => __('Enable or Disable legend data reverse', 'easy-elementor-addons'),
                 'return_value' => 'true',
-                'condition'    => array(
+                'condition' => array(
                     'legend_display' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'tool_tips',
-            array(
-                'label'        => __( 'Show Values on Hover', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'tool_tips', [
+                'label' => __('Show Values on Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-            )
+            ]
         );
 
         $this->add_control(
-            'tool_tips_percent',
-            array(
-                'label'        => __( 'Convert Values to percent', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
+            'tool_tips_percent', [
+                'label' => __('Convert Values to percent', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
-                'condition'    => array(
-                    'tool_tips' => 'true',
-                ),
-            )
-        );
-
-        $this->add_control(
-            'tool_tips_mode',
-            array(
-                'label'     => __( 'Mode', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::SELECT,
-                'options'   => array(
-                    'point'   => __( 'Point', 'easy-elementor-addons' ),
-                    'nearest' => __( 'Nearest', 'easy-elementor-addons' ),
-                    'dataset' => __( 'Dataset', 'easy-elementor-addons' ),
-                    'x'       => __( 'X', 'easy-elementor-addons' ),
-                    'y'       => __( 'Y', 'easy-elementor-addons' ),
-                ),
-                'default'   => 'nearest',
                 'condition' => array(
                     'tool_tips' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'value_on_chart',
-            array(
-                'label'        => __( 'Show Values on Chart', 'easy-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'description'  => __( 'This option works only with Pie and Douhnut Charts', 'easy-elementor-addons' ),
-                'label_on'     => 'Show',
-                'label_off'    => 'Hide',
+            'tool_tips_mode', [
+                'label' => __('Mode', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => array(
+                    'point' => __('Point', 'easy-elementor-addons'),
+                    'nearest' => __('Nearest', 'easy-elementor-addons'),
+                    'dataset' => __('Dataset', 'easy-elementor-addons'),
+                    'x' => __('X', 'easy-elementor-addons'),
+                    'y' => __('Y', 'easy-elementor-addons'),
+                ),
+                'default' => 'nearest',
+                'condition' => array(
+                    'tool_tips' => 'true',
+                ),
+            ]
+        );
+
+        $this->add_control(
+            'value_on_chart', [
+                'label' => __('Show Values on Chart', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'description' => __('This option works only with Pie and Douhnut Charts', 'easy-elementor-addons'),
+                'label_on' => 'Show',
+                'label_off' => 'Hide',
                 'return_value' => 'true',
-                'condition'    => array(
-                    'type'       => array( 'pie', 'doughnut' ),
+                'condition' => array(
+                    'type' => array('pie', 'doughnut'),
                     'tool_tips!' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'duration',
-            array(
-                'label'       => __( 'Animation Duration (msec)', 'easy-elementor-addons' ),
-                'description' => __( 'Set the animation duration in milliseconds', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::NUMBER,
-            )
+            'duration', [
+                'label' => __('Animation Duration (msec)', 'easy-elementor-addons'),
+                'description' => __('Set the animation duration in milliseconds', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+            ]
         );
 
         $this->add_control(
-            'start_animation',
-            array(
-                'label'   => __( 'Animation', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'start_animation', [
+                'label' => __( 'Animation', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'linear'           => __( 'Linear', 'easy-elementor-addons' ),
-                    'easeInQuad'       => __( 'Ease in Quad', 'easy-elementor-addons' ),
-                    'easeOutQuad'      => __( 'Ease out Quad', 'easy-elementor-addons' ),
-                    'easeInOutQuad'    => __( 'Ease in out Quad', 'easy-elementor-addons' ),
-                    'easeInCubic'      => __( 'Ease in Cubic', 'easy-elementor-addons' ),
-                    'easeOutCubic'     => __( 'Ease out Cubic', 'easy-elementor-addons' ),
-                    'easeInOutCubic'   => __( 'Ease in out Cubic', 'easy-elementor-addons' ),
-                    'easeInQuart'      => __( 'Ease in Quart', 'easy-elementor-addons' ),
-                    'easeOutQuart'     => __( 'Ease out Quart', 'easy-elementor-addons' ),
-                    'easeInOutQuart'   => __( 'Ease in out Quart', 'easy-elementor-addons' ),
-                    'easeInQuint'      => __( 'Ease in Quint', 'easy-elementor-addons' ),
-                    'easeOutQuint'     => __( 'Ease out Quint', 'easy-elementor-addons' ),
-                    'easeInOutQuint'   => __( 'Ease in out Quint', 'easy-elementor-addons' ),
-                    'easeInSine'       => __( 'Ease in Sine', 'easy-elementor-addons' ),
-                    'easeOutSine'      => __( 'Ease out Sine', 'easy-elementor-addons' ),
-                    'easeInOutSine'    => __( 'Ease in out Sine', 'easy-elementor-addons' ),
-                    'easeInExpo'       => __( 'Ease in Expo', 'easy-elementor-addons' ),
-                    'easeOutExpo'      => __( 'Ease out Expo', 'easy-elementor-addons' ),
-                    'easeInOutExpo'    => __( 'Ease in out Cubic', 'easy-elementor-addons' ),
-                    'easeInCirc'       => __( 'Ease in Circle', 'easy-elementor-addons' ),
-                    'easeOutCirc'      => __( 'Ease out Circle', 'easy-elementor-addons' ),
-                    'easeInOutCirc'    => __( 'Ease in out Circle', 'easy-elementor-addons' ),
-                    'easeInElastic'    => __( 'Ease in Elastic', 'easy-elementor-addons' ),
-                    'easeOutElastic'   => __( 'Ease out Elastic', 'easy-elementor-addons' ),
-                    'easeInOutElastic' => __( 'Ease in out Elastic', 'easy-elementor-addons' ),
-                    'easeInBack'       => __( 'Ease in Back', 'easy-elementor-addons' ),
-                    'easeOutBack'      => __( 'Ease out Back', 'easy-elementor-addons' ),
-                    'easeInOutBack'    => __( 'Ease in Out Back', 'easy-elementor-addons' ),
-                    'easeInBounce'     => __( 'Ease in Bounce', 'easy-elementor-addons' ),
-                    'easeOutBounce'    => __( 'Ease out Bounce', 'easy-elementor-addons' ),
-                    'easeInOutBounce'  => __( 'Ease in out Bounce', 'easy-elementor-addons' ),
+                    'linear' => __('Linear', 'easy-elementor-addons'),
+                    'easeInQuad' => __('Ease in Quad', 'easy-elementor-addons'),
+                    'easeOutQuad' => __('Ease out Quad', 'easy-elementor-addons'),
+                    'easeInOutQuad' => __('Ease in out Quad', 'easy-elementor-addons'),
+                    'easeInCubic' => __('Ease in Cubic', 'easy-elementor-addons'),
+                    'easeOutCubic' => __('Ease out Cubic', 'easy-elementor-addons'),
+                    'easeInOutCubic' => __('Ease in out Cubic', 'easy-elementor-addons'),
+                    'easeInQuart' => __('Ease in Quart', 'easy-elementor-addons'),
+                    'easeOutQuart' => __('Ease out Quart', 'easy-elementor-addons'),
+                    'easeInOutQuart' => __('Ease in out Quart', 'easy-elementor-addons'),
+                    'easeInQuint' => __('Ease in Quint', 'easy-elementor-addons'),
+                    'easeOutQuint' => __('Ease out Quint', 'easy-elementor-addons'),
+                    'easeInOutQuint' => __('Ease in out Quint', 'easy-elementor-addons'),
+                    'easeInSine' => __('Ease in Sine', 'easy-elementor-addons'),
+                    'easeOutSine' => __('Ease out Sine', 'easy-elementor-addons'),
+                    'easeInOutSine' => __('Ease in out Sine', 'easy-elementor-addons'),
+                    'easeInExpo' => __('Ease in Expo', 'easy-elementor-addons'),
+                    'easeOutExpo' => __('Ease out Expo', 'easy-elementor-addons'),
+                    'easeInOutExpo' => __('Ease in out Cubic', 'easy-elementor-addons'),
+                    'easeInCirc' => __('Ease in Circle', 'easy-elementor-addons'),
+                    'easeOutCirc' => __('Ease out Circle', 'easy-elementor-addons'),
+                    'easeInOutCirc' => __('Ease in out Circle', 'easy-elementor-addons'),
+                    'easeInElastic' => __('Ease in Elastic', 'easy-elementor-addons'),
+                    'easeOutElastic' => __('Ease out Elastic', 'easy-elementor-addons'),
+                    'easeInOutElastic' => __('Ease in out Elastic', 'easy-elementor-addons'),
+                    'easeInBack' => __('Ease in Back', 'easy-elementor-addons'),
+                    'easeOutBack' => __('Ease out Back', 'easy-elementor-addons'),
+                    'easeInOutBack' => __('Ease in Out Back', 'easy-elementor-addons'),
+                    'easeInBounce' => __('Ease in Bounce', 'easy-elementor-addons'),
+                    'easeOutBounce' => __('Ease out Bounce', 'easy-elementor-addons'),
+                    'easeInOutBounce' => __('Ease in out Bounce', 'easy-elementor-addons'),
                 ),
                 'default' => 'easeInQuad',
-            )
+            ]
         );
 
         $this->add_control(
-            'render_event',
-            array(
-                'label'   => __( 'Load Chart On', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+            'render_event', [
+                'label' => __('Load Chart On', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'scroll' => __( 'Scroll', 'easy-elementor-addons' ),
-                    'load'   => __( 'Page Load', 'easy-elementor-addons' ),
+                    'scroll' => __('Scroll', 'easy-elementor-addons'),
+                    'load' => __('Page Load', 'easy-elementor-addons'),
                 ),
                 'default' => 'scroll',
-            )
+            ]
         );
 
         $this->add_control(
-            'format_locale',
-            array(
-                'label'       => __( 'Data Format Locale', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
+            'format_locale', [
+                'label' => __('Data Format Locale', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'description' => __( 'Use this to format strings into specific locale format. For example, use de to format numbers according to German formatting.', 'easy-elementor-addons' ),
-                'default'     => '',
-                'options'     => array(
-                    ''   => __( 'Default', 'easy-elementor-addons' ),
-                    'en' => __( 'English', 'easy-elementor-addons' ),
-                    'fr' => __( 'French', 'easy-elementor-addons' ),
-                    'da' => __( 'Danish', 'easy-elementor-addons' ),
-                    'de' => __( 'German', 'easy-elementor-addons' ),
-                    'ar' => __( 'Arabic', 'easy-elementor-addons' ),
+                'default' => '',
+                'options' => array(
+                    '' => __('Default', 'easy-elementor-addons'),
+                    'en' => __('English', 'easy-elementor-addons'),
+                    'fr' => __('French', 'easy-elementor-addons'),
+                    'da' => __('Danish', 'easy-elementor-addons'),
+                    'de' => __('German', 'easy-elementor-addons'),
+                    'ar' => __('Arabic', 'easy-elementor-addons'),
                 ),
                 'label_block' => true,
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'general_style',
-            array(
-                'label' => __( 'General', 'easy-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            )
+            'general_style', [
+                'label' => __('General', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_responsive_control(
-            'height',
-            array(
-                'label'       => __( 'Height', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::NUMBER,
-                'description' => __( 'Set the height of the graph in pixels', 'easy-elementor-addons' ),
-                'selectors'   => array(
-                    '{{WRAPPER}} .eead-chart-canvas-container'   => 'height: {{VALUE}}px',
+            'height', [
+                'label' => __('Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'description' => __('Set the height of the graph in pixels', 'easy-elementor-addons'),
+                'selectors' => array(
+                    '{{WRAPPER}} .eead-chart-canvas-container' => 'height: {{VALUE}}px',
                 ),
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            array(
-                'name'     => 'general_background',
-                'types'    => array( 'classic', 'gradient' ),
+            Group_Control_Background::get_type(), [
+                'name' => 'general_background',
+                'types' => array('classic', 'gradient'),
                 'selector' => '{{WRAPPER}} .eead-chart-container',
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            array(
-                'name'     => 'general_border',
+            Group_Control_Border::get_type(), [
+                'name' => 'general_border',
                 'selector' => '{{WRAPPER}} .eead-chart-container',
-            )
+            ]
         );
 
         $this->add_control(
-            'general_border_radius',
-            array(
-                'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => array( 'px', '%', 'em' ),
-                'selectors'  => array(
+            'general_border_radius', [
+                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => array('px', '%', 'em'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ),
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            array(
-                'name'     => 'general_box_shadow',
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'general_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-chart-container',
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'general_margin',
-            array(
-                'label'      => __( 'Margin', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => array( 'px', 'em', '%' ),
-                'selectors'  => array(
+            'general_margin', [
+                'label' => __('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => array('px', 'em', '%'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'general_padding',
-            array(
-                'label'      => __( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => array( 'px', 'em', '%' ),
-                'selectors'  => array(
+            'general_padding', [
+                'label' => __('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => array('px', 'em', '%'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style',
-            array(
-                'label'     => __( 'Title', 'easy-elementor-addons' ),
-                'tab'       => Controls_Manager::TAB_STYLE,
+            'title_style', [
+                'label' => __('Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'title_switcher' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'title_color',
-            array(
-                'label'     => __( 'Color', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
+            'title_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title' => 'color: {{VALUE}};',
                 ),
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            array(
-                'name'     => 'title_typo',
+            Group_Control_Typography::get_type(), [
+                'name' => 'title_typo',
                 'selector' => '{{WRAPPER}} .eead-chart-title',
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            array(
-                'name'     => 'title_background',
-                'types'    => array( 'classic', 'gradient' ),
+            Group_Control_Background::get_type(), [
+                'name' => 'title_background',
+                'types' => array('classic', 'gradient'),
                 'selector' => '{{WRAPPER}} .eead-chart-title-container',
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            array(
-                'name'     => 'title_border',
+            Group_Control_Border::get_type(), [
+                'name' => 'title_border',
                 'selector' => '{{WRAPPER}} .eead-chart-title-container',
-            )
+            ]
         );
 
         $this->add_control(
-            'title_border_radius',
-            array(
-                'label'      => __( 'Border Radius', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => array( 'px', '%', 'em' ),
-                'selectors'  => array(
+            'title_border_radius', [
+                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => array('px', '%', 'em'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ),
-            )
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Text_Shadow::get_type(),
-            array(
-                'name'     => 'title_box_shadow',
+            Group_Control_Text_Shadow::get_type(), [
+                'name' => 'title_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-chart-title',
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'title_margin',
-            array(
-                'label'      => __( 'Margin', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => array( 'px', 'em', '%' ),
-                'selectors'  => array(
+            'title_margin', [
+                'label' => __('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => array('px', 'em', '%'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container .eead-chart-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
-            )
+            ]
         );
 
         $this->add_responsive_control(
-            'title_padding',
-            array(
-                'label'      => __( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => array( 'px', 'em', '%' ),
-                'selectors'  => array(
+            'title_padding', [
+                'label' => __('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => array('px', 'em', '%'),
+                'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
-            )
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'x_axis_style',
-            array(
-                'label' => __( 'X-Axis', 'easy-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            )
+            'x_axis_style', [
+                'label' => __('X-Axis', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'x_axis_label_pop',
-            array(
-                'label'     => __( 'Axis Label', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::POPOVER_TOGGLE,
+            'x_axis_label_pop', [
+                'label' => __('Axis Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => array(
                     'x_axis_label_switch' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'x_axis_label_color',
-            array(
-                'label'  => __( 'Color', 'easy-elementor-addons' ),
-                'type'   => Controls_Manager::COLOR
-            )
+            'x_axis_label_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR
+            ]
         );
 
         $this->add_control(
-            'x_axis_label_size',
-            array(
-                'label'   => __( 'Size', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 50,
+            'x_axis_label_size', [
+                'label' => __('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 50,
                 'default' => 12
-            )
+            ]
         );
 
         $this->end_popover();
 
         $this->add_control(
-            'x_axis_labels_pop',
-            array(
-                'label' => __( 'Data Labels', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::POPOVER_TOGGLE
-            )
+            'x_axis_labels_pop', [
+                'label' => __('Data Labels', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'x_axis_labels_color',
-            array(
-                'label'  => __( 'Color', 'easy-elementor-addons' ),
-                'type'   => Controls_Manager::COLOR
-            )
+            'x_axis_labels_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR
+            ]
         );
 
         $this->add_control(
-            'x_axis_labels_size',
-            array(
-                'label'   => __( 'Size', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 50,
+            'x_axis_labels_size', [
+                'label' => __('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 50,
                 'default' => 12
-            )
+            ]
         );
 
         $this->end_popover();
 
         $this->add_control(
-            'x_axis_grid_pop',
-            array(
-                'label' => __( 'Grid', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::POPOVER_TOGGLE,
-            )
+            'x_axis_grid_pop', [
+                'label' => __('Grid', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'x_axis_grid_color',
-            array(
-                'label'   => __( 'Color', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::COLOR,
+            'x_axis_grid_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'default' => '#6ec1e4',
-            )
+            ]
         );
 
         $this->add_control(
-            'x_axis_grid_width',
-            array(
-                'label'   => __( 'Width', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SLIDER,
-                'range'   => array(
+            'x_axis_grid_width', [
+                'label' => __('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => array(
                     'px' => array(
-                        'min'  => 0,
-                        'max'  => 10,
+                        'min' => 0,
+                        'max' => 10,
                         'step' => 0.1,
                     ),
                 ),
@@ -1164,7 +1074,7 @@ class Charts extends Widget_Base {
                     'unit' => 'px',
                     'size' => 1,
                 ),
-            )
+            ]
         );
 
         $this->end_popover();
@@ -1172,106 +1082,96 @@ class Charts extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'y_axis_style',
-            array(
-                'label' => __( 'Y-Axis', 'easy-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            )
+            'y_axis_style', [
+                'label' => __('Y-Axis', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'y_axis_label_pop',
-            array(
-                'label'     => __( 'Axis Label', 'easy-elementor-addons' ),
-                'type'      => Controls_Manager::POPOVER_TOGGLE,
+            'y_axis_label_pop', [
+                'label' => __('Axis Label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => array(
                     'y_axis_label_switch' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'y_axis_label_color',
-            array(
-                'label'  => __( 'Color', 'easy-elementor-addons' ),
-                'type'   => Controls_Manager::COLOR
-            )
+            'y_axis_label_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR
+            ]
         );
 
         $this->add_control(
-            'y_axis_label_size',
-            array(
-                'label'   => __( 'Size', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 50,
+            'y_axis_label_size', [
+                'label' => __('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 50,
                 'default' => 12,
-            )
+            ]
         );
 
         $this->end_popover();
 
         $this->add_control(
-            'y_axis_data_pop',
-            array(
-                'label' => __( 'Data', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::POPOVER_TOGGLE,
-            )
+            'y_axis_data_pop', [
+                'label' => __('Data', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'y_axis_labels_color',
-            array(
-                'label' => __( 'Color', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::COLOR,
-            )
+            'y_axis_labels_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+            ]
         );
 
         $this->add_control(
-            'y_axis_labels_size',
-            array(
-                'label'   => __( 'Size', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 50,
+            'y_axis_labels_size', [
+                'label' => __('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 50,
                 'default' => 12,
-            )
+            ]
         );
 
         $this->end_popover();
 
         $this->add_control(
-            'y_axis_grid_pop',
-            array(
-                'label' => __( 'Grid', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::POPOVER_TOGGLE,
-            )
+            'y_axis_grid_pop', [
+                'label' => __('Grid', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
+            ]
         );
 
         $this->start_popover();
 
         $this->add_control(
-            'y_axis_grid_color',
-            array(
-                'label'   => __( 'Color', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::COLOR,
+            'y_axis_grid_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'default' => '#54595f',
-            )
+            ]
         );
 
         $this->add_control(
-            'y_axis_grid_width',
-            array(
-                'label'   => __( 'Width', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SLIDER,
-                'range'   => array(
+            'y_axis_grid_width', [
+                'label' => __('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => array(
                     'px' => array(
-                        'min'  => 0,
-                        'max'  => 10,
+                        'min' => 0,
+                        'max' => 10,
                         'step' => 0.1,
                     ),
                 ),
@@ -1279,7 +1179,7 @@ class Charts extends Widget_Base {
                     'unit' => 'px',
                     'size' => 1,
                 ),
-            )
+            ]
         );
 
         $this->end_popover();
@@ -1287,43 +1187,39 @@ class Charts extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'legend_style',
-            array(
-                'label'     => __( 'Legend', 'easy-elementor-addons' ),
-                'tab'       => Controls_Manager::TAB_STYLE,
+            'legend_style', [
+                'label' => __('Legend', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'legend_display' => 'true',
                 ),
-            )
+            ]
         );
 
         $this->add_control(
-            'legend_text_color',
-            array(
-                'label' => __( 'Color', 'easy-elementor-addons' ),
-                'type'  => Controls_Manager::COLOR,
-            )
+            'legend_text_color', [
+                'label' => __('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+            ]
         );
 
         $this->add_control(
-            'legend_text_size',
-            array(
-                'label'   => __( 'Size', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 0,
-                'max'     => 50,
+            'legend_text_size', [
+                'label' => __('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 50,
                 'default' => 12,
-            )
+            ]
         );
 
         $this->add_control(
-            'legend_item_width',
-            array(
-                'label'   => __( 'Item Width', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::NUMBER,
-                'min'     => 1,
+            'legend_item_width', [
+                'label' => __('Item Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 1,
                 'default' => 40,
-            )
+            ]
         );
 
         $this->end_controls_section();
@@ -1335,153 +1231,151 @@ class Charts extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $id = $this->get_id();
 
-        $title_tag = Utils::validate_html_tag( $settings['title_tag'] );
-        if ( ! empty( $settings['title'] ) && $settings['title_switcher'] ) {
-            $title = '<' . $title_tag . ' class="eead-chart-title">' . $settings['title'] . '</' . $title_tag . '>';
+        $title_tag = Utils::validate_html_tag($settings['title_tag']);
+        if (!empty($settings['title']) && $settings['title_switcher']) {
+            $title = '<' . esc_attr($title_tag) . ' class="eead-chart-title">' . esc_html($settings['title']) . '</' . esc_attr($title_tag) . '>';
         }
-        $xlabels = explode( ',', $settings['x_axis_labels'] );
-        $data_source   = $settings['data_source'];
+        $xlabels = explode(',', $settings['x_axis_labels']);
+        $data_source = $settings['data_source'];
         $columns_array = array();
 
-        if ( 'csv' === $data_source ) {
+        if ('csv' === $data_source) {
             $props = array();
-            foreach ( $settings['dataset_repeater'] as $repeater_ele ) {
-                if ( 'pie' === $settings['type'] || 'doughnut' === $settings['type'] || 'polarArea' === $settings['type'] ) {
-                    $bg_color = explode( ',', $repeater_ele['circle_color'] );
+            foreach ($settings['dataset_repeater'] as $repeater_ele) {
+                if ('pie' === $settings['type'] || 'doughnut' === $settings['type'] || 'polarArea' === $settings['type']) {
+                    $bg_color = explode(',', $repeater_ele['circle_color']);
                 } else {
                     $bg_color = $repeater_ele['dataset_color'];
                 }
                 $prop = array(
                     'backgroundColor' => $bg_color,
-                    'borderColor'     => $repeater_ele['dataset_border_color'],
-                    'borderWidth'     => $repeater_ele['border_width'],
-                    'title'           => $repeater_ele['dataset_title'],
+                    'borderColor' => $repeater_ele['dataset_border_color'],
+                    'borderWidth' => $repeater_ele['border_width'],
+                    'title' => $repeater_ele['dataset_title'],
                 );
-                array_push( $props, $prop );
+                array_push($props, $prop);
             }
             $col_settings = array(
                 'separator' => $settings['eead_chart_separator'],
-                'url'       => 'file' === $settings['csv_type'] ? $settings['csv_file']['url'] : $settings['csv_url'],
-                'props'     => $props,
+                'url' => ('file' === $settings['csv_type']) ? $settings['csv_file']['url'] : $settings['csv_url'],
+                'props' => $props,
             );
 
-            $columns_array = array_merge( $columns_array, $col_settings );
+            $columns_array = array_merge($columns_array, $col_settings);
         } else {
-            foreach ( $settings['y_axis_data'] as $column_data ) {
-                if ( 'pie' !== $settings['type'] && 'doughnut' !== $settings['type'] && 'polarArea' !== $settings['type'] ) {
-                    if ( empty( $column_data['y_axis_column_color'] ) && empty( $column_data['y_axis_column_second_color'] ) ) {
+            foreach ($settings['y_axis_data'] as $column_data) {
+                if ('pie' !== $settings['type'] && 'doughnut' !== $settings['type'] && 'polarArea' !== $settings['type']) {
+                    if (empty($column_data['y_axis_column_color'] ) && empty( $column_data['y_axis_column_second_color'])) {
                         $background = explode( ',', $column_data['y_axis_circle_color'] );
                         array_push( $background, 'empty' );
-                    } elseif ( ! empty( $column_data['y_axis_column_second_color'] ) ) {
-                        $background = array( $column_data['y_axis_column_color'], $column_data['y_axis_column_second_color'] );
+                    } elseif (!empty($column_data['y_axis_column_second_color'])) {
+                        $background = array($column_data['y_axis_column_color'], $column_data['y_axis_column_second_color']);
                     } else {
                         $background = $column_data['y_axis_column_color'];
                     }
                 } else {
-                    $background = explode( ',', $column_data['y_axis_circle_color'] );
+                    $background = explode(',', $column_data['y_axis_circle_color']);
                 }
                 $col_settings = array(
-                    'label'           => $column_data['y_axis_column_title'],
-                    'data'            => explode( ',', $column_data['y_axis_column_data'] ),
-                    'links'           => explode( ',', $column_data['y_axis_urls'] ),
+                    'label' => $column_data['y_axis_column_title'],
+                    'data' => explode(',', $column_data['y_axis_column_data']),
+                    'links' => explode(',', $column_data['y_axis_urls']),
                     'backgroundColor' => $background,
-                    'borderColor'     => $column_data['y_axis_column_border_color'],
-                    'borderWidth'     => $column_data['y_axis_column_border_width'],
+                    'borderColor' => $column_data['y_axis_column_border_color'],
+                    'borderWidth' => $column_data['y_axis_column_border_width'],
                 );
-                array_push( $columns_array, $col_settings );
+                array_push($columns_array, $col_settings);
             }
         }
 
-        $labels_rotation = ! empty( $settings['x_axis_label_rotation'] ) ? $settings['x_axis_label_rotation'] : 0;
-        $x_label_size = ! empty( $settings['x_axis_labels_size'] ) ? $settings['x_axis_labels_size'] : 12;
-        $y_label_size = ! empty( $settings['y_axis_labels_size'] ) ? $settings['y_axis_labels_size'] : 12;
-        $ytype = 'horizontalBar' !== $settings['type'] ? $settings['data_type'] : 'category';
+        $labels_rotation = !empty($settings['x_axis_label_rotation']) ? $settings['x_axis_label_rotation'] : 0;
+        $x_label_size = !empty($settings['x_axis_labels_size']) ? $settings['x_axis_labels_size'] : 12;
+        $y_label_size = !empty($settings['y_axis_labels_size']) ? $settings['y_axis_labels_size'] : 12;
+        $ytype = ('horizontalBar' !== $settings['type']) ? $settings['data_type'] : 'category';
         $chart_id = 'eead-chart-canvas-' . $id;
 
         $chart_settings = array(
-            'type'          => $settings['type'],
-            'xlabeldis'     => $settings['x_axis_label_switch'],
-            'xlabel'        => $settings['x_axis_label'],
-            'ylabeldis'     => $settings['y_axis_label_switch'],
-            'ylabel'        => $settings['y_axis_label'],
-            'xlabels'       => $xlabels,
-            'easing'        => $settings['start_animation'],
-            'duration'      => ! empty( $settings['duration'] ) ? intval( $settings['duration'] ) : 500,
-            'xwidth'        => ! empty( $settings['x_column_width']['size'] ) ? $settings['x_column_width']['size'] : 0.9,
-            'enTooltips'    => $settings['tool_tips'],
-            'printVal'      => $settings['value_on_chart'],
-            'percentage'    => $settings['tool_tips_percent'],
-            'modTooltips'   => $settings['tool_tips_mode'],
-            'legDis'        => $settings['legend_display'],
-            'legRes'        => $settings['legend_hide'],
-            'legPos'        => $settings['legend_position'],
+            'type' => $settings['type'],
+            'xlabeldis' => $settings['x_axis_label_switch'],
+            'xlabel' => $settings['x_axis_label'],
+            'ylabeldis' => $settings['y_axis_label_switch'],
+            'ylabel' => $settings['y_axis_label'],
+            'xlabels' => $xlabels,
+            'easing' => $settings['start_animation'],
+            'duration' => ! empty($settings['duration']) ? intval( $settings['duration'] ) : 500,
+            'xwidth' => ! empty($settings['x_column_width']['size']) ? $settings['x_column_width']['size'] : 0.9,
+            'enTooltips' => $settings['tool_tips'],
+            'printVal' => $settings['value_on_chart'],
+            'percentage' => $settings['tool_tips_percent'],
+            'modTooltips' => $settings['tool_tips_mode'],
+            'legDis' => $settings['legend_display'],
+            'legRes' => $settings['legend_hide'],
+            'legPos' => $settings['legend_position'],
             'legPos_tablet' => isset($settings['legend_position_tablet']) ? $settings['legend_position_tablet'] : 'top',
             'legPos_mobile' => isset($settings['legend_position_mobile']) ? $settings['legend_position_mobile'] : 'top',
-            'legRev'        => $settings['legend_reverse'],
-            'legCircle'     => $settings['legend_circle'],
-            'legCol'        => ! empty( $settings['legend_text_color'] ) ? ( $settings['legend_text_color'] ) : '#54595f',
-            'legSize'       => ( $settings['legend_text_size'] ),
-            'itemWid'       => ( $settings['legend_item_width'] ),
-            'xGrid'         => $settings['x_axis_grid'],
-            'xGridCol'      => $settings['x_axis_grid_color'],
-            'xGridWidth'    => $settings['x_axis_grid_width']['size'],
-            'xTicksSize'    => $x_label_size,
-            'xlabelcol'     => $settings['x_axis_label_color'],
-            'ylabelcol'     => $settings['y_axis_label_color'],
-            'xlabelsize'    => $settings['x_axis_label_size'],
-            'ylabelsize'    => $settings['y_axis_label_size'],
-            'xTicksCol'     => ! empty( $settings['x_axis_labels_color'] ) ? $settings['x_axis_labels_color'] : '#54595f',
-            'xTicksRot'     => $labels_rotation,
-            'xTicksBeg'     => $settings['x_axis_begin'],
-            'yAxis'         => $ytype,
-            'yGrid'         => $settings['y_axis_grid'],
-            'yGridCol'      => $settings['y_axis_grid_color'],
-            'yGridWidth'    => $settings['y_axis_grid_width']['size'],
-            'yTicksSize'    => $y_label_size,
-            'yTicksCol'     => ! empty( $settings['y_axis_labels_color'] ) ? $settings['y_axis_labels_color'] : '#54595f',
-            'yTicksBeg'     => $settings['y_axis_begin'],
-            'chartId'       => $chart_id,
-            'suggestedMin'  => $settings['y_axis_min'],
-            'suggestedMax'  => $settings['y_axis_max'],
-            'stepSize'      => $settings['step_size'],
-            'height'        => ! empty( $settings['height'] ) ? $settings['height'] : 400,
-            'target'        => ( $settings['y_axis_urls_target'] ) ? '_blank' : '_top',
-            'event'         => $settings['render_event'],
-            'locale'        => $settings['format_locale'],
+            'legRev' => $settings['legend_reverse'],
+            'legCircle' => $settings['legend_circle'],
+            'legCol' => !empty($settings['legend_text_color']) ? ($settings['legend_text_color']) : '#54595f',
+            'legSize' => $settings['legend_text_size'],
+            'itemWid' => $settings['legend_item_width'],
+            'xGrid' => $settings['x_axis_grid'],
+            'xGridCol' => $settings['x_axis_grid_color'],
+            'xGridWidth' => $settings['x_axis_grid_width']['size'],
+            'xTicksSize' => $x_label_size,
+            'xlabelcol' => $settings['x_axis_label_color'],
+            'ylabelcol' => $settings['y_axis_label_color'],
+            'xlabelsize' => $settings['x_axis_label_size'],
+            'ylabelsize' => $settings['y_axis_label_size'],
+            'xTicksCol' => ! empty($settings['x_axis_labels_color']) ? $settings['x_axis_labels_color'] : '#54595f',
+            'xTicksRot' => $labels_rotation,
+            'xTicksBeg' => $settings['x_axis_begin'],
+            'yAxis' => $ytype,
+            'yGrid' => $settings['y_axis_grid'],
+            'yGridCol' => $settings['y_axis_grid_color'],
+            'yGridWidth' => $settings['y_axis_grid_width']['size'],
+            'yTicksSize' => $y_label_size,
+            'yTicksCol' => ! empty($settings['y_axis_labels_color']) ? $settings['y_axis_labels_color'] : '#54595f',
+            'yTicksBeg' => $settings['y_axis_begin'],
+            'chartId' => $chart_id,
+            'suggestedMin' => $settings['y_axis_min'],
+            'suggestedMax' => $settings['y_axis_max'],
+            'stepSize' => $settings['step_size'],
+            'height' => ! empty($settings['height']) ? $settings['height'] : 400,
+            'target' => ($settings['y_axis_urls_target']) ? '_blank' : '_top',
+            'event' => $settings['render_event'],
+            'locale' => $settings['format_locale'],
         );
 
         $this->add_render_attribute(
-            'charts',
-            array(
-                'id'            => 'eead-chart-container-' . $id,
-                'class'         => 'eead-chart-container',
-                'data-chart'    => wp_json_encode( $columns_array ),
+            'charts', [
+                'id' => 'eead-chart-container-' . $id,
+                'class' => 'eead-chart-container',
+                'data-chart' => wp_json_encode( $columns_array ),
                 'data-settings' => wp_json_encode( $chart_settings ),
-                'data-source'   => $data_source,
-            )
+                'data-source' => $data_source,
+            ]
         );
 
         $this->add_render_attribute(
-            'canvas',
-            array(
-                'id'     => 'eead-chart-canvas-' . $id,
-                'class'  => 'eead-chart-canvas',
-                'width'  => 400,
+            'canvas', [
+                'id' => 'eead-chart-canvas-' . $id,
+                'class' => 'eead-chart-canvas',
+                'width' => 400,
                 'height' => 400,
-            )
+            ]
         );
 
         ?>
 
-        <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'charts' ) ); ?>>
-            <?php if ( ! empty( $settings['title'] ) && $settings['title_switcher'] && 'top' === $settings['title_position'] ) : ?>
-                <div class="eead-chart-title-container"><?php echo wp_kses_post( $title ); ?></div>
+        <div <?php echo wp_kses_post($this->get_render_attribute_string('charts')); ?>>
+            <?php if (!empty($settings['title']) && $settings['title_switcher'] && 'top' === $settings['title_position']) : ?>
+                <div class="eead-chart-title-container"><?php echo wp_kses_post($title); ?></div>
             <?php endif; ?>
             <div class="eead-chart-canvas-container">
-                <canvas <?php echo wp_kses_post( $this->get_render_attribute_string( 'canvas' ) ); ?>></canvas>
+                <canvas <?php echo wp_kses_post($this->get_render_attribute_string('canvas')); ?>></canvas>
             </div>
-            <?php if ( ! empty( $settings['title'] ) && $settings['title_switcher'] && 'bottom' === $settings['title_position'] ) : ?>
-                <div class="eead-chart-title-container"><?php echo wp_kses_post( $title ); ?></div>
+            <?php if (!empty($settings['title']) && $settings['title_switcher'] && 'bottom' === $settings['title_position']) : ?>
+                <div class="eead-chart-title-container"><?php echo wp_kses_post($title); ?></div>
             <?php endif; ?>
         </div>
 

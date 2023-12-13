@@ -11,6 +11,7 @@ use Elementor\Core\Schemes\Typography;
 use Elementor\Core\Schemes\Color;
 use EasyElementorAddons\Group_Control_Query;
 use EasyElementorAddons\Group_Control_Header;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -28,7 +29,7 @@ class CounterBlock extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Counter', 'easy-elementor-addons');
+        return __('Counter', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -42,11 +43,11 @@ class CounterBlock extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'waypoint', 'odometer' ];
+        return ['waypoint', 'odometer'];
     }
 
     public function get_style_depends() {
-        return [ 'odometer-theme-default' ];
+        return ['odometer-theme-default'];
     }
 
     /** Controls */
@@ -54,7 +55,7 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'counter', [
-            'label' => esc_html__('Counter', 'easy-elementor-addons'),
+            'label' => __('Counter', 'easy-elementor-addons'),
                 ]
         );
 
@@ -72,7 +73,7 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
             'title', [
-                'label' => __( 'Title', 'easy-elementor-addons' ),
+                'label' => __('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => __('Title', 'easy-elementor-addons')
@@ -97,7 +98,7 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
             'pre_text', [
-                'label' => __( 'Pre Text', 'easy-elementor-addons' ),
+                'label' => __('Pre Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -105,7 +106,7 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
             'post_text', [
-                'label' => __( 'Post Text', 'easy-elementor-addons' ),
+                'label' => __('Post Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -115,22 +116,21 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'additional_settings', [
-            'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
+            'label' => __('Additional Settings', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
-            'counter_style',
-            [
-                'label' => __( 'Counter Style', 'easy-elementor-addons' ),
+            'counter_style', [
+                'label' => __('Counter Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style2',
                 'options' => [
-                    'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
-                    'style2' => __( 'Style 2', 'easy-elementor-addons' ),
-                    'style3' => __( 'Style 3', 'easy-elementor-addons' ),
-                    'style4'  => __( 'Style 4', 'easy-elementor-addons' ),
+                    'style1' => __('Style 1', 'easy-elementor-addons'),
+                    'style2' => __('Style 2', 'easy-elementor-addons'),
+                    'style3' => __('Style 3', 'easy-elementor-addons'),
+                    'style4' => __('Style 4', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -139,14 +139,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'box_style', [
-            'label' => esc_html__('Box Styles', 'easy-elementor-addons'),
+            'label' => __('Box Styles', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'box_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+            'label' => __('Background Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} .eead-counter' => 'background: {{VALUE}}',
@@ -156,7 +156,7 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
                 'box_border_color', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+            'label' => __('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#4ec5ef',
             'selectors' => [
@@ -177,7 +177,7 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
                 'box_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
+            'label' => __('Padding', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
@@ -190,14 +190,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'icon_style', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
+            'label' => __('Icon', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'icon_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'label' => __('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
@@ -210,15 +210,15 @@ class CounterBlock extends Widget_Base {
 
         $this->add_control(
                 'icon_border_color', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+            'label' => __('Border Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
                 '{{WRAPPER}} .eead-counter-section .style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
             ],
             'condition' => [
-                        'counter_style' => 'style2'
-                    ]
+                'counter_style' => 'style2'
+            ]
                 ]
         );
 
@@ -269,14 +269,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'pre_text_style', [
-            'label' => esc_html__('Pre Text', 'easy-elementor-addons'),
+            'label' => __('Pre Text', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'pre_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'label' => __('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
@@ -288,14 +288,14 @@ class CounterBlock extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'pre_text_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
+            'label' => __('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text',
                 ]
         );
 
         $this->add_control(
                 'pre_text_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
+            'label' => __('Margin', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
@@ -309,14 +309,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'counter_number_style', [
-            'label' => esc_html__('Number Count', 'easy-elementor-addons'),
+            'label' => __('Number Count', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'counter_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'label' => __('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
@@ -328,14 +328,14 @@ class CounterBlock extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
+            'label' => __('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer',
                 ]
         );
 
         $this->add_control(
                 'counter_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
+            'label' => __('Margin', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
@@ -349,14 +349,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'post_text_style', [
-            'label' => esc_html__('Post Text', 'easy-elementor-addons'),
+            'label' => __('Post Text', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'post_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'label' => __('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
@@ -368,14 +368,14 @@ class CounterBlock extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'post_text_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
+            'label' => __('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text',
                 ]
         );
 
         $this->add_control(
                 'post_text_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
+            'label' => __('Margin', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
@@ -389,14 +389,14 @@ class CounterBlock extends Widget_Base {
 
         $this->start_controls_section(
                 'counter_title_style', [
-            'label' => esc_html__('Counter Title', 'easy-elementor-addons'),
+            'label' => __('Counter Title', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'counter_title_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'label' => __('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
@@ -408,14 +408,14 @@ class CounterBlock extends Widget_Base {
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'counter_title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
+            'label' => __('Typography', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-title',
                 ]
         );
 
         $this->add_control(
                 'title_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
+            'label' => __('Margin', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
@@ -442,22 +442,30 @@ class CounterBlock extends Widget_Base {
             <div class="eead-section-wrap">
                 <div class="eead-container eead-counter-container">
                     <div class="eead-counter-content eead-section-content">
-                        <div class="<?php echo esc_attr(implode(' ', $counter_class)) ?>">
+                        <div class="<?php echo esc_attr(implode(' ', $counter_class)); ?>">
                             <?php
                             $counter_title = $settings['title'];
                             $counter_count = $settings['count'];
-                            if ($counter_count ) {
+                            if ($counter_count) {
                                 if ($counter_style == 'style1' || $counter_style == 'style2') {
                                     ?>
                                     <div class="eead-counter">
                                         <div class="eead-counter-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
+                                            <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                                         </div>
 
                                         <div class="eead-counter-count">
-                                            <span class="eead-pre-text"><?php echo esc_html($settings['pre_text']); ?></span>
-                                            <span class="odometer" data-count="<?php echo absint($counter_count); ?>"><?php echo esc_html($settings['starting_value']); ?></span>
-                                            <span class="eead-post-text"><?php echo esc_html($settings['post_text']); ?></span>
+                                            <span class="eead-pre-text">
+                                                <?php echo esc_html($settings['pre_text']); ?>
+                                            </span>
+
+                                            <span class="odometer" data-count="<?php echo absint($counter_count); ?>">
+                                                <?php echo esc_html($settings['starting_value']); ?>
+                                            </span>
+
+                                            <span class="eead-post-text">
+                                                <?php echo esc_html($settings['post_text']); ?>
+                                            </span>
                                         </div>
 
                                         <h5 class="eead-counter-title">
@@ -469,7 +477,7 @@ class CounterBlock extends Widget_Base {
                                     ?>
                                     <div class="eead-counter">
                                         <div class="eead-counter-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
+                                            <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                                         </div>
 
                                         <div class="eead-counter-count">
@@ -487,14 +495,20 @@ class CounterBlock extends Widget_Base {
                                     ?>
                                     <div class="eead-counter">
                                         <div class="eead-counter-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
+                                            <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                                         </div>
 
                                         <div class="eead-counter-right-block">
                                             <div class="eead-counter-count">
-                                                <span class="eead-pre-text"><?php echo esc_html($settings['pre_text']); ?></span>
-                                                <span class="odometer " data-count="<?php echo absint($counter_count); ?>"><?php echo esc_html($settings['starting_value']); ?></span>
-                                                <span class="eead-post-text"><?php echo esc_html($settings['post_text']); ?></span>
+                                                <span class="eead-pre-text">
+                                                    <?php echo esc_html($settings['pre_text']); ?>
+                                                </span>
+                                                <span class="odometer " data-count="<?php echo absint($counter_count); ?>">
+                                                    <?php echo esc_html($settings['starting_value']); ?>
+                                                </span>
+                                                <span class="eead-post-text">
+                                                    <?php echo esc_html($settings['post_text']); ?>
+                                                </span>
                                             </div>
 
                                             <h5 class="eead-counter-title">

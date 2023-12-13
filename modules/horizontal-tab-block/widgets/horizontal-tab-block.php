@@ -8,6 +8,8 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
+use Elementor\Repeater;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -47,12 +49,12 @@ class HorizontalTabBlock extends Widget_Base {
                 ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
                 'icon', [
             'label' => __('Icon', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::ICONS,
+            'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-star',
                 'library' => 'solid',
@@ -63,7 +65,7 @@ class HorizontalTabBlock extends Widget_Base {
         $repeater->add_control(
                 'title', [
             'label' => __('Tab Title', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::TEXT,
+            'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Tab Title'
                 ]
@@ -72,7 +74,7 @@ class HorizontalTabBlock extends Widget_Base {
         $repeater->add_control(
                 'content_type', [
             'label' => __('Content Type', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT,
             'default' => 'wisiwyg',
             'options' => [
                 'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
@@ -82,45 +84,43 @@ class HorizontalTabBlock extends Widget_Base {
                 ]
         );
 
-        $repeater->add_control( 'page', [
-                'label' => __('Select Page', 'hash-elementor'),
+        $repeater->add_control(
+            'page', [
+                'label' => __('Select Page', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'multiple' => false,
                 'options' => $this->get_pages(), 
-                'condition' => [ 'content_type' => 'page' ] 
+                'condition' => ['content_type' => 'page'] 
             ]
         );
 
         $repeater->add_control(
-            'wisiwyg_content',
-            [
-                'label' => __( 'Description', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
-                'condition'   => [ 'content_type' => 'wisiwyg' ]
+            'wisiwyg_content', [
+                'label' => __('Description', 'easy-elementor-addons'),
+                'type' => Controls_Manager::WYSIWYG,
+                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'condition' => ['content_type' => 'wisiwyg']
             ]
         );
 
         $repeater->add_control(
-            'elementor_template',
-            [
-                'label'       => __( 'Select Template', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => '0',
-                'options'     => $this->get_elementor_templates(),
+            'elementor_template', [
+                'label' => __('Select Template', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '0',
+                'options' => $this->get_elementor_templates(),
                 'label_block' => 'true',
-                'condition'   => [ 'content_type' => 'elementor_template' ]
+                'condition' => ['content_type' => 'elementor_template']
             ]
         );
 
         $repeater->add_control(
-            'enable',
-            [
-                'label' => __( 'Enable', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __( 'Show', 'easy-elementor-addons' ),
-                'label_off' => __( 'Hide', 'easy-elementor-addons' ),
+            'enable', [
+                'label' => __('Enable', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => __('Show', 'easy-elementor-addons'),
+                'label_off' => __('Hide', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -129,7 +129,7 @@ class HorizontalTabBlock extends Widget_Base {
         $this->add_control(
                 'tabs', [
             'label' => __('Plan Feature List', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::REPEATER,
+            'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
                 [
@@ -157,7 +157,7 @@ class HorizontalTabBlock extends Widget_Base {
                     'wisiwyg_content' => 'Donec justo eros, luctus quis scelerisque id, ultricies sit amet odio. Vestibulum aliquam efficitur eleifend. Praesent dignissim faucibus ex vel sodales. Morbi aliquet libero at augue pharetra vehicula. Cras dapibus lorem efficitur nunc euismod convallis. Nunc molestie risus id lacinia consequat. Integer iaculis orci in ipsum vestibulum, non mattis justo ornare. Cras et lorem tempor ligula suscipit mollis. Nulla vitae augue non leo tempus finibus.'
                 ],
             ],
-            'title_field' => '{{{ title }}}',
+            'title_field' => '{{{title}}}',
                 ]
         );
 
@@ -172,15 +172,14 @@ class HorizontalTabBlock extends Widget_Base {
         
 
         $this->add_control(
-            'tab_layout',
-            [
-                'label' => __( 'Style', 'easy-elementor-addons' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
+            'tab_layout', [
+                'label' => __('Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
-                    'style2' => __( 'Style 2', 'easy-elementor-addons' ),
-                    'style3' => __( 'Style 3', 'easy-elementor-addons' ),
+                    'style1' => __('Style 1', 'easy-elementor-addons'),
+                    'style2' => __('Style 2', 'easy-elementor-addons'),
+                    'style3' => __('Style 3', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -251,29 +250,28 @@ class HorizontalTabBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'horizontal_alignment',
-            array(
-                'label'   => esc_html__( 'Horizontal Alignment', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::CHOOSE,
+            'horizontal_alignment', [
+                'label' => esc_html__('Horizontal Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => array(
-                    'flex-start'   => array(
-                        'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-left',
+                    'flex-start' => array(
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
                     ),
                     'center' => array(
-                        'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-center',
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
                     ),
-                    'flex-end'  => array(
-                        'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
-                        'icon'  => 'eicon-h-align-right',
+                    'flex-end' => array(
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
                     ),
                 ),
                 'selectors' => [
                     '{{WRAPPER}} .eead-tab-container.top .eead-tabs' => 'justify-content: {{VALUE}}',
                 ],
-            )
+            ]
         );
 
         $this->end_controls_section();
@@ -454,7 +452,6 @@ class HorizontalTabBlock extends Widget_Base {
                 ]
         );
 
-
         $this->add_group_control(
                 Group_Control_Typography::get_type(), [
             'name' => 'tab_content_typography',
@@ -491,8 +488,8 @@ class HorizontalTabBlock extends Widget_Base {
                             if ($tab['enable'] == 'yes') {
                                 $i++;
                                 ?>
-                                <div class="eead-tab <?php echo $i == 1 ? 'active' : null; ?>" data-tabid="<?php echo $i; ?>">
-                                    <?php \Elementor\Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
+                                <div class="eead-tab <?php echo ($i == 1 ? 'active' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
+                                    <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
                                     <span><?php echo esc_html($tab['title']); ?></span>
                                 </div>
                                 <?php
@@ -503,7 +500,7 @@ class HorizontalTabBlock extends Widget_Base {
                 </div>
 
                 <div class="eead-tab-content">
-                    <?php echo $this->get_tab_content(); ?>
+                    <?php $this->get_tab_content(); ?>
                 </div>
             </div>
         </section>
@@ -514,39 +511,39 @@ class HorizontalTabBlock extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $i = 0;
         
-        foreach ( $settings['tabs'] as $tab ) {
+        foreach ($settings['tabs'] as $tab) {
             if ($tab['enable'] == 'yes') {
                 $i++;
                 ?>
-                <div class="eead-each-content eead-content-<?php echo $i; ?><?php if($i == 1) { echo ' eead-active'; } ?>" style="<?php echo $i>1 ? 'display:none;' : null; ?>">
-                <?php
-                if( $tab['content_type'] == 'page' ) {
-                    if ( $tab['enable'] == 'yes' && !empty($tab['page']) ) {
-                        $args = array(
-                            'page_id' => absint($tab['page'])
-                        );
-                        $query = new \WP_Query($args);
-                        if ($query->have_posts()):
-                            while ($query->have_posts()) : $query->the_post();
-                                ?>
-                                <h3><?php the_title(); ?></h3>
-                                <div class="eead-clearfix">
-                                    <?php the_content(); ?>
-                                </div>
-                                <?php
-                            endwhile;
-                        endif;
-                        wp_reset_postdata();
-                    }       
-                }
-                else if( $tab['content_type'] == 'elementor_template' ) {
-                    echo $this->elementor()->frontend->get_builder_content_for_display( $tab['elementor_template'] );
-                    echo $this->eead_template_edit_link($item['template_id']);
-                }
-                else if($tab['content_type'] == 'wisiwyg' and $tab[ 'wisiwyg_content' ] ) {
-                    echo parse_wisiwyg_content( $tab[ 'wisiwyg_content' ] );
-                }
-                ?>
+                <div class="eead-each-content eead-content-<?php echo esc_attr($i) . ' ' . (($i == 1) ? 'eead-active' : ''); ?>" style="<?php echo (($i > 1) ? 'display:none;' : ''); ?>">
+                    <?php
+                    if ($tab['content_type'] == 'page') {
+                        if ($tab['enable'] == 'yes' && !empty($tab['page'])) {
+                            $args = array(
+                                'page_id' => absint($tab['page'])
+                            );
+                            $query = new \WP_Query($args);
+                            if ($query->have_posts()):
+                                while ($query->have_posts()) : $query->the_post();
+                                    ?>
+                                    <h3><?php the_title(); ?></h3>
+                                    <div class="eead-clearfix">
+                                        <?php the_content(); ?>
+                                    </div>
+                                    <?php
+                                endwhile;
+                            endif;
+                            wp_reset_postdata();
+                        }       
+                    }
+                    else if ($tab['content_type'] == 'elementor_template') {
+                        echo $this->elementor()->frontend->get_builder_content_for_display($tab['elementor_template']);
+                        echo $this->eead_template_edit_link($item['template_id']);
+                    }
+                    else if ($tab['content_type'] == 'wisiwyg' and $tab['wisiwyg_content']) {
+                        echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
+                    }
+                    ?>
                 </div>
                 <?php
             }
@@ -555,18 +552,17 @@ class HorizontalTabBlock extends Widget_Base {
 
     // Elementor Saved Template 
     protected function get_elementor_templates() {
-
         $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
-        $types     = [];
+        $types = [];
 
-        if ( empty($templates) ) {
+        if (empty($templates)) {
             $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
         } else {
             $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
 
-            foreach ( $templates as $template ) {
+            foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
-                $types[$template['template_id']]            = $template['type'];
+                $types[$template['template_id']] = $template['type'];
             }
         }
 
@@ -578,13 +574,12 @@ class HorizontalTabBlock extends Widget_Base {
     }
 
     protected function get_pages() {
-        $pages = get_pages( array(
-            'order'   => 'ASC'
-        ) );
+        $pages = get_pages(array(
+            'order' => 'ASC'
+        ));
 
         $_pages = [];
-
-        foreach( $pages as $key => $object ) {
+        foreach($pages as $key => $object) {
             $_pages[$object->ID] = ucfirst($object->post_title); 
         }
 
@@ -592,12 +587,9 @@ class HorizontalTabBlock extends Widget_Base {
     }
 
     private function eead_template_edit_link($template_id) {
-        if ( $this->elementor()->editor->is_edit_mode() ) {
-
+        if ($this->elementor()->editor->is_edit_mode()) {
             $url = add_query_arg(['elementor' => ''], get_permalink($template_id));
-
-            $output = '<a class="eead-template-edit-link" href="'.esc_url($url).'" title="'.esc_html__('Edit Template', 'easy-elementor-addons').'" target="_blank"><i class="eicon-edit"></i></a>';
-
+            $output = '<a class="eead-template-edit-link" href="' . esc_url($url) . '" title="' . esc_attr__('Edit Template', 'easy-elementor-addons') . '" target="_blank"><i class="eicon-edit"></i></a>';
             return $output;
         }
     }
