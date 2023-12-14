@@ -648,12 +648,13 @@ class OnePageNavigation extends Widget_Base {
 					if ($settings['tooltip_arrow'] == 'yes') {
 						$this->add_render_attribute('tooltip', 'class', 'eead-tooltip-arrow');
 					}
-					
+
 					?>
 					<li class="eead-one-page-nav-item">
 						<?php
 						if ($settings['nav_tooltip'] == 'yes') {
-							printf('<span %1$s><span class="eead-nav-dot-tooltip-content">%2$s</span></span>', $this->get_render_attribute_string('tooltip'), $dot['section_title']);
+							printf('<span %1$s><span class="eead-nav-dot-tooltip-content">%2$s</span></span>', $this->get_render_attribute_string('tooltip'), esc_html($dot['section_title']));
+
 						} else {
 							echo '';
 						}

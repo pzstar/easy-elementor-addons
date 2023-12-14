@@ -74,7 +74,7 @@ class DropBar extends Widget_Base {
 			'content', [
 				'label' => __('Content', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
-				'dynamic' => [ 'active' => true ],
+				'dynamic' => ['active' => true],
 				'placeholder' => __('Dropbar content goes here', 'easy-elementor-addons'),
 				'show_label' => false,
 				'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam', 'easy-elementor-addons'),
@@ -666,7 +666,7 @@ class DropBar extends Widget_Base {
 
 		$this->add_render_attribute('dropbar-wrapper', 'class', 'eead-dropbar-wrapper');
 
-		if ($settings['button_position']) {
+		if (!empty($settings['button_position'])) {
 			$this->add_render_attribute('dropbar-wrapper', 'class', ['eead-position-fixed', 'eead-position-' . esc_attr($settings['button_position'])]);
 		}
 		?>
@@ -678,14 +678,12 @@ class DropBar extends Widget_Base {
 	                <?php 
 	            	if ($settings['source'] == "custom"  && !empty($settings['content'])) {
 	            		echo wp_kses_post($settings['content']);
-	            	} 
-	            	else if ($settings['source'] == "elementor" && !empty($settings['template_id'])) {
+
+	            	} else if ($settings['source'] == "elementor" && !empty($settings['template_id'])) {
 	            		echo Plugin::$instance->frontend->get_builder_content_for_display($settings['template_id']);
-	            		echo eead_template_edit_link( $settings['template_id'] );
-	            	} 
-	            	else if ($settings['source'] == "anywhere"  && !empty($settings['anywhere_id'])) {
+
+	            	} else if ($settings['source'] == "anywhere" && !empty($settings['anywhere_id'])) {
 	            		echo Plugin::$instance->frontend->get_builder_content_for_display($settings['anywhere_id']);
-	            		echo eead_template_edit_link($settings['anywhere_id']);
 	            	}
 		            ?>
 	            </div>
@@ -739,9 +737,10 @@ class DropBar extends Widget_Base {
 							<?php 
 							if (isset($settings['__fa4_migrated']['button_icon']) || (empty($settings['icon']) && Icons_Manager::is_migration_allowed())) {
 								Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+
 							} else {
 								?>
-								<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
+								<i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
 								<?php
 							}
 							?>

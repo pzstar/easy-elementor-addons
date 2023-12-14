@@ -2368,22 +2368,28 @@ class FilterableGallery extends Widget_Base {
     
     protected function render_filters() {
         $settings = $this->get_settings_for_display();
-        $all_text = ($settings['eead_fg_all_label_text'] != '') ? wp_kses_post($settings['eead_fg_all_label_text']) : esc_html__('All', 'easy-elementor-addons');
+        $all_text = ($settings['eead_fg_all_label_text'] != '') ? esc_html($settings['eead_fg_all_label_text']) : esc_html__('All', 'easy-elementor-addons');
 
         if ($settings['filter_enable'] == 'yes') {
             ?>
             <div class="eead-filter-gallery-control">
                 <ul>
-                    <?php if ($settings['eead_fg_all_label_text']) { ?>
-                        <li data-load-more-status="0" class="control all-control active" data-filter="*"><?php echo $all_text; ?></li>
-                    <?php } ?>
+                    <?php
+                    if ($settings['eead_fg_all_label_text']) {
+                        ?>
+                        <li data-load-more-status="0" class="control all-control active" data-filter="*"><?php echo esc_attr($all_text); ?></li>
+                        <?php
+                    }
 
-                    <?php foreach ($settings['eead_fg_controls'] as $key => $control) {
-                        $sorter_filter = $this->sorter_class($control['eead_fg_control']); ?>
+                    foreach ($settings['eead_fg_controls'] as $key => $control) {
+                        $sorter_filter = $this->sorter_class($control['eead_fg_control']);
+                        ?>
                         <li data-load-more-status="0" class="control <?php echo (($key == 0 && empty($settings['eead_fg_all_label_text'])) ? 'active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr($sorter_filter); ?>">
                             <?php echo esc_html($control['eead_fg_control']); ?>
                         </li>
-                    <?php } ?>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <?php
@@ -2401,12 +2407,14 @@ class FilterableGallery extends Widget_Base {
                             <?php
                             if ($settings['eead_fg_all_label_text']) {
                                 echo wp_kses_post($settings['eead_fg_all_label_text']);
+
                             } elseif (isset($settings['eead_fg_controls']) && !empty($settings['eead_fg_controls'])) {
                                 echo $settings['eead_fg_controls'][0]['eead_fg_control'];
                             }
                             ?>
                         </span>
-                       <i class="fas fa-angle-down"></i>
+
+                        <i class="fas fa-angle-down"></i>
                     </button>
 
                     <ul class="fg-layout-3-filter-controls">
@@ -2417,7 +2425,7 @@ class FilterableGallery extends Widget_Base {
                         <?php foreach ($settings['eead_fg_controls'] as $key => $control) {
                             $sorter_filter = $this->sorter_class($control['eead_fg_control']); ?>
                             <li class="control <?php echo (($key == 0 && empty($settings['eead_fg_all_label_text'])) ? 'active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr($sorter_filter); ?>">
-                                <?php echo esc_html__($control['eead_fg_control']); ?>
+                                <?php echo esc_html($control['eead_fg_control']); ?>
                             </li>
                         <?php } ?>
                     </ul>
@@ -2495,7 +2503,7 @@ class FilterableGallery extends Widget_Base {
         $counter = 0;
 
         foreach ($gallery_items as $gallery) {
-            $gallery_store[$counter]['title'] = wp_kses_post($gallery['eead_fg_gallery_item_name']);
+            $gallery_store[$counter]['title'] = $gallery['eead_fg_gallery_item_name'];
             $gallery_store[$counter]['content'] = $gallery['eead_fg_gallery_item_content'];
             $gallery_store[$counter]['id'] = $gallery['_id'];
             $gallery_store[$counter]['image'] = $gallery['eead_fg_gallery_img'];
@@ -2505,9 +2513,10 @@ class FilterableGallery extends Widget_Base {
             $gallery_store[$counter]['link'] = $gallery['eead_fg_gallery_img_link'];
             $gallery_store[$counter]['video_gallery_switch'] = $gallery['fg_video_gallery_switch'];
 
-            if (strpos($gallery['eead_fg_gallery_item_video_link'], 'youtu.be') != false) {
+            if (isset($gallery['eead_fg_gallery_item_video_link']) && !empty($gallery['eead_fg_gallery_item_video_link']) && (strpos($gallery['eead_fg_gallery_item_video_link'], 'youtu.be') != false)) {
                 preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $gallery['eead_fg_gallery_item_video_link'], $matches);
                 $gallery_store[$counter]['video_link'] = !empty($matches) ? sprintf('https://www.youtube.com/watch?v=%s', $matches[1]) : '';
+
             } else {
                 $gallery_store[$counter]['video_link'] = $gallery['eead_fg_gallery_item_video_link'];
             }
@@ -2547,14 +2556,16 @@ class FilterableGallery extends Widget_Base {
                                 ?>
                                 <img src="<?php echo esc_url($settings['eead_section_fg_zoom_icon_new']['value']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['eead_section_fg_zoom_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
                                 <?php
-                            } else if (isset($settings['eead_section_fg_zoom_icon_new']['value'])) {
+
+                            } else if (isset($settings['eead_section_fg_zoom_icon_new']['value']) && !empty($settings['eead_section_fg_zoom_icon_new']['value'])) {
                                 ?>
-                                <i class="<?php echo $settings['eead_section_fg_zoom_icon_new']['value']; ?>" aria-hidden="true"></i>
+                                <i class="<?php echo esc_attr($settings['eead_section_fg_zoom_icon_new']['value']); ?>" aria-hidden="true"></i>
                                 <?php
                             }
+
                         } else {
                             ?>
-                            <i class="<?php echo $settings['eead_section_fg_zoom_icon']; ?>" aria-hidden="true"></i>
+                            <i class="<?php echo esc_attr($settings['eead_section_fg_zoom_icon']); ?>" aria-hidden="true"></i>
                             <?php
                         }
                         ?>
@@ -2584,11 +2595,13 @@ class FilterableGallery extends Widget_Base {
                                     ?>
                                     <img src="<?php echo esc_url($settings['eead_section_fg_link_icon_new']['value']['url']); ?>" alt="<?php echo esc_attr(get_post_meta($settings['eead_section_fg_link_icon_new']['value']['id'], '_wp_attachment_image_alt', true)); ?>" />
                                     <?php
+
                                 } else {
                                     ?>
                                     <i class="<?php echo esc_attr($settings['eead_section_fg_link_icon_new']['value']); ?>" aria-hidden="true"></i>
                                     <?php
                                 }
+
                             } else { ?>
                                 <i class="<?php echo esc_attr($settings['eead_section_fg_link_icon']); ?>" aria-hidden="true"></i>
                                 <?php
@@ -2700,6 +2713,7 @@ class FilterableGallery extends Widget_Base {
                             <?php
                         }
                         ?>
+
                         <<?php echo esc_attr($settings['title_tag']); ?> class="fg-item-title">
                             <?php echo esc_html($item['title']); ?>
                         </<?php echo esc_attr($settings['title_tag']); ?>>
@@ -2876,12 +2890,13 @@ class FilterableGallery extends Widget_Base {
 
         if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
             $gallery_settings['post_id'] = \Elementor\Plugin::$instance->editor->get_post_id();
+
         } else {
             $gallery_settings['post_id'] = get_the_ID();
         }
 
         $gallery_settings['widget_id'] = $this->get_id();
-        $no_more_items_text = wp_kses_post($settings['nomore_items_text']);
+        $no_more_items_text = $settings['nomore_items_text'];
         $grid_class = $settings['eead_fg_grid_style'] == 'grid' ? 'eead-filter-gallery-grid' : 'masonry';
 
         $this->add_render_attribute('gallery-items-wrap', [
@@ -2894,19 +2909,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_render_attribute('gallery-items-wrap', 'data-settings', wp_json_encode($gallery_settings));
         if ($settings['eead_fg_caption_style'] == 'layout_3') {
             $this->add_render_attribute('gallery-items-wrap', 'data-gallery-items', wp_json_encode($this->render_layout_3_gallery_items()));
+
         } else {
             $this->add_render_attribute('gallery-items-wrap', 'data-gallery-items', wp_json_encode($this->render_gallery_items()));
         }
 
         $this->add_render_attribute('gallery-items-wrap', 'data-init-show', esc_attr($settings['eead_fg_items_to_show']));
         ?>
+
         <div <?php $this->print_render_attribute_string('gallery'); ?>>
 
             <?php
-            if ($settings['eead_fg_caption_style'] == 'layout_3')
+            if ($settings['eead_fg_caption_style'] == 'layout_3') {
                 $this->render_layout_3_filters();
-            else
+
+            } else {
                 $this->render_filters();
+            }
             ?>
 
             <div <?php $this->print_render_attribute_string('gallery-items-wrap'); ?>>
@@ -2918,6 +2937,7 @@ class FilterableGallery extends Widget_Base {
                         if ($settings['eead_fg_caption_style'] == 'layout_3') {
                             echo $this->render_layout_3_gallery_items()[$i];
                         }
+
                         else {
                             echo $this->render_gallery_items()[$i];
                         }

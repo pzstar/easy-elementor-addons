@@ -53,7 +53,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'template_height_hint', [
-                'label' => '<span style="line-height: 1.4em;">It\'s recommended that templates be the same height</span>',
+                'label' => '<span style="line-height: 1.4em;">'. esc_html__('It\'s recommended that templates be the same height', 'easy-elementor-addons') . '</span>',
                 'type' => Controls_Manager::RAW_HTML,
             ]
         );
@@ -1031,17 +1031,17 @@ class MultiScroll extends Widget_Base {
 
         $this->add_render_attribute(
             'multiscroll_inner', [
-                'id' => 'eead-multiscroll-' . esc_attr($id),
+                'id' => 'eead-multiscroll-' . $id,
                 'class' => array(
                     'eead-multiscroll-inner',
-                    'eead-scroll-' . esc_attr($settings['scroll_container_height']),
+                    'eead-scroll-' . $settings['scroll_container_height'],
                 ),
             ]
         );
 
         $this->add_render_attribute(
             'multiscroll_menu', [
-                'id' => 'eead-scroll-nav-menu-' . esc_attr($id),
+                'id' => 'eead-scroll-nav-menu-' . $id,
                 'class' => array(
                     'eead-scroll-nav-menu',
                     'eead-scroll-responsive',
@@ -1049,10 +1049,10 @@ class MultiScroll extends Widget_Base {
             ]
         );
 
-        $this->add_render_attribute('right_template', 'class', array( 'eead-multiscroll-temp', 'eead-multiscroll-right-temp', 'eead-multiscroll-temp-' . esc_attr($id)));
-        $this->add_render_attribute('left_template', 'class', array( 'eead-multiscroll-temp', 'eead-multiscroll-left-temp', 'eead-multiscroll-temp-' . esc_attr($id)));
-        $this->add_render_attribute('left_side', 'class', 'eead-multiscroll-left-' . esc_attr($id));
-        $this->add_render_attribute('right_side', 'class', 'eead-multiscroll-right-' . esc_attr($id));
+        $this->add_render_attribute('right_template', 'class', array( 'eead-multiscroll-temp', 'eead-multiscroll-right-temp', 'eead-multiscroll-temp-' . $id));
+        $this->add_render_attribute('left_template', 'class', array( 'eead-multiscroll-temp', 'eead-multiscroll-left-temp', 'eead-multiscroll-temp-' . $id));
+        $this->add_render_attribute('left_side', 'class', 'eead-multiscroll-left-' . $id);
+        $this->add_render_attribute('right_side', 'class', 'eead-multiscroll-right-' . $id);
         $this->add_inline_editing_attributes('left_side_text', 'advanced');
         $this->add_inline_editing_attributes('right_side_text', 'advanced');
         $this->add_render_attribute('left_side_text', 'class', 'eead-multiscroll-left-text');
@@ -1060,85 +1060,89 @@ class MultiScroll extends Widget_Base {
         $templates = $settings['left_side_repeater'];
         ?>
 
-        <div <?php echo wp_kses_post($this->get_render_attribute_string('multiscroll_wrapper')); ?> data-settings="<?php echo wp_json_encode($scoll_settings); ?>">
-            <?php if ('yes' === $settings['nav_menu_switch']) { ?>
-                <ul <?php echo wp_kses_post($this->get_render_attribute_string('multiscroll_menu')); ?>>
-                    <?php foreach ($nav_items as $index => $item) { ?>
+        <div <?php $this->print_render_attribute_string('multiscroll_wrapper'); ?> data-settings='<?php echo wp_json_encode($scoll_settings); ?>'>
+            <?php
+            if ('yes' === $settings['nav_menu_switch']) {
+                ?>
+                <ul <?php $this->print_render_attribute_string('multiscroll_menu'); ?>>
+                    <?php
+                    foreach ($nav_items as $index => $item) {
+                        ?>
                         <li data-menuanchor="<?php echo esc_attr('section_' . $index); ?>" class="eead-scroll-nav-item">
                             <a class="eead-scroll-nav-link" href="<?php echo esc_attr('#section_' . $index); ?>"><?php echo wp_kses_post($item['nav_menu_item']); ?></a>
                         </li>
-                    <?php } ?>
+                        <?php
+                    }
+                    ?>
                 </ul>
-            <?php } ?>
-            <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'multiscroll_inner' ) ); ?>>
-                <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'left_side' ) ); ?>>
+                <?php
+            }
+            ?>
+            <div <?php $this->print_render_attribute_string('multiscroll_inner'); ?>>
+                <div <?php $this->print_render_attribute_string('left_side'); ?>>
                     <?php
-                    foreach ($templates as $index => $section) :
+                    foreach ($templates as $index => $section) {
                         if ('yes' === $section['hide_left_section_tabs']) {
                             $this->add_render_attribute('left_section' . $index, 'data-hide-tabs', true);
                         }
+
                         if ('yes' === $section['hide_left_section_mobs']) {
                             $this->add_render_attribute('left_section' . $index, 'data-hide-mobs', true);
                         }
                         ?>
-                    <div <?php echo wp_kses_post($this->get_render_attribute_string('left_template') . $this->get_render_attribute_string('left_section' . $index)); ?>>
-                        <?php
-                        if ('temp' === $section['left_content']) :
-                            $template = empty($section['left_side_template']) ? $section['live_temp_content'] : $section['left_side_template'];
-                            echo $this->get_template_content($template); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                            else :
+                        <div <?php $this->print_render_attribute_string('left_template'); ?> <?php $this->print_render_attribute_string('left_section' . $index); ?>>
+                            <?php
+                            if ('temp' === $section['left_content']) {
+                                $template = empty($section['left_side_template']) ? $section['live_temp_content'] : $section['left_side_template'];
+                                echo $this->get_template_content($template); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            } else {
                                 ?>
-                                <div <?php echo wp_kses_post($this->get_render_attribute_string('left_side_text')); ?>>
+                                <div <?php echo $this->print_render_attribute_string('left_side_text'); ?>>
                                     <?php echo $this->parse_text_editor($section['left_side_text']); ?>
                                 </div>
                                 <?php
-                            endif;
+                            }
                             ?>
-                    </div>
-                    <?php endforeach; ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
-                <div <?php echo wp_kses_post($this->get_render_attribute_string('right_side')); ?>>
+                <div <?php $this->print_render_attribute_string('right_side'); ?>>
                     <?php
-                    foreach ( $templates as $index => $section ) :
+                    foreach ($templates as $index => $section) {
                         if ('yes' === $section['hide_right_section_tabs']) {
                             $this->add_render_attribute('right_section' . $index, 'data-hide-tabs', true);
                         }
+
                         if ('yes' === $section['hide_right_section_mobs']) {
                             $this->add_render_attribute('right_section' . $index, 'data-hide-mobs', true);
                         }
                         ?>
-                    <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'right_template' ) . $this->get_render_attribute_string( 'right_section' . $index ) ); ?>>
-                        <?php
-                        if ('temp' === $section['right_content']) {
-                            $template = empty($section['right_side_template']) ? $section['live_temp_content_extra'] : $section['right_side_template'];
-                            echo $this->get_template_content($template); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } else {
-                            ?>
-                            <div <?php echo wp_kses_post($this->get_render_attribute_string('right_side_text')); ?>>
-                                <?php echo $this->parse_text_editor($section['right_side_text']); ?>
-                            </div>
+                        <div <?php $this->print_render_attribute_string('right_template'); ?> <?php $this->print_render_attribute_string('right_section' . $index); ?>>
                             <?php
-                        }
-                        ?>
-                    </div>
-                    <?php endforeach; ?>
+                            if ('temp' === $section['right_content']) {
+                                $template = empty($section['right_side_template']) ? $section['live_temp_content_extra'] : $section['right_side_template'];
+                                echo $this->get_template_content($template); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+                            } else {
+                                ?>
+                                <div <?php $this->print_render_attribute_string('right_side_text'); ?>>
+                                    <?php echo $this->parse_text_editor($section['right_side_text']); ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
         <?php
     }
 
-
-    /**
-     * Get Elementor Template HTML Content
-     *
-     * @since 3.6.0
-     * @access public
-     *
-     * @param string $title Template Title.
-     *
-     * @return $template_content string HTML Markup of the selected template.
-     */
     public function get_template_content($title) {
         $frontend = Plugin::$instance->frontend;
         $id = $this->get_id_by_title($title);
@@ -1147,20 +1151,27 @@ class MultiScroll extends Widget_Base {
         return $template_content;
     }
 
-    /**
-     * Get ID By Title
-     *
-     * Get Elementor Template ID by title
-     *
-     * @since 3.6.0
-     * @access public
-     *
-     * @param string $title template title.
-     *
-     * @return string $template_id template ID.
-     */
-    public function get_id_by_title($title) {
-        $template = get_page_by_title($title, OBJECT, 'elementor_library');
+    public function get_id_by_title( $title ) {
+        $query = new \WP_Query(
+            array(
+                'post_type' => 'elementor_library',
+                'title' => $title,
+                'post_status' => 'all',
+                'posts_per_page' => 1,
+                'no_found_rows' => true,
+                'ignore_sticky_posts' => true,
+                'update_post_term_cache' => false,
+                'update_post_meta_cache' => false,
+                'orderby' => 'post_date ID',
+                'order' => 'ASC',
+            )
+        );
+         
+        if (!empty( $query->post)) {
+            $template = $query->post;
+        } else {
+            $template = null;
+        }
         $template_id = isset($template->ID) ? $template->ID : $title;
         return $template_id;
     }

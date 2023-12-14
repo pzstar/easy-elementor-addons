@@ -25,7 +25,7 @@ class AnimatedIcon extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Animated Icon', 'easy-elementor-addons');
+        return __('Animated Icon', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -39,30 +39,30 @@ class AnimatedIcon extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'lordicon' ];
+        return ['lordicon'];
     }
 
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
             'eead_general', [
-                'label' => esc_html__('General', 'easy-elementor-addons'),
-                'tab'   => Controls_Manager::TAB_CONTENT,
+                'label' => __('General', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
             'eead_type', [
-                'label' => esc_html__('Select JSON', 'easy-elementor-addons'),
+                'label' => __('Select JSON', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'url',
                 'options' => [
                     'file' => [
-                        'title' => esc_html__('JSON File', 'easy-elementor-addons'),
+                        'title' => __('JSON File', 'easy-elementor-addons'),
                         'icon' => 'eicon-document-file',
                     ],
                     'url' => [
-                        'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
+                        'title' => __('JSON URL', 'easy-elementor-addons'),
                         'icon' => 'eicon-link',
                     ],
                 ]
@@ -89,14 +89,10 @@ class AnimatedIcon extends Widget_Base {
             'eead_url', [
                 'show_label' => false,
                 'label_block' => true,
-                'description' => sprintf(
-                    __('Discover thousands of %sLordicon animations%s ready to use.', 'easy-elementor-addons'),
-                    '<a href="https://lordicon.com/" target="_blank">',
-                    '</a>'
-                ),
+                'description' => sprintf(__('Discover thousands of %sLordicon animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lordicon.com/" target="_blank">', '</a>'),
                 'default' => 'https://cdn.lordicon.com/gmzxduhd.json',
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://example.com/file.json', 'easy-elementor-addons'),
+                'placeholder' => __('https://example.com/file.json', 'easy-elementor-addons'),
                 'show_external' => false,
                 'condition' => [
                     'eead_type' => 'url'
@@ -106,33 +102,33 @@ class AnimatedIcon extends Widget_Base {
 
         $this->add_control(
             'eead_animation_trigger', [
-                'label' => esc_html__('Animation Trigger', 'easy-elementor-addons'),
+                'label' => __('Animation Trigger', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'loop',
-                'description' => esc_html__('Method that makes the icon animate', 'easy-elementor-addons'),
+                'description' => __('Method that makes the icon animate', 'easy-elementor-addons'),
                 'options' => [
-                    'loop' => esc_html__('Loop(always animate)', 'easy-elementor-addons'),
-                    'click' => esc_html__('Click', 'easy-elementor-addons'),
-                    'hover' => esc_html__('Hover', 'easy-elementor-addons'),
-                    'loop-on-hover' => esc_html__('Loop on Hover', 'easy-elementor-addons'),
-                    'morph' => esc_html__('Morph', 'easy-elementor-addons'),
-                    'morph-two-way' => esc_html__('Morph Two Way', 'easy-elementor-addons'),
+                    'loop' => __('Loop(always animate)', 'easy-elementor-addons'),
+                    'click' => __('Click', 'easy-elementor-addons'),
+                    'hover' => __('Hover', 'easy-elementor-addons'),
+                    'loop-on-hover' => __('Loop on Hover', 'easy-elementor-addons'),
+                    'morph' => __('Morph', 'easy-elementor-addons'),
+                    'morph-two-way' => __('Morph Two Way', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'eead_animation_target', [
-                'label' => esc_html__('Target', 'easy-elementor-addons'),
+                'label' => __('Target', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'description' => esc_html__('For loop on hover and click'),
+                'description' => __('For loop on hover and click'),
                 'default' => 'icon',
                 'options' => [
-                    'widget' => esc_html__('On Widget', 'easy-elementor-addons'),
-                    'icon' => esc_html__('On Icon', 'easy-elementor-addons'),
-                    'column' => esc_html__('On Column', 'easy-elementor-addons'),
-                    'section' => esc_html__('On Section', 'easy-elementor-addons'),
-                    'custom' => esc_html__('Custom', 'easy-elementor-addons')
+                    'widget' => __('On Widget', 'easy-elementor-addons'),
+                    'icon' => __('On Icon', 'easy-elementor-addons'),
+                    'column' => __('On Column', 'easy-elementor-addons'),
+                    'section' => __('On Section', 'easy-elementor-addons'),
+                    'custom' => __('Custom', 'easy-elementor-addons')
                 ],
             ]
         );
@@ -170,7 +166,7 @@ class AnimatedIcon extends Widget_Base {
 
         $this->start_controls_section(
             'eead_icon_styles', [
-                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'label' => __('Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );

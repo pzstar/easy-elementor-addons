@@ -384,50 +384,55 @@ class AnimatedHeading extends Widget_Base {
         } 
         ?>
 
-        <<?php echo esc_html($html_tag); ?> class="eead-animated-heading-wrap <?php echo 'eead-align-' . esc_attr($settings['alignment']); ?>">
+        <<?php echo esc_attr($html_tag); ?> class="eead-animated-heading-wrap <?php echo 'eead-align-' . esc_attr($settings['alignment']); ?>">
 
-            <?php 
-            if (!empty($settings['heading_link']['url'])) {
-                $this->add_render_attribute('url', 'href', $settings['heading_link']['url']);
-
-                if ($settings['heading_link']['is_external']) {
-                    $this->add_render_attribute('url', 'target', '_blank');
-                }
-
-                if (!empty($settings['heading_link']['nofollow'])) {
-                    $this->add_render_attribute('url', 'rel', 'nofollow');
-                }
-                echo sprintf('<a %1$s>', $this->get_render_attribute_string('url'));
-            }
-            if ($settings['pre_heading']) { ?>
-                <div class="eead-pre-heading"><?php echo esc_html($settings['pre_heading']); ?></div>
-                <?php
-            }
-            if ($settings['animated_heading']) { ?>
-                <div <?php $this->print_render_attribute_string('animated-heading'); ?>>
-                    <?php
-                    if ($settings['layout'] != 'typed') { 
-                        echo rtrim(esc_attr($settings['animated_heading']), ',');
-                    }
-                    ?>
-                </div>
-                <?php
+        <?php 
+        if (!empty($settings['heading_link']['url'])) {
+            $this->add_render_attribute('url', 'href', esc_url($settings['heading_link']['url']));
+            if ($settings['heading_link']['is_external']) {
+                $this->add_render_attribute('url', 'target', '_blank');
             }
 
-            if ($settings['post_heading']) {
-                ?>
-                <div class="eead-post-heading">
-                    <?php echo esc_html($settings['post_heading']); ?>
-                </div>
-                <?php
+            if (!empty($settings['heading_link']['nofollow'])) {
+                $this->add_render_attribute('url', 'rel', 'nofollow');
             }
+            echo sprintf('<a %1$s>', $this->get_render_attribute_string('url'));
+        }
 
-            if (!empty($settings['heading_link']['url'])) {
-                echo '</a>';
-            }
+        if ($settings['pre_heading']) {
             ?>
+            <div class="eead-pre-heading">
+                <?php echo esc_html($settings['pre_heading']); ?>
+            </div>
+            <?php
+        }
 
-        </<?php echo esc_html($html_tag); ?>>  
+        if ($settings['animated_heading']) {
+            ?>
+            <div <?php $this->print_render_attribute_string('animated-heading'); ?>>
+                <?php
+                if ($settings['layout'] != 'typed') { 
+                    echo rtrim(esc_attr($settings['animated_heading']), ',');
+                }
+                ?>
+            </div>
+            <?php
+        }
+
+        if ($settings['post_heading']) {
+            ?>
+            <div class="eead-post-heading">
+                <?php echo esc_html($settings['post_heading']); ?>
+            </div>
+            <?php
+        }
+
+        if (!empty($settings['heading_link']['url'])) {
+            echo '</a>';
+        }
+        ?>
+
+        </<?php echo esc_attr($html_tag); ?>>  
         <?php
     }
 }

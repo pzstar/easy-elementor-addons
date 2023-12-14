@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Countdown Widget
  */
 class Countdown extends Widget_Base {
 
@@ -177,7 +177,7 @@ class Countdown extends Widget_Base {
             'eead_section_countdown_layout', [
                 'label' => __('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'grid',
+                'default' => 'table-cell',
                 'options' => [
                     'grid' => __('List', 'easy-elementor-addons'),
                     'table-cell' => __('Grid', 'easy-elementor-addons'),
@@ -468,8 +468,8 @@ class Countdown extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'range' => [
                     'px' => [
-                        'min'  => 0,
-                        'max'  => 1000,
+                        'min' => 0,
+                        'max' => 1000,
                         'step' => 5,
                     ],
                     '%' => [

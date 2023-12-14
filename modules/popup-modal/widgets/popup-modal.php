@@ -1364,7 +1364,7 @@ class PopupModal extends Widget_Base {
 							break;
 
 						case 'custom-html':
-							echo $settings['custom_html'];
+							echo wp_kses_post($settings['custom_html']);
 							break;
 
 						default:

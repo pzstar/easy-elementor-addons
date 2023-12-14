@@ -302,15 +302,15 @@ class AdvancedMap extends Widget_Base {
 			'data-animate' => 'animate-' . $settings['animate']
 		]);
 
-		if ( count( $markers ) >= 1 ) {
+		if (count($markers) >= 1) {
 			?>
 			<div class="eead-gmap-wrapper">
-				<div class="eead-markers" <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+				<div class="eead-markers" <?php $this->print_render_attribute_string('wrapper'); ?>>
 					<?php
 					foreach ($markers as $marker) {
 						?>
 						<div class="marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['long']); ?>" data-icon-size="<?php echo esc_attr($marker['icon_size']['size']); ?>" data-icon="<?php echo esc_attr($marker['icon']['url']); ?>" data-info-window="<?php echo esc_attr($marker['info_window_onload']); ?>">
-							<?php echo esc_html($marker['address']); ?>
+							<?php echo wp_kses_post($marker['address']); ?>
 						</div>
 						<?php
 					}

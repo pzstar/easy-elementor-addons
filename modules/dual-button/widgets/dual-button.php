@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Dual Button Widget
  */
 class DualButton extends Widget_Base {
 
@@ -792,24 +792,31 @@ class DualButton extends Widget_Base {
             if ($settings['button_animation'] === 'animation_1') {
                 $this->add_render_attribute('button1', 'class', 'eead-sweep-left');
                 $this->add_render_attribute('button2', 'class', 'eead-sweep-right');
+
             } elseif ($settings['button_animation'] === 'animation_2') {
                 $this->add_render_attribute('button1', 'class', 'eead-sweep-right');
                 $this->add_render_attribute('button2', 'class', 'eead-sweep-left');
+
             } elseif ($settings['button_animation'] === 'animation_3') {
                 $this->add_render_attribute('button1', 'class', 'eead-bounce-left');
                 $this->add_render_attribute('button2', 'class', 'eead-bounce-right');
+
             } elseif ($settings['button_animation'] === 'animation_4') {
                 $this->add_render_attribute('button1', 'class', 'eead-bounce-right');
                 $this->add_render_attribute('button2', 'class', 'eead-bounce-left');
+
             } elseif ($settings['button_animation'] === 'animation_5') {
                 $this->add_render_attribute('button1', 'class', 'eead-sweep-top');
                 $this->add_render_attribute('button2', 'class', 'eead-sweep-bottom');
+
             } elseif ($settings['button_animation'] === 'animation_6') {
                 $this->add_render_attribute('button1', 'class', 'eead-sweep-bottom');
                 $this->add_render_attribute('button2', 'class', 'eead-sweep-top');
+
             } elseif ($settings['button_animation'] === 'animation_7') {
                 $this->add_render_attribute('button1', 'class', 'eead-bounce-top');
                 $this->add_render_attribute('button2', 'class', 'eead-bounce-bottom');
+
             } elseif ($settings['button_animation'] === 'animation_8') {
                 $this->add_render_attribute('button1', 'class', 'eead-bounce-bottom');
                 $this->add_render_attribute('button2', 'class', 'eead-bounce-top');
@@ -853,12 +860,14 @@ class DualButton extends Widget_Base {
                                     if (!empty($settings['separator_icon_new'])) {
                                         if (isset($settings['__fa4_migrated']['separator_icon_new']) || empty($settings['separator_icon'])) {
                                             Icons_Manager::render_icon($settings['separator_icon_new'], ['aria-hidden' => 'true']);
+
                                         } else {
                                             ?>
                                             <i class="<?php echo esc_attr($settings['separator_icon']); ?>"></i>
                                             <?php
                                         }
                                     }
+
                                     if (!empty($settings['separator_text'])) {
                                         echo $settings['separator_text'];
                                     }
@@ -882,11 +891,14 @@ class DualButton extends Widget_Base {
                                     if (!empty($settings['separator_icon_new'])) {
                                         if ($separator_icon_migrated || $separator_icon_is_new) {
                                             Icons_Manager::render_icon($settings['separator_icon_new'], ['aria-hidden' => 'true']);
-                                        } else { ?>
+
+                                        } else {
+                                            ?>
                                             <i class="<?php echo esc_attr($settings['separator_icon']); ?>"></i>
                                             <?php
                                         }
                                     }
+
                                     if (!empty($settings['separator_text'])) {
                                         echo $settings['separator_text'];
                                     }
@@ -907,6 +919,7 @@ class DualButton extends Widget_Base {
                                     <?php
                                     if (isset($settings['__fa4_migrated']['button2_icon_new'] ) || empty($settings['button2_icon'])) {
                                         Icons_Manager::render_icon($settings['button2_icon_new'], ['aria-hidden' => 'true']);
+
                                     } else {
                                         ?>
                                         <i class="<?php echo esc_attr($settings['button2_icon']); ?>"></i>
@@ -917,7 +930,10 @@ class DualButton extends Widget_Base {
                                 <?php
                             }
                             ?>
-                            <div class="eead-button-text"><?php echo esc_html($settings['button2_text']); ?></div>
+
+                            <div class="eead-button-text">
+                                <?php echo esc_html($settings['button2_text']); ?>
+                            </div>
                         </div>
                     </a>
                 </div>

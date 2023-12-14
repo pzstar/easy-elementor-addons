@@ -102,6 +102,14 @@ class TestimonialSlider extends Widget_Base {
             'label' => __('Testimonials', 'easy-elementor-addons'),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
+            'default' => array(
+                array(
+                    'name' => 'John Doe',
+                    'John Doe' => 'Support Engineer',
+                    'testimonial_title' => '',
+                    'testimonial_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Quisque maximus ex eros, at tincidunt arcu placerat tempus. Quisque at lacinia mauris, a auctor urna. Donec laoreet tincidunt nisi ac sodales.',
+                ),
+            ),
             'title_field' => '{{{ name }}}',
                 ]
         );
@@ -922,7 +930,7 @@ class TestimonialSlider extends Widget_Base {
             'speed' => (int) $settings['speed'],
             'dots' => $settings['dots'] == 'yes' ? true : false,
             'arrows' => $settings['arrows'] == 'yes' ? true : false,
-            'items' => (int) $settings['slides_to_show']['size'],
+            'items' => !empty($settings['slides_to_show']['size']) ? (int) $settings['slides_to_show']['size'] : 1,
             'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
             'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
             'margin' => (int) $settings['slides_margin']['size'],

@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Circular Progressbar Widget
  */
 class CircularProgressbar extends Widget_Base {
 
@@ -234,6 +234,7 @@ class CircularProgressbar extends Widget_Base {
                         <circle cx="70" cy="70" r="70"></circle>
                         <circle cx="70" cy="70" r="70"></circle>
                     </svg>
+
                     <div class="number">
                         <h2>
                             <?php echo esc_html($settings['progressbar_percentage']); ?>
@@ -241,6 +242,7 @@ class CircularProgressbar extends Widget_Base {
                         </h2>
                     </div>
                 </div>
+
                 <h2 class="text">
                     <?php echo esc_html($settings['progressbar_title']); ?>
                 </h2>
@@ -248,5 +250,4 @@ class CircularProgressbar extends Widget_Base {
         </div>
         <?php
     }
-
 }

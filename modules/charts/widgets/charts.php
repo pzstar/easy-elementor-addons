@@ -18,6 +18,9 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
+/**
+ * Charts Widget
+ */
 class Charts extends Widget_Base {
 
     /** Widget Name */
@@ -1235,6 +1238,7 @@ class Charts extends Widget_Base {
         if (!empty($settings['title']) && $settings['title_switcher']) {
             $title = '<' . esc_attr($title_tag) . ' class="eead-chart-title">' . esc_html($settings['title']) . '</' . esc_attr($title_tag) . '>';
         }
+
         $xlabels = explode(',', $settings['x_axis_labels']);
         $data_source = $settings['data_source'];
         $columns_array = array();
@@ -1247,6 +1251,7 @@ class Charts extends Widget_Base {
                 } else {
                     $bg_color = $repeater_ele['dataset_color'];
                 }
+
                 $prop = array(
                     'backgroundColor' => $bg_color,
                     'borderColor' => $repeater_ele['dataset_border_color'],
@@ -1255,6 +1260,7 @@ class Charts extends Widget_Base {
                 );
                 array_push($props, $prop);
             }
+
             $col_settings = array(
                 'separator' => $settings['eead_chart_separator'],
                 'url' => ('file' === $settings['csv_type']) ? $settings['csv_file']['url'] : $settings['csv_url'],
@@ -1262,20 +1268,23 @@ class Charts extends Widget_Base {
             );
 
             $columns_array = array_merge($columns_array, $col_settings);
+
         } else {
             foreach ($settings['y_axis_data'] as $column_data) {
                 if ('pie' !== $settings['type'] && 'doughnut' !== $settings['type'] && 'polarArea' !== $settings['type']) {
                     if (empty($column_data['y_axis_column_color'] ) && empty( $column_data['y_axis_column_second_color'])) {
-                        $background = explode( ',', $column_data['y_axis_circle_color'] );
+                        $background = explode(',', $column_data['y_axis_circle_color']);
                         array_push( $background, 'empty' );
                     } elseif (!empty($column_data['y_axis_column_second_color'])) {
                         $background = array($column_data['y_axis_column_color'], $column_data['y_axis_column_second_color']);
                     } else {
                         $background = $column_data['y_axis_column_color'];
                     }
+
                 } else {
                     $background = explode(',', $column_data['y_axis_circle_color']);
                 }
+
                 $col_settings = array(
                     'label' => $column_data['y_axis_column_title'],
                     'data' => explode(',', $column_data['y_axis_column_data']),
@@ -1368,17 +1377,30 @@ class Charts extends Widget_Base {
         ?>
 
         <div <?php echo wp_kses_post($this->get_render_attribute_string('charts')); ?>>
-            <?php if (!empty($settings['title']) && $settings['title_switcher'] && 'top' === $settings['title_position']) : ?>
-                <div class="eead-chart-title-container"><?php echo wp_kses_post($title); ?></div>
-            <?php endif; ?>
+            <?php
+            if (!empty($settings['title']) && $settings['title_switcher'] && 'top' === $settings['title_position']) {
+                ?>
+                <div class="eead-chart-title-container">
+                    <?php echo wp_kses_post($title); ?>
+                </div>
+                <?php
+            }
+            ?>
+
             <div class="eead-chart-canvas-container">
                 <canvas <?php echo wp_kses_post($this->get_render_attribute_string('canvas')); ?>></canvas>
             </div>
-            <?php if (!empty($settings['title']) && $settings['title_switcher'] && 'bottom' === $settings['title_position']) : ?>
-                <div class="eead-chart-title-container"><?php echo wp_kses_post($title); ?></div>
-            <?php endif; ?>
-        </div>
 
+            <?php
+            if (!empty($settings['title']) && $settings['title_switcher'] && 'bottom' === $settings['title_position']) {
+                ?>
+                <div class="eead-chart-title-container">
+                    <?php echo wp_kses_post($title); ?>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
         <?php
     }
 }

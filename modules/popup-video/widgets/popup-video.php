@@ -728,6 +728,7 @@ class PopupVideo extends Widget_Base {
         extract($settings);
         $eead_video_popup_url = esc_url($eead_video_popup_url . "?autoplay={$eead_video_popup_auto_play}&loop={$eead_video_popup_video_loop}&controls={$eead_video_popup_video_player_control}&mute={$eead_video_popup_video_mute}&start={$eead_video_popup_start_time}&end={$eead_video_popup_end_time}&version=3");
         ?>
+
         <div class="eead-popup-video-wrap">
             <div class="eead-video-content video-content">
                 <a href="<?php echo esc_url($eead_video_popup_url); ?>" class="eead-video-popup eead-video-popup-btn <?php echo esc_attr($eead_video_popup_button_style == 'icon' ? 'eead_icon_button': ''); ?> <?php echo (($eead_video_popup_video_ripple_effect == "yes") ? 'ripple-btn' : ''); ?>">
@@ -737,18 +738,19 @@ class PopupVideo extends Widget_Base {
 
                     <?php
                     if ($eead_video_popup_button_style == 'icon' && !empty($eead_video_popup_button_icons)) {
-                        echo $this->video_icon();
+                        $this->video_icon();
                     }
+
                     if ($eead_video_popup_button_style == 'both') { 
                         if ($eead_video_popup_icon_align == 'before' && !empty($eead_video_popup_button_icons)) {
-                            echo $this->video_icon();
+                            $this->video_icon();
                         }
                         ?>
                         <span><?php echo esc_html($eead_video_popup_button_title); ?></span>
 
                         <?php
                         if($eead_video_popup_icon_align == 'after' && !empty($eead_video_popup_button_icons)) {
-                            echo $this->video_icon(); 
+                            $this->video_icon(); 
                         }
                     }
                     ?>

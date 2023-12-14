@@ -1307,7 +1307,7 @@ class HorizontalScroll extends Widget_Base {
                         );
 
                         if (0 === $index) {
-                            $this->add_render_attribute( $list_item_key, 'class', 'eead-hscroll-layer-active' );
+                            $this->add_render_attribute($list_item_key, 'class', 'eead-hscroll-layer-active');
                         }
 
                         ?>
@@ -1448,16 +1448,6 @@ class HorizontalScroll extends Widget_Base {
         <?php
     }
 
-    /**
-     * Get Elementor Template HTML Content
-     *
-     * @since 3.6.0
-     * @access public
-     *
-     * @param string $title Template Title.
-     *
-     * @return $template_content string HTML Markup of the selected template.
-     */
     public function get_template_content( $title ) {
         $frontend = Plugin::$instance->frontend;
         $id = $this->get_id_by_title( $title );
@@ -1466,18 +1456,6 @@ class HorizontalScroll extends Widget_Base {
         return $template_content;
     }
 
-    /**
-     * Get ID By Title
-     *
-     * Get Elementor Template ID by title
-     *
-     * @since 3.6.0
-     * @access public
-     *
-     * @param string $title template title.
-     *
-     * @return string $template_id template ID.
-     */
     public function get_id_by_title( $title ) {
         $query = new \WP_Query(
             array(
@@ -1494,7 +1472,7 @@ class HorizontalScroll extends Widget_Base {
             )
         );
          
-        if ( ! empty( $query->post ) ) {
+        if (!empty($query->post)) {
             $template = $query->post;
         } else {
             $template = null;
@@ -1503,17 +1481,6 @@ class HorizontalScroll extends Widget_Base {
         return $template_id;
     }
 
-    /**
-     * Get Elementor Template HTML Content
-     *
-     * @since 3.6.0
-     * @access public
-     *
-     * @param string|int $title   Template Title||id.
-     * @param bool   $id          indicates if $title is the template title or id.
-     *
-     * @return $template_content string HTML Markup of the selected template.
-     */
     public function get_el_template_content($title, $id = false) {
         $frontend = Plugin::$instance->frontend;
         if (!$id) {

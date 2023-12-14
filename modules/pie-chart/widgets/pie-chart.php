@@ -688,12 +688,14 @@ class PieChart extends Widget_Base {
 					if (!empty($style_value)) {
 						$options['tooltips'][ $style_property ] = $style_value;
 					}
+
 				} else {
 					if (!empty($settings[$setting_name])) {
 						if (is_array($settings[$setting_name])) {
 							if (!empty( $settings[$setting_name]['size'])) {
 								$options['tooltips'][$style_property] = $settings[$setting_name]['size'];
 							}
+
 						} else {
 							$options['tooltips'][$style_property] = $settings[$setting_name];
 						}

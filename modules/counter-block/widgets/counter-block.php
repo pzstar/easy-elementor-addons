@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Counter Block Widget
  */
 class CounterBlock extends Widget_Base {
 
@@ -430,14 +430,15 @@ class CounterBlock extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
+
         $settings = $this->get_settings_for_display();
-        // echo '<pre>';print_r($settings);echo '</pre>';return false;
         $counter_style = $settings['counter_style'];
         $counter_class = array(
             $counter_style,
             'eead-counter-wrap'
         );
         ?>
+
         <section class="eead-section eead-counter-section">
             <div class="eead-section-wrap">
                 <div class="eead-container eead-counter-container">
@@ -446,6 +447,7 @@ class CounterBlock extends Widget_Base {
                             <?php
                             $counter_title = $settings['title'];
                             $counter_count = $settings['count'];
+
                             if ($counter_count) {
                                 if ($counter_style == 'style1' || $counter_style == 'style2') {
                                     ?>
@@ -473,6 +475,7 @@ class CounterBlock extends Widget_Base {
                                         </h5>
                                     </div>
                                     <?php
+
                                 } elseif ($counter_style == 'style3') {
                                     ?>
                                     <div class="eead-counter">
@@ -481,9 +484,17 @@ class CounterBlock extends Widget_Base {
                                         </div>
 
                                         <div class="eead-counter-count">
-                                            <span class="eead-pre-text"><?php echo esc_html($settings['pre_text']); ?></span>
-                                            <span class="odometer " data-count="<?php echo absint($counter_count); ?>"><?php echo esc_html($settings['starting_value']); ?></span>
-                                            <span class="eead-post-text"><?php echo esc_html($settings['post_text']); ?></span>
+                                            <span class="eead-pre-text">
+                                                <?php echo esc_html($settings['pre_text']); ?>
+                                            </span>
+
+                                            <span class="odometer" data-count="<?php echo absint($counter_count); ?>">
+                                                <?php echo esc_html($settings['starting_value']); ?>
+                                            </span>
+
+                                            <span class="eead-post-text">
+                                                <?php echo esc_html($settings['post_text']); ?>
+                                            </span>
                                         </div>
 
                                         <h5 class="eead-counter-title">
@@ -491,6 +502,7 @@ class CounterBlock extends Widget_Base {
                                         </h5>
                                     </div>
                                     <?php
+
                                 } elseif ($counter_style == 'style4') {
                                     ?>
                                     <div class="eead-counter">
@@ -503,9 +515,11 @@ class CounterBlock extends Widget_Base {
                                                 <span class="eead-pre-text">
                                                     <?php echo esc_html($settings['pre_text']); ?>
                                                 </span>
-                                                <span class="odometer " data-count="<?php echo absint($counter_count); ?>">
+
+                                                <span class="odometer" data-count="<?php echo absint($counter_count); ?>">
                                                     <?php echo esc_html($settings['starting_value']); ?>
                                                 </span>
+
                                                 <span class="eead-post-text">
                                                     <?php echo esc_html($settings['post_text']); ?>
                                                 </span>

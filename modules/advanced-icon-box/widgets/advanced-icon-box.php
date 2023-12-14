@@ -508,8 +508,8 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'range' => [
                     'px' => [
-                        'min'  => -360,
-                        'max'  => 360,
+                        'min' => -360,
+                        'max' => 360,
                         'step' => 5,
                     ],
                 ],
@@ -791,7 +791,7 @@ class AdvancedIconBox extends Widget_Base {
             'icon_radius', [
                 'label' => __('Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
+                'size_units' => ['px', '%'],
                 'separator' => 'after',
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-icon-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
@@ -814,7 +814,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => __('Radius', 'easy-elementor-addons'),
                 'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
                 'type' => Controls_Manager::TEXT,
-                'size_units' => [ 'px', '%' ],
+                'size_units' => ['px', '%'],
                 'separator' => 'after',
                 'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
                 'selectors' => [
@@ -882,9 +882,9 @@ class AdvancedIconBox extends Widget_Base {
 
         $this->add_responsive_control(
             'icon_size', [
-                'label' => __( 'Size', 'easy-elementor-addons' ),
+                'label' => __('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px', 'em', 'vh', 'vw' ],
+                'size_units' => ['px', 'em', 'vh', 'vw'],
                 'range' => [
                     'px' => [
                         'min' => 6,
@@ -896,7 +896,7 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'conditions' => [
                     'relation' => 'or',
-                    'terms'    => [
+                    'terms' => [
                         [
                             'name' => 'image_fullwidth',
                             'operator' => '==',
@@ -914,7 +914,7 @@ class AdvancedIconBox extends Widget_Base {
 
         $this->add_control(
             'rotate', [
-                'label' => __( 'Rotate', 'easy-elementor-addons' ),
+                'label' => __('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -1109,7 +1109,7 @@ class AdvancedIconBox extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name'  'icon_hover_shadow',
+                'name' => 'icon_hover_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-icon-wrapper'
             ]
         );
@@ -2032,8 +2032,7 @@ class AdvancedIconBox extends Widget_Base {
             $settings['icon'] = 'fa fa-star';
         }
 
-        $has_icon  = !empty($settings['icon']);
-
+        $has_icon = !empty($settings['icon']);
         $has_image = !empty($settings['image']['url']);
 
         if ($has_icon && ('icon' == $settings['icon_type'])) {
@@ -2055,7 +2054,6 @@ class AdvancedIconBox extends Widget_Base {
         if ($has_icon or $has_image) { ?>
             <div class="eead-advanced-icon-box-icon">
                 <span class="eead-icon-wrapper elementor-animation-<?php echo esc_attr($settings['icon_hover_animation']); ?>">
-
                     <?php
                     if ($has_icon && 'icon' == $settings['icon_type']) { 
                         if ($is_new || $migrated) {
@@ -2066,10 +2064,12 @@ class AdvancedIconBox extends Widget_Base {
                             <?php
                         }
 
-                    } elseif ($has_image && 'image' == $settings['icon_type'] ) {
+                    } elseif ($has_image && 'image' == $settings['icon_type']) {
                         ?>
                         <img <?php $this->print_render_attribute_string('image-icon'); ?>>
-                    <?php } ?>
+                        <?php
+                    }
+                    ?>
                 </span>
             </div>
             <?php
@@ -2078,7 +2078,6 @@ class AdvancedIconBox extends Widget_Base {
 
     protected function render_icon_heading() {
         $settings = $this->get_settings_for_display();
-
         $this->add_render_attribute('advanced-icon-box-title', 'class', 'eead-advanced-icon-box-title');
 
         if ('yes' == $settings['icon_inline']) {
@@ -2093,19 +2092,17 @@ class AdvancedIconBox extends Widget_Base {
 
         ?>
         <div <?php $this->print_render_attribute_string('advanced-icon-box-icon-heading'); ?>>
-
             <?php $this->render_icon(); ?>
 
             <div class="eead-icon-box-title-wrapper">
-
                 <?php
                 if ($settings['title_text']) {
                     ?>
-                    <<?php echo esc_html($settings['title_size']); ?> class="eead-advanced-icon-box-title">
+                    <<?php echo esc_attr($settings['title_size']); ?> class="eead-advanced-icon-box-title">
                         <span <?php echo $this->get_render_attribute_string('title_text'); ?>>
                             <?php echo wp_kses($settings['title_text'], eead_allow_tags('title')); ?>
                         </span>
-                    </<?php echo esc_html($settings['title_size']); ?>>
+                    </<?php echo esc_attr($settings['title_size']); ?>>
                     <?php
                 }
 
@@ -2124,17 +2121,16 @@ class AdvancedIconBox extends Widget_Base {
 
     protected function render_heading() {
         $settings = $this->get_settings_for_display();
-
         $this->add_render_attribute('advanced-icon-box-title', 'class', 'eead-advanced-icon-box-title');
-
         $this->add_render_attribute('advanced-icon-box-sub-title', 'class', 'eead-advanced-icon-box-sub-title');
+
         if ($settings['title_text']) {
             ?>
-            <<?php echo esc_html($settings['title_size']); ?> class="eead-advanced-icon-box-title">
+            <<?php echo esc_attr($settings['title_size']); ?> class="eead-advanced-icon-box-title">
                 <span <?php echo $this->get_render_attribute_string('title_text'); ?>>
                     <?php echo wp_kses($settings['title_text'], eead_allow_tags('title')); ?>
                 </span>
-            </<?php echo esc_html($settings['title_size']); ?>>
+            </<?php echo esc_attr($settings['title_size']); ?>>
             <?php
         }
 
@@ -2150,10 +2146,12 @@ class AdvancedIconBox extends Widget_Base {
     public function render_svg_image() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'svg-image', [
-            'class' => 'eead-animation-stroke',
-            'eead-svg' => 'stroke-animation: true;'
-        ]);
+        $this->add_render_attribute(
+            'svg-image', [
+                'class' => 'eead-animation-stroke',
+                'eead-svg' => 'stroke-animation: true;'
+            ]
+        );
 
         $align = ($settings['divider_align'] == 'left' || $settings['divider_align'] == 'right') ? '-' . $settings['divider_align'] : '';
         $svg_image = EEAD_ASSETS_URL . 'img/divider/' . $settings['title_separator_type'] . $align . '.svg';
@@ -2209,23 +2207,21 @@ class AdvancedIconBox extends Widget_Base {
             ?>
 
             <div class="eead-advanced-icon-box-content">
-
                 <?php
                 if ('yes' == $settings['icon_inline']) {
                     $this->render_icon_heading();
-
                 } else {
                     $this->render_heading();
                 }
  
                 if ($settings['show_separator']) {
-
                     if ('line' == $settings['title_separator_type']) {
                         ?>
                         <div class="eead-title-separator-wrapper">
                             <div class="eead-title-separator"></div>
                         </div>
                         <?php
+
                     } else {
                         ?>
                         <div class="eead-title-separator-wrapper">
@@ -2240,7 +2236,7 @@ class AdvancedIconBox extends Widget_Base {
                 if ($settings['description_text']) {
                     ?>
                     <div <?php $this->print_render_attribute_string('description_text'); ?>>
-                        <?php echo $this->parse_text_editor($settings['description_text']); ?>
+                        <?php echo wp_kses_post($this->parse_text_editor($settings['description_text'])); ?>
                     </div>
                     <?php
                 }
@@ -2249,19 +2245,25 @@ class AdvancedIconBox extends Widget_Base {
                 <?php
                 if ($settings['readmore']) {
                     ?>
-                    <a <?php echo $this->get_render_attribute_string( 'readmore' ); ?>>
-                        <?php echo esc_html($settings['readmore_text']); 
-                        if ($settings['advanced_readmore_icon']['value']) : ?>
-
-                            <span class="eead-button-icon-align-<?php echo $settings['readmore_icon_align'] ?>">
-                                <?php if ( $readmore_is_new || $readmore_migrated ) :
-                                    Icons_Manager::render_icon( $settings['advanced_readmore_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
-                                else : ?>
-                                    <i <?php echo $this->get_render_attribute_string( 'font-icon' ); ?>></i>
-                                <?php endif; ?>
+                    <a <?php $this->print_render_attribute_string('readmore'); ?>>
+                        <?php
+                        echo esc_html($settings['readmore_text']); 
+                        if ($settings['advanced_readmore_icon']['value']) {
+                            ?>
+                            <span class="eead-button-icon-align-<?php echo esc_attr($settings['readmore_icon_align']); ?>">
+                                <?php
+                                if ($readmore_is_new || $readmore_migrated) {
+                                    Icons_Manager::render_icon($settings['advanced_readmore_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+                                } else {
+                                    ?>
+                                    <i <?php $this->print_render_attribute_string('font-icon'); ?>></i>
+                                    <?php
+                                }
+                                ?>
                             </span>
-
-                        <?php endif; ?>
+                            <?php
+                        }
+                        ?>
                     </a>
                     <?php
                 }
@@ -2269,10 +2271,15 @@ class AdvancedIconBox extends Widget_Base {
             </div>
         </div>
 
-        <?php if ($settings['badge'] && '' != $settings['badge_text']) : ?>
+        <?php
+        if ($settings['badge'] && ('' != $settings['badge_text'])) {
+            ?>
             <div class="eead-advanced-icon-box-badge eead-position-<?php echo esc_attr($settings['badge_position']); ?>">
-                <span class="eead-badge eead-padding-small"><?php echo esc_html($settings['badge_text']); ?></span>
+                <span class="eead-badge eead-padding-small">
+                    <?php echo esc_html($settings['badge_text']); ?>
+                </span>
             </div>
-        <?php endif;
+            <?php
+        }
     }
 }

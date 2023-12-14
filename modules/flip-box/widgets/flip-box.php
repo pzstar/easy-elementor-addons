@@ -1275,14 +1275,14 @@ class FlipBox extends Widget_Base {
 						<?php } ?>
 
 						<?php if (!empty($settings['front_title_text'])) { ?>
-							<<?php echo esc_html($settings['front_title_tags']); ?> <?php $this->print_render_attribute_string('box_front_title_tags'); ?>>
+							<<?php echo esc_attr($settings['front_title_tags']); ?> <?php $this->print_render_attribute_string('box_front_title_tags'); ?>>
 								<?php echo wp_kses($settings['front_title_text'], eead_allow_tags('title')); ?>
-							</<?php echo esc_html($settings['front_title_tags']); ?>>
+							</<?php echo esc_attr($settings['front_title_tags']); ?>>
 						<?php } ?>
 
 						<?php if ( !empty( $settings['front_description_text'] ) ) { ?>
 							<div class="eead-flip-box-layer-desc">
-								<?php echo wp_kses( $settings['front_description_text'], eead_allow_tags('text') ); ?>
+								<?php echo wp_kses($settings['front_description_text'], eead_allow_tags('text')); ?>
 							</div>
 						<?php } ?>
 					</div>
@@ -1293,9 +1293,9 @@ class FlipBox extends Widget_Base {
 				<div class="eead-flip-box-layer-overlay">
 					<div class="eead-flip-box-layer-inner">
 						<?php if (!empty($settings['back_title_text'])) { ?>
-							<<?php echo esc_html($settings['back_title_tags']); ?> <?php $this->print_render_attribute_string('box_front_title_tags'); ?>>
+							<<?php echo esc_attr($settings['back_title_tags']); ?> <?php $this->print_render_attribute_string('box_front_title_tags'); ?>>
 								<?php echo wp_kses($settings['back_title_text'], eead_allow_tags('title')); ?>
-							</<?php echo esc_html($settings['back_title_tags']); ?>>
+							</<?php echo esc_attr($settings['back_title_tags']); ?>>
 						<?php } ?>
 
 						<?php if (!empty($settings['back_description_text'])) { ?>

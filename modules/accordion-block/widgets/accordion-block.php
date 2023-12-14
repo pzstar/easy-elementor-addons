@@ -56,10 +56,10 @@ class AccordionBlock extends Widget_Base {
 
         $repeater->add_control(
             'keep_open', [
-                'label' => __( 'Show Content', 'easy-elementor-addons' ),
+                'label' => __('Show Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'easy-elementor-addons' ),
-                'label_off' => __( 'No', 'easy-elementor-addons' ),
+                'label_on' => __('Yes', 'easy-elementor-addons'),
+                'label_off' => __('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -67,42 +67,42 @@ class AccordionBlock extends Widget_Base {
 
         $repeater->add_control(
             'title', [
-                'label'   => esc_html__( 'Title', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::TEXT,
-                'default' => __( 'Accordion', 'easy-elementor-addons' )
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Accordion', 'easy-elementor-addons')
             ]
         );
 
         $repeater->add_control(
             'content_type', [
-                'label' => __( 'Content Type', 'easy-elementor-addons' ),
+                'label' => __('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
-                    'elementor_template'  => __( 'Elementor Template', 'easy-elementor-addons' ),
-                    'wisiwyg' => __( 'WISIWYG', 'easy-elementor-addons' ),
+                    'elementor_template'  => __('Elementor Template', 'easy-elementor-addons'),
+                    'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
             'elementor_template', [
-                'label'       => __( 'Select Template', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::SELECT,
-                'default'     => '0',
-                'options'     => $this->get_elementor_templates(),
+                'label' => __('Select Template', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '0',
+                'options' => $this->get_elementor_templates(),
                 'label_block' => 'true',
-                'condition'   => [ 'content_type' => 'elementor_template' ]
+                'condition' => ['content_type' => 'elementor_template']
             ]
         );
 
         $repeater->add_control(
             'wisiwyg_content', [
-                'label' => __( 'Description', 'easy-elementor-addons' ),
+                'label' => __('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' ),
-                'placeholder' => __( 'Type your description here', 'easy-elementor-addons' ),
-                'condition'   => [ 'content_type' => 'wisiwyg' ]
+                'default' => __('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons'),
+                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'condition' => ['content_type' => 'wisiwyg']
             ]
         );
 
@@ -140,12 +140,12 @@ class AccordionBlock extends Widget_Base {
 
         $this->add_control(
             'items', [
-                'label' => __( 'Items', 'easy-elementor-addons' ),
+                'label' => __('Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'title' => __( 'Accordion #1', 'easy-elementor-addons' ),
+                        'title' => __('Accordion #1', 'easy-elementor-addons'),
                     ],
                 ],
                 'title_field' => '{{{ title }}}',
@@ -154,8 +154,8 @@ class AccordionBlock extends Widget_Base {
 
         $this->add_control(
             'accordion_open_icon', [
-                'label'       => __( 'Open Icon', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::ICONS,
+                'label' => __('Open Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
                 'default' => [
                     'value' => 'fas fa-plus',
@@ -180,8 +180,8 @@ class AccordionBlock extends Widget_Base {
 
         $this->add_control(
             'accordion_close_icon', [
-                'label'       => __( 'Close Icon', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::ICONS,
+                'label' => __('Close Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon_active',
                 'default' => [
                     'value' => 'fas fa-minus',
@@ -201,7 +201,7 @@ class AccordionBlock extends Widget_Base {
                 ],
                 'skin' => 'inline',
                 'label_block' => false,
-                'condition'   => [
+                'condition' => [
                     'accordion_open_icon[value]!' => '',
                 ],
             ]
@@ -209,13 +209,13 @@ class AccordionBlock extends Widget_Base {
 
         $this->add_control(
             'layout', [
-                'label' => __( 'Style', 'easy-elementor-addons' ),
+                'label' => __('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => __( 'Style 1', 'easy-elementor-addons' ),
-                    'style2' => __( 'Style 2', 'easy-elementor-addons' ),
-                    'style3' => __( 'Style 3', 'easy-elementor-addons' ),
+                    'style1' => __('Style 1', 'easy-elementor-addons'),
+                    'style2' => __('Style 2', 'easy-elementor-addons'),
+                    'style3' => __('Style 3', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -305,10 +305,10 @@ class AccordionBlock extends Widget_Base {
 
         $this->add_control(
             'title_padding', [
-                'label'      => esc_html__( 'Padding', 'easy-elementor-addons' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
                     '{{WRAPPER}} .eead-accordion-title-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -360,18 +360,18 @@ class AccordionBlock extends Widget_Base {
         $accordions = $settings['items'];
         ?>
         <div class="eead-accordion-container <?php echo esc_attr($settings['layout']); ?>">
-            <?php foreach ( $accordions as $key => $accordion ) { ?>
-                <?php  
-                    $content_height = array(
-                        'content_height' => $accordion[ 'content_height' ]['size'],
-                        'content_height_tablet' => isset($accordion[ 'content_height_tablet' ]['size']) ? $accordion[ 'content_height_tablet' ]['size'] : 200,
-                        'content_height_mobile' => isset($accordion[ 'content_height_mobile' ]['size']) ? $accordion[ 'content_height_mobile' ]['size'] : 100,
-                    );
-                    $params = json_encode($content_height);
+            <?php
+            foreach ($accordions as $key => $accordion) {
+                $content_height = array(
+                    'content_height' => $accordion[ 'content_height' ]['size'],
+                    'content_height_tablet' => isset($accordion[ 'content_height_tablet' ]['size']) ? $accordion[ 'content_height_tablet' ]['size'] : 200,
+                    'content_height_mobile' => isset($accordion[ 'content_height_mobile' ]['size']) ? $accordion[ 'content_height_mobile' ]['size'] : 100,
+                );
+                $params = json_encode($content_height);
                 ?>
                 <div class="eead-each-accordion">
-                    <div class="eead-accordion-title-section <?php echo $accordion['keep_open'] == 'yes' ? 'active' : null; ?>" data-height='<?php echo $params;?>'>
-                        <h3><?php echo esc_html( $accordion[ 'title' ] ); ?></h3>
+                    <div class="eead-accordion-title-section <?php echo (($accordion['keep_open'] == 'yes') ? 'active' : ''); ?>" data-height="<?php echo esc_attr($params); ?>">
+                        <h3><?php echo esc_html($accordion['title']); ?></h3>
                         <div class="eead-accordion-icon">
                             <div class="eead-accordion-open-icon">    
                                 <?php Icons_Manager::render_icon($settings['accordion_open_icon'], ['aria-hidden' => 'true']); ?>
@@ -384,13 +384,14 @@ class AccordionBlock extends Widget_Base {
 
                     <div class="eead-accordion-content">
                         <p>
-                        <?php  
-                        if( $accordion['content_type'] == 'wisiwyg' ) {
-                            echo $this->wisiwyg_text_parser( $accordion[ 'wisiwyg_content' ] );
-                        } else if( $accordion[ 'content_type' ] == 'elementor_template' ) {
-                            echo $this->elementor()->frontend->get_builder_content_for_display( $accordion['elementor_template'] );
-                        }
-                        ?>
+                            <?php
+                            if ($accordion['content_type'] == 'wisiwyg') {
+                                echo $this->wisiwyg_text_parser($accordion['wisiwyg_content']);
+
+                            } else if ($accordion['content_type'] == 'elementor_template') {
+                                echo $this->elementor()->frontend->get_builder_content_for_display( $accordion['elementor_template'] );
+                            }
+                            ?>
                         </p>
                     </div>
                 </div>
@@ -402,16 +403,16 @@ class AccordionBlock extends Widget_Base {
     // Elementor Saved Template 
     protected function get_elementor_templates() {
         $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
-        $types     = [];
+        $types = [];
 
-        if ( empty($templates) ) {
+        if (empty($templates)) {
             $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
         } else {
             $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
 
-            foreach ( $templates as $template ) {
+            foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
-                $types[$template['template_id']]            = $template['type'];
+                $types[$template['template_id']] = $template['type'];
             }
         }
         return $template_options;
@@ -421,10 +422,10 @@ class AccordionBlock extends Widget_Base {
         return Plugin::$instance;
     }
 
-    protected function wisiwyg_text_parser( $content ) {
-        $content = shortcode_unautop( $content );
-        $content = do_shortcode( $content );
-        $content = wptexturize( $content );
+    protected function wisiwyg_text_parser($content) {
+        $content = shortcode_unautop($content);
+        $content = do_shortcode($content);
+        $content = wptexturize($content);
         return $content;
     }
 }

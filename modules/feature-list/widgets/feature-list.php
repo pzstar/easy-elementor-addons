@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Feature List Widget
  */
 class FeatureList extends Widget_Base {
 
@@ -693,16 +693,17 @@ class FeatureList extends Widget_Base {
             <div <?php $this->print_render_attribute_string('eead_feature_list_wrapper'); ?>>
                 <ul <?php $this->print_render_attribute_string('eead_feature_list'); ?>>
 
-                    <?php foreach ($settings['eead_feature_list'] as $index => $item) { 
+                    <?php
+                    foreach ($settings['eead_feature_list'] as $index => $item) { 
 
-                        $this->add_render_attribute('eead_feature_list_icon' . $index, 'class', 'eead-feature-list-icon fl-icon-'.$index);
+                        $this->add_render_attribute('eead_feature_list_icon' . $index, 'class', 'eead-feature-list-icon fl-icon-' . $index);
                         $this->add_render_attribute('eead_feature_list_title' . $index, 'class', 'eead-feature-list-title');
                         $this->add_render_attribute('eead_feature_list_content' . $index, 'class', 'eead-feature-list-content');
 
                         // Icon
                         $icon_color = ($item['eead_feature_list_icon_enable_each_style'] == 'on' && isset($item['eead_feature_list_icon_individual_color'])) ? esc_attr($item['eead_feature_list_icon_individual_color']) : '' ;
-                        $icon_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? ' style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_bg_color']) . '"' : '');
-                        $icon_box_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? ' style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_box_bg_color']) . '"' : '');
+                        $icon_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? 'style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_bg_color']) . '"' : '');
+                        $icon_box_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? 'style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_box_bg_color']) . '"' : '');
 
                         $feature_title_tag = $settings['eead_feature_list_title_size'];
 
@@ -721,11 +722,11 @@ class FeatureList extends Widget_Base {
                         }
 
                         $feature_icon_tag = ($item['eead_feature_list_link']['url'] ? 'a' : 'span');
-                        $feature_list_icon_box_css = ($settings['eead_feature_list_icon_position'] == 'left' || $settings['eead_feature_list_icon_position'] == 'right') ? 'style="display: flex; align-items: ' . $settings['icon_vertical_align'] . '"' : null; 
+                        $feature_list_icon_box_css = (($settings['eead_feature_list_icon_position'] == 'left') || ($settings['eead_feature_list_icon_position'] == 'right')) ? 'style="display: flex; align-items: ' . $settings['icon_vertical_align'] . '"' : '';
                         ?>
                         <li class="eead-feature-list-item">
-                            <div class="eead-feature-list-icon-box" <?php echo $feature_list_icon_box_css; ?>>
-                                <div class="eead-feature-list-icon-inner"<?php echo $icon_box_bg; ?>>
+                            <div class="eead-feature-list-icon-box" <?php echo wp_kses_post($feature_list_icon_box_css); ?>>
+                                <div class="eead-feature-list-icon-inner" <?php echo wp_kses_post($icon_box_bg); ?>>
                                     <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('eead_feature_list_icon' . $index) . $this->get_render_attribute_string( 'eead_feature_list_link' . $index) . $icon_bg; ?>>
                                     <?php  
                                     if ($item['eead_feature_list_icon_type'] == 'icon' && (!empty( $item['eead_feature_list_icon']) || !empty($item['eead_feature_list_icon_new']))) {
@@ -754,7 +755,9 @@ class FeatureList extends Widget_Base {
                                                 'alt' => esc_attr(get_post_meta( $item['eead_feature_list_img']['id'], '_wp_attachment_image_alt', true)),
                                             ]
                                         );
-                                        echo '<img ' . $this->get_render_attribute_string('feature_list_image' . $index) . '>';
+                                        ?>
+                                        <img <?php $this->print_render_attribute_string('feature_list_image' . $index); ?>>
+                                        <?php
                                     }
                                     ?>
                                     </<?php echo esc_attr($feature_icon_tag); ?>>
@@ -762,14 +765,21 @@ class FeatureList extends Widget_Base {
                             </div>
 
                             <div class="eead-feature-list-content-box">
-                                <<?php echo esc_attr($feature_title_tag) . ' ' . $this->get_render_attribute_string('eead_feature_list_title' . $index); ?>> 
-                                    <?php if (!empty( $item['eead_feature_list_link']['url'] )) { ?>
-                                        <a <?php $this->print_render_attribute_string('eead_feature_list_title_anchor' . $index) ?>>
-                                    <?php } ?>
-                                        <?php echo wp_kses_post($item['eead_feature_list_title']); ?>
-                                    <?php if (!empty($item['eead_feature_list_link']['url'])) { ?>
+                                <<?php echo esc_attr($feature_title_tag); ?> <?php $this->print_render_attribute_string('eead_feature_list_title' . $index); ?>>
+
+                                    <?php
+                                    if (!empty($item['eead_feature_list_link']['url'])) { ?>
+                                        <a <?php $this->print_render_attribute_string('eead_feature_list_title_anchor' . $index); ?>>
+                                        <?php
+                                    }
+                                    echo esc_html($item['eead_feature_list_title']);
+
+                                    if (!empty($item['eead_feature_list_link']['url'])) {
+                                        ?>
                                         </a>
-                                    <?php } ?>
+                                        <?php
+                                    }
+                                    ?>
                                 </<?php echo esc_attr($feature_title_tag); ?>>
 
                                 <div class="eead-feature-list-subtitle">
@@ -781,7 +791,9 @@ class FeatureList extends Widget_Base {
                                 </p>
                             </div>
                         </li>
-                    <?php } ?>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

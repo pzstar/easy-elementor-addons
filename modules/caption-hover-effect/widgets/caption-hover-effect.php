@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Caption Hover Effect Widget
  */
 class CaptionHoverEffect extends Widget_Base {
 
@@ -41,7 +41,7 @@ class CaptionHoverEffect extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'modernizr-custom' ];
+        return ['modernizr-custom'];
     }
 
     /** Controls */
@@ -53,10 +53,9 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'image',
-            [
-                'label'   => esc_html__( 'Caption Image', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::MEDIA,
+            'image', [
+                'label' => esc_html__('Caption Image', 'easy-elementor-addons'),
+                'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
                 ]
@@ -94,17 +93,17 @@ class CaptionHoverEffect extends Widget_Base {
 
         $this->add_control(
             'effect_style', [
-                'label'   => esc_html__( 'Hover Effect', 'easy-elementor-addons' ),
-                'type'    => Controls_Manager::SELECT,
+                'label' => esc_html__( 'Hover Effect', 'easy-elementor-addons' ),
+                'type' => Controls_Manager::SELECT,
                 'default' => 'cs-style-1',
                 'options' => [
-                    'cs-style-1'   => esc_html__( 'Effect 1', 'easy-elementor-addons' ),
-                    'cs-style-2'   => esc_html__( 'Effect 2', 'easy-elementor-addons' ),
-                    'cs-style-3'   => esc_html__( 'Effect 3', 'easy-elementor-addons' ),
-                    'cs-style-4'   => esc_html__( 'Effect 4', 'easy-elementor-addons' ),
-                    'cs-style-5'   => esc_html__( 'Effect 5', 'easy-elementor-addons' ),
-                    'cs-style-6'   => esc_html__( 'Effect 6', 'easy-elementor-addons' ),
-                    'cs-style-7'   => esc_html__( 'Effect 7', 'easy-elementor-addons' ),
+                    'cs-style-1' => esc_html__('Effect 1', 'easy-elementor-addons'),
+                    'cs-style-2' => esc_html__('Effect 2', 'easy-elementor-addons'),
+                    'cs-style-3' => esc_html__('Effect 3', 'easy-elementor-addons'),
+                    'cs-style-4' => esc_html__('Effect 4', 'easy-elementor-addons'),
+                    'cs-style-5' => esc_html__('Effect 5', 'easy-elementor-addons'),
+                    'cs-style-6' => esc_html__('Effect 6', 'easy-elementor-addons'),
+                    'cs-style-7' => esc_html__('Effect 7', 'easy-elementor-addons'),
                 ]
             ]
         );
@@ -146,13 +145,13 @@ class CaptionHoverEffect extends Widget_Base {
 
         $this->add_control(
             'button_link', [
-                'label'       => __( 'Link', 'easy-elementor-addons' ),
-                'type'        => Controls_Manager::URL,
-                'dynamic'     => [
+                'label' => __('Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::URL,
+                'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __( 'https://your-link.com', 'easy-elementor-addons' ),
-                'default'     => [
+                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'default' => [
                     'url' => '#',
                 ],
             ]
@@ -227,7 +226,7 @@ class CaptionHoverEffect extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-        $settings     = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
         $image_id = $settings['image']['id'];
         $title = $settings['title'];
         $content = $settings['content'];
@@ -237,18 +236,25 @@ class CaptionHoverEffect extends Widget_Base {
         if (!$image_url) {
             $image_url = Utils::get_placeholder_image_src();
         }
-        $this->add_render_attribute( 'wrapper', 'class', $settings['effect_style'] );
-        $this->add_render_attribute( 'wrapper', 'class', 'eead-caption-hover-effect' );
+        $this->add_render_attribute('wrapper', 'class', $settings['effect_style']);
+        $this->add_render_attribute('wrapper', 'class', 'eead-caption-hover-effect');
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+        <div <?php $this->print_render_attribute_string('wrapper'); ?>>
             <figure>
                 <div>
-                    <img src="<?php echo esc_url($image_url) ?>" alt="<?php echo esc_attr($title) ?>">
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title); ?>">
                 </div>
+
                 <figcaption>
-                    <h3><?php echo esc_html($title) ?></h3>
-                    <span><?php echo esc_html($content); ?></span>
-                    <a href="<?php echo esc_url($button_link_url); ?>"><?php echo esc_html($button_text); ?></a>
+                    <h3><?php echo esc_html($title); ?></h3>
+
+                    <span>
+                        <?php echo esc_html($content); ?>
+                    </span>
+
+                    <a href="<?php echo esc_url($button_link_url); ?>">
+                        <?php echo esc_html($button_text); ?>
+                    </a>
                 </figcaption>
             </figure>
         </div>

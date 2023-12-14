@@ -815,7 +815,7 @@ class VerticalTimeline extends Widget_Base {
                                     ?>
 
                                     <div class="eead-vtimeline-description">
-                                        <p><?php echo esc_html($item['description']); ?></p>
+                                        <p><?php echo wp_kses_post($item['description']); ?></p>
                                     </div>
 
                                     <?php $this->get_timeline_button($item); ?>
@@ -846,7 +846,7 @@ class VerticalTimeline extends Widget_Base {
                                     </div>
 
                                     <div class="eead-vtimeline-description">
-                                        <p><?php echo esc_html($item['description']); ?></p>
+                                        <p><?php echo wp_kses_post($item['description']); ?></p>
                                     </div>
 
                                     <?php $this->get_timeline_button($item); ?>

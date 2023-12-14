@@ -58,7 +58,7 @@ class ThreedText extends Widget_Base {
                 'image' => __('Image', 'easy-elementor-addons'),
                 'text' => __('Text', 'easy-elementor-addons'),
             ),
-            'default' => 'image',
+            'default' => 'text',
                 )
         );
 

@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Tiled Posts Widget
+ * Business Hour Widget
  */
 class BusinessHour extends Widget_Base {
 
@@ -139,7 +139,7 @@ class BusinessHour extends Widget_Base {
                     ],
                     'date'  =>   [
                         'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-calendar-check-o',
+                        'icon' => 'fa fa-calendar-check',
                     ],
                     'status' => [
                         'title' => esc_html__('Open Status', 'easy-elementor-addons'),
@@ -358,7 +358,7 @@ class BusinessHour extends Widget_Base {
                     ],
                     'date' => [
                         'title' => esc_html__('Current Date', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-calendar-check-o',
+                        'icon' => 'fa fa-calendar-check',
                     ],
                     'status' => [
                         'title' => esc_html__('Current Status', 'easy-elementor-addons'),
@@ -369,7 +369,7 @@ class BusinessHour extends Widget_Base {
                         'icon' => 'fa fa-font',
                     ],
                 ],
-                'default' => 'date',
+                'default' => 'status',
             ]
         );
 
@@ -1235,7 +1235,9 @@ class BusinessHour extends Widget_Base {
         ?>
         <div class="eead-business-hour-section" <?php $this->print_render_attribute_string('business-hours-data'); ?>>
 
-            <?php if ($settings['header_content_type'] != 'none') { ?>
+            <?php
+            if ($settings['header_content_type'] != 'none') {
+                ?>
                 <div class="eead-header-content align-<?php echo esc_attr($settings['header_content_alignment']); ?>">
                     <div class="eead-header-inner">
                     <?php
