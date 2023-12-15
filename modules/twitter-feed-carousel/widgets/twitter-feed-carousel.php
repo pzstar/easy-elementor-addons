@@ -988,20 +988,30 @@ class TwitterFeedCarousel extends Widget_Base {
         );
         $params = json_encode($params);
 
-        ?>
-        <div class="eead-twitter-feed eead-twitter-feed-carousel swiper-container eead-twitter-feed-<?php echo $this->get_id() ?>" <?php //echo $this->get_render_attribute_string('eead-twitter-feed-carousel-wrap'); ?>>
-            <div class="swiper-wrapper eead-twitter-feed-carousel-slides owl-carousel" data-params='<?php echo $params; ?>'>
-                <?php $this->twitter_feed_render_items($this->get_id(), $settings, 'swiper-slide'); ?>
+        $items = $this->get_twitter_feed_render_items($this->get_id(), $settings);
+
+        if (empty($items['errors'])) {
+            ?>
+            <div class="eead-twitter-feed eead-twitter-feed-carousel swiper-container eead-twitter-feed-<?php echo $this->get_id() ?>" <?php //echo $this->get_render_attribute_string('eead-twitter-feed-carousel-wrap'); ?>>
+                <div class="swiper-wrapper eead-twitter-feed-carousel-slides owl-carousel" data-params='<?php echo $params; ?>'>
+                    <?php $this->twitter_feed_render_items($items, $settings, 'swiper-slide'); ?>
+                </div>
             </div>
-        </div>
-        <?php 
+            <?php
+        } else if($this->elementor()->editor->is_edit_mode()) {
+            foreach($items['errors'] as $error) {
+                ?>
+                <p><?php echo esc_html($error['message']); ?></p>
+                <?php
+            }
+        }
     }
 
     protected function elementor() {
         return Plugin::$instance;
     }
 
-    public function twitter_feed_render_items($id, $settings, $class = '') {
+    public function get_twitter_feed_render_items($id, $settings) {
         $token = get_option($id . '_' . $settings['eead_twitter_feed_ac_name'] . '_tf_token');
         $items = get_transient($id . '_' . $settings['eead_twitter_feed_ac_name'] . '_tf_cache');
         $html = '';
@@ -1081,65 +1091,60 @@ class TwitterFeedCarousel extends Widget_Base {
             }
         }
 
-        $items = array_splice($items, 0, $settings['eead_twitter_feed_post_limit']);
+        return array_splice($items, 0, $settings['eead_twitter_feed_post_limit']);
+    }
 
-        if (empty($items['errors'])) {
-            foreach ($items as $item) {
-                $delimeter = (isset($item['full_text']) && strlen($item['full_text']) > $settings['eead_twitter_feed_content_length']) ? '...' : '';
-                ?>
-                <div class="eead-twitter-feed-item <?php echo $class; ?>">
-                    <div class="eead-twitter-feed-item-inner">
-                        <div class="eead-twitter-feed-item-header">
+    public function twitter_feed_render_items($items, $settings, $class = '') {
 
-                            <?php if ($settings['eead_twitter_feed_show_avatar'] == 'true') { ?>
-                                <a class="eead-twitter-feed-item-avatar avatar-<?php echo $settings['eead_twitter_feed_avatar_style']; ?>" href="//twitter.com/<?php echo $settings['eead_twitter_feed_ac_name']; ?>" target="_blank">
-                                    <img src="<?php echo esc_url($item['user']['profile_image_url_https']); ?>">
-                                </a>
-                            <?php } ?>
+        foreach ($items as $item) {
+            $delimeter = (isset($item['full_text']) && strlen($item['full_text']) > $settings['eead_twitter_feed_content_length']) ? '...' : '';
+            ?>
+            <div class="eead-twitter-feed-item <?php echo $class; ?>">
+                <div class="eead-twitter-feed-item-inner">
+                    <div class="eead-twitter-feed-item-header">
 
-                            <a class="eead-twitter-feed-item-meta" href="//twitter.com/<?php echo $settings['eead_twitter_feed_ac_name']; ?>" target="_blank">
-                                <span class="eead-twitter-feed-item-author"><?php echo $item['user']['name']; ?></span>
+                        <?php if ($settings['eead_twitter_feed_show_avatar'] == 'true') { ?>
+                            <a class="eead-twitter-feed-item-avatar avatar-<?php echo $settings['eead_twitter_feed_avatar_style']; ?>" href="//twitter.com/<?php echo $settings['eead_twitter_feed_ac_name']; ?>" target="_blank">
+                                <img src="<?php echo esc_url($item['user']['profile_image_url_https']); ?>">
                             </a>
+                        <?php } ?>
 
-                            <?php if ($settings['eead_twitter_feed_show_date'] == 'true') { ?>
-                                <span class="eead-twitter-feed-item-date">
-                                    <?php printf(__('%s ago', 'easy-elementor-addons'), human_time_diff(strtotime($item['created_at']))); ?>
-                                </span>
-                            <?php } ?>
-                        </div>
+                        <a class="eead-twitter-feed-item-meta" href="//twitter.com/<?php echo $settings['eead_twitter_feed_ac_name']; ?>" target="_blank">
+                            <span class="eead-twitter-feed-item-author"><?php echo $item['user']['name']; ?></span>
+                        </a>
 
-                        <div class="eead-twitter-feed-item-content">
-                            <?php
-                            $link_free_text = isset($item['entities']['urls'][0]['url']) ? str_replace($item['entities']['urls'][0]['url'], '', $item['full_text']) : $item['full_text'];
-                            echo '<p>' . substr($link_free_text, 0, $settings['eead_twitter_feed_content_length']) . $delimeter . '</p>';
-                            ?>
-
-                            <?php if ($settings['eead_twitter_feed_show_read_more'] == 'true') { ?>
-                                <a href="//twitter.com/<?php echo $item['user']['screen_name']; ?>/status/<?php echo $item['id_str']; ?>" target="_blank" class="read-more-link">
-                                    <?php  esc_html_e('Read More', 'easy-elementor-addons'); ?>
-                                </a>
-                            <?php } ?>
-                        </div>
-
-                        <?php
-                        if(isset($item['extended_entities']['media'][0]) && $settings['eead_twitter_feed_media'] == 'true') {
-                            if($item['extended_entities']['media'][0]['type'] == 'photo') {
-                                ?>
-                                <img src="<?php echo esc_url($item['extended_entities']['media'][0]['media_url_https']); ?>">
-                                <?php
-                            }
-                        }
-                        ?>
+                        <?php if ($settings['eead_twitter_feed_show_date'] == 'true') { ?>
+                            <span class="eead-twitter-feed-item-date">
+                                <?php printf(__('%s ago', 'easy-elementor-addons'), human_time_diff(strtotime($item['created_at']))); ?>
+                            </span>
+                        <?php } ?>
                     </div>
+
+                    <div class="eead-twitter-feed-item-content">
+                        <?php
+                        $link_free_text = isset($item['entities']['urls'][0]['url']) ? str_replace($item['entities']['urls'][0]['url'], '', $item['full_text']) : $item['full_text'];
+                        echo '<p>' . substr($link_free_text, 0, $settings['eead_twitter_feed_content_length']) . $delimeter . '</p>';
+                        ?>
+
+                        <?php if ($settings['eead_twitter_feed_show_read_more'] == 'true') { ?>
+                            <a href="//twitter.com/<?php echo $item['user']['screen_name']; ?>/status/<?php echo $item['id_str']; ?>" target="_blank" class="read-more-link">
+                                <?php  esc_html_e('Read More', 'easy-elementor-addons'); ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+
+                    <?php
+                    if(isset($item['extended_entities']['media'][0]) && $settings['eead_twitter_feed_media'] == 'true') {
+                        if($item['extended_entities']['media'][0]['type'] == 'photo') {
+                            ?>
+                            <img src="<?php echo esc_url($item['extended_entities']['media'][0]['media_url_https']); ?>">
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
-                <?php
-            }
-        } else if($this->elementor()->editor->is_edit_mode()){
-            foreach($items['errors'] as $error) {
-                ?>
-                <p><?php echo esc_html($error['message']); ?></p>
-                <?php
-            }
+            </div>
+            <?php
         }
     }
 }

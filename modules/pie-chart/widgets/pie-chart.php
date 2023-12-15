@@ -734,6 +734,7 @@ class PieChart extends Widget_Base {
 		$typo_weight_options = array(
 			'' => esc_html__('Default', 'easy-elementor-addons'),
 		);
+
 		$weight_options = array_merge(['normal', 'bold'], range(100, 900, 100));
 
 		foreach ($weight_options as $weight) {
