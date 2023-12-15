@@ -28,79 +28,56 @@ class AdminClass {
     }
 
     public function eead_register_admin_menu() {
-        add_menu_page(
-                __('Easy Elementor Addons', 'easy-elementor-addons'), __('Easy Elementor Addons', 'easy-elementor-addons'), 'manage_options', 'eead-settings', [$this, 'eead_settings_page_display'], '', 99
-        );
+        add_menu_page(esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), 'manage_options', 'eead-settings', [$this, 'eead_settings_page_display'], '', 99);
     }
 
     public function eead_settings_save() {
 
         if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
-
             $data_ar = $_POST['data'];
             $settings_ar = [];
+
             foreach ($data_ar as $key => $value) {
                 $settings_ar[$value['name']] = $value['value'];
             }
-            $update = update_option('eead_general_settings', $settings_ar);
 
-            if ($update) {
-                echo 'yes';
-            } else {
-                echo 'no';
-            }
+            $update = update_option('eead_general_settings', $settings_ar);
+            echo $update ? 'yes' : 'no';
         }
         die();
     }
 
     public function eead_widgets_save() {
-        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
 
+        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
             $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
             update_option('eead_widgets', array());
             $update_widgets = update_option('eead_widgets', $data_ar);
-
-            if ($update_widgets || empty($data_ar)) {
-                echo 'yes';
-            } else {
-                echo 'no';
-            }
-
+            echo ($update_widgets || empty($data_ar)) ? 'yes' : 'no';
         }
         die();
     }
 
     public function eead_extenders_save() {
-        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
 
+        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
             $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
+
             update_option('eead_extenders', array());
             $update_extenders = update_option('eead_extenders', $data_ar);
-
-            if ($update_extenders || empty($data_ar)) {
-                echo 'yes';
-            } else {
-                echo 'no';
-            }
-
+            echo ($update_extenders || empty($data_ar)) ? 'yes' : 'no';
         }
         die();
     }
 
     public function get_widget_field($label, $val) {
-
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
-        if (isset($eead_widgets) && in_array($val, $eead_widgets)) {
-            $selected = 'checked';
-        } else {
-            $selected = '';
-        }
         ?>
 
         <div class="eead-widget-wrap">
-            <span><?php esc_html($label) ?></span>
+            <span><?php esc_html($label); ?></span>
             <div class="eead-checkbox">
-                <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo $val ?>" <?php echo $selected; ?>>
+                <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
                 <label></label>
             </div>
         </div>
@@ -109,19 +86,14 @@ class AdminClass {
     }
 
     public function get_extender_field($label, $val) {
-
         $eead_extenders = get_option('eead_extenders') ? get_option('eead_extenders') : array();
-        if (isset($eead_extenders) && in_array($val, $eead_extenders)) {
-            $selected = 'checked';
-        } else {
-            $selected = '';
-        }
         ?>
 
         <div class="eead-extender-wrap">
-            <span><?php esc_html($label) ?></span>
+            <span><?php esc_html($label); ?></span>
+
             <div class="eead-checkbox">
-                <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo $val ?>" <?php echo $selected; ?>>
+                <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_extenders) && in_array($val, $eead_extenders)), true); ?>>
                 <label></label>
             </div>
         </div>

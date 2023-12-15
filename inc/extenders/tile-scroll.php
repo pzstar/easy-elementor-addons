@@ -44,13 +44,13 @@ Class TileScroll {
         $elems->start_controls_section(
                 'eead_tile_section', [
             'tab' => Controls_Manager::TAB_ADVANCED,
-            'label' => esc_html__('Tile Background', 'easy-elementor-addons'),
+            'label' => __('Tile Background', 'easy-elementor-addons'),
                 ]
         );
 
         $elems->add_control(
                 'eead_tile_show', [
-            'label' => esc_html__('Enable Tile Background?', 'easy-elementor-addons'),
+            'label' => __('Enable Tile Background?', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
             'default' => '',
             'return_value' => 'yes',
@@ -65,7 +65,7 @@ Class TileScroll {
 
         $elems->start_controls_tab(
                 'tabs_eead_tile_content', [
-            'label' => esc_html__('Content', 'easy-elementor-addons'),
+            'label' => __('Content', 'easy-elementor-addons'),
             'condition' => [
                 'eead_tile_show' => 'yes'
             ]
@@ -86,7 +86,7 @@ Class TileScroll {
 
         $repeater->add_control(
                 'eead_tile_images', [
-            'label' => esc_html__('Images', 'easy-elementor-addons'),
+            'label' => __('Images', 'easy-elementor-addons'),
             'type' => Controls_Manager::GALLERY,
                 ]
         );
@@ -125,7 +125,7 @@ Class TileScroll {
 
         $elems->start_controls_tab(
                 'tabs_eead_tile_style', [
-            'label' => esc_html__('Style', 'easy-elementor-addons'),
+            'label' => __('Style', 'easy-elementor-addons'),
             'condition' => [
                 'eead_tile_show' => 'yes'
             ]
@@ -134,12 +134,12 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_style', [
-            'label' => esc_html__('Tile Style', 'easy-elementor-addons'),
+            'label' => __('Tile Style', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'normal',
             'options' => [
-                'normal' => esc_html__('Normal Layout', 'easy-elementor-addons'),
-                'brick' => esc_html__('Brick Layout', 'easy-elementor-addons'),
+                'normal' => __('Normal Layout', 'easy-elementor-addons'),
+                'brick' => __('Brick Layout', 'easy-elementor-addons'),
             ],
             'condition' => [
                 'eead_tile_show' => 'yes'
@@ -150,7 +150,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_image_width', [
-            'label' => esc_html__('Image Width', 'easy-elementor-addons'),
+            'label' => __('Image Width', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px', 'em', 'vw'],
             'range' => [
@@ -181,7 +181,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_image_height', [
-            'label' => esc_html__('Image Height', 'easy-elementor-addons'),
+            'label' => __('Image Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px', 'em', 'vw'],
             'range' => [
@@ -212,7 +212,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_gap', [
-            'label' => esc_html__('Tile Gap', 'easy-elementor-addons'),
+            'label' => __('Tile Gap', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px', 'em', 'vw'],
             'range' => [
@@ -238,7 +238,7 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_translate_popover', [
-            'label' => esc_html__('Offset', 'easy-elementor-addons'),
+            'label' => __('Offset', 'easy-elementor-addons'),
             'type' => Controls_Manager::POPOVER_TOGGLE,
             'prefix_class' => $transform_prefix_class,
             'return_value' => $transform_return_value,
@@ -252,7 +252,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_translateX_effect', [
-            'label' => esc_html__('Offset X', 'easy-elementor-addons'),
+            'label' => __('Offset X', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px', '%', 'vw'],
             'range' => [
@@ -281,7 +281,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_translateY_effect', [
-            'label' => esc_html__('Offset Y', 'easy-elementor-addons'),
+            'label' => __('Offset Y', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px', '%', 'vw'],
             'range' => [
@@ -312,7 +312,7 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_rotate_popover', [
-            'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+            'label' => __('Rotate', 'easy-elementor-addons'),
             'type' => Controls_Manager::POPOVER_TOGGLE,
             'prefix_class' => $transform_prefix_class,
             'return_value' => $transform_return_value,
@@ -326,7 +326,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_rotateZ_effect', [
-            'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+            'label' => __('Rotate', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -346,10 +346,10 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_rotate_3d', [
-            'label' => esc_html__('3D Rotate', 'easy-elementor-addons'),
+            'label' => __('3D Rotate', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('On', 'easy-elementor-addons'),
-            'label_off' => esc_html__('Off', 'easy-elementor-addons'),
+            'label_on' => __('On', 'easy-elementor-addons'),
+            'label_off' => __('Off', 'easy-elementor-addons'),
             'condition' => [
                 'eead_tile_rotate_popover!' => '',
                 'eead_tile_show' => 'yes',
@@ -359,7 +359,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_rotateX_effect', [
-            'label' => esc_html__('Rotate X', 'easy-elementor-addons'),
+            'label' => __('Rotate X', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -380,7 +380,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_rotateY_effect', [
-            'label' => esc_html__('Rotate Y', 'easy-elementor-addons'),
+            'label' => __('Rotate Y', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -401,7 +401,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_perspective_effect', [
-            'label' => esc_html__('Perspective', 'easy-elementor-addons'),
+            'label' => __('Perspective', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -428,7 +428,7 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_scale_popover', [
-            'label' => esc_html__('Scale', 'easy-elementor-addons'),
+            'label' => __('Scale', 'easy-elementor-addons'),
             'type' => Controls_Manager::POPOVER_TOGGLE,
             'prefix_class' => $transform_prefix_class,
             'return_value' => $transform_return_value,
@@ -442,10 +442,10 @@ Class TileScroll {
 
         $elems->add_control(
                 'eead_tile_keep_proportions', [
-            'label' => esc_html__('Keep Proportions', 'easy-elementor-addons'),
+            'label' => __('Keep Proportions', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('On', 'easy-elementor-addons'),
-            'label_off' => esc_html__('Off', 'easy-elementor-addons'),
+            'label_on' => __('On', 'easy-elementor-addons'),
+            'label_off' => __('Off', 'easy-elementor-addons'),
             'default' => 'yes',
             'condition' => [
                 'eead_tile_show' => 'yes',
@@ -455,7 +455,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_scale_effect', [
-            'label' => esc_html__('Scale', 'easy-elementor-addons'),
+            'label' => __('Scale', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -477,7 +477,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_scaleX_effect', [
-            'label' => esc_html__('Scale X', 'easy-elementor-addons'),
+            'label' => __('Scale X', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -499,7 +499,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_scaleY_effect', [
-            'label' => esc_html__('Scale Y', 'easy-elementor-addons'),
+            'label' => __('Scale Y', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -547,19 +547,19 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_x_anchor_point', [
-            'label' => esc_html__('X Anchor Point', 'easy-elementor-addons'),
+            'label' => __('X Anchor Point', 'easy-elementor-addons'),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
                 'left' => [
-                    'title' => esc_html__('Left', 'easy-elementor-addons'),
+                    'title' => __('Left', 'easy-elementor-addons'),
                     'icon' => 'eicon-h-align-left',
                 ],
                 'center' => [
-                    'title' => esc_html__('Center', 'easy-elementor-addons'),
+                    'title' => __('Center', 'easy-elementor-addons'),
                     'icon' => 'eicon-h-align-center',
                 ],
                 'right' => [
-                    'title' => esc_html__('Right', 'easy-elementor-addons'),
+                    'title' => __('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-h-align-right',
                 ],
             ],
@@ -573,19 +573,19 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_tile_y_anchor_point', [
-            'label' => esc_html__('Y Anchor Point', 'easy-elementor-addons'),
+            'label' => __('Y Anchor Point', 'easy-elementor-addons'),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
                 'top' => [
-                    'title' => esc_html__('Top', 'easy-elementor-addons'),
+                    'title' => __('Top', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-top',
                 ],
                 'center' => [
-                    'title' => esc_html__('Center', 'easy-elementor-addons'),
+                    'title' => __('Center', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-middle',
                 ],
                 'bottom' => [
-                    'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                    'title' => __('Bottom', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-bottom',
                 ],
             ],
@@ -599,7 +599,7 @@ Class TileScroll {
         $elems->add_group_control(
                 Group_Control_Border::get_type(), [
             'name' => 'eead_tile_border',
-            'label' => esc_html__('Border', 'easy-elementor-addons'),
+            'label' => __('Border', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-tiles-row-img',
             'separator' => 'before',
             'condition' => [
@@ -610,7 +610,7 @@ Class TileScroll {
 
         $elems->add_responsive_control(
                 'eead_title_radius', [
-            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+            'label' => __('Border Radius', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', 'vw'],
             'selectors' => [
@@ -625,7 +625,7 @@ Class TileScroll {
         $elems->add_group_control(
                 Group_Control_Box_Shadow::get_type(), [
             'name' => 'eead_tile_shadow',
-            'label' => esc_html__('Image Shadow', 'easy-elementor-addons'),
+            'label' => __('Image Shadow', 'easy-elementor-addons'),
             'selector' => '{{WRAPPER}} .eead-tiles-row-img',
             'condition' => [
                 'eead_tile_show' => 'yes'

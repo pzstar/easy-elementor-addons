@@ -17,6 +17,7 @@ Class WrapperLink {
         if (is_null(self::$_instance)) {
             self::$_instance = new self();
         }
+
         return self::$_instance;
     }
 
@@ -42,12 +43,12 @@ Class WrapperLink {
 
         $elems->add_control(
             'eead_wrapper_link', [
-                'label'              => __('Link', 'easy-elementor-addons'),
-                'type'               => Controls_Manager::URL,
-                'show_external'      => true,
-                'default'            => ['url' => ''],
-                'dynamic'            => ['active' => true],
-                'render_type'        => 'none',
+                'label' => __('Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::URL,
+                'show_external' => true,
+                'default' => ['url' => ''],
+                'dynamic' => ['active' => true],
+                'render_type' => 'none',
             ]
         );
     }
@@ -55,13 +56,14 @@ Class WrapperLink {
     public function register_section($element) {
         if ('section' === $element->get_name() || 'column' === $element->get_name()) {
             $tabs = Controls_Manager::TAB_LAYOUT;
+
         } else {
             $tabs = Controls_Manager::TAB_CONTENT;
         }
 
         $element->start_controls_section(
             'section_eead_wrapper_link', [
-                'tab'   => $tabs,
+                'tab' => $tabs,
                 'label' => esc_html__('Wrapper Link', 'easy-elementor-addons'),
             ]
         );

@@ -1,4 +1,5 @@
 ;(function ($, elementor) {
+	'use strict';
 	$(window).on('elementor/frontend/init', function () {
 	    var ModuleHandler = elementorModules.frontend.handlers.Base,
 	        Tooltip;

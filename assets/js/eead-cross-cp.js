@@ -1,11 +1,11 @@
 (function () {
-
+    'use strict'
     function a(b) {
         return b.forEach(function (b) {
             b.id = elementorCommon.helpers.getUniqueId(), 0 < b.elements.length && a(b.elements)
         }), b
     }
-    EEADCopyPasteHandler = {
+    const EEADCopyPasteHandler = {
 
         b: function (b, c) {
             var d = c,
@@ -98,8 +98,10 @@
         iframeUrl: "https://themearrow.com/cdcp/",
         initCallback: function () { }
     });
+
     var c = ["section", "column", "widget", "container"],
         d = [];
+
     c.forEach(function (a, e) {
         elementor.hooks.addFilter("elements/" + c[e] + "/contextMenuGroups", function (a, f) {
             return d.push(f), a.push({

@@ -8,37 +8,36 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
 <div class="eead-wrap">
 
     <div class="eead-admin-header-section">
-        <h1 class="eead-admin-header-text"><?php echo esc_html('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?></h1>
+        <h1 class="eead-admin-header-text">
+            <?php echo esc_html__('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?>
+        </h1>
         <div class="eead-version">v 1.0.0</div>
     </div>
 
     <nav class="eead-nav-tab-wrapper">
-
         <a href="javascript:void(0)" class="nav-tab-active eead-tab" data-tab="eead-api-settings-content" data-tohide="tab-content">
-            <i class="mdi mdi-settings"></i><?php _e('Settings', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-settings"></i><?php esc_html_e('Settings', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-widgets-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-buffer"></i><?php _e('Widgets', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-buffer"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-extenders-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-buffer"></i><?php _e('Extenders', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-buffer"></i><?php esc_html_e('Extenders', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-about-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-rocket"></i><?php _e('About', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-rocket"></i><?php esc_html_e('About', 'easy-elementor-addons'); ?>
         </a>
-
     </nav>
 
     <div class="eead-tab-contents">
-
         <div id="eead-api-settings-content" class="tab-content">
             <form id="eead-general-settings-form">
                 <div class="eead-google-api-key">
                     <div class="eead-settings-field">
-                        <label><?php _e('Google Map Access Token', 'easy-elementor-addons') ?></label>
+                        <label><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons') ?></label>
                         <div class="eead-settings-input-field">
                             <input type="text" name="gmap_access_token" id="eead_gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo esc_attr($gmap_access_token); ?>">
                         </div>
@@ -46,15 +45,15 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                 </div>
 
                 <div class="eaad-save-button-wrap">
-                    <button class="eead-save-button" id="eead-general-settings-save"><i class="mdi mdi-content-save"></i><?php _e('Save', 'easy-elementor-addons'); ?></button>
+                    <button class="eead-save-button" id="eead-general-settings-save"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
                 </div>
             </form>
         </div>
 
         <div id="eead-widgets-section-content" class="tab-content" style="display: none;">
             <div class="eead-widget-action-buttons">
-                <button class="eead-widget-action-btn eead-widget-enable-all"><i class="mdi mdi-check-circle-outline"></i><?php _e('Enable All', 'easy-elementor-addons') ?></button>
-                <button class="eead-widget-action-btn eead-widget-disable-all"><i class="mdi mdi-close-circle-outline"></i><?php _e('Disable All', 'easy-elementor-addons') ?></button>
+                <button class="eead-widget-action-btn eead-widget-enable-all"><i class="mdi mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons') ?></button>
+                <button class="eead-widget-action-btn eead-widget-disable-all"><i class="mdi mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons') ?></button>
             </div>
 
             <form id="eead-widget-selection-form">
@@ -126,16 +125,23 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Video Player', 'video-player'); ?>
                     <?php $this->get_widget_field('Weather Block', 'weather-block'); ?>
                 </div>
+
                 <div class="eaad-save-button-wrap">
-                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
+                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">
+                        <i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?>
+                    </button>
                 </div>
             </form>
         </div>
 
         <div id="eead-extenders-section-content" class="tab-content" style="display: none;">
             <div class="eead-extender-action-buttons">
-                <button class="eead-extender-action-btn eead-extender-enable-all"><i class="mdi mdi-check-circle-outline"></i><?php _e('Enable All', 'easy-elementor-addons') ?></button>
-                <button class="eead-extender-action-btn eead-extender-disable-all"><i class="mdi mdi-close-circle-outline"></i><?php _e('Disable All', 'easy-elementor-addons') ?></button>
+                <button class="eead-extender-action-btn eead-extender-enable-all">
+                    <i class="mdi mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons'); ?>
+                </button>
+                <button class="eead-extender-action-btn eead-extender-disable-all">
+                    <i class="mdi mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons'); ?>
+                </button>
             </div>
 
             <form id="eead-extender-selection-form">
@@ -151,6 +157,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_extender_field('Visibility Controls', 'visibility-controls'); ?>
                     <?php $this->get_extender_field('Wrapper Link', 'wrapper-link'); ?>
                 </div>
+
                 <div class="eaad-save-button-wrap">
                     <button name="eead-extender-enable" id="eead-extender-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
                 </div>
@@ -158,7 +165,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
         </div>
 
         <div id="eead-about-section-content" class="tab-content" style="display: none;">
-            <h2><?php _e('About US', 'easy-elementor-addons'); ?></h2>
+            <h2><?php esc_html_e('About US', 'easy-elementor-addons'); ?></h2>
 
             <p>Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 40 creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.</p>
 
@@ -267,6 +274,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                 <li>Activate Plugin from "Plugins" menu in WordPress.</li>
             </ol>
         </div>
+
         <div class="eead-admin-notificn" style="display: none;"></div>
     </div>
 </div>

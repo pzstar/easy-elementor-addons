@@ -15,5 +15,4 @@
             $section.prepend(tileSectionSelectorDetach);
         });
     });
-
 }(jQuery));

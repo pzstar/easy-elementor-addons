@@ -2,13 +2,6 @@
 
 use Elementor\Plugin;
 
-/**
- * Helper Functions
- */
-/**
- *
- *
- * */
 if (!function_exists('pr')) {
 
     function pr($ar) {
@@ -145,15 +138,12 @@ if (!function_exists('eead_svg_icon')) {
     function eead_svg_icon($icon) {
 
         $icon_path = EEAD_ASSETS_URL . "img/svg/{$icon}.svg";
-
         if (!file_exists($icon_path)) {
             return false;
         }
 
         ob_start();
-
         include $icon_path;
-
         $svg = ob_get_clean();
 
         return $svg;
@@ -266,14 +256,15 @@ if (!function_exists('eead_allow_tags')) {
 
         if ($tag == null) {
             return $tag_allowed;
+
         } elseif (is_array($tag)) {
             $new_tag_allow = [];
 
             foreach ($tag as $_tag) {
                 $new_tag_allow[$_tag] = $tag_allowed[$_tag];
             }
-
             return $new_tag_allow;
+
         } else {
             return isset($tag_allowed[$tag]) ? $tag_allowed[$tag] : [];
         }
@@ -290,9 +281,9 @@ if (!function_exists('get_elementor_templates')) {
 
         if (empty($templates)) {
             $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
+
         } else {
             $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
-
             foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
                 $types[$template['template_id']] = $template['type'];
@@ -328,10 +319,10 @@ if (!function_exists('eead_anywhere_templates')) {
             foreach ($anywhere as $key => $value) {
                 $anywhere_options[$value] = get_the_title($value);
             }
+
         } else {
             $anywhere_options = ['0' => esc_html__('Please Install AE Plugin', 'easy-elementor-addons')];
         }
-
         return $anywhere_options;
     }
 
@@ -416,14 +407,13 @@ if (!function_exists('eead_get_elementor_page_list')) {
             )
         );
 
-        if ( ! empty( $pagelist ) && ! is_wp_error( $pagelist ) ) {
+        if (!empty($pagelist) && ! is_wp_error($pagelist)) {
 
-            foreach ( $pagelist as $post ) {
+            foreach ($pagelist as $post) {
                 $options[ $post->post_title ] = $post->post_title;
             }
 
-            update_option( 'temp_count', $options );
-
+            update_option('temp_count', $options);
             return $options;
         }
     }
@@ -432,18 +422,17 @@ if (!function_exists('eead_get_elementor_page_list')) {
 if (!function_exists('eead_get_item_position')) { 
     function eead_get_item_position() {
         $position_options = [
-            ''              => esc_html__('Default', 'easy-elementor-addons'),
-            'top-left'      => esc_html__('Top Left', 'easy-elementor-addons'),
-            'top-center'    => esc_html__('Top Center', 'easy-elementor-addons'),
-            'top-right'     => esc_html__('Top Right', 'easy-elementor-addons'),
-            'center'        => esc_html__('Center', 'easy-elementor-addons'),
-            'center-left'   => esc_html__('Center Left', 'easy-elementor-addons'),
-            'center-right'  => esc_html__('Center Right', 'easy-elementor-addons'),
-            'bottom-left'   => esc_html__('Bottom Left', 'easy-elementor-addons'),
+            '' => esc_html__('Default', 'easy-elementor-addons'),
+            'top-left' => esc_html__('Top Left', 'easy-elementor-addons'),
+            'top-center' => esc_html__('Top Center', 'easy-elementor-addons'),
+            'top-right' => esc_html__('Top Right', 'easy-elementor-addons'),
+            'center' => esc_html__('Center', 'easy-elementor-addons'),
+            'center-left' => esc_html__('Center Left', 'easy-elementor-addons'),
+            'center-right' => esc_html__('Center Right', 'easy-elementor-addons'),
+            'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
             'bottom-center' => esc_html__('Bottom Center', 'easy-elementor-addons'),
-            'bottom-right'  => esc_html__('Bottom Right', 'easy-elementor-addons'),
+            'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
         ];
-
         return $position_options;
     }
 }
@@ -470,7 +459,6 @@ function eead_get_post_types($args = []) {
     }
 
     $_post_types = get_post_types($post_type_args, 'objects');
-
     $post_types = ['0' => esc_html__('Select Type', 'easy-elementor-addons')];
 
     foreach ($_post_types as $post_type => $object) {
@@ -484,22 +472,22 @@ function eead_get_post_types($args = []) {
 function eead_transition_options() {
 
     $transition_options = [
-        ''                    => esc_html__('None', 'easy-elementor-addons'),
-        'fade'                => esc_html__('Fade', 'easy-elementor-addons'),
-        'scale-up'            => esc_html__('Scale Up', 'easy-elementor-addons'),
-        'scale-down'          => esc_html__('Scale Down', 'easy-elementor-addons'),
-        'slide-top'           => esc_html__('Slide Top', 'easy-elementor-addons'),
-        'slide-bottom'        => esc_html__('Slide Bottom', 'easy-elementor-addons'),
-        'slide-left'          => esc_html__('Slide Left', 'easy-elementor-addons'),
-        'slide-right'         => esc_html__('Slide Right', 'easy-elementor-addons'),
-        'slide-top-small'     => esc_html__('Slide Top Small', 'easy-elementor-addons'),
-        'slide-bottom-small'  => esc_html__('Slide Bottom Small', 'easy-elementor-addons'),
-        'slide-left-small'    => esc_html__('Slide Left Small', 'easy-elementor-addons'),
-        'slide-right-small'   => esc_html__('Slide Right Small', 'easy-elementor-addons'),
-        'slide-top-medium'    => esc_html__('Slide Top Medium', 'easy-elementor-addons'),
+        '' => esc_html__('None', 'easy-elementor-addons'),
+        'fade' => esc_html__('Fade', 'easy-elementor-addons'),
+        'scale-up' => esc_html__('Scale Up', 'easy-elementor-addons'),
+        'scale-down' => esc_html__('Scale Down', 'easy-elementor-addons'),
+        'slide-top' => esc_html__('Slide Top', 'easy-elementor-addons'),
+        'slide-bottom' => esc_html__('Slide Bottom', 'easy-elementor-addons'),
+        'slide-left' => esc_html__('Slide Left', 'easy-elementor-addons'),
+        'slide-right' => esc_html__('Slide Right', 'easy-elementor-addons'),
+        'slide-top-small' => esc_html__('Slide Top Small', 'easy-elementor-addons'),
+        'slide-bottom-small' => esc_html__('Slide Bottom Small', 'easy-elementor-addons'),
+        'slide-left-small' => esc_html__('Slide Left Small', 'easy-elementor-addons'),
+        'slide-right-small' => esc_html__('Slide Right Small', 'easy-elementor-addons'),
+        'slide-top-medium' => esc_html__('Slide Top Medium', 'easy-elementor-addons'),
         'slide-bottom-medium' => esc_html__('Slide Bottom Medium', 'easy-elementor-addons'),
-        'slide-left-medium'   => esc_html__('Slide Left Medium', 'easy-elementor-addons'),
-        'slide-right-medium'  => esc_html__('Slide Right Medium', 'easy-elementor-addons'),
+        'slide-left-medium' => esc_html__('Slide Left Medium', 'easy-elementor-addons'),
+        'slide-right-medium' => esc_html__('Slide Right Medium', 'easy-elementor-addons'),
     ];
 
     return $transition_options;
@@ -508,10 +496,12 @@ function eead_transition_options() {
 function eead_get_image_sizes() {
     $output_sizes = array();
     $img_sizes = get_intermediate_image_sizes();
-    $output_sizes['full'] = esc_html__( 'Full', 'easy-elementor-addons' );
+    $output_sizes['full'] = esc_html__('Full', 'easy-elementor-addons');
+
     foreach ($img_sizes as $size_name) {
         $output_sizes[$size_name] = $size_name;
     }
+
     return $output_sizes;
 }
 

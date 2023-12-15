@@ -1,5 +1,5 @@
 (function ($) {
-
+    'use strict';
     $(window).on('elementor/frontend/init', function () {
 
         var eeadGlobalCursorHandler = function ($scope, $) {
@@ -251,8 +251,6 @@
             $lottie.data('initialized', true);
 
             // Search for elements with the .lottie and/or .bodymovin class
-            //lottie.searchAnimations();
-
             var loop = $lottie.data("lottie-loop"),
                 reverse = $lottie.data("lottie-reverse"),
                 trigger = $lottie.data("lottie-hover"),

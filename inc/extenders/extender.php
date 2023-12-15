@@ -19,9 +19,7 @@ Class Extender {
     }
 
     public function __construct() {
-        
-
-        $extenders = get_option( 'eead_extenders' ) ? get_option( 'eead_extenders' ) : array();
+        $extenders = get_option('eead_extenders') ? get_option('eead_extenders') : array();
         
         if(isset($extenders)) {
             if(empty($extenders)) {
@@ -48,11 +46,7 @@ Class Extender {
         wp_enqueue_script('eead-extenders', EEAD_URL . 'inc/extenders/assets/js/extenders.js', [], EEAD_VERSION, true);
         wp_enqueue_style('eead-extenders', EEAD_URL . 'inc/extenders/assets/css/extenders.css', [], EEAD_VERSION);
 
-
         wp_register_script('custom-cursor', EEAD_URL . 'inc/extenders/assets/js/custom-cursor.js', [], EEAD_VERSION, true);
-        // wp_enqueue_script('paper-core', EEAD_URL . 'assets/lib/paper/paper-core.js', [], EEAD_VERSION, true);
-        // wp_enqueue_script('simplex-noise', EEAD_URL . 'assets/lib/simplex-noise/simplex-noise.min.js', [], EEAD_VERSION, true);
-
         wp_register_script('tltp-anime', EEAD_URL . 'inc/extenders/assets/js/anime.min.js', [], EEAD_VERSION, true);
         wp_register_script('charming', EEAD_URL . 'inc/extenders/assets/js/charming.min.js', [], EEAD_VERSION, true);
         wp_register_script('eead-tooltip', EEAD_URL . 'inc/extenders/assets/js/eead-tooltip.js', [], EEAD_VERSION, true);

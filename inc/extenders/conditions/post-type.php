@@ -11,61 +11,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Post_Type extends Condition {
 
-	/**
-	 * Get the name of condition
-	 * @return string as per our condition control name
-	 * @since  5.3.0
-	 */
 	public function get_name() {
 		return 'post_type';
 	}
 
-	/**
-	 * Get the title of condition
-	 * @return string as per condition control title
-	 * @since  5.3.0
-	 */
 	public function get_title() {
-		return esc_html__( 'Post Type', 'easy-elementor-addons' );
+		return esc_html__('Post Type', 'easy-elementor-addons');
 	}
 
-	/**
-	 * Get the control value
-	 * @return array as per condition control value
-	 * @since  5.3.0
-	 */
 	public function get_control_value() {
 		return [
-			'type'        => Controls_Manager::SELECT2,
-			'default'     => '',
-			'placeholder' => esc_html__( 'Any', 'easy-elementor-addons' ),
-			'description' => esc_html__( 'Leave blank or select all for any post type.', 'easy-elementor-addons' ),
+			'type' => Controls_Manager::SELECT2,
+			'default' => '',
+			'placeholder' => esc_html__('Any', 'easy-elementor-addons'),
+			'description' => esc_html__('Leave blank or select all for any post type.', 'easy-elementor-addons'),
 			'label_block' => true,
-			'multiple'    => true,
-			'options'     => eead_get_post_types(),
+			'multiple' => true,
+			'options' => eead_get_post_types(),
 		];
 	}
 
-	/**
-	 * Check the condition
-	 * @param string $relation Comparison operator for compare function
-	 * @param mixed $val will check the control value as per condition needs
-	 * @since 5.3.0
-	 */
 	public function check( $relation, $val ) {
 		$show = false;
 		
-		if ( is_array( $val ) && ! empty( $val ) ) {
-			foreach ( $val as $_key => $_value ) {
-				if ( is_singular( $_value ) ) {
+		if (is_array($val) && ! empty($val)) {
+			foreach ($val as $_key => $_value) {
+				if (is_singular($_value)) {
 					$show = true;
 					break;
 				}
 			}
+
 		} else {
-			$show = is_singular( $val );
+			$show = is_singular($val);
 		}
 
-		return $this->compare( $show, true, $relation );
+		return $this->compare($show, true, $relation);
 	}
 }

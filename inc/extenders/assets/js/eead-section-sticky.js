@@ -1,10 +1,10 @@
-( function( $, elementor ) {
+(function($, elementor) {
 	'use strict';
-	var widgetSectionSticky = function( $scope, $ ) {
-        var $section   = $scope;
+	var widgetSectionSticky = function($scope, $) {
+        var $section = $scope;
         //sticky fixes for inner section.
-        jQuery($section).each(function( index ) {
-            var $sticky      = jQuery(this),
+        jQuery($section).each(function(index) {
+            var $sticky = jQuery(this),
                 $stickyFound = $sticky.find('.elementor-inner-section.eead-sticky');
 
             if ($stickyFound.length) {
@@ -17,4 +17,4 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/section', widgetSectionSticky );
 	});
 
-}( jQuery, window.elementorFrontend ) );
+} (jQuery, window.elementorFrontend));

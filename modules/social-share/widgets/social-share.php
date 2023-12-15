@@ -529,7 +529,7 @@ class SocialShare extends Widget_Base {
         }
         if ($twitter == 'yes') {
             echo '<a target="_blank" class="eead-social-share-link eead-twitter" href="https://twitter.com/intent/tweet?text=' . esc_html($title) . '&url=' . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-twitter"></i>' : null;
+            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-x-twitter"></i>' : null;
             echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Twitter', 'easy-elementor-addons') . '</span>' : null;
             echo '</a>';
         }

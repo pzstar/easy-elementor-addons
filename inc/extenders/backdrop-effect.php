@@ -28,10 +28,10 @@ Class BackdropEffect {
     public function register_controls($elems) {
         $elems->add_control(
             'eead_backdrop_filter', [
-                'label'         => __( 'Backdrop Filter', 'easy-elementor-addons' ),
-                'type'          => Controls_Manager::POPOVER_TOGGLE,
-                'return_value'  => 'yes',
-                'separator'    => 'before',
+                'label' => __('Backdrop Filter', 'easy-elementor-addons'),
+                'type' => Controls_Manager::POPOVER_TOGGLE,
+                'return_value' => 'yes',
+                'separator' => 'before',
                 'prefix_class' => 'eead-backdrop-filter-',
             ]
         );
@@ -40,7 +40,7 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_blur', [
-                'label' => _x( 'Blur', 'easy-elementor-addons' ),
+                'label' => _x('Blur', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -59,12 +59,10 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_brightness', 
-            [
-                'label' => _x( 'Brightness', 'easy-elementor-addons' ),
+            'eead_bf_brightness', [
+                'label' => _x('Brightness', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'ui',
-                
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -83,9 +81,8 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_contrast', [
-                'label' => _x( 'Contrast', 'easy-elementor-addons' ),
+                'label' => _x('Contrast', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -104,9 +101,8 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_grayscale', [
-                'label' => _x( 'Grayscale', 'easy-elementor-addons' ),
+                'label' => _x('Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -125,9 +121,8 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_invert', [
-                'label' => _x( 'Invert', 'easy-elementor-addons' ),
+                'label' => _x('Invert', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -146,7 +141,7 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_opacity', [
-                'label' => _x( 'Opacity', 'easy-elementor-addons' ),
+                'label' => _x('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -166,7 +161,7 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_sepia', [
-                'label' => _x( 'Sepia', 'easy-elementor-addons' ),
+                'label' => _x('Sepia', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -186,7 +181,7 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_saturate', [
-                'label' => _x( 'Saturate', 'easy-elementor-addons' ),
+                'label' => _x('Saturate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -206,7 +201,7 @@ Class BackdropEffect {
 
         $elems->add_control(
             'eead_bf_hue_rotate', [
-                'label' => _x( 'Hue Rotate', 'easy-elementor-addons' ),
+                'label' => _x('Hue Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -228,7 +223,7 @@ Class BackdropEffect {
         $elems->add_control(
             'ep_backdrop_filter_notice', [
                 'type' => Controls_Manager::RAW_HTML,
-                'raw' => sprintf( __( 'This feature will not work in the Firefox browser untill you enable browser compatibility so please %1s look here %2s', 'easy-elementor-addons' ), '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility" target="_blank">', '</a>' ),
+                'raw' => sprintf(__( 'This feature will not work in the Firefox browser untill you enable browser compatibility so please %1s look here %2s', 'easy-elementor-addons' ), '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility" target="_blank">', '</a>'),
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
             ]
         );

@@ -13,6 +13,7 @@ class EEAD_Icon_Manager {
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 

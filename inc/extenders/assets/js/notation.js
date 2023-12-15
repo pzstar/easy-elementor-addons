@@ -40,7 +40,6 @@
                     $globalthis = this;
 
                 var $list = this.settings('list');
-
                 var rtl = ($("body").hasClass("rtl")) ? true : false;
 
                 $list.forEach(element => {
@@ -77,7 +76,6 @@
 
                         if ($($selectElement).length > 0) {
                             elementorFrontend.waypoint($element, function () {
-
                                 const t = "http://www.w3.org/2000/svg";
                                 class e {
                                     constructor(t) {
@@ -630,5 +628,4 @@
             });
         });
     });
-
-}(jQuery, window.elementorFrontend));
+} (jQuery, window.elementorFrontend));

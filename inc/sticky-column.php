@@ -5,8 +5,9 @@ namespace EasyElementorAddons;
 use Elementor\Controls_Manager;
 
 // Exit if accessed directly
-if (!defined('ABSPATH'))
+if (!defined('ABSPATH')) {
     exit;
+}
 
 class Sticky_Column {
 
@@ -31,7 +32,7 @@ class Sticky_Column {
     public function add_controls($section) {
         $section->add_control(
                 'eea_sidebar_sticky', [
-            'label' => esc_html__('Enable Sticky Sidebar', 'easy-elementor-addons'),
+            'label' => __('Enable Sticky Sidebar', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
             'default' => '',
             'render_type' => 'template',
@@ -41,7 +42,7 @@ class Sticky_Column {
 
         $section->add_control(
                 'eea_sidebar_sticky_top_spacing', array(
-            'label' => esc_html__('Top Spacing(px)', 'easy-elementor-addons'),
+            'label' => __('Top Spacing(px)', 'easy-elementor-addons'),
             'type' => Controls_Manager::NUMBER,
             'default' => 50,
             'min' => 0,
@@ -56,7 +57,7 @@ class Sticky_Column {
 
         $section->add_control(
                 'eea_sidebar_sticky_bottom_spacing', array(
-            'label' => esc_html__('Bottom Spacing(px)', 'easy-elementor-addons'),
+            'label' => __('Bottom Spacing(px)', 'easy-elementor-addons'),
             'type' => Controls_Manager::NUMBER,
             'default' => 50,
             'min' => 0,
@@ -85,11 +86,9 @@ class Sticky_Column {
                 'class' => 'eea-elementor-sticky-column',
                 'data-top-spacing' => absint($top_spacing),
                 'data-bottom-spacing' => absint($bottom_spacing)
-                    )
-            );
+            ));
         }
     }
-
 }
 
 Sticky_Column::instance();

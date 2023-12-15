@@ -13,6 +13,7 @@ class EEAD_Widget_Loader {
         if (self::$instance == null) {
             self::$instance = new self;
         }
+
         return self::$instance;
     }
 
@@ -35,22 +36,17 @@ class EEAD_Widget_Loader {
         if ($has_class_alias) {
             $class_alias_name = $this->classes_aliases[$class];
             $class_to_load = $class_alias_name;
+
         } else {
             $class_to_load = $class;
         }
 
         if (!class_exists($class_to_load)) {
-
-            $filename = strtolower(
-                    preg_replace(
-                            ['/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/'], ['', '$1-$2', '-', DIRECTORY_SEPARATOR], $class_to_load
-                    )
-            );
-
+            $filename = strtolower(preg_replace(['/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/'], ['', '$1-$2', '-', DIRECTORY_SEPARATOR], $class_to_load));
             $filename = EEAD_PATH . $filename . '.php';
 
             if (is_readable($filename)) {
-                include( $filename );
+                include($filename);
             }
         }
 
@@ -88,7 +84,6 @@ class EEAD_Widget_Loader {
     }
 
     function add_elementor_widget_categories() {
-
         $groups = array(
             'easy-elementor-addons' => esc_html__('Easy Elementor Addons', 'easy-elementor-addons'),
         );
@@ -105,7 +100,6 @@ class EEAD_Widget_Loader {
      * Register Frontend Scripts
      */
     public function register_frontend_scripts() {
-
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         $eead_general_settings = get_option('eead_general_settings', true);
         $gmap_access_token = isset($eead_general_settings['gmap_access_token']) ? $eead_general_settings['gmap_access_token'] : null;
@@ -179,7 +173,8 @@ class EEAD_Widget_Loader {
 
         wp_enqueue_script('theia-sticky-sidebar-js', EEAD_URL . 'assets/lib/theia-sticky-sidebar/theia-sticky-sidebar-js.js', [], EEAD_VERSION, true);
         wp_enqueue_script('jQuery-cookie', EEAD_URL . 'assets/lib/jquery-cookie/jquery.cookie.js', ['jquery'], EEAD_VERSION, true);
-        wp_enqueue_script('eead-frontend-script', EEAD_URL . 'assets/js/frontend.js', ['jquery', 'jquery-ui-draggable'], EEAD_VERSION, true);
+        wp_enqueue_script('swiper', EEAD_URL . 'assets/lib/swiper/swiper.js', ['jquery'], EEAD_VERSION, true);
+        wp_enqueue_script('eead-frontend-script', EEAD_URL . 'assets/js/frontend.js', ['jquery', 'jquery-ui-draggable', 'swiper'], EEAD_VERSION, true);
 
         wp_localize_script('eead-frontend-script', 'eead_widget_vars', [
             'ajax_url' => admin_url('admin-ajax.php'),
@@ -211,13 +206,12 @@ class EEAD_Widget_Loader {
      * Enqueue Frontend Styles
      */
     public function enqueue_frontend_styles() {
-
         wp_enqueue_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
         wp_enqueue_style('icofont', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
         wp_enqueue_style('animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
+        wp_enqueue_style('swiper', EEAD_URL . 'assets/lib/swiper/swiper.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-responsive', EEAD_URL . 'assets/css/responsive.css', '', EEAD_VERSION);
-
     }
 
     /**
@@ -245,11 +239,6 @@ class EEAD_Widget_Loader {
 
 if (!function_exists('easy_elementor_addons_widget_loader')) {
 
-    /**
-     * Returns an instance of the plugin class.
-     * @since  1.0.0
-     * @return object
-     */
     function easy_elementor_addons_widget_loader() {
         return EEAD_Widget_Loader::get_instance();
     }
