@@ -53,7 +53,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
                 'icon', [
-            'label' => __('Icon', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon', 'easy-elementor-addons'),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-star',
@@ -64,7 +64,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
                 'title', [
-            'label' => __('Tab Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Tab Title'
@@ -73,19 +73,19 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
                 'content_type', [
-            'label' => __('Content Type', 'easy-elementor-addons'),
+            'label' => esc_html__('Content Type', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'wisiwyg',
             'options' => [
-                'wisiwyg' => __('WISIWYG', 'easy-elementor-addons'),
-                'elementor_template' => __('Elementor Template', 'easy-elementor-addons'),
-                'page' => __('Page', 'easy-elementor-addons'),
+                'wisiwyg' => esc_html__('WISIWYG', 'easy-elementor-addons'),
+                'elementor_template' => esc_html__('Elementor Template', 'easy-elementor-addons'),
+                'page' => esc_html__('Page', 'easy-elementor-addons'),
             ],
                 ]
         );
 
         $repeater->add_control( 'page', [
-                'label' => __('Select Page', 'hash-elementor'),
+                'label' => esc_html__('Select Page', 'hash-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'multiple' => false,
@@ -98,9 +98,9 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
             'wisiwyg_content', [
-                'label' => __('Description', 'easy-elementor-addons'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
                 'condition' => [
                     'content_type' => 'wisiwyg'
                 ]
@@ -109,7 +109,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
             'elementor_template', [
-                'label' => __('Select Template', 'easy-elementor-addons'),
+                'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
                 'options' => $this->get_elementor_templates(),
@@ -122,10 +122,10 @@ class VerticalTabBlock extends Widget_Base {
 
         $repeater->add_control(
             'enable', [
-                'label' => __('Enable', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Show', 'easy-elementor-addons'),
-                'label_off' => __('Hide', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -133,7 +133,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'tabs', [
-            'label' => __('Plan Feature List', 'easy-elementor-addons'),
+            'label' => esc_html__('Plan Feature List', 'easy-elementor-addons'),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
@@ -176,25 +176,25 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'tab_position', [
-            'label' => __('Tab Position', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Position', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'left',
             'options' => [
-                'left' => __('Left', 'easy-elementor-addons'),
-                'right' => __('Right', 'easy-elementor-addons')
+                'left' => esc_html__('Left', 'easy-elementor-addons'),
+                'right' => esc_html__('Right', 'easy-elementor-addons')
             ],
                 ]
         );
 
         $this->add_control(
             'tab_layout', [
-                'label' => __('Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1' => __('Style 1', 'easy-elementor-addons'),
-                    'style2' => __('Style 2', 'easy-elementor-addons'),
-                    'style3' => __('Style 3', 'easy-elementor-addons'),
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -210,7 +210,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'tab_spacing', [
-            'label' => __('Tab Spacing', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Spacing', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -230,7 +230,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'tab_width', [
-            'label' => __('Tab Width', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Width', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['%'],
             'range' => [
@@ -277,7 +277,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'icon_size', [
-            'label' => __('Tab Icon Size', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Icon Size', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -295,7 +295,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
                 'icon_spacing', [
-            'label' => __('Tab Icon Spacing', 'easy-elementor-addons'),
+            'label' => esc_html__('Tab Icon Spacing', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -419,7 +419,7 @@ class VerticalTabBlock extends Widget_Base {
 
         $this->add_control(
             'content_border_color', [
-                'label' => __( 'Border Color', 'plugin-domain' ),
+                'label' => esc_html__( 'Border Color', 'plugin-domain' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content' => 'border: 1px solid {{VALUE}}',
@@ -536,9 +536,9 @@ class VerticalTabBlock extends Widget_Base {
         $types = [];
 
         if (empty($templates)) {
-            $template_options = ['0' => __('Template Not Found!', 'easy-elementor-addons')];
+            $template_options = ['0' => esc_html__('Template Not Found!', 'easy-elementor-addons')];
         } else {
-            $template_options = ['0' => __('Select Template', 'easy-elementor-addons')];
+            $template_options = ['0' => esc_html__('Select Template', 'easy-elementor-addons')];
             foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
                 $types[$template['template_id']] = $template['type'];

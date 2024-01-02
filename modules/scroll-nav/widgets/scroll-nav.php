@@ -44,7 +44,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content_scrollnav', [
-				'label' => __('Scroll Nav', 'easy-elementor-addons'),
+				'label' => esc_html__('Scroll Nav', 'easy-elementor-addons'),
 			]
 		);
 
@@ -52,16 +52,16 @@ class ScrollNav extends Widget_Base {
 
 		$repeater->add_control(
 			'nav_title', [
-				'label' => __('Nav Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => ['active' => true],
-				'default' => __('Nav Title' , 'easy-elementor-addons'),
+				'default' => esc_html__('Nav Title' , 'easy-elementor-addons'),
 			]
 		);
 
 		$repeater->add_control(
 			'nav_link', [
-				'label' => __('Link', 'easy-elementor-addons'),
+				'label' => esc_html__('Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
 				'dynamic' => ['active' => true],
 				'default' => ['url' => '#'],
@@ -71,7 +71,7 @@ class ScrollNav extends Widget_Base {
 
 		$repeater->add_control(
 			'scroll_nav_icon', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'nav_icon',
 			]
@@ -79,36 +79,36 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'navs', [
-				'label' => __('Nav Items', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav Items', 'easy-elementor-addons'),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'nav_title' => __('Nav #1', 'easy-elementor-addons'),
+						'nav_title' => esc_html__('Nav #1', 'easy-elementor-addons'),
 						'nav_link' => [
 							'url' => '#section-1',
 						] 
 					],
 					[
-						'nav_title' => __('Nav #2', 'easy-elementor-addons'),
+						'nav_title' => esc_html__('Nav #2', 'easy-elementor-addons'),
 						'nav_link' => [
 							'url' => '#section-2',
 						]
 					],
 					[
-						'nav_title' => __('Nav #3', 'easy-elementor-addons'),
+						'nav_title' => esc_html__('Nav #3', 'easy-elementor-addons'),
 						'nav_link' => [
 							'url' => '#section-3',
 						]
 					],
 					[
-						'nav_title' => __('Nav #4', 'easy-elementor-addons'),
+						'nav_title' => esc_html__('Nav #4', 'easy-elementor-addons'),
 						'nav_link' => [
 							'url' => '#section-4',
 						]
 					],
 					[
-						'nav_title' => __('Nav #5', 'easy-elementor-addons'),
+						'nav_title' => esc_html__('Nav #5', 'easy-elementor-addons'),
 						'nav_link' => [
 							'url' => '#section-5',
 						]
@@ -120,27 +120,27 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_style', [
-				'label' => __('Nav View', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav View', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'default' => 'default',
 				'options' => [
-					'default' => __('Text', 'easy-elementor-addons'),
-					'dot' => __('Dots', 'easy-elementor-addons'),
+					'default' => esc_html__('Text', 'easy-elementor-addons'),
+					'dot' => esc_html__('Dots', 'easy-elementor-addons'),
 				]
 			]
 		);
 
 		$this->add_control(
 			'vertical_nav', [
-				'label' => __('Vertical Nav', 'easy-elementor-addons'),
+				'label' => esc_html__('Vertical Nav', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'fixed_nav', [
-				'label' => __('Fixed Nav', 'easy-elementor-addons'),
+				'label' => esc_html__('Fixed Nav', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'prefix_class' => 'eead-scrollnav-fixed-',
 				'render_type' => 'template',
@@ -151,26 +151,26 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content_additional', [
-				'label' => __('Additional', 'easy-elementor-addons'),
+				'label' => esc_html__('Additional', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'alignment', [
-				'label' => __('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'easy-elementor-addons'),
+						'title' => esc_html__('Left', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'easy-elementor-addons'),
+						'title' => esc_html__('Center', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'easy-elementor-addons'),
+						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -183,7 +183,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_position', [
-				'label' => __('Nav Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'center-left',
 				'options' => eead_get_item_position(),
@@ -195,7 +195,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_offset', [
-				'label' => __('Nav Offset', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav Offset', 'easy-elementor-addons'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -215,7 +215,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_spacing', [
-				'label' => __('Nav Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Nav Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -226,7 +226,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'menu_height', [
-				'label' => __('Menu Height', 'easy-elementor-addons'),
+				'label' => esc_html__('Menu Height', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -246,13 +246,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'icon_align', [
-				'label' => __('Icon Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'default' => 'right',
 				'options' => [
-					'left' => __('Before', 'easy-elementor-addons'),
-					'right' => __('After', 'easy-elementor-addons'),
+					'left' => esc_html__('Before', 'easy-elementor-addons'),
+					'right' => esc_html__('After', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'nav_style' => 'default',
@@ -262,7 +262,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'icon_indent', [
-				'label' => __('Icon Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -284,8 +284,8 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'content_offset', [
-				'label' => __('Target Offset', 'easy-elementor-addons'),
-				'description' => __('This offset work when you click and go to targeted location', 'easy-elementor-addons'),
+				'label' => esc_html__('Target Offset', 'easy-elementor-addons'),
+				'description' => esc_html__('This offset work when you click and go to targeted location', 'easy-elementor-addons'),
 				'separator' => 'before',
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
@@ -305,7 +305,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content_tooltip', [
-				'label' => __('Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
 				'condition' => [
 					'nav_style' => 'dot',
 				]
@@ -314,15 +314,15 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_animation', [
-				'label' => __('Animation', 'easy-elementor-addons'),
+				'label' => esc_html__('Animation', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'shift-toward',
 				'options' => [
-					'shift-away' => __('Shift-Away', 'easy-elementor-addons'),
-					'shift-toward' => __('Shift-Toward', 'easy-elementor-addons'),
-					'fade' => __('Fade', 'easy-elementor-addons'),
-					'scale' => __('Scale', 'easy-elementor-addons'),
-					'perspective' => __('Perspective', 'easy-elementor-addons'),
+					'shift-away' => esc_html__('Shift-Away', 'easy-elementor-addons'),
+					'shift-toward' => esc_html__('Shift-Toward', 'easy-elementor-addons'),
+					'fade' => esc_html__('Fade', 'easy-elementor-addons'),
+					'scale' => esc_html__('Scale', 'easy-elementor-addons'),
+					'perspective' => esc_html__('Perspective', 'easy-elementor-addons'),
 				],
 				'render_type' => 'template',
 			]
@@ -331,21 +331,21 @@ class ScrollNav extends Widget_Base {
 		$this->add_control(
 			'dotnav_tooltip_placement', [
 				'name' => 'marker_tooltip_placement',						
-				'label' => __('Placement', 'easy-elementor-addons'),
+				'label' => esc_html__('Placement', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'top' => __('Top', 'easy-elementor-addons'),
-					'bottom' => __('Bottom', 'easy-elementor-addons'),
-					'left' => __('Left', 'easy-elementor-addons'),
-					'right' => __('Right', 'easy-elementor-addons'),
+					'top' => esc_html__('Top', 'easy-elementor-addons'),
+					'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
+					'left' => esc_html__('Left', 'easy-elementor-addons'),
+					'right' => esc_html__('Right', 'easy-elementor-addons'),
 				],
 			]
 		);
 
 		$this->add_control(
 			'dotnav_tooltip_x_offset', [
-				'label' => __('Offset', 'easy-elementor-addons'),
+				'label' => esc_html__('Offset', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -355,7 +355,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_y_offset', [
-				'label' => __('Distance', 'easy-elementor-addons'),
+				'label' => esc_html__('Distance', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -365,15 +365,15 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_arrow', [
-				'label' => __('Arrow', 'easy-elementor-addons'),
+				'label' => esc_html__('Arrow', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'dotnav_tooltip_trigger', [
-				'label' => __('Trigger on Click', 'easy-elementor-addons'),
-				'description' => __('Don\'t set yes when you set lightbox image with marker.', 'easy-elementor-addons'),
+				'label' => esc_html__('Trigger on Click', 'easy-elementor-addons'),
+				'description' => esc_html__('Don\'t set yes when you set lightbox image with marker.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
@@ -382,7 +382,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_style_nav', [
-				'label' => __('Default Nav', 'easy-elementor-addons'),
+				'label' => esc_html__('Default Nav', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'nav_style' => 'default',
@@ -392,14 +392,14 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'navbar_style', [
-				'label' => __('Navbar Style', 'easy-elementor-addons'),
+				'label' => esc_html__('Navbar Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''  => __('Select Style', 'easy-elementor-addons'),
-					'1' => __('Style 1', 'easy-elementor-addons'),
-					'2' => __('Style 2', 'easy-elementor-addons'),
-					'3' => __('Style 3', 'easy-elementor-addons'),
+					''  => esc_html__('Select Style', 'easy-elementor-addons'),
+					'1' => esc_html__('Style 1', 'easy-elementor-addons'),
+					'2' => esc_html__('Style 2', 'easy-elementor-addons'),
+					'3' => esc_html__('Style 3', 'easy-elementor-addons'),
 				],
 				'prefix_class' => 'eead-navbar-style-',
 			]
@@ -409,13 +409,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_nav_normal', [
-				'label' => __('Normal', 'easy-elementor-addons'),
+				'label' => esc_html__('Normal', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'nav_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a' => 'color: {{VALUE}};',
@@ -426,7 +426,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a' => 'background-color: {{VALUE}};',
@@ -437,7 +437,7 @@ class ScrollNav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'nav_border',
-				'label' => __('Border', 'easy-elementor-addons'),
+				'label' => esc_html__('Border', 'easy-elementor-addons'),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a',
@@ -446,7 +446,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -464,7 +464,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -475,7 +475,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_margin', [
-				'label' => __('Margin', 'easy-elementor-addons'),
+				'label' => esc_html__('Margin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -487,14 +487,14 @@ class ScrollNav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'nav_typography',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a',
 			]
 		);
 
 		$this->add_control(
 			'nav_icon_heading', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -502,7 +502,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_icon_color', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a i' => 'color: {{VALUE}} !important;',
@@ -526,13 +526,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_nav_hover', [
-				'label' => __('Hover', 'easy-elementor-addons'),
+				'label' => esc_html__('Hover', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'navbar_hover_style_color', [
-				'label' => __('Style Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Style Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-navbar-nav > li:hover > a:before' => 'background-color: {{VALUE}};',
@@ -546,7 +546,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_hover_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a:hover' => 'color: {{VALUE}};',
@@ -557,7 +557,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_hover_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a:hover' => 'background-color: {{VALUE}};',
@@ -567,7 +567,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_hover_border_color', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'nav_border_border!' => '',
@@ -580,7 +580,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_icon_hover_heading', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -588,7 +588,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_icon_hover_color', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li > a:hover i' => 'color: {{VALUE}} !important;',
@@ -601,13 +601,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_nav_active', [
-				'label' => __('Active', 'easy-elementor-addons'),
+				'label' => esc_html__('Active', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'navbar_active_style_color', [
-				'label' => __('Style Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Style Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-navbar-nav > li.eead-active > a:before' => 'background-color: {{VALUE}};',
@@ -621,7 +621,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_active_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li.eead-active > a' => 'color: {{VALUE}};',
@@ -632,7 +632,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_active_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li.eead-active > a' => 'background-color: {{VALUE}};',
@@ -642,7 +642,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_active_border_color', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'nav_border_border!' => '',
@@ -655,7 +655,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_icon_active_heading', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -663,7 +663,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'nav_icon_active_color', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav ul li.eead-active > a i' => 'color: {{VALUE}} !important;',
@@ -680,7 +680,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_style_dot_nav', [
-				'label' => __('Dot Nav', 'easy-elementor-addons'),
+				'label' => esc_html__('Dot Nav', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'nav_style' => 'dot',
@@ -692,13 +692,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dot_nav_normal', [
-				'label' => __('Normal', 'easy-elementor-addons'),
+				'label' => esc_html__('Normal', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dot_nav_size', [
-				'label' => __('Dots Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Dots Size', 'easy-elementor-addons'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -714,7 +714,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dot_nav_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a' => 'background-color: {{VALUE}};',
@@ -725,7 +725,7 @@ class ScrollNav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'dot_nav_border',
-				'label' => __('Border', 'easy-elementor-addons'),
+				'label' => esc_html__('Border', 'easy-elementor-addons'),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a',
@@ -734,7 +734,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dot_nav_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -752,7 +752,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dot_nav_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -765,13 +765,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dot_nav_hover', [
-				'label' => __('Hover', 'easy-elementor-addons'),
+				'label' => esc_html__('Hover', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dot_nav_hover_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a:hover' => 'background-color: {{VALUE}};',
@@ -781,7 +781,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dot_nav_hover_border_color', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'dot_nav_border_border!' => '',
@@ -796,13 +796,13 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dot_nav_active', [
-				'label' => __('Active', 'easy-elementor-addons'),
+				'label' => esc_html__('Active', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dot_nav_active_background_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scrollnav .eead-dotnav > li.eead-active > a' => 'background-color: {{VALUE}};',
@@ -812,7 +812,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dot_nav_active_border_color', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'dot_nav_border_border!' => '',
@@ -831,7 +831,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->start_controls_section(
 			'dotnav_tooltip_styles_tab', [
-				'label' => __('Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'nav_style' => 'dot',
@@ -841,7 +841,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dotnav_tooltip_width', [
-				'label' => __('Width', 'easy-elementor-addons'),
+				'label' => esc_html__('Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -867,7 +867,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"]' => 'color: {{VALUE}}',
@@ -877,20 +877,20 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_text_align', [
-				'label' => __('Text Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'easy-elementor-addons'),
+						'title' => esc_html__('Left', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'easy-elementor-addons'),
+						'title' => esc_html__('Center', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'easy-elementor-addons'),
+						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -909,7 +909,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_control(
 			'dotnav_tooltip_arrow_color', [
-				'label' => __('Arrow Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Arrow Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'.tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-arrow' => 'border-left-color: {{VALUE}}',
@@ -926,7 +926,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dotnav_tooltip_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -938,7 +938,7 @@ class ScrollNav extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'dotnav_tooltip_border',
-				'label' => __( 'Border', 'easy-elementor-addons' ),
+				'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]',
@@ -947,7 +947,7 @@ class ScrollNav extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dotnav_tooltip_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [

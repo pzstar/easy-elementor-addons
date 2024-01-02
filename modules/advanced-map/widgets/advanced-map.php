@@ -49,7 +49,7 @@ class AdvancedMap extends Widget_Base {
 
     	$this->start_controls_section(
 			'marker_controls_section', [
-				'label' => __('Markers', 'easy-elementor-addons'),
+				'label' => esc_html__('Markers', 'easy-elementor-addons'),
 			]
 		);
 
@@ -67,47 +67,47 @@ class AdvancedMap extends Widget_Base {
 
 		$repeater->add_control(
 			'lat', [
-				'label' => __('Latitude', 'easy-elementor-addons'),
+				'label' => esc_html__('Latitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __('Enter latitude here', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
 			]
 		);
 
 		$repeater->add_control(
 			'long', [
-				'label' => __('Longitude', 'easy-elementor-addons'),
+				'label' => esc_html__('Longitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __('Enter latitude here', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
 			]
 		);
 
 		$repeater->add_control(
 			'address', [
-				'label' => __('Address', 'easy-elementor-addons'),
+				'label' => esc_html__('Address', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __('Enter address here..', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Enter address here..', 'easy-elementor-addons'),
 			]
 		);
 
 		$repeater->add_control(
 			'icon', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 			]
 		);
 
 		$repeater->add_control(
 			'icon_size', [
-				'label' => __('Icon Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -124,25 +124,25 @@ class AdvancedMap extends Widget_Base {
 
 		$repeater->add_control(
 			'info_window_onload', [
-				'label' => __('Info Window On Load', 'easy-elementor-addons'),
+				'label' => esc_html__('Info Window On Load', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
-				'label_on' => __('Open', 'easy-elementor-addons'),
-				'label_off' => __('Close', 'easy-elementor-addons'),
+				'label_on' => esc_html__('Open', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Close', 'easy-elementor-addons'),
 				'return_value' => 'yes',
 			]
 		);
 
 		$this->add_control(
 			'markers', [
-				'label' => __('Markers', 'easy-elementor-addons'),
+				'label' => esc_html__('Markers', 'easy-elementor-addons'),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'lat' => '-25.363',
 						'long' => '131.044',
-						'address' => __('Enter Address Here', 'easy-elementor-addons'),
+						'address' => esc_html__('Enter Address Here', 'easy-elementor-addons'),
 					],
 				],
 			]
@@ -152,13 +152,13 @@ class AdvancedMap extends Widget_Base {
 
     	$this->start_controls_section(
 			'general', [
-				'label' => __('General Settings', 'easy-elementor-addons'),
+				'label' => esc_html__('General Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_responsive_control(
 			'height', [
-				'label' => __('Height', 'easy-elementor-addons'),
+				'label' => esc_html__('Height', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 300,
 				'selectors' => [
@@ -169,7 +169,7 @@ class AdvancedMap extends Widget_Base {
 
 		$this->add_control(
 			'zoom', [
-				'label' => __('Zoom', 'easy-elementor-addons'),
+				'label' => esc_html__('Zoom', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -186,11 +186,11 @@ class AdvancedMap extends Widget_Base {
 
 		$this->add_control(
 			'animate', [
-				'label' => __('Animate Marker', 'easy-elementor-addons'),
+				'label' => esc_html__('Animate Marker', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
-				'label_on' => __('Yes', 'easy-elementor-addons'),
-				'label_off' => __('No', 'easy-elementor-addons'),
+				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+				'label_off' => esc_html__('No', 'easy-elementor-addons'),
 				'return_value' => 'yes',
 			]
 		);
@@ -270,10 +270,10 @@ class AdvancedMap extends Widget_Base {
 
         $this->add_control(
 			'snazzy_style', [
-				'label' => __('Snazzy Style', 'easy-elementor-addons'),
+				'label' => esc_html__('Snazzy Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
 				'separator' => 'before',
-				'description' => __('Choose any map styles by visiting <a href="https://snazzymaps.com/explore" target="_blank">Snazzy Maps</a>. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons'),
+				'description' => esc_html__('Choose any map styles by visiting <a href="https://snazzymaps.com/explore" target="_blank">Snazzy Maps</a>. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons'),
 			]
 		);
 

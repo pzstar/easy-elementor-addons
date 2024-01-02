@@ -47,7 +47,7 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'content_templates', [
-                'label' => __('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
 
@@ -62,18 +62,18 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'notice', [
-                'label' => __('Names are reversed in RTL mode', 'easy-elementor-addons'),
+                'label' => esc_html__('Names are reversed in RTL mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
 
         $repeater->add_control(
             'left_content', [
-                'label' => __('Left Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Left Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'text' => __('Text Editor', 'easy-elementor-addons'),
-                    'temp' => __('Elementor Template', 'easy-elementor-addons'),
+                    'text' => esc_html__('Text Editor', 'easy-elementor-addons'),
+                    'temp' => esc_html__('Elementor Template', 'easy-elementor-addons'),
                 ),
                 'default' => 'temp',
             ]
@@ -93,7 +93,7 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'live_temp_content', [
-                'label' => __('Template Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Template Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'classes' => 'eead-live-temp-title control-hidden',
                 'label_block' => true,
@@ -108,7 +108,7 @@ class MultiScroll extends Widget_Base {
                 'type' => Controls_Manager::BUTTON,
                 'label_block' => true,
                 'button_type' => 'default eead-btn-block',
-                'text' => __('Create / Edit Template', 'easy-elementor-addons'),
+                'text' => esc_html__('Create / Edit Template', 'easy-elementor-addons'),
                 'event' => 'createLiveTemp',
                 'condition' => array(
                     'left_content' => 'temp',
@@ -118,7 +118,7 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'left_side_template', [
-                'label' => __('Left Template', 'easy-elementor-addons'),
+                'label' => esc_html__('Left Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => eead_get_elementor_page_list(),
                 'multiple' => false,
@@ -131,27 +131,27 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'hide_left_section_tabs', [
-                'label' => __('Hide on Tabs', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide on Tabs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('This option works only when multiscroll disabled on tablets', 'easy-elementor-addons'),
+                'description' => esc_html__('This option works only when multiscroll disabled on tablets', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'hide_left_section_mobs', [
-                'label' => __('Hide on Mobiles', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide on Mobiles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('This option works only when multiscroll disabled on mobiles', 'easy-elementor-addons'),
+                'description' => esc_html__('This option works only when multiscroll disabled on mobiles', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'right_content', [
-                'label' => __('Right Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Right Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'text' => __('Text Editor', 'easy-elementor-addons'),
-                    'temp' => __('Elementor Template', 'easy-elementor-addons'),
+                    'text' => esc_html__('Text Editor', 'easy-elementor-addons'),
+                    'temp' => esc_html__('Elementor Template', 'easy-elementor-addons'),
                 ),
                 'default' => 'temp',
                 'separator' => 'before',
@@ -172,7 +172,7 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'live_temp_content_extra', [
-                'label' => __('Template Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Template Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'classes' => 'eead-live-temp-title control-hidden',
                 'label_block' => true,
@@ -187,7 +187,7 @@ class MultiScroll extends Widget_Base {
                 'type' => Controls_Manager::BUTTON,
                 'label_block' => true,
                 'button_type' => 'default eead-btn-block',
-                'text' => __('Create / Edit Template', 'easy-elementor-addons'),
+                'text' => esc_html__('Create / Edit Template', 'easy-elementor-addons'),
                 'event' => 'createLiveTemp',
                 'condition' => array(
                     'right_content' => 'temp',
@@ -197,7 +197,7 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'right_side_template', [
-                'label' => __('Right Template', 'easy-elementor-addons'),
+                'label' => esc_html__('Right Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => eead_get_elementor_page_list(),
                 'multiple' => false,
@@ -210,23 +210,23 @@ class MultiScroll extends Widget_Base {
 
         $repeater->add_control(
             'hide_right_section_tabs', [
-                'label' => __('Hide on Tabs', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide on Tabs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('This option works only when multiscroll disabled on tablets', 'easy-elementor-addons'),
+                'description' => esc_html__('This option works only when multiscroll disabled on tablets', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'hide_right_section_mobs', [
-                'label' => __('Hide on Mobiles', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide on Mobiles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('This option works only when multiscroll disabled on mobiles', 'easy-elementor-addons'),
+                'description' => esc_html__('This option works only when multiscroll disabled on mobiles', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'left_side_repeater', [
-                'label' => __('Sections', 'easy-elementor-addons'),
+                'label' => esc_html__('Sections', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
             ]
@@ -236,33 +236,33 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'nav_menu', [
-                'label' => __('Navigation', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'nav_menu_switch', [
-                'label' => __('Navigation Menu', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Menu', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('This option works only on the frontend', 'easy-elementor-addons'),
+                'description' => esc_html__('This option works only on the frontend', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'navigation_menu_pos', [
-                'label' => __('Horizontal Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Horizontal Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => array(
                     'left'   => array(
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ),
                     'center' => array(
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ),
                     'right'  => array(
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ),
                 ),
@@ -276,15 +276,15 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'navigation_menu_vpos', [
-                'label' => __('Vertical Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => array(
                     'top' => array(
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-up',
                     ),
                     'bottom' => array(
-                        'title' => __('Bottom', 'easy-elementor-addons'),
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-down',
                     ),
                 ),
@@ -300,14 +300,14 @@ class MultiScroll extends Widget_Base {
 
         $nav_repeater->add_control(
             'nav_menu_item', [
-                'label' => __('List Item', 'easy-elementor-addons'),
+                'label' => esc_html__('List Item', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
             ]
         );
 
         $this->add_control(
             'nav_menu_repeater', [
-                'label' => __('List Items', 'easy-elementor-addons'),
+                'label' => esc_html__('List Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $nav_repeater->get_controls(),
                 'title_field' => '{{{ nav_menu_item }}}',
@@ -319,7 +319,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'navigation_dots', [
-                'label' => __('Navigation Dots', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'separator' => 'before',
 
@@ -328,9 +328,9 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'dots_tooltips', [
-                'label' => __('Dots Tooltips Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots Tooltips Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => __('Add text for each navigation dot separated by \',\'', 'easy-elementor-addons'),
+                'description' => esc_html__('Add text for each navigation dot separated by \',\'', 'easy-elementor-addons'),
                 'condition'   => array(
                     'navigation_dots' => 'yes',
                 ),
@@ -339,11 +339,11 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'navigation_dots_pos', [
-                'label' => __('Dots Horizontal Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots Horizontal Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'left' => __('Left', 'easy-elementor-addons'),
-                    'right' => __('Right', 'easy-elementor-addons'),
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons'),
                 ),
                 'default' => 'right',
                 'condition' => array(
@@ -354,12 +354,12 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'navigation_dots_v_pos', [
-                'label' => __('Dots Vertical Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'top' => __('Top', 'easy-elementor-addons'),
-                    'middle' => __('Middle', 'easy-elementor-addons'),
-                    'bottom' => __('Bottom', 'easy-elementor-addons'),
+                    'top' => esc_html__('Top', 'easy-elementor-addons'),
+                    'middle' => esc_html__('Middle', 'easy-elementor-addons'),
+                    'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
                 ),
                 'default' => 'middle',
                 'condition' => array(
@@ -372,7 +372,7 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'advanced_options', [
-                'label' => __('Advanced Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Advanced Settings', 'easy-elementor-addons'),
             ]
         );
 
@@ -400,11 +400,11 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'scroll_container_height', [
-                'label' => __('Height', 'easy-elementor-addons'),
+                'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
-                    'fit' => __('Fit to Screen', 'easy-elementor-addons'),
-                    'min' => __('Min Height', 'easy-elementor-addons'),
+                    'fit' => esc_html__('Fit to Screen', 'easy-elementor-addons'),
+                    'min' => esc_html__('Min Height', 'easy-elementor-addons'),
                 ),
                 'default' => 'min',
             ]
@@ -412,7 +412,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'container_min_height', [
-                'label' => __('Min Height (px)', 'easy-elementor-addons'),
+                'label' => esc_html__('Min Height (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => array(
                     'size' => 500,
@@ -434,7 +434,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'keyboard_scrolling', [
-                'label' => __('Keyboard Scrolling', 'easy-elementor-addons'),
+                'label' => esc_html__('Keyboard Scrolling', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => array(
                     'scroll_container_height' => 'min',
@@ -444,27 +444,27 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'loop_top', [
-                'label' => __('Loop Top', 'easy-elementor-addons'),
+                'label' => esc_html__('Loop Top', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('Defines whether scrolling up in the first section should scroll to the last one or not.', 'easy-elementor-addons'),
+                'description' => esc_html__('Defines whether scrolling up in the first section should scroll to the last one or not.', 'easy-elementor-addons'),
 
             ]
         );
 
         $this->add_control(
             'loop_bottom', [
-                'label' => __('Loop Bottom', 'easy-elementor-addons'),
+                'label' => esc_html__('Loop Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('Defines whether scrolling down in the last section should scroll to the first one or not.', 'easy-elementor-addons'),
+                'description' => esc_html__('Defines whether scrolling down in the last section should scroll to the first one or not.', 'easy-elementor-addons'),
 
             ]
         );
 
         $this->add_control(
             'scroll_speed', [
-                'label' => __('Scroll Speed', 'easy-elementor-addons'),
+                'label' => esc_html__('Scroll Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
-                'title' => __('Set scolling speed in seconds, default: 0.7', 'easy-elementor-addons'),
+                'title' => esc_html__('Set scolling speed in seconds, default: 0.7', 'easy-elementor-addons'),
                 'default' => 0.7,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-multiscroll-inner .eead-scroll-easing'    => '-webkit-transition:all {{VALUE}}s cubic-bezier(0.895, 0.03, 0.685, 0.22); -moz-transition:all {{VALUE}}s cubic-bezier(0.895, 0.03, 0.685, 0.22); -o-transition:all {{VALUE}}s cubic-bezier(0.895, 0.03, 0.685, 0.22); transition:all {{VALUE}}s cubic-bezier(0.895, 0.03, 0.685, 0.22)',
@@ -474,18 +474,18 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'scroll_responsive_tabs', [
-                'label' => __('Disable on Tabs', 'easy-elementor-addons'),
+                'label' => esc_html__('Disable on Tabs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('Disable multiscroll on tabs', 'easy-elementor-addons'),
+                'description' => esc_html__('Disable multiscroll on tabs', 'easy-elementor-addons'),
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
             'scroll_responsive_mobs', [
-                'label' => __('Disable on Mobiles', 'easy-elementor-addons'),
+                'label' => esc_html__('Disable on Mobiles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('Disable multiscroll on mobile phones', 'easy-elementor-addons'),
+                'description' => esc_html__('Disable multiscroll on mobile phones', 'easy-elementor-addons'),
                 'default' => 'yes',
             ]
         );
@@ -494,14 +494,14 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'left_side_text', [
-                'label' => __('Left Side', 'easy-elementor-addons'),
+                'label' => esc_html__('Left Side', 'easy-elementor-addons'),
                 'tab' => CONTROLS_MANAGER::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'left_side_background', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .ms-left .ms-tableCell' => 'background-color: {{VALUE}};',
@@ -511,7 +511,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'left_text_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-multiscroll-left-text' => 'color: {{VALUE}};',
@@ -521,7 +521,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'left_text_background', [
-                'label' => __('Text Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-multiscroll-left-text' => 'background-color: {{VALUE}};',
@@ -545,7 +545,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'left_text_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', '%', 'em'),
                 'selectors' => array(
@@ -556,19 +556,19 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'left_text_vertical', [
-                'label' => __('Vertical Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => array(
                     'top' => array(
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-up',
                     ),
                     'middle' => array(
-                        'title' => __('Middle', 'easy-elementor-addons'),
+                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
                         'icon' => 'fa fa-align-justify',
                     ),
                     'bottom' => array(
-                        'title' => __('Bottom', 'easy-elementor-addons'),
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-down',
                     ),
                 ),
@@ -581,7 +581,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'left_text_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors' => array(
@@ -592,7 +592,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'left_text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
@@ -605,14 +605,14 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'right_side_text', [
-                'label' => __('Right Side', 'easy-elementor-addons'),
+                'label' => esc_html__('Right Side', 'easy-elementor-addons'),
                 'tab' => CONTROLS_MANAGER::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'right_side_background', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .ms-right .ms-tableCell' => 'background-color: {{VALUE}};',
@@ -622,7 +622,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'right_text_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-multiscroll-right-text' => 'color: {{VALUE}};',
@@ -632,7 +632,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'right_text_background', [
-                'label' => __('Text Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-multiscroll-right-text' => 'background-color: {{VALUE}};',
@@ -656,7 +656,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'right_text_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', '%', 'em' ),
                 'selectors' => array(
@@ -667,19 +667,19 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'right_text_vertical', [
-                'label' => __('Vertical Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => array(
                     'top' => array(
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-up',
                     ),
                     'middle' => array(
-                        'title' => __('Middle', 'easy-elementor-addons'),
+                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
                         'icon' => 'fa fa-align-justify',
                     ),
                     'bottom' => array(
-                        'title' => __('Bottom', 'easy-elementor-addons'),
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'fa fa-long-arrow-down',
                     ),
                 ),
@@ -692,7 +692,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'right_text_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
@@ -703,7 +703,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'right_text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors' => array(
@@ -716,7 +716,7 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'navigation_style', [
-                'label' => __('Navigation Dots', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'tab' => CONTROLS_MANAGER::TAB_STYLE,
                 'condition' => array(
                     'navigation_dots' => 'yes',
@@ -728,13 +728,13 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_tab(
             'dots_style_tab', [
-                'label' => __('Dots', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'tooltips_color', [
-                'label' => __('Tooltips Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Tooltips Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-tooltip' => 'color: {{VALUE}};',
@@ -748,7 +748,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'tooltips_font', [
-                'label' => __('Tooltips Text Font', 'easy-elementor-addons'),
+                'label' => esc_html__('Tooltips Text Font', 'easy-elementor-addons'),
                 'type' => Controls_Manager::FONT,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-tooltip' => 'font-family: {{VALUE}};',
@@ -762,7 +762,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'dots_color', [
-                'label' => __('Dots Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-nav span' => 'background-color: {{VALUE}};',
@@ -772,7 +772,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'active_dot_color', [
-                'label' => __('Active Dot Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Active Dot Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-nav li .active span' => 'background-color: {{VALUE}};',
@@ -782,7 +782,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'dots_border_color', [
-                'label' => __('Dots Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Dots Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-nav span' => 'border-color: {{VALUE}};',
@@ -794,13 +794,13 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_tab(
             'container_style_tab', [
-                'label' => __('Container', 'easy-elementor-addons'),
+                'label' => esc_html__('Container', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'navigation_background', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .multiscroll-nav' => 'background-color: {{VALUE}}',
@@ -810,7 +810,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'navigation_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
@@ -821,7 +821,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'label' => __('Shadow', 'easy-elementor-addons'),
+                'label' => esc_html__('Shadow', 'easy-elementor-addons'),
                 'name' => 'navigation_box_shadow',
                 'selector' => '{{WRAPPER}} .multiscroll-nav',
             ]
@@ -835,7 +835,7 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_section(
             'navigation_menu_style', [
-                'label' => __('Navigation Menu', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Menu', 'easy-elementor-addons'),
                 'tab' => CONTROLS_MANAGER::TAB_STYLE,
                 'condition' => array(
                     'nav_menu_switch' => 'yes',
@@ -854,13 +854,13 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_tab(
             'normal_style_tab', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'normal_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item .eead-scroll-nav-link'  => 'color: {{VALUE}}',
@@ -870,7 +870,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'normal_hover_color', [
-                'label' => __('Text Hover Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item .eead-scroll-nav-link:hover'  => 'color: {{VALUE}}',
@@ -880,7 +880,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'normal_background', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item'  => 'background-color: {{VALUE}}',
@@ -890,7 +890,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'label' => __('Shadow', 'easy-elementor-addons'),
+                'label' => esc_html__('Shadow', 'easy-elementor-addons'),
                 'name' => 'normal_shadow',
                 'selector' => '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item',
             ]
@@ -900,13 +900,13 @@ class MultiScroll extends Widget_Base {
 
         $this->start_controls_tab(
             'active_style_tab', [
-                'label' => __('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'active_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item.active .eead-scroll-nav-link'  => 'color: {{VALUE}}',
@@ -916,7 +916,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'active_hover_color', [
-                'label' => __('Text Hover Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item.active .eead-scroll-nav-link:hover'  => 'color: {{VALUE}}',
@@ -926,7 +926,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'active_background', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item.active'  => 'background-color: {{VALUE}}',
@@ -936,7 +936,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'label' => __('Shadow', 'easy-elementor-addons'),
+                'label' => esc_html__('Shadow', 'easy-elementor-addons'),
                 'name' => 'active_shadow',
                 'selector' => '{{WRAPPER}} .eead-scroll-nav-menu .eead-scroll-nav-item.active',
             ]
@@ -954,7 +954,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_control(
             'navigation_items_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
@@ -965,7 +965,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'navigation_items_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
@@ -976,7 +976,7 @@ class MultiScroll extends Widget_Base {
 
         $this->add_responsive_control(
             'navigation_items_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(

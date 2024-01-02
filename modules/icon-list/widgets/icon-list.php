@@ -48,7 +48,7 @@ class IconList extends Widget_Base {
 
         $this->start_controls_section(
             'section_list', [
-                'label' => __('List', 'easy-elementor-addons'),
+                'label' => esc_html__('List', 'easy-elementor-addons'),
             ]
         );
 
@@ -56,13 +56,13 @@ class IconList extends Widget_Base {
 
         $repeater->add_control(
             'text', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array(
                     'active' => true,
                 ),
-                'default' => __('List Item #1', 'easy-elementor-addons'),
+                'default' => esc_html__('List Item #1', 'easy-elementor-addons'),
             ]
         );
 
@@ -95,7 +95,7 @@ class IconList extends Widget_Base {
 
         $repeater->add_control(
             'icon', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'label_block' => true,
                 'default' => array(
@@ -110,7 +110,7 @@ class IconList extends Widget_Base {
 
         $repeater->add_control(
             'list_image', [
-                'label' => __('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => array(
@@ -127,7 +127,7 @@ class IconList extends Widget_Base {
 
         $repeater->add_control(
             'icon_text', [
-                'label' => __('Number/Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Number/Text', 'easy-elementor-addons'),
                 'label_block' => false,
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
@@ -139,13 +139,13 @@ class IconList extends Widget_Base {
 
         $repeater->add_control(
             'link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'label_block' => true,
                 'dynamic' => array(
                     'active' => true,
                 ),
-                'placeholder' => __( 'http://your-link.com', 'easy-elementor-addons' ),
+                'placeholder' => esc_html__( 'http://your-link.com', 'easy-elementor-addons' ),
             ]
         );
 
@@ -155,16 +155,16 @@ class IconList extends Widget_Base {
                 'type' => Controls_Manager::REPEATER,
                 'default' => array(
                     array(
-                        'text' => __('List Item #1', 'easy-elementor-addons'),
-                        'icon' => __('fa fa-check', 'easy-elementor-addons'),
+                        'text' => esc_html__('List Item #1', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
                     ),
                     array(
-                        'text' => __('List Item #2', 'easy-elementor-addons'),
-                        'icon' => __('fa fa-check', 'easy-elementor-addons'),
+                        'text' => esc_html__('List Item #2', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
                     ),
                     array(
-                        'text' => __('List Item #3', 'easy-elementor-addons'),
-                        'icon' => __('fa fa-check', 'easy-elementor-addons'),
+                        'text' => esc_html__('List Item #3', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
                     ),
                 ),
                 'fields' => $repeater->get_controls(),
@@ -175,7 +175,7 @@ class IconList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(), [
                 'name' => 'image',
-                'label' => __('Image Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'default' => 'full',
                 'separator' => 'before',
             ]
@@ -185,23 +185,23 @@ class IconList extends Widget_Base {
 
         $this->start_controls_section(
             'section_list_style', [
-                'label' => __('List', 'easy-elementor-addons'),
+                'label' => esc_html__('List', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'view', [
-                'label' => __('Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'traditional',
                 'options' => [
                     'traditional' => [
-                        'title' => __('Default', 'easy-elementor-addons'),
+                        'title' => esc_html__('Default', 'easy-elementor-addons'),
                         'icon' => 'eicon-editor-list-ul',
                     ],
                     'inline' => [
-                        'title' => __('Inline', 'easy-elementor-addons'),
+                        'title' => esc_html__('Inline', 'easy-elementor-addons'),
                         'icon' => 'eicon-ellipsis-h',
                     ],
                 ],
@@ -214,7 +214,7 @@ class IconList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'items_background',
-                'label' => __('Background', 'easy-elementor-addons'),
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-list-items li',
             ]
@@ -222,7 +222,7 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'items_spacing', [
-                'label' => __('List Items Gap', 'easy-elementor-addons'),
+                'label' => esc_html__('List Items Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -239,7 +239,7 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'list_items_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -250,19 +250,19 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'list_items_alignment', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -279,25 +279,25 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'divider', [
-                'label' => __('Divider', 'easy-elementor-addons'),
+                'label' => esc_html__('Divider', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_off' => __('Off', 'easy-elementor-addons'),
-                'label_on' => __('On', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Off', 'easy-elementor-addons'),
+                'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'separator' => 'before',
             ]
         );
 
         $this->add_control(
             'divider_style', [
-                'label' => __('Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'solid' => __('Solid', 'easy-elementor-addons'),
-                    'double' => __('Double', 'easy-elementor-addons'),
-                    'dotted' => __('Dotted', 'easy-elementor-addons'),
-                    'dashed' => __('Dashed', 'easy-elementor-addons'),
-                    'groove' => __('Groove', 'easy-elementor-addons'),
-                    'ridge' => __('Ridge', 'easy-elementor-addons'),
+                    'solid' => esc_html__('Solid', 'easy-elementor-addons'),
+                    'double' => esc_html__('Double', 'easy-elementor-addons'),
+                    'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
+                    'dashed' => esc_html__('Dashed', 'easy-elementor-addons'),
+                    'groove' => esc_html__('Groove', 'easy-elementor-addons'),
+                    'ridge' => esc_html__('Ridge', 'easy-elementor-addons'),
                 ],
                 'default' => 'solid',
                 'condition' => [
@@ -312,7 +312,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'divider_weight', [
-                'label' => __('Weight', 'easy-elementor-addons'),
+                'label' => esc_html__('Weight', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 1,
@@ -335,7 +335,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'divider_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ddd',
                 'condition' => [
@@ -352,25 +352,25 @@ class IconList extends Widget_Base {
 
         $this->start_controls_section(
             'section_icon_style', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'icon_position', [
-                'label' => __('Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'toggle' => false,
                 'default' => 'left',
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -380,21 +380,21 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_vertical_align', [
-                'label' => __('Vertical Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'middle',
                 'options' => [
                     'top' => [
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => __('Bottom', 'easy-elementor-addons'),
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -413,13 +413,13 @@ class IconList extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_icon_normal', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'icon_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#00B12A',
                 'selectors' => [
@@ -431,7 +431,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_bg_color', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -442,7 +442,7 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'icon_size', [
-                'label' => __('Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 14,
@@ -462,7 +462,7 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'icon_spacing', [
-                'label' => __('Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 8,
@@ -482,7 +482,7 @@ class IconList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'icon_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-list-items .eead-icon-wrapper',
@@ -491,7 +491,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -502,7 +502,7 @@ class IconList extends Widget_Base {
 
         $this->add_responsive_control(
             'icon_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -515,13 +515,13 @@ class IconList extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_icon_hover', [
-                'label' => __('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'icon_color_hover', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -533,7 +533,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_bg_color_hover', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -544,7 +544,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_border_color_hover', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -555,7 +555,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'icon_hover_animation', [
-                'label' => __('Animation', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -568,14 +568,14 @@ class IconList extends Widget_Base {
 
         $this->start_controls_section(
             'section_text_style', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -588,13 +588,13 @@ class IconList extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_text_normal', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'text_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -605,7 +605,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'text_bg_color', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -617,7 +617,7 @@ class IconList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'text_typography',
-                'label' => __('Typography', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-icon-list-text',
             ]
         );
@@ -626,13 +626,13 @@ class IconList extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_text_hover', [
-                'label' => __('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'text_hover_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -643,7 +643,7 @@ class IconList extends Widget_Base {
 
         $this->add_control(
             'text_hover_bg_color', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [

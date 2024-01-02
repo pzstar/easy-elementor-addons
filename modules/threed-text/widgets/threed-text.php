@@ -52,11 +52,11 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
                 'eead_media_type', array(
-            'label' => __('Media Type', 'easy-elementor-addons'),
+            'label' => esc_html__('Media Type', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'options' => array(
-                'image' => __('Image', 'easy-elementor-addons'),
-                'text' => __('Text', 'easy-elementor-addons'),
+                'image' => esc_html__('Image', 'easy-elementor-addons'),
+                'text' => esc_html__('Text', 'easy-elementor-addons'),
             ),
             'default' => 'text',
                 )
@@ -74,7 +74,7 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
                 'eead_image', array(
-            'label' => __('Upload Image', 'easy-elementor-addons'),
+            'label' => esc_html__('Upload Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'condition' => array(
                 'eead_media_type' => 'image',
@@ -248,10 +248,10 @@ class ThreedText extends Widget_Base {
 
         $this->add_control(
             'fade', [
-                'label' => __('Fade', 'easy-elementor-addons'),
+                'label' => esc_html__('Fade', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'easy-elementor-addons'),
-                'label_off' => __('No', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => '',
             ]

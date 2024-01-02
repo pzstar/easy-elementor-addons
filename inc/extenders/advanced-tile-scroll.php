@@ -71,9 +71,9 @@ Class AdvancedTileScroll {
 
         $repeater->add_control(
             'eead_advanced_tile_scroll_title', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Item #1', 'easy-elementor-addons'),
+                'default' => esc_html__('Item #1', 'easy-elementor-addons'),
                 'label_block' => true,
                 'render_type' => 'ui',
             ]
@@ -120,7 +120,7 @@ Class AdvancedTileScroll {
 
         $section->add_control(
             'eead_advanced_tile_scroll_elements', [
-                'label' => __('Tile Scroll Items', 'easy-elementor-addons'),
+                'label' => esc_html__('Tile Scroll Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'prevent_empty' => false,

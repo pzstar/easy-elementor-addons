@@ -28,7 +28,7 @@ Class BackdropEffect {
     public function register_controls($elems) {
         $elems->add_control(
             'eead_backdrop_filter', [
-                'label' => __('Backdrop Filter', 'easy-elementor-addons'),
+                'label' => esc_html__('Backdrop Filter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'separator' => 'before',

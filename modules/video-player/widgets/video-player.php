@@ -97,7 +97,7 @@ class VideoPlayer extends Widget_Base {
 
         $this->add_control(
             'y_setting_header', [
-                'label' => __('Youtube Options', 'easy-elementor-addons'),
+                'label' => esc_html__('Youtube Options', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -343,7 +343,7 @@ class VideoPlayer extends Widget_Base {
 
         $this->add_control(
             'play_button_icon', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'eicon-play-o',

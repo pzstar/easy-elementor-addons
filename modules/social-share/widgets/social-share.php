@@ -218,7 +218,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'column_numbers', [
-            'label' => __('Columns Numbers', 'easy-elementor-addons'),
+            'label' => esc_html__('Columns Numbers', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -247,7 +247,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'button_column_gap', [
-            'label' => __('Columns Space', 'easy-elementor-addons'),
+            'label' => esc_html__('Columns Space', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -279,7 +279,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'button_row_gap', [
-            'label' => __('Row Space', 'easy-elementor-addons'),
+            'label' => esc_html__('Row Space', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -311,7 +311,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_control(
                 'button_border_radius', [
-            'label' => __('Border Radius', 'easy-elementor-addons'),
+            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -332,7 +332,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_horizontal_spacing', [
-            'label' => __('Icon Horizontal Space', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon Horizontal Space', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -368,7 +368,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_vertical_spacing', [
-            'label' => __('Icon Vertical Space', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon Vertical Space', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 'px' => [
@@ -404,15 +404,15 @@ class SocialShare extends Widget_Base {
 
         $this->add_control(
                 'icon_alignment', [
-            'label' => __('Icon Alignment', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon Alignment', 'easy-elementor-addons'),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
                 'row' => [
-                    'title' => __('Normal', 'easy-elementor-addons'),
+                    'title' => esc_html__('Normal', 'easy-elementor-addons'),
                     'icon' => 'fa fa-arrows-h',
                 ],
                 'column' => [
-                    'title' => __('Row', 'easy-elementor-addons'),
+                    'title' => esc_html__('Row', 'easy-elementor-addons'),
                     'icon' => 'fa fa-arrows-v',
                 ]
             ],
@@ -480,7 +480,7 @@ class SocialShare extends Widget_Base {
 
         $this->add_responsive_control(
                 'button_padding', [
-            'label' => __('Padding', 'easy-elementor-addons'),
+            'label' => esc_html__('Padding', 'easy-elementor-addons'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [

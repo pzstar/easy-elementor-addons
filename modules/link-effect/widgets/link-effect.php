@@ -45,30 +45,30 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_section(
             'section_link_effects', [
-                'label' => __('Link Effects', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'text', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => __('Click Here', 'easy-elementor-addons'),
+                'default' => esc_html__('Click Here', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'secondary_text', [
-                'label' => __('Secondary Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => __('Click Here', 'easy-elementor-addons'),
+                'default' => esc_html__('Click Here', 'easy-elementor-addons'),
                 'condition' => [
                     'effect' => 'effect-9',
                 ],
@@ -77,7 +77,7 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
@@ -91,30 +91,30 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'effect', [
-                'label' => __('Animation Effect', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'effect-1' => __('Border Slide In', 'easy-elementor-addons'),
-                    'effect-2' => __('Border Slide Out', 'easy-elementor-addons'),
-                    'effect-3' => __('Brackets', 'easy-elementor-addons'),
-                    'effect-4' => __('3D Cube', 'easy-elementor-addons'),
-                    'effect-5' => __('Duplicate Text Slide In', 'easy-elementor-addons'),
-                    'effect-6' => __('Right Angle Slides Down', 'easy-elementor-addons'),
-                    'effect-7' => __('Second Border Slides Up', 'easy-elementor-addons'),
-                    'effect-8' => __('Border Translate', 'easy-elementor-addons'),
-                    'effect-9' => __('Second Text and Borders', 'easy-elementor-addons'),
-                    'effect-10' => __( 'Duplicate Text Slide Right', 'easy-elementor-addons'),
-                    'effect-11' => __( 'Text Fill', 'easy-elementor-addons'),
-                    'effect-12' => __( 'Circle', 'easy-elementor-addons'),
-                    'effect-13' => __( 'Three Dots', 'easy-elementor-addons'),
-                    'effect-14' => __( 'Border Switch', 'easy-elementor-addons'),
-                    'effect-15' => __( 'Scale Down', 'easy-elementor-addons'),
-                    'effect-16' => __( 'Fall Down', 'easy-elementor-addons'),
-                    'effect-17' => __( 'Move Up and Push Border', 'easy-elementor-addons'),
-                    'effect-18' => __( 'Cross Text', 'easy-elementor-addons'),
-                    'effect-19' => __( '3D Cube Horizontal Side', 'easy-elementor-addons'),
-                    'effect-20' => __( 'Flip Unfold', 'easy-elementor-addons'),
-                    'effect-21' => __( 'Dual Borders Translate', 'easy-elementor-addons'),
+                    'effect-1' => esc_html__('Border Slide In', 'easy-elementor-addons'),
+                    'effect-2' => esc_html__('Border Slide Out', 'easy-elementor-addons'),
+                    'effect-3' => esc_html__('Brackets', 'easy-elementor-addons'),
+                    'effect-4' => esc_html__('3D Cube', 'easy-elementor-addons'),
+                    'effect-5' => esc_html__('Duplicate Text Slide In', 'easy-elementor-addons'),
+                    'effect-6' => esc_html__('Right Angle Slides Down', 'easy-elementor-addons'),
+                    'effect-7' => esc_html__('Second Border Slides Up', 'easy-elementor-addons'),
+                    'effect-8' => esc_html__('Border Translate', 'easy-elementor-addons'),
+                    'effect-9' => esc_html__('Second Text and Borders', 'easy-elementor-addons'),
+                    'effect-10' => esc_html__( 'Duplicate Text Slide Right', 'easy-elementor-addons'),
+                    'effect-11' => esc_html__( 'Text Fill', 'easy-elementor-addons'),
+                    'effect-12' => esc_html__( 'Circle', 'easy-elementor-addons'),
+                    'effect-13' => esc_html__( 'Three Dots', 'easy-elementor-addons'),
+                    'effect-14' => esc_html__( 'Border Switch', 'easy-elementor-addons'),
+                    'effect-15' => esc_html__( 'Scale Down', 'easy-elementor-addons'),
+                    'effect-16' => esc_html__( 'Fall Down', 'easy-elementor-addons'),
+                    'effect-17' => esc_html__( 'Move Up and Push Border', 'easy-elementor-addons'),
+                    'effect-18' => esc_html__( 'Cross Text', 'easy-elementor-addons'),
+                    'effect-19' => esc_html__( '3D Cube Horizontal Side', 'easy-elementor-addons'),
+                    'effect-20' => esc_html__( 'Flip Unfold', 'easy-elementor-addons'),
+                    'effect-21' => esc_html__( 'Dual Borders Translate', 'easy-elementor-addons'),
                 ],
                 'default' => 'effect-1',
             ]
@@ -124,30 +124,30 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_section(
             'section_style', [
-                'label' => __('Link Effects', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'align', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                     'justify' => [
-                        'title' => __('Justified', 'easy-elementor-addons'),
+                        'title' => esc_html__('Justified', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
                     ],
                 ],
@@ -161,14 +161,14 @@ class LinkEffect extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'typography',
-                'label' => __('Typography', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} a.eead-link',
             ]
         );
 
         $this->add_responsive_control(
             'divider_title_width', [
-                'label' => __('Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 200,
@@ -195,13 +195,13 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_link_normal', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'link_color_normal', [
-                'label' => __('Link Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -212,7 +212,7 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'background_color_normal', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -223,7 +223,7 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'link_border_color', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -240,13 +240,13 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_link_hover', [
-                'label' => __('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'link_color_hover', [
-                'label' => __('Link Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -257,7 +257,7 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'background_color_hover', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -268,7 +268,7 @@ class LinkEffect extends Widget_Base {
 
         $this->add_control(
             'link_border_color_hover', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [

@@ -73,21 +73,21 @@ class CaptionHoverEffect extends Widget_Base {
 
         $this->add_control(
                 'title', [
-            'label' => __('Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
-            'placeholder' => __('Enter your title here', 'easy-elementor-addons'),
-            'default' => __('Heading', 'easy-elementor-addons')
+            'placeholder' => esc_html__('Enter your title here', 'easy-elementor-addons'),
+            'default' => esc_html__('Heading', 'easy-elementor-addons')
                 ]
         );
 
         $this->add_control(
                 'content', [
-            'label' => __('Content', 'easy-elementor-addons'),
+            'label' => esc_html__('Content', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXTAREA,
             'label_block' => true,
-            'placeholder' => __('Enter your content here', 'easy-elementor-addons'),
-            'default' => __('Sub Heading', 'easy-elementor-addons')
+            'placeholder' => esc_html__('Enter your content here', 'easy-elementor-addons'),
+            'default' => esc_html__('Sub Heading', 'easy-elementor-addons')
                 ]
         );
 
@@ -135,22 +135,22 @@ class CaptionHoverEffect extends Widget_Base {
 
         $this->add_control(
                 'button_text', [
-            'label' => __('Button Text', 'easy-elementor-addons'),
+            'label' => esc_html__('Button Text', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
-            'placeholder' => __('Enter your button text here', 'easy-elementor-addons'),
-            'default' => __('Click Here', 'easy-elementor-addons')
+            'placeholder' => esc_html__('Enter your button text here', 'easy-elementor-addons'),
+            'default' => esc_html__('Click Here', 'easy-elementor-addons')
                 ]
         );
 
         $this->add_control(
             'button_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
                 ],

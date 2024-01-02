@@ -54,7 +54,7 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
                 'image', [
-            'label' => __('Choose Image', 'easy-elementor-addons'),
+            'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
@@ -73,7 +73,7 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
                 'title', [
-            'label' => __('Pricing Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Pricing Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Pricing'
@@ -82,7 +82,7 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
                 'currency', [
-            'label' => __('Currency Symbol', 'easy-elementor-addons'),
+            'label' => esc_html__('Currency Symbol', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '$'
@@ -91,7 +91,7 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
                 'price', [
-            'label' => __('Price', 'easy-elementor-addons'),
+            'label' => esc_html__('Price', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '500'
@@ -100,17 +100,17 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
             'description', [
-                'label' => __('Description', 'easy-elementor-addons'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
-                'default' => __('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons'),
-                'placeholder' => __('Type your item description here', 'easy-elementor-addons'),
+                'default' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your item description here', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
                 'link', [
-            'label' => __('Link', 'easy-elementor-addons'),
+            'label' => esc_html__('Link', 'easy-elementor-addons'),
             'type' => Controls_Manager::URL,
             'show_external' => true,
             'default' => [
@@ -123,17 +123,17 @@ class PricingList extends Widget_Base {
 
         $repeater->add_control(
                 'is_featured', [
-            'label' => __('Is Featured', 'easy-elementor-addons'),
+            'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
 
         $this->add_control(
                 'pricing_lists', [
-            'label' => __('Pricing Lists', 'easy-elementor-addons'),
+            'label' => esc_html__('Pricing Lists', 'easy-elementor-addons'),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
@@ -141,19 +141,19 @@ class PricingList extends Widget_Base {
                     'title' => 'Item 1',
                     'currency' => '$',
                     'price' => '10',
-                    'description' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
+                    'description' => esc_html__( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
                 ],
                 [
                     'title' => 'Item 2',
                     'currency' => '$',
                     'price' => '20',
-                    'description' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
+                    'description' => esc_html__( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
                 ],
                 [
                     'title' => 'Item 3',
                     'currency' => '$',
                     'price' => '30',
-                    'description' => __( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
+                    'description' => esc_html__( 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons' )
                 ],
             ],
             'title_field' => '{{{ title }}}',
@@ -170,13 +170,13 @@ class PricingList extends Widget_Base {
 
         $this->add_control(
                 'layout', [
-            'label' => __('Layout', 'easy-elementor-addons'),
+            'label' => esc_html__('Layout', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
-                'style1' => __('Style 1', 'easy-elementor-addons'),
-                'style2' => __('Style 2', 'easy-elementor-addons'),
-                'style3' => __('Style 3', 'easy-elementor-addons')
+                'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                'style3' => esc_html__('Style 3', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -205,20 +205,20 @@ class PricingList extends Widget_Base {
 
         $this->add_control(
                 'title_link_enable', [
-            'label' => __('Link On Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
 
         $this->add_control(
                 'image_link_enable', [
-            'label' => __('Link On Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
@@ -307,7 +307,7 @@ class PricingList extends Widget_Base {
 
         $this->add_responsive_control(
             'content_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -318,7 +318,7 @@ class PricingList extends Widget_Base {
 
         $this->add_control(
                 'price_list_spacing', [
-            'label' => __('Price List Spacing', 'easy-elementor-addons'),
+            'label' => esc_html__('Price List Spacing', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -432,7 +432,7 @@ class PricingList extends Widget_Base {
 
         $this->add_responsive_control(
             'price_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -458,7 +458,7 @@ class PricingList extends Widget_Base {
 
         $this->add_control(
             'price_border_radius', [
-                'label' => __( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [

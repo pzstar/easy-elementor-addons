@@ -39,7 +39,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'image', [
-            'label' => __('Choose Image', 'easy-elementor-addons'),
+            'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
@@ -49,7 +49,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'name', [
-            'label' => __('Name', 'easy-elementor-addons'),
+            'label' => esc_html__('Name', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'John Doe'
@@ -58,7 +58,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'designation', [
-            'label' => __('Designation', 'easy-elementor-addons'),
+            'label' => esc_html__('Designation', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Support Engineer'
@@ -67,7 +67,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'testimonial_title', [
-            'label' => __('Testimonial Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Testimonial Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => ''
@@ -76,7 +76,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'testimonial_content', [
-            'label' => __('Testimonial', 'easy-elementor-addons'),
+            'label' => esc_html__('Testimonial', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXTAREA,
             'rows' => 8,
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.'
@@ -102,25 +102,25 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'image_shape', [
-            'label' => __('Image Shape', 'easy-elementor-addons'),
+            'label' => esc_html__('Image Shape', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'eead-square',
             'options' => [
-                'eead-square' => __('Square', 'easy-elementor-addons'),
-                'eead-round' => __('Round', 'easy-elementor-addons')
+                'eead-square' => esc_html__('Square', 'easy-elementor-addons'),
+                'eead-round' => esc_html__('Round', 'easy-elementor-addons')
             ],
                 ]
         );
 
         $this->add_control(
                 'layout', [
-            'label' => __('Layout', 'easy-elementor-addons'),
+            'label' => esc_html__('Layout', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
-                'style1' => __('Style 1', 'easy-elementor-addons'),
-                'style2' => __('Style 2', 'easy-elementor-addons'),
-                'style3' => __('Style 3', 'easy-elementor-addons')
+                'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                'style3' => esc_html__('Style 3', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -171,7 +171,7 @@ class TestimonialBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
-                'label' => __( 'Box Shadow', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Box Shadow', 'easy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .eead-testimonial-block',
             ]
         );
@@ -317,7 +317,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'testimonial_border_height', [
-            'label' => __('Border Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Border Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -335,7 +335,7 @@ class TestimonialBlock extends Widget_Base {
 
         $this->add_control(
                 'testimonial_border_width', [
-            'label' => __('Border Width', 'easy-elementor-addons'),
+            'label' => esc_html__('Border Width', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [

@@ -6,7 +6,7 @@ use DateTime;
 use EasyElementorAddons\Base\Condition;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 

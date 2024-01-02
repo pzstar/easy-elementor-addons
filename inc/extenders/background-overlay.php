@@ -86,19 +86,19 @@ Class BackgroundOverlay {
 
         $elems->add_control(
             'eead_overlay_blend_mode', [
-                'label' => __('Blend Mode', 'easy-elementor-addons'),
+                'label' => esc_html__('Blend Mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    '' => __('Normal', 'easy-elementor-addons'),
-                    'multiply' => __('Multiply', 'easy-elementor-addons'),
-                    'screen' => __('Screen', 'easy-elementor-addons'),
-                    'overlay' => __('Overlay', 'easy-elementor-addons'),
-                    'darken' => __('Darken', 'easy-elementor-addons'),
-                    'lighten' => __('Lighten', 'easy-elementor-addons'),
-                    'color-dodge' => __('Color Dodge', 'easy-elementor-addons'),
-                    'saturation' => __('Saturation', 'easy-elementor-addons'),
-                    'color' => __('Color', 'easy-elementor-addons'),
-                    'luminosity' => __('Luminosity', 'easy-elementor-addons'),
+                    '' => esc_html__('Normal', 'easy-elementor-addons'),
+                    'multiply' => esc_html__('Multiply', 'easy-elementor-addons'),
+                    'screen' => esc_html__('Screen', 'easy-elementor-addons'),
+                    'overlay' => esc_html__('Overlay', 'easy-elementor-addons'),
+                    'darken' => esc_html__('Darken', 'easy-elementor-addons'),
+                    'lighten' => esc_html__('Lighten', 'easy-elementor-addons'),
+                    'color-dodge' => esc_html__('Color Dodge', 'easy-elementor-addons'),
+                    'saturation' => esc_html__('Saturation', 'easy-elementor-addons'),
+                    'color' => esc_html__('Color', 'easy-elementor-addons'),
+                    'luminosity' => esc_html__('Luminosity', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
                     '{{WRAPPER}}.eead-background-overlay-yes > .elementor-widget-container:before' => 'mix-blend-mode: {{VALUE}}',
@@ -108,7 +108,7 @@ Class BackgroundOverlay {
 
         $elems->add_responsive_control(
             'eead_background_overlay_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'separator' => 'before',
@@ -184,7 +184,7 @@ Class BackgroundOverlay {
 
         $elems->add_responsive_control(
             'eead_background_overlay_hover_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'separator' => 'before',
@@ -200,7 +200,7 @@ Class BackgroundOverlay {
 
         $elems->add_responsive_control(
             'eead_background_overlay_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'separator' => 'before',
@@ -212,7 +212,7 @@ Class BackgroundOverlay {
 
         $elems->add_control(
             'eead_background_overlay_zindex', [
-                'label' => __('Z-Index', 'easy-elementor-addons'),
+                'label' => esc_html__('Z-Index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'dynamic' => [
                     'active' => true,
@@ -235,7 +235,7 @@ Class BackgroundOverlay {
 
         $elems->add_control(
             'eead_background_overlay_widget_zindex', [
-                'label' => __('Widget Z-Index', 'easy-elementor-addons'),
+                'label' => esc_html__('Widget Z-Index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '-1',
                 'dynamic' => [

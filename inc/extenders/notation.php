@@ -34,7 +34,7 @@ Class Notation {
 
         $elems->add_control(
             'eead_notation_active', [
-                'label' => __('Notation Effects', 'easy-elementor-addons'),
+                'label' => esc_html__('Notation Effects', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
                 'frontend_available' => true,
@@ -45,21 +45,21 @@ Class Notation {
 
         $repeater->add_control(
             'eead_notation_select_type', [
-                'label' => __('Element Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Element Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'widget',
                 'options' => [
-                    'widget' => __('Widget', 'easy-elementor-addons'),
-                    'custom' => __('Widget > Custom Selector', 'easy-elementor-addons'),
+                    'widget' => esc_html__('Widget', 'easy-elementor-addons'),
+                    'custom' => esc_html__('Widget > Custom Selector', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
             'eead_notation_custom_selector', [
-                'label' => __('Custom Selector', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Selector', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => __('Please use ID or Class to select your element/elements. ( Example - #select-id, .select-class)', 'easy-elementor-addons'),
+                'description' => esc_html__('Please use ID or Class to select your element/elements. ( Example - #select-id, .select-class)', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_notation_select_type' => 'custom',
                 ],
@@ -68,26 +68,26 @@ Class Notation {
 
         $repeater->add_control(
             'eead_notation_type', [
-                'label' => __('Select Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Select Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'underline',
                 'options' => [
-                    'underline' => __('Underline', 'easy-elementor-addons'),
-                    'box' => __('Box', 'easy-elementor-addons'),
-                    'circle' => __('Circle', 'easy-elementor-addons'),
-                    'highlight' => __('Highlight', 'easy-elementor-addons'),
-                    'strike-through' => __('Strike-through', 'easy-elementor-addons'),
-                    'crossed-off' => __('Crossed-off', 'easy-elementor-addons'),
-                    'bracket' => __('Bracket', 'easy-elementor-addons'),
+                    'underline' => esc_html__('Underline', 'easy-elementor-addons'),
+                    'box' => esc_html__('Box', 'easy-elementor-addons'),
+                    'circle' => esc_html__('Circle', 'easy-elementor-addons'),
+                    'highlight' => esc_html__('Highlight', 'easy-elementor-addons'),
+                    'strike-through' => esc_html__('Strike-through', 'easy-elementor-addons'),
+                    'crossed-off' => esc_html__('Crossed-off', 'easy-elementor-addons'),
+                    'bracket' => esc_html__('Bracket', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
             'eead_notation_bracket_on', [
-                'label' => __('Bracket On', 'easy-elementor-addons'),
+                'label' => esc_html__('Bracket On', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => __('Value could be a string. Each string being one of these values: left, right, top, bottom. When drawing a bracket, this configures which side(s) of the element to bracket. Default value is left,right', 'easy-elementor-addons'),
+                'description' => esc_html__('Value could be a string. Each string being one of these values: left, right, top, bottom. When drawing a bracket, this configures which side(s) of the element to bracket. Default value is left,right', 'easy-elementor-addons'),
                 'default' => 'left,right',
                 'condition' => [
                     'eead_notation_type' => 'bracket',
@@ -97,14 +97,14 @@ Class Notation {
 
         $repeater->add_control(
             'eead_notation_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
             ]
         );
 
         $repeater->add_control(
             'eead_notation_anim_duration', [
-                'label' => __('Animation Duration', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation Duration', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -122,7 +122,7 @@ Class Notation {
 
         $repeater->add_control(
             'eead_notation_stroke_width', [
-                'label' => __('Stroke Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -139,7 +139,7 @@ Class Notation {
 
         $elems->add_control(
             'eead_notation_list', [
-                'label' => __('Notation Items', 'easy-elementor-addons'),
+                'label' => esc_html__('Notation Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'prevent_empty' => false,
@@ -162,7 +162,7 @@ Class Notation {
         $element->start_controls_section(
             'section_eead_notation_controls', [
                 'tab' => Controls_Manager::TAB_CONTENT,
-                'label' => __('Notation', 'easy-elementor-addons'),
+                'label' => esc_html__('Notation', 'easy-elementor-addons'),
             ]
         );
         $element->end_controls_section();

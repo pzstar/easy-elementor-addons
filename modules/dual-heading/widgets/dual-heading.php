@@ -50,39 +50,39 @@ class DualHeading extends Widget_Base {
 
         $this->start_controls_section(
             'section_dual_heading', [
-                'label' => __('Dual Heading', 'easy-elementor-addons'),
+                'label' => esc_html__('Dual Heading', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'first_heading', [
-                'label' => __('First Heading Text', 'easy-elementor-addons'),
+                'label' => esc_html__('First Heading Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'dynamic' => [
                     'active' => true,
                 ],
                 'label_block' => true,
                 'rows' => 3,
-                'default' => __('Dual', 'easy-elementor-addons'),
+                'default' => esc_html__('Dual', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'second_heading', [
-                'label' => __('Second Heading Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Second Heading Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'dynamic' => [
                     'active'   => true,
                 ],
                 'label_block' => true,
                 'rows' => 3,
-                'default' => __('Heading', 'easy-elementor-addons'),
+                'default' => esc_html__('Heading', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
@@ -98,7 +98,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'heading_html_tag', [
-                'label' => __('HTML Tag', 'easy-elementor-addons'),
+                'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
                 'default' => 'h2',
@@ -108,13 +108,13 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'second_part_display', [
-                'label' => __('Second Heading Display', 'easy-elementor-addons'),
+                'label' => esc_html__('Second Heading Display', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
                 'default' => 'inline-block',
                 'options' => [
-                    'inline-block' => __('Inline', 'easy-elementor-addons'),
-                    'block' => __('Block', 'easy-elementor-addons'),
+                    'inline-block' => esc_html__('Inline', 'easy-elementor-addons'),
+                    'block' => esc_html__('Block', 'easy-elementor-addons'),
                 ],
                 'prefix_class' => 'eead-dual-heading-',
                 'selectors' => [
@@ -125,20 +125,20 @@ class DualHeading extends Widget_Base {
 
         $this->add_responsive_control(
             'align', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -154,18 +154,18 @@ class DualHeading extends Widget_Base {
         /* First Heading Styles */
         $this->start_controls_section(
             'first_section_style', [
-                'label' => __('First Part', 'easy-elementor-addons'),
+                'label' => esc_html__('First Part', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control('dual_header_first_back_clip', [
-                'label' => __('Background Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'color',
                 'options' => [
-                    'color' => __('Normal', 'easy-elementor-addons'),
-                    'clipped' => __('Clipped', 'easy-elementor-addons'),
+                    'color' => esc_html__('Normal', 'easy-elementor-addons'),
+                    'clipped' => esc_html__('Clipped', 'easy-elementor-addons'),
                 ],
                 'label_block' =>  true
             ]
@@ -173,7 +173,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'dual_header_first_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_first_back_clip' => 'color'
@@ -196,7 +196,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_first_stroke', [
-                'label' => __('Stroke', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'dual_header_first_back_clip' => 'clipped'
@@ -205,7 +205,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_first_stroke_text_color', [
-                'label' => __('Stroke Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_first_back_clip' => 'clipped',
@@ -218,7 +218,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_first_stroke_color', [
-                'label' => __('Stroke Fill Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_first_back_clip' => 'clipped',
@@ -231,7 +231,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_first_stroke_width', [
-                'label' => __('Stroke Fill Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Fill Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'condition' => [
                     'dual_header_first_back_clip' => 'clipped',
@@ -258,7 +258,7 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'first_typography',
-                'label' => __('Typography', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-first-text',
                 'separator' => 'before',
             ]
@@ -267,7 +267,7 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'first_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-first-text',
                 'separator' => 'before',
@@ -276,7 +276,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'first_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -287,7 +287,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'first_text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -317,18 +317,18 @@ class DualHeading extends Widget_Base {
         /*Second Heading Styles*/
         $this->start_controls_section(
             'second_section_style', [
-                'label' => __('Second Part', 'easy-elementor-addons'),
+                'label' => esc_html__('Second Part', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control('dual_header_second_back_clip', [
-                'label' => __('Background Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'color',
                 'options' => [
-                    'color' => __('Normal', 'easy-elementor-addons'),
-                    'clipped' => __('Clipped', 'easy-elementor-addons'),
+                    'color' => esc_html__('Normal', 'easy-elementor-addons'),
+                    'clipped' => esc_html__('Clipped', 'easy-elementor-addons'),
                 ],
                 'label_block' =>  true
             ]
@@ -336,7 +336,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'dual_header_second_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_second_back_clip' => 'color'
@@ -359,7 +359,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_second_stroke', [
-                'label' => __('Stroke', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'dual_header_second_back_clip'  => 'clipped'
@@ -368,7 +368,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_second_stroke_text_color', [
-                'label' => __('Stroke Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_second_back_clip' => 'clipped',
@@ -381,7 +381,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_second_stroke_color', [
-                'label' => __('Stroke Fill Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'dual_header_second_back_clip' => 'clipped',
@@ -394,7 +394,7 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control('dual_header_second_stroke_width', [
-                'label' => __('Stroke Fill Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke Fill Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'condition' => [
                     'dual_header_second_back_clip' => 'clipped',
@@ -421,7 +421,7 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'second_typography',
-                'label' => __('Typography', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-second-text',
                 'separator' => 'before',
             ]
@@ -430,7 +430,7 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'second_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-second-text',
                 'separator' => 'before',
@@ -439,7 +439,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'second_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -450,7 +450,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_responsive_control(
             'second_text_margin', [
-                'label' => __('Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['%', 'px'],
                 'default' => [
@@ -478,7 +478,7 @@ class DualHeading extends Widget_Base {
 
         $this->add_control(
             'second_text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [

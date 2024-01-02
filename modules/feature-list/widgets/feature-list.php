@@ -27,7 +27,7 @@ class FeatureList extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return __('Feature List', 'easy-elementor-addons');
+        return esc_html__('Feature List', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -45,7 +45,7 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'eead_section_feature_list_content_settings', [
-                'label' => __('Content Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Content Settings', 'easy-elementor-addons'),
             ]
         );
 
@@ -53,15 +53,15 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_icon_type', [
-                'label' => __('Icon Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'icon' => [
-                        'title' => __('Icon', 'easy-elementor-addons'),
+                        'title' => esc_html__('Icon', 'easy-elementor-addons'),
                         'icon'  => 'eicon-star',
                     ],
                     'image' => [
-                        'title' => __('Image', 'easy-elementor-addons'),
+                        'title' => esc_html__('Image', 'easy-elementor-addons'),
                         'icon' => 'eicon-image',
                     ],
                 ],
@@ -72,7 +72,7 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_icon_new', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition' => [
@@ -83,7 +83,7 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_img', [
-                'label' => __('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -96,16 +96,16 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_title', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Title', 'easy-elementor-addons'),
+                'default' => esc_html__('Title', 'easy-elementor-addons'),
                 'dynamic' => ['active' => true],
             ]
         );
 
         $repeater->add_control(
             'eead_feature_list_subtitle', [
-                'label' => __('Subtitle', 'easy-elementor-addons'),
+                'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => ['active' => true],
             ]
@@ -113,29 +113,29 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_content', [
-                'label' => __('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons'),
                 'dynamic' => ['active' => true],
             ]
         );
 
         $repeater->add_control(
             'eead_feature_list_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => ['active' => true],
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
             ]
         );
 
         // Each icon custom color style
         $repeater->add_control(
             'eead_feature_list_icon_enable_each_style', [
-                'label' => __('Custom Icon Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('ON', 'easy-elementor-addons'),
-                'label_off' => __('OFF', 'easy-elementor-addons'),
+                'label_on' => esc_html__('ON', 'easy-elementor-addons'),
+                'label_off' => esc_html__('OFF', 'easy-elementor-addons'),
                 'return_value' => 'on',
                 'default' => '',
                 'fa4compatibility' => 'eead_feature_list_icon',
@@ -147,7 +147,7 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_icon_individual_color', [
-                'label' => __('Icon Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition' => [
@@ -158,7 +158,7 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_icon_individual_bg_color', [
-                'label' => __('Icon Background', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition' => [
@@ -169,7 +169,7 @@ class FeatureList extends Widget_Base {
 
         $repeater->add_control(
             'eead_feature_list_icon_individual_box_bg_color', [
-                'label' => __('Icon Box Background', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Box Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'fa4compatibility' => 'eead_feature_list_icon',
                 'condition' => [
@@ -180,7 +180,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list', [
-                'label' => __('Feature Item', 'easy-elementor-addons'),
+                'label' => esc_html__('Feature Item', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'seperator' => 'before',
                 'default' => [
@@ -189,7 +189,7 @@ class FeatureList extends Widget_Base {
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => __('Feature List Item 1', 'easy-elementor-addons'),
+                        'eead_feature_list_title' => esc_html__('Feature List Item 1', 'easy-elementor-addons'),
                         'eead_feature_list_subtitle' => 'Consectetur adipisi cing elit',
                         'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
@@ -198,7 +198,7 @@ class FeatureList extends Widget_Base {
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => __('Feature List Item 2', 'easy-elementor-addons'),
+                        'eead_feature_list_title' => esc_html__('Feature List Item 2', 'easy-elementor-addons'),
                         'eead_feature_list_subtitle' => 'Rem ipsum dolor sit amet', 'easy-elementor-addons',
                         'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
@@ -207,7 +207,7 @@ class FeatureList extends Widget_Base {
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => __('Feature List Item 3', 'easy-elementor-addons'),
+                        'eead_feature_list_title' => esc_html__('Feature List Item 3', 'easy-elementor-addons'),
                         'eead_feature_list_subtitle' => 'Seo eiusmod tempor incididunt ut',
                         'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
@@ -221,13 +221,13 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'eead_feature_list_additional_settings', [
-                'label' => __('Additional Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'eead_feature_list_title_size', [
-                'label' => __('Title HTML Tag', 'easy-elementor-addons'),
+                'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'h1' => 'H1',
@@ -247,46 +247,46 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_icon_shape', [
-                'label' => __('Icon Shape', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Shape', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'circle',
                 'label_block' => false,
                 'options' => [
-                    'circle' => __('Circle', 'easy-elementor-addons'),
-                    'square' => __('Square', 'easy-elementor-addons'),
-                    'rhombus' => __('Rhombus', 'easy-elementor-addons'),
+                    'circle' => esc_html__('Circle', 'easy-elementor-addons'),
+                    'square' => esc_html__('Square', 'easy-elementor-addons'),
+                    'rhombus' => esc_html__('Rhombus', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'eead_feature_list_icon_layout', [
-                'label' => __('Icon Box Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Box Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'stacked',
                 'label_block' => false,
                 'options' => [
-                    'framed' => __('Framed', 'easy-elementor-addons'),
-                    'stacked' => __('Stacked', 'easy-elementor-addons'),
+                    'framed' => esc_html__('Framed', 'easy-elementor-addons'),
+                    'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_responsive_control(
             'eead_feature_list_icon_position', [
-                'label' => __('Icon Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'top' => [
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -301,23 +301,23 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_text_align', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
                     'justify' => [
-                        'title' => __('Justified', 'easy-elementor-addons'),
+                        'title' => esc_html__('Justified', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
                     ],
                 ],
@@ -332,7 +332,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_space_between', [
-                'label' => __('Space Between', 'easy-elementor-addons'),
+                'label' => esc_html__('Space Between', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 15,
@@ -356,7 +356,7 @@ class FeatureList extends Widget_Base {
         /* Icon Style */
         $this->start_controls_section(
             'eead_section_feature_list_style_icon', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -377,7 +377,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_secondary_color', [
-                'label' => __('Secondary Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
@@ -392,7 +392,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_icon_color', [
-                'label' => __( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -405,7 +405,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_icon_circle_size', [
-                'label' => __('Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 70,
@@ -425,7 +425,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_icon_size', [
-                'label' => __('Icon Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 21,
@@ -446,7 +446,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_icon_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'default' => [
@@ -464,7 +464,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_icon_border_width', [
-                'label' => __('Border Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 2,
@@ -487,7 +487,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_icon_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -502,7 +502,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_responsive_control(
             'eead_feature_list_icon_space', [
-                'label' => __('Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -533,21 +533,21 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'icon_vertical_align', [
-                'label' => __('Vertical Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'center',
                 'options' => [
                     'flex-start' => [
-                        'title' => __('Top', 'easy-elementor-addons'),
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'flex-end' => [
-                        'title' => __('Bottom', 'easy-elementor-addons'),
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -561,14 +561,14 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'eead_section_feature_list_title_style', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
             'eead_feature_list_title_bottom_space', [
-                'label' => __('Title Bottom Space', 'easy-elementor-addons'),
+                'label' => esc_html__('Title Bottom Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
@@ -587,7 +587,7 @@ class FeatureList extends Widget_Base {
 
         $this->add_control(
             'eead_feature_list_title_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#414247',
                 'selectors' => [
@@ -607,14 +607,14 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'eead_section_feature_list_description_style', [
-                'label' => __('Description', 'easy-elementor-addons'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'eead_feature_list_description_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -637,14 +637,14 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'eead_section_feature_list_subtitle_style', [
-                'label' => __('Subtitle', 'easy-elementor-addons'),
+                'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'eead_feature_list_subtitle_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [

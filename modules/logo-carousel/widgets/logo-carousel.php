@@ -62,7 +62,7 @@ class LogoCarousel extends Widget_Base {
 
         $repeater->add_control(
                 'title', [
-            'label' => __('Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Title'
@@ -71,7 +71,7 @@ class LogoCarousel extends Widget_Base {
 
         $repeater->add_control(
                 'image', [
-            'label' => __('Choose Image', 'easy-elementor-addons'),
+            'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -81,7 +81,7 @@ class LogoCarousel extends Widget_Base {
 
         $repeater->add_control(
                 'logo_link', [
-            'label' => __('Logo Link', 'easy-elementor-addons'),
+            'label' => esc_html__('Logo Link', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
                 ]
@@ -89,7 +89,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'slides', [
-            'label' => __('Slides', 'easy-elementor-addons'),
+            'label' => esc_html__('Slides', 'easy-elementor-addons'),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'title_field' => '{{{ title }}}',
@@ -98,10 +98,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'link_new_tab', [
-            'label' => __('Open Link in New Tab', 'easy-elementor-addons'),
+            'label' => esc_html__('Open Link in New Tab', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -117,13 +117,13 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'layout', [
-                'label' => __('Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1' => __('Style 1', 'easy-elementor-addons'),
-                    'style2' => __('Style 2', 'easy-elementor-addons'),
-                    'style3' => __('Style 3', 'easy-elementor-addons')
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons')
                 ],
             ]
         );
@@ -199,10 +199,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'infinite', [
-            'label' => __('Infinite Loop', 'easy-elementor-addons'),
+            'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -210,10 +210,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'autoplay', [
-            'label' => __('Autoplay', 'easy-elementor-addons'),
+            'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -221,10 +221,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'pause_on_hover', [
-            'label' => __('Pause on Hover', 'easy-elementor-addons'),
+            'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
             'condition' => [
@@ -235,7 +235,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'autoplay_speed', [
-            'label' => __('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+            'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['s'],
             'range' => [
@@ -257,7 +257,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'speed', [
-            'label' => __('Animation Speed', 'easy-elementor-addons'),
+            'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
             'type' => Controls_Manager::NUMBER,
             'default' => 500,
                 ]
@@ -265,10 +265,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'dots', [
-            'label' => __('Navigation Dots', 'easy-elementor-addons'),
+            'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -276,10 +276,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'arrows', [
-            'label' => __('Navigation Arrows', 'easy-elementor-addons'),
+            'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -287,10 +287,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'auto_height', [
-            'label' => __('Auto Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => '',
                 ]
@@ -298,10 +298,10 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'center_image_bigger', [
-            'label' => __('Center Image Bigger', 'easy-elementor-addons'),
+            'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
             'condition' => ['layout' => 'style3']
@@ -336,11 +336,11 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
                 'grayscale_enable', [
-            'label' => __('Enable Grayscale', 'easy-elementor-addons'),
-            'description' => __('All logo beside middle logo image will turn black and white.'),
+            'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
+            'description' => esc_html__('All logo beside middle logo image will turn black and white.'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
             'condition' => ['layout' => 'style3']
@@ -375,7 +375,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'logo_bg_color', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
@@ -387,7 +387,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_responsive_control(
             'logo_padding', [
-                'label' => __('Logo Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Logo Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -400,7 +400,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'logo_image_radius', [
-                'label' => __('Image Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Image Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -413,7 +413,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_responsive_control(
             'outer_box_padding', [
-                'label' => __('Outer Box Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Outer Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%'],
@@ -435,7 +435,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'logo_border_color', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
@@ -460,7 +460,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'logo_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [

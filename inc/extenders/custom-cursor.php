@@ -67,14 +67,14 @@ Class CustomCursor {
 
         $elems->start_controls_section(
             'section_eead_cursor', [
-                'label' => sprintf('<i class="eead-extension-icon eead-dash-icon"></i> %s', __('Custom Mouse Cursor', 'easy-elementor-addons')),
+                'label' => sprintf('<i class="eead-extension-icon eead-dash-icon"></i> %s', esc_html__('Custom Mouse Cursor', 'easy-elementor-addons')),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
 
         $elems->add_control(
             'eead_global_cursor_switcher', [
-                'label' => __('Enable Custom Mouse Cursor', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable Custom Mouse Cursor', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'prefix_class' => 'eead-gCursor-',
                 'render_type' => 'template',
@@ -83,16 +83,16 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_type', [
-                'label' => __('Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'render_type' => 'template',
                 'prefix_class' => 'eead-cursor-',
                 'options' => array(
-                    'icon' => __('Icon', 'easy-elementor-addons'),
-                    'image' => __('Image', 'easy-elementor-addons'),
-                    'lottie' => __('Lottie', 'easy-elementor-addons'),
-                    'fimage' => __('Follow Image', 'easy-elementor-addons'),
-                    'ftext' => __('Follow Text', 'easy-elementor-addons'),
+                    'icon' => esc_html__('Icon', 'easy-elementor-addons'),
+                    'image' => esc_html__('Image', 'easy-elementor-addons'),
+                    'lottie' => esc_html__('Lottie', 'easy-elementor-addons'),
+                    'fimage' => esc_html__('Follow Image', 'easy-elementor-addons'),
+                    'ftext' => esc_html__('Follow Text', 'easy-elementor-addons'),
                 ),
                 'default' => 'icon',
                 'condition' => array(
@@ -103,7 +103,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_pulse', [
-                'label' => __('Pulse Effect', 'easy-elementor-addons'),
+                'label' => esc_html__('Pulse Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
                 'condition' => array(
@@ -116,7 +116,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_buzz', [
-                'label' => __('Buzz Effect', 'easy-elementor-addons'),
+                'label' => esc_html__('Buzz Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
                 'condition' => array(
@@ -129,7 +129,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_icon', [
-                'label' => __('Choose Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Choose Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
                     'value' => 'fas fa-mouse-pointer',
@@ -144,7 +144,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_img', [
-                'label' => __('Choose Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => array(
                     'url' => Utils::get_placeholder_image_src(),
@@ -158,9 +158,9 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_ftext', [
-                'label' => __('Follow Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Follow Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('EEAD Follow Text', 'easy-elementor-addons'),
+                'default' => esc_html__('EEAD Follow Text', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_type' => array( 'ftext' ),
@@ -170,7 +170,7 @@ Class CustomCursor {
 
         $elems->add_responsive_control(
             'eead_cursor_xpos', [
-                'label' => __('X Position (%)', 'easy-elementor-addons'),
+                'label' => esc_html__('X Position (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'template',
                 'range' => array(
@@ -188,7 +188,7 @@ Class CustomCursor {
 
         $elems->add_responsive_control(
             'eead_cursor_ypos', [
-                'label' => __('Y Position (%)', 'easy-elementor-addons'),
+                'label' => esc_html__('Y Position (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'template',
                 'range' => array(
@@ -206,7 +206,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_trans', [
-                'label' => __('Follow Delay (s)', 'easy-elementor-addons'),
+                'label' => esc_html__('Follow Delay (s)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px'),
                 'range' => array(
@@ -220,7 +220,7 @@ Class CustomCursor {
                     'unit' => 'px',
                     'size' => 0.3,
                 ),
-                'description' => __('Default is 0.3s', 'easy-elementor-addons'),
+                'description' => esc_html__('Default is 0.3s', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_type' => array('fimage', 'ftext'),
@@ -230,7 +230,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_lottie_url', [
-                'label' => __('Animation JSON URL', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation JSON URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array( 'active' => true ),
                 'description' => 'Get JSON code URL from <a href="https://lottiefiles.com/" target="_blank">here</a>',
@@ -244,7 +244,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_loop', [
-                'label' => __('Loop', 'easy-elementor-addons'),
+                'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
                 'default' => 'true',
@@ -257,7 +257,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_reverse', [
-                'label' => __('Reverse', 'easy-elementor-addons'),
+                'label' => esc_html__('Reverse', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
                 'condition' => array(
@@ -278,7 +278,7 @@ Class CustomCursor {
 
         $elems->add_responsive_control(
             'eead_cursor_size', [
-                'label' => __('Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em'),
                 'default' => array(
@@ -308,7 +308,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_color', [
-                'label' => __( 'Color', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
@@ -366,7 +366,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_border_rad', [
-                'label' => __( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', '%', 'em'),
                 'condition' => array(
@@ -381,9 +381,9 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_adv_radius', [
-                'label' => __('Advanced Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Advanced Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => __('Apply custom radius values. Get the radius value from ', 'easy-elementor-addons') . '<a href="https://9elements.github.io/fancy-border-radius/" target="_blank">here</a>',
+                'description' => esc_html__('Apply custom radius values. Get the radius value from ', 'easy-elementor-addons') . '<a href="https://9elements.github.io/fancy-border-radius/" target="_blank">here</a>',
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                 ),
@@ -392,7 +392,7 @@ Class CustomCursor {
 
         $elems->add_control(
             'eead_cursor_adv_radius_value', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array('active' => true),
                 'selectors' => array(
@@ -406,7 +406,7 @@ Class CustomCursor {
 
         $elems->add_responsive_control(
             'eead_cursor_rotate', [
-                'label' => __('Rotate (Degrees)', 'easy-elementor-addons'),
+                'label' => esc_html__('Rotate (Degrees)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('deg'),
                 'default' => array(
@@ -425,7 +425,7 @@ Class CustomCursor {
 
         $elems->add_responsive_control(
             'eead_cursor_eeaddding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'condition' => array(

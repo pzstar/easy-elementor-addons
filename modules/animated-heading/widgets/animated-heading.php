@@ -52,7 +52,7 @@ class AnimatedHeading extends Widget_Base {
 
         $this->add_control(
             'pre_heading', [
-                'label' => __('Pre Heading', 'easy-elementor-addons'),
+                'label' => esc_html__('Pre Heading', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__('Hello I am', 'easy-elementor-addons'),
@@ -62,7 +62,7 @@ class AnimatedHeading extends Widget_Base {
 
         $this->add_control(
             'animated_heading', [
-                'label' => __('Heading', 'easy-elementor-addons'),
+                'label' => esc_html__('Heading', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__( 'Animated,Morphing,Awesome.', 'easy-elementor-addons'),
@@ -83,9 +83,9 @@ class AnimatedHeading extends Widget_Base {
 
         $this->add_control(
             'heading_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'show_external' => true,
                 'default' => [
                     'url' => '',
@@ -97,7 +97,7 @@ class AnimatedHeading extends Widget_Base {
 
         $this->add_responsive_control(
             'layout', [
-                'label' => __('Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'typed' => esc_html__('Typed', 'easy-elementor-addons'),

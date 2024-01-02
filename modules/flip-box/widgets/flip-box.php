@@ -55,25 +55,25 @@ class FlipBox extends Widget_Base {
 
     	$this->start_controls_section(
 			'section_side_a_content', [
-				'label' => __('Front', 'easy-elementor-addons'),
+				'label' => esc_html__('Front', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'graphic_element', [
-				'label'   => __('Icon Type', 'easy-elementor-addons'),
+				'label'   => esc_html__('Icon Type', 'easy-elementor-addons'),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'none' => [
-						'title' => __('None', 'easy-elementor-addons'),
+						'title' => esc_html__('None', 'easy-elementor-addons'),
 						'icon'  => 'fas fa-ban',
 					],
 					'image' => [
-						'title' => __('Image', 'easy-elementor-addons'),
+						'title' => esc_html__('Image', 'easy-elementor-addons'),
 						'icon'  => 'far fa-image',
 					],
 					'icon' => [
-						'title' => __('Icon', 'easy-elementor-addons'),
+						'title' => esc_html__('Icon', 'easy-elementor-addons'),
 						'icon'  => 'fas fa-star',
 					],
 				],
@@ -83,7 +83,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'image', [
-				'label' => __('Choose Image', 'easy-elementor-addons'),
+				'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -98,7 +98,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(), [
 				'name' => 'image',
-				'label' => __('Image Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Image Size', 'easy-elementor-addons'),
 				'default' => 'thumbnail',
 				'condition' => [
 					'graphic_element' => 'image',
@@ -108,7 +108,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'flip_box_icon', [
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -123,13 +123,13 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_view', [
-				'label' => __('Icon Display Type', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Display Type', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => __('None', 'easy-elementor-addons'),
-					'stacked' => __('Background', 'easy-elementor-addons'),
-					'framed' => __('Frame', 'easy-elementor-addons'),
+					'default' => esc_html__('None', 'easy-elementor-addons'),
+					'stacked' => esc_html__('Background', 'easy-elementor-addons'),
+					'framed' => esc_html__('Frame', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'graphic_element' => 'icon',
@@ -139,12 +139,12 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_shape', [
-				'label' => __('Shape', 'easy-elementor-addons'),
+				'label' => esc_html__('Shape', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'circle',
 				'options' => [
-					'circle' => __('Circle', 'easy-elementor-addons'),
-					'square' => __('Square', 'easy-elementor-addons'),
+					'circle' => esc_html__('Circle', 'easy-elementor-addons'),
+					'square' => esc_html__('Square', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'icon_view!' => 'default',
@@ -155,29 +155,29 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_title_text', [
-				'label' => __('Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => ['active' => true],
-				'default' => __('This is the heading', 'easy-elementor-addons'),
-				'placeholder' => __('Your Title', 'easy-elementor-addons'),
+				'default' => esc_html__('This is the heading', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Your Title', 'easy-elementor-addons'),
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
 			'front_description_text', [
-				'label' => __('Description', 'easy-elementor-addons'),
+				'label' => esc_html__('Description', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
 				'dynamic' => ['active' => true],
-				'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
-				'placeholder' => __('Your Description', 'easy-elementor-addons'),
-				'title' => __('Input image text here', 'easy-elementor-addons'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Your Description', 'easy-elementor-addons'),
+				'title' => esc_html__('Input image text here', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'front_title_tags', [
-				'label' => __('Title HTML Tag', 'easy-elementor-addons'),
+				'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => eead_html_tags(),
@@ -188,47 +188,47 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_back_content', [
-				'label' => __('Back', 'easy-elementor-addons'),
+				'label' => esc_html__('Back', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'back_title_text', [
-				'label' => __('Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
-				'default' => __('This is the heading', 'easy-elementor-addons'),
-				'placeholder' => __('Your Title', 'easy-elementor-addons'),
+				'default' => esc_html__('This is the heading', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Your Title', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'back_description_text', [
-				'label' => __('Description', 'easy-elementor-addons'),
+				'label' => esc_html__('Description', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
 				'dynamic' => ['active' => true ],
-				'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
-				'placeholder' => __('Your Description', 'easy-elementor-addons'),
-				'title' => __('Input image text here', 'easy-elementor-addons'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Your Description', 'easy-elementor-addons'),
+				'title' => esc_html__('Input image text here', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'button_text', [
-				'label' => __('Button Text', 'easy-elementor-addons'),
+				'label' => esc_html__('Button Text', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => ['active' => true],
-				'default' => __('Continue', 'easy-elementor-addons'),
+				'default' => esc_html__('Continue', 'easy-elementor-addons'),
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
 			'link', [
-				'label' => __('Link', 'easy-elementor-addons'),
+				'label' => esc_html__('Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
 				'dynamic' => ['active' => true],
-				'placeholder' => __('http://your-link.com', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('http://your-link.com', 'easy-elementor-addons'),
 				'show_external' => true,
                 'default' => [
                     'url' => '#',
@@ -240,11 +240,11 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'link_click', [
-				'label' => __('Apply Link On', 'easy-elementor-addons'),
+				'label' => esc_html__('Apply Link On', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'box' => __('Whole Box', 'easy-elementor-addons'),
-					'button' => __('Button Only', 'easy-elementor-addons'),
+					'box' => esc_html__('Whole Box', 'easy-elementor-addons'),
+					'button' => esc_html__('Button Only', 'easy-elementor-addons'),
 				],
 				'default' => 'button',
 				'condition' => [
@@ -255,15 +255,15 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'button_size', [
-				'label' => __('Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'sm',
 				'options' => [
-					'xs' => __('Extra Small', 'easy-elementor-addons'),
-					'sm' => __('Small', 'easy-elementor-addons'),
-					'md' => __('Medium', 'easy-elementor-addons'),
-					'lg' => __('Large', 'easy-elementor-addons'),
-					'xl' => __('Extra Large', 'easy-elementor-addons'),
+					'xs' => esc_html__('Extra Small', 'easy-elementor-addons'),
+					'sm' => esc_html__('Small', 'easy-elementor-addons'),
+					'md' => esc_html__('Medium', 'easy-elementor-addons'),
+					'lg' => esc_html__('Large', 'easy-elementor-addons'),
+					'xl' => esc_html__('Extra Large', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -273,7 +273,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_title_tags', [
-				'label' => __('Title HTML Tag', 'easy-elementor-addons'),
+				'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => eead_html_tags(),
@@ -284,13 +284,13 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_box_settings', [
-				'label' => __('Settings', 'easy-elementor-addons'),
+				'label' => esc_html__('Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_responsive_control(
 			'height', [
-				'label' => __('Height', 'easy-elementor-addons'),
+				'label' => esc_html__('Height', 'easy-elementor-addons'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -311,7 +311,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [
@@ -329,16 +329,16 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'flip_effect', [
-				'label' => __( 'Flip Effect', 'easy-elementor-addons' ),
+				'label' => esc_html__( 'Flip Effect', 'easy-elementor-addons' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'flip',
 				'options' => [
-					'flip' => __('Flip', 'easy-elementor-addons'),
-					'slide' => __('Slide', 'easy-elementor-addons'),
-					'push' => __('Push', 'easy-elementor-addons'),
-					'zoom-in' => __('Zoom In', 'easy-elementor-addons'),
-					'zoom-out' => __('Zoom Out', 'easy-elementor-addons'),
-					'fade' => __('Fade', 'easy-elementor-addons'),
+					'flip' => esc_html__('Flip', 'easy-elementor-addons'),
+					'slide' => esc_html__('Slide', 'easy-elementor-addons'),
+					'push' => esc_html__('Push', 'easy-elementor-addons'),
+					'zoom-in' => esc_html__('Zoom In', 'easy-elementor-addons'),
+					'zoom-out' => esc_html__('Zoom Out', 'easy-elementor-addons'),
+					'fade' => esc_html__('Fade', 'easy-elementor-addons'),
 				],
 				'prefix_class' => 'eead-flip-box-effect-',
 			]
@@ -346,14 +346,14 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'flip_direction', [
-				'label' => __( 'Flip Direction', 'easy-elementor-addons'),
+				'label' => esc_html__( 'Flip Direction', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'up',
 				'options' => [
-					'left' => __('Left', 'easy-elementor-addons'),
-					'right' => __('Right', 'easy-elementor-addons'),
-					'up' => __('Up', 'easy-elementor-addons'),
-					'down'  => __('Down', 'easy-elementor-addons'),
+					'left' => esc_html__('Left', 'easy-elementor-addons'),
+					'right' => esc_html__('Right', 'easy-elementor-addons'),
+					'up' => esc_html__('Up', 'easy-elementor-addons'),
+					'down'  => esc_html__('Down', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'flip_effect!' => [
@@ -370,7 +370,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_style_front', [
-				'label' => __('Front', 'easy-elementor-addons'),
+				'label' => esc_html__('Front', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -385,7 +385,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_background_overlay', [
-				'label' => __('Background Overlay', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Overlay', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-flip-box-front .eead-flip-box-layer-overlay' => 'background-color: {{VALUE}};',
@@ -399,7 +399,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_responsive_control(
 			'front_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -410,20 +410,20 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_alignment', [
-				'label' => __('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'easy-elementor-addons' ),
+						'title' => esc_html__( 'Left', 'easy-elementor-addons' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'easy-elementor-addons' ),
+						'title' => esc_html__( 'Center', 'easy-elementor-addons' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'easy-elementor-addons' ),
+						'title' => esc_html__( 'Right', 'easy-elementor-addons' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -436,20 +436,20 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_vertical_position', [
-				'label' => __('Vertical Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'top' => [
-						'title' => __('Top', 'easy-elementor-addons'),
+						'title' => esc_html__('Top', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __('Middle', 'easy-elementor-addons'),
+						'title' => esc_html__('Middle', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __('Bottom', 'easy-elementor-addons'),
+						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -468,7 +468,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 		'front_icon_style_tab', [ 
-				'label' => __('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'condition' => [
 					'graphic_element' => 'icon',
 				],
@@ -477,7 +477,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -496,7 +496,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_primary_color', [
-				'label' => __('Icon Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -512,14 +512,14 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'show_svg_icon_color', [
-				'label' => __('Svg Icon Color ?', 'easy-elementor-addons'),
+				'label' => esc_html__('Svg Icon Color ?', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'svg_icon_fill_color', [
-				'label' => __('Fill Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-flip-box .elementor-icon svg *' => 'fill: {{VALUE}};',
@@ -532,7 +532,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'svg_icon_stroke_color', [
-				'label' => __('Stroke Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Stroke Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-flip-box .elementor-icon svg *' => 'stroke: {{VALUE}};',
@@ -545,7 +545,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_secondary_color', [
-				'label' => __('Secondary Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Secondary Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
@@ -562,7 +562,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_size', [
-				'label' => __('Icon Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -581,7 +581,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_padding', [
-				'label' => __('Icon Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
@@ -601,7 +601,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_rotate', [
-				'label' => __('Icon Rotate', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Rotate', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -619,7 +619,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_border_width', [
-				'label' => __('Border Width', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'border-width: {{SIZE}}{{UNIT}}',
@@ -633,7 +633,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'icon_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -650,7 +650,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 			'front_image_style_tab', [
-				'label'     => __('Image', 'easy-elementor-addons'),
+				'label'     => esc_html__('Image', 'easy-elementor-addons'),
 				'condition' => [
 					'graphic_element' => 'image',
 				],
@@ -659,7 +659,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'image_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -678,7 +678,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'image_width', [
-				'label' => __('Size (%)', 'easy-elementor-addons'),
+				'label' => esc_html__('Size (%)', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['%'],
 				'default' => [
@@ -702,7 +702,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'image_opacity', [
-				'label' => __('Opacity (%)', 'easy-elementor-addons'),
+				'label' => esc_html__('Opacity (%)', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -726,7 +726,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'image_border',
-				'label' => __('Image Border', 'easy-elementor-addons'),
+				'label' => esc_html__('Image Border', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-flip-box-image img',
 				'condition' => [
 					'graphic_element' => 'image',
@@ -737,7 +737,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'image_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -758,7 +758,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 		'front_title_style_tab', [ 
-				'label' => __('Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Title', 'easy-elementor-addons'),
 				'condition' => [
 					'front_title_text!' => '',
 				],
@@ -767,7 +767,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_title_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -786,7 +786,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_title_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -799,7 +799,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'front_title_typography',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-flip-box-front .eead-flip-box-layer-title',
 			]
 		);
@@ -808,7 +808,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 		'front_description_style_tab', [ 
-				'label' => __('Description', 'easy-elementor-addons'),
+				'label' => esc_html__('Description', 'easy-elementor-addons'),
 				'condition' => [
 					'front_description_text!' => '',
 				],
@@ -817,7 +817,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'front_description_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f5f5f5',
 				'selectors' => [
@@ -830,7 +830,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'front_description_typography',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-flip-box-front .eead-flip-box-layer-desc',
 			]
 		);
@@ -851,7 +851,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_style_back', [
-				'label' => __('Back', 'easy-elementor-addons'),
+				'label' => esc_html__('Back', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -866,7 +866,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_background_overlay', [
-				'label' => __('Background Overlay', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Overlay', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -881,7 +881,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_responsive_control(
 			'back_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -892,20 +892,20 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_alignment', [
-				'label' => __('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'easy-elementor-addons'),
+						'title' => esc_html__('Left', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'easy-elementor-addons'),
+						'title' => esc_html__('Center', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'easy-elementor-addons'),
+						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -919,20 +919,20 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_vertical_position', [
-				'label' => __('Vertical Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'top' => [
-						'title' => __('Top', 'easy-elementor-addons'),
+						'title' => esc_html__('Top', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __('Middle', 'easy-elementor-addons'),
+						'title' => esc_html__('Middle', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __('Bottom', 'easy-elementor-addons'),
+						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
@@ -952,7 +952,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 			'back_title_style_tab', [ 
-				'label' => __('Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Title', 'easy-elementor-addons'),
 				'condition' => [
 					'back_title_text!' => '',
 				],
@@ -961,7 +961,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_title_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -980,7 +980,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_title_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -996,7 +996,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'back_title_typography',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-flip-box-back .eead-flip-box-layer-title',
 				'condition' => [
 					'back_title_text!' => '',
@@ -1008,7 +1008,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_tab(
 		'back_description_style_tab', [ 
-				'label' => __('Description', 'easy-elementor-addons'),
+				'label' => esc_html__('Description', 'easy-elementor-addons'),
 				'condition' => [
 					'back_description_text!' => '',
 				],
@@ -1017,7 +1017,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_description_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1036,7 +1036,7 @@ class FlipBox extends Widget_Base {
 
 		$this->add_control(
 			'back_description_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-flip-box-back .eead-flip-box-layer-desc' => 'color: {{VALUE}}',
@@ -1048,7 +1048,7 @@ class FlipBox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'description_typography_b',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector'  => '{{WRAPPER}} .eead-flip-box-back .eead-flip-box-layer-desc',
 			]
 		);
@@ -1069,7 +1069,7 @@ class FlipBox extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_style_button', [
-				'label' => __('Button', 'easy-elementor-addons'),
+				'label' => esc_html__('Button', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'button_text!' => '',

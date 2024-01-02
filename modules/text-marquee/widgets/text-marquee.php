@@ -40,7 +40,7 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
                 'text', [
-            'label' => __('Marquee Text', 'easy-elementor-addons'),
+            'label' => esc_html__('Marquee Text', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Marquee'
@@ -49,7 +49,7 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_speed', [
-                'label' => __('Speed', 'easy-elementor-addons'),
+                'label' => esc_html__('Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -68,19 +68,19 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_direction', [
-                'label' => __('Direction', 'easy-elementor-addons'),
+                'label' => esc_html__('Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
                 'options' => [
-                    'left'  => __('Left', 'easy-elementor-addons'),
-                    'right'  => __('Right', 'easy-elementor-addons'),
+                    'left'  => esc_html__('Left', 'easy-elementor-addons'),
+                    'right'  => esc_html__('Right', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'text_gap', [
-                'label' => __('Gap', 'easy-elementor-addons'),
+                'label' => esc_html__('Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -99,7 +99,7 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
             'text_before_start', [
-                'label' => __('Before Start', 'easy-elementor-addons'),
+                'label' => esc_html__('Before Start', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -118,20 +118,20 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
                 'text_duplicated', [
-            'label' => __('Text Duplicated', 'easy-elementor-addons'),
+            'label' => esc_html__('Text Duplicated', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
 
         $this->add_control(
                 'text_pause_on_hover', [
-            'label' => __('Pause on Hover', 'easy-elementor-addons'),
+            'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
@@ -165,10 +165,10 @@ class TextMarquee extends Widget_Base {
 
         $this->add_control(
                 'text_stroke_effect', [
-            'label' => __('Text Stroke Effect', 'easy-elementor-addons'),
+            'label' => esc_html__('Text Stroke Effect', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );

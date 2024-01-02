@@ -87,11 +87,11 @@ class ImageAccordion extends Widget_Base {
 
         $repeater->add_control(
             'eead_accordion_is_active', [
-                'label' => __('Active?', 'easy-elementor-addons'),
-                'description' => __('Enabling it will open this block on page load.', 'easy-elementor-addons'),
+                'label' => esc_html__('Active?', 'easy-elementor-addons'),
+                'description' => esc_html__('Enabling it will open this block on page load.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'easy-elementor-addons'),
-                'label_off' => __('No', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
             ]
         );
@@ -100,8 +100,8 @@ class ImageAccordion extends Widget_Base {
             'eead_accordion_enable_title_link', [
                 'label' => esc_html__('Enable Title Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Show', 'easy-elementor-addons'),
-                'label_off' => __('Hide', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -224,19 +224,19 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'title_tag', [
-                'label' => __('Select Tag', 'easy-elementor-addons'),
+                'label' => esc_html__('Select Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h2',
                 'options' => [
-                    'h1' => __('H1', 'easy-elementor-addons'),
-                    'h2' => __('H2', 'easy-elementor-addons'),
-                    'h3' => __('H3', 'easy-elementor-addons'),
-                    'h4' => __('H4', 'easy-elementor-addons'),
-                    'h5' => __('H5', 'easy-elementor-addons'),
-                    'h6' => __('H6', 'easy-elementor-addons'),
-                    'span' => __('Span', 'easy-elementor-addons'),
-                    'p' => __('P', 'easy-elementor-addons'),
-                    'div' => __('Div', 'easy-elementor-addons'),
+                    'h1' => esc_html__('H1', 'easy-elementor-addons'),
+                    'h2' => esc_html__('H2', 'easy-elementor-addons'),
+                    'h3' => esc_html__('H3', 'easy-elementor-addons'),
+                    'h4' => esc_html__('H4', 'easy-elementor-addons'),
+                    'h5' => esc_html__('H5', 'easy-elementor-addons'),
+                    'h6' => esc_html__('H6', 'easy-elementor-addons'),
+                    'span' => esc_html__('Span', 'easy-elementor-addons'),
+                    'p' => esc_html__('P', 'easy-elementor-addons'),
+                    'div' => esc_html__('Div', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -339,7 +339,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_image_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -350,7 +350,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_image_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -361,7 +361,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_image_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -373,7 +373,7 @@ class ImageAccordion extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'eead_image_accordion_image_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion a',
             ]
         );
@@ -410,7 +410,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_title_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -421,7 +421,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_title_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -432,7 +432,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_title_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -444,7 +444,7 @@ class ImageAccordion extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'eead_image_accordion_title_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay h2',
             ]
         );
@@ -481,7 +481,7 @@ class ImageAccordion extends Widget_Base {
 
         $this->add_control(
             'eead_image_accordion_content_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -491,7 +491,7 @@ class ImageAccordion extends Widget_Base {
         );
         $this->add_control(
             'eead_image_accordion_content_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -501,7 +501,7 @@ class ImageAccordion extends Widget_Base {
         );
         $this->add_control(
             'eead_image_accordion_content_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -512,7 +512,7 @@ class ImageAccordion extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'eead_image_accordion_content_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay p',
             ]
         );

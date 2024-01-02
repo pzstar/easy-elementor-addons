@@ -51,7 +51,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'title', [
-            'label' => __('Pricing Title', 'easy-elementor-addons'),
+            'label' => esc_html__('Pricing Title', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Pricing'
@@ -60,7 +60,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'currency', [
-            'label' => __('Currency Symbol', 'easy-elementor-addons'),
+            'label' => esc_html__('Currency Symbol', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '$'
@@ -69,7 +69,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'price', [
-            'label' => __('Price', 'easy-elementor-addons'),
+            'label' => esc_html__('Price', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '500'
@@ -78,7 +78,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'price_per', [
-            'label' => __('Price Per(/month, /year)', 'easy-elementor-addons'),
+            'label' => esc_html__('Price Per(/month, /year)', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => '/year'
@@ -89,7 +89,7 @@ class PricingTable extends Widget_Base {
 
         $repeater->add_control(
                 'list', [
-            'label' => __('Features', 'easy-elementor-addons'),
+            'label' => esc_html__('Features', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
                 ]
@@ -97,7 +97,7 @@ class PricingTable extends Widget_Base {
 
         $repeater->add_control(
                 'feature_icon', [
-            'label' => __('Button Icon', 'easy-elementor-addons'),
+            'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-check',
@@ -108,7 +108,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'feature_list', [
-            'label' => __('Plan Feature List', 'easy-elementor-addons'),
+            'label' => esc_html__('Plan Feature List', 'easy-elementor-addons'),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' => [
@@ -128,7 +128,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'link_text', [
-            'label' => __('Button Text', 'easy-elementor-addons'),
+            'label' => esc_html__('Button Text', 'easy-elementor-addons'),
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Buy Now'
@@ -137,7 +137,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'link', [
-            'label' => __('Button Link', 'easy-elementor-addons'),
+            'label' => esc_html__('Button Link', 'easy-elementor-addons'),
             'type' => Controls_Manager::URL,
             'show_external' => true,
             'default' => [
@@ -150,7 +150,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'link_icon', [
-            'label' => __('Button Icon', 'easy-elementor-addons'),
+            'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-long-arrow-alt-right',
@@ -161,7 +161,7 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'header_icon', [
-            'label' => __('Header Icon', 'easy-elementor-addons'),
+            'label' => esc_html__('Header Icon', 'easy-elementor-addons'),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-home',
@@ -173,10 +173,10 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'is_featured', [
-            'label' => __('Is Featured', 'easy-elementor-addons'),
+            'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
                 ]
         );
@@ -191,13 +191,13 @@ class PricingTable extends Widget_Base {
 
         $this->add_control(
                 'layout', [
-            'label' => __('Layout', 'easy-elementor-addons'),
+            'label' => esc_html__('Layout', 'easy-elementor-addons'),
             'type' => Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
-                'style1' => __('Style 1', 'easy-elementor-addons'),
-                'style2' => __('Style 2', 'easy-elementor-addons'),
-                'style3' => __('Style 3', 'easy-elementor-addons'),
+                'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
             ],
                 ]
         );

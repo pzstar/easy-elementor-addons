@@ -114,7 +114,7 @@ class VerticalTimeline extends Widget_Base {
 
         $repeater->add_control(
                 'icon', [
-            'label' => __('Icon', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon', 'easy-elementor-addons'),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-star',
@@ -191,32 +191,32 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'style', [
-            'label' => __('Style', 'easy-elementor-addons'),
+            'label' => esc_html__('Style', 'easy-elementor-addons'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'style1',
             'options' => [
-                'style1' => __('Style 1', 'easy-elementor-addons'),
-                'style2' => __('Style 2', 'easy-elementor-addons'),
-                'style3' => __('Style 3', 'easy-elementor-addons'),
+                'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
             ],
                 ]
         );
 
         $this->add_control(
                 'title_html_tag', [
-            'label' => __('Title HTML Tag', 'square-plus'),
+            'label' => esc_html__('Title HTML Tag', 'square-plus'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'h4',
             'options' => [
-                'h1' => __('H1', 'square-plus'),
-                'h2' => __('H2', 'square-plus'),
-                'h3' => __('H3', 'square-plus'),
-                'h4' => __('H4', 'square-plus'),
-                'h5' => __('H5', 'square-plus'),
-                'h6' => __('H6', 'square-plus'),
-                'div' => __('div', 'square-plus'),
-                'span' => __('span', 'square-plus'),
-                'p' => __('p', 'square-plus')
+                'h1' => esc_html__('H1', 'square-plus'),
+                'h2' => esc_html__('H2', 'square-plus'),
+                'h3' => esc_html__('H3', 'square-plus'),
+                'h4' => esc_html__('H4', 'square-plus'),
+                'h5' => esc_html__('H5', 'square-plus'),
+                'h6' => esc_html__('H6', 'square-plus'),
+                'div' => esc_html__('div', 'square-plus'),
+                'span' => esc_html__('span', 'square-plus'),
+                'p' => esc_html__('p', 'square-plus')
             ],
                 ]
         );
@@ -272,7 +272,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'content_width', [
-            'label' => __('Content Width (%)', 'easy-elementor-addons'),
+            'label' => esc_html__('Content Width (%)', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'range' => [
                 '%' => [
@@ -308,13 +308,13 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'frame_style', [
-            'label' => __('Frame Style', 'plugin-domain'),
+            'label' => esc_html__('Frame Style', 'plugin-domain'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'none',
             'options' => [
-                'none' => __('None', 'easy-elementor-addons'),
-                'boxed' => __('Boxed', 'easy-elementor-addons'),
-                'bordered' => __('Bordered', 'easy-elementor-addons')
+                'none' => esc_html__('None', 'easy-elementor-addons'),
+                'boxed' => esc_html__('Boxed', 'easy-elementor-addons'),
+                'bordered' => esc_html__('Bordered', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -351,7 +351,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'frame_border_radius', [
-            'label' => __('Border Radius', 'elementor'),
+            'label' => esc_html__('Border Radius', 'elementor'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
@@ -363,7 +363,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_responsive_control(
                 'frame_padding', [
-            'label' => __('Padding', 'elementor'),
+            'label' => esc_html__('Padding', 'elementor'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'default' => [
@@ -583,7 +583,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'readmore_border_radius', [
-            'label' => __('Border Radius', 'elementor'),
+            'label' => esc_html__('Border Radius', 'elementor'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
@@ -601,7 +601,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_responsive_control(
                 'readmore_text_padding', [
-            'label' => __('Padding', 'elementor'),
+            'label' => esc_html__('Padding', 'elementor'),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', '%'],
             'selectors' => [
@@ -710,7 +710,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'point_size', [
-            'label' => __('Point Size', 'easy-elementor-addons'),
+            'label' => esc_html__('Point Size', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -728,7 +728,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_control(
                 'icon_size', [
-            'label' => __('Icon Size', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [

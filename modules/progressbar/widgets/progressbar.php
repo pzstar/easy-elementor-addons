@@ -58,7 +58,7 @@ class Progressbar extends Widget_Base {
 
         $repeater->add_control(
             'progressbar_title', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -66,7 +66,7 @@ class Progressbar extends Widget_Base {
 
         $repeater->add_control(
             'progressbar_percentage', [
-                'label' => __('Percentage', 'easy-elementor-addons'),
+                'label' => esc_html__('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 100,
@@ -77,12 +77,12 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
             'progressbar_block', [
-                'label' => __('Progress Bars', 'easy-elementor-addons'),
+                'label' => esc_html__('Progress Bars', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'progressbar_title' => __('Progress Bar #1', 'easy-elementor-addons'),
+                        'progressbar_title' => esc_html__('Progress Bar #1', 'easy-elementor-addons'),
                     ]
                 ],
                 'title_field' => '{{{ progressbar_title }}}',
@@ -179,7 +179,7 @@ class Progressbar extends Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progressbar_bg_color',
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-progress-bar',
             ]
@@ -188,7 +188,7 @@ class Progressbar extends Widget_Base {
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(), [
                 'name' => 'progress_indication_color',
-                'label' => __('Progress Indication Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Progress Indication Color', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-progress-bar-length',
             ]
@@ -196,7 +196,7 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
                 'progressbar_border_radius', [
-            'label' => __('Border Radius', 'easy-elementor-addons'),
+            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -215,7 +215,7 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
                 'progressbar_border_height', [
-            'label' => __('Progress Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Progress Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [

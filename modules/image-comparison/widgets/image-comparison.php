@@ -107,7 +107,7 @@ class ImageComparison extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(), [
                 'name' => 'thumbnail_size',
-                'label' => __('Image Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'exclude' => ['custom'],
                 'default' => 'full',
             ]

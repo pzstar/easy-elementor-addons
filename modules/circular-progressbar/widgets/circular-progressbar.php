@@ -54,16 +54,16 @@ class CircularProgressbar extends Widget_Base {
 
        $this->add_control(
             'progressbar_title', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __('Progress', 'easy-elementor-addons')
+                'default' => esc_html__('Progress', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'progressbar_percentage', [
-                'label' => __('Percentage', 'easy-elementor-addons'),
+                'label' => esc_html__('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 100,
@@ -74,7 +74,7 @@ class CircularProgressbar extends Widget_Base {
 
         $this->add_responsive_control(
                 'box_height', [
-            'label' => __('Box Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Box Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [

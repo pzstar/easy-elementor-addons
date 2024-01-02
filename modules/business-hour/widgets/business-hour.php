@@ -79,33 +79,33 @@ class BusinessHour extends Widget_Base {
                 'default' => 'default',
                 'options' => [
                     'default' => 'Website Time',
-                    '-0' => __('UT or UTC - GMT -0', 'easy-elementor-addons'),
-                    '+1' => __('CET - GMT+1', 'easy-elementor-addons'),
-                    '+2' => __('EET - GMT+2', 'easy-elementor-addons'),
-                    '+3' => __('MSK - GMT+3', 'easy-elementor-addons'),
-                    '+4' => __('SMT - GMT+4', 'easy-elementor-addons'),
-                    '+5' => __('PKT - GMT+5', 'easy-elementor-addons'),
-                    '+5.5' => __('IND - GMT+5.5', 'easy-elementor-addons'),
-                    '+6' => __('OMSK / BD - GMT+6', 'easy-elementor-addons'),
-                    '+7' => __('CXT - GMT+7', 'easy-elementor-addons'),
-                    '+8' => __('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
-                    '+9' => __('JST - GMT+9', 'easy-elementor-addons'),
-                    '+10' => __('EAST - GMT+10', 'easy-elementor-addons'),
-                    '+11' => __('SAKT - GMT+11', 'easy-elementor-addons'),
-                    '+12' => __('IDLE  - GMT+12', 'easy-elementor-addons'),
-                    '+13' => __('NZDT  - GMT+13', 'easy-elementor-addons'),
-                    '-1' => __('WAT  - GMT-1', 'easy-elementor-addons'),
-                    '-2' => __('AT  - GMT-2', 'easy-elementor-addons'),
-                    '-3' => __('ART  - GMT-3', 'easy-elementor-addons'),
-                    '-4' => __('AST  - GMT-4', 'easy-elementor-addons'),
-                    '-5' => __('EST  - GMT-5', 'easy-elementor-addons'),
-                    '-6' => __('CST  - GMT-6', 'easy-elementor-addons'),
-                    '-7' => __('MST  - GMT-7', 'easy-elementor-addons'),
-                    '-8' => __('PST  - GMT-8', 'easy-elementor-addons'),
-                    '-9' => __('AKST  - GMT-9', 'easy-elementor-addons'),
-                    '-10' => __('HST  - GMT-10', 'easy-elementor-addons'),
-                    '-11' => __('NT  - GMT-11', 'easy-elementor-addons'),
-                    '-12' => __('IDLW  - GMT-12', 'easy-elementor-addons'),
+                    '-0' => esc_html__('UT or UTC - GMT -0', 'easy-elementor-addons'),
+                    '+1' => esc_html__('CET - GMT+1', 'easy-elementor-addons'),
+                    '+2' => esc_html__('EET - GMT+2', 'easy-elementor-addons'),
+                    '+3' => esc_html__('MSK - GMT+3', 'easy-elementor-addons'),
+                    '+4' => esc_html__('SMT - GMT+4', 'easy-elementor-addons'),
+                    '+5' => esc_html__('PKT - GMT+5', 'easy-elementor-addons'),
+                    '+5.5' => esc_html__('IND - GMT+5.5', 'easy-elementor-addons'),
+                    '+6' => esc_html__('OMSK / BD - GMT+6', 'easy-elementor-addons'),
+                    '+7' => esc_html__('CXT - GMT+7', 'easy-elementor-addons'),
+                    '+8' => esc_html__('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
+                    '+9' => esc_html__('JST - GMT+9', 'easy-elementor-addons'),
+                    '+10' => esc_html__('EAST - GMT+10', 'easy-elementor-addons'),
+                    '+11' => esc_html__('SAKT - GMT+11', 'easy-elementor-addons'),
+                    '+12' => esc_html__('IDLE  - GMT+12', 'easy-elementor-addons'),
+                    '+13' => esc_html__('NZDT  - GMT+13', 'easy-elementor-addons'),
+                    '-1' => esc_html__('WAT  - GMT-1', 'easy-elementor-addons'),
+                    '-2' => esc_html__('AT  - GMT-2', 'easy-elementor-addons'),
+                    '-3' => esc_html__('ART  - GMT-3', 'easy-elementor-addons'),
+                    '-4' => esc_html__('AST  - GMT-4', 'easy-elementor-addons'),
+                    '-5' => esc_html__('EST  - GMT-5', 'easy-elementor-addons'),
+                    '-6' => esc_html__('CST  - GMT-6', 'easy-elementor-addons'),
+                    '-7' => esc_html__('MST  - GMT-7', 'easy-elementor-addons'),
+                    '-8' => esc_html__('PST  - GMT-8', 'easy-elementor-addons'),
+                    '-9' => esc_html__('AKST  - GMT-9', 'easy-elementor-addons'),
+                    '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
+                    '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
+                    '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
                     'custom' => "Custom",
                 ],
                 'condition'     => [
@@ -193,7 +193,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_responsive_control(
             'header_content_alignment', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'left' => esc_html__('Left', 'easy-elementor-addons'),
@@ -412,7 +412,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_responsive_control(
             'footer_content_alignment', [
-                'label' => __( 'Alignment', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Alignment', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'left' => esc_html__('Left', 'easy-elementor-addons'),
@@ -449,7 +449,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'time_style_heading', [
-                'label' => __('Time Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Time Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -499,7 +499,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'date_style_heading', [
-                'label' => __('Date Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Date Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -549,7 +549,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'status_style_heading', [
-                'label' => __('Status Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Status Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -601,7 +601,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'custom_msg_style_heading', [
-                'label' => __('Custom Message Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Message Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -673,7 +673,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'footer_time_style_heading', [
-                'label' => __('Time Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Time Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -724,7 +724,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'footer_date_style_heading', [
-                'label' => __('Date Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Date Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -775,7 +775,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'footer_status_style_heading', [
-                'label' => __('Status Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Status Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -828,7 +828,7 @@ class BusinessHour extends Widget_Base {
 
         $this->add_control(
             'footer_custom_msg_style_heading', [
-                'label' => __('Custom Message Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Message Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -966,7 +966,7 @@ class BusinessHour extends Widget_Base {
         //Day Style
         $this->add_control(
             'day_style_heading', [
-                'label' => __('Day Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Day Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1005,7 +1005,7 @@ class BusinessHour extends Widget_Base {
         //Business Day Time Style
         $this->add_control(
             'business_time_style_heading', [
-                'label' => __('Business Time Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Business Time Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]

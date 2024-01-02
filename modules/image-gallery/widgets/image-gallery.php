@@ -53,18 +53,18 @@ class ImageGallery extends Widget_Base {
 
         $this->start_controls_section(
             'section_gallery', [
-                'label' => __('Gallery', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'gallery_type', [
-                'label' => __('Gallery Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'filterable',
                 'options' => array(
-                    'default' => __('Default', 'easy-elementor-addons'),
-                    'filterable' => __('Filterable', 'easy-elementor-addons'),
+                    'default' => esc_html__('Default', 'easy-elementor-addons'),
+                    'filterable' => esc_html__('Filterable', 'easy-elementor-addons'),
                 ),
             ]
         );
@@ -73,7 +73,7 @@ class ImageGallery extends Widget_Base {
 
         $repeater->add_control(
             'filter_label', [
-                'label' => __('Filter Label', 'easy-elementor-addons'),
+                'label' => esc_html__('Filter Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
                 'placeholder' => '',
@@ -85,7 +85,7 @@ class ImageGallery extends Widget_Base {
 
         $repeater->add_control(
             'image_group', [
-                'label' => __('Add Images', 'easy-elementor-addons'),
+                'label' => esc_html__('Add Images', 'easy-elementor-addons'),
                 'type' => Controls_Manager::GALLERY,
                 'dynamic' => array(
                     'active' => true,
@@ -95,7 +95,7 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'gallery_images', [
-                'label' => __('Gallery Images', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery Images', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'title_field' => '',
@@ -108,7 +108,7 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'image_group_standard', [
-                'label' => __('Add Images', 'easy-elementor-addons'),
+                'label' => esc_html__('Add Images', 'easy-elementor-addons'),
                 'type' => Controls_Manager::GALLERY,
                 'dynamic' => array(
                     'active' => true,
@@ -124,7 +124,7 @@ class ImageGallery extends Widget_Base {
 
         $this->start_controls_section(
             'filter_section', [
-                'label' => __('Filter', 'easy-elementor-addons'),
+                'label' => esc_html__('Filter', 'easy-elementor-addons'),
                 'condition' => array(
                     'gallery_type' => 'filterable',
                 ),
@@ -133,7 +133,7 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'show_filter', [
-                'label' => __('Show Filter', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Filter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
                 'condition' => array(
@@ -144,9 +144,9 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'filter_all_label', [
-                'label' => __('All Filter Label', 'easy-elementor-addons'),
+                'label' => esc_html__('All Filter Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('All', 'easy-elementor-addons'),
+                'default' => esc_html__('All', 'easy-elementor-addons'),
                 'condition' => array(
                     'gallery_type' => 'filterable',
                     'show_filter' => 'yes',
@@ -156,21 +156,21 @@ class ImageGallery extends Widget_Base {
 
         $this->add_responsive_control(
             'filter_alignment', [
-                'label' => __('Align', 'easy-elementor-addons'),
+                'label' => esc_html__('Align', 'easy-elementor-addons'),
                 'label_block' => false,
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'right-align',
                 'options' => array(
                     'left-align' => array(
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ),
                     'center-align' => array(
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-center',
                     ),
                     'right-align' => array(
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ),
                 ),
@@ -190,13 +190,13 @@ class ImageGallery extends Widget_Base {
 
         $this->start_controls_section(
             'caption_section', [
-                'label' => __('Caption', 'easy-elementor-addons'),
+                'label' => esc_html__('Caption', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'show_caption', [
-                'label' => __('Show Caption', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Caption', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
@@ -207,14 +207,14 @@ class ImageGallery extends Widget_Base {
         
         $this->add_control(
             'caption_type', [
-                'label' => __('Caption Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Caption Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'caption',
                 'options' => array(
-                    'caption'   => __('Image Caption', 'easy-elementor-addons'),
-                    'title' => __('Image Title', 'easy-elementor-addons'),
-                    'description' => __('Image Description', 'easy-elementor-addons'),
-                    'title_description' => __('Title & Description', 'easy-elementor-addons')
+                    'caption'   => esc_html__('Image Caption', 'easy-elementor-addons'),
+                    'title' => esc_html__('Image Title', 'easy-elementor-addons'),
+                    'description' => esc_html__('Image Description', 'easy-elementor-addons'),
+                    'title_description' => esc_html__('Title & Description', 'easy-elementor-addons')
                 ),
             ]
         );
@@ -223,13 +223,13 @@ class ImageGallery extends Widget_Base {
 
         $this->start_controls_section(
             'settings_section', [
-                'label' => __('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'show_lightbox', [
-                'label' => __('Show Lightbox', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Lightbox', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
@@ -240,13 +240,13 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'layout', [
-                'label' => __('Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'grid',
                 'options' => array(
-                    'grid' => __('Grid', 'easy-elementor-addons'),
-                    'masonry' => __('Masonry', 'easy-elementor-addons'),
-                    // 'justified' => __('Justified', 'easy-elementor-addons'),
+                    'grid' => esc_html__('Grid', 'easy-elementor-addons'),
+                    'masonry' => esc_html__('Masonry', 'easy-elementor-addons'),
+                    // 'justified' => esc_html__('Justified', 'easy-elementor-addons'),
                 ),
             ]
         );
@@ -275,7 +275,7 @@ class ImageGallery extends Widget_Base {
 
         $this->add_responsive_control(
                 'image_height', [
-            'label' => __('Image Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Image Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -612,9 +612,9 @@ class ImageGallery extends Widget_Base {
                         $filter_label = $item['filter_label'];
                         $filter_name = $item['filter_label'];
                         if (empty($filter_label)) {
-                            $filter_label = __('Group ', 'easy-elementor-addons');
+                            $filter_label = esc_html__('Group ', 'easy-elementor-addons');
                             $filter_label .= ($index + 1);
-                            $filter_name = __('Group-', 'easy-elementor-addons');
+                            $filter_name = esc_html__('Group-', 'easy-elementor-addons');
                             $filter_name .= ($index + 1);
                         }
                         ?>

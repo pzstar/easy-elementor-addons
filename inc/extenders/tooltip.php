@@ -34,7 +34,7 @@ Class Tooltip {
 
         $elems->add_control(
             'eead_tltp_active', [
-                'label' => __('Tooltip Effects', 'easy-elementor-addons'),
+                'label' => esc_html__('Tooltip Effects', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
                 'frontend_available' => true,
@@ -45,21 +45,21 @@ Class Tooltip {
 
         $repeater->add_control(
             'eead_tltp_select_type', [
-                'label' => __('Element Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Element Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'widget',
                 'options' => [
-                    'widget' => __('Widget', 'easy-elementor-addons'),
-                    'custom' => __('Widget > Custom Selector', 'easy-elementor-addons'),
+                    'widget' => esc_html__('Widget', 'easy-elementor-addons'),
+                    'custom' => esc_html__('Widget > Custom Selector', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
             'eead_tltp_custom_selector', [
-                'label' => __('Custom Selector', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Selector', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => __('Please use ID or Class to select your element/elements. ( Example - #select-id, .select-class)', 'easy-elementor-addons'),
+                'description' => esc_html__('Please use ID or Class to select your element/elements. ( Example - #select-id, .select-class)', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_tltp_select_type' => 'custom',
                 ],
@@ -68,7 +68,7 @@ Class Tooltip {
 
         $repeater->add_control(
             'eead_tltp_tooltip_text', [
-                'label' => __('Description', 'easy-elementor-addons'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'This is Tooltip'
             ]
@@ -76,36 +76,36 @@ Class Tooltip {
 
         $repeater->add_control(
             'eead_tltp_type', [
-                'label' => __('Select Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Select Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'cora',
                 'options' => [
-                    'cora' => __('Cora', 'easy-elementor-addons'),
-                    'smaug' => __('Smaug', 'easy-elementor-addons'),
-                    'uldor' => __('uldor', 'easy-elementor-addons'),
-                    'dori' => __('dori', 'easy-elementor-addons'),
-                    'gram' => __('gram', 'easy-elementor-addons'),
-                    'indis' => __('indis', 'easy-elementor-addons'),
-                    'walda' => __('walda', 'easy-elementor-addons'),
-                    'narvi' => __('narvi', 'easy-elementor-addons'),
-                    'amras' => __('amras', 'easy-elementor-addons'),
-                    'hador' => __('hador', 'easy-elementor-addons'),
-                    'malva' => __('malva', 'easy-elementor-addons'),
-                    'sadoc' => __('sadoc', 'easy-elementor-addons'),
+                    'cora' => esc_html__('Cora', 'easy-elementor-addons'),
+                    'smaug' => esc_html__('Smaug', 'easy-elementor-addons'),
+                    'uldor' => esc_html__('uldor', 'easy-elementor-addons'),
+                    'dori' => esc_html__('dori', 'easy-elementor-addons'),
+                    'gram' => esc_html__('gram', 'easy-elementor-addons'),
+                    'indis' => esc_html__('indis', 'easy-elementor-addons'),
+                    'walda' => esc_html__('walda', 'easy-elementor-addons'),
+                    'narvi' => esc_html__('narvi', 'easy-elementor-addons'),
+                    'amras' => esc_html__('amras', 'easy-elementor-addons'),
+                    'hador' => esc_html__('hador', 'easy-elementor-addons'),
+                    'malva' => esc_html__('malva', 'easy-elementor-addons'),
+                    'sadoc' => esc_html__('sadoc', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
             'eead_tltp_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
             ]
         );
 
         $elems->add_control(
             'eead_tltp_list', [
-                'label' => __('Tooltip Items', 'easy-elementor-addons'),
+                'label' => esc_html__('Tooltip Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'prevent_empty' => false,
@@ -129,7 +129,7 @@ Class Tooltip {
         $element->start_controls_section(
             'section_eead_tooltip_controls', [
                 'tab' => Controls_Manager::TAB_CONTENT,
-                'label' => __('Tooltip', 'easy-elementor-addons'),
+                'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
             ]
         );
 

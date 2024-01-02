@@ -508,7 +508,7 @@ class PopupVideo extends Widget_Base {
 
         $this->add_control(
             'button_typography_shadow', [
-                'label' => __('Typography & Shadows', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography & Shadows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]

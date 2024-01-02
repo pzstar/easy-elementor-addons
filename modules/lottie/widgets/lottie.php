@@ -72,7 +72,7 @@ class Lottie extends Widget_Base {
             'eead_lottie_json', [
                 'show_label' => false,
                 'description' => sprintf(
-                    __('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
+                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
                     '<a href="https://lottiefiles.com/featured" target="_blank">',
                     '</a>'
                 ),
@@ -89,7 +89,7 @@ class Lottie extends Widget_Base {
                 'show_label' => false,
                 'label_block' => true,
                 'description' => sprintf(
-                    __('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
+                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
                     '<a href="https://lottiefiles.com/featured" target="_blank">',
                     '</a>'
                 ),

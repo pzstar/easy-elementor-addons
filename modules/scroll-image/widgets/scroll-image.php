@@ -43,13 +43,13 @@ class ScrollImage extends Widget_Base {
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_image', [
-				'label' => __('Image', 'easy-elementor-addons'),
+				'label' => esc_html__('Image', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'image', [
-				'label' => __('Choose Image', 'easy-elementor-addons'),
+				'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -97,7 +97,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'max_width', [
-				'label' => __('Width', 'easy-elementor-addons'),
+				'label' => esc_html__('Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'separator' => 'before',
 				'range' => [
@@ -118,7 +118,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'min_height', [
-				'label' => __('Min Height', 'easy-elementor-addons'),
+				'label' => esc_html__('Min Height', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -141,32 +141,32 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'caption', [
-				'label' => __('Caption', 'easy-elementor-addons'),
+				'label' => esc_html__('Caption', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => __('Enter your image caption', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('Enter your image caption', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'link_to', [
-				'label' => __('Link To', 'easy-elementor-addons'),
+				'label' => esc_html__('Link To', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'lightbox',
 				'options' => [
-					'lightbox' => __('Lightbox', 'easy-elementor-addons'),
-					'modal' => __('Modal', 'easy-elementor-addons'),
-					'external' => __('External', 'easy-elementor-addons'),
-					'' => __('None', 'easy-elementor-addons'),
+					'lightbox' => esc_html__('Lightbox', 'easy-elementor-addons'),
+					'modal' => esc_html__('Modal', 'easy-elementor-addons'),
+					'external' => esc_html__('External', 'easy-elementor-addons'),
+					'' => esc_html__('None', 'easy-elementor-addons'),
 				],
 			]
 		);
 
 		$this->add_control(
 			'external_link', [
-				'label' => __('External Link', 'easy-elementor-addons'),
+				'label' => esc_html__('External Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
 				'show_external' => false,
-				'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+				'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
 				'default' => [
 					'url' => '#',
 				],
@@ -178,19 +178,19 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'link_icon', [
-				'label' => __('Link Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Link Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'fas fa-link' => [
-						'title' => __('Link', 'easy-elementor-addons'),
+						'title' => esc_html__('Link', 'easy-elementor-addons'),
 						'icon' => 'fas fa-link',
 					],
 					'fas fa-plus' => [
-						'title' => __('Plus', 'easy-elementor-addons'),
+						'title' => esc_html__('Plus', 'easy-elementor-addons'),
 						'icon' => 'fas fa-plus',
 					],
 					'fas fa-search' => [
-						'title' => __('Zoom', 'easy-elementor-addons'),
+						'title' => esc_html__('Zoom', 'easy-elementor-addons'),
 						'icon' => 'fas fa-search',
 					],
 				],
@@ -203,7 +203,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_control(
 			'link_icon_position', [
-				'label' => __('Link Icon Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Link Icon Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 			        '' => esc_html__('Default', 'easy-elementor-addons'),
@@ -243,20 +243,20 @@ class ScrollImage extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content_badge', [
-				'label' => __('Badge', 'easy-elementor-addons'),
+				'label' => esc_html__('Badge', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'badge', [
-				'label' => __('Badge', 'easy-elementor-addons'),
+				'label' => esc_html__('Badge', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
 
 		$this->add_control(
 			'badge_text', [
-				'label' => __('Badge Text', 'easy-elementor-addons'),
+				'label' => esc_html__('Badge Text', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'default' => 'POPULAR',
 				'placeholder' => 'Type Badge Title',
@@ -440,7 +440,7 @@ class ScrollImage extends Widget_Base {
 
         $this->add_responsive_control(
 			'caption_margin', [
-				'label' => __( 'Padding', 'easy-elementor-addons' ),
+				'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -490,7 +490,7 @@ class ScrollImage extends Widget_Base {
 
         $this->add_responsive_control(
 			'badge_padding', [
-				'label' => __( 'Padding', 'easy-elementor-addons' ),
+				'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -501,7 +501,7 @@ class ScrollImage extends Widget_Base {
 
 		$this->add_responsive_control(
 			'badge_border_radius', [
-				'label' => __( 'Border Radius', 'easy-elementor-addons' ),
+				'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [

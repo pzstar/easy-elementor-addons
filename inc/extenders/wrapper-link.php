@@ -25,9 +25,11 @@ Class WrapperLink {
         // Add section settings
         add_action('elementor/element/section/section_advanced/after_section_end', [$this, 'register_section']);
         add_action('elementor/element/section/section_eead_wrapper_link/before_section_end', [$this, 'register_controls'], 10, 2);
+
         // Add column settings
         add_action('elementor/element/column/section_advanced/after_section_end', [$this, 'register_section']);
         add_action('elementor/element/column/section_eead_wrapper_link/before_section_end', [$this, 'register_controls'], 10, 2);
+
         // Add widget settings
         add_action('elementor/element/common/_section_style/after_section_end', [$this, 'register_section']);
         add_action('elementor/element/common/section_eead_wrapper_link/before_section_end', [$this, 'register_controls'], 10, 2);
@@ -43,7 +45,7 @@ Class WrapperLink {
 
         $elems->add_control(
             'eead_wrapper_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
                 'default' => ['url' => ''],

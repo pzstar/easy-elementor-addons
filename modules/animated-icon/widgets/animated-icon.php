@@ -25,7 +25,7 @@ class AnimatedIcon extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return __('Animated Icon', 'easy-elementor-addons');
+        return esc_html__('Animated Icon', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -46,23 +46,23 @@ class AnimatedIcon extends Widget_Base {
     protected function register_controls() {
         $this->start_controls_section(
             'eead_general', [
-                'label' => __('General', 'easy-elementor-addons'),
+                'label' => esc_html__('General', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
             'eead_type', [
-                'label' => __('Select JSON', 'easy-elementor-addons'),
+                'label' => esc_html__('Select JSON', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'url',
                 'options' => [
                     'file' => [
-                        'title' => __('JSON File', 'easy-elementor-addons'),
+                        'title' => esc_html__('JSON File', 'easy-elementor-addons'),
                         'icon' => 'eicon-document-file',
                     ],
                     'url' => [
-                        'title' => __('JSON URL', 'easy-elementor-addons'),
+                        'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
                         'icon' => 'eicon-link',
                     ],
                 ]
@@ -75,7 +75,7 @@ class AnimatedIcon extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'media_type' => 'application/json',
                 'description' => sprintf(
-                    __('Discover thousands of %sLordicon animations%s ready to use.', 'easy-elementor-addons'),
+                    esc_html__('Discover thousands of %sLordicon animations%s ready to use.', 'easy-elementor-addons'),
                     '<a href="https://lordicon.com/" target="_blank">',
                     '</a>'
                 ),
@@ -92,7 +92,7 @@ class AnimatedIcon extends Widget_Base {
                 'description' => sprintf(__('Discover thousands of %sLordicon animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lordicon.com/" target="_blank">', '</a>'),
                 'default' => 'https://cdn.lordicon.com/gmzxduhd.json',
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => __('https://example.com/file.json', 'easy-elementor-addons'),
+                'placeholder' => 'https://example.com/file.json',
                 'show_external' => false,
                 'condition' => [
                     'eead_type' => 'url'
@@ -102,46 +102,46 @@ class AnimatedIcon extends Widget_Base {
 
         $this->add_control(
             'eead_animation_trigger', [
-                'label' => __('Animation Trigger', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation Trigger', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'loop',
-                'description' => __('Method that makes the icon animate', 'easy-elementor-addons'),
+                'description' => esc_html__('Method that makes the icon animate', 'easy-elementor-addons'),
                 'options' => [
-                    'loop' => __('Loop(always animate)', 'easy-elementor-addons'),
-                    'click' => __('Click', 'easy-elementor-addons'),
-                    'hover' => __('Hover', 'easy-elementor-addons'),
-                    'loop-on-hover' => __('Loop on Hover', 'easy-elementor-addons'),
-                    'morph' => __('Morph', 'easy-elementor-addons'),
-                    'morph-two-way' => __('Morph Two Way', 'easy-elementor-addons'),
+                    'loop' => esc_html__('Loop(always animate)', 'easy-elementor-addons'),
+                    'click' => esc_html__('Click', 'easy-elementor-addons'),
+                    'hover' => esc_html__('Hover', 'easy-elementor-addons'),
+                    'loop-on-hover' => esc_html__('Loop on Hover', 'easy-elementor-addons'),
+                    'morph' => esc_html__('Morph', 'easy-elementor-addons'),
+                    'morph-two-way' => esc_html__('Morph Two Way', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'eead_animation_target', [
-                'label' => __('Target', 'easy-elementor-addons'),
+                'label' => esc_html__('Target', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'description' => __('For loop on hover and click'),
+                'description' => esc_html__('For loop on hover and click'),
                 'default' => 'icon',
                 'options' => [
-                    'widget' => __('On Widget', 'easy-elementor-addons'),
-                    'icon' => __('On Icon', 'easy-elementor-addons'),
-                    'column' => __('On Column', 'easy-elementor-addons'),
-                    'section' => __('On Section', 'easy-elementor-addons'),
-                    'custom' => __('Custom', 'easy-elementor-addons')
+                    'widget' => esc_html__('On Widget', 'easy-elementor-addons'),
+                    'icon' => esc_html__('On Icon', 'easy-elementor-addons'),
+                    'column' => esc_html__('On Column', 'easy-elementor-addons'),
+                    'section' => esc_html__('On Section', 'easy-elementor-addons'),
+                    'custom' => esc_html__('Custom', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_control(
             'eead_custom_target', [
-                'label' => __('Custom Target', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Target', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array(
                     'active' => true,
                 ),
-                'default' => __('.example', 'easy-elementor-addons'),
+                'default' => '.example',
                 'condition' => [
                     'eead_animation_target' => 'custom'
                 ],
@@ -150,12 +150,12 @@ class AnimatedIcon extends Widget_Base {
 
         $this->add_control(
             'eead_icon_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
                 ],
@@ -166,14 +166,14 @@ class AnimatedIcon extends Widget_Base {
 
         $this->start_controls_section(
             'eead_icon_styles', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
         
         $this->add_responsive_control(
             'eead_icon_size', [
-                'label' => __('Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 72,
@@ -198,21 +198,21 @@ class AnimatedIcon extends Widget_Base {
 
         $this->add_control(
             'eead_color_one', [
-                'label' => __('Color One', 'easy-elementor-addons'),
+                'label' => esc_html__('Color One', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR
             ]
         );
 
         $this->add_control(
             'eead_color_two', [
-                'label' => __('Color Two', 'easy-elementor-addons'),
+                'label' => esc_html__('Color Two', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR
             ]
         );
 
         $this->add_control(
             'eead_icon_stroke', [
-                'label' => __('Stroke', 'easy-elementor-addons'),
+                'label' => esc_html__('Stroke', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'description' => 'Thickness of the illustrated line',
                 'default' => [

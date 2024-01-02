@@ -46,7 +46,7 @@ class WeatherBlock extends Widget_Base {
 
         $this->start_controls_section(
             'layout_section', [
-                'label' => __('Layout Section', 'easy-elementor-addons')
+                'label' => esc_html__('Layout Section', 'easy-elementor-addons')
             ]
         );
 
@@ -114,9 +114,9 @@ class WeatherBlock extends Widget_Base {
 
         $this->add_control(
             'cache_expiration', [
-                'label' => __('Cache Expiration(sec)', 'easy-elementor-addons'),
+                'label' => esc_html__('Cache Expiration(sec)', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
-                'description' => __('Please set the expiration time in seconds.', 'easy-elementor-addons'),
+                'description' => esc_html__('Please set the expiration time in seconds.', 'easy-elementor-addons'),
                 'min' => 10,
                 'max' => 86400,
                 'step' => 1,
@@ -190,12 +190,12 @@ class WeatherBlock extends Widget_Base {
 
         $this->add_control(
             'layout', [
-                'label' => __('Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => __('Style 1', 'easy-elementor-addons'),
-                    'style2' => __('Style 2', 'easy-elementor-addons')
+                    'style1'  => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons')
                 ],
             ]
         );
@@ -229,7 +229,7 @@ class WeatherBlock extends Widget_Base {
 
         $this->add_control(
                 'vertical_height', [
-            'label' => __('Vertical Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Vertical Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -427,7 +427,7 @@ class WeatherBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'top_box_bg_color',
-                'label' => __('Background', 'easy-elementor-addons'),
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-weather-container.style1,
                                {{WRAPPER}} .eead-weather-container.style2 .eead-weather-temperature',
@@ -458,7 +458,7 @@ class WeatherBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'middle_box_bg_color',
-                'label' => __( 'Background', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-weather-container.style2',
             ]
@@ -487,7 +487,7 @@ class WeatherBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'bottom_box_bg_color',
-                'label' => __('Background', 'easy-elementor-addons'),
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-weather-bottom-section',
             ]

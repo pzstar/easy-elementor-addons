@@ -64,7 +64,7 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_image', [
-                'label' => __('Choose Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -74,7 +74,7 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_title', [
-                'label' => __('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -82,27 +82,27 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_caption', [
-                'label' => __('Subtitle', 'easy-elementor-addons'),
+                'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
-                'placeholder' => __('Type your description here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'slider_button_text', [
-                'label' => __('Button Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __('Details', 'easy-elementor-addons'),
+                'default' => esc_html__('Details', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
             'slider_button_link', [
-                'label' => __('Button Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Button Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => __('Enter URL', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'show_external' => true,
                 'default' => [
                     'url' => '',
@@ -114,25 +114,25 @@ class SliderBlock extends Widget_Base {
 
         $repeater->add_control(
             'slider_text_alignment', [
-                'label' => __('Text Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'center',
                 'options' => [
-                    'center'  => __('Center', 'easy-elementor-addons'),
-                    'left' => __('Left', 'easy-elementor-addons'),
-                    'right' => __('Right', 'easy-elementor-addons')
+                    'center'  => esc_html__('Center', 'easy-elementor-addons'),
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_control(
             'slider_block', [
-                'label' => __('Sliders', 'easy-elementor-addons'),
+                'label' => esc_html__('Sliders', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'slider_title' => __('Slider #1', 'easy-elementor-addons'),
+                        'slider_title' => esc_html__('Slider #1', 'easy-elementor-addons'),
                     ]
                 ],
                 'title_field' => '{{{ slider_title }}}',
@@ -151,29 +151,29 @@ class SliderBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(), [
                 'name' => 'thumbnail', 
-                'label' => __('Image Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'default' => 'full',
             ]
         );
 
         $this->add_control(
             'slider_transition', [
-                'label' => __('Slider Transition', 'easy-elementor-addons'),
+                'label' => esc_html__('Slider Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'slide',
                 'options' => [
-                    'slide'  => __('Slide', 'easy-elementor-addons'),
-                    'fade' => __('Fade', 'easy-elementor-addons')
+                    'slide'  => esc_html__('Slide', 'easy-elementor-addons'),
+                    'fade' => esc_html__('Fade', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_control(
                 'autoplay', [
-            'label' => __('Autoplay', 'easy-elementor-addons'),
+            'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -181,10 +181,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'pause_on_hover', [
-            'label' => __('Pause on Hover', 'easy-elementor-addons'),
+            'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
             'condition' => [
@@ -195,10 +195,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'infinite', [
-            'label' => __('Infinite Loop', 'easy-elementor-addons'),
+            'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -206,7 +206,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'autoplay_speed', [
-            'label' => __('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+            'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['s'],
             'range' => [
@@ -228,7 +228,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'speed', [
-            'label' => __('Animation Speed', 'easy-elementor-addons'),
+            'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
             'type' => Controls_Manager::NUMBER,
             'default' => 500,
                 ]
@@ -236,10 +236,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'dots', [
-            'label' => __('Navigation Dots', 'easy-elementor-addons'),
+            'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -247,10 +247,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'arrows', [
-            'label' => __('Navigation Arrows', 'easy-elementor-addons'),
+            'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -258,10 +258,10 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
                 'auto_height', [
-            'label' => __('Auto Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -279,7 +279,7 @@ class SliderBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'box_bg_color',
-                'label' => __( 'Background', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
                 'types' => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .eead-slide-caption',
             ]
@@ -288,7 +288,7 @@ class SliderBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'box_border',
-                'label' => __( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
                 'placeholder' => '1px',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-slide-caption',
@@ -297,7 +297,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'box_border_radius', [
-                'label' => __( 'Border Radius', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -308,7 +308,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'box_padding', [
-                'label' => __( 'Padding', 'easy-elementor-addons' ),
+                'label' => esc_html__( 'Padding', 'easy-elementor-addons' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
@@ -356,7 +356,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'title_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -367,7 +367,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'title_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -405,7 +405,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'caption_margin', [
-                'label' => __('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -437,7 +437,7 @@ class SliderBlock extends Widget_Base {
 
         $this->start_controls_tab(
                 'normal_button_tab', [
-            'label' => __('Normal', 'easy-elementor-addons'),
+            'label' => esc_html__('Normal', 'easy-elementor-addons'),
                 ]
         );
 
@@ -464,7 +464,7 @@ class SliderBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'button_border',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-slide-button a',
@@ -475,7 +475,7 @@ class SliderBlock extends Widget_Base {
 
         $this->start_controls_tab(
                 'hover_button_tab', [
-            'label' => __('Hover', 'easy-elementor-addons'),
+            'label' => esc_html__('Hover', 'easy-elementor-addons'),
                 ]
         );
 
@@ -502,7 +502,7 @@ class SliderBlock extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'button_border_hover',
-                'label' => __('Border', 'easy-elementor-addons'),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-slide-button a:hover',
@@ -515,7 +515,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'button_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -527,7 +527,7 @@ class SliderBlock extends Widget_Base {
 
         $this->add_responsive_control(
             'button_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -680,12 +680,12 @@ class SliderBlock extends Widget_Base {
 
         $this->add_control(
             'arrow_position', [
-                'label' => __('Slider Transition', 'easy-elementor-addons'),
+                'label' => esc_html__('Slider Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-arrow-outside',
                 'options' => [
-                    'eead-arrow-inside' => __('Inside', 'easy-elementor-addons'),
-                    'eead-arrow-outside' => __('Outside', 'easy-elementor-addons')
+                    'eead-arrow-inside' => esc_html__('Inside', 'easy-elementor-addons'),
+                    'eead-arrow-outside' => esc_html__('Outside', 'easy-elementor-addons')
                 ],
             ]
         );

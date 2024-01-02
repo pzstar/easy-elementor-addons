@@ -91,20 +91,20 @@ class AdvancedButton extends Widget_Base {
 
         $this->add_control(
             'add_custom_attributes', [
-                'label' => __('Add Custom Attributes', 'easy-elementor-addons'),
+                'label' => esc_html__('Add Custom Attributes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $this->add_control(
             'custom_attributes', [
-                'label' => __('Custom Attributes', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Attributes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __( 'key|value', 'easy-elementor-addons' ),
-                'description' => sprintf( __( 'Set custom attributes for the button tag. Separate each attribute in a separate line. Separate attribute key from the value using %s character. eg. style|color:red', 'easy-elementor-addons' ), '<code>|</code>' ),
+                'placeholder' => esc_html__('key|value', 'easy-elementor-addons'),
+                'description' => sprintf( esc_html__('Set custom attributes for the button tag. Separate each attribute in a separate line. Separate attribute key from the value using %s character. eg. style|color:red', 'easy-elementor-addons' ), '<code>|</code>'),
                 'classes' => 'elementor-control-direction-ltr',
                 'condition' => ['add_custom_attributes' => 'yes']
             ]
@@ -530,7 +530,7 @@ class AdvancedButton extends Widget_Base {
 
         $this->add_responsive_control(
             'advanced_button_icon_size', [
-                'label' => __('Icon Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [

@@ -36,7 +36,7 @@ class OnePageNavigation extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_nav_dots', [
-				'label' => __('Navigation Dots', 'easy-elementor-addons'),
+				'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
 			]
 		);
 
@@ -44,7 +44,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$repeater->add_control(
 			'select_dot_icon', [
-				'label' => __('Navigation Dot', 'easy-elementor-addons'),
+				'label' => esc_html__('Navigation Dot', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'dot_icon',
 				'default' => [
@@ -56,15 +56,15 @@ class OnePageNavigation extends Widget_Base {
 
 		$repeater->add_control(
 			'section_title', [
-				'label' => __('Section Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Section Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'default' => __('Section Title', 'easy-elementor-addons'),
+				'default' => esc_html__('Section Title', 'easy-elementor-addons'),
 			]
 		);
 
 		$repeater->add_control(
 			'section_id', [
-				'label' => __('Section ID', 'easy-elementor-addons'),
+				'label' => esc_html__('Section ID', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'default' => '',
 			]
@@ -76,17 +76,17 @@ class OnePageNavigation extends Widget_Base {
 				'type' => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'section_title' => __('Section 1', 'easy-elementor-addons'),
+						'section_title' => esc_html__('Section 1', 'easy-elementor-addons'),
 						'section_id' => 'section-1',
 						'select_dot_icon' => 'fa fa-circle',
 					],
 					[
-						'section_title' => __('Section 2', 'easy-elementor-addons'),
+						'section_title' => esc_html__('Section 2', 'easy-elementor-addons'),
 						'section_id' => 'section-2',
 						'select_dot_icon' => 'fa fa-circle',
 					],
 					[
-						'section_title' => __('Section 3', 'easy-elementor-addons'),
+						'section_title' => esc_html__('Section 3', 'easy-elementor-addons'),
 						'section_id' => 'section-3',
 						'select_dot_icon' => 'fa fa-circle',
 					],
@@ -100,28 +100,28 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_onepage_nav_tooltip_settings', [
-				'label' => __('Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'nav_tooltip', [
-				'label' => __('Enable', 'easy-elementor-addons'),
+				'label' => esc_html__('Enable', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => __('Yes', 'easy-elementor-addons'),
-				'label_off' => __('No', 'easy-elementor-addons'),
+				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+				'label_off' => esc_html__('No', 'easy-elementor-addons'),
 				'return_value' => 'yes',
 			]
 		);
 
 		$this->add_control(
 			'tooltip_arrow', [
-				'label' => __('Tooltip Arrow', 'easy-elementor-addons'),
+				'label' => esc_html__('Tooltip Arrow', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => __('Show', 'easy-elementor-addons'),
-				'label_off' => __('Hide', 'easy-elementor-addons'),
+				'label_on' => esc_html__('Show', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
 				'return_value' => 'yes',
 				'condition' => [
 					'nav_tooltip' => 'yes',
@@ -131,7 +131,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'distance', [
-				'label' => __('Space Between Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Space Between Tooltip', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '',
@@ -158,30 +158,30 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_onepage_nav_settings', [
-				'label' => __('Additional Settings', 'easy-elementor-addons'),
+				'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'scroll_wheel', [
-				'label' => __('Scroll Wheel', 'easy-elementor-addons'),
-				'description' => __('Scroll the mouse to navigate from one section to another', 'easy-elementor-addons'),
+				'label' => esc_html__('Scroll Wheel', 'easy-elementor-addons'),
+				'description' => esc_html__('Scroll the mouse to navigate from one section to another', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'off',
-				'label_on' => __('On', 'easy-elementor-addons'),
-				'label_off' => __('Off', 'easy-elementor-addons'),
+				'label_on' => esc_html__('On', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Off', 'easy-elementor-addons'),
 				'return_value' => 'on',
 			]
 		);
 
 		$this->add_control(
 			'scroll_touch', [
-				'label' => __('Touch Swipe', 'easy-elementor-addons'),
-				'description' => __('Swipe to navigate from one section to another on touch devices', 'easy-elementor-addons'),
+				'label' => esc_html__('Touch Swipe', 'easy-elementor-addons'),
+				'description' => esc_html__('Swipe to navigate from one section to another on touch devices', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'off',
-				'label_on' => __('On', 'easy-elementor-addons'),
-				'label_off' => __('Off', 'easy-elementor-addons'),
+				'label_on' => esc_html__('On', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Off', 'easy-elementor-addons'),
 				'return_value' => 'on',
 				'condition' => [
 					'scroll_wheel' => 'on',
@@ -191,19 +191,19 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'scroll_keys', [
-				'label' => __('Scroll Keys', 'easy-elementor-addons'),
-				'description' => __('Press UP or DOWN keys to navigate from one section to another', 'easy-elementor-addons'),
+				'label' => esc_html__('Scroll Keys', 'easy-elementor-addons'),
+				'description' => esc_html__('Press UP or DOWN keys to navigate from one section to another', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'off',
-				'label_on' => __('On', 'easy-elementor-addons'),
-				'label_off' => __('Off', 'easy-elementor-addons'),
+				'label_on' => esc_html__('On', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Off', 'easy-elementor-addons'),
 				'return_value' => 'on',
 			]
 		);
 
 		$this->add_control(
 			'top_offset', [
-				'label' => __('Row Top Offset', 'easy-elementor-addons'),
+				'label' => esc_html__('Row Top Offset', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => ['size' => '0'],
 				'range' => [
@@ -219,7 +219,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'scrolling_speed', [
-				'label' => __('Scrolling Speed', 'easy-elementor-addons'),
+				'label' => esc_html__('Scrolling Speed', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
 				'default' => '700',
 			]
@@ -230,30 +230,30 @@ class OnePageNavigation extends Widget_Base {
 		/*Style Controls*/
 		$this->start_controls_section(
 			'section_nav_box_style', [
-				'label' => __('Navigation Box', 'easy-elementor-addons'),
+				'label' => esc_html__('Navigation Box', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'heading_alignment', [
-				'label' => __('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'top' => [
-						'title' => __('Top', 'easy-elementor-addons'),
+						'title' => esc_html__('Top', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-top',
 					],
 					'bottom' => [
-						'title' => __('Bottom', 'easy-elementor-addons'),
+						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
 						'icon' => 'eicon-v-align-bottom',
 					],
 					'left' => [
-						'title' => __('Left', 'easy-elementor-addons'),
+						'title' => esc_html__('Left', 'easy-elementor-addons'),
 						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __('Right', 'easy-elementor-addons'),
+						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -277,7 +277,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'nav_container_border',
-				'label' => __('Border', 'easy-elementor-addons'),
+				'label' => esc_html__('Border', 'easy-elementor-addons'),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .eead-one-page-nav',
@@ -286,7 +286,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'nav_container_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -297,7 +297,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_container_margin', [
-				'label' => __('Margin', 'easy-elementor-addons'),
+				'label' => esc_html__('Margin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -308,7 +308,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_responsive_control(
 			'nav_container_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -329,14 +329,14 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_dots_style', [
-				'label' => __('Navigation Dots', 'easy-elementor-addons'),
+				'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'dots_size', [
-				'label' => __('Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => ['size' => '18'],
 				'range' => [
@@ -355,7 +355,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dots_spacing', [
-				'label' => __('Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => ['size' => '15'],
 				'range' => [
@@ -375,7 +375,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_responsive_control(
 			'dots_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -396,13 +396,13 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dots_normal', [
-				'label' => __('Normal', 'easy-elementor-addons'),
+				'label' => esc_html__('Normal', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dots_color_normal', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -414,7 +414,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_bg_color_normal', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -426,7 +426,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'dots_border',
-				'label' => __('Border', 'easy-elementor-addons'),
+				'label' => esc_html__('Border', 'easy-elementor-addons'),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .eead-nav-dot-wrap',
@@ -435,7 +435,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_border_radius', [
-				'label' => __('Border Radius', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -448,13 +448,13 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dots_hover', [
-				'label' => __('Hover', 'easy-elementor-addons'),
+				'label' => esc_html__('Hover', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dots_color_hover', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -466,7 +466,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_bg_color_hover', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -477,7 +477,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_border_color_hover', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -490,13 +490,13 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_tab(
 			'tab_dots_active', [
-				'label' => __('Active', 'easy-elementor-addons'),
+				'label' => esc_html__('Active', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
 			'dots_color_active', [
-				'label' => __('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -508,7 +508,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_bg_color_active', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -519,7 +519,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'dots_border_color_active', [
-				'label' => __('Border Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -536,7 +536,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_tooltips_style', [
-				'label' => __('Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'nav_tooltip' => 'yes',
@@ -546,7 +546,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'tooltip_bg_color', [
-				'label' => __('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -561,7 +561,7 @@ class OnePageNavigation extends Widget_Base {
 
 		$this->add_control(
 			'tooltip_color', [
-				'label' => __('Text Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -576,7 +576,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), [
 				'name' => 'tooltip_typography',
-				'label' => __('Typography', 'easy-elementor-addons'),
+				'label' => esc_html__('Typography', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip',
 				'condition' => [
 					'nav_tooltip'  => 'yes',
@@ -587,14 +587,14 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(), [
 				'name' => 'tooltip_box_shadow',
-				'label' => __('Box Shadow', 'easy-elementor-addons'),
+				'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
 				'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip-content',
 			]
 		);
 
 		$this->add_responsive_control(
 			'tooltip_padding', [
-				'label' => __('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [

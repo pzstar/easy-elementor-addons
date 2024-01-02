@@ -42,16 +42,16 @@ Class VisibilityControls {
     	$elems->start_controls_section(
 			'section_visibility_control_controls', [
 				'tab' => Controls_Manager::TAB_ADVANCED,
-				'label' => __('Visibility Controls', 'easy-elementor-addons'),
+				'label' => esc_html__('Visibility Controls', 'easy-elementor-addons'),
 			]
 		);
 		$elems->add_control(
 			'eead_display_conditions_enable', [
-				'label' => __('Display Conditions', 'easy-elementor-addons'),
+				'label' => esc_html__('Display Conditions', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
-				'label_on' => __('Yes', 'easy-elementor-addons'),
-				'label_off' => __('No', 'easy-elementor-addons'),
+				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+				'label_off' => esc_html__('No', 'easy-elementor-addons'),
 				'return_value' => 'yes',
 				'frontend_available' => true,
 			]
@@ -59,12 +59,12 @@ Class VisibilityControls {
 
 		$elems->add_control(
 			'eead_display_conditions_to', [
-				'label' => __('To', 'easy-elementor-addons'),
+				'label' => esc_html__('To', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'show',
 				'options' => [
-					'show' => __('Show', 'easy-elementor-addons'),
-					'hide' => __('Hide', 'easy-elementor-addons'),
+					'show' => esc_html__('Show', 'easy-elementor-addons'),
+					'hide' => esc_html__('Hide', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'eead_display_conditions_enable' => 'yes',
@@ -74,12 +74,12 @@ Class VisibilityControls {
 
 		$elems->add_control(
 			'eead_display_conditions_relation', [
-				'label' => __('When', 'easy-elementor-addons'),
+				'label' => esc_html__('When', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'all',
 				'options' => [
-					'all' => __('All conditions met', 'easy-elementor-addons'),
-					'any' => __('Any condition met', 'easy-elementor-addons'),
+					'all' => esc_html__('All conditions met', 'easy-elementor-addons'),
+					'any' => esc_html__('Any condition met', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'eead_display_conditions_enable' => 'yes',
@@ -106,8 +106,8 @@ Class VisibilityControls {
 				'default' => 'is',
 				'label_block' => true,
 				'options' => [
-					'is' => __('Is', 'easy-elementor-addons'),
-					'not' => __('Is not', 'easy-elementor-addons'),
+					'is' => esc_html__('Is', 'easy-elementor-addons'),
+					'not' => esc_html__('Is not', 'easy-elementor-addons'),
 				],
 			]
 		);
@@ -116,7 +116,7 @@ Class VisibilityControls {
 
 		$elems->add_control(
 			'eead_display_conditions', [
-				'label' => __('Conditions', 'easy-elementor-addons'),
+				'label' => esc_html__('Conditions', 'easy-elementor-addons'),
 				'type' => Controls_Manager::REPEATER,
 				'default' => [
 					[

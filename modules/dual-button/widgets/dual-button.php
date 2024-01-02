@@ -46,17 +46,17 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'dual_btn_settings_field', [
-                'label' => __('Button Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Button Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button_layout', [
-                'label' => __('Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'horizontal' => __('Horizontal', 'easy-elementor-addons'),
-                    'vertical' => __('Vertical', 'easy-elementor-addons'),
+                    'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
+                    'vertical' => esc_html__('Vertical', 'easy-elementor-addons'),
                 ],
                 'default' => 'horizontal',
             ]
@@ -67,19 +67,19 @@ class DualButton extends Widget_Base {
 
         $this->add_responsive_control(
             'button_align', [
-                'label' => __('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'flex-start' => [
-                        'title' => __('Left', 'easy-elementor-addons'),
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => __('Center', 'easy-elementor-addons'),
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'flex-end' => [
-                        'title' => __('Right', 'easy-elementor-addons'),
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -104,25 +104,25 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_text', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => 'true',
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => __('Primary Button', 'easy-elementor-addons'),
-                'placeholder' => __('Primary Button', 'easy-elementor-addons'),
+                'default' => esc_html__('Primary Button', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Primary Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button1_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
                 ],
@@ -131,7 +131,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_icon_new', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'button1_icon',
             ]
@@ -139,19 +139,19 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_icon_align', [
-                'label' => __('Icon Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'before',
                 'options' => [
-                    'before' => __( 'Before', 'easy-elementor-addons' ),
-                    'after'  => __( 'After', 'easy-elementor-addons' ),
+                    'before' => esc_html__( 'Before', 'easy-elementor-addons' ),
+                    'after'  => esc_html__( 'After', 'easy-elementor-addons' ),
                 ],
             ]
         );
 
         $this->add_control(
             'button1_icon_spacing', [
-                'label' => __('Icon Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -175,25 +175,25 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_text', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => 'true',
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => __('Secondary Button', 'easy-elementor-addons'),
-                'placeholder' => __('Secondary Button', 'easy-elementor-addons'),
+                'default' => esc_html__('Secondary Button', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Secondary Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button2_link', [
-                'label' => __('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => __('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
                 ],
@@ -202,7 +202,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_icon_new', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'button2_icon',
             ]
@@ -210,19 +210,19 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_icon_align', [
-                'label' => __('Icon Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'after',
                 'options' => [
-                    'before' => __('Before', 'easy-elementor-addons'),
-                    'after' => __('After', 'easy-elementor-addons'),
+                    'before' => esc_html__('Before', 'easy-elementor-addons'),
+                    'after' => esc_html__('After', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
             'button2_icon_spacing', [
-                'label' => __('Icon Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -244,23 +244,23 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_separator', [
-                'label' => __('Separator', 'easy-elementor-addons'),
+                'label' => esc_html__('Separator', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'separator_text', [
-                'label' => __('Text', 'easy-elementor-addons'),
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => __('Please leave the field blank to hide separator.', 'easy-elementor-addons'),
-                'default' => __('OR', 'easy-elementor-addons'),
-                'placeholder' => __('OR', 'easy-elementor-addons'),
+                'description' => esc_html__('Please leave the field blank to hide separator.', 'easy-elementor-addons'),
+                'default' => esc_html__('OR', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('OR', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'separator_icon_new', [
-                'label' => __('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'separator_icon',
             ]
@@ -270,25 +270,25 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_title_style', [
-                'label' => __('General', 'easy-elementor-addons'),
+                'label' => esc_html__('General', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'button_animation', [
-                'label' => __('Animation', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => __( 'None', 'easy-elementor-addons' ),
-                    'animation_1' => __('Style 1', 'easy-elementor-addons'),
-                    'animation_2' => __('Style 2', 'easy-elementor-addons'),
-                    'animation_3' => __('Style 3', 'easy-elementor-addons'),
-                    'animation_4' => __('Style 4', 'easy-elementor-addons'),
-                    'animation_5' => __('Style 5', 'easy-elementor-addons'),
-                    'animation_6' => __('Style 6', 'easy-elementor-addons'),
-                    'animation_7' => __('Style 7', 'easy-elementor-addons'),
-                    'animation_8' => __('Style 8', 'easy-elementor-addons'),
+                    'none' => esc_html__( 'None', 'easy-elementor-addons' ),
+                    'animation_1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'animation_2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'animation_3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'animation_4' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'animation_5' => esc_html__('Style 5', 'easy-elementor-addons'),
+                    'animation_6' => esc_html__('Style 6', 'easy-elementor-addons'),
+                    'animation_7' => esc_html__('Style 7', 'easy-elementor-addons'),
+                    'animation_8' => esc_html__('Style 8', 'easy-elementor-addons'),
                 ],
                 'prefix_class' => 'animation-',
                 'render_type' => 'template',
@@ -298,7 +298,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button_spacing', [
-                'label' => __('Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -316,7 +316,7 @@ class DualButton extends Widget_Base {
 
         $this->add_responsive_control(
             'text_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -336,7 +336,7 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_style_primary_button', [
-                'label' => __('Primary Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -352,13 +352,13 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_normal', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button1_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -369,7 +369,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_icon_color', [
-                'label' => __('Icon Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
@@ -382,7 +382,7 @@ class DualButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'button1_background_color',
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-button-1-wrapper',
             ]
         );
@@ -391,13 +391,13 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_hover', [
-                'label' => __('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button1_text_hover_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-1-wrapper:hover .eead-button-1  ' => 'color: {{VALUE}};',
@@ -407,7 +407,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_icon_hover_color', [
-                'label' => __('Icon Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-1-wrapper:hover .eead-db-icon-wrapper' => 'color: {{VALUE}};',
@@ -419,14 +419,14 @@ class DualButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'button1_background_color_hover',
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}}.animation-none .eead-button-1-wrapper:hover,{{WRAPPER}} .eead-button-1-wrapper:hover:before,{{WRAPPER}} .eead-button-1-wrapper:before',
             ]
         );
 
         $this->add_control(
             'button1_border_hover_color', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'button1_border_border!' => '',
@@ -466,7 +466,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button1_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -478,7 +478,7 @@ class DualButton extends Widget_Base {
 
         $this->add_responsive_control(
             'button1_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -491,7 +491,7 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_style_secondary_button', [
-                'label' => __('Secondary Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -507,13 +507,13 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button2_normal', [
-                'label' => __('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button2_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -524,7 +524,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_icon_color', [
-                'label' => __('Icon Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
@@ -537,7 +537,7 @@ class DualButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'button2_background_color',
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-button-2-wrapper',
             ]
         );
@@ -546,13 +546,13 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button2_hover', [
-                'label' => __('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
             'button2_text_hover_color', [
-                'label' => __('Text Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-2-wrapper:hover .eead-button-2' => 'color: {{VALUE}};',
@@ -562,7 +562,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_icon_hover_color', [
-                'label' => __('Icon Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-2-wrapper:hover .eead-db-icon-wrapper' => 'color: {{VALUE}};',
@@ -573,14 +573,14 @@ class DualButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'button2_background_color_hover',
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}}.animation-none .eead-button-2-wrapper:hover,{{WRAPPER}} .eead-button-2-wrapper:hover:before,{{WRAPPER}} .eead-button-2-wrapper:before',
             ]
         );
 
         $this->add_control(
             'button2_border_hover_color', [
-                'label' => __('Border Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'button2_border_border!' => '',
@@ -620,7 +620,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button2_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -632,7 +632,7 @@ class DualButton extends Widget_Base {
 
         $this->add_responsive_control(
             'button2_padding', [
-                'label' => __('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -645,14 +645,14 @@ class DualButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_style_separator', [
-                'label' => __('Separator', 'easy-elementor-addons'),
+                'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
             'separator_icon_size', [
-                'label' => __('Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -674,7 +674,7 @@ class DualButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'separator_typography',
-                'label' => __('Typography', 'easy-elementor-addons'),
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
                
                 'selector' => '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator',
                 'condition' => [
@@ -685,7 +685,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'separator_icon_width', [
-                'label' => __('Icon Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -708,7 +708,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'separator_icon_color', [
-                'label' => __('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 
@@ -721,7 +721,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'separator_background_color', [
-                'label' => __('Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator' => 'background-color: {{VALUE}};',
@@ -739,7 +739,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'separator_border_radius', [
-                'label' => __('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [

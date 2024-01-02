@@ -5,7 +5,7 @@ namespace EasyElementorAddons\Conditions;
 use EasyElementorAddons\Base\Condition;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
@@ -16,7 +16,7 @@ class Static_Page extends Condition {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Page', 'easy-elementor-addons' );
+		return esc_html__('Page', 'easy-elementor-addons');
 	}
 
 	public function get_control_value() {

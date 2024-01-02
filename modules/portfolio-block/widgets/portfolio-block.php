@@ -95,7 +95,7 @@ class PortfolioBlock extends Widget_Base {
             'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Title', 'easy-elementor-addons')
+                'default' => esc_html__('Title', 'easy-elementor-addons')
             ]
         );
 
@@ -117,7 +117,7 @@ class PortfolioBlock extends Widget_Base {
 
         $repeater->add_control(
             'link_button_icon', [
-                'label' => __('Link Button Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fa fa-link',
@@ -148,7 +148,7 @@ class PortfolioBlock extends Widget_Base {
 
         $repeater->add_control(
             'zoom_button_icon', [
-                'label' => __('Zoom Button Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Zoom Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fa fa-search',
@@ -189,31 +189,31 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
             'style', [
-                'label' => __('Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1' => __('Style 1', 'easy-elementor-addons'),
-                    'style2' => __('Style 2', 'easy-elementor-addons')
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons')
                 ],
             ]
         );
 
         $this->add_control(
             'layout_type', [
-                'label' => __('Layout Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Layout Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-portfolio-default',
                 'options' => [
-                    'eead-portfolio-carousel' => __('Carousel', 'easy-elementor-addons'),
-                    'eead-portfolio-default' => __('Default', 'easy-elementor-addons'),
+                    'eead-portfolio-carousel' => esc_html__('Carousel', 'easy-elementor-addons'),
+                    'eead-portfolio-default' => esc_html__('Default', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_responsive_control(
                 'image_height', [
-            'label' => __('Image Height', 'easy-elementor-addons'),
+            'label' => esc_html__('Image Height', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -234,7 +234,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_responsive_control(
                 'image_min_width', [
-            'label' => __('Image Min Width', 'easy-elementor-addons'),
+            'label' => esc_html__('Image Min Width', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -254,7 +254,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_responsive_control(
                 'grid_space', [
-            'label' => __('Grid Space', 'easy-elementor-addons'),
+            'label' => esc_html__('Grid Space', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -276,7 +276,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
             'show_zoom', [
-                'label' => __('Show Zoom', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Zoom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
@@ -287,7 +287,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
             'show_link', [
-                'label' => __('Show Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
@@ -298,7 +298,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
             'show_category', [
-                'label' => __('Show Category', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Category', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
@@ -330,10 +330,10 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
                 'infinite', [
-            'label' => __('Infinite Loop', 'easy-elementor-addons'),
+            'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
             'type' => Controls_Manager::SWITCHER,
-            'label_on' => __('Yes', 'easy-elementor-addons'),
-            'label_off' => __('No', 'easy-elementor-addons'),
+            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+            'label_off' => esc_html__('No', 'easy-elementor-addons'),
             'return_value' => 'yes',
             'default' => 'yes',
                 ]
@@ -498,7 +498,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_responsive_control(
                 'icon_size', [
-            'label' => __('Icon Size', 'easy-elementor-addons'),
+            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -800,7 +800,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
                 'dots_top_margin', [
-            'label' => __('Margin Top', 'easy-elementor-addons'),
+            'label' => esc_html__('Margin Top', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
@@ -822,7 +822,7 @@ class PortfolioBlock extends Widget_Base {
 
         $this->add_control(
                 'dots_right_margin', [
-            'label' => __('Dots Spacing', 'easy-elementor-addons'),
+            'label' => esc_html__('Dots Spacing', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'size_units' => ['px'],
             'range' => [
