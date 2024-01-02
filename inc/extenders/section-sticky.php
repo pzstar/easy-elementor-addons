@@ -38,7 +38,7 @@ Class SectionSticky {
 
         $section->start_controls_section(
             'section_sticky_controls', [
-                'label' => __('Section Sticky', 'easy-elementor-addons'),
+                'label' => esc_html__('Section Sticky', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
@@ -171,16 +171,16 @@ Class SectionSticky {
 
         $section->add_control(
             'section_sticky_off_media', [
-                'label' => __('Turn Off', 'easy-elementor-addons'),
+                'label' => esc_html__('Turn Off', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     '960' => [
-                        'title' => __('On Tablet', 'easy-elementor-addons'),
+                        'title' => esc_html__('On Tablet', 'easy-elementor-addons'),
                         'icon' => 'eicon-device-tablet',
                     ],
 
                     '768' => [
-                        'title' => __('On Mobile', 'easy-elementor-addons'),
+                        'title' => esc_html__('On Mobile', 'easy-elementor-addons'),
                         'icon' => 'eicon-device-mobile',
                     ],
                 ],
