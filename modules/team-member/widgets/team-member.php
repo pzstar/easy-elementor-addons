@@ -818,7 +818,7 @@ class TeamMember extends Widget_Base {
                 ?>
             </ul>
         </div>
-    <?php
+        <?php
     }
 
     protected function get_description() {

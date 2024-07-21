@@ -6,8 +6,7 @@ use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-function httpClientChunks(ResponseStreamInterface $responseStream)
-{
+function httpClientChunks(ResponseStreamInterface $responseStream) {
     foreach ($responseStream as $chunk) {
         yield $chunk->getContent();
     }

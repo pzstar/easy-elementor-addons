@@ -608,7 +608,7 @@ class DualHeading extends Widget_Base {
                 ?>
 
             </<?php echo esc_attr($settings['heading_html_tag']); ?>>
-        <?php
+            <?php
         }
     }
 }

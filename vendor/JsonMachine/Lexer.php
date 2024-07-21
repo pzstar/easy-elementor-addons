@@ -2,8 +2,7 @@
 
 namespace JsonMachine;
 
-class Lexer implements \IteratorAggregate
-{
+class Lexer implements \IteratorAggregate {
     /** @var resource */
     private $bytesIterator;
 
@@ -14,16 +13,14 @@ class Lexer implements \IteratorAggregate
     /**
      * @param \Traversable|array $byteChunks
      */
-    public function __construct($byteChunks)
-    {
+    public function __construct($byteChunks) {
         $this->bytesIterator = $byteChunks;
     }
 
     /**
      * @return \Generator
      */
-    public function getIterator()
-    {
+    public function getIterator() {
         $inString = false;
         $tokenBuffer = '';
         $isEscaping = false;
@@ -53,7 +50,7 @@ class Lexer implements \IteratorAggregate
                     if ($byte === '"' && !$isEscaping) {
                         $inString = false;
                     }
-                    $isEscaping = ($byte =='\\' && !$isEscaping);
+                    $isEscaping = ($byte == '\\' && !$isEscaping);
                     $tokenBuffer .= $byte;
                     $width++;
                     continue;
@@ -75,7 +72,7 @@ class Lexer implements \IteratorAggregate
                     }
                     if ($$byte) { // is not whitespace
                         yield $byte;
-                    // track line number and reset column for each newline
+                        // track line number and reset column for each newline
                     } elseif ($byte === "\r" || $byte === "\n") {
                         $trackingLineBreak = ($byte === "\r");
                         $this->line++;
@@ -98,24 +95,21 @@ class Lexer implements \IteratorAggregate
     /**
      * @return int
      */
-    public function getPosition()
-    {
+    public function getPosition() {
         return $this->position;
     }
 
     /**
      * @return integer The line number of the lexeme currently being processed (index starts at one).
      */
-    public function getLine()
-    {
+    public function getLine() {
         return $this->line;
     }
 
     /**
      * @return integer The, currently being processed, lexeme's position within the line (index starts at one).
      */
-    public function getColumn()
-    {
+    public function getColumn() {
         return $this->column;
     }
 }

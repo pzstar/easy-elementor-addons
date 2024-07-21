@@ -4,8 +4,7 @@
 namespace JsonMachine\JsonDecoder;
 
 
-interface Decoder
-{
+interface Decoder {
     /**
      * @param string $jsonScalarKey
      * @return DecodingResult

@@ -644,7 +644,7 @@ class ImageAccordion extends Widget_Base {
                     transition: all .3s .3s;
                 }
             </style>
-        <?php
+            <?php
         }
     }
 }

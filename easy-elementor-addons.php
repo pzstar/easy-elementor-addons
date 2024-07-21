@@ -31,11 +31,11 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
     class Easy_Elementor_Addons {
 
-        private static $instance = null;
+        private static $instance = NULL;
 
         public static function get_instance() {
             // If the single instance hasn't been set, set it now.
-            if (self::$instance == null) {
+            if (self::$instance == NULL) {
                 self::$instance = new self;
             }
             return self::$instance;

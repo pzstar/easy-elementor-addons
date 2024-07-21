@@ -4,8 +4,7 @@
 namespace JsonMachine\JsonDecoder;
 
 
-trait JsonDecodingTrait
-{
+trait JsonDecodingTrait {
     /**
      * @var bool
      */
@@ -21,20 +20,18 @@ trait JsonDecodingTrait
      */
     private $options;
 
-    public function __construct($assoc = false, $depth = 512, $options = 0)
-    {
+    public function __construct($assoc = false, $depth = 512, $options = 0) {
         $this->assoc = $assoc;
         $this->depth = $depth;
         $this->options = $options;
     }
 
 
-    public function decodeKey($jsonScalarKey)
-    {
+    public function decodeKey($jsonScalarKey) {
         // inlined
         $decoded = json_decode($jsonScalarKey, $this->assoc, $this->depth, $this->options);
-        if ($decoded === null && $jsonScalarKey !== 'null') {
-            return new DecodingResult(false, null, json_last_error_msg());
+        if ($decoded === NULL && $jsonScalarKey !== 'null') {
+            return new DecodingResult(false, NULL, json_last_error_msg());
         }
         return new DecodingResult(true, $decoded);
     }

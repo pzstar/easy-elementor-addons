@@ -1526,7 +1526,7 @@ class TeamMemberCarousel extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string('team_member_description'); ?>>
 				<?php echo esc_html($item['team_member_description']); ?>
 			</div>
-		<?php
+			<?php
 		}
 	}
 

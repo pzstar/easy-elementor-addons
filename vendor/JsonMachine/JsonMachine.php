@@ -4,8 +4,7 @@ namespace JsonMachine;
 
 use JsonMachine\JsonDecoder\Decoder;
 
-class JsonMachine implements \IteratorAggregate
-{
+class JsonMachine implements \IteratorAggregate {
     /**
      * @var \Traversable
      */
@@ -26,8 +25,7 @@ class JsonMachine implements \IteratorAggregate
      * @param string $jsonPointer
      * @param Decoder $jsonDecoder
      */
-    public function __construct($bytesIterator, $jsonPointer = '', $jsonDecoder = null)
-    {
+    public function __construct($bytesIterator, $jsonPointer = '', $jsonDecoder = NULL) {
         $this->bytesIterator = $bytesIterator;
         $this->jsonPointer = $jsonPointer;
         $this->jsonDecoder = $jsonDecoder;
@@ -39,8 +37,7 @@ class JsonMachine implements \IteratorAggregate
      * @param Decoder $jsonDecoder
      * @return self
      */
-    public static function fromString($string, $jsonPointer = '', $jsonDecoder = null)
-    {
+    public static function fromString($string, $jsonPointer = '', $jsonDecoder = NULL) {
         return new static(new StringBytes($string), $jsonPointer, $jsonDecoder);
     }
 
@@ -50,8 +47,7 @@ class JsonMachine implements \IteratorAggregate
      * @param Decoder $jsonDecoder
      * @return self
      */
-    public static function fromFile($file, $jsonPointer = '', $jsonDecoder = null)
-    {
+    public static function fromFile($file, $jsonPointer = '', $jsonDecoder = NULL) {
         return new static(new StreamBytes(fopen($file, 'r')), $jsonPointer, $jsonDecoder);
     }
 
@@ -61,8 +57,7 @@ class JsonMachine implements \IteratorAggregate
      * @param Decoder $jsonDecoder
      * @return self
      */
-    public static function fromStream($stream, $jsonPointer = '', $jsonDecoder = null)
-    {
+    public static function fromStream($stream, $jsonPointer = '', $jsonDecoder = NULL) {
         return new static(new StreamBytes($stream), $jsonPointer, $jsonDecoder);
     }
 
@@ -72,13 +67,11 @@ class JsonMachine implements \IteratorAggregate
      * @param Decoder $jsonDecoder
      * @return self
      */
-    public static function fromIterable($iterable, $jsonPointer = '', $jsonDecoder = null)
-    {
+    public static function fromIterable($iterable, $jsonPointer = '', $jsonDecoder = NULL) {
         return new static($iterable, $jsonPointer, $jsonDecoder);
     }
 
-    public function getIterator()
-    {
+    public function getIterator() {
         return new Parser(new Lexer($this->bytesIterator), $this->jsonPointer, $this->jsonDecoder);
     }
 }

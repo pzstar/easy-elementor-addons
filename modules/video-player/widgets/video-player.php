@@ -515,11 +515,11 @@ class VideoPlayer extends Widget_Base {
         ?>
 
         <div <?php $this->print_render_attribute_string('play_button'); ?>><?php
-            if ($settings['play_button_type'] === 'icon') {
-                \Elementor\Icons_Manager::render_icon($settings['play_button_icon'], ['aria-hidden' => 'true']);
-            } elseif ('image' === $settings['play_button_type']) {
-                echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'play_button_image');
-            } ?>
+          if ($settings['play_button_type'] === 'icon') {
+              \Elementor\Icons_Manager::render_icon($settings['play_button_icon'], ['aria-hidden' => 'true']);
+          } elseif ('image' === $settings['play_button_type']) {
+              echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'play_button_image');
+          } ?>
         </div>
         <?php
     }

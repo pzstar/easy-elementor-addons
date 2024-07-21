@@ -858,13 +858,13 @@ class HorizontalTimeline extends Widget_Base {
                                     <div class="eead-point-icon">
                                         <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>
                                     </div>
-                                <?php
+                                    <?php
                                 } else if ($item['point_type'] == 'text') {
                                     ?>
                                         <div class="eead-point-text">
                                         <?php echo esc_html($item['point_text']); ?>
                                         </div>
-                                <?php
+                                    <?php
                                 }
                             }
                             ?>

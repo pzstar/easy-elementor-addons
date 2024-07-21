@@ -2,8 +2,7 @@
 
 namespace JsonMachine;
 
-class StringBytes implements \IteratorAggregate
-{
+class StringBytes implements \IteratorAggregate {
     /** @var string */
     private $string;
 
@@ -14,8 +13,7 @@ class StringBytes implements \IteratorAggregate
      * @param string $string
      * @param int $chunkSize
      */
-    public function __construct($string, $chunkSize = 1024 * 8)
-    {
+    public function __construct($string, $chunkSize = 1024 * 8) {
         $this->string = $string;
         $this->chunkSize = $chunkSize;
     }
@@ -23,10 +21,9 @@ class StringBytes implements \IteratorAggregate
     /**
      * @return \Generator
      */
-    public function getIterator()
-    {
+    public function getIterator() {
         $len = strlen($this->string);
-        for ($i=0; $i<$len; $i += $this->chunkSize) {
+        for ($i = 0; $i < $len; $i += $this->chunkSize) {
             yield substr($this->string, $i, $this->chunkSize);
         }
     }

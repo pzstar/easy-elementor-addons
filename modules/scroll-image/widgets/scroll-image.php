@@ -617,7 +617,7 @@ class ScrollImage extends Widget_Base {
 				<?php if ($settings['image_framing']) { ?>
 				</div>
 			</div>
-		<?php
+			<?php
 				}
 	}
 

@@ -86,11 +86,13 @@ class Sticky_Column {
         if ('true' === $settings['eea_sidebar_sticky']) {
             $top_spacing = $settings['eea_sidebar_sticky_top_spacing'] ? $settings['eea_sidebar_sticky_top_spacing'] : 0;
             $bottom_spacing = $settings['eea_sidebar_sticky_bottom_spacing'] ? $settings['eea_sidebar_sticky_bottom_spacing'] : 0;
-            $widget->add_render_attribute('_wrapper', array(
-                'class' => 'eea-elementor-sticky-column',
-                'data-top-spacing' => absint($top_spacing),
-                'data-bottom-spacing' => absint($bottom_spacing)
-            )
+            $widget->add_render_attribute(
+                '_wrapper',
+                array(
+                    'class' => 'eea-elementor-sticky-column',
+                    'data-top-spacing' => absint($top_spacing),
+                    'data-bottom-spacing' => absint($bottom_spacing)
+                )
             );
         }
     }

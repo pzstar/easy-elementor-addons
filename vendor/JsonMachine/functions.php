@@ -9,8 +9,7 @@ use Symfony\Contracts\HttpClient\ResponseStreamInterface;
  * @param iterable $iterable
  * @return \Generator
  */
-function objects($iterable)
-{
+function objects($iterable) {
     trigger_error("Function 'objects' is deprecated in favor of custom decoders. Use ExtJsonDecoder instead", E_USER_DEPRECATED);
     foreach ($iterable as $item) {
         yield (object) $item;
@@ -22,8 +21,7 @@ function objects($iterable)
  * @param ResponseStreamInterface $responseStream
  * @return \Generator
  */
-function httpClientChunks(ResponseStreamInterface $responseStream)
-{
+function httpClientChunks(ResponseStreamInterface $responseStream) {
     trigger_error("Function 'httpClientChunks' is deprecated and will be removed. Please make your own.", E_USER_DEPRECATED);
     foreach ($responseStream as $chunk) {
         yield $chunk->getContent();
