@@ -47,15 +47,17 @@ class AccordionBlock extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-                'accordion_settings', [
-            'label' => esc_html__('Accordion', 'easy-elementor-addons')
-                ]
+            'accordion_settings',
+            [
+                'label' => esc_html__('Accordion', 'easy-elementor-addons')
+            ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'keep_open', [
+            'keep_open',
+            [
                 'label' => esc_html__('Show Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
@@ -66,7 +68,8 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title', [
+            'title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Accordion', 'easy-elementor-addons')
@@ -74,19 +77,21 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'content_type', [
+            'content_type',
+            [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
                 'options' => [
-                    'elementor_template'  => esc_html__('Elementor Template', 'easy-elementor-addons'),
+                    'elementor_template' => esc_html__('Elementor Template', 'easy-elementor-addons'),
                     'wisiwyg' => esc_html__('WISIWYG', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $repeater->add_control(
-            'elementor_template', [
+            'elementor_template',
+            [
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
@@ -97,7 +102,8 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'wisiwyg_content', [
+            'wisiwyg_content',
+            [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'default' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.',
@@ -107,39 +113,41 @@ class AccordionBlock extends Widget_Base {
         );
 
         $repeater->add_responsive_control(
-                'content_height', [
-            'label' => esc_html__('Content Height', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 30,
-                    'max' => 2000,
-                    'step' => 1,
-                ]
-            ],
-            'default' => [
-                'unit' => 'px',
-                'size' => 100,
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 100,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 200,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 100,
-                'unit' => 'px',
-            ],
-                ]
+            'content_height',
+            [
+                'label' => esc_html__('Content Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 30,
+                        'max' => 2000,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 100,
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 100,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 200,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 100,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_control(
-            'items', [
+            'items',
+            [
                 'label' => esc_html__('Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -153,7 +161,8 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'accordion_open_icon', [
+            'accordion_open_icon',
+            [
                 'label' => esc_html__('Open Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon',
@@ -179,7 +188,8 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'accordion_close_icon', [
+            'accordion_close_icon',
+            [
                 'label' => esc_html__('Close Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon_active',
@@ -208,7 +218,8 @@ class AccordionBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'layout', [
+            'layout',
+            [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -223,88 +234,96 @@ class AccordionBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'title_section_style', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'title_section_style',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'title_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-accordion-container .eead-each-accordion .eead-accordion-title-section' => 'background: {{VALUE}}',
-            ],
-                ]
+            'title_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-container .eead-each-accordion .eead-accordion-title-section' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'title_color', [
-            'label' => esc_html__('Title Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-accordion-title-section h3' => 'color: {{VALUE}}',
-            ],
-                ]
+            'title_color',
+            [
+                'label' => esc_html__('Title Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-title-section h3' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-accordion-title-section h3',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-accordion-title-section h3',
+            ]
         );
 
         $this->add_control(
-                'icon_color', [
-            'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-accordion-title-section .eead-accordion-icon i' => 'color: {{VALUE}}',
-            ],
-                ]
+            'icon_color',
+            [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-title-section .eead-accordion-icon i' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'icon_size', [
-            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 10,
-                    'max' => 80,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-accordion-title-section .eead-accordion-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-            ],
-                ]
+            'icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-title-section .eead-accordion-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-                'icon_background_width', [
-            'label' => esc_html__('Icon Background Width', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 10,
-                    'max' => 120,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-accordion-container.style1 .eead-accordion-icon' => 'width: {{SIZE}}{{UNIT}};',
-            ],
-                ]
+            'icon_background_width',
+            [
+                'label' => esc_html__('Icon Background Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 120,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-container.style1 .eead-accordion-icon' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-            'title_padding', [
+            'title_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -317,38 +336,42 @@ class AccordionBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'content_section_style', [
-            'label' => esc_html__('Content', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'content_section_style',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'content_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-accordion .eead-accordion-content' => 'background: {{VALUE}}',
-            ],
-                ]
+            'content_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-accordion .eead-accordion-content' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'content_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-accordion .eead-accordion-content' => 'color: {{VALUE}}',
-            ],
-                ]
+            'content_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-accordion .eead-accordion-content' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'content_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-each-accordion .eead-accordion-content',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'content_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-each-accordion .eead-accordion-content',
+            ]
         );
 
         $this->end_controls_section();
@@ -363,9 +386,9 @@ class AccordionBlock extends Widget_Base {
             <?php
             foreach ($accordions as $key => $accordion) {
                 $content_height = array(
-                    'content_height' => $accordion[ 'content_height' ]['size'],
-                    'content_height_tablet' => isset($accordion[ 'content_height_tablet' ]['size']) ? $accordion[ 'content_height_tablet' ]['size'] : 200,
-                    'content_height_mobile' => isset($accordion[ 'content_height_mobile' ]['size']) ? $accordion[ 'content_height_mobile' ]['size'] : 100,
+                    'content_height' => $accordion['content_height']['size'],
+                    'content_height_tablet' => isset($accordion['content_height_tablet']['size']) ? $accordion['content_height_tablet']['size'] : 200,
+                    'content_height_mobile' => isset($accordion['content_height_mobile']['size']) ? $accordion['content_height_mobile']['size'] : 100,
                 );
                 $params = json_encode($content_height);
                 ?>
@@ -373,7 +396,7 @@ class AccordionBlock extends Widget_Base {
                     <div class="eead-accordion-title-section <?php echo (($accordion['keep_open'] == 'yes') ? 'active' : ''); ?>" data-height="<?php echo esc_attr($params); ?>">
                         <h3><?php echo esc_html($accordion['title']); ?></h3>
                         <div class="eead-accordion-icon">
-                            <div class="eead-accordion-open-icon">    
+                            <div class="eead-accordion-open-icon">
                                 <?php Icons_Manager::render_icon($settings['accordion_open_icon'], ['aria-hidden' => 'true']); ?>
                             </div>
                             <div class="eead-accordion-close-icon">
@@ -389,7 +412,7 @@ class AccordionBlock extends Widget_Base {
                                 echo $this->wisiwyg_text_parser($accordion['wisiwyg_content']);
 
                             } else if ($accordion['content_type'] == 'elementor_template') {
-                                echo $this->elementor()->frontend->get_builder_content_for_display( $accordion['elementor_template'] );
+                                echo $this->elementor()->frontend->get_builder_content_for_display($accordion['elementor_template']);
                             }
                             ?>
                         </p>

@@ -44,26 +44,28 @@ class HorizontalTimeline extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return [ 'mcscrollbar' ];
+        return ['mcscrollbar'];
     }
 
     public function get_script_depends() {
-        return [ 'mcscrollbar' ];
+        return ['mcscrollbar'];
     }
 
     /** Controls */
     protected function register_controls() {
 
         $this->start_controls_section(
-                'items', [
-            'label' => esc_html__('Items', 'easy-elementor-addons'),
-                ]
+            'items',
+            [
+                'label' => esc_html__('Items', 'easy-elementor-addons'),
+            ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'enable', [
+            'enable',
+            [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
@@ -74,7 +76,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'image', [
+            'image',
+            [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => array(
@@ -84,14 +87,16 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_group_control(
-            Group_Control_Image_Size::get_type(), [
+            Group_Control_Image_Size::get_type(),
+            [
                 'name' => 'item_image',
                 'default' => 'full',
             ]
         );
 
         $repeater->add_control(
-            'title', [
+            'title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array('active' => true),
@@ -99,21 +104,24 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'meta', [
+            'meta',
+            [
                 'label' => esc_html__('Meta', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
             ]
         );
 
         $repeater->add_control(
-            'description', [
+            'description',
+            [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
             ]
         );
 
         $repeater->add_control(
-            'point_heading', [
+            'point_heading',
+            [
                 'label' => esc_html__('Point', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -121,7 +129,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'point_type', [
+            'point_type',
+            [
                 'label' => esc_html__('Point Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'icon',
@@ -133,7 +142,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'icon', [
+            'icon',
+            [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -145,7 +155,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'point_text', [
+            'point_text',
+            [
                 'label' => esc_html__('Point Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'A',
@@ -154,7 +165,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button', [
+            'button',
+            [
                 'label' => esc_html__('Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -162,7 +174,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button_text', [
+            'button_text',
+            [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Read More',
@@ -170,7 +183,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button_url', [
+            'button_url',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'default' => [
@@ -182,28 +196,29 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'item_list', [
+            'item_list',
+            [
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
                         'title' => esc_html__('Item #1', 'easy-elementor-addons'),
-                        'description'  => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
+                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
                         'meta' => esc_html__('Thursday, August 31, 2018', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #2', 'easy-elementor-addons'),
-                        'description'  => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
+                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
                         'meta' => esc_html__('Thursday, August 29, 2018', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #3', 'easy-elementor-addons'),
-                        'description'  => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
+                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
                         'meta' => esc_html__('Thursday, August 28, 2018', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #4', 'easy-elementor-addons'),
-                        'description'  => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
+                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
                         'meta' => esc_html__('Thursday, August 27, 2018', 'easy-elementor-addons'),
                     ],
                 ],
@@ -214,18 +229,20 @@ class HorizontalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'settings', [
-            'label' => esc_html__('Settings', 'easy-elementor-addons'),
-                ]
+            'settings',
+            [
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'layout', [
+            'layout',
+            [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
                 ],
@@ -233,7 +250,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'position', [
+            'position',
+            [
                 'label' => esc_html__('Layout Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'top',
@@ -251,7 +269,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'alignment', [
+            'alignment',
+            [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
@@ -276,35 +295,39 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->end_controls_section();
-       
+
         /*Style Tab*/
         $this->start_controls_section(
-                'title_style', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'title_style',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'title_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-title h2 a' => 'color: {{VALUE}}',
-            ],
-                ]
+            'title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-title h2 a' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-htimeline-title h2 a',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-htimeline-title h2 a',
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'title_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -314,7 +337,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'title_border_radius', [
+            'title_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -325,152 +349,167 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-                'title_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-title h2 a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'title_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-title h2 a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-                'title_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-title h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'title_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-title h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'description_style', [
-            'label' => esc_html__('Description', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'description_style',
+            [
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'description_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-description' => 'color: {{VALUE}}',
-            ],
-                ]
+            'description_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-description' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'description_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-htimeline-description',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-htimeline-description',
+            ]
         );
 
         $this->add_control(
-                'description_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'description_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'readmore_style', [
-            'label' => esc_html__('Read More', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'readmore_style',
+            [
+                'label' => esc_html__('Read More', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->start_controls_tabs(
-                'readmore_tabs'
+            'readmore_tabs'
         );
 
         $this->start_controls_tab(
-                'readmore_tab_normal', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'readmore_tab_normal',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'readmore_color_normal', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a' => 'color: {{VALUE}}',
-            ],
-                ]
+            'readmore_color_normal',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'readmore_bg_color_normal', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a' => 'background: {{VALUE}}',
-            ],
-                ]
+            'readmore_bg_color_normal',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'readmore_border_color_normal', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a' => 'border: 1px solid {{VALUE}}',
-            ],
-                ]
+            'readmore_border_color_normal',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a' => 'border: 1px solid {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'readmore_tab_hover', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'readmore_tab_hover',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'readmore_color_hover', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a:hover' => 'color: {{VALUE}}',
-            ],
-                ]
+            'readmore_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a:hover' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'readmore_bg_color_hover', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a:hover' => 'background: {{VALUE}}',
-            ],
-                ]
+            'readmore_bg_color_hover',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a:hover' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'readmore_border_color_hover', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-more-button a:hover' => 'border: 1px solid {{VALUE}}',
-            ],
-                ]
+            'readmore_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-more-button a:hover' => 'border: 1px solid {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
@@ -478,16 +517,18 @@ class HorizontalTimeline extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'readmore_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-more-button a',
-            'separator' => 'before',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'readmore_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-more-button a',
+                'separator' => 'before',
+            ]
         );
 
         $this->add_control(
-            'readmore_border_radius', [
+            'readmore_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -498,81 +539,89 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-                'readmore_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-card .eead-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'readmore_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-card .eead-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-                'readmore_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-card .eead-more-button a' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'readmore_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-card .eead-more-button a' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
 
         $this->start_controls_section(
-                'meta_style', [
-            'label' => esc_html__('Meta', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'meta_style',
+            [
+                'label' => esc_html__('Meta', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'meta_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-meta,
+            'meta_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-meta,
                  {{WRAPPER}} .style2 .eead-htimeline-item:nth-child(even) .eead-htimeline-meta' => 'color: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_control(
-                'meta_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-meta,
+            'meta_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-meta,
                  {{WRAPPER}} .style2 .eead-htimeline-item:nth-child(even) .eead-htimeline-meta' => 'background: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'meta_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-htimeline-meta',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'meta_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-htimeline-meta',
+            ]
         );
 
         $this->add_control(
-                'meta_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'meta_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'meta_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -582,7 +631,8 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'meta_border_radius', [
+            'meta_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -593,102 +643,110 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-                'meta_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'meta_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'time_point_style', [
-            'label' => esc_html__('Time Point', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'time_point_style',
+            [
+                'label' => esc_html__('Time Point', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'time_point_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-item .eead-point-icon i,
+            'time_point_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-item .eead-point-icon i,
                  {{WRAPPER}} .eead-htimeline-item .eead-point-text' => 'color: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_control(
-                'time_point_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-item .eead-point-icon,
+            'time_point_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-item .eead-point-icon,
                  {{WRAPPER}} .eead-htimeline-item .eead-point-text' => 'background: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_control(
-                'time_point_outline_color', [
-            'label' => esc_html__('Outline Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .style1 .eead-point-icon,
+            'time_point_outline_color',
+            [
+                'label' => esc_html__('Outline Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .style1 .eead-point-icon,
                  {{WRAPPER}} .style1 .eead-point-text,
                  {{WRAPPER}} .style2 .eead-point-icon,
                  {{WRAPPER}} .style2 .eead-point-text' => 'border: 3px solid {{VALUE}}',
 
-                '{{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-icon,
+                    '{{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-icon,
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-text' => 'border: 10px solid {{VALUE}}'
-            ],
-            'condition' => ['layout!' => 'style2' ]
-                ]
+                ],
+                'condition' => ['layout!' => 'style2']
+            ]
         );
 
         $this->add_control(
-                'timeline_color', [
-            'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-wrap .style1 .eead-point-icon:before, 
+            'timeline_color',
+            [
+                'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-wrap .style1 .eead-point-icon:before, 
                  {{WRAPPER}} .eead-htimeline-wrap .style1 .eead-point-text:before,
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-icon:before, 
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-text:before,
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-icon:after,
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-point-text:after' => 'background: {{VALUE}}',
-                '{{WRAPPER}} .eead-htimeline-wrap .style1 .eead-htimeline-card-content,
+                    '{{WRAPPER}} .eead-htimeline-wrap .style1 .eead-htimeline-card-content,
                  {{WRAPPER}} .eead-htimeline-wrap .style3 .eead-htimeline-card-content' => 'border: 1px solid {{VALUE}}'
-            ],
-            'condition' => ['layout!' => 'style2' ]
-                ]
+                ],
+                'condition' => ['layout!' => 'style2']
+            ]
         );
 
         $this->add_control(
-                'timeline_circle_color', [
-            'label' => esc_html__('Circle Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-htimeline-wrap .style3 .eead-htimeline-circle' => 'background: {{VALUE}}'
-            ],
-            'condition' => ['layout' => 'style3' ]
-                ]
+            'timeline_circle_color',
+            [
+                'label' => esc_html__('Circle Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-wrap .style3 .eead-htimeline-circle' => 'background: {{VALUE}}'
+                ],
+                'condition' => ['layout' => 'style3']
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'time_point_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-htimeline-item .eead-point-text',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'time_point_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-htimeline-item .eead-point-text',
+            ]
         );
 
-        $this->end_controls_section();        
+        $this->end_controls_section();
     }
 
     /** Render Layout */
@@ -701,7 +759,7 @@ class HorizontalTimeline extends Widget_Base {
 
         <style>
             .eead-htimeline-lists #mCSB_1_container {
-                display: flex; 
+                display: flex;
             }
         </style>
 
@@ -710,8 +768,8 @@ class HorizontalTimeline extends Widget_Base {
 
             <div class="eead-htimeline-lists eead-horizontal-timeline-scrollbar <?php echo esc_attr($layout) . ' ' . esc_attr($position); ?>">
                 <?php
-                foreach($settings['item_list'] as $key => $item) {
-                    if($item['enable'] != 'yes') {
+                foreach ($settings['item_list'] as $key => $item) {
+                    if ($item['enable'] != 'yes') {
                         continue;
                     }
                     ?>
@@ -724,10 +782,10 @@ class HorizontalTimeline extends Widget_Base {
                                 if ($settings['layout'] != 'style3') {
                                     ?>
                                     <div class="eead-htimeline-post-image">
-                                        <?php  
-                                        if( !$item['image'] ) {
+                                        <?php
+                                        if (!$item['image']) {
                                             $placeholder_img = \Elementor\Utils::get_placeholder_image_src();
-                                            echo '<img src="'.esc_url($placeholder_img).'" >';
+                                            echo '<img src="' . esc_url($placeholder_img) . '" >';
                                         } else {
                                             echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         }
@@ -747,13 +805,12 @@ class HorizontalTimeline extends Widget_Base {
                                 <div class="eead-htimeline-title">
                                     <h2>
                                         <?php
-                                        if (!empty($item['button_url']['url']) && !empty($item['title'])) { 
+                                        if (!empty($item['button_url']['url']) && !empty($item['title'])) {
                                             echo '<a href="' . esc_url($item['button_url']['url']) . '">';
-                                            echo esc_html($item['title']); 
+                                            echo esc_html($item['title']);
                                             echo '</a>';
-                                        }
-                                        else {
-                                            echo esc_html($item['title']); 
+                                        } else {
+                                            echo esc_html($item['title']);
                                         }
                                         ?>
                                     </h2>
@@ -773,8 +830,8 @@ class HorizontalTimeline extends Widget_Base {
                                     <p><?php echo esc_html($item['description']); ?></p>
                                 </div>
 
-                                <?php 
-                                if ($settings['layout'] == 'style1' || $settings['layout'] == 'style2') { 
+                                <?php
+                                if ($settings['layout'] == 'style1' || $settings['layout'] == 'style2') {
                                     if ($item['button_url']['url']) {
                                         ?>
                                         <div class="eead-more-button">
@@ -784,33 +841,32 @@ class HorizontalTimeline extends Widget_Base {
                                         </div>
                                         <?php
                                     }
-                                } 
+                                }
                                 ?>
                             </div>
 
                             <?php
-                            if( $settings['layout'] == 'style3' ) {
+                            if ($settings['layout'] == 'style3') {
                                 echo '<div class="eead-htimeline-circle"></div>';
                             }
                             ?>
-                            
+
                             <?php
                             if ($settings['layout'] == 'style1' || $settings['layout'] == 'style3') {
                                 if ($item['point_type'] == 'icon') {
                                     ?>
                                     <div class="eead-point-icon">
-                                        <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>    
+                                        <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>
                                     </div>
-                                <?php 
-                                } 
-                                else if ($item['point_type'] == 'text') {
+                                <?php
+                                } else if ($item['point_type'] == 'text') {
                                     ?>
-                                    <div class="eead-point-text">
+                                        <div class="eead-point-text">
                                         <?php echo esc_html($item['point_text']); ?>
-                                    </div>
-                                    <?php 
-                                } 
-                            } 
+                                        </div>
+                                <?php
+                                }
+                            }
                             ?>
 
                             <?php
@@ -824,7 +880,7 @@ class HorizontalTimeline extends Widget_Base {
                             ?>
                         </div>
                     </div>
-                    
+
                     <?php
                 }
                 ?>

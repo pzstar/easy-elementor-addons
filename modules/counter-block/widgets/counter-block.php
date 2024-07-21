@@ -54,25 +54,28 @@ class CounterBlock extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-                'counter', [
-            'label' => esc_html__('Counter', 'easy-elementor-addons'),
-                ]
+            'counter',
+            [
+                'label' => esc_html__('Counter', 'easy-elementor-addons'),
+            ]
         );
 
 
         $this->add_control(
-                'icon', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'type' => Controls_Manager::ICONS,
-            'default' => [
-                'value' => 'fa fa-star',
-                'library' => 'solid',
-            ],
-                ]
+            'icon',
+            [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fa fa-star',
+                    'library' => 'solid',
+                ],
+            ]
         );
 
         $this->add_control(
-            'title', [
+            'title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -81,23 +84,26 @@ class CounterBlock extends Widget_Base {
         );
 
         $this->add_control(
-                'count', [
-            'label' => esc_html__('Count Value (Number Only)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 500,
-                ]
+            'count',
+            [
+                'label' => esc_html__('Count Value (Number Only)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 500,
+            ]
         );
 
         $this->add_control(
-                'starting_value', [
-            'label' => esc_html__('Starting Value (Number Only)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 1,
-                ]
+            'starting_value',
+            [
+                'label' => esc_html__('Starting Value (Number Only)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 1,
+            ]
         );
 
         $this->add_control(
-            'pre_text', [
+            'pre_text',
+            [
                 'label' => esc_html__('Pre Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -105,7 +111,8 @@ class CounterBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'post_text', [
+            'post_text',
+            [
                 'label' => esc_html__('Post Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -115,14 +122,16 @@ class CounterBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'additional_settings', [
-            'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_CONTENT,
-                ]
+            'additional_settings',
+            [
+                'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_CONTENT,
+            ]
         );
 
         $this->add_control(
-            'counter_style', [
+            'counter_style',
+            [
                 'label' => esc_html__('Counter Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style2',
@@ -138,294 +147,319 @@ class CounterBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'box_style', [
-            'label' => esc_html__('Box Styles', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'box_style',
+            [
+                'label' => esc_html__('Box Styles', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'box_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter' => 'background: {{VALUE}}',
-            ],
-                ]
+            'box_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'box_border_color', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#4ec5ef',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .style1 .eead-counter, 
+            'box_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#4ec5ef',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .style1 .eead-counter, 
                  {{WRAPPER}} .eead-counter-section .style3 .eead-counter:before' => 'border-color: {{VALUE}}',
-                '{{WRAPPER}} .eead-counter-section .style1 .eead-counter:after, 
+                    '{{WRAPPER}} .eead-counter-section .style1 .eead-counter:after, 
                  {{WRAPPER}} .eead-counter-section .style1 .eead-counter:before,
                  {{WRAPPER}} .eead-counter-section .style2 .eead-counter:before, 
                  {{WRAPPER}} .eead-counter-section .style2 .eead-counter:after, 
                  {{WRAPPER}} .eead-counter-section .style2 .eead-counter>span:before, 
                  {{WRAPPER}} .eead-counter-section .style2 .eead-counter>span:after' => 'background: {{VALUE}}'
-            ],
-            'condition' => [
-                'counter_style!' => 'style4' 
-            ]
+                ],
+                'condition' => [
+                    'counter_style!' => 'style4'
                 ]
+            ]
         );
 
         $this->add_control(
-                'box_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'box_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'icon_style', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
-        );
-
-        $this->add_control(
-                'icon_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-icon i' => 'color: {{VALUE}}',
-            ],
-                ]
-        );
-
-        
-
-        $this->add_control(
-                'icon_border_color', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
-            ],
-            'condition' => [
-                'counter_style' => 'style2'
+            'icon_style',
+            [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
             ]
-                ]
         );
 
         $this->add_control(
-                'icon_size', [
-            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 10,
-                    'max' => 80,
-                    'step' => 1,
-                ]
-            ],
-            'default' => [
-                'unit' => 'px',
-                'size' => 30,
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'style_4_icon_spacing', [
-            'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 20,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .style4 .eead-counter-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-            ],
-            'condition' => [
-                'counter_style' => 'style4'
+            'icon_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-icon i' => 'color: {{VALUE}}',
+                ],
             ]
-                ]
         );
 
-        $this->end_controls_section();     
 
-        $this->start_controls_section(
-                'pre_text_style', [
-            'label' => esc_html__('Pre Text', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
+
+        $this->add_control(
+            'icon_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
+                ],
+                'condition' => [
+                    'counter_style' => 'style2'
                 ]
+            ]
         );
 
         $this->add_control(
-                'pre_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text' => 'color: {{VALUE}}',
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'pre_text_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text',
-                ]
+            'icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 30,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-                'pre_text_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
+            'style_4_icon_spacing',
+            [
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 20,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .style4 .eead-counter-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'counter_style' => 'style4'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'counter_number_style', [
-            'label' => esc_html__('Number Count', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'pre_text_style',
+            [
+                'label' => esc_html__('Pre Text', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'counter_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer' => 'color: {{VALUE}}',
-            ],
-                ]
+            'pre_text_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'counter_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'pre_text_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text',
+            ]
         );
 
         $this->add_control(
-                'counter_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'pre_text_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-pre-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'post_text_style', [
-            'label' => esc_html__('Post Text', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'counter_number_style',
+            [
+                'label' => esc_html__('Number Count', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'post_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text' => 'color: {{VALUE}}',
-            ],
-                ]
+            'counter_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'post_text_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'counter_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer',
+            ]
         );
 
         $this->add_control(
-                'post_text_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'counter_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .odometer' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
-        $this->end_controls_section(); 
+        $this->end_controls_section();
 
         $this->start_controls_section(
-                'counter_title_style', [
-            'label' => esc_html__('Counter Title', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'post_text_style',
+            [
+                'label' => esc_html__('Post Text', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'counter_title_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'color: {{VALUE}}',
-            ],
-                ]
+            'post_text_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'counter_title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-title',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'post_text_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text',
+            ]
         );
 
         $this->add_control(
-                'title_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'post_text_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-count .eead-post-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
-        $this->end_controls_section();  
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'counter_title_style',
+            [
+                'label' => esc_html__('Counter Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'counter_title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'counter_title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-title',
+            ]
+        );
+
+        $this->add_control(
+            'title_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
     }
 
     /** Render Layout */

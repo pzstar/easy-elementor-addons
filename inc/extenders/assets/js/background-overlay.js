@@ -7,4 +7,4 @@
         });
     });
 
-}) (jQuery, window.elementorFrontend);
+})(jQuery, window.elementorFrontend);

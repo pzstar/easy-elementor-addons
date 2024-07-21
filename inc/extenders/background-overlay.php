@@ -12,9 +12,9 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Plugin;
 
-Class BackgroundOverlay {
+class BackgroundOverlay {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -25,13 +25,14 @@ Class BackgroundOverlay {
     }
 
     public function __construct() {
-        add_action('elementor/element/common/_section_background/after_section_end', [$this,'register_controls'], 10, 2);
-        add_action('elementor/element/after_add_attributes', [$this,'background_overlay_render'], 10, 1);
+        add_action('elementor/element/common/_section_background/after_section_end', [$this, 'register_controls'], 10, 2);
+        add_action('elementor/element/after_add_attributes', [$this, 'background_overlay_render'], 10, 1);
     }
 
     public function register_controls($elems) {
         $elems->start_controls_section(
-            'eead_section_background_overlay', [
+            'eead_section_background_overlay',
+            [
                 'label' => esc_html__('Background Over/Underlay', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_ADVANCED,
                 'condition' => [
@@ -43,20 +44,23 @@ Class BackgroundOverlay {
         $elems->start_controls_tabs('eead_tabs_background_overlay');
 
         $elems->start_controls_tab(
-            'eead_tab_background_overlay_normal', [
+            'eead_tab_background_overlay_normal',
+            [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'eead_background_overlay',
                 'selector' => '{{WRAPPER}}.eead-background-overlay-yes > .elementor-widget-container:before',
             ]
         );
 
         $elems->add_control(
-            'eead_background_overlay_opacity', [
+            'eead_background_overlay_opacity',
+            [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -64,7 +68,7 @@ Class BackgroundOverlay {
                 ],
                 'range' => [
                     'px' => [
-                        'max'  => 1,
+                        'max' => 1,
                         'step' => 0.01,
                     ],
                 ],
@@ -78,14 +82,16 @@ Class BackgroundOverlay {
         );
 
         $elems->add_group_control(
-            Group_Control_Css_Filter::get_type(), [
+            Group_Control_Css_Filter::get_type(),
+            [
                 'name' => 'eead_css_filters',
                 'selector' => '{{WRAPPER}}.eead-background-overlay-yes > .elementor-widget-container:before',
             ]
         );
 
         $elems->add_control(
-            'eead_overlay_blend_mode', [
+            'eead_overlay_blend_mode',
+            [
                 'label' => esc_html__('Blend Mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -107,7 +113,8 @@ Class BackgroundOverlay {
         );
 
         $elems->add_responsive_control(
-            'eead_background_overlay_radius', [
+            'eead_background_overlay_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -121,20 +128,23 @@ Class BackgroundOverlay {
         $elems->end_controls_tab();
 
         $elems->start_controls_tab(
-            'eead_tab_background_overlay_hover', [
+            'eead_tab_background_overlay_hover',
+            [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'eead_background_overlay_hover',
                 'selector' => '{{WRAPPER}}.eead-background-overlay-yes:hover > .elementor-widget-container:before',
             ]
         );
 
         $elems->add_control(
-            'eead_background_overlay_hover_opacity', [
+            'eead_background_overlay_hover_opacity',
+            [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -150,20 +160,22 @@ Class BackgroundOverlay {
                     '{{WRAPPER}}.eead-background-overlay-yes:hover > .elementor-widget-container:before' => 'opacity: {{SIZE}};',
                 ],
                 'condition' => [
-                    'eead_background_overlay_hover_background' => [ 'classic', 'gradient' ],
+                    'eead_background_overlay_hover_background' => ['classic', 'gradient'],
                 ],
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Css_Filter::get_type(), [
+            Group_Control_Css_Filter::get_type(),
+            [
                 'name' => 'eead_css_filters_hover',
                 'selector' => '{{WRAPPER}}.eead-background-overlay-yes:hover > .elementor-widget-container:before',
             ]
         );
 
         $elems->add_control(
-            'eead_background_overlay_hover_transition_duration', [
+            'eead_background_overlay_hover_transition_duration',
+            [
                 'label' => esc_html__('Transition Duration', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -183,7 +195,8 @@ Class BackgroundOverlay {
         );
 
         $elems->add_responsive_control(
-            'eead_background_overlay_hover_radius', [
+            'eead_background_overlay_hover_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -199,7 +212,8 @@ Class BackgroundOverlay {
         $elems->end_controls_tabs();
 
         $elems->add_responsive_control(
-            'eead_background_overlay_margin', [
+            'eead_background_overlay_margin',
+            [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -211,7 +225,8 @@ Class BackgroundOverlay {
         );
 
         $elems->add_control(
-            'eead_background_overlay_zindex', [
+            'eead_background_overlay_zindex',
+            [
                 'label' => esc_html__('Z-Index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'dynamic' => [
@@ -224,7 +239,8 @@ Class BackgroundOverlay {
         );
 
         $elems->add_control(
-            'eead_background_overlay_position_relative', [
+            'eead_background_overlay_position_relative',
+            [
                 'label' => esc_html__('Position Relative', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'selectors' => [
@@ -234,7 +250,8 @@ Class BackgroundOverlay {
         );
 
         $elems->add_control(
-            'eead_background_overlay_widget_zindex', [
+            'eead_background_overlay_widget_zindex',
+            [
                 'label' => esc_html__('Widget Z-Index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '-1',
@@ -251,7 +268,7 @@ Class BackgroundOverlay {
         $elems->end_controls_section();
     }
 
-    public function background_overlay_render( $widget ) {
+    public function background_overlay_render($widget) {
         $settings = $widget->get_settings_for_display();
 
         if (in_array($widget->get_name(), ['column', 'section'])) {
@@ -264,7 +281,7 @@ Class BackgroundOverlay {
 
         $overlay_bg = isset($settings['eead_background_overlay_background']) ? $settings['eead_background_overlay_background'] : '';
         $overlay_bg_hover = isset($settings['eead_background_overlay_hover_background']) ? $settings['eead_background_overlay_hover_background'] : '';
-        $has_background_overlay = (in_array( $overlay_bg, ['classic', 'gradient'], true) || in_array($overlay_bg_hover, ['classic', 'gradient'], true));
+        $has_background_overlay = (in_array($overlay_bg, ['classic', 'gradient'], true) || in_array($overlay_bg_hover, ['classic', 'gradient'], true));
 
         if ($has_background_overlay) {
             $widget->add_render_attribute('_wrapper', 'class', 'eead-background-overlay-yes');

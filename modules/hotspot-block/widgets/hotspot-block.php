@@ -47,23 +47,26 @@ class HotspotBlock extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-                'items', [
-            'label' => esc_html__('Items', 'easy-elementor-addons'),
-                ]
+            'items',
+            [
+                'label' => esc_html__('Items', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'image', [
+            'image',
+            [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
-                'default'   => array(
+                'default' => array(
                     'url' => Utils::get_placeholder_image_src(),
                 ),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(), [
+            Group_Control_Image_Size::get_type(),
+            [
                 'name' => 'image_resolution',
                 'default' => 'full',
             ]
@@ -72,7 +75,8 @@ class HotspotBlock extends Widget_Base {
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-            'enable', [
+            'enable',
+            [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
@@ -83,7 +87,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title', [
+            'title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -91,12 +96,13 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'hotspot_type', [
+            'hotspot_type',
+            [
                 'label' => esc_html__('Hotspot Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'icon',
                 'options' => [
-                    'icon'  => esc_html__('Icon', 'easy-elementor-addons'),
+                    'icon' => esc_html__('Icon', 'easy-elementor-addons'),
                     'image' => esc_html__('Image', 'easy-elementor-addons'),
                 ],
                 'label_block' => true,
@@ -104,7 +110,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'hotspot_icon', [
+            'hotspot_icon',
+            [
                 'label' => esc_html__('Hotspot Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -112,22 +119,24 @@ class HotspotBlock extends Widget_Base {
                     'library' => 'solid',
                 ],
                 'condition' => ['hotspot_type' => 'icon']
-            ]  
+            ]
         );
 
         $repeater->add_control(
-            'hotspot_image', [
+            'hotspot_image',
+            [
                 'label' => esc_html__('Hotspot Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
                 ],
-                'condition' => [ 'hotspot_type' => 'image' ]
+                'condition' => ['hotspot_type' => 'image']
             ]
         );
 
         $repeater->add_group_control(
-            Group_Control_Image_Size::get_type(), [
+            Group_Control_Image_Size::get_type(),
+            [
                 'name' => 'hotspot_img_resolution',
                 'default' => 'thumb',
                 'condition' => ['hotspot_type' => 'image']
@@ -135,7 +144,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'text_align', [
+            'text_align',
+            [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -148,7 +158,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'x_position', [
+            'x_position',
+            [
                 'label' => esc_html__('X Postion', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -169,7 +180,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'y_position', [
+            'y_position',
+            [
                 'label' => esc_html__('Y Postion', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -190,7 +202,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'each_content_width', [
+            'each_content_width',
+            [
                 'label' => esc_html__('Each Content Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -201,19 +214,20 @@ class HotspotBlock extends Widget_Base {
                     's' => [
                         'min' => 0,
                         'max' => 1000,
-                        'step'=> 1
+                        'step' => 1
                     ],
                 ]
             ]
         );
 
         $repeater->add_control(
-            'content_type', [
+            'content_type',
+            [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'text_title_desc',
                 'options' => [
-                    'text_title_desc'  => esc_html__('Title & Description', 'easy-elementor-addons'),
+                    'text_title_desc' => esc_html__('Title & Description', 'easy-elementor-addons'),
                     'wisiwyg' => esc_html__('WISIWYG', 'easy-elementor-addons'),
                 ],
                 'label_block' => true,
@@ -221,7 +235,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'hotspot_title', [
+            'hotspot_title',
+            [
                 'label' => esc_html__('Hotspot Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -231,18 +246,20 @@ class HotspotBlock extends Widget_Base {
         );
 
         $repeater->add_control(
-            'hotspot_description', [
+            'hotspot_description',
+            [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 10,
                 'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
-                'placeholder' => esc_html__( 'Type your description here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
                 'condition' => ['content_type' => 'text_title_desc']
             ]
         );
 
         $repeater->add_control(
-            'wisiwyg_content', [
+            'wisiwyg_content',
+            [
                 'label' => esc_html__('WISIWYG', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => esc_html__('Add your content here', 'easy-elementor-addons'),
@@ -251,7 +268,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hotspot_items', [
+            'hotspot_items',
+            [
                 'label' => esc_html__('Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -267,18 +285,20 @@ class HotspotBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'general_settings', [
-            'label' => esc_html__('General Settings', 'easy-elementor-addons'),
-                ]
+            'general_settings',
+            [
+                'label' => esc_html__('General Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'content_open_type', [
+            'content_open_type',
+            [
                 'label' => esc_html__('Content Open Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-open-onhover',
                 'options' => [
-                    'eead-open-onclick'  => esc_html__('On Click', 'easy-elementor-addons'),
+                    'eead-open-onclick' => esc_html__('On Click', 'easy-elementor-addons'),
                     'eead-open-onhover' => esc_html__('On Hover', 'easy-elementor-addons'),
                 ],
                 'label_block' => true,
@@ -286,7 +306,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'enable_pulse_animation', [
+            'enable_pulse_animation',
+            [
                 'label' => esc_html__('Pulse Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
@@ -297,19 +318,21 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-                'pulse_color', [
-            'label' => esc_html__('Pulse Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a .pulse,
+            'pulse_color',
+            [
+                'label' => esc_html__('Pulse Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a .pulse,
                  {{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a .pulse' => 'border: 5px solid {{VALUE}}',
-            ],
-            'condition' => ['enable_pulse_animation' => 'yes']
-                ]
+                ],
+                'condition' => ['enable_pulse_animation' => 'yes']
+            ]
         );
 
         $this->add_control(
-            'pulse_duration', [
+            'pulse_duration',
+            [
                 'label' => esc_html__('Pulse Duration(in ms)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -327,7 +350,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'pulse_size', [
+            'pulse_size',
+            [
                 'label' => esc_html__('Pulse Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -345,7 +369,8 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'tooltip_position', [
+            'tooltip_position',
+            [
                 'label' => esc_html__('Tooltip Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'bottom-middle',
@@ -358,7 +383,7 @@ class HotspotBlock extends Widget_Base {
                     'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                     'bottom-middle' => esc_html__('Bottom Middle', 'easy-elementor-addons'),
                     'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
-                    'center' =>  esc_html__('Center', 'easy-elementor-addons'),
+                    'center' => esc_html__('Center', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -366,108 +391,116 @@ class HotspotBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'icon_style', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'icon_style',
+            [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'icon_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a,
+            'icon_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a,
                 {{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'background: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_control(
-                'icon_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'color: {{VALUE}}',
-            ],
-                ]
+            'icon_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'icon_size', [
-            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 8,
-                    'max' => 18,
-                    'step' => 1,
-                ]
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'unit' => 'px',
-                'size' => 12,
-            ],
-            'tablet_default' => [
-                'unit' => 'px',
-                'size' => 12,
-            ],
-            'mobile_default' => [
-                'unit' => 'px',
-                'size' => 12,
-            ],
-            'selectors' => [
-                '(desktop){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
-                '(tablet){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
-                '(mobile){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
-            ],
-                ]
+            'icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 8,
+                        'max' => 18,
+                        'step' => 1,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'unit' => 'px',
+                    'size' => 12,
+                ],
+                'tablet_default' => [
+                    'unit' => 'px',
+                    'size' => 12,
+                ],
+                'mobile_default' => [
+                    'unit' => 'px',
+                    'size' => 12,
+                ],
+                'selectors' => [
+                    '(desktop){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '(tablet){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '(mobile){{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
-                'icon_box_size', [
-            'label' => esc_html__('Container Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 8,
-                    'max' => 18,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
-            ],
-                ]
+            'icon_box_size',
+            [
+                'label' => esc_html__('Container Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 8,
+                        'max' => 18,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-icon a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'image_icon_style', [
-            'label' => esc_html__('Image', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'image_icon_style',
+            [
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'image_icon_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => 'transparent',
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'background: {{VALUE}}',
-            ],
-                ]
+            'image_icon_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => 'transparent',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'image_icon_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a img',
@@ -475,78 +508,83 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_responsive_control(
-                'image_icon_size', [
-            'label' => esc_html__('Image Icon Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 10,
-                    'max' => 80,
-                    'step' => 1,
-                ]
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'unit' => 'px',
-                'size' => 25,
-            ],
-            'tablet_default' => [
-                'unit' => 'px',
-                'size' => 25,
-            ],
-            'mobile_default' => [
-                'unit' => 'px',
-                'size' => 25,
-            ],
-            'selectors' => [
-                '(desktop){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
-                '(tablet){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
-                '(mobile){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
-            ],
-                ]
+            'image_icon_size',
+            [
+                'label' => esc_html__('Image Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 1,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'unit' => 'px',
+                    'size' => 25,
+                ],
+                'tablet_default' => [
+                    'unit' => 'px',
+                    'size' => 25,
+                ],
+                'mobile_default' => [
+                    'unit' => 'px',
+                    'size' => 25,
+                ],
+                'selectors' => [
+                    '(desktop){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
+                    '(tablet){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
+                    '(mobile){{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'image_box_size', [
-            'label' => esc_html__('Container Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 8,
-                    'max' => 18,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
-            ],
-                ]
+            'image_box_size',
+            [
+                'label' => esc_html__('Container Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 8,
+                        'max' => 18,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-hotspot-section .eead-hotspot-image a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'tooltip_style', [
-            'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'tooltip_style',
+            [
+                'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'tooltip_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#f1f0e4',
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content' => 'background: {{VALUE}}',
-            ],
-                ]
+            'tooltip_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#f1f0e4',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content' => 'background: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'tooltip_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-each-spot-content',
@@ -554,106 +592,116 @@ class HotspotBlock extends Widget_Base {
         );
 
         $this->add_control(
-                'tooltip_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'tooltip_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->add_control(
-                'tooltip_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-                ]
+            'tooltip_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'title_style', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'title_style',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'title_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content h2' => 'color: {{VALUE}}',
-            ],
-                ]
+            'title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content h2' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-each-spot-content h2',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-each-spot-content h2',
+            ]
         );
 
         $this->add_control(
-                'title_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'title_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'description_style', [
-            'label' => esc_html__('Description', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'description_style',
+            [
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'description_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#909090',
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description' => 'color: {{VALUE}}',
-            ],
-                ]
+            'description_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#909090',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'description_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description',
+            ]
         );
 
         $this->add_control(
-                'description_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'description_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-each-spot-content p.eead-spot-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
@@ -684,18 +732,19 @@ class HotspotBlock extends Widget_Base {
                                 continue;
                             }
 
-                            if ($item['hotspot_type'] == 'icon') { 
+                            if ($item['hotspot_type'] == 'icon') {
                                 ?>
-                                <div class="eead-hotspot-item eead-hotspot-icon elementor-repeater-item-<?php echo esc_attr($item['_id']); b?> drag_element" id=<?php echo 'hotspot_id_' . esc_attr($key); ?>>
+                                <div class="eead-hotspot-item eead-hotspot-icon elementor-repeater-item-<?php echo esc_attr($item['_id']);
+                                b ?> drag_element" id=<?php echo 'hotspot_id_' . esc_attr($key); ?>>
                                     <a href="javascript:void(0);">
-                                        <?php 
-                                        $this->pulsate_animation(); 
-                                        Icons_Manager::render_icon($item['hotspot_icon'], ['aria-hidden' => 'true']); 
+                                        <?php
+                                        $this->pulsate_animation();
+                                        Icons_Manager::render_icon($item['hotspot_icon'], ['aria-hidden' => 'true']);
                                         $this->get_content($key); ?>
                                     </a>
                                 </div>
                                 <?php
-                            } else if ($item['hotspot_type'] == 'image') { 
+                            } else if ($item['hotspot_type'] == 'image') {
                                 if (!$item['hotspot_image']['id']) {
                                     $hotspot_image_url = Utils::get_placeholder_image_src();
                                     echo "<div class='eead-hotspot-item eead-hotspot-image elementor-repeater-item-" . esc_attr($item['_id']) . "'>";
@@ -711,10 +760,10 @@ class HotspotBlock extends Widget_Base {
                                     echo '<a href="javascript:void(0);">';
                                     $this->pulsate_animation();
                                     echo "<img src='" . esc_url($hotspot_image_url) . "'>";
-                                    $this->get_content( $key );
+                                    $this->get_content($key);
                                     echo "</a>";
                                     echo "</div>";
-                                } 
+                                }
                             }
                         }
                         ?>
@@ -727,12 +776,12 @@ class HotspotBlock extends Widget_Base {
 
     protected function pulsate_animation() {
         $settings = $this->get_settings_for_display();
-        if($settings['enable_pulse_animation'] == 'yes') {
+        if ($settings['enable_pulse_animation'] == 'yes') {
             echo '<div class="pulse"></div>';
         }
     }
 
-    protected function get_content( $key ) {
+    protected function get_content($key) {
         $settings = $this->get_settings_for_display();
         $item = $settings['hotspot_items'][$key];
         $align = $settings['hotspot_items'][$key]['text_align'];
@@ -742,9 +791,9 @@ class HotspotBlock extends Widget_Base {
             <?php
             if ($item['content_type'] == 'text_title_desc') {
 
-                if (!empty( $item['hotspot_title'])) {
+                if (!empty($item['hotspot_title'])) {
                     ?>
-                    <h2><?php echo esc_html( $item['hotspot_title'] ); ?></h2>
+                    <h2><?php echo esc_html($item['hotspot_title']); ?></h2>
                     <?php
                 }
                 if (!empty($item['hotspot_subtitle'])) {
@@ -754,7 +803,7 @@ class HotspotBlock extends Widget_Base {
                     </p>
                     <?php
                 }
-                if (!empty( $item['hotspot_description'])) {
+                if (!empty($item['hotspot_description'])) {
                     ?>
                     <p class="eead-spot-description">
                         <?php echo esc_html($item['hotspot_description']); ?>

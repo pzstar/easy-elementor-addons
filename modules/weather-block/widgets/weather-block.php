@@ -45,14 +45,16 @@ class WeatherBlock extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'layout_section', [
+            'layout_section',
+            [
                 'label' => esc_html__('Layout Section', 'easy-elementor-addons')
             ]
         );
 
         /* API */
         $this->add_control(
-            'api_key', [
+            'api_key',
+            [
                 'label' => esc_html__('API Key', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -64,7 +66,8 @@ class WeatherBlock extends Widget_Base {
 
         /* Country */
         $this->add_control(
-            'country_location', [
+            'country_location',
+            [
                 'label' => esc_html__('Country', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => false,
@@ -76,7 +79,8 @@ class WeatherBlock extends Widget_Base {
 
         /* City */
         $this->add_control(
-            'city_location', [
+            'city_location',
+            [
                 'label' => esc_html__('City', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -88,7 +92,8 @@ class WeatherBlock extends Widget_Base {
 
         /* Language */
         $this->add_control(
-            'country_language', [
+            'country_language',
+            [
                 'label' => esc_html__('Language', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => false,
@@ -100,7 +105,8 @@ class WeatherBlock extends Widget_Base {
 
         /* Units */
         $this->add_control(
-            'temperature_units', [
+            'temperature_units',
+            [
                 'label' => esc_html__('Units', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -113,7 +119,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'cache_expiration', [
+            'cache_expiration',
+            [
                 'label' => esc_html__('Cache Expiration(sec)', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'description' => esc_html__('Please set the expiration time in seconds.', 'easy-elementor-addons'),
@@ -126,7 +133,8 @@ class WeatherBlock extends Widget_Base {
 
         /* Round */
         $this->add_control(
-            'round', [
+            'round',
+            [
                 'label' => esc_html__('Round', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -135,7 +143,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_humidity', [
+            'hide_humidity',
+            [
                 'label' => esc_html__('Hide Humidity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -144,7 +153,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_preassure', [
+            'hide_preassure',
+            [
                 'label' => esc_html__('Hide Preassure', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -153,7 +163,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_wind_speed', [
+            'hide_wind_speed',
+            [
                 'label' => esc_html__('Hide Wind Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -162,7 +173,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_day', [
+            'hide_day',
+            [
                 'label' => esc_html__('Hide Day', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -171,7 +183,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_weather_description', [
+            'hide_weather_description',
+            [
                 'label' => esc_html__('Hide Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -180,7 +193,8 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_bottom_box', [
+            'hide_bottom_box',
+            [
                 'label' => esc_html__('Hide Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -189,12 +203,13 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-            'layout', [
+            'layout',
+            [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
-                    'style1'  => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons')
                 ],
             ]
@@ -203,229 +218,253 @@ class WeatherBlock extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'temperature_style', [
-            'label' => esc_html__('Temperature', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
-        );
-
-        $this->add_control(
-                'temp_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-temperature' => 'color: {{VALUE}}',
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'temp_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-temperature',
-                ]
-        );
-
-        $this->add_control(
-                'vertical_height', [
-            'label' => esc_html__('Vertical Height', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 1,
-                    'max' => 2.4,
-                    'step' => .1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-temperature' => 'transform: scale(1, {{SIZE}});',
-            ],
-            'condition' => ['layout' => 'style1']
-        ]);
-
-        $this->add_control(
-                'temp_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-temperature' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
-            'condition' => ['layout' => 'style1']
-                ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-                'description_style', [
-            'label' => esc_html__('Description', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
-        );
-
-        $this->add_control(
-                'description_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-description' => 'color: {{VALUE}}',
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'description_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-description',
-                ]
-        );
-
-        $this->add_control(
-                'description_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-desc-section span.eead-weather-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            'temperature_style',
+            [
+                'label' => esc_html__('Temperature', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
             ]
-                ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-                'day_style', [
-            'label' => esc_html__('Day', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
         );
 
         $this->add_control(
-                'day_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-current-day' => 'color: {{VALUE}}',
-            ],
-                ]
+            'temp_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-temperature' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'day_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-current-day',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'temp_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-temperature',
+            ]
         );
 
         $this->add_control(
-                'day_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-current-day' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            'vertical_height',
+            [
+                'label' => esc_html__('Vertical Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 2.4,
+                        'step' => .1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-temperature' => 'transform: scale(1, {{SIZE}});',
+                ],
+                'condition' => ['layout' => 'style1']
             ]
-                ]
+        );
+
+        $this->add_control(
+            'temp_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-temperature' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => ['layout' => 'style1']
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'city_style', [
-            'label' => esc_html__('City', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'description_style',
+            [
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'city_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
+            'description_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-description' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-description',
+            ]
+        );
+
+        $this->add_control(
+            'description_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-desc-section span.eead-weather-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'day_style',
+            [
+                'label' => esc_html__('Day', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'day_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-current-day' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'day_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-current-day',
+            ]
+        );
+
+        $this->add_control(
+            'day_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-current-day' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'city_style',
+            [
+                'label' => esc_html__('City', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'city_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span' => 'color: {{VALUE}}',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'city_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'city_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
                            {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span',
-                ]
+            ]
         );
 
         $this->add_control(
-                'city_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
+            'city_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ]
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'country_style', [
-            'label' => esc_html__('Country', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'country_style',
+            [
+                'label' => esc_html__('Country', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'country_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
+            'country_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4' => 'color: {{VALUE}} !important',
-            ],
-                ]
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'country_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'country_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
                            {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4',
-                ]
+            ]
         );
 
         $this->add_control(
-                'country_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
+            'country_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ]
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'top_box_style', [
-            'label' => esc_html__('Top Box', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'top_box_style',
+            [
+                'label' => esc_html__('Top Box', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'top_box_bg_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -435,57 +474,63 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-                'top_box_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section,
+            'top_box_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section,
                  {{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-weather-temperature' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ]
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'middle_box_style', [
-            'label' => esc_html__('Middle Box', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'middle_box_style',
+            [
+                'label' => esc_html__('Middle Box', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'middle_box_bg_color',
-                'label' => esc_html__( 'Background', 'easy-elementor-addons' ),
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-weather-container.style2',
             ]
         );
 
         $this->add_control(
-                'middle_box_separator_color', [
-            'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-bottom-section' => 'border-top-color: {{VALUE}}',
-            ],
-            'condition' => ['layout' => 'style2']
-                ]
+            'middle_box_separator_color',
+            [
+                'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-bottom-section' => 'border-top-color: {{VALUE}}',
+                ],
+                'condition' => ['layout' => 'style2']
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'bottom_box_style', [
-            'label' => esc_html__('Bottom Box', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'bottom_box_style',
+            [
+                'label' => esc_html__('Bottom Box', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'bottom_box_bg_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -494,32 +539,35 @@ class WeatherBlock extends Widget_Base {
         );
 
         $this->add_control(
-                'bottom_box_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-bottom-section' => 'color: {{VALUE}}',
-            ],
-                ]
+            'bottom_box_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-bottom-section' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'bottom_box_text_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-weather-bottom-section',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'bottom_box_text_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-weather-bottom-section',
+            ]
         );
 
         $this->add_control(
-                'bottom_box_text_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-weather-bottom-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ]
+            'bottom_box_text_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-bottom-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
+            ]
         );
 
         $this->end_controls_section();
@@ -527,12 +575,12 @@ class WeatherBlock extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
-        if( empty($settings['api_key']) ) {
-            echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons'); 
+
+        if (empty($settings['api_key'])) {
+            echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
             return false;
         }
-        
+
         $this->weather_data = $this->get_weather_data();
         $data = $this->weather_data;
         $layout = esc_attr($settings['layout']);
@@ -553,28 +601,28 @@ class WeatherBlock extends Widget_Base {
 
             <div class="eead-weather-top-section">
                 <div class="eead-weather-info">
-                    <?php if($layout == 'style2') { ?>
+                    <?php if ($layout == 'style2') { ?>
                         <div class="eead-weather-temperature">
                             <?php echo $this->get_temp($temp); ?>
                         </div>
                     <?php } ?>
 
                     <div class="eead-weather-desc-section">
-                        <?php if($settings['hide_weather_description'] != 'yes') { ?>
+                        <?php if ($settings['hide_weather_description'] != 'yes') { ?>
                             <img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">
-                            <span class="eead-weather-description"><?php echo esc_html($weather_description); ?></span>                      
+                            <span class="eead-weather-description"><?php echo esc_html($weather_description); ?></span>
                         <?php } ?>
                     </div>
                 </div>
 
                 <div class="eead-location-info">
-                    <?php if($layout == 'style1') { ?>
+                    <?php if ($layout == 'style1') { ?>
                         <div class="eead-weather-temperature">
                             <?php echo $this->get_temp($temp); ?>
                         </div>
                     <?php } ?>
 
-                    <?php if($settings['hide_day'] != 'yes') { ?>
+                    <?php if ($settings['hide_day'] != 'yes') { ?>
                         <div class="eead-weather-current-day">
                             <?php echo esc_html($this->get_current_day($localtime)); ?>
                         </div>
@@ -592,21 +640,21 @@ class WeatherBlock extends Widget_Base {
                 </div>
             </div>
 
-            <?php if($settings['hide_bottom_box'] != 'yes') { ?>
+            <?php if ($settings['hide_bottom_box'] != 'yes') { ?>
                 <div class="eead-weather-bottom-section">
-                    <?php if($settings['hide_humidity'] != 'yes') { ?>
+                    <?php if ($settings['hide_humidity'] != 'yes') { ?>
                         <div class="eead-weather-humidity">
-                            <?php echo 'Humidity: ' .esc_html($humidity). '%'; ?>
+                            <?php echo 'Humidity: ' . esc_html($humidity) . '%'; ?>
                         </div>
                     <?php } ?>
-                    <?php if($settings['hide_preassure'] != 'yes') { ?>
+                    <?php if ($settings['hide_preassure'] != 'yes') { ?>
                         <div class="eead-weather-pressure">
-                            <?php echo 'Pressure: ' .esc_html($pressure). ' Pa'; ?>
+                            <?php echo 'Pressure: ' . esc_html($pressure) . ' Pa'; ?>
                         </div>
                     <?php } ?>
-                    <?php if($settings['hide_wind_speed'] != 'yes') { ?>
+                    <?php if ($settings['hide_wind_speed'] != 'yes') { ?>
                         <div class="eead-weather-wind">
-                            <?php echo 'Wind Speed: ' .esc_html($wind_speed). ' km/hr'; ?>
+                            <?php echo 'Wind Speed: ' . esc_html($wind_speed) . ' km/hr'; ?>
                         </div>
                     <?php } ?>
                 </div>
@@ -621,26 +669,22 @@ class WeatherBlock extends Widget_Base {
         return date_i18n('l', date_timestamp_get($date));
     }
 
-    protected function get_temp( $temp ) {
+    protected function get_temp($temp) {
         $units = $this->get_settings_for_display('temperature_units');
         $unit = ($units == 'metric') ? 'm' : (($units == 'standard') ? 's' : 'f');
 
         if ($unit == 'm') {
             $temp_unit = '&#176;C';
-        }
-
-        else if($unit == 's') {
+        } else if ($unit == 's') {
             $temp = ($temp + 273.15);
             $temp_unit = '&#176;K';
-        }
-
-        else if($unit == 'f') {
+        } else if ($unit == 'f') {
             $temp = ($temp * 1.8) + 32;
             $temp_unit = '&#176;F';
         }
 
-        $temp = $this->get_settings_for_display( 'round' ) == 'yes' ? round($temp) : $temp;
-        $temp_val = sprintf( '%1$s%2$s', $temp, $temp_unit );
+        $temp = $this->get_settings_for_display('round') == 'yes' ? round($temp) : $temp;
+        $temp_val = sprintf('%1$s%2$s', $temp, $temp_unit);
         return $temp_val;
     }
 
@@ -650,7 +694,7 @@ class WeatherBlock extends Widget_Base {
         $widgetID = $this->get_id();
 
         // if the API key is empty
-        if(empty($weatherstackApiKey)) {
+        if (empty($weatherstackApiKey)) {
             echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
             return false;
         }
@@ -668,7 +712,7 @@ class WeatherBlock extends Widget_Base {
         if (!empty($city)) {
             $location = $city;
             if (!empty($country)) {
-                $location .= ','.$country;
+                $location .= ',' . $country;
             }
         }
         $transientKey = sprintf('eead-weather-%s-%s', $city, md5($widgetID));
@@ -701,7 +745,7 @@ class WeatherBlock extends Widget_Base {
             }
             if (isset($remote_data['error'])) {
 
-                if (isset( $remote_data['error']['message'])) {
+                if (isset($remote_data['error']['message'])) {
                     echo $remote_data['error']['message'];
                 } else {
                     echo esc_html__('Weather data of this location not found.', 'easy-elementor-addons');
@@ -722,10 +766,10 @@ class WeatherBlock extends Widget_Base {
         $CodeCountry = JsonMachine::fromFile(EEAD_PATH . 'json/city.list.json');
 
         /* Variable for storing countries array */
-        $country_code = null;
+        $country_code = NULL;
 
         /* Store an array of countries in country_code */
-        foreach ($CodeCountry as $key => $value ) {
+        foreach ($CodeCountry as $key => $value) {
             $country_code[$value['city']['country']] = $value['city']['country'];
         }
 
@@ -736,10 +780,10 @@ class WeatherBlock extends Widget_Base {
         $fullCountryName = json_decode($fullCountryNameJson, true, 10);
 
         /* Will save an array of countries with full name */
-        $country_name = null;
+        $country_name = NULL;
 
         /* Create an array of countries */
-        foreach ( $fullCountryName as $key => $name){
+        foreach ($fullCountryName as $key => $name) {
             $country_name[$name['Code']] = $name['Name'];
         }
 
@@ -757,7 +801,7 @@ class WeatherBlock extends Widget_Base {
         /* Get list of countries */
         $languageJson = file_get_contents(EEAD_PATH . 'json/language.list.json');
         $CodeLanguage = json_decode($languageJson, true);
-        $result = null;
+        $result = NULL;
 
         /* Store array of countries into $result */
         foreach ($CodeLanguage as $i => $value) {

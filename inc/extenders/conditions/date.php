@@ -37,26 +37,26 @@ class Date extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		// Split control value into two dates
-		$intervals = explode( 'to', preg_replace( '/\s+/', '', $val ) );
+		$intervals = explode('to', preg_replace('/\s+/', '', $val));
 
 		// Make sure the explode return an array with exactly 2 indexes
-		if ( ! is_array( $intervals ) || 2 !== count( $intervals ) ) {
+		if (!is_array($intervals) || 2 !== count($intervals)) {
 			return false;
 		}
 
 		// Set start and end dates
-		$start = strtotime( $intervals[0] );
-		$end   = strtotime( $intervals[1] );
+		$start = strtotime($intervals[0]);
+		$end = strtotime($intervals[1]);
 
 		// Check vars
-		if ( ! $start || ! $end ) { // Make sure it's a date
+		if (!$start || !$end) { // Make sure it's a date
 			return false;
 		}
 
 		// get current time for test
-		$today =  current_time( 'timestamp' );
+		$today = current_time('timestamp');
 
 		// Check that user date is between start & end
 		$show = (($today >= $start) && ($today <= $end));

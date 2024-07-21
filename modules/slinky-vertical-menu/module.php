@@ -61,7 +61,7 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
         // is current item ?
         if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
             $data['data-menu-active'] = 2;
-        // home/frontpage item
+            // home/frontpage item
         } elseif (preg_replace('/#(.+)$/', '', $item->url) == 'index.php' && (is_home() || is_front_page())) {
             $data['data-menu-active'] = 2;
         }

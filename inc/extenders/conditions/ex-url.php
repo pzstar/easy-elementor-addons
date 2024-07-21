@@ -28,16 +28,18 @@ class Ex_Url extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		$res = false;
 		$site_url = str_ireplace('www.', '', parse_url(home_url(), PHP_URL_HOST));
 
-		if(isset($_SERVER['HTTP_REFERER'])) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
 			$url = (!empty($val)) ? $val : $_SERVER['HTTP_REFERER'];
 			$components = parse_url($url);
-			if (empty($components['host'])) return false;  // we will treat url like '/relative.php' as relative
-			if (strcasecmp($components['host'], $site_url) === 0) return false; // url host looks exactly like the local host
-			$res = strrpos(strtolower($components['host']), '.'.$site_url) !== strlen($components['host']) - strlen('.'.$site_url); // check if the url host is a subdomain
+			if (empty($components['host']))
+				return false;  // we will treat url like '/relative.php' as relative
+			if (strcasecmp($components['host'], $site_url) === 0)
+				return false; // url host looks exactly like the local host
+			$res = strrpos(strtolower($components['host']), '.' . $site_url) !== strlen($components['host']) - strlen('.' . $site_url); // check if the url host is a subdomain
 		}
 
 		return $this->compare($res, true, $relation);

@@ -1,9 +1,9 @@
-(function($, elementor) {
-	'use strict';
-	var widgetSectionSticky = function($scope, $) {
+(function ($, elementor) {
+    'use strict';
+    var widgetSectionSticky = function ($scope, $) {
         var $section = $scope;
         //sticky fixes for inner section.
-        jQuery($section).each(function(index) {
+        jQuery($section).each(function (index) {
             var $sticky = jQuery(this),
                 $stickyFound = $sticky.find('.elementor-inner-section.eead-sticky');
 
@@ -11,10 +11,10 @@
                 jQuery($stickyFound).wrap('<div class="eead-sticky-wrapper"></div>');
             }
         });
-	};
+    };
 
-	jQuery(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/section', widgetSectionSticky );
-	});
+    jQuery(window).on('elementor/frontend/init', function () {
+        elementorFrontend.hooks.addAction('frontend/element_ready/section', widgetSectionSticky);
+    });
 
-} (jQuery, window.elementorFrontend));
+}(jQuery, window.elementorFrontend));

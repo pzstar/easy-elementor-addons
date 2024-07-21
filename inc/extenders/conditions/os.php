@@ -22,7 +22,7 @@ class Os extends Condition {
 	public function get_control_value() {
 		return [
 			'type' => Controls_Manager::SELECT,
-			'default' => array_keys( $this->get_os_options() )[0],
+			'default' => array_keys($this->get_os_options())[0],
 			'label_block' => true,
 			'options' => $this->get_os_options(),
 		];
@@ -40,7 +40,7 @@ class Os extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		$oses = [
 			'iphone' => '(iPhone)',
 			'android' => '(Android)',

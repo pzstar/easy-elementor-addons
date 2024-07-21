@@ -1,4 +1,4 @@
-;(function ($, elementor) {
+; (function ($, elementor) {
     'use strict';
 
     $(window).on('elementor/frontend/init', function () {
@@ -274,27 +274,27 @@
                                     const f = [];
                                     let l = h.strokeWidth || 2;
                                     const d = function (t) {
-                                            const e = t.padding;
-                                            if (e || 0 === e) {
-                                                if ("number" == typeof e) return [e, e, e, e];
-                                                if (Array.isArray(e)) {
-                                                    const t = e;
-                                                    if (t.length) switch (t.length) {
-                                                        case 4:
-                                                            return [...t];
-                                                        case 1:
-                                                            return [t[0], t[0], t[0], t[0]];
-                                                        case 2:
-                                                            return [...t, ...t];
-                                                        case 3:
-                                                            return [...t, t[1]];
-                                                        default:
-                                                            return [t[0], t[1], t[2], t[3]];
-                                                    }
+                                        const e = t.padding;
+                                        if (e || 0 === e) {
+                                            if ("number" == typeof e) return [e, e, e, e];
+                                            if (Array.isArray(e)) {
+                                                const t = e;
+                                                if (t.length) switch (t.length) {
+                                                    case 4:
+                                                        return [...t];
+                                                    case 1:
+                                                        return [t[0], t[0], t[0], t[0]];
+                                                    case 2:
+                                                        return [...t, ...t];
+                                                    case 3:
+                                                        return [...t, t[1]];
+                                                    default:
+                                                        return [t[0], t[1], t[2], t[3]];
                                                 }
                                             }
-                                            return [5, 5, 5, 5];
-                                        }(h),
+                                        }
+                                        return [5, 5, 5, 5];
+                                    }(h),
                                         p = void 0 === h.animate || !!h.animate,
                                         _ = h.iterations || 2,
                                         m = h.rtl ? 1 : 0,
@@ -394,26 +394,26 @@
                                     }
                                     if (f.length) {
                                         const s = function (t) {
-                                                const e = [];
-                                                for (const s of t) {
-                                                    let t = "";
-                                                    for (const i of s.ops) {
-                                                        const s = i.data;
-                                                        switch (i.op) {
-                                                            case "move":
-                                                                t.trim() && e.push(t.trim()), t = `M${s[0]} ${s[1]} `;
-                                                                break;
-                                                            case "bcurveTo":
-                                                                t += `C${s[0]} ${s[1]}, ${s[2]} ${s[3]}, ${s[4]} ${s[5]} `;
-                                                                break;
-                                                            case "lineTo":
-                                                                t += `L${s[0]} ${s[1]} `;
-                                                        }
+                                            const e = [];
+                                            for (const s of t) {
+                                                let t = "";
+                                                for (const i of s.ops) {
+                                                    const s = i.data;
+                                                    switch (i.op) {
+                                                        case "move":
+                                                            t.trim() && e.push(t.trim()), t = `M${s[0]} ${s[1]} `;
+                                                            break;
+                                                        case "bcurveTo":
+                                                            t += `C${s[0]} ${s[1]}, ${s[2]} ${s[3]}, ${s[4]} ${s[5]} `;
+                                                            break;
+                                                        case "lineTo":
+                                                            t += `L${s[0]} ${s[1]} `;
                                                     }
-                                                    t.trim() && e.push(t.trim());
                                                 }
-                                                return e;
-                                            }(f),
+                                                t.trim() && e.push(t.trim());
+                                            }
+                                            return e;
+                                        }(f),
                                             i = [],
                                             n = [];
                                         let o = 0;
@@ -628,4 +628,4 @@
             });
         });
     });
-} (jQuery, window.elementorFrontend));
+}(jQuery, window.elementorFrontend));

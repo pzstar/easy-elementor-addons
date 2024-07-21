@@ -8,7 +8,7 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -16,39 +16,40 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedMap extends Widget_Base {
 
-    /** Widget Name */
-    public function get_name() {
-        return 'eead-advanced-map';
-    }
-
-    /** Widget Title */
-    public function get_title() {
-        return esc_html__('Advanced Map', 'easy-elementor-addons');
-    }
-
-    /** Icon */
-    public function get_icon() {
-        return 'eicon-flip-box';
-    }
-
-    public function get_keywords() {
-		return [ 'map', 'google map', 'google'  ];
+	/** Widget Name */
+	public function get_name() {
+		return 'eead-advanced-map';
 	}
 
-    /** Category */
-    public function get_categories() {
-        return ['easy-elementor-addons'];
-    }
+	/** Widget Title */
+	public function get_title() {
+		return esc_html__('Advanced Map', 'easy-elementor-addons');
+	}
 
-    public function get_script_depends() {
-        return ['gmap-api'];
-    }
+	/** Icon */
+	public function get_icon() {
+		return 'eicon-flip-box';
+	}
 
-    /** Controls */
-    protected function register_controls() {
+	public function get_keywords() {
+		return ['map', 'google map', 'google'];
+	}
 
-    	$this->start_controls_section(
-			'marker_controls_section', [
+	/** Category */
+	public function get_categories() {
+		return ['easy-elementor-addons'];
+	}
+
+	public function get_script_depends() {
+		return ['gmap-api'];
+	}
+
+	/** Controls */
+	protected function register_controls() {
+
+		$this->start_controls_section(
+			'marker_controls_section',
+			[
 				'label' => esc_html__('Markers', 'easy-elementor-addons'),
 			]
 		);
@@ -56,9 +57,10 @@ class AdvancedMap extends Widget_Base {
 		$map_key = 'AIzaSyBWbk2I3GRGYSSOU1tld0TIpfa_rSBbd6M';
 		if (!isset($map_key) || $map_key === '') {
 			$this->add_control(
-				'notice', [
+				'notice',
+				[
 					'type' => Controls_Manager::RAW_HTML,
-					'raw' => '<div class="eead-notice">' . esc_html__('To add google map api key', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url( 'admin.php?page=eead' ) . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a></div>',
+					'raw' => '<div class="eead-notice">' . esc_html__('To add google map api key', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a></div>',
 				]
 			);
 		}
@@ -66,7 +68,8 @@ class AdvancedMap extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'lat', [
+			'lat',
+			[
 				'label' => esc_html__('Latitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
@@ -77,7 +80,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'long', [
+			'long',
+			[
 				'label' => esc_html__('Longitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
@@ -88,7 +92,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'address', [
+			'address',
+			[
 				'label' => esc_html__('Address', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
 				'dynamic' => [
@@ -99,14 +104,16 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'icon', [
+			'icon',
+			[
 				'label' => esc_html__('Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 			]
 		);
 
 		$repeater->add_control(
-			'icon_size', [
+			'icon_size',
+			[
 				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
@@ -123,7 +130,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'info_window_onload', [
+			'info_window_onload',
+			[
 				'label' => esc_html__('Info Window On Load', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
@@ -134,7 +142,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-			'markers', [
+			'markers',
+			[
 				'label' => esc_html__('Markers', 'easy-elementor-addons'),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
@@ -150,14 +159,16 @@ class AdvancedMap extends Widget_Base {
 
 		$this->end_controls_section();
 
-    	$this->start_controls_section(
-			'general', [
+		$this->start_controls_section(
+			'general',
+			[
 				'label' => esc_html__('General Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_responsive_control(
-			'height', [
+			'height',
+			[
 				'label' => esc_html__('Height', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 300,
@@ -168,7 +179,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-			'zoom', [
+			'zoom',
+			[
 				'label' => esc_html__('Zoom', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
@@ -185,7 +197,8 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-			'animate', [
+			'animate',
+			[
 				'label' => esc_html__('Animate Marker', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
@@ -196,80 +209,87 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->add_control(
-            'scrollwheel', [
-                'label' => esc_html__('Scrollwheel Zoom', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'separator' => 'before',
-                'default' => 'false',
-                'options' => array(
-                    'true' => esc_html__('Enabled', 'easy-elementor-addons'),
-                    'false' => esc_html__('Disabled', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+			'scrollwheel',
+			[
+				'label' => esc_html__('Scrollwheel Zoom', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'separator' => 'before',
+				'default' => 'false',
+				'options' => array(
+					'true' => esc_html__('Enabled', 'easy-elementor-addons'),
+					'false' => esc_html__('Disabled', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-            'zoom_controls', [
-                'label' => esc_html__('Zoom Controls', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'true',
-                'options' => array(
-                    'true' => esc_html__('Show', 'easy-elementor-addons'),
-                    'false' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+		$this->add_control(
+			'zoom_controls',
+			[
+				'label' => esc_html__('Zoom Controls', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'true',
+				'options' => array(
+					'true' => esc_html__('Show', 'easy-elementor-addons'),
+					'false' => esc_html__('Hide', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-            'fullscreen_control', [
-                'label' => esc_html__('Fullscreen Control', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'true',
-                'options' => array(
-                    'true'  => esc_html__('Show', 'easy-elementor-addons'),
-                    'false' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+		$this->add_control(
+			'fullscreen_control',
+			[
+				'label' => esc_html__('Fullscreen Control', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'true',
+				'options' => array(
+					'true' => esc_html__('Show', 'easy-elementor-addons'),
+					'false' => esc_html__('Hide', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-            'street_view', [
-                'label' => esc_html__('Street View Controls', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'true',
-                'options' => array(
-                    'true' => esc_html__('Show', 'easy-elementor-addons'),
-                    'false' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+		$this->add_control(
+			'street_view',
+			[
+				'label' => esc_html__('Street View Controls', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'true',
+				'options' => array(
+					'true' => esc_html__('Show', 'easy-elementor-addons'),
+					'false' => esc_html__('Hide', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-            'map_type', [
-                'label' => esc_html__('Map Type Controls (Map/Satellite)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'true',
-                'options' => array(
-                    'true' => esc_html__('Show', 'easy-elementor-addons'),
-                    'false' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+		$this->add_control(
+			'map_type',
+			[
+				'label' => esc_html__('Map Type Controls (Map/Satellite)', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'true',
+				'options' => array(
+					'true' => esc_html__('Show', 'easy-elementor-addons'),
+					'false' => esc_html__('Hide', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-            'drggable', [
-                'label' => esc_html__('Is Map Draggable?', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'true',
-                'options' => array(
-                    'true' => esc_html__('Yes', 'easy-elementor-addons'),
-                    'false' => esc_html__('No', 'easy-elementor-addons'),
-                ),
-            ]
-        );
+		$this->add_control(
+			'drggable',
+			[
+				'label' => esc_html__('Is Map Draggable?', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'true',
+				'options' => array(
+					'true' => esc_html__('Yes', 'easy-elementor-addons'),
+					'false' => esc_html__('No', 'easy-elementor-addons'),
+				),
+			]
+		);
 
-        $this->add_control(
-			'snazzy_style', [
+		$this->add_control(
+			'snazzy_style',
+			[
 				'label' => esc_html__('Snazzy Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
 				'separator' => 'before',
@@ -278,26 +298,26 @@ class AdvancedMap extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-    }
+	}
 
-    /** Render Layout */
-    protected function render() {
+	/** Render Layout */
+	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$markers = $settings['markers'];
 
 		if ($settings['drggable'] === 'false') {
-            $this->add_render_attribute( 'wrapper', [
-	        	'data-gestureHandling' => 'none'
+			$this->add_render_attribute('wrapper', [
+				'data-gestureHandling' => 'none'
 			]);
-        }
+		}
 
 		$this->add_render_attribute('wrapper', [
 			'data-zoom' => $settings['zoom']['size'],
-			'data-scrollwheel' => $settings['scrollwheel'] == 'true' ? true : null,
-            'data-zoomControl' => $settings['zoom_controls'] == 'true' ? true : null,
-            'data-fullscreenControl' => $settings['fullscreen_control'] == 'true' ? true : null,
-            'data-streetViewControl' => $settings['street_view'] == 'true' ? true : null,
-            'data-mapTypeControl' => $settings['map_type'] == 'true' ? true : null,
+			'data-scrollwheel' => $settings['scrollwheel'] == 'true' ? true : NULL,
+			'data-zoomControl' => $settings['zoom_controls'] == 'true' ? true : NULL,
+			'data-fullscreenControl' => $settings['fullscreen_control'] == 'true' ? true : NULL,
+			'data-streetViewControl' => $settings['street_view'] == 'true' ? true : NULL,
+			'data-mapTypeControl' => $settings['map_type'] == 'true' ? true : NULL,
 			'data-style' => $settings['snazzy_style'],
 			'data-animate' => 'animate-' . $settings['animate']
 		]);
@@ -319,5 +339,5 @@ class AdvancedMap extends Widget_Base {
 			</div>
 			<?php
 		}
-    }
+	}
 }

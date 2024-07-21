@@ -34,7 +34,7 @@ class Date_Time_Before extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		// Check vars
 		if (!$val) { // Make sure it's a date
 			return;

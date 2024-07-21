@@ -1,16 +1,16 @@
-;(function ($, elementor) {
+; (function ($, elementor) {
 	'use strict';
 	$(window).on('elementor/frontend/init', function () {
-	    var ModuleHandler = elementorModules.frontend.handlers.Base,
-	        Tooltip;
+		var ModuleHandler = elementorModules.frontend.handlers.Base,
+			Tooltip;
 		const configTltpStyles = {
 			cora: {
 				in: {
 					base: {
 						duration: 600,
 						easing: 'easeOutQuint',
-						scale: [0,1],
-						rotate: [-180,0],
+						scale: [0, 1],
+						rotate: [-180, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -21,7 +21,7 @@
 						duration: 300,
 						delay: 250,
 						easing: 'easeOutQuint',
-						translateY: [20,0],
+						translateY: [20, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -31,7 +31,7 @@
 					trigger: {
 						duration: 300,
 						easing: 'easeOutExpo',
-						scale: [1,0.9],
+						scale: [1, 0.9],
 						color: '#6fbb95'
 					}
 				},
@@ -70,7 +70,7 @@
 					base: {
 						duration: 200,
 						easing: 'easeOutQuad',
-						rotate: [35,0],
+						rotate: [35, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -81,7 +81,7 @@
 						duration: 1000,
 						delay: 50,
 						easing: 'easeOutElastic',
-						translateX: [50,0],
+						translateX: [50, 0],
 						rotate: [10, 0],
 						opacity: {
 							value: 1,
@@ -91,15 +91,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '-30%', duration: 130, easing: 'easeInQuad'},
-							{value: ['30%','0%'], duration: 900, easing: 'easeOutElastic'}
+							{ value: '-30%', duration: 130, easing: 'easeInQuad' },
+							{ value: ['30%', '0%'], duration: 900, easing: 'easeOutElastic' }
 						],
 						opacity: [
-							{value: 0, duration: 130, easing: 'easeInQuad'},
-							{value: 1, duration: 130, easing: 'easeOutQuad'}
+							{ value: 0, duration: 130, easing: 'easeInQuad' },
+							{ value: 1, duration: 130, easing: 'easeOutQuad' }
 						],
 						color: [
-							{value: '#6fbb95', duration: 1, delay: 130, easing: 'easeOutQuad'}
+							{ value: '#6fbb95', duration: 1, delay: 130, easing: 'easeOutQuad' }
 						]
 					}
 				},
@@ -120,15 +120,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '-30%', duration: 200, easing: 'easeInQuad'},
-							{value: ['30%','0%'], duration: 200, easing: 'easeOutQuad'}
+							{ value: '-30%', duration: 200, easing: 'easeInQuad' },
+							{ value: ['30%', '0%'], duration: 200, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 200, easing: 'easeInQuad'},
-							{value: 1, duration: 200, easing: 'easeOutQuad'}
+							{ value: 0, duration: 200, easing: 'easeInQuad' },
+							{ value: 1, duration: 200, easing: 'easeOutQuad' }
 						],
 						color: [
-							{value: '#666', duration: 1, delay: 200, easing: 'easeOutQuad'}
+							{ value: '#666', duration: 1, delay: 200, easing: 'easeOutQuad' }
 						]
 					}
 				}
@@ -138,7 +138,7 @@
 					base: {
 						duration: 400,
 						easing: 'easeOutExpo',
-						scale: [0.5,1],
+						scale: [0.5, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -154,7 +154,7 @@
 						duration: 900,
 						easing: 'easeOutElastic',
 						delay: 100,
-						scale: [0.8,1],
+						scale: [0.8, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -163,17 +163,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#6fbb95', 
-							duration: 1, 
-							delay: 100, 
+							value: '#6fbb95',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -206,17 +206,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#666', 
-							duration: 1, 
-							delay: 100, 
+							value: '#666',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -227,8 +227,8 @@
 					base: {
 						duration: 800,
 						easing: 'easeOutElastic',
-						translateY: [60,0],
-						scale: [0.5,1],
+						translateY: [60, 0],
+						scale: [0.5, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -246,7 +246,7 @@
 						duration: 300,
 						delay: 100,
 						easing: 'easeOutQuint',
-						translateY: [20,0],
+						translateY: [20, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -255,17 +255,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#6fbb95', 
-							duration: 1, 
-							delay: 100, 
+							value: '#6fbb95',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -299,17 +299,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#666', 
-							duration: 1, 
-							delay: 100, 
+							value: '#666',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -325,29 +325,29 @@
 					deco: {
 						duration: 500,
 						easing: 'easeOutExpo',
-						scaleY: [0,1]
+						scaleY: [0, 1]
 					},
 					content: {
 						duration: 125,
 						easing: 'easeOutExpo',
-						delay: function(t,i) {
-							return i*15;
+						delay: function (t, i) {
+							return i * 15;
 						},
 						easing: 'linear',
-						translateY: ['50%','0%'],
-						opacity: [0,1]
+						translateY: ['50%', '0%'],
+						opacity: [0, 1]
 					},
 					trigger: {
 						translateX: [
-							{value: '30%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-30%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '30%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: [
-							{value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuad'}
+							{ value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuad' }
 						]
 					}
 				},
@@ -370,25 +370,25 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '30%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-30%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '30%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: [
-							{value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad'}
+							{ value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad' }
 						]
 					}
-				},	
+				},
 			},
 			gram: {
 				in: {
 					base: {
 						duration: 400,
 						easing: 'easeOutQuint',
-						scaleX: [1.2,1],
+						scaleX: [1.2, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -403,12 +403,12 @@
 					content: {
 						delay: 100,
 						scale: {
-							value: [0.8,1],
+							value: [0.8, 1],
 							duration: 300,
 							easing: 'easeOutQuint'
 						},
 						opacity: {
-							value: [0,1],
+							value: [0, 1],
 							easing: 'linear',
 							duration: 100
 						}
@@ -416,7 +416,7 @@
 					trigger: {
 						duration: 300,
 						easing: 'easeOutQuint',
-						scale: [1,0.9],
+						scale: [1, 0.9],
 						color: '#6fbb95'
 					}
 				},
@@ -466,7 +466,7 @@
 					path: {
 						duration: 800,
 						easing: 'easeOutQuint',
-						rotate: [0,90],
+						rotate: [0, 90],
 						opacity: {
 							value: 1,
 							duration: 200,
@@ -476,7 +476,7 @@
 					content: {
 						duration: 600,
 						easing: 'easeOutQuint',
-						translateX: [50,0],
+						translateX: [50, 0],
 						opacity: {
 							value: 1,
 							duration: 100,
@@ -485,15 +485,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '-30%', duration: 100, easing: 'easeInQuint'},
-							{value: ['30%','0%'], duration: 250, easing: 'easeOutQuint'}
+							{ value: '-30%', duration: 100, easing: 'easeInQuint' },
+							{ value: ['30%', '0%'], duration: 250, easing: 'easeOutQuint' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuint'},
-							{value: 1, duration: 250, easing: 'easeOutQuint'}
+							{ value: 0, duration: 100, easing: 'easeInQuint' },
+							{ value: 1, duration: 250, easing: 'easeOutQuint' }
 						],
 						color: [
-							{value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuint'}
+							{ value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuint' }
 						]
 					}
 				},
@@ -529,15 +529,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '30%', duration: 200, easing: 'easeInQuint'},
-							{value: ['-30%','0%'], duration: 200, easing: 'easeOutQuint'}
+							{ value: '30%', duration: 200, easing: 'easeInQuint' },
+							{ value: ['-30%', '0%'], duration: 200, easing: 'easeOutQuint' }
 						],
 						opacity: [
-							{value: 0, duration: 200, easing: 'easeInQuint'},
-							{value: 1, duration: 200, easing: 'easeOutQuint'}
+							{ value: 0, duration: 200, easing: 'easeInQuint' },
+							{ value: 1, duration: 200, easing: 'easeOutQuint' }
 						],
 						color: [
-							{value: '#666', duration: 1, delay: 200, easing: 'easeOutQuint'}
+							{ value: '#666', duration: 1, delay: 200, easing: 'easeOutQuint' }
 						]
 					}
 				}
@@ -547,7 +547,7 @@
 					base: {
 						duration: 500,
 						easing: 'easeOutQuint',
-						translateY: [100,0],
+						translateY: [100, 0],
 						opacity: {
 							value: 1,
 							duration: 50,
@@ -557,14 +557,14 @@
 					shape: {
 						duration: 350,
 						easing: 'easeOutBack',
-						scaleY:  {
-							value: [1.3,1],
+						scaleY: {
+							value: [1.3, 1],
 							duration: 1300,
 							easing: 'easeOutElastic',
 							elasticity: 500
 						},
 						scaleX: {
-							value: [0.3,1],
+							value: [0.3, 1],
 							duration: 1300,
 							easing: 'easeOutElastic',
 							elasticity: 500
@@ -574,12 +574,12 @@
 						duration: 450,
 						easing: 'easeInOutQuad',
 						d: 'M 44.5,24 C 148,24 252,24 356,24 367,24 376,32.9 376,44 L 376,256 C 376,267 367,276 356,276 252,276 148,276 44.5,276 33.4,276 24.5,267 24.5,256 L 24.5,44 C 24.5,32.9 33.4,24 44.5,24 Z'
-					},	
+					},
 					content: {
 						duration: 300,
 						delay: 50,
 						easing: 'easeOutQuad',
-						translateY: [10,0],
+						translateY: [10, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -588,17 +588,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#6fbb95', 
-							duration: 1, 
-							delay: 100, 
+							value: '#6fbb95',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -637,17 +637,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#666', 
-							duration: 1, 
-							delay: 100, 
+							value: '#666',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -665,16 +665,16 @@
 						duration: 800,
 						delay: 100,
 						easing: 'easeOutElastic',
-						delay: function(t,i) {
-							return i*20;
+						delay: function (t, i) {
+							return i * 20;
 						},
-						scale: [0,1],
-					},	
+						scale: [0, 1],
+					},
 					content: {
 						duration: 300,
 						delay: 250,
 						easing: 'easeOutExpo',
-						scale: [0.7,1],
+						scale: [0.7, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -683,17 +683,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#6fbb95', 
-							duration: 1, 
-							delay: 100, 
+							value: '#6fbb95',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -708,8 +708,8 @@
 					path: {
 						duration: 500,
 						easing: 'easeOutExpo',
-						delay: function(t,i,c) {
-							return (c-i-1)*40;
+						delay: function (t, i, c) {
+							return (c - i - 1) * 40;
 						},
 						scale: 0
 					},
@@ -725,17 +725,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '-50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#666', 
-							duration: 1, 
-							delay: 100, 
+							value: '#666',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -752,22 +752,22 @@
 					path: {
 						duration: 1000,
 						easing: 'easeOutExpo',
-						delay: function(t,i) {
-							return i*150;
+						delay: function (t, i) {
+							return i * 150;
 						},
-						scale: [0,1],
-						translateY: function(t,i,c) {
-							return i === c-1 ? ['50%','0%'] : 0;
+						scale: [0, 1],
+						translateY: function (t, i, c) {
+							return i === c - 1 ? ['50%', '0%'] : 0;
 						},
-						rotate: function(t,i,c) {
-							return i === c-1 ? [90,0] : 0;
+						rotate: function (t, i, c) {
+							return i === c - 1 ? [90, 0] : 0;
 						}
-					},	
+					},
 					content: {
 						duration: 600,
 						delay: 750,
 						easing: 'easeOutExpo',
-						scale: [0.5,1],
+						scale: [0.5, 1],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -776,15 +776,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '30%', duration: 200, easing: 'easeInExpo'},
-							{value: ['-30%','0%'], duration: 200, easing: 'easeOutExpo'}
+							{ value: '30%', duration: 200, easing: 'easeInExpo' },
+							{ value: ['-30%', '0%'], duration: 200, easing: 'easeOutExpo' }
 						],
 						opacity: [
-							{value: 0, duration: 200, easing: 'easeInExpo'},
-							{value: 1, duration: 200, easing: 'easeOutExpo'}
+							{ value: 0, duration: 200, easing: 'easeInExpo' },
+							{ value: 1, duration: 200, easing: 'easeOutExpo' }
 						],
 						color: [
-							{value: '#6fbb95', duration: 1, delay: 200, easing: 'easeOutExpo'}
+							{ value: '#6fbb95', duration: 1, delay: 200, easing: 'easeOutExpo' }
 						]
 					}
 				},
@@ -798,11 +798,11 @@
 					path: {
 						duration: 300,
 						easing: 'easeOutExpo',
-						delay: function(t,i,c) {
-							return (c-i-1)*50;
+						delay: function (t, i, c) {
+							return (c - i - 1) * 50;
 						},
 						scale: 0
-					},	
+					},
 					content: {
 						duration: 200,
 						easing: 'easeOutExpo',
@@ -815,15 +815,15 @@
 					},
 					trigger: {
 						translateX: [
-							{value: '30%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-30%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '30%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: [
-							{value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad'}
+							{ value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad' }
 						]
 					}
 				}
@@ -832,31 +832,31 @@
 				in: {
 					base: {
 						translateX: [
-							{value: 3, duration: 100, delay: 150, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 0, duration: 100, easing: [0.1,1,0.3,1]},
+							{ value: 3, duration: 100, delay: 150, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 0, duration: 100, easing: [0.1, 1, 0.3, 1] },
 						],
 						translateY: [
-							{value: -3, duration: 100, delay: 150, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: -3, duration: 100, easing: 'linear'},
-							{value: 3, duration: 100, easing: 'linear'},
-							{value: 0, duration: 100, easing: [0.1,1,0.3,1]},
+							{ value: -3, duration: 100, delay: 150, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: -3, duration: 100, easing: 'linear' },
+							{ value: 3, duration: 100, easing: 'linear' },
+							{ value: 0, duration: 100, easing: [0.1, 1, 0.3, 1] },
 						],
 						scale: [
-							{value: [0,1.1], duration: 150,easing: [0.1,1,0.3,1]},
-							{value: 1.2, duration: 800,easing: 'linear'},
-							{value: 1, duration: 150, easing: [0.1,1,0.3,1] },
+							{ value: [0, 1.1], duration: 150, easing: [0.1, 1, 0.3, 1] },
+							{ value: 1.2, duration: 800, easing: 'linear' },
+							{ value: 1, duration: 150, easing: [0.1, 1, 0.3, 1] },
 						],
 						opacity: {
 							value: 1,
@@ -872,7 +872,7 @@
 					trigger: {
 						duration: 300,
 						easing: 'easeOutExpo',
-						scale: [1,0.9],
+						scale: [1, 0.9],
 						color: '#6fbb95'
 					}
 				},
@@ -913,7 +913,7 @@
 						easing: 'linear',
 						opacity: 1,
 						translateY: {
-							value: [-40,0],
+							value: [-40, 0],
 							duration: 800,
 							easing: 'easeOutElastic'
 						}
@@ -933,7 +933,7 @@
 						duration: 800,
 						delay: 420,
 						easing: 'easeOutElastic',
-						translateY: [20,0],
+						translateY: [20, 0],
 						opacity: {
 							value: 1,
 							easing: 'linear',
@@ -942,17 +942,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#6fbb95', 
+							value: '#6fbb95',
 							duration: 1,
-							delay: 100, 
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -986,17 +986,17 @@
 					},
 					trigger: {
 						translateY: [
-							{value: '50%', duration: 100, easing: 'easeInQuad'},
-							{value: ['-50%','0%'], duration: 100, easing: 'easeOutQuad'}
+							{ value: '50%', duration: 100, easing: 'easeInQuad' },
+							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
 						],
 						opacity: [
-							{value: 0, duration: 100, easing: 'easeInQuad'},
-							{value: 1, duration: 100, easing: 'easeOutQuad'}
+							{ value: 0, duration: 100, easing: 'easeInQuad' },
+							{ value: 1, duration: 100, easing: 'easeOutQuad' }
 						],
 						color: {
-							value: '#666', 
-							duration: 1, 
-							delay: 100, 
+							value: '#666',
+							duration: 1,
+							delay: 100,
 							easing: 'easeOutQuad'
 						}
 					}
@@ -1011,84 +1011,84 @@
 			'<svg class="tooltip__shape" width="100%" height="100%" viewBox="0 0 400 300"><path d="M 92.4,79 C 136,79 154,115 200,116 246,117 263,80.4 308,79 353,77.6 381,111 381,150 381,189 346,220 308,221 270,222 236,188 200,188 164,188 130,222 92.4,221 54.4,220 19,189 19,150 19,111 48.6,79 92.4,79 Z"/></svg>',
 			'<svg class="tooltip__shape" width="100%" height="100%" viewBox="0 0 400 300"><path d="M 44.5,24 C 138,4.47 246,-6.47 356,24 367,26.9 376,32.9 376,44 L 376,256 C 376,267 367,279 356,276 231,240 168,241 44.5,276 33.8,279 24.5,267 24.5,256 L 24.5,44 C 24.5,32.9 33.6,26.3 44.5,24 Z"/></svg>',
 			'<svg class="tooltip__shape" width="100%" height="100%" viewBox="0 0 400 300"><path class="path-narvi" d="M 307,150 199,212 92.5,274 92.7,150 92.5,26.2 200,88.4 Z"/></svg>'
-			];
-	    Tooltip = ModuleHandler.extend({
+		];
+		Tooltip = ModuleHandler.extend({
 
-	        bindEvents: function () {
-	            this.run();
-	        },
+			bindEvents: function () {
+				this.run();
+			},
 
-	        getDefaultSettings: function () {
-	            return {
-	                allowHTML: true,
-	            };
-	        },
+			getDefaultSettings: function () {
+				return {
+					allowHTML: true,
+				};
+			},
 
-	        onElementChange: function (prop) {
-	            if (prop.indexOf('eead_tltp_') !== -1) {
-	                this.instance.destroy();
-	                this.run();
-	            }
-	        },
+			onElementChange: function (prop) {
+				if (prop.indexOf('eead_tltp_') !== -1) {
+					this.instance.destroy();
+					this.run();
+				}
+			},
 
-	        settings: function (key) {
-	            return this.getElementSettings('eead_tltp_' + key);
-	        },
+			settings: function (key) {
+				return this.getElementSettings('eead_tltp_' + key);
+			},
 
-	        run: function () {
-	            if (this.settings('active') != 'yes') {
-                    return;
-                }
+			run: function () {
+				if (this.settings('active') != 'yes') {
+					return;
+				}
 
-                var options = this.getDefaultSettings(),
-                    $element = this.$element,
-                    $widgetId = '.elementor-element-' + this.getID(),
-                    $elementID = this.getID(),
-                    $globalthis = this;
+				var options = this.getDefaultSettings(),
+					$element = this.$element,
+					$widgetId = '.elementor-element-' + this.getID(),
+					$elementID = this.getID(),
+					$globalthis = this;
 
-                var $list = this.settings('list');
+				var $list = this.settings('list');
 
-                $list.forEach(element => {
-                	var $selectElement = '',
-                		isShown = false,
-                        bracketOn = '',
-                        tooltipDOM = {},
-                        tooltiptype = element.eead_tltp_type;
+				$list.forEach(element => {
+					var $selectElement = '',
+						isShown = false,
+						bracketOn = '',
+						tooltipDOM = {},
+						tooltiptype = element.eead_tltp_type;
 
-                    if (element.eead_tltp_select_type == 'widget') {
-                        $selectElement = $widgetId;
-                    }
-                    if (element.eead_tltp_select_type == 'custom') {
-                        var customSelector = element.eead_tltp_custom_selector;
+					if (element.eead_tltp_select_type == 'widget') {
+						$selectElement = $widgetId;
+					}
+					if (element.eead_tltp_select_type == 'custom') {
+						var customSelector = element.eead_tltp_custom_selector;
 
-                        if (element.eead_tltp_custom_selector && customSelector.length > 1) {
-                            $selectElement = customSelector;
-                        }
-                    }
+						if (element.eead_tltp_custom_selector && customSelector.length > 1) {
+							$selectElement = customSelector;
+						}
+					}
 
-                    var tooltipBaseHTML = '<div class="tooltip__base">\
+					var tooltipBaseHTML = '<div class="tooltip__base">\
 						' + (tooltiptype == 'walda' ? '<div class="tooltip__deco"></div>' : '') + ' \
-						'+ svgStyles[0] +' \
-						<div class="tooltip__content" id="info-'+ tooltiptype +'"> \
+						'+ svgStyles[0] + ' \
+						<div class="tooltip__content" id="info-'+ tooltiptype + '"> \
 						' + (tooltiptype == 'walda' ? '<span class="tooltip__letters">' : '') + ' \
-						'+ element.eead_tltp_tooltip_text +'</span>\
+						'+ element.eead_tltp_tooltip_text + '</span>\
 						' + (tooltiptype == 'walda' ? '</div>' : '') + ' \
 					</div><!-- /tooltip__base -->';
 					$($selectElement).append(tooltipBaseHTML);
 
-					tooltipDOM.el = $($selectElement)[0];console.log(tooltipDOM.el);
+					tooltipDOM.el = $($selectElement)[0]; console.log(tooltipDOM.el);
 					tooltipDOM.trigger = $($selectElement)[0];
 					// tooltipDOM.triggerSpan = $($selectElement)[0];
 					tooltipDOM.base = tooltipDOM.el.querySelector('.tooltip__base');
 					tooltipDOM.shape = tooltipDOM.base.querySelector('.tooltip__shape');
-					if( tooltipDOM.shape ) {
+					if (tooltipDOM.shape) {
 						tooltipDOM.path = tooltipDOM.shape.childElementCount > 1 ? Array.from(tooltipDOM.shape.querySelectorAll('path')) : tooltipDOM.shape.querySelector('path');
 					}
 					tooltipDOM.deco = tooltipDOM.base.querySelector('.tooltip__deco');
 					tooltipDOM.content = tooltipDOM.base.querySelector('.tooltip__content');
 
 					tooltipDOM.letters = tooltipDOM.content.querySelector('.tooltip__letters');
-					if( tooltipDOM.letters ) {
+					if (tooltipDOM.letters) {
 						// Create spans for each letter.
 						charming(tooltipDOM.letters);
 						// Redefine content.
@@ -1107,40 +1107,40 @@
 					}
 					function mouseleaveFn() {
 						clearTimeout(mouseTimeout);
-						if( isShown ) {
+						if (isShown) {
 							isShown = false;
 							animate('out');
 						}
 					}
 					function animate(dir) {
-						if ( configTltpStyles[tooltiptype][dir].base ) {
+						if (configTltpStyles[tooltiptype][dir].base) {
 							anime.remove(tooltipDOM.base);
-							let baseAnimOpts = {targets: tooltipDOM.base};
+							let baseAnimOpts = { targets: tooltipDOM.base };
 							anime(Object.assign(baseAnimOpts, configTltpStyles[tooltiptype][dir].base));
 						}
-						if ( configTltpStyles[tooltiptype][dir].shape ) {
+						if (configTltpStyles[tooltiptype][dir].shape) {
 							anime.remove(tooltipDOM.shape);
-							let shapeAnimOpts = {targets: tooltipDOM.shape};
+							let shapeAnimOpts = { targets: tooltipDOM.shape };
 							anime(Object.assign(shapeAnimOpts, configTltpStyles[tooltiptype][dir].shape));
 						}
-						if ( configTltpStyles[tooltiptype][dir].path ) {
+						if (configTltpStyles[tooltiptype][dir].path) {
 							anime.remove(tooltipDOM.path);
-							let shapeAnimOpts = {targets: tooltipDOM.path};
+							let shapeAnimOpts = { targets: tooltipDOM.path };
 							anime(Object.assign(shapeAnimOpts, configTltpStyles[tooltiptype][dir].path));
 						}
-						if ( configTltpStyles[tooltiptype][dir].content ) {
+						if (configTltpStyles[tooltiptype][dir].content) {
 							anime.remove(tooltipDOM.content);
-							let contentAnimOpts = {targets: tooltipDOM.content};
+							let contentAnimOpts = { targets: tooltipDOM.content };
 							anime(Object.assign(contentAnimOpts, configTltpStyles[tooltiptype][dir].content));
 						}
-						if ( configTltpStyles[tooltiptype][dir].trigger ) {
+						if (configTltpStyles[tooltiptype][dir].trigger) {
 							anime.remove(tooltipDOM.triggerSpan);
-							let triggerAnimOpts = {targets: tooltipDOM.triggerSpan};
+							let triggerAnimOpts = { targets: tooltipDOM.triggerSpan };
 							anime(Object.assign(triggerAnimOpts, configTltpStyles[tooltiptype][dir].trigger));
 						}
-						if ( configTltpStyles[tooltiptype][dir].deco ) {
+						if (configTltpStyles[tooltiptype][dir].deco) {
 							anime.remove(tooltipDOM.deco);
-							let decoAnimOpts = {targets: tooltipDOM.deco};
+							let decoAnimOpts = { targets: tooltipDOM.deco };
 							anime(Object.assign(decoAnimOpts, configTltpStyles[tooltiptype][dir].deco));
 						}
 					}
@@ -1150,14 +1150,14 @@
 						tooltipDOM.trigger.removeEventListener('touchstart', mouseenterFn);
 						tooltipDOM.trigger.removeEventListener('touchend', mouseleaveFn);
 					}
-                })
-	        },
-	    });
+				})
+			},
+		});
 
-	    elementorFrontend.hooks.addAction('frontend/element_ready/widget', function ($scope) {
-	        elementorFrontend.elementsHandler.addHandler(Tooltip, {
-	            $element: $scope
-	        });
-	    });
+		elementorFrontend.hooks.addAction('frontend/element_ready/widget', function ($scope) {
+			elementorFrontend.elementsHandler.addHandler(Tooltip, {
+				$element: $scope
+			});
+		});
 	});
 })(jQuery, window.elementorFrontend);

@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!function_exists('is_plugin_active')) {
-    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+    include_once (ABSPATH . 'wp-admin/includes/plugin.php');
 }
 
 final class EEAD_Modules_Manager {
@@ -23,16 +23,16 @@ final class EEAD_Modules_Manager {
     }
 
     private function require_files() {
-        require(EEAD_PATH . 'base/module-base.php');
-        require(EEAD_PATH . 'inc/extenders/extender.php');
+        require (EEAD_PATH . 'base/module-base.php');
+        require (EEAD_PATH . 'inc/extenders/extender.php');
     }
 
     public function register_modules() {
-        
+
         $modules = get_option('eead_widgets') ? get_option('eead_widgets') : array();
-        
-        if(isset($modules)) {
-            if(empty($modules)) {
+
+        if (isset($modules)) {
+            if (empty($modules)) {
                 return;
             }
         }

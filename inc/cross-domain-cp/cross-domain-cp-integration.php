@@ -14,20 +14,20 @@ if (!defined('ABSPATH')) {
 class CP_Integration {
 	private $cross_enabled = true;
 
-	private static $instance = null;
+	private static $instance = NULL;
 
 	public function __construct() {
 
 		if ($this->cross_enabled) {
 			add_action('elementor/editor/before_enqueue_scripts', array($this, 'enqueue_editor_cp_scripts'), 99);
-            require EEAD_PATH . 'inc/cross-domain-cp/eead-cross-cp.php';
+			require EEAD_PATH . 'inc/cross-domain-cp/eead-cross-cp.php';
 		}
 
 	}
 
 	public function enqueue_editor_cp_scripts() {
 
-		wp_enqueue_script('eead-xdlocalstorage-js', EEAD_URL . 'assets/js/xd-local-storage.js', null, EEAD_VERSION, true);
+		wp_enqueue_script('eead-xdlocalstorage-js', EEAD_URL . 'assets/js/xd-local-storage.js', NULL, EEAD_VERSION, true);
 		wp_enqueue_script('eead-cross-cp', EEAD_URL . 'assets/js/eead-cross-cp.js', array('jquery', 'elementor-editor', 'eead-xdlocalstorage-js'), EEAD_VERSION, true);
 
 		// Check for required Compatible Elementor version.

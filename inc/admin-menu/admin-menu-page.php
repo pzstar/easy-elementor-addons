@@ -262,7 +262,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
             <p>Easy Elementor Addons is compatible with all types of free and premium WordPress themes. The only thing is that you will need to install Elementor Plugin.</p>
 
             <h3>Support:</h3>
-            <p>If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website <a href="https://hashthemes.com/" target="_blank">here</a>.</p> 
+            <p>If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website <a href="https://hashthemes.com/" target="_blank">here</a>.</p>
 
 
             <h3>Installation</h3>
@@ -278,4 +278,3 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
         <div class="eead-admin-notificn" style="display: none;"></div>
     </div>
 </div>
-

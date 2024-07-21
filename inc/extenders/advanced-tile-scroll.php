@@ -12,9 +12,9 @@ use Elementor\Repeater;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
-Class AdvancedTileScroll {
+class AdvancedTileScroll {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -43,7 +43,8 @@ Class AdvancedTileScroll {
     public function register_controls($section) {
 
         $section->add_control(
-            'eead_advanced_tile_scroll_show', [
+            'eead_advanced_tile_scroll_show',
+            [
                 'label' => esc_html__('Use Tile Scroll?', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
@@ -59,7 +60,8 @@ Class AdvancedTileScroll {
         );
 
         $section->start_controls_tab(
-            'tabs_eead_advanced_tile_content', [
+            'tabs_eead_advanced_tile_content',
+            [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_advanced_tile_scroll_show' => 'yes'
@@ -70,7 +72,8 @@ Class AdvancedTileScroll {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'eead_advanced_tile_scroll_title', [
+            'eead_advanced_tile_scroll_title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Item #1', 'easy-elementor-addons'),
@@ -80,14 +83,16 @@ Class AdvancedTileScroll {
         );
 
         $repeater->add_control(
-            'eead_advanced_tile_scroll_images', [
+            'eead_advanced_tile_scroll_images',
+            [
                 'label' => esc_html__('Images', 'easy-elementor-addons'),
                 'type' => Controls_Manager::GALLERY,
             ]
         );
 
         $repeater->add_control(
-            'eead_advanced_tile_scroll_x_start', [
+            'eead_advanced_tile_scroll_x_start',
+            [
                 'label' => esc_html__('Start', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -105,7 +110,8 @@ Class AdvancedTileScroll {
         );
 
         $repeater->add_control(
-            'eead_advanced_tile_scroll_x_end', [
+            'eead_advanced_tile_scroll_x_end',
+            [
                 'label' => esc_html__('End', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -119,7 +125,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_control(
-            'eead_advanced_tile_scroll_elements', [
+            'eead_advanced_tile_scroll_elements',
+            [
                 'label' => esc_html__('Tile Scroll Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -137,7 +144,7 @@ Class AdvancedTileScroll {
                             'unit' => 'px',
                             'size' => -150,
                         ],
-                        'eead_advanced_tile_scroll_x_end'   => [
+                        'eead_advanced_tile_scroll_x_end' => [
                             'unit' => 'px',
                             'size' => 150,
                         ],
@@ -148,7 +155,7 @@ Class AdvancedTileScroll {
                             'unit' => 'px',
                             'size' => 150,
                         ],
-                        'eead_advanced_tile_scroll_x_end'   => [
+                        'eead_advanced_tile_scroll_x_end' => [
                             'unit' => 'px',
                             'size' => -150,
                         ]
@@ -159,7 +166,7 @@ Class AdvancedTileScroll {
                             'unit' => 'px',
                             'size' => -150,
                         ],
-                        'eead_advanced_tile_scroll_x_end'   => [
+                        'eead_advanced_tile_scroll_x_end' => [
                             'unit' => 'px',
                             'size' => 150,
                         ]
@@ -170,7 +177,7 @@ Class AdvancedTileScroll {
                             'unit' => 'px',
                             'size' => 150,
                         ],
-                        'eead_advanced_tile_scroll_x_end'   => [
+                        'eead_advanced_tile_scroll_x_end' => [
                             'unit' => 'px',
                             'size' => -150,
                         ]
@@ -181,7 +188,7 @@ Class AdvancedTileScroll {
                             'unit' => 'px',
                             'size' => -150,
                         ],
-                        'eead_advanced_tile_scroll_x_end'   => [
+                        'eead_advanced_tile_scroll_x_end' => [
                             'unit' => 'px',
                             'size' => 150,
                         ]
@@ -193,7 +200,8 @@ Class AdvancedTileScroll {
         $section->end_controls_tab();
 
         $section->start_controls_tab(
-            'tabs_eead_advanced_tile_style', [
+            'tabs_eead_advanced_tile_style',
+            [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_advanced_tile_scroll_show' => 'yes'
@@ -202,7 +210,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_control(
-            'eead_advanced_tile_scroll_display', [
+            'eead_advanced_tile_scroll_display',
+            [
                 'label' => esc_html__('Scroll Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'horizontal',
@@ -219,7 +228,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_control(
-            'eead_advanced_tile_scroll_rotate', [
+            'eead_advanced_tile_scroll_rotate',
+            [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -233,14 +243,15 @@ Class AdvancedTileScroll {
                     '{{WRAPPER}} .eead-advanced-tile-scroll--horizontal .eead-advanced-tile-scroll__wrap' => 'top: 50%; transform: translate3d(-50%, -50%, 0) rotate({{SIZE}}deg);',
                 ],
                 'condition' => [
-                    'eead_advanced_tile_scroll_show'    => 'yes',
+                    'eead_advanced_tile_scroll_show' => 'yes',
                     'eead_advanced_tile_scroll_display' => 'horizontal'
                 ]
             ]
         );
 
         $section->add_responsive_control(
-            'eead_advanced_tile_scroll_item_width', [
+            'eead_advanced_tile_scroll_item_width',
+            [
                 'label' => esc_html__('Width Adjustment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -251,18 +262,19 @@ Class AdvancedTileScroll {
                         'step' => 0.5,
                     ]
                 ],
-                'selectors'  => [
+                'selectors' => [
                     '{{WRAPPER}}' => '--eead-advanced-tile-scroll-item-width: {{SIZE}}%;',
                 ],
-                'condition'  => [
-                    'eead_advanced_tile_scroll_show'    => 'yes',
+                'condition' => [
+                    'eead_advanced_tile_scroll_show' => 'yes',
                     'eead_advanced_tile_scroll_display' => 'horizontal'
                 ]
             ]
         );
 
         $section->add_responsive_control(
-            'eead_advanced_tile_scroll_height', [
+            'eead_advanced_tile_scroll_height',
+            [
                 'label' => esc_html__('Height Adjustment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['vw'],
@@ -280,7 +292,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_responsive_control(
-            'eead_advanced_tile_scroll_gap', [
+            'eead_advanced_tile_scroll_gap',
+            [
                 'label' => esc_html__('Grid Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -291,14 +304,15 @@ Class AdvancedTileScroll {
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-advanced-tile-scroll-margin: {{SIZE}}{{UNIT}};',
                 ],
-                'condition'  => [
+                'condition' => [
                     'eead_advanced_tile_scroll_show' => 'yes'
                 ]
             ]
         );
 
         $section->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_advanced_tile_scroll_gap',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-advanced-tile-scroll__line-img',
@@ -307,7 +321,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_responsive_control(
-            'eead_advanced_tile_title_radius', [
+            'eead_advanced_tile_title_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -318,7 +333,8 @@ Class AdvancedTileScroll {
         );
 
         $section->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'eead_advanced_tile_scroll_shadow',
                 'label' => esc_html__('Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-advanced-tile-scroll__line-img',
@@ -330,7 +346,8 @@ Class AdvancedTileScroll {
         $section->end_controls_tabs();
 
         $section->add_control(
-            'eead_advanced_tile_scroll_notice', [
+            'eead_advanced_tile_scroll_notice',
+            [
                 'type' => Controls_Manager::RAW_HTML,
                 'raw' => sprintf(__('Please use proper size (for example: 640px X 560px) and optimize image for this gallery because tile gallery will show full size image so if you use large image that can slow down your scroll animation and page loading time', 'easy-elementor-addons')),
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
@@ -344,7 +361,8 @@ Class AdvancedTileScroll {
 
     public function register_section($element) {
         $element->start_controls_section(
-            'eead_advanced_tile_scroll_section', [
+            'eead_advanced_tile_scroll_section',
+            [
                 'tab' => Controls_Manager::TAB_ADVANCED,
                 'label' => esc_html__('Tile Scroll', 'easy-elementor-addons'),
             ]

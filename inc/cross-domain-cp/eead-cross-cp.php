@@ -13,7 +13,7 @@ if (!class_exists('Addons_Cross_CP')) {
 
 	class Addons_Cross_CP {
 
-		private static $instance = null;
+		private static $instance = NULL;
 
 		public function __construct() {
 			add_action('wp_ajax_eead_cross_cp_import', array($this, 'cross_cp_fetch_content_data'));
@@ -21,7 +21,7 @@ if (!class_exists('Addons_Cross_CP')) {
 
 		public static function cross_cp_fetch_content_data() {
 
-			check_ajax_referer( 'eead_cross_cp_import', 'nonce' );
+			check_ajax_referer('eead_cross_cp_import', 'nonce');
 
 			if (!current_user_can('edit_posts')) {
 				wp_send_json_error(esc_html__('Not a valid user', 'easy_elementor_addons'), 403);
@@ -42,7 +42,7 @@ if (!class_exists('Addons_Cross_CP')) {
 
 		protected static function cross_cp_import_elements_ids($media_import) {
 
-			return \Elementor\Plugin::instance()->db->iterate_data($media_import, function($element) {
+			return \Elementor\Plugin::instance()->db->iterate_data($media_import, function ($element) {
 				$element['id'] = Utils::generate_random_string();
 				return $element;
 			});
@@ -51,9 +51,9 @@ if (!class_exists('Addons_Cross_CP')) {
 
 		protected static function cross_cp_import_copy_content($media_import) {
 
-			return \Elementor\Plugin::instance()->db->iterate_data($media_import, function($element_data) {
+			return \Elementor\Plugin::instance()->db->iterate_data($media_import, function ($element_data) {
 				$element = \Elementor\Plugin::instance()->elements_manager->create_element_instance($element_data);
-				return !$element ? null : self::cross_cp_import_element($element);
+				return !$element ? NULL : self::cross_cp_import_element($element);
 			});
 
 		}

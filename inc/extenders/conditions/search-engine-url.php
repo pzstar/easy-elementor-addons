@@ -8,7 +8,7 @@ use Elementor\Controls_Manager;
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
-	
+
 class Search_Engine_Url extends Condition {
 
 	public function get_name() {
@@ -40,15 +40,15 @@ class Search_Engine_Url extends Condition {
 	public function check($relation, $val) {
 		$res = false;
 		$sename = false;
-		if(isset($_SERVER['HTTP_REFERER'])) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
 			$url = $_SERVER['HTTP_REFERER'];
 
-			if(!empty($val)) {
+			if (!empty($val)) {
 				foreach ($val as $value) {
-				  if (in_array($value, ['google.com','yahoo.com','bing.com','yandex.com','baidu.com'])) {
-				    $sename = $value;
-				    break;
-				  }
+					if (in_array($value, ['google.com', 'yahoo.com', 'bing.com', 'yandex.com', 'baidu.com'])) {
+						$sename = $value;
+						break;
+					}
 				}
 			}
 
@@ -57,6 +57,6 @@ class Search_Engine_Url extends Condition {
 			}
 		}
 
-		return $this->compare( $res, true, $relation );
+		return $this->compare($res, true, $relation);
 	}
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace EasyElementorAddons\Includes;
+
 use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
@@ -9,8 +10,8 @@ if (!defined('ABSPATH')) {
 
 class EEAD_Live_Editor {
 
-	private static $instance = null;
-	private static $modules = null;
+	private static $instance = NULL;
+	private static $modules = NULL;
 	protected $template_instance;
 	public $cdn_url;
 
@@ -34,11 +35,11 @@ class EEAD_Live_Editor {
 	public function live_editor_enqueue() {
 		wp_enqueue_script('live-editor-js', EEAD_URL . 'assets/js/live-editor.js', ['jquery'], EEAD_VERSION, true);
 		$live_editor_data = array(
-			'ajaxurl' => esc_url( admin_url('admin-ajax.php')),
+			'ajaxurl' => esc_url(admin_url('admin-ajax.php')),
 			'nonce' => wp_create_nonce('eead-live-editor'),
 		);
 
-		wp_localize_script( 'live-editor-js', 'liveEditor', $live_editor_data );
+		wp_localize_script('live-editor-js', 'liveEditor', $live_editor_data);
 	}
 
 	public function update_template_title() {
@@ -55,7 +56,7 @@ class EEAD_Live_Editor {
 			)
 		);
 
-		wp_send_json_success( $res );
+		wp_send_json_success($res);
 	}
 
 	public function check_temp_validity() {
@@ -65,10 +66,10 @@ class EEAD_Live_Editor {
 			wp_send_json_error('template ID is not set');
 		}
 
-		$temp_id = sanitize_text_field( wp_unslash($_POST['templateID']));
+		$temp_id = sanitize_text_field(wp_unslash($_POST['templateID']));
 		$template_content = get_el_template_content($temp_id, true);
 
-		if (empty($template_content) || ! isset($template_content)) {
+		if (empty($template_content) || !isset($template_content)) {
 			$res = wp_delete_post($temp_id, true);
 
 			if (!is_wp_error($res)) {
@@ -128,7 +129,7 @@ class EEAD_Live_Editor {
 			'id' => $post_id,
 			'title' => $post_title,
 		);
-		wp_send_json_success( $result );
+		wp_send_json_success($result);
 	}
 
 	public function load_live_editor_modal() {

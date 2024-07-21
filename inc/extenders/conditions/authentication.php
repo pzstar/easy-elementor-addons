@@ -30,7 +30,7 @@ class Authentication extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		return $this->compare(is_user_logged_in(), true, $relation);
 	}
 }

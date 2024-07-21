@@ -49,15 +49,17 @@ class Progressbar extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-                'progressbar', [
-            'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
-                ]
+            'progressbar',
+            [
+                'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
+            ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'progressbar_title', [
+            'progressbar_title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -65,7 +67,8 @@ class Progressbar extends Widget_Base {
         );
 
         $repeater->add_control(
-            'progressbar_percentage', [
+            'progressbar_percentage',
+            [
                 'label' => esc_html__('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
@@ -76,7 +79,8 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'progressbar_block', [
+            'progressbar_block',
+            [
                 'label' => esc_html__('Progress Bars', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -92,92 +96,102 @@ class Progressbar extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'title_style', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'title_style',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'title_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress h2' => 'color: {{VALUE}}',
-            ],
-                ]
+            'title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress h2' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'title_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-progress h2',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-progress h2',
+            ]
         );
 
         $this->add_control(
-                'title_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'title_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'percent_style', [
-            'label' => esc_html__('Percent', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'percent_style',
+            [
+                'label' => esc_html__('Percent', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'percent_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress-bar-length span' => 'color: {{VALUE}}',
-            ],
-                ]
+            'percent_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress-bar-length span' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'percent_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-progress-bar-length span',
-                ]
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'percent_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-progress-bar-length span',
+            ]
         );
 
         $this->add_control(
-                'percent_margin', [
-            'label' => esc_html__('Margin', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'allowed_dimensions' => 'vertical',
-            'size_units' => ['px', '%', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress-bar-length span' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-            ],
-                ]
+            'percent_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress-bar-length span' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'progressbar_style', [
-            'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'progressbar_style',
+            [
+                'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(), [
+            \Elementor\Group_Control_Background::get_type(),
+            [
                 'name' => 'progressbar_bg_color',
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -186,7 +200,8 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(), [
+            \Elementor\Group_Control_Background::get_type(),
+            [
                 'name' => 'progress_indication_color',
                 'label' => esc_html__('Progress Indication Color', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -195,43 +210,45 @@ class Progressbar extends Widget_Base {
         );
 
         $this->add_control(
-                'progressbar_border_radius', [
-            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 20,
-                    'step' => 1,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress-bar-length,
+            'progressbar_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 20,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress-bar-length,
                  {{WRAPPER}} .eead-progress-bar' => 'border-radius: {{SIZE}}{{UNIT}};',
-            ]
                 ]
+            ]
         );
 
         $this->add_control(
-                'progressbar_border_height', [
-            'label' => esc_html__('Progress Height', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px'],
-            'range' => [
-                'px' => [
-                    'min' => 2,
-                    'max' => 20,
-                    'step' => 1,
+            'progressbar_border_height',
+            [
+                'label' => esc_html__('Progress Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 2,
+                        'max' => 20,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-progress-bar' => 'height: {{SIZE}}{{UNIT}};',
                 ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-progress-bar' => 'height: {{SIZE}}{{UNIT}};',
             ]
-                ]
         );
 
-        $this->end_controls_section(); 
+        $this->end_controls_section();
     }
 
     /** Render Layout */

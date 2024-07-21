@@ -7,9 +7,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-Class Extender {
+class Extender {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -20,9 +20,9 @@ Class Extender {
 
     public function __construct() {
         $extenders = get_option('eead_extenders') ? get_option('eead_extenders') : array();
-        
-        if(isset($extenders)) {
-            if(empty($extenders)) {
+
+        if (isset($extenders)) {
+            if (empty($extenders)) {
                 return;
             }
         }
@@ -34,7 +34,7 @@ Class Extender {
 
             $file = EEAD_PATH . 'inc/extenders/' . $extender . '.php';
             if (file_exists($file)) {
-                require_once($file);
+                require_once ($file);
             }
         }
 
@@ -78,7 +78,7 @@ Class Extender {
         foreach ($get_conditions as $condition) {
             $file = EEAD_PATH . 'inc/extenders/conditions/' . $condition . '.php';
             if (file_exists($file)) {
-                require_once($file);
+                require_once ($file);
             }
         }
     }

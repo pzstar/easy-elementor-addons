@@ -31,7 +31,7 @@ class Role extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		$user = wp_get_current_user();
 		return $this->compare(is_user_logged_in() && in_array($val, $user->roles), true, $relation);
 	}

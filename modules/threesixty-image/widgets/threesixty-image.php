@@ -48,14 +48,16 @@ class ThreesixtyImage extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'threesixty_rotation_section', [
+            'threesixty_rotation_section',
+            [
                 'label' => esc_html__('Threesixty Rotation', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'images', [
+            'images',
+            [
                 'label' => esc_html__('Gallery', 'easy-elementor-addons'),
                 'type' => Controls_Manager::GALLERY,
                 'default' => [
@@ -70,20 +72,22 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'auto_play', [
+            'auto_play',
+            [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'autoplay'  => esc_html__('Autoplay', 'easy-elementor-addons'),
-                    'button'  => esc_html__('Button Play', 'easy-elementor-addons'),
+                    'autoplay' => esc_html__('Autoplay', 'easy-elementor-addons'),
+                    'button' => esc_html__('Button Play', 'easy-elementor-addons'),
                     'none' => esc_html__('None', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
-            'button_align', [
+            'button_align',
+            [
                 'label' => esc_html__('Button Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -112,7 +116,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'magnify', [
+            'magnify',
+            [
                 'label' => esc_html__('Magnify', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
@@ -123,7 +128,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'zoom', [
+            'zoom',
+            [
                 'label' => esc_html__('Magnify Zoom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '3',
@@ -137,7 +143,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'wrapper_align', [
+            'wrapper_align',
+            [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -165,17 +172,19 @@ class ThreesixtyImage extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'threesixty_rotation_wrapper_style', [
+            'threesixty_rotation_wrapper_style',
+            [
                 'label' => esc_html__('Wrapper', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'wrapper_width', [
+            'wrapper_width',
+            [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => [ 'px', '%' ],
+                'size_units' => ['px', '%'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -194,7 +203,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'wrapper_background',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -203,7 +213,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'wrapper_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper',
@@ -211,7 +222,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'wrapper_border_radius', [
+            'wrapper_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px'],
@@ -222,7 +234,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'wrapper_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper',
@@ -230,7 +243,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'wrapper_padding', [
+            'wrapper_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -241,7 +255,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'sticky_title_position_left', [
+            'sticky_title_position_left',
+            [
                 'label' => esc_html__('Sticky Title Position Left', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HIDDEN,
                 'default' => 'left',
@@ -258,7 +273,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'sticky_title_position_right', [
+            'sticky_title_position_right',
+            [
                 'label' => esc_html__('Sticky Title Position Right', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HIDDEN,
                 'default' => 'right',
@@ -278,7 +294,8 @@ class ThreesixtyImage extends Widget_Base {
 
         //Magnify Glass
         $this->start_controls_section(
-            'threesixty_rotation_magnify_style', [
+            'threesixty_rotation_magnify_style',
+            [
                 'label' => esc_html__('Magnify', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -288,7 +305,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'glass_icon_size', [
+            'glass_icon_size',
+            [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -306,7 +324,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'glass_icon_color', [
+            'glass_icon_color',
+            [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -316,7 +335,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'glass_width', [
+            'glass_width',
+            [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -334,7 +354,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'glass_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper .eead-img-magnifier-glass',
@@ -342,7 +363,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'glass_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper .eead-img-magnifier-glass',
@@ -353,7 +375,8 @@ class ThreesixtyImage extends Widget_Base {
 
         //AutoPlay Button
         $this->start_controls_section(
-            'threesixty_rotation_button_style', [
+            'threesixty_rotation_button_style',
+            [
                 'label' => esc_html__('AutoPlay Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -365,13 +388,15 @@ class ThreesixtyImage extends Widget_Base {
         $this->start_controls_tabs('_tabs_button');
 
         $this->start_controls_tab(
-            'button_normal_tab', [
+            'button_normal_tab',
+            [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_color', [
+            'button_color',
+            [
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -381,7 +406,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button_background',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -392,13 +418,15 @@ class ThreesixtyImage extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'button_hover_tab', [
+            'button_hover_tab',
+            [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_hover_color', [
+            'button_hover_color',
+            [
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -408,7 +436,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button_hover_background',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -421,7 +450,8 @@ class ThreesixtyImage extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper button.eead-threesixty-rotation-play',
@@ -429,7 +459,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'button_border_radius', [
+            'button_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px'],
@@ -440,7 +471,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'button_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-threesixty-rotation-wrapper button.eead-threesixty-rotation-play',
@@ -448,7 +480,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_padding', [
+            'button_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -459,7 +492,8 @@ class ThreesixtyImage extends Widget_Base {
         );
 
         $this->add_control(
-            'button_space_top', [
+            'button_space_top',
+            [
                 'label' => esc_html__('Space Top', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -494,7 +528,7 @@ class ThreesixtyImage extends Widget_Base {
             'data-selector' => 'eead-threesixty-rotation' . $this->get_id()
         ]);
 
-        if('autoplay' === $settings['auto_play']){
+        if ('autoplay' === $settings['auto_play']) {
             $this->add_render_attribute('rotation', 'data-autoplay', 'on');
         }
 

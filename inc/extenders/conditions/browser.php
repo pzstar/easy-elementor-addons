@@ -39,7 +39,7 @@ class Browser extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		$browsers = [
 			'ie' => ['MSIE', 'Trident'],
 			'firefox' => 'Firefox',

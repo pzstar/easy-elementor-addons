@@ -49,13 +49,15 @@ class TwitterFeedCarousel extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_acc_settings', [
+            'eead_section_twitter_feed_carousel_acc_settings',
+            [
                 'label' => esc_html__('Account Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_ac_name', [
+            'eead_twitter_feed_ac_name',
+            [
                 'label' => esc_html__('Username', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '@hash_themes',
@@ -66,7 +68,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_hashtag_name', [
+            'eead_twitter_feed_hashtag_name',
+            [
                 'label' => esc_html__('Hashtag Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -76,7 +79,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_consumer_key', [
+            'eead_twitter_feed_consumer_key',
+            [
                 'label' => esc_html__('Consumer Key', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -86,7 +90,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_consumer_secret', [
+            'eead_twitter_feed_consumer_secret',
+            [
                 'label' => esc_html__('Consumer Secret', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -96,7 +101,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_data_cache_limit', [
+            'eead_twitter_feed_data_cache_limit',
+            [
                 'label' => esc_html__('Data Cache Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 1,
@@ -108,13 +114,15 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_layout_settings', [
+            'eead_section_twitter_feed_carousel_layout_settings',
+            [
                 'label' => esc_html__('Layout Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_length', [
+            'eead_twitter_feed_content_length',
+            [
                 'label' => esc_html__('Content Length', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -125,7 +133,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_post_limit', [
+            'eead_twitter_feed_post_limit',
+            [
                 'label' => esc_html__('Post Limit', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -134,7 +143,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_media', [
+            'eead_twitter_feed_media',
+            [
                 'label' => esc_html__('Show Media Elements', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('yes', 'easy-elementor-addons'),
@@ -147,13 +157,15 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_settings', [
+            'eead_section_twitter_feed_carousel_card_settings',
+            [
                 'label' => esc_html__('Card Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_avatar', [
+            'eead_twitter_feed_show_avatar',
+            [
                 'label' => esc_html__('Show Avatar', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('yes', 'easy-elementor-addons'),
@@ -164,7 +176,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_style', [
+            'eead_twitter_feed_avatar_style',
+            [
                 'label' => esc_html__('Avatar Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -179,7 +192,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_date', [
+            'eead_twitter_feed_show_date',
+            [
                 'label' => esc_html__('Show Date', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('yes', 'easy-elementor-addons'),
@@ -190,7 +204,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_show_read_more', [
+            'eead_twitter_feed_show_read_more',
+            [
                 'label' => esc_html__('Show Read More', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('yes', 'easy-elementor-addons'),
@@ -203,201 +218,214 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'carousel_settings', [
-            'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
-                ]
+            'carousel_settings',
+            [
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_to_show', [
-            'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 1,
-                    'max' => 10,
+            'slides_to_show',
+            [
+                'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 3,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 2,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 1,
-                'unit' => 'px',
-            ],
-                ]
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 3,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_margin', [
-            'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 100,
+            'slides_margin',
+            [
+                'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'infinite', [
-            'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
-        );
-
-        $this->add_control(
-                'autoplay', [
-            'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'no',
-                ]
-        );
-
-        $this->add_control(
-                'pause_on_hover', [
-            'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-            'condition' => [
-                'autoplay' => 'yes',
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'autoplay_speed', [
-            'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SLIDER,
-            'size_units' => ['s'],
-            'range' => [
-                's' => [
-                    'min' => 1,
-                    'max' => 15,
-                    'step' => 1
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
                 ],
-            ],
-            'default' => [
-                'size' => 5,
-                'unit' => 's',
-            ],
-            'condition' => [
-                'autoplay' => 'yes',
-            ],
-                ]
+                'tablet_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_control(
-                'speed', [
-            'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 500,
-                ]
+            'infinite',
+            [
+                'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
         );
 
         $this->add_control(
-                'dots', [
-            'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'no',
-                ]
+            'autoplay',
+            [
+                'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'no',
+            ]
         );
 
         $this->add_control(
-                'arrows', [
-            'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
+            'pause_on_hover',
+            [
+                'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'autoplay' => 'yes',
+                ],
+            ]
         );
 
         $this->add_control(
-                'auto_height', [
-            'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => '',
-                ]
+            'autoplay_speed',
+            [
+                'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['s'],
+                'range' => [
+                    's' => [
+                        'min' => 1,
+                        'max' => 15,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 5,
+                    'unit' => 's',
+                ],
+                'condition' => [
+                    'autoplay' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'speed',
+            [
+                'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 500,
+            ]
+        );
+
+        $this->add_control(
+            'dots',
+            [
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'no',
+            ]
+        );
+
+        $this->add_control(
+            'arrows',
+            [
+                'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'auto_height',
+            [
+                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => '',
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_stagepadding', [
-            'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 300,
+            'slides_stagepadding',
+            [
+                'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 300,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-                ]
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_control(
-                'center_image_bigger', [
-            'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-            'condition' => ['layout' => 'style3']
-                ]
+            'center_image_bigger',
+            [
+                'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => ['layout' => 'style3']
+            ]
         );
 
-        $this->end_controls_section(); 
+        $this->end_controls_section();
 
         /**
          * -------------------------------------------
@@ -405,14 +433,16 @@ class TwitterFeedCarousel extends Widget_Base {
          * -------------------------------------------
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_style_settings', [
+            'eead_section_twitter_feed_carousel_card_style_settings',
+            [
                 'label' => esc_html__('Card Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_bg_color', [
+            'eead_twitter_feed_card_bg_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -423,7 +453,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_twitter_feed_card_container_padding', [
+            'eead_twitter_feed_card_container_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -435,7 +466,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_twitter_feed_card_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner',
@@ -443,7 +475,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_border_radius', [
+            'eead_twitter_feed_card_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -458,7 +491,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'eead_twitter_feed_card_shadow',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner',
             ]
@@ -470,14 +504,16 @@ class TwitterFeedCarousel extends Widget_Base {
          * Card Hover Style
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_card_hover_settings', [
+            'eead_section_twitter_feed_card_hover_settings',
+            [
                 'label' => esc_html__('Card Hover Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_hover_title_color', [
+            'eead_twitter_feed_card_hover_title_color',
+            [
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -487,7 +523,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_hover_content_color', [
+            'eead_twitter_feed_card_hover_content_color',
+            [
                 'label' => esc_html__('Content Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -497,7 +534,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_hover_link_color', [
+            'eead_twitter_feed_card_hover_link_color',
+            [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -507,7 +545,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_hover_date_color', [
+            'eead_twitter_feed_card_hover_date_color',
+            [
                 'label' => esc_html__('Date Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -517,7 +556,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_card_border_hover_color', [
+            'eead_twitter_feed_card_border_hover_color',
+            [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
@@ -527,7 +567,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(), [
+            \Elementor\Group_Control_Background::get_type(),
+            [
                 'name' => 'eead_twitter_feed_card_hover_bg',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -536,7 +577,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(), [
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'eead_twitter_feed_card_hover_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner:hover',
@@ -549,21 +591,24 @@ class TwitterFeedCarousel extends Widget_Base {
          * Tab Style (Twitter Feed Typography Style)
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_carousel_card_typo_settings', [
+            'eead_section_twitter_feed_carousel_card_typo_settings',
+            [
                 'label' => esc_html__('Color &amp; Typography', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_title_heading', [
+            'eead_twitter_feed_title_heading',
+            [
                 'label' => esc_html__('Title Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
 
         $this->add_control(
-            'eead_twitter_feed_title_color', [
+            'eead_twitter_feed_title_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -574,7 +619,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_twitter_feed_title_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-author',
             ]
@@ -582,7 +628,8 @@ class TwitterFeedCarousel extends Widget_Base {
 
         // Content Style
         $this->add_control(
-            'eead_twitter_feed_content_heading', [
+            'eead_twitter_feed_content_heading',
+            [
                 'label' => esc_html__('Content Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -590,7 +637,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_color', [
+            'eead_twitter_feed_content_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -601,7 +649,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_twitter_feed_content_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-content p',
             ]
@@ -609,7 +658,8 @@ class TwitterFeedCarousel extends Widget_Base {
 
         // Content Link Style
         $this->add_control(
-            'eead_twitter_feed_content_link_heading', [
+            'eead_twitter_feed_content_link_heading',
+            [
                 'label' => esc_html__('Link Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -617,7 +667,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_link_color', [
+            'eead_twitter_feed_content_link_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -628,7 +679,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_content_link_hover_color', [
+            'eead_twitter_feed_content_link_hover_color',
+            [
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -639,7 +691,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_twitter_feed_content_link_typography',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-content a',
             ]
@@ -651,7 +704,8 @@ class TwitterFeedCarousel extends Widget_Base {
          * Avatar Style
          */
         $this->start_controls_section(
-            'eead_section_twitter_feed_avatar_style', [
+            'eead_section_twitter_feed_avatar_style',
+            [
                 'label' => esc_html__('Avatar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -661,14 +715,15 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_width', [
+            'eead_twitter_feed_avatar_width',
+            [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
                     'px' => [
-                        'min'  => 0,
-                        'max'  => 1000,
+                        'min' => 0,
+                        'max' => 1000,
                         'step' => 5,
                     ],
                     '%' => [
@@ -687,7 +742,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_twitter_feed_avatar_height', [
+            'eead_twitter_feed_avatar_height',
+            [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
@@ -709,7 +765,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Border::get_type(), [
+            \Elementor\Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_twitter_feed_avatar_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-avatar img',
@@ -717,7 +774,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(), [
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'eead_twitter_feed_avatar_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item .eead-twitter-feed-item-avatar img',
@@ -727,14 +785,16 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'dot_style', [
-            'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'dot_style',
+            [
+                'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'dots_border_width', [
+            'dots_border_width',
+            [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -745,7 +805,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_radius', [
+            'dots_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -756,7 +817,8 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding', [
+            'dots_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -767,89 +829,98 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'dot_tabs'
+            'dot_tabs'
         );
 
         $this->start_controls_tab(
-                'dot_style_normal_tab', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'dot_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_normal', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_normal',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'dot_style_active_tab', [
-            'label' => esc_html__('Active', 'easy-elementor-addons'),
-                ]
+            'dot_style_active_tab',
+            [
+                'label' => esc_html__('Active', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color_active', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color_active',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_active', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_active',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'dot_style_hover_tab', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'dot_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color_hover', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_hover', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
@@ -860,16 +931,18 @@ class TwitterFeedCarousel extends Widget_Base {
 
         /*Arrow Style*/
         $this->start_controls_section(
-                'arrow_style', [
-            'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'arrow_style',
+            [
+                'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'arrow_border',
-                'label' => esc_html__( 'Border', 'easy-elementor-addons' ),
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button',
@@ -877,10 +950,11 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding', [
+            'arrow_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
                 ],
@@ -888,71 +962,78 @@ class TwitterFeedCarousel extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'arrow_tabs'
+            'arrow_tabs'
         );
 
         $this->start_controls_tab(
-                'arrow_style_normal_tab', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'arrow_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'arrow_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button' => 'color: {{VALUE}}',
-            ],
-                ]
+            'arrow_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'arrow_style_hover_tab', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'arrow_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'arrow_bg_color_hover', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_bg_color_hover',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_color_hover', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
-            ],
-                ]
+            'arrow_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_border_color_hover', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-twitter-feed-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
@@ -998,10 +1079,10 @@ class TwitterFeedCarousel extends Widget_Base {
                 </div>
             </div>
             <?php
-        } else if($this->elementor()->editor->is_edit_mode()) {
-            foreach($items['errors'] as $error) {
+        } else if ($this->elementor()->editor->is_edit_mode()) {
+            foreach ($items['errors'] as $error) {
                 ?>
-                <p><?php echo esc_html($error['message']); ?></p>
+                    <p><?php echo esc_html($error['message']); ?></p>
                 <?php
             }
         }
@@ -1128,14 +1209,14 @@ class TwitterFeedCarousel extends Widget_Base {
 
                         <?php if ($settings['eead_twitter_feed_show_read_more'] == 'true') { ?>
                             <a href="//twitter.com/<?php echo $item['user']['screen_name']; ?>/status/<?php echo $item['id_str']; ?>" target="_blank" class="read-more-link">
-                                <?php  esc_html_e('Read More', 'easy-elementor-addons'); ?>
+                                <?php esc_html_e('Read More', 'easy-elementor-addons'); ?>
                             </a>
                         <?php } ?>
                     </div>
 
                     <?php
-                    if(isset($item['extended_entities']['media'][0]) && $settings['eead_twitter_feed_media'] == 'true') {
-                        if($item['extended_entities']['media'][0]['type'] == 'photo') {
+                    if (isset($item['extended_entities']['media'][0]) && $settings['eead_twitter_feed_media'] == 'true') {
+                        if ($item['extended_entities']['media'][0]['type'] == 'photo') {
                             ?>
                             <img src="<?php echo esc_url($item['extended_entities']['media'][0]['media_url_https']); ?>">
                             <?php

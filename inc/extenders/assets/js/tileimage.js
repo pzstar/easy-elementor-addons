@@ -1,9 +1,10 @@
 /* locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.LocomotiveScroll = factory());
-}(this, (function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+      (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.LocomotiveScroll = factory());
+}(this, (function () {
+  'use strict';
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -113,7 +114,7 @@
     if (typeof Proxy === "function") return true;
 
     try {
-      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () { }));
       return true;
     } catch (e) {
       return false;
@@ -141,7 +142,7 @@
 
     return function _createSuperInternal() {
       var Super = _getPrototypeOf(Derived),
-          result;
+        result;
 
       if (hasNativeReflectConstruct) {
         var NewTarget = _getPrototypeOf(this).constructor;
@@ -393,7 +394,7 @@
       }
     }, {
       key: "resize",
-      value: function resize() {}
+      value: function resize() { }
     }, {
       key: "checkContext",
       value: function checkContext() {
@@ -439,7 +440,7 @@
       }
     }, {
       key: "addElements",
-      value: function addElements() {}
+      value: function addElements() { }
     }, {
       key: "detectElements",
       value: function detectElements(hasCallEventSet) {
@@ -451,8 +452,8 @@
         var scrollRight = scrollLeft + this.windowWidth;
         Object.entries(this.els).forEach(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
-              i = _ref2[0],
-              el = _ref2[1];
+            i = _ref2[0],
+            el = _ref2[1];
 
           if (el && (!el.inView || hasCallEventSet)) {
             if (_this3.direction === 'horizontal') {
@@ -602,10 +603,10 @@
       }
     }, {
       key: "startScroll",
-      value: function startScroll() {}
+      value: function startScroll() { }
     }, {
       key: "stopScroll",
-      value: function stopScroll() {}
+      value: function stopScroll() { }
     }, {
       key: "setScroll",
       value: function setScroll(x, y) {
@@ -637,439 +638,439 @@
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
   function createCommonjsModule(fn, module) {
-  	return module = { exports: {} }, fn(module, module.exports), module.exports;
+    return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
   var smoothscroll = createCommonjsModule(function (module, exports) {
-  /* smoothscroll v0.4.4 - 2019 - Dustan Kasten, Jeremias Menichelli - MIT License */
-  (function () {
+    /* smoothscroll v0.4.4 - 2019 - Dustan Kasten, Jeremias Menichelli - MIT License */
+    (function () {
 
-    // polyfill
-    function polyfill() {
-      // aliases
-      var w = window;
-      var d = document;
+      // polyfill
+      function polyfill() {
+        // aliases
+        var w = window;
+        var d = document;
 
-      // return if scroll behavior is supported and polyfill is not forced
-      if (
-        'scrollBehavior' in d.documentElement.style &&
-        w.__forceSmoothScrollPolyfill__ !== true
-      ) {
-        return;
-      }
-
-      // globals
-      var Element = w.HTMLElement || w.Element;
-      var SCROLL_TIME = 468;
-
-      // object gathering original scroll methods
-      var original = {
-        scroll: w.scroll || w.scrollTo,
-        scrollBy: w.scrollBy,
-        elementScroll: Element.prototype.scroll || scrollElement,
-        scrollIntoView: Element.prototype.scrollIntoView
-      };
-
-      // define timing method
-      var now =
-        w.performance && w.performance.now
-          ? w.performance.now.bind(w.performance)
-          : Date.now;
-
-      /**
-       * indicates if a the current browser is made by Microsoft
-       * @method isMicrosoftBrowser
-       * @param {String} userAgent
-       * @returns {Boolean}
-       */
-      function isMicrosoftBrowser(userAgent) {
-        var userAgentPatterns = ['MSIE ', 'Trident/', 'Edge/'];
-
-        return new RegExp(userAgentPatterns.join('|')).test(userAgent);
-      }
-
-      /*
-       * IE has rounding bug rounding down clientHeight and clientWidth and
-       * rounding up scrollHeight and scrollWidth causing false positives
-       * on hasScrollableSpace
-       */
-      var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
-
-      /**
-       * changes scroll position inside an element
-       * @method scrollElement
-       * @param {Number} x
-       * @param {Number} y
-       * @returns {undefined}
-       */
-      function scrollElement(x, y) {
-        this.scrollLeft = x;
-        this.scrollTop = y;
-      }
-
-      /**
-       * returns result of applying ease math function to a number
-       * @method ease
-       * @param {Number} k
-       * @returns {Number}
-       */
-      function ease(k) {
-        return 0.5 * (1 - Math.cos(Math.PI * k));
-      }
-
-      /**
-       * indicates if a smooth behavior should be applied
-       * @method shouldBailOut
-       * @param {Number|Object} firstArg
-       * @returns {Boolean}
-       */
-      function shouldBailOut(firstArg) {
+        // return if scroll behavior is supported and polyfill is not forced
         if (
-          firstArg === null ||
-          typeof firstArg !== 'object' ||
-          firstArg.behavior === undefined ||
-          firstArg.behavior === 'auto' ||
-          firstArg.behavior === 'instant'
+          'scrollBehavior' in d.documentElement.style &&
+          w.__forceSmoothScrollPolyfill__ !== true
         ) {
-          // first argument is not an object/null
-          // or behavior is auto, instant or undefined
-          return true;
-        }
-
-        if (typeof firstArg === 'object' && firstArg.behavior === 'smooth') {
-          // first argument is an object and behavior is smooth
-          return false;
-        }
-
-        // throw error when behavior is not supported
-        throw new TypeError(
-          'behavior member of ScrollOptions ' +
-            firstArg.behavior +
-            ' is not a valid value for enumeration ScrollBehavior.'
-        );
-      }
-
-      /**
-       * indicates if an element has scrollable space in the provided axis
-       * @method hasScrollableSpace
-       * @param {Node} el
-       * @param {String} axis
-       * @returns {Boolean}
-       */
-      function hasScrollableSpace(el, axis) {
-        if (axis === 'Y') {
-          return el.clientHeight + ROUNDING_TOLERANCE < el.scrollHeight;
-        }
-
-        if (axis === 'X') {
-          return el.clientWidth + ROUNDING_TOLERANCE < el.scrollWidth;
-        }
-      }
-
-      /**
-       * indicates if an element has a scrollable overflow property in the axis
-       * @method canOverflow
-       * @param {Node} el
-       * @param {String} axis
-       * @returns {Boolean}
-       */
-      function canOverflow(el, axis) {
-        var overflowValue = w.getComputedStyle(el, null)['overflow' + axis];
-
-        return overflowValue === 'auto' || overflowValue === 'scroll';
-      }
-
-      /**
-       * indicates if an element can be scrolled in either axis
-       * @method isScrollable
-       * @param {Node} el
-       * @param {String} axis
-       * @returns {Boolean}
-       */
-      function isScrollable(el) {
-        var isScrollableY = hasScrollableSpace(el, 'Y') && canOverflow(el, 'Y');
-        var isScrollableX = hasScrollableSpace(el, 'X') && canOverflow(el, 'X');
-
-        return isScrollableY || isScrollableX;
-      }
-
-      /**
-       * finds scrollable parent of an element
-       * @method findScrollableParent
-       * @param {Node} el
-       * @returns {Node} el
-       */
-      function findScrollableParent(el) {
-        while (el !== d.body && isScrollable(el) === false) {
-          el = el.parentNode || el.host;
-        }
-
-        return el;
-      }
-
-      /**
-       * self invoked function that, given a context, steps through scrolling
-       * @method step
-       * @param {Object} context
-       * @returns {undefined}
-       */
-      function step(context) {
-        var time = now();
-        var value;
-        var currentX;
-        var currentY;
-        var elapsed = (time - context.startTime) / SCROLL_TIME;
-
-        // avoid elapsed times higher than one
-        elapsed = elapsed > 1 ? 1 : elapsed;
-
-        // apply easing to elapsed time
-        value = ease(elapsed);
-
-        currentX = context.startX + (context.x - context.startX) * value;
-        currentY = context.startY + (context.y - context.startY) * value;
-
-        context.method.call(context.scrollable, currentX, currentY);
-
-        // scroll more if we have not reached our destination
-        if (currentX !== context.x || currentY !== context.y) {
-          w.requestAnimationFrame(step.bind(w, context));
-        }
-      }
-
-      /**
-       * scrolls window or element with a smooth behavior
-       * @method smoothScroll
-       * @param {Object|Node} el
-       * @param {Number} x
-       * @param {Number} y
-       * @returns {undefined}
-       */
-      function smoothScroll(el, x, y) {
-        var scrollable;
-        var startX;
-        var startY;
-        var method;
-        var startTime = now();
-
-        // define scroll context
-        if (el === d.body) {
-          scrollable = w;
-          startX = w.scrollX || w.pageXOffset;
-          startY = w.scrollY || w.pageYOffset;
-          method = original.scroll;
-        } else {
-          scrollable = el;
-          startX = el.scrollLeft;
-          startY = el.scrollTop;
-          method = scrollElement;
-        }
-
-        // scroll looping over a frame
-        step({
-          scrollable: scrollable,
-          method: method,
-          startTime: startTime,
-          startX: startX,
-          startY: startY,
-          x: x,
-          y: y
-        });
-      }
-
-      // ORIGINAL METHODS OVERRIDES
-      // w.scroll and w.scrollTo
-      w.scroll = w.scrollTo = function() {
-        // avoid action when no arguments are passed
-        if (arguments[0] === undefined) {
           return;
         }
 
-        // avoid smooth behavior if not required
-        if (shouldBailOut(arguments[0]) === true) {
-          original.scroll.call(
-            w,
-            arguments[0].left !== undefined
-              ? arguments[0].left
-              : typeof arguments[0] !== 'object'
-                ? arguments[0]
-                : w.scrollX || w.pageXOffset,
-            // use top prop, second argument if present or fallback to scrollY
-            arguments[0].top !== undefined
-              ? arguments[0].top
-              : arguments[1] !== undefined
-                ? arguments[1]
-                : w.scrollY || w.pageYOffset
-          );
+        // globals
+        var Element = w.HTMLElement || w.Element;
+        var SCROLL_TIME = 468;
 
-          return;
+        // object gathering original scroll methods
+        var original = {
+          scroll: w.scroll || w.scrollTo,
+          scrollBy: w.scrollBy,
+          elementScroll: Element.prototype.scroll || scrollElement,
+          scrollIntoView: Element.prototype.scrollIntoView
+        };
+
+        // define timing method
+        var now =
+          w.performance && w.performance.now
+            ? w.performance.now.bind(w.performance)
+            : Date.now;
+
+        /**
+         * indicates if a the current browser is made by Microsoft
+         * @method isMicrosoftBrowser
+         * @param {String} userAgent
+         * @returns {Boolean}
+         */
+        function isMicrosoftBrowser(userAgent) {
+          var userAgentPatterns = ['MSIE ', 'Trident/', 'Edge/'];
+
+          return new RegExp(userAgentPatterns.join('|')).test(userAgent);
         }
 
-        // LET THE SMOOTHNESS BEGIN!
-        smoothScroll.call(
-          w,
-          d.body,
-          arguments[0].left !== undefined
-            ? ~~arguments[0].left
-            : w.scrollX || w.pageXOffset,
-          arguments[0].top !== undefined
-            ? ~~arguments[0].top
-            : w.scrollY || w.pageYOffset
-        );
-      };
+        /*
+         * IE has rounding bug rounding down clientHeight and clientWidth and
+         * rounding up scrollHeight and scrollWidth causing false positives
+         * on hasScrollableSpace
+         */
+        var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
 
-      // w.scrollBy
-      w.scrollBy = function() {
-        // avoid action when no arguments are passed
-        if (arguments[0] === undefined) {
-          return;
+        /**
+         * changes scroll position inside an element
+         * @method scrollElement
+         * @param {Number} x
+         * @param {Number} y
+         * @returns {undefined}
+         */
+        function scrollElement(x, y) {
+          this.scrollLeft = x;
+          this.scrollTop = y;
         }
 
-        // avoid smooth behavior if not required
-        if (shouldBailOut(arguments[0])) {
-          original.scrollBy.call(
-            w,
-            arguments[0].left !== undefined
-              ? arguments[0].left
-              : typeof arguments[0] !== 'object' ? arguments[0] : 0,
-            arguments[0].top !== undefined
-              ? arguments[0].top
-              : arguments[1] !== undefined ? arguments[1] : 0
-          );
-
-          return;
+        /**
+         * returns result of applying ease math function to a number
+         * @method ease
+         * @param {Number} k
+         * @returns {Number}
+         */
+        function ease(k) {
+          return 0.5 * (1 - Math.cos(Math.PI * k));
         }
 
-        // LET THE SMOOTHNESS BEGIN!
-        smoothScroll.call(
-          w,
-          d.body,
-          ~~arguments[0].left + (w.scrollX || w.pageXOffset),
-          ~~arguments[0].top + (w.scrollY || w.pageYOffset)
-        );
-      };
-
-      // Element.prototype.scroll and Element.prototype.scrollTo
-      Element.prototype.scroll = Element.prototype.scrollTo = function() {
-        // avoid action when no arguments are passed
-        if (arguments[0] === undefined) {
-          return;
-        }
-
-        // avoid smooth behavior if not required
-        if (shouldBailOut(arguments[0]) === true) {
-          // if one number is passed, throw error to match Firefox implementation
-          if (typeof arguments[0] === 'number' && arguments[1] === undefined) {
-            throw new SyntaxError('Value could not be converted');
+        /**
+         * indicates if a smooth behavior should be applied
+         * @method shouldBailOut
+         * @param {Number|Object} firstArg
+         * @returns {Boolean}
+         */
+        function shouldBailOut(firstArg) {
+          if (
+            firstArg === null ||
+            typeof firstArg !== 'object' ||
+            firstArg.behavior === undefined ||
+            firstArg.behavior === 'auto' ||
+            firstArg.behavior === 'instant'
+          ) {
+            // first argument is not an object/null
+            // or behavior is auto, instant or undefined
+            return true;
           }
 
-          original.elementScroll.call(
-            this,
-            // use left prop, first number argument or fallback to scrollLeft
+          if (typeof firstArg === 'object' && firstArg.behavior === 'smooth') {
+            // first argument is an object and behavior is smooth
+            return false;
+          }
+
+          // throw error when behavior is not supported
+          throw new TypeError(
+            'behavior member of ScrollOptions ' +
+            firstArg.behavior +
+            ' is not a valid value for enumeration ScrollBehavior.'
+          );
+        }
+
+        /**
+         * indicates if an element has scrollable space in the provided axis
+         * @method hasScrollableSpace
+         * @param {Node} el
+         * @param {String} axis
+         * @returns {Boolean}
+         */
+        function hasScrollableSpace(el, axis) {
+          if (axis === 'Y') {
+            return el.clientHeight + ROUNDING_TOLERANCE < el.scrollHeight;
+          }
+
+          if (axis === 'X') {
+            return el.clientWidth + ROUNDING_TOLERANCE < el.scrollWidth;
+          }
+        }
+
+        /**
+         * indicates if an element has a scrollable overflow property in the axis
+         * @method canOverflow
+         * @param {Node} el
+         * @param {String} axis
+         * @returns {Boolean}
+         */
+        function canOverflow(el, axis) {
+          var overflowValue = w.getComputedStyle(el, null)['overflow' + axis];
+
+          return overflowValue === 'auto' || overflowValue === 'scroll';
+        }
+
+        /**
+         * indicates if an element can be scrolled in either axis
+         * @method isScrollable
+         * @param {Node} el
+         * @param {String} axis
+         * @returns {Boolean}
+         */
+        function isScrollable(el) {
+          var isScrollableY = hasScrollableSpace(el, 'Y') && canOverflow(el, 'Y');
+          var isScrollableX = hasScrollableSpace(el, 'X') && canOverflow(el, 'X');
+
+          return isScrollableY || isScrollableX;
+        }
+
+        /**
+         * finds scrollable parent of an element
+         * @method findScrollableParent
+         * @param {Node} el
+         * @returns {Node} el
+         */
+        function findScrollableParent(el) {
+          while (el !== d.body && isScrollable(el) === false) {
+            el = el.parentNode || el.host;
+          }
+
+          return el;
+        }
+
+        /**
+         * self invoked function that, given a context, steps through scrolling
+         * @method step
+         * @param {Object} context
+         * @returns {undefined}
+         */
+        function step(context) {
+          var time = now();
+          var value;
+          var currentX;
+          var currentY;
+          var elapsed = (time - context.startTime) / SCROLL_TIME;
+
+          // avoid elapsed times higher than one
+          elapsed = elapsed > 1 ? 1 : elapsed;
+
+          // apply easing to elapsed time
+          value = ease(elapsed);
+
+          currentX = context.startX + (context.x - context.startX) * value;
+          currentY = context.startY + (context.y - context.startY) * value;
+
+          context.method.call(context.scrollable, currentX, currentY);
+
+          // scroll more if we have not reached our destination
+          if (currentX !== context.x || currentY !== context.y) {
+            w.requestAnimationFrame(step.bind(w, context));
+          }
+        }
+
+        /**
+         * scrolls window or element with a smooth behavior
+         * @method smoothScroll
+         * @param {Object|Node} el
+         * @param {Number} x
+         * @param {Number} y
+         * @returns {undefined}
+         */
+        function smoothScroll(el, x, y) {
+          var scrollable;
+          var startX;
+          var startY;
+          var method;
+          var startTime = now();
+
+          // define scroll context
+          if (el === d.body) {
+            scrollable = w;
+            startX = w.scrollX || w.pageXOffset;
+            startY = w.scrollY || w.pageYOffset;
+            method = original.scroll;
+          } else {
+            scrollable = el;
+            startX = el.scrollLeft;
+            startY = el.scrollTop;
+            method = scrollElement;
+          }
+
+          // scroll looping over a frame
+          step({
+            scrollable: scrollable,
+            method: method,
+            startTime: startTime,
+            startX: startX,
+            startY: startY,
+            x: x,
+            y: y
+          });
+        }
+
+        // ORIGINAL METHODS OVERRIDES
+        // w.scroll and w.scrollTo
+        w.scroll = w.scrollTo = function () {
+          // avoid action when no arguments are passed
+          if (arguments[0] === undefined) {
+            return;
+          }
+
+          // avoid smooth behavior if not required
+          if (shouldBailOut(arguments[0]) === true) {
+            original.scroll.call(
+              w,
+              arguments[0].left !== undefined
+                ? arguments[0].left
+                : typeof arguments[0] !== 'object'
+                  ? arguments[0]
+                  : w.scrollX || w.pageXOffset,
+              // use top prop, second argument if present or fallback to scrollY
+              arguments[0].top !== undefined
+                ? arguments[0].top
+                : arguments[1] !== undefined
+                  ? arguments[1]
+                  : w.scrollY || w.pageYOffset
+            );
+
+            return;
+          }
+
+          // LET THE SMOOTHNESS BEGIN!
+          smoothScroll.call(
+            w,
+            d.body,
             arguments[0].left !== undefined
               ? ~~arguments[0].left
-              : typeof arguments[0] !== 'object' ? ~~arguments[0] : this.scrollLeft,
-            // use top prop, second argument or fallback to scrollTop
+              : w.scrollX || w.pageXOffset,
             arguments[0].top !== undefined
               ? ~~arguments[0].top
-              : arguments[1] !== undefined ? ~~arguments[1] : this.scrollTop
+              : w.scrollY || w.pageYOffset
           );
+        };
 
-          return;
-        }
+        // w.scrollBy
+        w.scrollBy = function () {
+          // avoid action when no arguments are passed
+          if (arguments[0] === undefined) {
+            return;
+          }
 
-        var left = arguments[0].left;
-        var top = arguments[0].top;
+          // avoid smooth behavior if not required
+          if (shouldBailOut(arguments[0])) {
+            original.scrollBy.call(
+              w,
+              arguments[0].left !== undefined
+                ? arguments[0].left
+                : typeof arguments[0] !== 'object' ? arguments[0] : 0,
+              arguments[0].top !== undefined
+                ? arguments[0].top
+                : arguments[1] !== undefined ? arguments[1] : 0
+            );
 
-        // LET THE SMOOTHNESS BEGIN!
-        smoothScroll.call(
-          this,
-          this,
-          typeof left === 'undefined' ? this.scrollLeft : ~~left,
-          typeof top === 'undefined' ? this.scrollTop : ~~top
-        );
-      };
+            return;
+          }
 
-      // Element.prototype.scrollBy
-      Element.prototype.scrollBy = function() {
-        // avoid action when no arguments are passed
-        if (arguments[0] === undefined) {
-          return;
-        }
-
-        // avoid smooth behavior if not required
-        if (shouldBailOut(arguments[0]) === true) {
-          original.elementScroll.call(
-            this,
-            arguments[0].left !== undefined
-              ? ~~arguments[0].left + this.scrollLeft
-              : ~~arguments[0] + this.scrollLeft,
-            arguments[0].top !== undefined
-              ? ~~arguments[0].top + this.scrollTop
-              : ~~arguments[1] + this.scrollTop
+          // LET THE SMOOTHNESS BEGIN!
+          smoothScroll.call(
+            w,
+            d.body,
+            ~~arguments[0].left + (w.scrollX || w.pageXOffset),
+            ~~arguments[0].top + (w.scrollY || w.pageYOffset)
           );
+        };
 
-          return;
-        }
+        // Element.prototype.scroll and Element.prototype.scrollTo
+        Element.prototype.scroll = Element.prototype.scrollTo = function () {
+          // avoid action when no arguments are passed
+          if (arguments[0] === undefined) {
+            return;
+          }
 
-        this.scroll({
-          left: ~~arguments[0].left + this.scrollLeft,
-          top: ~~arguments[0].top + this.scrollTop,
-          behavior: arguments[0].behavior
-        });
-      };
+          // avoid smooth behavior if not required
+          if (shouldBailOut(arguments[0]) === true) {
+            // if one number is passed, throw error to match Firefox implementation
+            if (typeof arguments[0] === 'number' && arguments[1] === undefined) {
+              throw new SyntaxError('Value could not be converted');
+            }
 
-      // Element.prototype.scrollIntoView
-      Element.prototype.scrollIntoView = function() {
-        // avoid smooth behavior if not required
-        if (shouldBailOut(arguments[0]) === true) {
-          original.scrollIntoView.call(
-            this,
-            arguments[0] === undefined ? true : arguments[0]
-          );
+            original.elementScroll.call(
+              this,
+              // use left prop, first number argument or fallback to scrollLeft
+              arguments[0].left !== undefined
+                ? ~~arguments[0].left
+                : typeof arguments[0] !== 'object' ? ~~arguments[0] : this.scrollLeft,
+              // use top prop, second argument or fallback to scrollTop
+              arguments[0].top !== undefined
+                ? ~~arguments[0].top
+                : arguments[1] !== undefined ? ~~arguments[1] : this.scrollTop
+            );
 
-          return;
-        }
+            return;
+          }
 
-        // LET THE SMOOTHNESS BEGIN!
-        var scrollableParent = findScrollableParent(this);
-        var parentRects = scrollableParent.getBoundingClientRect();
-        var clientRects = this.getBoundingClientRect();
+          var left = arguments[0].left;
+          var top = arguments[0].top;
 
-        if (scrollableParent !== d.body) {
-          // reveal element inside parent
+          // LET THE SMOOTHNESS BEGIN!
           smoothScroll.call(
             this,
-            scrollableParent,
-            scrollableParent.scrollLeft + clientRects.left - parentRects.left,
-            scrollableParent.scrollTop + clientRects.top - parentRects.top
+            this,
+            typeof left === 'undefined' ? this.scrollLeft : ~~left,
+            typeof top === 'undefined' ? this.scrollTop : ~~top
           );
+        };
 
-          // reveal parent in viewport unless is fixed
-          if (w.getComputedStyle(scrollableParent).position !== 'fixed') {
+        // Element.prototype.scrollBy
+        Element.prototype.scrollBy = function () {
+          // avoid action when no arguments are passed
+          if (arguments[0] === undefined) {
+            return;
+          }
+
+          // avoid smooth behavior if not required
+          if (shouldBailOut(arguments[0]) === true) {
+            original.elementScroll.call(
+              this,
+              arguments[0].left !== undefined
+                ? ~~arguments[0].left + this.scrollLeft
+                : ~~arguments[0] + this.scrollLeft,
+              arguments[0].top !== undefined
+                ? ~~arguments[0].top + this.scrollTop
+                : ~~arguments[1] + this.scrollTop
+            );
+
+            return;
+          }
+
+          this.scroll({
+            left: ~~arguments[0].left + this.scrollLeft,
+            top: ~~arguments[0].top + this.scrollTop,
+            behavior: arguments[0].behavior
+          });
+        };
+
+        // Element.prototype.scrollIntoView
+        Element.prototype.scrollIntoView = function () {
+          // avoid smooth behavior if not required
+          if (shouldBailOut(arguments[0]) === true) {
+            original.scrollIntoView.call(
+              this,
+              arguments[0] === undefined ? true : arguments[0]
+            );
+
+            return;
+          }
+
+          // LET THE SMOOTHNESS BEGIN!
+          var scrollableParent = findScrollableParent(this);
+          var parentRects = scrollableParent.getBoundingClientRect();
+          var clientRects = this.getBoundingClientRect();
+
+          if (scrollableParent !== d.body) {
+            // reveal element inside parent
+            smoothScroll.call(
+              this,
+              scrollableParent,
+              scrollableParent.scrollLeft + clientRects.left - parentRects.left,
+              scrollableParent.scrollTop + clientRects.top - parentRects.top
+            );
+
+            // reveal parent in viewport unless is fixed
+            if (w.getComputedStyle(scrollableParent).position !== 'fixed') {
+              w.scrollBy({
+                left: parentRects.left,
+                top: parentRects.top,
+                behavior: 'smooth'
+              });
+            }
+          } else {
+            // reveal element in viewport
             w.scrollBy({
-              left: parentRects.left,
-              top: parentRects.top,
+              left: clientRects.left,
+              top: clientRects.top,
               behavior: 'smooth'
             });
           }
-        } else {
-          // reveal element in viewport
-          w.scrollBy({
-            left: clientRects.left,
-            top: clientRects.top,
-            behavior: 'smooth'
-          });
-        }
-      };
-    }
+        };
+      }
 
-    {
-      // commonjs
-      module.exports = { polyfill: polyfill };
-    }
+      {
+        // commonjs
+        module.exports = { polyfill: polyfill };
+      }
 
-  }());
+    }());
   });
   var smoothscroll_1 = smoothscroll.polyfill;
 
@@ -1243,8 +1244,8 @@
 
         Object.entries(this.els).forEach(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
-              i = _ref2[0],
-              el = _ref2[1];
+            i = _ref2[0],
+            el = _ref2[1];
 
           var top = el.targetEl.getBoundingClientRect().top + _this4.instance.scroll.y;
 
@@ -1312,7 +1313,7 @@
         } else if (typeof target === 'number') {
           // Absolute coordinate
           target = parseInt(target);
-        } else if (target && target.tagName) ; else {
+        } else if (target && target.tagName); else {
           console.warn('`target` parameter is not valid');
           return;
         } // We have a target that is not a coordinate yet, get it
@@ -1378,85 +1379,85 @@
   var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
   function toObject(val) {
-  	if (val === null || val === undefined) {
-  		throw new TypeError('Object.assign cannot be called with null or undefined');
-  	}
+    if (val === null || val === undefined) {
+      throw new TypeError('Object.assign cannot be called with null or undefined');
+    }
 
-  	return Object(val);
+    return Object(val);
   }
 
   function shouldUseNative() {
-  	try {
-  		if (!Object.assign) {
-  			return false;
-  		}
+    try {
+      if (!Object.assign) {
+        return false;
+      }
 
-  		// Detect buggy property enumeration order in older V8 versions.
+      // Detect buggy property enumeration order in older V8 versions.
 
-  		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-  		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-  		test1[5] = 'de';
-  		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-  			return false;
-  		}
+      // https://bugs.chromium.org/p/v8/issues/detail?id=4118
+      var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+      test1[5] = 'de';
+      if (Object.getOwnPropertyNames(test1)[0] === '5') {
+        return false;
+      }
 
-  		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-  		var test2 = {};
-  		for (var i = 0; i < 10; i++) {
-  			test2['_' + String.fromCharCode(i)] = i;
-  		}
-  		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-  			return test2[n];
-  		});
-  		if (order2.join('') !== '0123456789') {
-  			return false;
-  		}
+      // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+      var test2 = {};
+      for (var i = 0; i < 10; i++) {
+        test2['_' + String.fromCharCode(i)] = i;
+      }
+      var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+        return test2[n];
+      });
+      if (order2.join('') !== '0123456789') {
+        return false;
+      }
 
-  		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-  		var test3 = {};
-  		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-  			test3[letter] = letter;
-  		});
-  		if (Object.keys(Object.assign({}, test3)).join('') !==
-  				'abcdefghijklmnopqrst') {
-  			return false;
-  		}
+      // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+      var test3 = {};
+      'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+        test3[letter] = letter;
+      });
+      if (Object.keys(Object.assign({}, test3)).join('') !==
+        'abcdefghijklmnopqrst') {
+        return false;
+      }
 
-  		return true;
-  	} catch (err) {
-  		// We don't expect any of the above to throw, but better to be safe.
-  		return false;
-  	}
+      return true;
+    } catch (err) {
+      // We don't expect any of the above to throw, but better to be safe.
+      return false;
+    }
   }
 
   var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
-  	var from;
-  	var to = toObject(target);
-  	var symbols;
+    var from;
+    var to = toObject(target);
+    var symbols;
 
-  	for (var s = 1; s < arguments.length; s++) {
-  		from = Object(arguments[s]);
+    for (var s = 1; s < arguments.length; s++) {
+      from = Object(arguments[s]);
 
-  		for (var key in from) {
-  			if (hasOwnProperty.call(from, key)) {
-  				to[key] = from[key];
-  			}
-  		}
+      for (var key in from) {
+        if (hasOwnProperty.call(from, key)) {
+          to[key] = from[key];
+        }
+      }
 
-  		if (getOwnPropertySymbols) {
-  			symbols = getOwnPropertySymbols(from);
-  			for (var i = 0; i < symbols.length; i++) {
-  				if (propIsEnumerable.call(from, symbols[i])) {
-  					to[symbols[i]] = from[symbols[i]];
-  				}
-  			}
-  		}
-  	}
+      if (getOwnPropertySymbols) {
+        symbols = getOwnPropertySymbols(from);
+        for (var i = 0; i < symbols.length; i++) {
+          if (propIsEnumerable.call(from, symbols[i])) {
+            to[symbols[i]] = from[symbols[i]];
+          }
+        }
+      }
+    }
 
-  	return to;
+    return to;
   };
 
-  function E () {
+  function E() {
     // Keep this empty so it's easier to inherit from
     // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
   }
@@ -1475,7 +1476,7 @@
 
     once: function (name, callback, ctx) {
       var self = this;
-      function listener () {
+      function listener() {
         self.off(name, listener);
         callback.apply(ctx, arguments);
       }
@@ -1523,143 +1524,143 @@
   var tinyEmitter = E;
 
   var lethargy = createCommonjsModule(function (module, exports) {
-  // Generated by CoffeeScript 1.9.2
-  (function() {
-    var root;
+    // Generated by CoffeeScript 1.9.2
+    (function () {
+      var root;
 
-    root =  exports !== null ? exports : this;
+      root = exports !== null ? exports : this;
 
-    root.Lethargy = (function() {
-      function Lethargy(stability, sensitivity, tolerance, delay) {
-        this.stability = stability != null ? Math.abs(stability) : 8;
-        this.sensitivity = sensitivity != null ? 1 + Math.abs(sensitivity) : 100;
-        this.tolerance = tolerance != null ? 1 + Math.abs(tolerance) : 1.1;
-        this.delay = delay != null ? delay : 150;
-        this.lastUpDeltas = (function() {
-          var i, ref, results;
-          results = [];
-          for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
-            results.push(null);
+      root.Lethargy = (function () {
+        function Lethargy(stability, sensitivity, tolerance, delay) {
+          this.stability = stability != null ? Math.abs(stability) : 8;
+          this.sensitivity = sensitivity != null ? 1 + Math.abs(sensitivity) : 100;
+          this.tolerance = tolerance != null ? 1 + Math.abs(tolerance) : 1.1;
+          this.delay = delay != null ? delay : 150;
+          this.lastUpDeltas = (function () {
+            var i, ref, results;
+            results = [];
+            for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
+              results.push(null);
+            }
+            return results;
+          }).call(this);
+          this.lastDownDeltas = (function () {
+            var i, ref, results;
+            results = [];
+            for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
+              results.push(null);
+            }
+            return results;
+          }).call(this);
+          this.deltasTimestamp = (function () {
+            var i, ref, results;
+            results = [];
+            for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
+              results.push(null);
+            }
+            return results;
+          }).call(this);
+        }
+
+        Lethargy.prototype.check = function (e) {
+          var lastDelta;
+          e = e.originalEvent || e;
+          if (e.wheelDelta != null) {
+            lastDelta = e.wheelDelta;
+          } else if (e.deltaY != null) {
+            lastDelta = e.deltaY * -40;
+          } else if ((e.detail != null) || e.detail === 0) {
+            lastDelta = e.detail * -40;
           }
-          return results;
-        }).call(this);
-        this.lastDownDeltas = (function() {
-          var i, ref, results;
-          results = [];
-          for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
-            results.push(null);
+          this.deltasTimestamp.push(Date.now());
+          this.deltasTimestamp.shift();
+          if (lastDelta > 0) {
+            this.lastUpDeltas.push(lastDelta);
+            this.lastUpDeltas.shift();
+            return this.isInertia(1);
+          } else {
+            this.lastDownDeltas.push(lastDelta);
+            this.lastDownDeltas.shift();
+            return this.isInertia(-1);
           }
-          return results;
-        }).call(this);
-        this.deltasTimestamp = (function() {
-          var i, ref, results;
-          results = [];
-          for (i = 1, ref = this.stability * 2; 1 <= ref ? i <= ref : i >= ref; 1 <= ref ? i++ : i--) {
-            results.push(null);
+        };
+
+        Lethargy.prototype.isInertia = function (direction) {
+          var lastDeltas, lastDeltasNew, lastDeltasOld, newAverage, newSum, oldAverage, oldSum;
+          lastDeltas = direction === -1 ? this.lastDownDeltas : this.lastUpDeltas;
+          if (lastDeltas[0] === null) {
+            return direction;
           }
-          return results;
-        }).call(this);
-      }
+          if (this.deltasTimestamp[(this.stability * 2) - 2] + this.delay > Date.now() && lastDeltas[0] === lastDeltas[(this.stability * 2) - 1]) {
+            return false;
+          }
+          lastDeltasOld = lastDeltas.slice(0, this.stability);
+          lastDeltasNew = lastDeltas.slice(this.stability, this.stability * 2);
+          oldSum = lastDeltasOld.reduce(function (t, s) {
+            return t + s;
+          });
+          newSum = lastDeltasNew.reduce(function (t, s) {
+            return t + s;
+          });
+          oldAverage = oldSum / lastDeltasOld.length;
+          newAverage = newSum / lastDeltasNew.length;
+          if (Math.abs(oldAverage) < Math.abs(newAverage * this.tolerance) && (this.sensitivity < Math.abs(newAverage))) {
+            return direction;
+          } else {
+            return false;
+          }
+        };
 
-      Lethargy.prototype.check = function(e) {
-        var lastDelta;
-        e = e.originalEvent || e;
-        if (e.wheelDelta != null) {
-          lastDelta = e.wheelDelta;
-        } else if (e.deltaY != null) {
-          lastDelta = e.deltaY * -40;
-        } else if ((e.detail != null) || e.detail === 0) {
-          lastDelta = e.detail * -40;
-        }
-        this.deltasTimestamp.push(Date.now());
-        this.deltasTimestamp.shift();
-        if (lastDelta > 0) {
-          this.lastUpDeltas.push(lastDelta);
-          this.lastUpDeltas.shift();
-          return this.isInertia(1);
-        } else {
-          this.lastDownDeltas.push(lastDelta);
-          this.lastDownDeltas.shift();
-          return this.isInertia(-1);
-        }
-      };
+        Lethargy.prototype.showLastUpDeltas = function () {
+          return this.lastUpDeltas;
+        };
 
-      Lethargy.prototype.isInertia = function(direction) {
-        var lastDeltas, lastDeltasNew, lastDeltasOld, newAverage, newSum, oldAverage, oldSum;
-        lastDeltas = direction === -1 ? this.lastDownDeltas : this.lastUpDeltas;
-        if (lastDeltas[0] === null) {
-          return direction;
-        }
-        if (this.deltasTimestamp[(this.stability * 2) - 2] + this.delay > Date.now() && lastDeltas[0] === lastDeltas[(this.stability * 2) - 1]) {
-          return false;
-        }
-        lastDeltasOld = lastDeltas.slice(0, this.stability);
-        lastDeltasNew = lastDeltas.slice(this.stability, this.stability * 2);
-        oldSum = lastDeltasOld.reduce(function(t, s) {
-          return t + s;
-        });
-        newSum = lastDeltasNew.reduce(function(t, s) {
-          return t + s;
-        });
-        oldAverage = oldSum / lastDeltasOld.length;
-        newAverage = newSum / lastDeltasNew.length;
-        if (Math.abs(oldAverage) < Math.abs(newAverage * this.tolerance) && (this.sensitivity < Math.abs(newAverage))) {
-          return direction;
-        } else {
-          return false;
-        }
-      };
+        Lethargy.prototype.showLastDownDeltas = function () {
+          return this.lastDownDeltas;
+        };
 
-      Lethargy.prototype.showLastUpDeltas = function() {
-        return this.lastUpDeltas;
-      };
+        return Lethargy;
 
-      Lethargy.prototype.showLastDownDeltas = function() {
-        return this.lastDownDeltas;
-      };
+      })();
 
-      return Lethargy;
-
-    })();
-
-  }).call(commonjsGlobal);
+    }).call(commonjsGlobal);
   });
 
   var support = (function getSupport() {
-      return {
-          hasWheelEvent: 'onwheel' in document,
-          hasMouseWheelEvent: 'onmousewheel' in document,
-          hasTouch: ('ontouchstart' in window) || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch,
-          hasTouchWin: navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 1,
-          hasPointer: !!window.navigator.msPointerEnabled,
-          hasKeyDown: 'onkeydown' in document,
-          isFirefox: navigator.userAgent.indexOf('Firefox') > -1
-      };
+    return {
+      hasWheelEvent: 'onwheel' in document,
+      hasMouseWheelEvent: 'onmousewheel' in document,
+      hasTouch: ('ontouchstart' in window) || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch,
+      hasTouchWin: navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 1,
+      hasPointer: !!window.navigator.msPointerEnabled,
+      hasKeyDown: 'onkeydown' in document,
+      isFirefox: navigator.userAgent.indexOf('Firefox') > -1
+    };
   })();
 
   var toString = Object.prototype.toString,
-      hasOwnProperty$1 = Object.prototype.hasOwnProperty;
+    hasOwnProperty$1 = Object.prototype.hasOwnProperty;
 
-  var bindallStandalone = function(object) {
-      if(!object) return console.warn('bindAll requires at least one argument.');
+  var bindallStandalone = function (object) {
+    if (!object) return console.warn('bindAll requires at least one argument.');
 
-      var functions = Array.prototype.slice.call(arguments, 1);
+    var functions = Array.prototype.slice.call(arguments, 1);
 
-      if (functions.length === 0) {
+    if (functions.length === 0) {
 
-          for (var method in object) {
-              if(hasOwnProperty$1.call(object, method)) {
-                  if(typeof object[method] == 'function' && toString.call(object[method]) == "[object Function]") {
-                      functions.push(method);
-                  }
-              }
+      for (var method in object) {
+        if (hasOwnProperty$1.call(object, method)) {
+          if (typeof object[method] == 'function' && toString.call(object[method]) == "[object Function]") {
+            functions.push(method);
           }
+        }
       }
+    }
 
-      for(var i = 0; i < functions.length; i++) {
-          var f = functions[i];
-          object[f] = bind(object[f], object);
-      }
+    for (var i = 0; i < functions.length; i++) {
+      var f = functions[i];
+      object[f] = bind(object[f], object);
+    }
   };
 
   /*
@@ -1668,7 +1669,7 @@
       or partial application.
   */
   function bind(func, context) {
-    return function() {
+    return function () {
       return func.apply(context, arguments);
     };
   }
@@ -1682,213 +1683,213 @@
   var src = VirtualScroll;
 
   var keyCodes = {
-      LEFT: 37,
-      UP: 38,
-      RIGHT: 39,
-      DOWN: 40,
-      SPACE: 32
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    SPACE: 32
   };
 
   function VirtualScroll(options) {
-      bindallStandalone(this, '_onWheel', '_onMouseWheel', '_onTouchStart', '_onTouchMove', '_onKeyDown');
+    bindallStandalone(this, '_onWheel', '_onMouseWheel', '_onTouchStart', '_onTouchMove', '_onKeyDown');
 
-      this.el = window;
-      if (options && options.el) {
-          this.el = options.el;
-          delete options.el;
-      }
-      this.options = objectAssign({
-          mouseMultiplier: 1,
-          touchMultiplier: 2,
-          firefoxMultiplier: 15,
-          keyStep: 120,
-          preventTouch: false,
-          unpreventTouchClass: 'vs-touchmove-allowed',
-          limitInertia: false,
-          useKeyboard: true,
-          useTouch: true
-      }, options);
+    this.el = window;
+    if (options && options.el) {
+      this.el = options.el;
+      delete options.el;
+    }
+    this.options = objectAssign({
+      mouseMultiplier: 1,
+      touchMultiplier: 2,
+      firefoxMultiplier: 15,
+      keyStep: 120,
+      preventTouch: false,
+      unpreventTouchClass: 'vs-touchmove-allowed',
+      limitInertia: false,
+      useKeyboard: true,
+      useTouch: true
+    }, options);
 
-      if (this.options.limitInertia) this._lethargy = new Lethargy();
+    if (this.options.limitInertia) this._lethargy = new Lethargy();
 
-      this._emitter = new tinyEmitter();
-      this._event = {
-          y: 0,
-          x: 0,
-          deltaX: 0,
-          deltaY: 0
-      };
-      this.touchStartX = null;
-      this.touchStartY = null;
-      this.bodyTouchAction = null;
+    this._emitter = new tinyEmitter();
+    this._event = {
+      y: 0,
+      x: 0,
+      deltaX: 0,
+      deltaY: 0
+    };
+    this.touchStartX = null;
+    this.touchStartY = null;
+    this.bodyTouchAction = null;
 
-      if (this.options.passive !== undefined) {
-          this.listenerOptions = {passive: this.options.passive};
-      }
+    if (this.options.passive !== undefined) {
+      this.listenerOptions = { passive: this.options.passive };
+    }
   }
 
-  VirtualScroll.prototype._notify = function(e) {
-      var evt = this._event;
-      evt.x += evt.deltaX;
-      evt.y += evt.deltaY;
+  VirtualScroll.prototype._notify = function (e) {
+    var evt = this._event;
+    evt.x += evt.deltaX;
+    evt.y += evt.deltaY;
 
-     this._emitter.emit(EVT_ID, {
-          x: evt.x,
-          y: evt.y,
-          deltaX: evt.deltaX,
-          deltaY: evt.deltaY,
-          originalEvent: e
-     });
+    this._emitter.emit(EVT_ID, {
+      x: evt.x,
+      y: evt.y,
+      deltaX: evt.deltaX,
+      deltaY: evt.deltaY,
+      originalEvent: e
+    });
   };
 
-  VirtualScroll.prototype._onWheel = function(e) {
-      var options = this.options;
-      if (this._lethargy && this._lethargy.check(e) === false) return;
-      var evt = this._event;
+  VirtualScroll.prototype._onWheel = function (e) {
+    var options = this.options;
+    if (this._lethargy && this._lethargy.check(e) === false) return;
+    var evt = this._event;
 
-      // In Chrome and in Firefox (at least the new one)
-      evt.deltaX = e.wheelDeltaX || e.deltaX * -1;
-      evt.deltaY = e.wheelDeltaY || e.deltaY * -1;
+    // In Chrome and in Firefox (at least the new one)
+    evt.deltaX = e.wheelDeltaX || e.deltaX * -1;
+    evt.deltaY = e.wheelDeltaY || e.deltaY * -1;
 
-      // for our purpose deltamode = 1 means user is on a wheel mouse, not touch pad
-      // real meaning: https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent#Delta_modes
-      if(support.isFirefox && e.deltaMode == 1) {
-          evt.deltaX *= options.firefoxMultiplier;
-          evt.deltaY *= options.firefoxMultiplier;
-      }
+    // for our purpose deltamode = 1 means user is on a wheel mouse, not touch pad
+    // real meaning: https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent#Delta_modes
+    if (support.isFirefox && e.deltaMode == 1) {
+      evt.deltaX *= options.firefoxMultiplier;
+      evt.deltaY *= options.firefoxMultiplier;
+    }
 
-      evt.deltaX *= options.mouseMultiplier;
-      evt.deltaY *= options.mouseMultiplier;
+    evt.deltaX *= options.mouseMultiplier;
+    evt.deltaY *= options.mouseMultiplier;
 
-      this._notify(e);
+    this._notify(e);
   };
 
-  VirtualScroll.prototype._onMouseWheel = function(e) {
-      if (this.options.limitInertia && this._lethargy.check(e) === false) return;
+  VirtualScroll.prototype._onMouseWheel = function (e) {
+    if (this.options.limitInertia && this._lethargy.check(e) === false) return;
 
-      var evt = this._event;
+    var evt = this._event;
 
-      // In Safari, IE and in Chrome if 'wheel' isn't defined
-      evt.deltaX = (e.wheelDeltaX) ? e.wheelDeltaX : 0;
-      evt.deltaY = (e.wheelDeltaY) ? e.wheelDeltaY : e.wheelDelta;
+    // In Safari, IE and in Chrome if 'wheel' isn't defined
+    evt.deltaX = (e.wheelDeltaX) ? e.wheelDeltaX : 0;
+    evt.deltaY = (e.wheelDeltaY) ? e.wheelDeltaY : e.wheelDelta;
 
-      this._notify(e);
+    this._notify(e);
   };
 
-  VirtualScroll.prototype._onTouchStart = function(e) {
-      var t = (e.targetTouches) ? e.targetTouches[0] : e;
-      this.touchStartX = t.pageX;
-      this.touchStartY = t.pageY;
+  VirtualScroll.prototype._onTouchStart = function (e) {
+    var t = (e.targetTouches) ? e.targetTouches[0] : e;
+    this.touchStartX = t.pageX;
+    this.touchStartY = t.pageY;
   };
 
-  VirtualScroll.prototype._onTouchMove = function(e) {
-      var options = this.options;
-      if(options.preventTouch
-          && !e.target.classList.contains(options.unpreventTouchClass)) {
-          e.preventDefault();
-      }
+  VirtualScroll.prototype._onTouchMove = function (e) {
+    var options = this.options;
+    if (options.preventTouch
+      && !e.target.classList.contains(options.unpreventTouchClass)) {
+      e.preventDefault();
+    }
 
-      var evt = this._event;
+    var evt = this._event;
 
-      var t = (e.targetTouches) ? e.targetTouches[0] : e;
+    var t = (e.targetTouches) ? e.targetTouches[0] : e;
 
-      evt.deltaX = (t.pageX - this.touchStartX) * options.touchMultiplier;
-      evt.deltaY = (t.pageY - this.touchStartY) * options.touchMultiplier;
+    evt.deltaX = (t.pageX - this.touchStartX) * options.touchMultiplier;
+    evt.deltaY = (t.pageY - this.touchStartY) * options.touchMultiplier;
 
-      this.touchStartX = t.pageX;
-      this.touchStartY = t.pageY;
+    this.touchStartX = t.pageX;
+    this.touchStartY = t.pageY;
 
-      this._notify(e);
+    this._notify(e);
   };
 
-  VirtualScroll.prototype._onKeyDown = function(e) {
-      var evt = this._event;
-      evt.deltaX = evt.deltaY = 0;
-      var windowHeight = window.innerHeight - 40;
+  VirtualScroll.prototype._onKeyDown = function (e) {
+    var evt = this._event;
+    evt.deltaX = evt.deltaY = 0;
+    var windowHeight = window.innerHeight - 40;
 
-      switch(e.keyCode) {
-          case keyCodes.LEFT:
-          case keyCodes.UP:
-              evt.deltaY = this.options.keyStep;
-              break;
+    switch (e.keyCode) {
+      case keyCodes.LEFT:
+      case keyCodes.UP:
+        evt.deltaY = this.options.keyStep;
+        break;
 
-          case keyCodes.RIGHT:
-          case keyCodes.DOWN:
-              evt.deltaY = - this.options.keyStep;
-              break;
-          case  e.shiftKey:
-              evt.deltaY = windowHeight;
-              break;
-          case keyCodes.SPACE:
-              evt.deltaY = - windowHeight;
-              break;
-          default:
-              return;
-      }
+      case keyCodes.RIGHT:
+      case keyCodes.DOWN:
+        evt.deltaY = - this.options.keyStep;
+        break;
+      case e.shiftKey:
+        evt.deltaY = windowHeight;
+        break;
+      case keyCodes.SPACE:
+        evt.deltaY = - windowHeight;
+        break;
+      default:
+        return;
+    }
 
-      this._notify(e);
+    this._notify(e);
   };
 
-  VirtualScroll.prototype._bind = function() {
-      if(support.hasWheelEvent) this.el.addEventListener('wheel', this._onWheel, this.listenerOptions);
-      if(support.hasMouseWheelEvent) this.el.addEventListener('mousewheel', this._onMouseWheel, this.listenerOptions);
+  VirtualScroll.prototype._bind = function () {
+    if (support.hasWheelEvent) this.el.addEventListener('wheel', this._onWheel, this.listenerOptions);
+    if (support.hasMouseWheelEvent) this.el.addEventListener('mousewheel', this._onMouseWheel, this.listenerOptions);
 
-      if(support.hasTouch && this.options.useTouch) {
-          this.el.addEventListener('touchstart', this._onTouchStart, this.listenerOptions);
-          this.el.addEventListener('touchmove', this._onTouchMove, this.listenerOptions);
-      }
+    if (support.hasTouch && this.options.useTouch) {
+      this.el.addEventListener('touchstart', this._onTouchStart, this.listenerOptions);
+      this.el.addEventListener('touchmove', this._onTouchMove, this.listenerOptions);
+    }
 
-      if(support.hasPointer && support.hasTouchWin) {
-          this.bodyTouchAction = document.body.style.msTouchAction;
-          document.body.style.msTouchAction = 'none';
-          this.el.addEventListener('MSPointerDown', this._onTouchStart, true);
-          this.el.addEventListener('MSPointerMove', this._onTouchMove, true);
-      }
+    if (support.hasPointer && support.hasTouchWin) {
+      this.bodyTouchAction = document.body.style.msTouchAction;
+      document.body.style.msTouchAction = 'none';
+      this.el.addEventListener('MSPointerDown', this._onTouchStart, true);
+      this.el.addEventListener('MSPointerMove', this._onTouchMove, true);
+    }
 
-      if(support.hasKeyDown && this.options.useKeyboard) document.addEventListener('keydown', this._onKeyDown);
+    if (support.hasKeyDown && this.options.useKeyboard) document.addEventListener('keydown', this._onKeyDown);
   };
 
-  VirtualScroll.prototype._unbind = function() {
-      if(support.hasWheelEvent) this.el.removeEventListener('wheel', this._onWheel);
-      if(support.hasMouseWheelEvent) this.el.removeEventListener('mousewheel', this._onMouseWheel);
+  VirtualScroll.prototype._unbind = function () {
+    if (support.hasWheelEvent) this.el.removeEventListener('wheel', this._onWheel);
+    if (support.hasMouseWheelEvent) this.el.removeEventListener('mousewheel', this._onMouseWheel);
 
-      if(support.hasTouch) {
-          this.el.removeEventListener('touchstart', this._onTouchStart);
-          this.el.removeEventListener('touchmove', this._onTouchMove);
-      }
+    if (support.hasTouch) {
+      this.el.removeEventListener('touchstart', this._onTouchStart);
+      this.el.removeEventListener('touchmove', this._onTouchMove);
+    }
 
-      if(support.hasPointer && support.hasTouchWin) {
-          document.body.style.msTouchAction = this.bodyTouchAction;
-          this.el.removeEventListener('MSPointerDown', this._onTouchStart, true);
-          this.el.removeEventListener('MSPointerMove', this._onTouchMove, true);
-      }
+    if (support.hasPointer && support.hasTouchWin) {
+      document.body.style.msTouchAction = this.bodyTouchAction;
+      this.el.removeEventListener('MSPointerDown', this._onTouchStart, true);
+      this.el.removeEventListener('MSPointerMove', this._onTouchMove, true);
+    }
 
-      if(support.hasKeyDown && this.options.useKeyboard) document.removeEventListener('keydown', this._onKeyDown);
+    if (support.hasKeyDown && this.options.useKeyboard) document.removeEventListener('keydown', this._onKeyDown);
   };
 
-  VirtualScroll.prototype.on = function(cb, ctx) {
+  VirtualScroll.prototype.on = function (cb, ctx) {
     this._emitter.on(EVT_ID, cb, ctx);
 
     var events = this._emitter.e;
     if (events && events[EVT_ID] && events[EVT_ID].length === 1) this._bind();
   };
 
-  VirtualScroll.prototype.off = function(cb, ctx) {
+  VirtualScroll.prototype.off = function (cb, ctx) {
     this._emitter.off(EVT_ID, cb, ctx);
 
     var events = this._emitter.e;
     if (!events[EVT_ID] || events[EVT_ID].length <= 0) this._unbind();
   };
 
-  VirtualScroll.prototype.reset = function() {
-      var evt = this._event;
-      evt.x = 0;
-      evt.y = 0;
+  VirtualScroll.prototype.reset = function () {
+    var evt = this._event;
+    evt.x = 0;
+    evt.y = 0;
   };
 
-  VirtualScroll.prototype.destroy = function() {
-      this._emitter.off();
-      this._unbind();
+  VirtualScroll.prototype.destroy = function () {
+    this._emitter.off();
+    this._unbind();
   };
 
   function lerp(start, end, amt) {
@@ -1948,17 +1949,17 @@
 
   var float32ArraySupported = typeof Float32Array === 'function';
 
-  function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
-  function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
-  function C (aA1)      { return 3.0 * aA1; }
+  function A(aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
+  function B(aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
+  function C(aA1) { return 3.0 * aA1; }
 
   // Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
-  function calcBezier (aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+  function calcBezier(aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
 
   // Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
-  function getSlope (aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
+  function getSlope(aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
 
-  function binarySubdivide (aX, aA, aB, mX1, mX2) {
+  function binarySubdivide(aX, aA, aB, mX1, mX2) {
     var currentX, currentT, i = 0;
     do {
       currentT = aA + (aB - aA) / 2.0;
@@ -1972,23 +1973,23 @@
     return currentT;
   }
 
-  function newtonRaphsonIterate (aX, aGuessT, mX1, mX2) {
-   for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
-     var currentSlope = getSlope(aGuessT, mX1, mX2);
-     if (currentSlope === 0.0) {
-       return aGuessT;
-     }
-     var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
-     aGuessT -= currentX / currentSlope;
-   }
-   return aGuessT;
+  function newtonRaphsonIterate(aX, aGuessT, mX1, mX2) {
+    for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+      var currentSlope = getSlope(aGuessT, mX1, mX2);
+      if (currentSlope === 0.0) {
+        return aGuessT;
+      }
+      var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+      aGuessT -= currentX / currentSlope;
+    }
+    return aGuessT;
   }
 
-  function LinearEasing (x) {
+  function LinearEasing(x) {
     return x;
   }
 
-  var src$1 = function bezier (mX1, mY1, mX2, mY2) {
+  var src$1 = function bezier(mX1, mY1, mX2, mY2) {
     if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
       throw new Error('bezier x values must be in [0, 1] range');
     }
@@ -2003,7 +2004,7 @@
       sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
     }
 
-    function getTForX (aX) {
+    function getTForX(aX) {
       var intervalStart = 0.0;
       var currentSample = 1;
       var lastSample = kSplineTableSize - 1;
@@ -2027,7 +2028,7 @@
       }
     }
 
-    return function BezierEasing (x) {
+    return function BezierEasing(x) {
       // Because JavaScript number are imprecise, we should guarantee the extremes are right.
       if (x === 0) {
         return 0;
@@ -2293,8 +2294,8 @@
 
           Object.entries(this.sections).forEach(function (_ref) {
             var _ref2 = _slicedToArray(_ref, 2),
-                i = _ref2[0],
-                section = _ref2[1];
+              i = _ref2[0],
+              section = _ref2[1];
 
             if (section.persistent || _this4.instance.scroll[_this4.directionAxis] > section.offset[_this4.directionAxis] && _this4.instance.scroll[_this4.directionAxis] < section.limit[_this4.directionAxis]) {
               if (_this4.direction === 'horizontal') {
@@ -2572,8 +2573,8 @@
           var targetParents = getParents(el);
           var section = Object.entries(_this6.sections).map(function (_ref3) {
             var _ref4 = _slicedToArray(_ref3, 2),
-                key = _ref4[0],
-                section = _ref4[1];
+              key = _ref4[0],
+              section = _ref4[1];
 
             return section;
           }).find(function (section) {
@@ -2785,8 +2786,8 @@
         };
         Object.entries(this.parallaxElements).forEach(function (_ref5) {
           var _ref6 = _slicedToArray(_ref5, 2),
-              i = _ref6[0],
-              current = _ref6[1];
+            i = _ref6[0],
+            current = _ref6[1];
 
           var transformDistance = false;
 
@@ -2911,7 +2912,7 @@
         } else if (typeof target === 'number') {
           // Absolute coordinate
           target = parseInt(target);
-        } else if (target && target.tagName) ; else {
+        } else if (target && target.tagName); else {
           console.warn('`target` parameter is not valid');
           return;
         } // We have a target that is not a coordinate yet, get it
@@ -2934,16 +2935,16 @@
           var targetParents = getParents(target);
           var parentSection = targetParents.find(function (candidate) {
             return Object.entries(_this9.sections) // Get sections associative array as a regular array
-            .map(function (_ref7) {
-              var _ref8 = _slicedToArray(_ref7, 2),
+              .map(function (_ref7) {
+                var _ref8 = _slicedToArray(_ref7, 2),
                   key = _ref8[0],
                   section = _ref8[1];
 
-              return section;
-            }) // map to section only (we dont need the key here)
-            .find(function (section) {
-              return section.el == candidate;
-            }); // finally find the section that matches the candidate
+                return section;
+              }) // map to section only (we dont need the key here)
+              .find(function (section) {
+                return section.el == candidate;
+              }); // finally find the section that matches the candidate
           });
           var parentSectionOffset = 0;
 
@@ -3154,10 +3155,10 @@
 
 })));
 
-setTimeout(function(){
-// Initialize the Locomotive scroll
-const scroll = new LocomotiveScroll({
+setTimeout(function () {
+  // Initialize the Locomotive scroll
+  const scroll = new LocomotiveScroll({
     el: document.querySelector('#ht-page'),
     smooth: true
-});
+  });
 }, 3000);

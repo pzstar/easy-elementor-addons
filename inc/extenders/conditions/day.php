@@ -41,7 +41,7 @@ class Day extends Condition {
 
 	public function check($relation, $val) {
 		$day = date('w', current_time('timestamp'));
-		$show = is_array($val) && ! empty($val) ? in_array($day, $val) : $val === $day;
+		$show = is_array($val) && !empty($val) ? in_array($day, $val) : $val === $day;
 		return self::compare($show, true, $relation);
 	}
 }

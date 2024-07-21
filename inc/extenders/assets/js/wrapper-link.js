@@ -10,10 +10,10 @@ jQuery(document).ready(function () {
             jQuery('body').append(
                 jQuery(document.createElement('a')).prop({
                     target: data.is_external ? '_blank' : '_self',
-                    href : data.url,
-                    class : 'eead-hidden',
-                    id : id,
-                    rel : data.nofollow ? 'nofollow noreferer' : ''
+                    href: data.url,
+                    class: 'eead-hidden',
+                    id: id,
+                    rel: data.nofollow ? 'nofollow noreferer' : ''
                 })
             );
         }

@@ -38,7 +38,7 @@ class Static_Page extends Condition {
 			return $this->compare((is_front_page() && is_home()), true, $relation);
 
 		} elseif ('static' === $val) {
-			return $this->compare((is_front_page() && ! is_home()), true, $relation);
+			return $this->compare((is_front_page() && !is_home()), true, $relation);
 
 		} elseif ('blog' === $val) {
 			return $this->compare((!is_front_page() && is_home()), true, $relation);

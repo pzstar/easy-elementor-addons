@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
 
 use Elementor\Controls_Manager;
 
-Class BackdropEffect {
+class BackdropEffect {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -27,7 +27,8 @@ Class BackdropEffect {
 
     public function register_controls($elems) {
         $elems->add_control(
-            'eead_backdrop_filter', [
+            'eead_backdrop_filter',
+            [
                 'label' => esc_html__('Backdrop Filter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
@@ -39,7 +40,8 @@ Class BackdropEffect {
         $elems->start_popover();
 
         $elems->add_control(
-            'eead_bf_blur', [
+            'eead_bf_blur',
+            [
                 'label' => _x('Blur', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -59,7 +61,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_brightness', [
+            'eead_bf_brightness',
+            [
                 'label' => _x('Brightness', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'ui',
@@ -80,7 +83,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_contrast', [
+            'eead_bf_contrast',
+            [
                 'label' => _x('Contrast', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -100,7 +104,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_grayscale', [
+            'eead_bf_grayscale',
+            [
                 'label' => _x('Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -120,7 +125,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_invert', [
+            'eead_bf_invert',
+            [
                 'label' => _x('Invert', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -140,7 +146,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_opacity', [
+            'eead_bf_opacity',
+            [
                 'label' => _x('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -160,7 +167,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_sepia', [
+            'eead_bf_sepia',
+            [
                 'label' => _x('Sepia', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -180,7 +188,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_saturate', [
+            'eead_bf_saturate',
+            [
                 'label' => _x('Saturate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -200,7 +209,8 @@ Class BackdropEffect {
         );
 
         $elems->add_control(
-            'eead_bf_hue_rotate', [
+            'eead_bf_hue_rotate',
+            [
                 'label' => _x('Hue Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -221,9 +231,10 @@ Class BackdropEffect {
         $elems->end_popover();
 
         $elems->add_control(
-            'ep_backdrop_filter_notice', [
+            'ep_backdrop_filter_notice',
+            [
                 'type' => Controls_Manager::RAW_HTML,
-                'raw' => sprintf(__( 'This feature will not work in the Firefox browser untill you enable browser compatibility so please %1s look here %2s', 'easy-elementor-addons' ), '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility" target="_blank">', '</a>'),
+                'raw' => sprintf(__('This feature will not work in the Firefox browser untill you enable browser compatibility so please %1s look here %2s', 'easy-elementor-addons'), '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility" target="_blank">', '</a>'),
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
             ]
         );

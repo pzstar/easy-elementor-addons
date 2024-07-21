@@ -46,9 +46,10 @@ class ImageAccordion extends Widget_Base {
     protected function register_controls() {
         /**
          * Image accordion Adder
-         */        
+         */
         $this->start_controls_section(
-            'eead_img_accordion_section', [
+            'eead_img_accordion_section',
+            [
                 'label' => esc_html__('Accordion', 'easy-elementor-addons')
             ]
         );
@@ -56,7 +57,8 @@ class ImageAccordion extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'eead_accordion_bg', [
+            'eead_accordion_bg',
+            [
                 'label' => esc_html__('Background Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'label_block' => true,
@@ -67,7 +69,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_accordion_tittle', [
+            'eead_accordion_tittle',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -77,7 +80,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_accordion_content', [
+            'eead_accordion_content',
+            [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'label_block' => true,
@@ -86,7 +90,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_accordion_is_active', [
+            'eead_accordion_is_active',
+            [
                 'label' => esc_html__('Active?', 'easy-elementor-addons'),
                 'description' => esc_html__('Enabling it will open this block on page load.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
@@ -97,7 +102,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_accordion_enable_title_link', [
+            'eead_accordion_enable_title_link',
+            [
                 'label' => esc_html__('Enable Title Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
@@ -108,7 +114,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_accordion_title_link', [
+            'eead_accordion_title_link',
+            [
                 'name' => 'eead_accordion_title_link',
                 'label' => esc_html__('Title Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
@@ -126,7 +133,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_img_accordions', [
+            'eead_img_accordions',
+            [
                 'type' => Controls_Manager::REPEATER,
                 'seperator' => 'before',
                 'default' => [
@@ -163,13 +171,15 @@ class ImageAccordion extends Widget_Base {
          * Image accordion General Settings
          */
         $this->start_controls_section(
-            'eead_section_img_accordion_settings', [
+            'eead_section_img_accordion_settings',
+            [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_img_accordion_action_type', [
+            'eead_img_accordion_action_type',
+            [
                 'label' => esc_html__('Accordion Action', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'on_hover',
@@ -182,7 +192,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_img_accordion_layout_type', [
+            'eead_img_accordion_layout_type',
+            [
                 'label' => esc_html__('Layout Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
@@ -195,7 +206,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_img_accordion_content_horizontal_align', [
+            'eead_img_accordion_content_horizontal_align',
+            [
                 'label' => esc_html__('Horizontal Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
@@ -209,7 +221,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_img_accordion_content_vertical_align', [
+            'eead_img_accordion_content_vertical_align',
+            [
                 'label' => esc_html__('Vertical Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
@@ -223,7 +236,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'title_tag', [
+            'title_tag',
+            [
                 'label' => esc_html__('Select Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h2',
@@ -247,21 +261,24 @@ class ImageAccordion extends Widget_Base {
          * Image Accordion General Style
          */
         $this->start_controls_section(
-            'eead_section_img_accordion_style_settings', [
+            'eead_section_img_accordion_style_settings',
+            [
                 'label' => esc_html__('General', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'eead_accordion_shadow',
                 'selector' => '{{WRAPPER}} .eead-img-accordion',
             ]
         );
 
         $this->add_control(
-            'eead_accordion_img_overlay_color', [
+            'eead_accordion_img_overlay_color',
+            [
                 'label' => esc_html__('Normal Overlay Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0, 0, 0, .2)',
@@ -272,7 +289,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_accordion_img_hover_color', [
+            'eead_accordion_img_hover_color',
+            [
                 'label' => esc_html__('Hover Overlay Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0, 0, 0, .5)',
@@ -284,7 +302,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_accordion_height', [
+            'eead_accordion_height',
+            [
                 'label' => esc_html__('Height (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '500',
@@ -295,7 +314,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_accordion_bg_color', [
+            'eead_accordion_bg_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -306,7 +326,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_accordion_container_padding', [
+            'eead_accordion_container_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -317,7 +338,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_accordion_container_margin', [
+            'eead_accordion_container_margin',
+            [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -331,14 +353,16 @@ class ImageAccordion extends Widget_Base {
 
         /* Thumbnail Tab Style */
         $this->start_controls_section(
-            'eead_section_img_accordion_image_style', [
+            'eead_section_img_accordion_image_style',
+            [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_image_accordion_image_margin', [
+            'eead_image_accordion_image_margin',
+            [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -349,7 +373,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_image_accordion_image_padding', [
+            'eead_image_accordion_image_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -360,7 +385,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_image_accordion_image_radius', [
+            'eead_image_accordion_image_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -371,7 +397,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_image_accordion_image_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion a',
@@ -384,14 +411,16 @@ class ImageAccordion extends Widget_Base {
          * Accordion Title Style
          */
         $this->start_controls_section(
-            'eead__img_accordion_title_style', [
+            'eead__img_accordion_title_style',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_accordion_title_color', [
+            'eead_accordion_title_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -402,14 +431,16 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_accordion_title_typography',
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay h2',
             ]
         );
 
         $this->add_control(
-            'eead_image_accordion_title_margin', [
+            'eead_image_accordion_title_margin',
+            [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -420,7 +451,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_image_accordion_title_padding', [
+            'eead_image_accordion_title_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -431,7 +463,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_image_accordion_title_radius', [
+            'eead_image_accordion_title_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -442,7 +475,8 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_image_accordion_title_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay h2',
@@ -455,14 +489,16 @@ class ImageAccordion extends Widget_Base {
          * Accordion Content Style
          */
         $this->start_controls_section(
-            'eead_image_accordion_content_style', [
+            'eead_image_accordion_content_style',
+            [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'eead_image_accordion_content_color', [
+            'eead_image_accordion_content_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -473,14 +509,16 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_image_accordion_content_typography',
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay p',
             ]
         );
 
         $this->add_control(
-            'eead_image_accordion_content_margin', [
+            'eead_image_accordion_content_margin',
+            [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -490,7 +528,8 @@ class ImageAccordion extends Widget_Base {
             ]
         );
         $this->add_control(
-            'eead_image_accordion_content_padding', [
+            'eead_image_accordion_content_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -500,7 +539,8 @@ class ImageAccordion extends Widget_Base {
             ]
         );
         $this->add_control(
-            'eead_image_accordion_content_radius', [
+            'eead_image_accordion_content_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -510,7 +550,8 @@ class ImageAccordion extends Widget_Base {
             ]
         );
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_image_accordion_content_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-img-accordion .overlay p',
@@ -522,11 +563,12 @@ class ImageAccordion extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $vertical_align = 'eead-img-accordion-vertical-align-' . $settings[ 'eead_img_accordion_content_vertical_align' ];
-        $horizontal_align = 'eead-img-accordion-horizontal-align-' . $settings[ 'eead_img_accordion_content_horizontal_align' ];
+        $vertical_align = 'eead-img-accordion-vertical-align-' . $settings['eead_img_accordion_content_vertical_align'];
+        $horizontal_align = 'eead-img-accordion-horizontal-align-' . $settings['eead_img_accordion_content_horizontal_align'];
 
         $this->add_render_attribute(
-            'eead-image-accordion', [
+            'eead-image-accordion',
+            [
                 'class' => [
                     'eead-img-accordion',
                     $settings['eead_img_accordion_layout_type'],
@@ -534,8 +576,8 @@ class ImageAccordion extends Widget_Base {
                     $vertical_align,
                 ],
                 'id' => 'eead-img-accordion-' . $this->get_id(),
-                'data-img-accordion-id' => esc_attr( $this->get_id() ),
-                'data-img-accordion-type' => $settings[ 'eead_img_accordion_action_type' ]
+                'data-img-accordion-id' => esc_attr($this->get_id()),
+                'data-img-accordion-type' => $settings['eead_img_accordion_action_type']
             ]
         );
 
@@ -552,17 +594,19 @@ class ImageAccordion extends Widget_Base {
                 if ($img_accordion['eead_accordion_enable_title_link'] == 'yes') {
 
                     $this->add_render_attribute(
-                        'eead-image-accordion-link-' . $key, [
-                            'href' => esc_url($img_accordion['eead_accordion_title_link']['url'] ),
-                            'target' => $img_accordion['eead_accordion_title_link' ]['is_external'] ? '_blank' : '_self',
+                        'eead-image-accordion-link-' . $key,
+                        [
+                            'href' => esc_url($img_accordion['eead_accordion_title_link']['url']),
+                            'target' => $img_accordion['eead_accordion_title_link']['is_external'] ? '_blank' : '_self',
                             'rel' => $img_accordion['eead_accordion_title_link']['nofollow'] ? 'nofollow' : '',
                         ]
                     );
                     $active = $img_accordion['eead_accordion_is_active'];
                 }
-                
+
                 $this->add_render_attribute(
-                    'eead-image-accordion-link-' . $key, [
+                    'eead-image-accordion-link-' . $key,
+                    [
                         'class' => 'eead-image-accordion-hover',
                         'style' => "background-image: url(" . esc_url($img_accordion['eead_accordion_bg']['url']) . ");" . ($active === 'yes' ? ' flex: 3 1 0%;' : ''),
                     ]
@@ -573,10 +617,10 @@ class ImageAccordion extends Widget_Base {
                 }
                 ?>
 
-                <<?php echo esc_attr($tag) . ' '; ?> <?php $this->print_render_attribute_string('eead-image-accordion-link-' . $key); ?> tabindex="<?php echo esc_attr($key); ?>">
+                <<?php echo esc_attr($tag) . ' '; ?>             <?php $this->print_render_attribute_string('eead-image-accordion-link-' . $key); ?> tabindex="<?php echo esc_attr($key); ?>">
                     <div class="overlay">
                         <div class="overlay-inner">
-                            <div class="overlay-inner <?php echo($active === 'yes' ? ' overlay-inner-show' : ''); ?>">
+                            <div class="overlay-inner <?php echo ($active === 'yes' ? ' overlay-inner-show' : ''); ?>">
                                 <?php printf('<%1$s>%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['eead_accordion_tittle'])); ?>
                                 <p><?php echo wp_kses_post(parse_wisiwyg_content($img_accordion['eead_accordion_content'])); ?></p>
                             </div>
@@ -592,6 +636,7 @@ class ImageAccordion extends Widget_Base {
                 #eead-img-accordion-<?php echo esc_attr($this->get_id()); ?> .eead-image-accordion-hover:hover {
                     flex: 3 1 0% !important;
                 }
+
                 #eead-img-accordion-<?php echo esc_attr($this->get_id()); ?> .eead-image-accordion-hover:hover .overlay-inner * {
                     opacity: 1;
                     transform: none;
@@ -599,7 +644,7 @@ class ImageAccordion extends Widget_Base {
                     transition: all .3s .3s;
                 }
             </style>
-        <?php     
-        }  
+        <?php
+        }
     }
 }

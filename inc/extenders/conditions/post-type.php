@@ -31,10 +31,10 @@ class Post_Type extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		$show = false;
-		
-		if (is_array($val) && ! empty($val)) {
+
+		if (is_array($val) && !empty($val)) {
 			foreach ($val as $_key => $_value) {
 				if (is_singular($_value)) {
 					$show = true;

@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 class Sticky_Column {
 
-    private static $instance = null;
+    private static $instance = NULL;
 
     public static function instance() {
         if (is_null(self::$instance)) {
@@ -31,49 +31,53 @@ class Sticky_Column {
 
     public function add_controls($section) {
         $section->add_control(
-                'eea_sidebar_sticky', [
-            'label' => __('Enable Sticky Sidebar', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'default' => '',
-            'render_type' => 'template',
-            'return_value' => 'true',
-                ]
+            'eea_sidebar_sticky',
+            [
+                'label' => __('Enable Sticky Sidebar', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => '',
+                'render_type' => 'template',
+                'return_value' => 'true',
+            ]
         );
 
         $section->add_control(
-                'eea_sidebar_sticky_top_spacing', array(
-            'label' => __('Top Spacing(px)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 50,
-            'min' => 0,
-            'max' => 500,
-            'step' => 1,
-            'condition' => array(
-                'eea_sidebar_sticky' => 'true',
-            ),
-            'render_type' => 'template',
-                )
+            'eea_sidebar_sticky_top_spacing',
+            array(
+                'label' => __('Top Spacing(px)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 50,
+                'min' => 0,
+                'max' => 500,
+                'step' => 1,
+                'condition' => array(
+                    'eea_sidebar_sticky' => 'true',
+                ),
+                'render_type' => 'template',
+            )
         );
 
         $section->add_control(
-                'eea_sidebar_sticky_bottom_spacing', array(
-            'label' => __('Bottom Spacing(px)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 50,
-            'min' => 0,
-            'max' => 500,
-            'step' => 1,
-            'condition' => array(
-                'eea_sidebar_sticky' => 'true',
-            ),
-            'render_type' => 'template',
-                )
+            'eea_sidebar_sticky_bottom_spacing',
+            array(
+                'label' => __('Bottom Spacing(px)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 50,
+                'min' => 0,
+                'max' => 500,
+                'step' => 1,
+                'condition' => array(
+                    'eea_sidebar_sticky' => 'true',
+                ),
+                'render_type' => 'template',
+            )
         );
 
         $section->add_control(
-                'hr', [
-            'type' => Controls_Manager::DIVIDER,
-                ]
+            'hr',
+            [
+                'type' => Controls_Manager::DIVIDER,
+            ]
         );
     }
 
@@ -86,7 +90,8 @@ class Sticky_Column {
                 'class' => 'eea-elementor-sticky-column',
                 'data-top-spacing' => absint($top_spacing),
                 'data-bottom-spacing' => absint($bottom_spacing)
-            ));
+            )
+            );
         }
     }
 }

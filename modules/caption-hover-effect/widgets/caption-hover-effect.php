@@ -47,13 +47,15 @@ class CaptionHoverEffect extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-                'content_section', [
-            'label' => esc_html__('Content', 'easy-elementor-addons'),
-                ]
+            'content_section',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'image', [
+            'image',
+            [
                 'label' => esc_html__('Caption Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -63,37 +65,41 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_group_control(
-                Group_Control_Image_Size::get_type(), [
-            'name' => 'image',
-            'exclude' => ['custom'],
-            'include' => [],
-            'default' => 'full',
-                ]
+            Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'image',
+                'exclude' => ['custom'],
+                'include' => [],
+                'default' => 'full',
+            ]
         );
 
         $this->add_control(
-                'title', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => true,
-            'placeholder' => esc_html__('Enter your title here', 'easy-elementor-addons'),
-            'default' => esc_html__('Heading', 'easy-elementor-addons')
-                ]
+            'title',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => esc_html__('Enter your title here', 'easy-elementor-addons'),
+                'default' => esc_html__('Heading', 'easy-elementor-addons')
+            ]
         );
 
         $this->add_control(
-                'content', [
-            'label' => esc_html__('Content', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXTAREA,
-            'label_block' => true,
-            'placeholder' => esc_html__('Enter your content here', 'easy-elementor-addons'),
-            'default' => esc_html__('Sub Heading', 'easy-elementor-addons')
-                ]
+            'content',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXTAREA,
+                'label_block' => true,
+                'placeholder' => esc_html__('Enter your content here', 'easy-elementor-addons'),
+                'default' => esc_html__('Sub Heading', 'easy-elementor-addons')
+            ]
         );
 
         $this->add_control(
-            'effect_style', [
-                'label' => esc_html__( 'Hover Effect', 'easy-elementor-addons' ),
+            'effect_style',
+            [
+                'label' => esc_html__('Hover Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'cs-style-1',
                 'options' => [
@@ -109,42 +115,45 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-                'margin_heading', [
-            'label' => esc_html__('Margin Heading(%)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['%'],
-            'range' => [
-                '%' => [
-                    'min' => 0,
-                    'max' => 100,
-                    'step' => 1
+            'margin_heading',
+            [
+                'label' => esc_html__('Margin Heading(%)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['%'],
+                'range' => [
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1
+                    ],
                 ],
-            ],
-            'default' => [
-                'unit' => '%',
-                'size' => 60,
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .cs-style-6 figcaption h3, {{WRAPPER}} .cs-style-7 figcaption h3' => 'margin-top : {{SIZE}}{{UNIT}};',
-            ],
-            'condition' => [
-                'effect_style' => array('cs-style-6', 'cs-style-7'),
-            ],
-                ]
+                'default' => [
+                    'unit' => '%',
+                    'size' => 60,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .cs-style-6 figcaption h3, {{WRAPPER}} .cs-style-7 figcaption h3' => 'margin-top : {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'effect_style' => array('cs-style-6', 'cs-style-7'),
+                ],
+            ]
         );
 
         $this->add_control(
-                'button_text', [
-            'label' => esc_html__('Button Text', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => true,
-            'placeholder' => esc_html__('Enter your button text here', 'easy-elementor-addons'),
-            'default' => esc_html__('Click Here', 'easy-elementor-addons')
-                ]
+            'button_text',
+            [
+                'label' => esc_html__('Button Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => esc_html__('Enter your button text here', 'easy-elementor-addons'),
+                'default' => esc_html__('Click Here', 'easy-elementor-addons')
+            ]
         );
 
         $this->add_control(
-            'button_link', [
+            'button_link',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -160,65 +169,71 @@ class CaptionHoverEffect extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'settings_section', [
-            'label' => esc_html__('Settings', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'settings_section',
+            [
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'figcaption_color', [
-            'label' => esc_html__('Figcaption Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#ed4e6e',
-            'selectors' => [
-                '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'color: {{VALUE}}',
-            ]
+            'figcaption_color',
+            [
+                'label' => esc_html__('Figcaption Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ed4e6e',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'color: {{VALUE}}',
                 ]
+            ]
         );
 
         $this->add_control(
-                'figcaption_bg_color', [
-            'label' => esc_html__('Figcaption Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#2c3f52',
-            'selectors' => [
-                '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'background: {{VALUE}}',
-            ]
+            'figcaption_bg_color',
+            [
+                'label' => esc_html__('Figcaption Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#2c3f52',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-caption-hover-effect figcaption' => 'background: {{VALUE}}',
                 ]
+            ]
         );
 
         $this->add_control(
-                'figcaption_heading_color', [
-            'label' => esc_html__('Heading Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-caption-hover-effect figcaption h3' => 'color: {{VALUE}}',
-            ]
+            'figcaption_heading_color',
+            [
+                'label' => esc_html__('Heading Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-caption-hover-effect figcaption h3' => 'color: {{VALUE}}',
                 ]
+            ]
         );
 
         $this->add_control(
-                'figcaption_button_text_color', [
-            'label' => esc_html__('Button Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'color: {{VALUE}}',
-            ]
+            'figcaption_button_text_color',
+            [
+                'label' => esc_html__('Button Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'color: {{VALUE}}',
                 ]
+            ]
         );
 
         $this->add_control(
-                'figcaption_button_text_bg_color', [
-            'label' => esc_html__('Button Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#ed4e6e',
-            'selectors' => [
-                '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'background: {{VALUE}}',
-            ]
+            'figcaption_button_text_bg_color',
+            [
+                'label' => esc_html__('Button Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ed4e6e',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-caption-hover-effect figcaption a' => 'background: {{VALUE}}',
                 ]
+            ]
         );
 
         $this->end_controls_section();

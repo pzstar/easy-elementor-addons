@@ -53,13 +53,15 @@ class ImageComparison extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content_layout', [
+            'section_content_layout',
+            [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'before_image', [
+            'before_image',
+            [
                 'label' => esc_html__('Before Image', 'easy-elementor-addons'),
                 'description' => esc_html__('Use same size image for before and after for better preview.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
@@ -71,7 +73,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'before_label', [
+            'before_label',
+            [
                 'label' => esc_html__('Before Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('Before Label', 'easy-elementor-addons'),
@@ -82,7 +85,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'after_image', [
+            'after_image',
+            [
                 'label' => esc_html__('After Image', 'easy-elementor-addons'),
                 'description' => esc_html__('Use same size image for before and after for better preview.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
@@ -94,7 +98,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'after_label', [
+            'after_label',
+            [
                 'label' => esc_html__('After Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('After Label', 'easy-elementor-addons'),
@@ -105,7 +110,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(), [
+            Group_Control_Image_Size::get_type(),
+            [
                 'name' => 'thumbnail_size',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'exclude' => ['custom'],
@@ -116,14 +122,16 @@ class ImageComparison extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_additional_settings', [
+            'section_content_additional_settings',
+            [
                 'label' => esc_html__('Additional', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'orientation', [
+            'orientation',
+            [
                 'label' => esc_html__('Orientation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'horizontal',
@@ -135,7 +143,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'default_offset_pct', [
+            'default_offset_pct',
+            [
                 'label' => esc_html__('Before Image Visiblity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -151,7 +160,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'no_overlay', [
+            'no_overlay',
+            [
                 'label' => esc_html__('Show Overlay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes'
@@ -159,7 +169,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'on_hover', [
+            'on_hover',
+            [
                 'label' => esc_html__('On Hover Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -170,21 +181,24 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'move_slider_on_hover', [
+            'move_slider_on_hover',
+            [
                 'label' => esc_html__('Slide Bar on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER
             ]
         );
 
         $this->add_control(
-            'add_circle', [
+            'add_circle',
+            [
                 'label' => esc_html__('Enable Circle Bar', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER
             ]
         );
 
         $this->add_control(
-            'add_circle_blur', [
+            'add_circle_blur',
+            [
                 'label' => esc_html__('Enable Circle Blur', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
@@ -194,7 +208,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'add_circle_shadow', [
+            'add_circle_shadow',
+            [
                 'label' => esc_html__('Enable Circle Shadow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
@@ -204,7 +219,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'smoothing', [
+            'smoothing',
+            [
                 'label' => esc_html__('Enable Smoothing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes'
@@ -212,7 +228,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'smoothing_intensity', [
+            'smoothing_intensity',
+            [
                 'label' => esc_html__('Smoothing Intensity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -234,27 +251,30 @@ class ImageComparison extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'general_style', [
+            'general_style',
+            [
                 'label' => esc_html__('General Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'overlay_color', [
+            'overlay_color',
+            [
                 'label' => esc_html__('Overlay Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .eead-image-compare-overlay:before' => 'background: {{VALUE}};',
                 ],
-                'condition'   => [
+                'condition' => [
                     'no_overlay' => 'yes'
                 ]
             ]
         );
 
         $this->add_control(
-            'bar_color', [
+            'bar_color',
+            [
                 'label' => esc_html__('Bar Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffff',
@@ -264,7 +284,8 @@ class ImageComparison extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'before_after_style', [
+            'before_after_style',
+            [
                 'label' => esc_html__('Before After', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -273,13 +294,15 @@ class ImageComparison extends Widget_Base {
         $this->start_controls_tabs('tabs_image_compare_style');
 
         $this->start_controls_tab(
-            'tab_image_compare_before_style', [
+            'tab_image_compare_before_style',
+            [
                 'label' => esc_html__('Before', 'easy-elementor-addons'),
             ]
         );
-        
+
         $this->add_control(
-            'before_background', [
+            'before_background',
+            [
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -289,7 +312,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'before_color', [
+            'before_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -301,13 +325,15 @@ class ImageComparison extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_image_compare_after_style', [
+            'tab_image_compare_after_style',
+            [
                 'label' => esc_html__('After', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'after_background', [
+            'after_background',
+            [
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -317,7 +343,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'after_color', [
+            'after_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -331,7 +358,8 @@ class ImageComparison extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_responsive_control(
-            'after_before_padding', [
+            'after_before_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -343,7 +371,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_control(
-            'after_before_radius', [
+            'after_before_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -354,7 +383,8 @@ class ImageComparison extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'after_before_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-image-compare .icv__label',
@@ -366,7 +396,7 @@ class ImageComparison extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-        
+
         $settings = $this->get_settings_for_display();
         $id = esc_attr($this->get_id());
 
@@ -375,8 +405,8 @@ class ImageComparison extends Widget_Base {
             'default_offset_pct' => $settings['default_offset_pct']['size'],
             'smoothing_amount' => $settings['smoothing_intensity']['size'],
             'orientation' => $settings['orientation'] == 'horizontal' ? false : true,
-            'no_overlay' => $settings['no_overlay'] == 'yes' ? true : false, 
-            'on_hover' => $settings['on_hover'] == 'yes' ? true : false, 
+            'no_overlay' => $settings['no_overlay'] == 'yes' ? true : false,
+            'on_hover' => $settings['on_hover'] == 'yes' ? true : false,
             'move_slider_on_hover' => $settings['move_slider_on_hover'] == 'yes' ? true : false,
             'add_circle' => $settings['add_circle'] == 'yes' ? true : false,
             'add_circle_blur' => $settings['add_circle_blur'] == 'yes' ? true : false,
@@ -394,7 +424,7 @@ class ImageComparison extends Widget_Base {
         $this->add_render_attribute([
             'image-compare' => [
                 'id' => 'image-compare-' . $id,
-                'class' => [ 'image-compare' ],
+                'class' => ['image-compare'],
                 'data-settings' => [
                     wp_json_encode($compare_settings),
                 ],
@@ -409,7 +439,7 @@ class ImageComparison extends Widget_Base {
         <div class="eead-image-compare eead-position-relative">
             <div <?php $this->print_render_attribute_string('image-compare'); ?>>
                 <?php
-                echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'before_image'); 
+                echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'before_image');
                 echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'after_image');
                 ?>
             </div>

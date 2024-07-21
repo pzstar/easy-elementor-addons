@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) || exit; ?>
+<?php defined('ABSPATH') || exit; ?>
 <div class="eead-live-editor-iframe-modal">
 	<div class="dialog-widget dialog-lightbox-widget dialog-type-buttons dialog-type-lightbox elementor-templates-modal eead-dynamic-content-modal" id="elementor-template-eead-live-editor-modal-container" style="display:none">
 		<div class="dialog-widget-content dialog-lightbox-widget-content">

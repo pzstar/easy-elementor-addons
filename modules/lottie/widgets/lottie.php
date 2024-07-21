@@ -44,23 +44,25 @@ class Lottie extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'eead_lottie', [
+            'eead_lottie',
+            [
                 'label' => esc_html__('Lottie', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'eead_lottie_type', [
+            'eead_lottie_type',
+            [
                 'label' => esc_html__('Select JSON', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'url',
                 'options' => [
-                    'file'  => [
+                    'file' => [
                         'title' => esc_html__('JSON File', 'easy-elementor-addons'),
                         'icon' => 'eicon-document-file',
                     ],
-                    'url'   => [
+                    'url' => [
                         'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
                         'icon' => 'eicon-link',
                     ],
@@ -69,7 +71,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_json', [
+            'eead_lottie_json',
+            [
                 'show_label' => false,
                 'description' => sprintf(
                     esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
@@ -79,13 +82,14 @@ class Lottie extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'media_type' => 'application/json',
                 'condition' => [
-                    'eead_lottie_type'  => 'file',
+                    'eead_lottie_type' => 'file',
                 ],
             ]
         );
 
         $this->add_control(
-            'eead_lottie_url', [
+            'eead_lottie_url',
+            [
                 'show_label' => false,
                 'label_block' => true,
                 'description' => sprintf(
@@ -104,14 +108,16 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_link_check', [
+            'eead_lottie_link_check',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $this->add_control(
-            'eead_lottie_link', [
+            'eead_lottie_link',
+            [
                 'show_label' => false,
                 'type' => Controls_Manager::URL,
                 'condition' => [
@@ -124,21 +130,24 @@ class Lottie extends Widget_Base {
 
         /* Animation Options */
         $this->start_controls_section(
-            'eead_lottie_animation_options', [
+            'eead_lottie_animation_options',
+            [
                 'label' => esc_html__('Animations', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
-        );  
+        );
 
         $this->add_control(
-            'eead_lottie_reverse', [
+            'eead_lottie_reverse',
+            [
                 'label' => esc_html__('Reverse', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $this->add_control(
-            'eead_lottie_autoplay', [
+            'eead_lottie_autoplay',
+            [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -147,7 +156,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_on_scroll', [
+            'eead_lottie_on_scroll',
+            [
                 'label' => esc_html__('Start when visible', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
@@ -157,7 +167,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_loop', [
+            'eead_lottie_loop',
+            [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -166,7 +177,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_loop_count', [
+            'eead_lottie_loop_count',
+            [
                 'label' => esc_html__('Loop Count', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -181,7 +193,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_speed', [
+            'eead_lottie_speed',
+            [
                 'label' => esc_html__('Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -197,7 +210,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_renderer', [
+            'eead_lottie_renderer',
+            [
                 'label' => esc_html__('Render Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'svg',
@@ -215,7 +229,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_lottie_action', [
+            'eead_lottie_action',
+            [
                 'label' => esc_html__('On Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -231,7 +246,8 @@ class Lottie extends Widget_Base {
 
         // Lottie Style Settings
         $this->start_controls_section(
-            'eead_lottie_styles', [
+            'eead_lottie_styles',
+            [
                 'label' => esc_html__('Lottie', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -242,13 +258,15 @@ class Lottie extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'eead_lottie_normal', [
+            'eead_lottie_normal',
+            [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_lottie_opacity', [
+            'eead_lottie_opacity',
+            [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -265,7 +283,8 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Css_Filter::get_type(), [
+            Group_Control_Css_Filter::get_type(),
+            [
                 'name' => 'eead_lottie_filter',
                 'selector' => '{{WRAPPER}}',
             ]
@@ -274,13 +293,15 @@ class Lottie extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'eead_lottie_hover', [
+            'eead_lottie_hover',
+            [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_lottie_opacity_hover', [
+            'eead_lottie_opacity_hover',
+            [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -297,14 +318,16 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Css_Filter::get_type(), [
+            Group_Control_Css_Filter::get_type(),
+            [
                 'name' => 'eead_lottie_filter_hover',
                 'selector' => '{{WRAPPER}}',
             ]
         );
 
         $this->add_control(
-            'eead_lottie_transition', [
+            'eead_lottie_transition',
+            [
                 'label' => esc_html__('Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -360,7 +383,7 @@ class Lottie extends Widget_Base {
                 $this->add_render_attribute('wrapper', 'class', 'met_d--block');
                 $this->add_link_attributes('link', $settings['eead_lottie_link']);
                 ?>
-                <a <?php $this->print_render_attribute_string('link'); ?> <?php $this->print_render_attribute_string('wrapper'); ?>>
+                <a <?php $this->print_render_attribute_string('link'); ?>             <?php $this->print_render_attribute_string('wrapper'); ?>>
                     &nbsp;
                 </a>
                 <?php

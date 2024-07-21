@@ -29,17 +29,18 @@ class PieChart extends Widget_Base {
 	}
 
 	public function get_categories() {
-	 	return ['easy-elementor-addons'];
- 	}
+		return ['easy-elementor-addons'];
+	}
 
- 	public function get_script_depends() {
+	public function get_script_depends() {
 		return ['chart'];
 	}
 
 	protected function register_controls() {
 
 		$this->start_controls_section(
-			'section_chart_data', [
+			'section_chart_data',
+			[
 				'label' => esc_html__('Chart Data', 'easy-elementor-addons'),
 			]
 		);
@@ -47,7 +48,8 @@ class PieChart extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'label', [
+			'label',
+			[
 				'label' => esc_html__('Label', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => array('active' => true),
@@ -55,7 +57,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'value', [
+			'value',
+			[
 				'label' => esc_html__('Value', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
 				'min' => 0,
@@ -71,14 +74,16 @@ class PieChart extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'color', [
+			'color',
+			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 			]
 		);
 
 		$this->add_control(
-			'chart_data', [
+			'chart_data',
+			[
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => array(
@@ -103,7 +108,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_title', [
+			'chart_title',
+			[
 				'label' => esc_html__('Chart Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__('Pie Chart', 'easy-elementor-addons'),
@@ -113,7 +119,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_title_size', [
+			'chart_title_size',
+			[
 				'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'options' => eead_html_tags(),
@@ -122,7 +129,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_title_position', [
+			'chart_title_position',
+			[
 				'label' => esc_html__('Title Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'options' => array(
@@ -137,13 +145,15 @@ class PieChart extends Widget_Base {
 
 		/* Legend Options */
 		$this->start_controls_section(
-			'legend_settings', [
+			'legend_settings',
+			[
 				'label' => esc_html__('Legend', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
-			'chart_legend_display', [
+			'chart_legend_display',
+			[
 				'label' => esc_html__('Enable', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'true',
@@ -152,7 +162,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_position', [
+			'chart_legend_position',
+			[
 				'label' => esc_html__('Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'top',
@@ -160,13 +171,14 @@ class PieChart extends Widget_Base {
 					'top' => esc_html__('Top', 'easy-elementor-addons'),
 					'left' => esc_html__('Left', 'easy-elementor-addons'),
 					'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
-					'right'  => esc_html__('Right', 'easy-elementor-addons'),
+					'right' => esc_html__('Right', 'easy-elementor-addons'),
 				),
 			]
 		);
 
 		$this->add_control(
-			'chart_legend_reverse', [
+			'chart_legend_reverse',
+			[
 				'label' => esc_html__('Reverse', 'easy-elementor-addons'),
 				'description' => esc_html__('Show datasets in reverse order.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
@@ -179,16 +191,18 @@ class PieChart extends Widget_Base {
 
 		/* Animation */
 		$this->start_controls_section(
-			'animation_settings', [
+			'animation_settings',
+			[
 				'label' => esc_html__('Animation', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_control(
-			'chart_animation_duration', [
+			'chart_animation_duration',
+			[
 				'label' => esc_html__('Duration', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => array( 'ms' ),
+				'size_units' => array('ms'),
 				'range' => array(
 					'ms' => array(
 						'min' => 100,
@@ -236,7 +250,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_animation_easing', [
+			'chart_animation_easing',
+			[
 				'label' => esc_html__('Easing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'easeOutQuart',
@@ -245,7 +260,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_animate_scale', [
+			'chart_animate_scale',
+			[
 				'label' => esc_html__('Scale From Center', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
@@ -256,13 +272,15 @@ class PieChart extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_settings', [
+			'section_settings',
+			[
 				'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
 			]
 		);
 
 		$this->add_responsive_control(
-			'chart_height', [
+			'chart_height',
+			[
 				'label' => esc_html__('Chart Height', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => array(
@@ -279,7 +297,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_cutout_percentage', [
+			'chart_cutout_percentage',
+			[
 				'label' => esc_html__('Cutout Percentage', 'easy-elementor-addons'),
 				'description' => esc_html__('The middle portion of chart to be cut out. ', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
@@ -297,7 +316,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_enabled', [
+			'chart_tooltip_enabled',
+			[
 				'label' => esc_html__('Enable Tooltip', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'true',
@@ -308,14 +328,16 @@ class PieChart extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_chart_style', [
+			'section_chart_style',
+			[
 				'label' => esc_html__('Chart', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
-			'chart_border_width', [
+			'chart_border_width',
+			[
 				'label' => esc_html__('Border Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => array(
@@ -328,7 +350,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_border_color', [
+			'chart_border_color',
+			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 			]
@@ -337,21 +360,24 @@ class PieChart extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_chart_title_style', [
+			'section_chart_title_style',
+			[
 				'label' => esc_html__('Title', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(), [
+			Group_Control_Typography::get_type(),
+			[
 				'name' => 'chart_title_typography',
 				'selector' => '{{WRAPPER}} .eead-pie-chart-title',
 			]
 		);
 
 		$this->add_control(
-			'chart_title_color', [
+			'chart_title_color',
+			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
@@ -361,7 +387,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_title_margin', [
+			'chart_title_margin',
+			[
 				'label' => esc_html__('Margin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
@@ -372,7 +399,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_title_padding', [
+			'chart_title_padding',
+			[
 				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%'),
@@ -383,7 +411,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(), [
+			Group_Control_Text_Shadow::get_type(),
+			[
 				'name' => 'chart_title_text_shadow',
 				'selector' => '{{WRAPPER}} .eead-pie-chart-title',
 			]
@@ -392,7 +421,8 @@ class PieChart extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_chart_legend_style', [
+			'section_chart_legend_style',
+			[
 				'label' => esc_html__('Legend', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => array(
@@ -402,7 +432,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_box_width', [
+			'chart_legend_box_width',
+			[
 				'label' => esc_html__('Box Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => array(
@@ -415,7 +446,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_font_family', [
+			'chart_legend_font_family',
+			[
 				'label' => esc_html__('Font Family', 'easy-elementor-addons'),
 				'type' => Controls_Manager::FONT,
 				'default' => '',
@@ -423,7 +455,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_font_size', [
+			'chart_legend_font_size',
+			[
 				'label' => esc_html__('Font Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => array(
@@ -436,7 +469,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_font_weight', [
+			'chart_legend_font_weight',
+			[
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
@@ -445,7 +479,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_font_style', [
+			'chart_legend_font_style',
+			[
 				'label' => esc_html__('Font Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
@@ -459,7 +494,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_legend_font_color', [
+			'chart_legend_font_color',
+			[
 				'label' => esc_html__('Font Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 			]
@@ -468,7 +504,8 @@ class PieChart extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_chart_tooltips_style', [
+			'section_chart_tooltips_style',
+			[
 				'label' => esc_html__('Tooltips', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => array(
@@ -478,14 +515,16 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_bg_color', [
+			'chart_tooltip_bg_color',
+			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 			]
 		);
 
 		$this->add_control(
-			'chart_tooltip_font_family', [
+			'chart_tooltip_font_family',
+			[
 				'label' => esc_html__('Font Family', 'easy-elementor-addons'),
 				'type' => Controls_Manager::FONT,
 				'default' => '',
@@ -493,7 +532,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_font_size', [
+			'chart_tooltip_font_size',
+			[
 				'label' => esc_html__('Font Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => array(
@@ -506,7 +546,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_font_weight', [
+			'chart_tooltip_font_weight',
+			[
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
@@ -515,7 +556,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_font_style', [
+			'chart_tooltip_font_style',
+			[
 				'label' => esc_html__('Font Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
@@ -529,7 +571,8 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
-			'chart_tooltip_font_color', [
+			'chart_tooltip_font_color',
+			[
 				'label' => esc_html__('Font Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 			]
@@ -542,7 +585,7 @@ class PieChart extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		if ($settings['chart_title_position'] == $position) {
-			$title_tag = $settings['chart_title_size']; 
+			$title_tag = $settings['chart_title_size'];
 			?>
 			<div class="eead-pie-chart-title-container">
 				<<?php echo esc_attr($title_tag); ?> class="eead-pie-chart-title">
@@ -562,17 +605,15 @@ class PieChart extends Widget_Base {
 			'class' => 'eead-pie-chart',
 			'role' => 'img',
 			'aria-label' => !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : ''
-		]);		
+		]);
 		?>
 
 		<div class="elementor-eead-pie-chart eead-elements">
 			<?php $this->render_chart_title('before'); ?>
-				<div class="eead-pie-chart-container"
-					data-chart="<?php echo esc_attr(json_encode($data_chart)); ?>"
-					data-options="<?php echo esc_attr(json_encode($data_options)); ?>">
-					<canvas class="eead-pie-chart" role="img" aria-label="<?php echo !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : '' ?>">
-					</canvas>
-				</div>
+			<div class="eead-pie-chart-container" data-chart="<?php echo esc_attr(json_encode($data_chart)); ?>" data-options="<?php echo esc_attr(json_encode($data_options)); ?>">
+				<canvas class="eead-pie-chart" role="img" aria-label="<?php echo !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : '' ?>">
+				</canvas>
+			</div>
 			<?php $this->render_chart_title('after'); ?>
 		</div>
 
@@ -593,7 +634,7 @@ class PieChart extends Widget_Base {
 
 		$chart_data = $settings['chart_data'];
 
-		foreach ( $chart_data as $item_data ) {
+		foreach ($chart_data as $item_data) {
 			$data['datasets'][0]['data'][] = !empty($item_data['value']) ? $item_data['value'] : '';
 			$data['datasets'][0]['backgroundColor'][] = !empty($item_data['color']) ? $item_data['color'] : '';
 			$data['labels'][] = !empty($item_data['label']) ? $item_data['label'] : '';
@@ -648,7 +689,7 @@ class PieChart extends Widget_Base {
 			foreach ($legend_style_dictionary as $style_property => $setting_name) {
 
 				if (is_array($setting_name)) {
-					$style_value = $this->get_chart_font_style_string( $setting_name );
+					$style_value = $this->get_chart_font_style_string($setting_name);
 					if (!empty($style_value)) {
 						$legend_style[$style_property] = $style_value;
 					}
@@ -683,16 +724,16 @@ class PieChart extends Widget_Base {
 			foreach ($tooltip_style_dictionary as $style_property => $setting_name) {
 
 				if (is_array($setting_name)) {
-					$style_value = $this->get_chart_font_style_string( $setting_name );
+					$style_value = $this->get_chart_font_style_string($setting_name);
 
 					if (!empty($style_value)) {
-						$options['tooltips'][ $style_property ] = $style_value;
+						$options['tooltips'][$style_property] = $style_value;
 					}
 
 				} else {
 					if (!empty($settings[$setting_name])) {
 						if (is_array($settings[$setting_name])) {
-							if (!empty( $settings[$setting_name]['size'])) {
+							if (!empty($settings[$setting_name]['size'])) {
 								$options['tooltips'][$style_property] = $settings[$setting_name]['size'];
 							}
 

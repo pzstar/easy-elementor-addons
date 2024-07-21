@@ -10,9 +10,9 @@ if (!defined('ABSPATH')) {
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
-Class Tooltip {
+class Tooltip {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -33,7 +33,8 @@ Class Tooltip {
     public function register_controls($elems) {
 
         $elems->add_control(
-            'eead_tltp_active', [
+            'eead_tltp_active',
+            [
                 'label' => esc_html__('Tooltip Effects', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
@@ -44,7 +45,8 @@ Class Tooltip {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'eead_tltp_select_type', [
+            'eead_tltp_select_type',
+            [
                 'label' => esc_html__('Element Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'widget',
@@ -56,7 +58,8 @@ Class Tooltip {
         );
 
         $repeater->add_control(
-            'eead_tltp_custom_selector', [
+            'eead_tltp_custom_selector',
+            [
                 'label' => esc_html__('Custom Selector', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('Please use ID or Class to select your element/elements. ( Example - #select-id, .select-class)', 'easy-elementor-addons'),
@@ -67,7 +70,8 @@ Class Tooltip {
         );
 
         $repeater->add_control(
-            'eead_tltp_tooltip_text', [
+            'eead_tltp_tooltip_text',
+            [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'This is Tooltip'
@@ -75,7 +79,8 @@ Class Tooltip {
         );
 
         $repeater->add_control(
-            'eead_tltp_type', [
+            'eead_tltp_type',
+            [
                 'label' => esc_html__('Select Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'cora',
@@ -97,14 +102,16 @@ Class Tooltip {
         );
 
         $repeater->add_control(
-            'eead_tltp_color', [
+            'eead_tltp_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
             ]
         );
 
         $elems->add_control(
-            'eead_tltp_list', [
+            'eead_tltp_list',
+            [
                 'label' => esc_html__('Tooltip Items', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -127,7 +134,8 @@ Class Tooltip {
     public function register_section($element) {
 
         $element->start_controls_section(
-            'section_eead_tooltip_controls', [
+            'section_eead_tooltip_controls',
+            [
                 'tab' => Controls_Manager::TAB_CONTENT,
                 'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
             ]

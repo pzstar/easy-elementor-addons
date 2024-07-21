@@ -34,9 +34,9 @@ class Time extends Condition {
 		];
 	}
 
-	public function check( $relation, $val ) {
+	public function check($relation, $val) {
 		// Split control valur into two dates
-		$time = date('H:i', strtotime( preg_replace('/\s+/', '', $val)));
+		$time = date('H:i', strtotime(preg_replace('/\s+/', '', $val)));
 		$now = date('H:i', strtotime('now') + (get_option('gmt_offset') * HOUR_IN_SECONDS));
 
 		// Check vars
@@ -46,7 +46,7 @@ class Time extends Condition {
 
 		// Convert time to timestamp
 		$time_ts = strtotime($time);
-		$now_ts  = strtotime($now);
+		$now_ts = strtotime($now);
 
 		// is date between start & end ?
 		$show = ($now_ts <= $time_ts);

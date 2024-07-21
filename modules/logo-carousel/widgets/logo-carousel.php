@@ -53,70 +53,78 @@ class LogoCarousel extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-                'section_content', [
-            'label' => esc_html__('Content', 'easy-elementor-addons'),
-                ]
+            'section_content',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+            ]
         );
 
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-                'title', [
-            'label' => esc_html__('Title', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => true,
-            'default' => 'Title'
-                ]
+            'title',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default' => 'Title'
+            ]
         );
 
         $repeater->add_control(
-                'image', [
-            'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
-            'type' => Controls_Manager::MEDIA,
-            'default' => [
-                'url' => \Elementor\Utils::get_placeholder_image_src(),
-            ],
-                ]
+            'image',
+            [
+                'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
         );
 
         $repeater->add_control(
-                'logo_link', [
-            'label' => esc_html__('Logo Link', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => true,
-                ]
+            'logo_link',
+            [
+                'label' => esc_html__('Logo Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+            ]
         );
 
         $this->add_control(
-                'slides', [
-            'label' => esc_html__('Slides', 'easy-elementor-addons'),
-            'type' => Controls_Manager::REPEATER,
-            'fields' => $repeater->get_controls(),
-            'title_field' => '{{{ title }}}',
-                ]
+            'slides',
+            [
+                'label' => esc_html__('Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'title_field' => '{{{ title }}}',
+            ]
         );
 
         $this->add_control(
-                'link_new_tab', [
-            'label' => esc_html__('Open Link in New Tab', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
+            'link_new_tab',
+            [
+                'label' => esc_html__('Open Link in New Tab', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_settings', [
-            'label' => esc_html__('Settings', 'easy-elementor-addons'),
-                ]
+            'section_settings',
+            [
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-            'layout', [
+            'layout',
+            [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -129,252 +137,272 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_group_control(
-                Group_Control_Image_Size::get_type(), [
-            'name' => 'thumb',
-            'exclude' => ['custom'],
-            'include' => [],
-            'default' => 'full',
-                ]
+            Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'thumb',
+                'exclude' => ['custom'],
+                'include' => [],
+                'default' => 'full',
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'carousel_settings', [
-            'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
-                ]
+            'carousel_settings',
+            [
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_to_show', [
-            'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 1,
-                    'max' => 10,
+            'slides_to_show',
+            [
+                'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 3,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 2,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 1,
-                'unit' => 'px',
-            ],
-                ]
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 3,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_margin', [
-            'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 100,
+            'slides_margin',
+            [
+                'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 20,
-                'unit' => 'px',
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'infinite', [
-            'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
-        );
-
-        $this->add_control(
-                'autoplay', [
-            'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
-        );
-
-        $this->add_control(
-                'pause_on_hover', [
-            'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-            'condition' => [
-                'autoplay' => 'yes',
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'autoplay_speed', [
-            'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['s'],
-            'range' => [
-                's' => [
-                    'min' => 1,
-                    'max' => 15,
-                    'step' => 1
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
                 ],
-            ],
-            'default' => [
-                'size' => 5,
-                'unit' => 's',
-            ],
-            'condition' => [
-                'autoplay' => 'yes',
-            ],
-                ]
+                'tablet_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_control(
-                'speed', [
-            'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
-            'type' => Controls_Manager::NUMBER,
-            'default' => 500,
-                ]
+            'infinite',
+            [
+                'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
         );
 
         $this->add_control(
-                'dots', [
-            'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
+            'autoplay',
+            [
+                'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
         );
 
         $this->add_control(
-                'arrows', [
-            'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-                ]
+            'pause_on_hover',
+            [
+                'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'autoplay' => 'yes',
+                ],
+            ]
         );
 
         $this->add_control(
-                'auto_height', [
-            'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => '',
-                ]
+            'autoplay_speed',
+            [
+                'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['s'],
+                'range' => [
+                    's' => [
+                        'min' => 1,
+                        'max' => 15,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 5,
+                    'unit' => 's',
+                ],
+                'condition' => [
+                    'autoplay' => 'yes',
+                ],
+            ]
         );
 
         $this->add_control(
-                'center_image_bigger', [
-            'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-            'condition' => ['layout' => 'style3']
-                ]
+            'speed',
+            [
+                'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 500,
+            ]
+        );
+
+        $this->add_control(
+            'dots',
+            [
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'arrows',
+            [
+                'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'auto_height',
+            [
+                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => '',
+            ]
+        );
+
+        $this->add_control(
+            'center_image_bigger',
+            [
+                'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => ['layout' => 'style3']
+            ]
         );
 
         $this->add_responsive_control(
-                'slides_stagepadding', [
-            'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 300,
+            'slides_stagepadding',
+            [
+                'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 300,
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'desktop_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-            'tablet_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-            'mobile_default' => [
-                'size' => 0,
-                'unit' => 'px',
-            ],
-                ]
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'desktop_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+            ]
         );
 
         $this->add_control(
-                'grayscale_enable', [
-            'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
-            'description' => esc_html__('All logo beside middle logo image will turn black and white.'),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-            'label_off' => esc_html__('No', 'easy-elementor-addons'),
-            'return_value' => 'yes',
-            'default' => 'yes',
-            'condition' => ['layout' => 'style3']
-        ]);
+            'grayscale_enable',
+            [
+                'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
+                'description' => esc_html__('All logo beside middle logo image will turn black and white.'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => ['layout' => 'style3']
+            ]
+        );
 
         $this->add_responsive_control(
-                'middle_logo_scale', [
-            'label' => esc_html__('Scale Middle Logo', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 1,
-                    'max' => 1.9,
-                    'step' => .1
+            'middle_logo_scale',
+            [
+                'label' => esc_html__('Scale Middle Logo', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 1.9,
+                        'step' => .1
+                    ],
                 ],
-            ],
-            'devices' => ['desktop', 'tablet', 'mobile'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
-            ],
-            'condition' => ['layout' => 'style3']
-        ]);
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                ],
+                'condition' => ['layout' => 'style3']
+            ]
+        );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'image_style', [
-            'label' => esc_html__('Image', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'image_style',
+            [
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'logo_bg_color', [
+            'logo_bg_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -386,7 +414,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logo_padding', [
+            'logo_padding',
+            [
                 'label' => esc_html__('Logo Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -399,7 +428,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'logo_image_radius', [
+            'logo_image_radius',
+            [
                 'label' => esc_html__('Image Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -412,7 +442,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'outer_box_padding', [
+            'outer_box_padding',
+            [
                 'label' => esc_html__('Outer Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -427,14 +458,16 @@ class LogoCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'border_style', [
-            'label' => esc_html__('Border', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'border_style',
+            [
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'logo_border_color', [
+            'logo_border_color',
+            [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -446,7 +479,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'logo_border_width', [
+            'logo_border_width',
+            [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -459,7 +493,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'logo_border_radius', [
+            'logo_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -474,14 +509,16 @@ class LogoCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'dot_style', [
-            'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'dot_style',
+            [
+                'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-            'dots_border_width', [
+            'dots_border_width',
+            [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -492,7 +529,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_radius', [
+            'dots_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -503,7 +541,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding', [
+            'dots_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -514,89 +553,98 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'dot_tabs'
+            'dot_tabs'
         );
 
         $this->start_controls_tab(
-                'dot_style_normal_tab', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'dot_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_normal', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_normal',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'dot_style_active_tab', [
-            'label' => esc_html__('Active', 'easy-elementor-addons'),
-                ]
+            'dot_style_active_tab',
+            [
+                'label' => esc_html__('Active', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color_active', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color_active',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_active', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_active',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'dot_style_hover_tab', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'dot_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'dot_color_hover', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'dot_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'dot_border_color_hover', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'dot_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
@@ -607,14 +655,16 @@ class LogoCarousel extends Widget_Base {
 
         /*Arrow Style*/
         $this->start_controls_section(
-                'arrow_style', [
-            'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'arrow_style',
+            [
+                'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'arrow_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -624,7 +674,8 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding', [
+            'arrow_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -635,81 +686,89 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-                'arrow_tabs'
+            'arrow_tabs'
         );
 
         $this->start_controls_tab(
-                'arrow_style_normal_tab', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'arrow_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'arrow_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'color: {{VALUE}}',
-            ],
-                ]
+            'arrow_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_border_color_normal', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_border_color_normal',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'arrow_style_hover_tab', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'arrow_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'arrow_bg_color_hover', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_bg_color_hover',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_color_hover', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
-            ],
-                ]
+            'arrow_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->add_control(
-                'arrow_border_color_hover', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
-            ],
-                ]
+            'arrow_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
         );
 
         $this->end_controls_tab();

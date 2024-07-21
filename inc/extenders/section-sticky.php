@@ -10,9 +10,9 @@ if (!defined('ABSPATH')) {
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Box_Shadow;
 
-Class SectionSticky {
+class SectionSticky {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -32,19 +32,21 @@ Class SectionSticky {
 
         static $layout_sections = ['section_advanced'];
 
-        if ( !in_array($section_id, $layout_sections) ) {
+        if (!in_array($section_id, $layout_sections)) {
             return;
         }
 
         $section->start_controls_section(
-            'section_sticky_controls', [
+            'section_sticky_controls',
+            [
                 'label' => esc_html__('Section Sticky', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
 
         $section->add_control(
-            'section_sticky_on', [
+            'section_sticky_on',
+            [
                 'label' => esc_html__('Enable Sticky', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -53,7 +55,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_offset', [
+            'section_sticky_offset',
+            [
                 'label' => esc_html__('Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -66,7 +69,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_active_bg', [
+            'section_sticky_active_bg',
+            [
                 'label' => esc_html__('Active Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -79,7 +83,8 @@ Class SectionSticky {
         );
 
         $section->add_responsive_control(
-            'section_sticky_active_padding', [
+            'section_sticky_active_padding',
+            [
                 'label' => esc_html__('Active Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -93,7 +98,8 @@ Class SectionSticky {
         );
 
         $section->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'label' => esc_html__('Active Box Shadow', 'easy-elementor-addons'),
                 'name' => 'section_sticky_active_shadow',
                 'selector' => '{{WRAPPER}}.uk-sticky.uk-active',
@@ -104,7 +110,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_animation', [
+            'section_sticky_animation',
+            [
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_transition_options(),
@@ -115,7 +122,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_bottom', [
+            'section_sticky_bottom',
+            [
                 'label' => esc_html__('Scroll Until', 'easy-elementor-addons'),
                 'description' => esc_html__('If you don\'t want to scroll after specific section so set that section ID/CLASS here. for example: #section1 or .section1 it\'s support ID/CLASS', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
@@ -126,7 +134,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_on_scroll_up', [
+            'section_sticky_on_scroll_up',
+            [
                 'label' => esc_html__('Sticky on Scroll Up', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
@@ -138,7 +147,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_position', [
+            'section_sticky_position',
+            [
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'description' => esc_html__('By default, the element sticks to the top of the viewport. You can set the position option to use a different position.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
@@ -155,7 +165,8 @@ Class SectionSticky {
         );
 
         $section->add_control(
-            'section_sticky_zindex', [
+            'section_sticky_zindex',
+            [
                 'label' => esc_html__('Z-Index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => -1000,
@@ -163,14 +174,15 @@ Class SectionSticky {
                 'condition' => [
                     'section_sticky_on' => 'yes',
                 ],
-                'selectors'  => [
+                'selectors' => [
                     '{{WRAPPER}}.uk-sticky.uk-active' => 'z-index: {{VALUE}};',
                 ],
             ]
         );
 
         $section->add_control(
-            'section_sticky_off_media', [
+            'section_sticky_off_media',
+            [
                 'label' => esc_html__('Turn Off', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [

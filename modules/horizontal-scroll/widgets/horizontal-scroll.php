@@ -46,13 +46,15 @@ class HorizontalScroll extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'content_templates', [
+            'content_templates',
+            [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'notices', [
+            'notices',
+            [
                 'raw' => esc_html__('<p>Important:</p><ul><li>Please make sure that "Stretch Section" option is disabled for sections below.</li></ul>', 'easy-elementor-addons'),
                 'type' => Controls_Manager::RAW_HTML,
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
@@ -62,7 +64,8 @@ class HorizontalScroll extends Widget_Base {
         $temp_repeater = new Repeater();
 
         $temp_repeater->add_control(
-            'template_type', [
+            'template_type',
+            [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
@@ -74,7 +77,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'live_temp_content', [
+            'live_temp_content',
+            [
                 'label' => esc_html__('Template Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'classes' => 'eead-live-temp-title control-hidden',
@@ -86,7 +90,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'section_template_live', [
+            'section_template_live',
+            [
                 'type' => Controls_Manager::BUTTON,
                 'label_block' => true,
                 'button_type' => 'default eead-btn-block',
@@ -99,7 +104,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'section_template', [
+            'section_template',
+            [
                 'label' => esc_html__('Elementor Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => eead_get_elementor_page_list(),
@@ -112,7 +118,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'anchor_id', [
+            'anchor_id',
+            [
                 'label' => esc_html__('Anchor ID', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('This ID will be used to anchor your links to this slide', 'easy-elementor-addons'),
@@ -124,7 +131,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'section_id', [
+            'section_id',
+            [
                 'label' => esc_html__('Section ID', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array('active' => true),
@@ -135,14 +143,16 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'scroll_bg_transition', [
+            'scroll_bg_transition',
+            [
                 'label' => esc_html__('Scroll Background Transition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $temp_repeater->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'scroll_bg',
                 'types' => array('classic'),
                 'selector' => '{{WRAPPER}} {{CURRENT_ITEM}}',
@@ -153,7 +163,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $temp_repeater->add_control(
-            'hide_section', [
+            'hide_section',
+            [
                 'label' => esc_html__('Hide Section On', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
@@ -169,7 +180,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'section_repeater', [
+            'section_repeater',
+            [
                 'label' => esc_html__('Sections', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $temp_repeater->get_controls(),
@@ -179,7 +191,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'scroll_bg_speed', [
+            'scroll_bg_speed',
+            [
                 'label' => esc_html__('Background Transition Speed (sec)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => array(
@@ -196,7 +209,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'fixed_content_heading', [
+            'fixed_content_heading',
+            [
                 'label' => esc_html__('Fixed Content Template', 'easy-elementor-addons'),
                 'separator' => 'before',
                 'type' => Controls_Manager::HEADING,
@@ -204,7 +218,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'live_temp_content_extra', [
+            'live_temp_content_extra',
+            [
                 'label' => esc_html__('Template Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'classes' => 'eead-live-temp-title control-hidden',
@@ -213,7 +228,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'fixed_template_live', [
+            'fixed_template_live',
+            [
                 'type' => Controls_Manager::BUTTON,
                 'label_block' => true,
                 'button_type' => 'default eead-btn-block',
@@ -223,7 +239,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'fixed_template', [
+            'fixed_template',
+            [
                 'label' => esc_html__('Fixed Content Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => eead_get_elementor_page_list(),
@@ -233,7 +250,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'fixed_content_voffset', [
+            'fixed_content_voffset',
+            [
                 'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
@@ -247,20 +265,21 @@ class HorizontalScroll extends Widget_Base {
                         'max' => 50,
                     ),
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-hscroll-fixed-content' => 'top: {{SIZE}}{{UNIT}}',
                 ),
-                'condition'  => array(
+                'condition' => array(
                     'fixed_template!' => '',
                 ),
             ]
         );
 
         $this->add_responsive_control(
-            'fixed_content_hoffset', [
+            'fixed_content_hoffset',
+            [
                 'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => array( 'px', 'em', '%' ),
+                'size_units' => array('px', 'em', '%'),
                 'range' => array(
                     'px' => array(
                         'min' => 0,
@@ -281,7 +300,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'fixed_content_zindex', [
+            'fixed_content_zindex',
+            [
                 'label' => esc_html__('z-index', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 1,
@@ -297,13 +317,15 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'advanced_settings', [
+            'advanced_settings',
+            [
                 'label' => esc_html__('Advanced Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_responsive_control(
-            'slides', [
+            'slides',
+            [
                 'label' => esc_html__('Number of Slides in Viewport', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'description' => esc_html__('Select the number of slides to appear in your browser viewport. For example, 1.5 means half of the next slide will appear on viewport', 'easy-elementor-addons'),
@@ -326,7 +348,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'distance', [
+            'distance',
+            [
                 'label' => esc_html__('Scroll Distance Beyond Last Slide', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'description' => esc_html__('Set value in pixels for the scroll distance after last slide before scroll down to next section', 'easy-elementor-addons'),
@@ -343,7 +366,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'trigger_offset', [
+            'trigger_offset',
+            [
                 'label' => esc_html__('Offset (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'description' => esc_html__('Offset at which the horizontal scroll is triggered', 'easy-elementor-addons'),
@@ -360,7 +384,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'scroll_effect', [
+            'scroll_effect',
+            [
                 'label' => esc_html__('Scroll Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
@@ -372,7 +397,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'disable_snap', [
+            'disable_snap',
+            [
                 'label' => esc_html__('Disable Snappy Effect on Touch Devices', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -384,7 +410,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'scroll_speed', [
+            'scroll_speed',
+            [
                 'label' => esc_html__('Decrease Scroll Speed by', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'description' => esc_html__('For example, 2 means that scene scroll speed will be decreased to half', 'easy-elementor-addons'),
@@ -407,7 +434,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'progress_bar', [
+            'progress_bar',
+            [
                 'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -415,7 +443,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'progress_offset_left', [
+            'progress_offset_left',
+            [
                 'label' => esc_html__('Progress Bar Left Posiion (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => array(
@@ -434,7 +463,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'progress_offset_bottom', [
+            'progress_offset_bottom',
+            [
                 'label' => esc_html__('Progress Bar Bottom Posiion (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => array(
@@ -453,7 +483,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'opacity_transition', [
+            'opacity_transition',
+            [
                 'label' => esc_html__('Opacity Scroll Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -467,7 +498,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'entrance_animation', [
+            'entrance_animation',
+            [
                 'label' => esc_html__('Trigger Entrance Animations on Scroll', 'easy-elementor-addons'),
                 'description' => esc_html__('This option will trigger entrance animations for inner widgets each time you scroll to a slide', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
@@ -482,7 +514,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'keyboard_scroll', [
+            'keyboard_scroll',
+            [
                 'label' => esc_html__('Keyboard Scrolling', 'easy-elementor-addons'),
                 'description' => esc_html__('Enable or disable scrolling slides using Keyboard', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
@@ -493,9 +526,10 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'rtl_mode', [
+            'rtl_mode',
+            [
                 'label' => esc_html__('RTL Mode', 'easy-elementor-addons'),
-                'description'  => esc_html__('Enable this option to change scroll direction to RTL', 'easy-elementor-addons'),
+                'description' => esc_html__('Enable this option to change scroll direction to RTL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
                 'prefix_class' => 'eead-hscroll-rtl-',
@@ -504,7 +538,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'disable_on', [
+            'disable_on',
+            [
                 'label' => esc_html__('Disable Horizonal Scroll On', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => array(
@@ -520,13 +555,15 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'navigation', [
+            'navigation',
+            [
                 'label' => esc_html__('Navigation', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'nav_dots', [
+            'nav_dots',
+            [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -535,7 +572,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'nav_dots_position', [
+            'nav_dots_position',
+            [
                 'label' => esc_html__('Navigation Dots Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
@@ -552,7 +590,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'nav_dots_offset', [
+            'nav_dots_offset',
+            [
                 'label' => esc_html__('Dots Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
@@ -569,7 +608,7 @@ class HorizontalScroll extends Widget_Base {
                 'condition' => array(
                     'nav_dots' => 'true',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}}.eead-hscroll-dots-bottom .eead-hscroll-nav' => 'bottom: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}}.eead-hscroll-dots-left .eead-hscroll-nav' => 'left: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}}.eead-hscroll-dots-right .eead-hscroll-nav' => 'right: {{SIZE}}{{UNIT}}',
@@ -578,7 +617,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'tooltips', [
+            'tooltips',
+            [
                 'label' => esc_html__('Tooltips', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -589,10 +629,11 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_tooltips', [
+            'dots_tooltips',
+            [
                 'label' => esc_html__('Dots Tooltips Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => array( 'active' => true ),
+                'dynamic' => array('active' => true),
                 'description' => esc_html__('Add text for each navigation dot separated by \',\'', 'easy-elementor-addons'),
                 'label_block' => 'true',
                 'condition' => array(
@@ -603,7 +644,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'nav_arrows', [
+            'nav_arrows',
+            [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -613,7 +655,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'nav_arrow_left', [
+            'nav_arrow_left',
+            [
                 'label' => esc_html__('Left Arrow Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
@@ -627,7 +670,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'nav_arrow_right', [
+            'nav_arrow_right',
+            [
                 'label' => esc_html__('Right Arrow Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
@@ -641,7 +685,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'carousel_arrows_pos', [
+            'carousel_arrows_pos',
+            [
                 'label' => esc_html__('Arrows Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em'),
@@ -666,7 +711,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'loop', [
+            'loop',
+            [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -680,13 +726,15 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'pagination', [
+            'pagination',
+            [
                 'label' => esc_html__('Pagination Numbers', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'pagination_number', [
+            'pagination_number',
+            [
                 'label' => esc_html__('Enable Pagination Number', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -695,7 +743,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'pagination_hor', [
+            'pagination_hor',
+            [
                 'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
@@ -712,14 +761,15 @@ class HorizontalScroll extends Widget_Base {
                 'condition' => array(
                     'pagination_number' => 'true',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-hscroll-pagination' => 'left: {{SIZE}}{{UNIT}}',
                 ),
             ]
         );
 
         $this->add_responsive_control(
-            'pagination_ver', [
+            'pagination_ver',
+            [
                 'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em', '%'),
@@ -733,10 +783,10 @@ class HorizontalScroll extends Widget_Base {
                         'max' => 30,
                     ),
                 ),
-                'condition'  => array(
+                'condition' => array(
                     'pagination_number' => 'true',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-hscroll-pagination' => 'bottom: {{SIZE}}{{UNIT}}',
                 ),
             ]
@@ -745,13 +795,15 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'responsive', [
+            'responsive',
+            [
                 'label' => esc_html__('Responsive Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'override_columns', [
+            'override_columns',
+            [
                 'label' => esc_html__('Put Columns Next to Each Other', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'description' => esc_html__('This option will force the columns to be positioned next to each other on small screens'),
@@ -764,7 +816,8 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'nav_dots_style', [
+            'nav_dots_style',
+            [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
@@ -774,7 +827,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'dots_size', [
+            'dots_size',
+            [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em'),
@@ -785,7 +839,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_color', [
+            'dot_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -796,7 +851,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'active_color', [
+            'active_color',
+            [
                 'label' => esc_html__('Active Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -806,7 +862,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_border_color', [
+            'dot_border_color',
+            [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -816,7 +873,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'active_border_color', [
+            'active_border_color',
+            [
                 'label' => esc_html__('Active Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -826,7 +884,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'dot_border_radius', [
+            'dot_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
@@ -837,7 +896,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'tooltips_heading', [
+            'tooltips_heading',
+            [
                 'label' => esc_html__('Tooltips', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'condition' => array(
@@ -847,7 +907,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tooltip_spacing', [
+            'tooltip_spacing',
+            [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em'),
@@ -856,14 +917,15 @@ class HorizontalScroll extends Widget_Base {
                     '{{WRAPPER}}.eead-hscroll-dots-left .eead-hscroll-nav-tooltip' => 'left: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}}.eead-hscroll-dots-right .eead-hscroll-nav-tooltip' => 'right: {{SIZE}}{{UNIT}}',
                 ),
-                'condition'  => array(
+                'condition' => array(
                     'tooltips' => 'true',
                 ),
             ]
         );
 
         $this->add_control(
-            'tooltip_color', [
+            'tooltip_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -876,7 +938,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'tooltip_background_color', [
+            'tooltip_background_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -891,7 +954,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'tooltip_typography',
                 'selector' => '{{WRAPPER}} .eead-hscroll-nav-tooltip',
                 'condition' => array(
@@ -901,21 +965,23 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'tooltip_border_radius', [
+            'tooltip_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-hscroll-nav-tooltip' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
-                'condition'  => array(
+                'condition' => array(
                     'tooltips' => 'true',
                 ),
             ]
         );
 
         $this->add_responsive_control(
-            'tooltip_padding', [
+            'tooltip_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
@@ -931,7 +997,8 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'nav_arrows_style', [
+            'nav_arrows_style',
+            [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
@@ -941,7 +1008,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'arrow_size', [
+            'arrow_size',
+            [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', '%', 'em'),
@@ -953,7 +1021,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color', [
+            'arrow_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -964,7 +1033,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_hover_color', [
+            'arrow_hover_color',
+            [
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -975,7 +1045,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_background', [
+            'arrow_background',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -985,7 +1056,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_hover_background', [
+            'arrow_hover_background',
+            [
                 'label' => esc_html__('Hover Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -995,7 +1067,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_radius', [
+            'arrow_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', '%', 'em'),
@@ -1006,7 +1079,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding', [
+            'arrow_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', '%', 'em'),
@@ -1019,7 +1093,8 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'progress_style', [
+            'progress_style',
+            [
                 'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
@@ -1029,7 +1104,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'progress_color', [
+            'progress_color',
+            [
                 'label' => esc_html__('Progress Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -1039,7 +1115,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'progress_background_color', [
+            'progress_background_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -1051,7 +1128,8 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'pagination_style', [
+            'pagination_style',
+            [
                 'label' => esc_html__('Pagination Numbers', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
@@ -1061,14 +1139,16 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'pagination_typography',
                 'selector' => '{{WRAPPER}} .eead-hscroll-pagination span',
             ]
         );
 
         $this->add_control(
-            'pagination_spacing', [
+            'pagination_spacing',
+            [
                 'label' => esc_html__('Spacing Between', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => array(
@@ -1078,13 +1158,14 @@ class HorizontalScroll extends Widget_Base {
                     ),
                 ),
                 'selectors' => array(
-                    '{{WRAPPER}} .eead-hscroll-total-slides:before'  => 'margin: 0 {{SIZE}}px',
+                    '{{WRAPPER}} .eead-hscroll-total-slides:before' => 'margin: 0 {{SIZE}}px',
                 ),
             ]
         );
 
         $this->add_control(
-            'pagination_numbers_current_color', [
+            'pagination_numbers_current_color',
+            [
                 'label' => esc_html__('Current Slide Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -1094,7 +1175,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'pagination_numbers_sep_color', [
+            'pagination_numbers_sep_color',
+            [
                 'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -1104,7 +1186,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'pagination_numbers_total_color', [
+            'pagination_numbers_total_color',
+            [
                 'label' => esc_html__('Total Slides Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'after',
@@ -1115,7 +1198,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'pagination_background',
                 'types' => array('classic', 'gradient'),
                 'selector' => '{{WRAPPER}} .eead-hscroll-pagination',
@@ -1123,25 +1207,28 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'pagination_border',
                 'selector' => '{{WRAPPER}} .eead-hscroll-pagination',
             ]
         );
 
         $this->add_control(
-            'pagination_radius', [
+            'pagination_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', '%', 'em'),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-hscroll-pagination' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                 ),
             ]
         );
 
         $this->add_responsive_control(
-            'pagination_padding', [
+            'pagination_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
@@ -1154,7 +1241,8 @@ class HorizontalScroll extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'container', [
+            'container',
+            [
                 'label' => esc_html__('Container', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
 
@@ -1162,7 +1250,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_control(
-            'container_background', [
+            'container_background',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
@@ -1172,7 +1261,8 @@ class HorizontalScroll extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'container_padding', [
+            'container_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
@@ -1192,7 +1282,8 @@ class HorizontalScroll extends Widget_Base {
         $widget_id = $this->get_id();
 
         $this->add_render_attribute(
-            'wrap', [
+            'wrap',
+            [
                 'id' => 'eead-hscroll-wrap-' . $widget_id,
                 'class' => 'eead-hscroll-wrap',
             ]
@@ -1207,7 +1298,8 @@ class HorizontalScroll extends Widget_Base {
         }
 
         $this->add_render_attribute(
-            'scroller_wrap', [
+            'scroller_wrap',
+            [
                 'id' => 'eead-hscroll-scroller-wrap-' . $widget_id,
                 'class' => 'eead-hscroll-scroller-wrap',
                 'data-progress' => 'bottom',
@@ -1221,7 +1313,8 @@ class HorizontalScroll extends Widget_Base {
         }
 
         $this->add_render_attribute(
-            'progress', [
+            'progress',
+            [
                 'id' => 'eead-hscroll-progress-line-' . $widget_id,
                 'class' => 'eead-hscroll-progress-line',
             ]
@@ -1232,7 +1325,7 @@ class HorizontalScroll extends Widget_Base {
         $disable_snap = false;
 
         if ('snap' === $settings['scroll_effect'] && 'true' === $settings['disable_snap']) {
-                $disable_snap = true;
+            $disable_snap = true;
         }
 
         $opacity = ('true' === $settings['opacity_transition']) ? true : false;
@@ -1253,13 +1346,13 @@ class HorizontalScroll extends Widget_Base {
             'slides_tablet' => empty($settings['slides_tablet']['size']) ? $slides : floatval($settings['slides_tablet']['size']),
             'slides_mobile' => empty($settings['slides_mobile']['size']) ? $slides : floatval($settings['slides_mobile']['size']),
             'distance' => $distance,
-            'distance_tablet' => empty( $settings['distance_tablet']['size']) ? $slides : floatval($settings['distance_tablet']['size']),
-            'distance_mobile' => empty( $settings['distance_mobile']['size']) ? $slides : floatval($settings['distance_mobile']['size']),
+            'distance_tablet' => empty($settings['distance_tablet']['size']) ? $slides : floatval($settings['distance_tablet']['size']),
+            'distance_mobile' => empty($settings['distance_mobile']['size']) ? $slides : floatval($settings['distance_mobile']['size']),
             'snap' => $settings['scroll_effect'],
-            'disableSnap' => intval( $disable_snap ),
+            'disableSnap' => intval($disable_snap),
             'speed' => $speed,
-            'speed_tablet' => empty( $settings['scroll_speed_tablet']) ? $speed : intval($settings['scroll_speed_tablet']),
-            'speed_mobile' => empty( $settings['scroll_speed_mobile']) ? $speed : intval($settings['scroll_speed_mobile']),
+            'speed_tablet' => empty($settings['scroll_speed_tablet']) ? $speed : intval($settings['scroll_speed_tablet']),
+            'speed_mobile' => empty($settings['scroll_speed_mobile']) ? $speed : intval($settings['scroll_speed_mobile']),
             'opacity' => intval($opacity),
             'loop' => $settings['loop'],
             'enternace' => $settings['entrance_animation'],
@@ -1278,7 +1371,8 @@ class HorizontalScroll extends Widget_Base {
         }
 
         $this->add_render_attribute(
-            'spacer', [
+            'spacer',
+            [
                 'id' => 'eead-hscroll-spacer-' . $widget_id,
                 'class' => 'eead-hscroll-spacer',
             ]
@@ -1297,8 +1391,9 @@ class HorizontalScroll extends Widget_Base {
                     if ('yes' === $section['scroll_bg_transition']) {
                         $list_item_key = 'eead_hscroll_bg_layer_' . esc_attr($index);
                         $this->add_render_attribute(
-                            $list_item_key, [
-                                'class'      => array(
+                            $list_item_key,
+                            [
+                                'class' => array(
                                     'eead-hscroll-bg-layer',
                                     'elementor-repeater-item-' . esc_attr($section['_id']),
                                 ),
@@ -1316,7 +1411,7 @@ class HorizontalScroll extends Widget_Base {
                     }
                 }
 
-                if (!empty($settings['fixed_template']) || ! empty($settings['live_temp_content_extra'])) {
+                if (!empty($settings['fixed_template']) || !empty($settings['live_temp_content_extra'])) {
                     ?>
                     <div class="eead-hscroll-fixed-content">
                         <?php
@@ -1332,7 +1427,8 @@ class HorizontalScroll extends Widget_Base {
                         <div class="eead-hscroll-wrap-icon">
                             <?php
                             Icons_Manager::render_icon(
-                                $settings['nav_arrow_left'], array(
+                                $settings['nav_arrow_left'],
+                                array(
                                     'class' => 'eead-hscroll-prev',
                                     'aria-hidden' => 'true',
                                 )
@@ -1344,12 +1440,13 @@ class HorizontalScroll extends Widget_Base {
                 }
                 ?>
                 <div class="eead-hscroll-slider">
-                    <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'scroller_wrap' ) ); ?>>
-                        <div class="eead-hscroll-sections-wrap" data-scroll-opacity="<?php echo esc_attr( $opacity ); ?>">
+                    <div <?php echo wp_kses_post($this->get_render_attribute_string('scroller_wrap')); ?>>
+                        <div class="eead-hscroll-sections-wrap" data-scroll-opacity="<?php echo esc_attr($opacity); ?>">
                             <?php
                             foreach ($templates as $index => $section) {
                                 $this->add_render_attribute(
-                                    'section_' . $index, [
+                                    'section_' . $index,
+                                    [
                                         'id' => 'section_' . $widget_id . $index,
                                         'class' => 'eead-hscroll-temp',
                                         'data-hide' => $section['hide_section'],
@@ -1358,14 +1455,16 @@ class HorizontalScroll extends Widget_Base {
 
                                 if ('id' === $section['template_type']) {
                                     $this->add_render_attribute(
-                                        'section_' . $index, [
+                                        'section_' . $index,
+                                        [
                                             'data-section' => $section['section_id'],
                                         ]
                                     );
                                 } else {
                                     if (!empty($section['anchor_id'])) {
                                         $this->add_render_attribute(
-                                            'section_' . $index, [
+                                            'section_' . $index,
+                                            [
                                                 'data-section' => $section['anchor_id'],
                                             ]
                                         );
@@ -1401,7 +1500,8 @@ class HorizontalScroll extends Widget_Base {
                         <div class="eead-hscroll-wrap-icon">
                             <?php
                             Icons_Manager::render_icon(
-                                $settings['nav_arrow_right'], [
+                                $settings['nav_arrow_right'],
+                                [
                                     'class' => 'eead-hscroll-next',
                                     'aria-hidden' => 'true',
                                 ]
@@ -1413,9 +1513,10 @@ class HorizontalScroll extends Widget_Base {
                     <div <?php $this->print_render_attribute_string('nav'); ?>>
                         <ul class="eead-hscroll-nav-list dots">
                             <?php
-                            foreach ($templates as $index => $section) :
+                            foreach ($templates as $index => $section):
                                 $this->add_render_attribute(
-                                    'item_' . $index, [
+                                    'item_' . $index,
+                                    [
                                         'class' => 'eead-hscroll-nav-item',
                                         'data-slide' => 'section_' . $widget_id . $index,
                                     ]
@@ -1423,7 +1524,7 @@ class HorizontalScroll extends Widget_Base {
                                 ?>
                                 <li <?php $this->print_render_attribute_string('item_' . $index); ?>>
                                     <span class="eead-hscroll-nav-dot"></span>
-                                    <?php if ('true' === $settings['tooltips'] && ! empty($tooltips[$index])) : ?>
+                                    <?php if ('true' === $settings['tooltips'] && !empty($tooltips[$index])): ?>
                                         <span class="eead-hscroll-nav-tooltip"><?php echo esc_html($tooltips[$index]); ?></span>
                                     <?php endif; ?>
                                 </li>
@@ -1448,15 +1549,15 @@ class HorizontalScroll extends Widget_Base {
         <?php
     }
 
-    public function get_template_content( $title ) {
+    public function get_template_content($title) {
         $frontend = Plugin::$instance->frontend;
-        $id = $this->get_id_by_title( $title );
-        $id = apply_filters( 'wpml_object_id', $id, 'elementor_library', true );
-        $template_content = $frontend->get_builder_content_for_display( $id, true );
+        $id = $this->get_id_by_title($title);
+        $id = apply_filters('wpml_object_id', $id, 'elementor_library', true);
+        $template_content = $frontend->get_builder_content_for_display($id, true);
         return $template_content;
     }
 
-    public function get_id_by_title( $title ) {
+    public function get_id_by_title($title) {
         $query = new \WP_Query(
             array(
                 'post_type' => 'elementor_library',
@@ -1471,11 +1572,11 @@ class HorizontalScroll extends Widget_Base {
                 'order' => 'ASC',
             )
         );
-         
+
         if (!empty($query->post)) {
             $template = $query->post;
         } else {
-            $template = null;
+            $template = NULL;
         }
         $template_id = isset($template->ID) ? $template->ID : $title;
         return $template_id;

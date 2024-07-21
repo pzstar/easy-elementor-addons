@@ -42,20 +42,22 @@ class TiltHoverImage extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['tilt-anime','tilt'];
+        return ['tilt-anime', 'tilt'];
     }
 
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'tilt_hover_effect_section', [
+            'tilt_hover_effect_section',
+            [
                 'label' => esc_html__('Tilt Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'image', [
+            'image',
+            [
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -65,7 +67,8 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'title', [
+            'title',
+            [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -74,7 +77,8 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'description', [
+            'description',
+            [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -83,7 +87,8 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'hover_style', [
+            'hover_style',
+            [
                 'label' => esc_html__('Hover Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
@@ -129,7 +134,7 @@ class TiltHoverImage extends Widget_Base {
                         <p class="eead-tilter__description"><?php echo esc_attr($settings['description']); ?></p>
                     </figcaption>
 
-                    <?php if($hover_style != 3): ?>
+                    <?php if ($hover_style != 3): ?>
                         <svg class="eead-tilter__deco eead-tilter__deco--lines" viewBox="0 0 300 415">
                             <path d="M20.5,20.5h260v375h-260V20.5z" />
                         </svg>
@@ -137,6 +142,6 @@ class TiltHoverImage extends Widget_Base {
                 </figure>
             </a>
         </section>
-    <?php
+        <?php
     }
 }

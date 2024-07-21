@@ -4,49 +4,51 @@ namespace EasyElementorAddons;
 
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
-    exit;
+	exit;
 }
 
 use Elementor\Plugin;
 use Elementor\Repeater;
 use Elementor\Controls_Manager;
 
-Class VisibilityControls {
+class VisibilityControls {
 
-    private static $_instance = null;
+	private static $_instance = NULL;
 
-    protected $conditions = [];
+	protected $conditions = [];
 	protected $_conditions = [];
 	protected $_conditional_repeater;
 	protected $conditions_options = [];
 
-    public static function instance() {
-        if (is_null(self::$_instance)) {
-            self::$_instance = new self();
-        }
+	public static function instance() {
+		if (is_null(self::$_instance)) {
+			self::$_instance = new self();
+		}
 
-        return self::$_instance;
-    }
+		return self::$_instance;
+	}
 
-    public function __construct() {
-    	$this->register_conditions();
+	public function __construct() {
+		$this->register_conditions();
 
 		add_action('elementor/element/common/_section_border/after_section_end', [$this, 'register_controls'], 10, 2);
 		add_action('elementor/element/section/section_effects/after_section_end', [$this, 'register_controls'], 10, 2);
 
 		add_action('elementor/frontend/section/should_render', [$this, 'schedule_before_render'], 10, 2);
 		add_filter('elementor/frontend/widget/should_render', [$this, 'schedule_before_render'], 10, 2);
-    }
+	}
 
-    public function register_controls($elems) {
-    	$elems->start_controls_section(
-			'section_visibility_control_controls', [
+	public function register_controls($elems) {
+		$elems->start_controls_section(
+			'section_visibility_control_controls',
+			[
 				'tab' => Controls_Manager::TAB_ADVANCED,
 				'label' => esc_html__('Visibility Controls', 'easy-elementor-addons'),
 			]
 		);
 		$elems->add_control(
-			'eead_display_conditions_enable', [
+			'eead_display_conditions_enable',
+			[
 				'label' => esc_html__('Display Conditions', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
@@ -58,7 +60,8 @@ Class VisibilityControls {
 		);
 
 		$elems->add_control(
-			'eead_display_conditions_to', [
+			'eead_display_conditions_to',
+			[
 				'label' => esc_html__('To', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'show',
@@ -73,7 +76,8 @@ Class VisibilityControls {
 		);
 
 		$elems->add_control(
-			'eead_display_conditions_relation', [
+			'eead_display_conditions_relation',
+			[
 				'label' => esc_html__('When', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'all',
@@ -90,7 +94,8 @@ Class VisibilityControls {
 		$this->_conditional_repeater = new Repeater();
 
 		$this->_conditional_repeater->add_control(
-			'eead_condition_key', [
+			'eead_condition_key',
+			[
 				'type' => Controls_Manager::SELECT,
 				'default' => 'authentication',
 				'label_block' => true,
@@ -101,7 +106,8 @@ Class VisibilityControls {
 		$this->add_name_controls();
 
 		$this->_conditional_repeater->add_control(
-			'eead_condition_operator', [
+			'eead_condition_operator',
+			[
 				'type' => Controls_Manager::SELECT,
 				'default' => 'is',
 				'label_block' => true,
@@ -115,7 +121,8 @@ Class VisibilityControls {
 		$this->add_value_controls();
 
 		$elems->add_control(
-			'eead_display_conditions', [
+			'eead_display_conditions',
+			[
 				'label' => esc_html__('Conditions', 'easy-elementor-addons'),
 				'type' => Controls_Manager::REPEATER,
 				'default' => [
@@ -134,14 +141,14 @@ Class VisibilityControls {
 		);
 
 		$elems->end_controls_section();
-    }
+	}
 
-    public function schedule_before_render($should_render, $widget) {
+	public function schedule_before_render($should_render, $widget) {
 		$settings = $widget->get_settings();
 
 		if (!empty($settings['eead_display_conditions_enable']) && 'yes' === $settings['eead_display_conditions_enable']) {
-			$this->set_conditions( $widget->get_id(), $settings['eead_display_conditions'] );
-			$check_conditions = $this->is_visible( $widget->get_id(), $settings['eead_display_conditions_relation'] ); // check condition
+			$this->set_conditions($widget->get_id(), $settings['eead_display_conditions']);
+			$check_conditions = $this->is_visible($widget->get_id(), $settings['eead_display_conditions_relation']); // check condition
 			$to = $settings['eead_display_conditions_to'];
 
 			if (('show' === $to && true === $check_conditions) || ('hide' === $to && false === $check_conditions)) {
@@ -164,25 +171,25 @@ Class VisibilityControls {
 			$key = $condition['eead_condition_key'];
 			$relation = $condition['eead_condition_operator'];
 			$val = $condition['eead_condition_' . $key . '_value'];
-			$_condition = $this->get_conditions( $key );
+			$_condition = $this->get_conditions($key);
 
 			if (!$_condition) {
 				continue;
 			}
 
-			$_condition->set_element_id( $id );
-			$check = $_condition->check( $relation, $val );
-			$this->conditions[ $id ][ $key . '_' . $condition['_id'] ] = $check;
+			$_condition->set_element_id($id);
+			$check = $_condition->check($relation, $val);
+			$this->conditions[$id][$key . '_' . $condition['_id']] = $check;
 		}
 	}
 
-	public function get_conditions($condition_name = null) {
+	public function get_conditions($condition_name = NULL) {
 		if ($condition_name) {
-			if (isset( $this->_conditions[$condition_name])) {
+			if (isset($this->_conditions[$condition_name])) {
 				return $this->_conditions[$condition_name];
 			}
 
-			return null;
+			return NULL;
 		}
 
 		return $this->_conditions;
@@ -204,9 +211,9 @@ Class VisibilityControls {
 			'search_engine_url',
 		];
 
-		foreach ( $included_conditions as $condition_name ) {
-			$class_name = str_replace( '-', ' ', $condition_name );
-			$class_name = str_replace( ' ', '', ucwords( $class_name ) );
+		foreach ($included_conditions as $condition_name) {
+			$class_name = str_replace('-', ' ', $condition_name);
+			$class_name = str_replace(' ', '', ucwords($class_name));
 			$class_name = __NAMESPACE__ . '\\Conditions\\' . $class_name;
 
 			if (class_exists($class_name)) {
@@ -242,7 +249,7 @@ Class VisibilityControls {
 		$groups = [];
 
 		foreach ($this->_conditions as $_condition) {
-			$groups[ $_condition->get_name() ] = $_condition->get_title();
+			$groups[$_condition->get_name()] = $_condition->get_title();
 		}
 
 		return $groups;
@@ -267,7 +274,7 @@ Class VisibilityControls {
 				'eead_condition_key' => $condition_name,
 			];
 
-			$this->_conditional_repeater->add_control( $ctrl_key, $ctrl_settings );
+			$this->_conditional_repeater->add_control($ctrl_key, $ctrl_settings);
 		}
 	}
 

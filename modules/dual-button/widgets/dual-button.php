@@ -45,13 +45,15 @@ class DualButton extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'dual_btn_settings_field', [
+            'dual_btn_settings_field',
+            [
                 'label' => esc_html__('Button Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_layout', [
+            'button_layout',
+            [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -66,7 +68,8 @@ class DualButton extends Widget_Base {
         $end = is_rtl() ? 'start' : 'end';
 
         $this->add_responsive_control(
-            'button_align', [
+            'button_align',
+            [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -97,13 +100,15 @@ class DualButton extends Widget_Base {
         $this->start_controls_tabs('tabs_dual_buttons_tabs');
 
         $this->start_controls_tab(
-            'tab_primary_btn_tab', [
+            'tab_primary_btn_tab',
+            [
                 'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button1_text', [
+            'button1_text',
+            [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => 'true',
@@ -116,7 +121,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_link', [
+            'button1_link',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -130,7 +136,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_icon_new', [
+            'button1_icon_new',
+            [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'button1_icon',
@@ -138,19 +145,21 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_icon_align', [
+            'button1_icon_align',
+            [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'before',
                 'options' => [
-                    'before' => esc_html__( 'Before', 'easy-elementor-addons' ),
-                    'after'  => esc_html__( 'After', 'easy-elementor-addons' ),
+                    'before' => esc_html__('Before', 'easy-elementor-addons'),
+                    'after' => esc_html__('After', 'easy-elementor-addons'),
                 ],
             ]
         );
 
         $this->add_control(
-            'button1_icon_spacing', [
+            'button1_icon_spacing',
+            [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -160,7 +169,7 @@ class DualButton extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-1.icon-before .eead-db-icon-wrapper' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .eead-button-1.icon-after .eead-db-icon-wrapper'  => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-button-1.icon-after .eead-db-icon-wrapper' => 'margin-left: {{SIZE}}px;',
                 ],
             ]
         );
@@ -168,13 +177,15 @@ class DualButton extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_secondary_btn_tab', [
+            'tab_secondary_btn_tab',
+            [
                 'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button2_text', [
+            'button2_text',
+            [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => 'true',
@@ -187,7 +198,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_link', [
+            'button2_link',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -201,7 +213,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_new', [
+            'button2_icon_new',
+            [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'button2_icon',
@@ -209,7 +222,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_align', [
+            'button2_icon_align',
+            [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'after',
@@ -221,7 +235,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_spacing', [
+            'button2_icon_spacing',
+            [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -231,7 +246,7 @@ class DualButton extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-2.icon-before .eead-db-icon-wrapper' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .eead-button-2.icon-after .eead-db-icon-wrapper'  => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-button-2.icon-after .eead-db-icon-wrapper' => 'margin-left: {{SIZE}}px;',
                 ],
             ]
         );
@@ -243,13 +258,15 @@ class DualButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_separator', [
+            'section_separator',
+            [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'separator_text', [
+            'separator_text',
+            [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('Please leave the field blank to hide separator.', 'easy-elementor-addons'),
@@ -259,7 +276,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_icon_new', [
+            'separator_icon_new',
+            [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'separator_icon',
@@ -269,18 +287,20 @@ class DualButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_title_style', [
+            'section_title_style',
+            [
                 'label' => esc_html__('General', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'button_animation', [
+            'button_animation',
+            [
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'none' => esc_html__( 'None', 'easy-elementor-addons' ),
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
                     'animation_1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'animation_2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'animation_3' => esc_html__('Style 3', 'easy-elementor-addons'),
@@ -297,7 +317,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button_spacing', [
+            'button_spacing',
+            [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -315,7 +336,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'text_padding', [
+            'text_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -326,7 +348,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'box_shadow',
                 'selector' => '{{WRAPPER}} .eead-dual-button-wrapper',
             ]
@@ -335,14 +358,16 @@ class DualButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_primary_button', [
+            'section_style_primary_button',
+            [
                 'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'typography',
                 'selector' => '{{WRAPPER}} .eead-button-1-wrapper',
             ]
@@ -351,13 +376,15 @@ class DualButton extends Widget_Base {
         $this->start_controls_tabs('tabs_button_style');
 
         $this->start_controls_tab(
-            'tab_button_normal', [
+            'tab_button_normal',
+            [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button1_color', [
+            'button1_color',
+            [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -368,7 +395,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_icon_color', [
+            'button1_icon_color',
+            [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -380,7 +408,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button1_background_color',
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-button-1-wrapper',
@@ -390,13 +419,15 @@ class DualButton extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_button_hover', [
+            'tab_button_hover',
+            [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button1_text_hover_color', [
+            'button1_text_hover_color',
+            [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -406,7 +437,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_icon_hover_color', [
+            'button1_icon_hover_color',
+            [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -417,7 +449,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button1_background_color_hover',
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}}.animation-none .eead-button-1-wrapper:hover,{{WRAPPER}} .eead-button-1-wrapper:hover:before,{{WRAPPER}} .eead-button-1-wrapper:before',
@@ -425,7 +458,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_border_hover_color', [
+            'button1_border_hover_color',
+            [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -440,7 +474,8 @@ class DualButton extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'button1_border',
                 'fields_options' => [
                     'border' => [
@@ -455,7 +490,7 @@ class DualButton extends Widget_Base {
                             'unit' => 'px',
                         ],
                     ],
-                    'color'  => [
+                    'color' => [
                         'default' => '#0c0c0c',
                     ],
                 ],
@@ -465,7 +500,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_border_radius', [
+            'button1_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -477,7 +513,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button1_padding', [
+            'button1_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -490,14 +527,16 @@ class DualButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_secondary_button', [
+            'section_style_secondary_button',
+            [
                 'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => ' typography',
                 'selector' => '{{WRAPPER}} .eead-button-2-wrapper',
             ]
@@ -506,13 +545,15 @@ class DualButton extends Widget_Base {
         $this->start_controls_tabs('tabs_button2_style');
 
         $this->start_controls_tab(
-            'tab_button2_normal', [
+            'tab_button2_normal',
+            [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button2_color', [
+            'button2_color',
+            [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
@@ -523,7 +564,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_color', [
+            'button2_icon_color',
+            [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -535,7 +577,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button2_background_color',
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-button-2-wrapper',
@@ -545,13 +588,15 @@ class DualButton extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_button2_hover', [
+            'tab_button2_hover',
+            [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button2_text_hover_color', [
+            'button2_text_hover_color',
+            [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -561,7 +606,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_hover_color', [
+            'button2_icon_hover_color',
+            [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -571,7 +617,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'button2_background_color_hover',
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}}.animation-none .eead-button-2-wrapper:hover,{{WRAPPER}} .eead-button-2-wrapper:hover:before,{{WRAPPER}} .eead-button-2-wrapper:before',
@@ -579,7 +626,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_border_hover_color', [
+            'button2_border_hover_color',
+            [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -594,13 +642,14 @@ class DualButton extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'button2_border',
                 'fields_options' => [
                     'border' => [
                         'default' => 'solid',
                     ],
-                    'width'  => [
+                    'width' => [
                         'default' => [
                             'top' => 0,
                             'right' => 0,
@@ -619,7 +668,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_border_radius', [
+            'button2_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -631,7 +681,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button2_padding', [
+            'button2_padding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -644,14 +695,16 @@ class DualButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_separator', [
+            'section_style_separator',
+            [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'separator_icon_size', [
+            'separator_icon_size',
+            [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -672,10 +725,11 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'separator_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-               
+
                 'selector' => '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator',
                 'condition' => [
                     'separator_text!' => '',
@@ -684,7 +738,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_icon_width', [
+            'separator_icon_width',
+            [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -707,11 +762,12 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_icon_color', [
+            'separator_icon_color',
+            [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
-                
+
                 'selectors' => [
                     '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator svg' => 'fill : {{VALUE}};',
@@ -720,7 +776,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_background_color', [
+            'separator_background_color',
+            [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -730,7 +787,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'separator_border',
                 'placeholder' => '1px',
                 'selector' => '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator',
@@ -738,7 +796,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_border_radius', [
+            'separator_border_radius',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -749,7 +808,8 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name' => 'separator_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-button-separator-wrapper .eead-button-separator',
             ]
@@ -760,7 +820,7 @@ class DualButton extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-		$settings = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
         $this->add_render_attribute('main_wrapper', 'class', 'eead-dual-button-main-wrapper');
         if (is_rtl()) {
             $this->add_render_attribute('main_wrapper', 'class', 'eead-dual-button-rtl');
@@ -768,7 +828,7 @@ class DualButton extends Widget_Base {
 
         $this->add_render_attribute('button1', 'class', 'eead-button-1-wrapper');
         if (!empty($settings['button1_link']['url'])) {
-            $this->add_link_attributes( 'button1', $settings['button1_link'] );
+            $this->add_link_attributes('button1', $settings['button1_link']);
         }
 
         $this->add_render_attribute('button2', 'class', 'eead-button-2-wrapper');
@@ -777,15 +837,15 @@ class DualButton extends Widget_Base {
         }
 
         $this->add_render_attribute('button1_inner', [
-            'class' => ['eead-button-1', 'icon-' . $settings['button1_icon_align']] 
+            'class' => ['eead-button-1', 'icon-' . $settings['button1_icon_align']]
         ]);
 
         $this->add_render_attribute('button2_inner', [
-            'class' => ['eead-button-2', 'icon-' . $settings['button2_icon_align']] 
+            'class' => ['eead-button-2', 'icon-' . $settings['button2_icon_align']]
         ]);
 
         $this->add_render_attribute('wrapper', [
-            'class' => ['eead-dual-button-wrapper', 'button-style-' . $settings['button_layout']] 
+            'class' => ['eead-dual-button-wrapper', 'button-style-' . $settings['button_layout']]
         ]);
 
         if ($settings['button_animation'] !== 'none') {
@@ -917,7 +977,7 @@ class DualButton extends Widget_Base {
                                 ?>
                                 <div class="eead-db-icon-wrapper">
                                     <?php
-                                    if (isset($settings['__fa4_migrated']['button2_icon_new'] ) || empty($settings['button2_icon'])) {
+                                    if (isset($settings['__fa4_migrated']['button2_icon_new']) || empty($settings['button2_icon'])) {
                                         Icons_Manager::render_icon($settings['button2_icon_new'], ['aria-hidden' => 'true']);
 
                                     } else {

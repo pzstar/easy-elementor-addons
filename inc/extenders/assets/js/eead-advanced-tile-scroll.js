@@ -31,25 +31,25 @@
                         <div id="${tileScroll_ID}" class="eead-advanced-tile-scroll eead-advanced-tile-scroll--${display}">
                             <div class="eead-advanced-tile-scroll__wrap">`;
 
-                            $.each(this.settings('elements'), function(index, element) {
-                                let images = element.eead_advanced_tile_scroll_images;
-                                let x_start = element.eead_advanced_tile_scroll_x_start.size;
-                                let x_end = element.eead_advanced_tile_scroll_x_end.size;
+                        $.each(this.settings('elements'), function (index, element) {
+                            let images = element.eead_advanced_tile_scroll_images;
+                            let x_start = element.eead_advanced_tile_scroll_x_start.size;
+                            let x_end = element.eead_advanced_tile_scroll_x_end.size;
 
-                                if (display === 'horizontal') {
-                                    var parallax = 'uk-parallax="target: .elementor-element-' + widgetID + '; viewport: 1.1; x:' + x_start + ',' + x_end + '"';
-                                } else {
-                                    var parallax = 'uk-parallax="y:' + x_start + ',' + x_end + '"';
-                                }
+                            if (display === 'horizontal') {
+                                var parallax = 'uk-parallax="target: .elementor-element-' + widgetID + '; viewport: 1.1; x:' + x_start + ',' + x_end + '"';
+                            } else {
+                                var parallax = 'uk-parallax="y:' + x_start + ',' + x_end + '"';
+                            }
 
-                                $content += `<div class="eead-advanced-tile-scroll__line" ${parallax}>`;
+                            $content += `<div class="eead-advanced-tile-scroll__line" ${parallax}>`;
 
-                                $.each(images, function(index, image) {
-                                    $content += `<div class=" eead-advanced-tile-scroll__line-img" style="background-image:url(${image.url})" loading="lazy"></div>`;
-                                });
-
-                                $content += `</div>`;
+                            $.each(images, function (index, image) {
+                                $content += `<div class=" eead-advanced-tile-scroll__line-img" style="background-image:url(${image.url})" loading="lazy"></div>`;
                             });
+
+                            $content += `</div>`;
+                        });
 
                         $content += `</div></div>`;
 
@@ -70,4 +70,4 @@
             });
         });
     });
-}) (jQuery, window.elementorFrontend);
+})(jQuery, window.elementorFrontend);

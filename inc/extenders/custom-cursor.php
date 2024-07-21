@@ -15,9 +15,9 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Text_Shadow;
 
-Class CustomCursor {
+class CustomCursor {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -58,7 +58,7 @@ Class CustomCursor {
             wp_enqueue_script('custom-cursor');
         }
 
-        if (!wp_script_is('lottie', 'enqueued') ) {
+        if (!wp_script_is('lottie', 'enqueued')) {
             wp_enqueue_script('lottie');
         }
     }
@@ -66,14 +66,16 @@ Class CustomCursor {
     public function register_controls($elems) {
 
         $elems->start_controls_section(
-            'section_eead_cursor', [
+            'section_eead_cursor',
+            [
                 'label' => sprintf('<i class="eead-extension-icon eead-dash-icon"></i> %s', esc_html__('Custom Mouse Cursor', 'easy-elementor-addons')),
                 'tab' => Controls_Manager::TAB_ADVANCED,
             ]
         );
 
         $elems->add_control(
-            'eead_global_cursor_switcher', [
+            'eead_global_cursor_switcher',
+            [
                 'label' => esc_html__('Enable Custom Mouse Cursor', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'prefix_class' => 'eead-gCursor-',
@@ -82,7 +84,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_type', [
+            'eead_cursor_type',
+            [
                 'label' => esc_html__('Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'render_type' => 'template',
@@ -102,7 +105,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_pulse', [
+            'eead_cursor_pulse',
+            [
                 'label' => esc_html__('Pulse Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
@@ -115,7 +119,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_buzz', [
+            'eead_cursor_buzz',
+            [
                 'label' => esc_html__('Buzz Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'render_type' => 'template',
@@ -128,7 +133,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_icon', [
+            'eead_cursor_icon',
+            [
                 'label' => esc_html__('Choose Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
@@ -143,7 +149,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_img', [
+            'eead_cursor_img',
+            [
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => array(
@@ -157,19 +164,21 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_ftext', [
+            'eead_cursor_ftext',
+            [
                 'label' => esc_html__('Follow Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('EEAD Follow Text', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
-                    'eead_cursor_type' => array( 'ftext' ),
+                    'eead_cursor_type' => array('ftext'),
                 ),
             ]
         );
 
         $elems->add_responsive_control(
-            'eead_cursor_xpos', [
+            'eead_cursor_xpos',
+            [
                 'label' => esc_html__('X Position (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'template',
@@ -187,7 +196,8 @@ Class CustomCursor {
         );
 
         $elems->add_responsive_control(
-            'eead_cursor_ypos', [
+            'eead_cursor_ypos',
+            [
                 'label' => esc_html__('Y Position (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'render_type' => 'template',
@@ -205,7 +215,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_trans', [
+            'eead_cursor_trans',
+            [
                 'label' => esc_html__('Follow Delay (s)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px'),
@@ -216,7 +227,7 @@ Class CustomCursor {
                         'step' => 0.1,
                     ),
                 ),
-                'default'     => array(
+                'default' => array(
                     'unit' => 'px',
                     'size' => 0.3,
                 ),
@@ -229,10 +240,11 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_lottie_url', [
+            'eead_cursor_lottie_url',
+            [
                 'label' => esc_html__('Animation JSON URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => array( 'active' => true ),
+                'dynamic' => array('active' => true),
                 'description' => 'Get JSON code URL from <a href="https://lottiefiles.com/" target="_blank">here</a>',
                 'label_block' => true,
                 'condition' => array(
@@ -243,7 +255,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_loop', [
+            'eead_cursor_loop',
+            [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -256,7 +269,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_reverse', [
+            'eead_cursor_reverse',
+            [
                 'label' => esc_html__('Reverse', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
@@ -268,7 +282,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_div', [
+            'eead_cursor_div',
+            [
                 'type' => Controls_Manager::DIVIDER,
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
@@ -277,7 +292,8 @@ Class CustomCursor {
         );
 
         $elems->add_responsive_control(
-            'eead_cursor_size', [
+            'eead_cursor_size',
+            [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', 'em'),
@@ -294,7 +310,7 @@ Class CustomCursor {
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_type!' => 'ftext',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}}.eead-cursor-icon .eead-global-cursor-{{ID}} i' => 'font-size: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}}.eead-cursor-icon .eead-global-cursor-{{ID}} i,
                     {{WRAPPER}}.eead-cursor-image .eead-global-cursor-{{ID}},
@@ -307,12 +323,13 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_color', [
-                'label' => esc_html__( 'Color', 'easy-elementor-addons' ),
+            'eead_cursor_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
-                    'eead_cursor_type' => array( 'icon', 'ftext' ),
+                    'eead_cursor_type' => array('icon', 'ftext'),
                 ),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-global-cursor-{{ID}}' => 'color: {{VALUE}}; fill: {{VALUE}};',
@@ -321,42 +338,46 @@ Class CustomCursor {
         );
 
         $elems->add_group_control(
-            Group_Control_Background::get_type(), [
+            Group_Control_Background::get_type(),
+            [
                 'name' => 'eead_cursor_bgColor',
                 'types' => array('classic', 'gradient'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                 ),
-                'selector'  => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
+                'selector' => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Text_Shadow::get_type(), [
+            Group_Control_Text_Shadow::get_type(),
+            [
                 'name' => 'eead_cursor_shadow',
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_type' => 'ftext',
                 ),
-                'selector'  => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
+                'selector' => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Typography::get_type(), [
+            Group_Control_Typography::get_type(),
+            [
                 'name' => 'eead_cursor_typo',
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_type' => 'ftext',
                 ),
-                'selector'  => '{{WRAPPER}}.eead-cursor-ftext .eead-global-cursor-{{ID}} .eead-cursor-follow-text',
+                'selector' => '{{WRAPPER}}.eead-cursor-ftext .eead-global-cursor-{{ID}} .eead-cursor-follow-text',
             ]
         );
 
         $elems->add_group_control(
-            Group_Control_Border::get_type(), [
+            Group_Control_Border::get_type(),
+            [
                 'name' => 'eead_cursor_border',
-                'selector'  => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
+                'selector' => '{{WRAPPER}} .eead-global-cursor-{{ID}}',
                 'seeeadrator' => 'before',
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
@@ -365,22 +386,24 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_border_rad', [
-                'label' => esc_html__( 'Border Radius', 'easy-elementor-addons' ),
+            'eead_cursor_border_rad',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('px', '%', 'em'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                     'eead_cursor_adv_radius!' => 'yes',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-global-cursor-{{ID}}, {{WRAPPER}} .eead-global-cursor-{{ID}} img' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ),
             ]
         );
 
         $elems->add_control(
-            'eead_cursor_adv_radius', [
+            'eead_cursor_adv_radius',
+            [
                 'label' => esc_html__('Advanced Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'description' => esc_html__('Apply custom radius values. Get the radius value from ', 'easy-elementor-addons') . '<a href="https://9elements.github.io/fancy-border-radius/" target="_blank">here</a>',
@@ -391,7 +414,8 @@ Class CustomCursor {
         );
 
         $elems->add_control(
-            'eead_cursor_adv_radius_value', [
+            'eead_cursor_adv_radius_value',
+            [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array('active' => true),
@@ -405,7 +429,8 @@ Class CustomCursor {
         );
 
         $elems->add_responsive_control(
-            'eead_cursor_rotate', [
+            'eead_cursor_rotate',
+            [
                 'label' => esc_html__('Rotate (Degrees)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => array('deg'),
@@ -417,21 +442,22 @@ Class CustomCursor {
                 'selectors' => array(
                     '{{WRAPPER}} .eead-global-cursor-{{ID}}' => 'transform: rotate({{SIZE}}deg)',
                 ),
-                'condition'  => array(
+                'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                 ),
             ]
         );
 
         $elems->add_responsive_control(
-            'eead_cursor_eeaddding', [
+            'eead_cursor_eeaddding',
+            [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => array('px', 'em', '%'),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',
                 ),
-                'selectors'  => array(
+                'selectors' => array(
                     '{{WRAPPER}} .eead-global-cursor-{{ID}}' => 'eeaddding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             ]
@@ -440,7 +466,7 @@ Class CustomCursor {
         $elems->end_controls_section();
     }
 
-    public function print_template( $template, $elems ) {
+    public function print_template($template, $elems) {
 
         if (!$template && 'widget' === $elems->get_type()) {
             return;
@@ -450,61 +476,15 @@ Class CustomCursor {
         ob_start();
         ?>
 
-        <#
-        var isEnabled = 'yes' === settings.eead_global_cursor_switcher ? true : false;
-        if (isEnabled) {
-            var cursorType = settings.eead_cursor_type,
-                pulse = ['icon', 'image'].includes(cursorType) && 'yes' === settings.eead_cursor_pulse ? ' eead-pulse-yes ' : '',
-                buzz = ['icon', 'image'].includes(cursorType) && 'yes' === settings.eead_cursor_buzz ? ' eead-buzz-yes ' : '',
-                delay = ['ftext', 'fimage'].includes(cursorType) && '' !== settings.eead_cursor_trans.size ? settings.eead_cursor_trans.size : 0.01,
-                elementSettings = {},
-                cursorSettings = {
-                    cursorType : cursorType,
-                    delay: delay,
-                    pulse: pulse,
-                    buzz: buzz
-                };
-
-            if ( 'icon' === cursorType ) {
-                elementSettings = settings.eead_cursor_icon;
-
-            } else if ( 'image' === cursorType || 'fimage' === cursorType ) {
-                elementSettings.url = settings.eead_cursor_img.url;
-
-                if ( 'fimage' === cursorType ) {
-                    elementSettings.xpos = settings.eead_cursor_xpos.size;
-                    elementSettings.ypos = settings.eead_cursor_ypos.size;
-                }
-
-            } else if ( 'ftext' === cursorType ) {
-                elementSettings.text = settings.eead_cursor_ftext;
-                elementSettings.xpos = settings.eead_cursor_xpos.size;
-                elementSettings.ypos = settings.eead_cursor_ypos.size;
-
-            } else if ( 'lottie' === cursorType ) {
-                elementSettings.url     = settings.eead_cursor_lottie_url;
-                elementSettings.loop    = settings.eead_cursor_loop;
-                elementSettings.reverse = settings.eead_cursor_reverse;
-            }
-
-            cursorSettings.elementSettings = elementSettings;
-
-            view.addRenderAttribute( 'cursor_data', {
-                'id': 'eead-global-cursor-' + view.getID(),
-                'class': 'eead-global-cursor-wrapper',
-                'data-gcursor': JSON.stringify( cursorSettings )
-            });
-            #>
+        <# var isEnabled='yes'===settings.eead_global_cursor_switcher ? true : false; if (isEnabled) { var cursorType=settings.eead_cursor_type, pulse=['icon', 'image' ].includes(cursorType) && 'yes'===settings.eead_cursor_pulse ? ' eead-pulse-yes ' : '' , buzz=['icon', 'image' ].includes(cursorType) && 'yes'===settings.eead_cursor_buzz ? ' eead-buzz-yes ' : '' , delay=['ftext', 'fimage' ].includes(cursorType) && '' !==settings.eead_cursor_trans.size ? settings.eead_cursor_trans.size : 0.01, elementSettings={}, cursorSettings={ cursorType : cursorType, delay: delay, pulse: pulse, buzz: buzz }; if ( 'icon'===cursorType ) { elementSettings=settings.eead_cursor_icon; } else if ( 'image'===cursorType || 'fimage'===cursorType ) { elementSettings.url=settings.eead_cursor_img.url; if ( 'fimage'===cursorType ) { elementSettings.xpos=settings.eead_cursor_xpos.size; elementSettings.ypos=settings.eead_cursor_ypos.size; } } else if ( 'ftext'===cursorType ) { elementSettings.text=settings.eead_cursor_ftext; elementSettings.xpos=settings.eead_cursor_xpos.size; elementSettings.ypos=settings.eead_cursor_ypos.size; } else if ( 'lottie'===cursorType ) { elementSettings.url=settings.eead_cursor_lottie_url; elementSettings.loop=settings.eead_cursor_loop; elementSettings.reverse=settings.eead_cursor_reverse; } cursorSettings.elementSettings=elementSettings; view.addRenderAttribute( 'cursor_data' , { 'id' : 'eead-global-cursor-' + view.getID(), 'class' : 'eead-global-cursor-wrapper' , 'data-gcursor' : JSON.stringify( cursorSettings ) }); #>
             <div {{{view.getRenderAttributeString('cursor_data')}}}></div>
-            <#
-        }
-        #>
+            <# } #>
 
-        <?php
-        $slider_content = ob_get_contents();
-        ob_end_clean();
-        $template = $slider_content . $old_template;
-        return $template;
+                <?php
+                $slider_content = ob_get_contents();
+                ob_end_clean();
+                $template = $slider_content . $old_template;
+                return $template;
     }
 
 
@@ -516,7 +496,7 @@ Class CustomCursor {
      * @access public
      * @eeadram object $elems for current element.
      */
-    public function before_render( $elems ) {
+    public function before_render($elems) {
 
         $type = $elems->get_type();
         $id = $elems->get_id();
@@ -531,7 +511,7 @@ Class CustomCursor {
             $elems_settings = array();
             $cursor_settings = array(
                 'cursorType' => $cursor_type,
-                'delay' => isset( $settings['eead_cursor_trans']['size'] ) && in_array( $cursor_type, array( 'fimage', 'ftext' ), true ) ? $settings['eead_cursor_trans']['size'] : 0.01,
+                'delay' => isset($settings['eead_cursor_trans']['size']) && in_array($cursor_type, array('fimage', 'ftext'), true) ? $settings['eead_cursor_trans']['size'] : 0.01,
                 'pulse' => $pulse,
                 'buzz' => $buzz,
             );
@@ -565,8 +545,8 @@ Class CustomCursor {
 
             if ('widget' === $type && \Elementor\Plugin::instance()->editor->is_edit_mode()) {
                 ?>
-                <div id='eead-global-cursor-temp-<?php echo esc_html($id); ?>' data-gcursor='<?php echo wp_json_encode($cursor_settings); ?>'></div>
-                <?php
+                        <div id='eead-global-cursor-temp-<?php echo esc_html($id); ?>' data-gcursor='<?php echo wp_json_encode($cursor_settings); ?>'></div>
+                        <?php
             }
         }
     }

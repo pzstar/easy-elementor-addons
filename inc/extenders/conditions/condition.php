@@ -20,7 +20,7 @@ abstract class Condition {
 	}
 
 	public static function instance() {
-		if (empty(static::$_instances[ static::class_name()])) {
+		if (empty(static::$_instances[static::class_name()])) {
 			static::$_instances[static::class_name()] = new static();
 		}
 
@@ -31,17 +31,21 @@ abstract class Condition {
 		return true;
 	}
 
-	public function get_name() {}
+	public function get_name() {
+	}
 
-	public function get_title() {}
+	public function get_title() {
+	}
 
 	public function get_name_control() {
 		return false;
 	}
 
-	public function get_value_control() {}
+	public function get_value_control() {
+	}
 
-	public function check($relation, $val) {}
+	public function check($relation, $val) {
+	}
 
 	public function compare($left_val, $right_val, $relation) {
 		switch ($relation) {

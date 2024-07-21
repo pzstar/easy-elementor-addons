@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
 
 use Elementor\Controls_Manager;
 
-Class WrapperLink {
+class WrapperLink {
 
-    private static $_instance = null;
+    private static $_instance = NULL;
 
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -44,7 +44,8 @@ Class WrapperLink {
     public function register_controls($elems) {
 
         $elems->add_control(
-            'eead_wrapper_link', [
+            'eead_wrapper_link',
+            [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
@@ -64,7 +65,8 @@ Class WrapperLink {
         }
 
         $element->start_controls_section(
-            'section_eead_wrapper_link', [
+            'section_eead_wrapper_link',
+            [
                 'tab' => $tabs,
                 'label' => esc_html__('Wrapper Link', 'easy-elementor-addons'),
             ]
@@ -78,7 +80,8 @@ Class WrapperLink {
 
         if ($element_link && !empty($element_link['url'])) {
             $widget->add_render_attribute(
-                '_wrapper', [
+                '_wrapper',
+                [
                     'data-eead-wrapper-link' => json_encode($element_link),
                     'style' => 'cursor: pointer',
                     'class' => 'eead-element-link'

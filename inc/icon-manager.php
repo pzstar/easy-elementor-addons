@@ -7,7 +7,7 @@ if (!defined('ABSPATH'))
 
 class EEAD_Icon_Manager {
 
-    private static $instance = null;
+    private static $instance = NULL;
 
     public static function instance() {
         if (is_null(self::$instance)) {

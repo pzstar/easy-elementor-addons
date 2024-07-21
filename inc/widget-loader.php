@@ -7,10 +7,10 @@ if (!defined('ABSPATH'))
 
 class EEAD_Widget_Loader {
 
-    private static $instance = null;
+    private static $instance = NULL;
 
     public static function get_instance() {
-        if (self::$instance == null) {
+        if (self::$instance == NULL) {
             self::$instance = new self;
         }
 
@@ -46,7 +46,7 @@ class EEAD_Widget_Loader {
             $filename = EEAD_PATH . $filename . '.php';
 
             if (is_readable($filename)) {
-                include($filename);
+                include ($filename);
             }
         }
 
@@ -102,7 +102,7 @@ class EEAD_Widget_Loader {
     public function register_frontend_scripts() {
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         $eead_general_settings = get_option('eead_general_settings', true);
-        $gmap_access_token = isset($eead_general_settings['gmap_access_token']) ? $eead_general_settings['gmap_access_token'] : null;
+        $gmap_access_token = isset($eead_general_settings['gmap_access_token']) ? $eead_general_settings['gmap_access_token'] : NULL;
 
         if ($gmap_access_token) {
             wp_register_script('gmap-api', '//maps.googleapis.com/maps/api/js?key=' . $gmap_access_token, ['jquery'], EEAD_VERSION, true);
@@ -159,7 +159,7 @@ class EEAD_Widget_Loader {
         wp_register_script('z-text', EEAD_URL . 'assets/lib/ztext/ztext.min.js', [], EEAD_VERSION, true);
 
         // Lottie
-        wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', null, EEAD_VERSION, true );
+        wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
         wp_register_script('lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true);
 
         // Text Marquee
@@ -218,7 +218,7 @@ class EEAD_Widget_Loader {
      * Enqueue Editor Scripts
      */
     public function enqueue_editor_scripts() {
-        
+
     }
 
     /**
@@ -232,7 +232,7 @@ class EEAD_Widget_Loader {
      * Preview Styles
      */
     public function enqueue_preview_styles() {
-        
+
     }
 
 }
