@@ -75,7 +75,7 @@ class AdminClass {
         ?>
 
         <div class="eead-widget-wrap">
-            <span><?php esc_html($label); ?></span>
+            <span><?php esc_html_e($label); ?></span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
                 <label></label>
@@ -90,7 +90,7 @@ class AdminClass {
         ?>
 
         <div class="eead-extender-wrap">
-            <span><?php esc_html($label); ?></span>
+            <span><?php esc_html_e($label); ?></span>
 
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_extenders) && in_array($val, $eead_extenders)), true); ?>>
