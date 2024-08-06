@@ -91,15 +91,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '-30%', duration: 130, easing: 'easeInQuad' },
-							{ value: ['30%', '0%'], duration: 900, easing: 'easeOutElastic' }
+							{value: '-30%', duration: 130, easing: 'easeInQuad'},
+							{value: ['30%', '0%'], duration: 900, easing: 'easeOutElastic'}
 						],
 						opacity: [
-							{ value: 0, duration: 130, easing: 'easeInQuad' },
-							{ value: 1, duration: 130, easing: 'easeOutQuad' }
+							{value: 0, duration: 130, easing: 'easeInQuad'},
+							{value: 1, duration: 130, easing: 'easeOutQuad'}
 						],
 						color: [
-							{ value: '#6fbb95', duration: 1, delay: 130, easing: 'easeOutQuad' }
+							{value: '#6fbb95', duration: 1, delay: 130, easing: 'easeOutQuad'}
 						]
 					}
 				},
@@ -120,15 +120,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '-30%', duration: 200, easing: 'easeInQuad' },
-							{ value: ['30%', '0%'], duration: 200, easing: 'easeOutQuad' }
+							{value: '-30%', duration: 200, easing: 'easeInQuad'},
+							{value: ['30%', '0%'], duration: 200, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 200, easing: 'easeInQuad' },
-							{ value: 1, duration: 200, easing: 'easeOutQuad' }
+							{value: 0, duration: 200, easing: 'easeInQuad'},
+							{value: 1, duration: 200, easing: 'easeOutQuad'}
 						],
 						color: [
-							{ value: '#666', duration: 1, delay: 200, easing: 'easeOutQuad' }
+							{value: '#666', duration: 1, delay: 200, easing: 'easeOutQuad'}
 						]
 					}
 				}
@@ -163,12 +163,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#6fbb95',
@@ -206,12 +206,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#666',
@@ -255,12 +255,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#6fbb95',
@@ -299,12 +299,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#666',
@@ -339,15 +339,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '30%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '30%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: [
-							{ value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuad' }
+							{value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuad'}
 						]
 					}
 				},
@@ -370,15 +370,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '30%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '30%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: [
-							{ value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad' }
+							{value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad'}
 						]
 					}
 				},
@@ -485,15 +485,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '-30%', duration: 100, easing: 'easeInQuint' },
-							{ value: ['30%', '0%'], duration: 250, easing: 'easeOutQuint' }
+							{value: '-30%', duration: 100, easing: 'easeInQuint'},
+							{value: ['30%', '0%'], duration: 250, easing: 'easeOutQuint'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuint' },
-							{ value: 1, duration: 250, easing: 'easeOutQuint' }
+							{value: 0, duration: 100, easing: 'easeInQuint'},
+							{value: 1, duration: 250, easing: 'easeOutQuint'}
 						],
 						color: [
-							{ value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuint' }
+							{value: '#6fbb95', duration: 1, delay: 100, easing: 'easeOutQuint'}
 						]
 					}
 				},
@@ -529,15 +529,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '30%', duration: 200, easing: 'easeInQuint' },
-							{ value: ['-30%', '0%'], duration: 200, easing: 'easeOutQuint' }
+							{value: '30%', duration: 200, easing: 'easeInQuint'},
+							{value: ['-30%', '0%'], duration: 200, easing: 'easeOutQuint'}
 						],
 						opacity: [
-							{ value: 0, duration: 200, easing: 'easeInQuint' },
-							{ value: 1, duration: 200, easing: 'easeOutQuint' }
+							{value: 0, duration: 200, easing: 'easeInQuint'},
+							{value: 1, duration: 200, easing: 'easeOutQuint'}
 						],
 						color: [
-							{ value: '#666', duration: 1, delay: 200, easing: 'easeOutQuint' }
+							{value: '#666', duration: 1, delay: 200, easing: 'easeOutQuint'}
 						]
 					}
 				}
@@ -588,12 +588,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#6fbb95',
@@ -637,12 +637,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#666',
@@ -683,12 +683,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#6fbb95',
@@ -725,12 +725,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '-50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '-50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#666',
@@ -776,15 +776,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '30%', duration: 200, easing: 'easeInExpo' },
-							{ value: ['-30%', '0%'], duration: 200, easing: 'easeOutExpo' }
+							{value: '30%', duration: 200, easing: 'easeInExpo'},
+							{value: ['-30%', '0%'], duration: 200, easing: 'easeOutExpo'}
 						],
 						opacity: [
-							{ value: 0, duration: 200, easing: 'easeInExpo' },
-							{ value: 1, duration: 200, easing: 'easeOutExpo' }
+							{value: 0, duration: 200, easing: 'easeInExpo'},
+							{value: 1, duration: 200, easing: 'easeOutExpo'}
 						],
 						color: [
-							{ value: '#6fbb95', duration: 1, delay: 200, easing: 'easeOutExpo' }
+							{value: '#6fbb95', duration: 1, delay: 200, easing: 'easeOutExpo'}
 						]
 					}
 				},
@@ -815,15 +815,15 @@
 					},
 					trigger: {
 						translateX: [
-							{ value: '30%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '30%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-30%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: [
-							{ value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad' }
+							{value: '#666', duration: 1, delay: 100, easing: 'easeOutQuad'}
 						]
 					}
 				}
@@ -832,31 +832,31 @@
 				in: {
 					base: {
 						translateX: [
-							{ value: 3, duration: 100, delay: 150, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 0, duration: 100, easing: [0.1, 1, 0.3, 1] },
+							{value: 3, duration: 100, delay: 150, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 0, duration: 100, easing: [0.1, 1, 0.3, 1]},
 						],
 						translateY: [
-							{ value: -3, duration: 100, delay: 150, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: -3, duration: 100, easing: 'linear' },
-							{ value: 3, duration: 100, easing: 'linear' },
-							{ value: 0, duration: 100, easing: [0.1, 1, 0.3, 1] },
+							{value: -3, duration: 100, delay: 150, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: -3, duration: 100, easing: 'linear'},
+							{value: 3, duration: 100, easing: 'linear'},
+							{value: 0, duration: 100, easing: [0.1, 1, 0.3, 1]},
 						],
 						scale: [
-							{ value: [0, 1.1], duration: 150, easing: [0.1, 1, 0.3, 1] },
-							{ value: 1.2, duration: 800, easing: 'linear' },
-							{ value: 1, duration: 150, easing: [0.1, 1, 0.3, 1] },
+							{value: [0, 1.1], duration: 150, easing: [0.1, 1, 0.3, 1]},
+							{value: 1.2, duration: 800, easing: 'linear'},
+							{value: 1, duration: 150, easing: [0.1, 1, 0.3, 1]},
 						],
 						opacity: {
 							value: 1,
@@ -942,12 +942,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#6fbb95',
@@ -986,12 +986,12 @@
 					},
 					trigger: {
 						translateY: [
-							{ value: '50%', duration: 100, easing: 'easeInQuad' },
-							{ value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad' }
+							{value: '50%', duration: 100, easing: 'easeInQuad'},
+							{value: ['-50%', '0%'], duration: 100, easing: 'easeOutQuad'}
 						],
 						opacity: [
-							{ value: 0, duration: 100, easing: 'easeInQuad' },
-							{ value: 1, duration: 100, easing: 'easeOutQuad' }
+							{value: 0, duration: 100, easing: 'easeInQuad'},
+							{value: 1, duration: 100, easing: 'easeOutQuad'}
 						],
 						color: {
 							value: '#666',
@@ -1115,32 +1115,32 @@
 					function animate(dir) {
 						if (configTltpStyles[tooltiptype][dir].base) {
 							anime.remove(tooltipDOM.base);
-							let baseAnimOpts = { targets: tooltipDOM.base };
+							let baseAnimOpts = {targets: tooltipDOM.base};
 							anime(Object.assign(baseAnimOpts, configTltpStyles[tooltiptype][dir].base));
 						}
 						if (configTltpStyles[tooltiptype][dir].shape) {
 							anime.remove(tooltipDOM.shape);
-							let shapeAnimOpts = { targets: tooltipDOM.shape };
+							let shapeAnimOpts = {targets: tooltipDOM.shape};
 							anime(Object.assign(shapeAnimOpts, configTltpStyles[tooltiptype][dir].shape));
 						}
 						if (configTltpStyles[tooltiptype][dir].path) {
 							anime.remove(tooltipDOM.path);
-							let shapeAnimOpts = { targets: tooltipDOM.path };
+							let shapeAnimOpts = {targets: tooltipDOM.path};
 							anime(Object.assign(shapeAnimOpts, configTltpStyles[tooltiptype][dir].path));
 						}
 						if (configTltpStyles[tooltiptype][dir].content) {
 							anime.remove(tooltipDOM.content);
-							let contentAnimOpts = { targets: tooltipDOM.content };
+							let contentAnimOpts = {targets: tooltipDOM.content};
 							anime(Object.assign(contentAnimOpts, configTltpStyles[tooltiptype][dir].content));
 						}
 						if (configTltpStyles[tooltiptype][dir].trigger) {
 							anime.remove(tooltipDOM.triggerSpan);
-							let triggerAnimOpts = { targets: tooltipDOM.triggerSpan };
+							let triggerAnimOpts = {targets: tooltipDOM.triggerSpan};
 							anime(Object.assign(triggerAnimOpts, configTltpStyles[tooltiptype][dir].trigger));
 						}
 						if (configTltpStyles[tooltiptype][dir].deco) {
 							anime.remove(tooltipDOM.deco);
-							let decoAnimOpts = { targets: tooltipDOM.deco };
+							let decoAnimOpts = {targets: tooltipDOM.deco};
 							anime(Object.assign(decoAnimOpts, configTltpStyles[tooltiptype][dir].deco));
 						}
 					}

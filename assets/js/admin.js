@@ -1,7 +1,7 @@
 (function ($) {
 
     var ajaxURL = admin_ajax_script.ajaxurl,
-            adminNonce = admin_ajax_script.ajax_nonce;
+        adminNonce = admin_ajax_script.ajax_nonce;
 
     var saveFlag = '';
     $('#eead-general-settings-form').data('serialize', $('#eead-general-settings-form').serialize());

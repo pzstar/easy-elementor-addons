@@ -1,8 +1,8 @@
-.eead-wrap{
+.eead-wrap {
     font-size: 14px;
 }
 
-.eead-wrap *{
+.eead-wrap * {
     box-sizing: border-box;
 }
 
@@ -51,7 +51,7 @@
     display: inline-block;
     transition: 0.4s;
     border: 1px solid #777;
-    border-radius: 20px;    
+    border-radius: 20px;
 }
 
 .eead-checkbox label:after {
@@ -106,7 +106,7 @@
     border-color: #329043;
 }
 
-.eead-admin-header-section{
+.eead-admin-header-section {
     padding: 20px;
     background: #FFF;
     margin-left: -20px;
@@ -117,80 +117,80 @@
 }
 
 .eead-admin-header-section h1,
-.eead-admin-header-section .eead-version{
+.eead-admin-header-section .eead-version {
     font-size: 18px;
     margin: 0;
 }
 
-.eead-nav-tab-wrapper{
+.eead-nav-tab-wrapper {
     display: flex;
     margin: 0 30px;
 }
 
-.eead-nav-tab-wrapper .eead-tab{
+.eead-nav-tab-wrapper .eead-tab {
     font-size: 14px;
     text-transform: uppercase;
     padding: 20px 40px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 10px 10px 0  0;
+    border-radius: 10px 10px 0 0;
     margin-right: 10px;
     outline: none;
     box-shadow: none;
 }
 
-.eead-nav-tab-wrapper .eead-tab i{
+.eead-nav-tab-wrapper .eead-tab i {
     margin-right: 6px;
 }
 
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active{
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active {
     background: #FFF;
     border-bottom: 0;
     color: #000;
 }
 
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus, 
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus:active, 
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus,
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus:active,
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active:hover {
     border-bottom: 0;
     background: #FFF;
     color: #000;
 }
 
-.eead-tab-contents{
+.eead-tab-contents {
     background: #FFF;
     padding: 30px;
     margin-right: 20px;
     border-radius: 20px;
 }
 
-.eead-settings-field{
+.eead-settings-field {
     margin-bottom: 10px;
 }
 
-.eead-settings-field input[type=date], 
-.eead-settings-field input[type=datetime-local], 
-.eead-settings-field input[type=datetime], 
-.eead-settings-field input[type=email], 
-.eead-settings-field input[type=month], 
-.eead-settings-field input[type=number], 
-.eead-settings-field input[type=password], 
-.eead-settings-field input[type=search], 
-.eead-settings-field input[type=tel], 
-.eead-settings-field input[type=text], 
-.eead-settings-field input[type=time], 
+.eead-settings-field input[type=date],
+.eead-settings-field input[type=datetime-local],
+.eead-settings-field input[type=datetime],
+.eead-settings-field input[type=email],
+.eead-settings-field input[type=month],
+.eead-settings-field input[type=number],
+.eead-settings-field input[type=password],
+.eead-settings-field input[type=search],
+.eead-settings-field input[type=tel],
+.eead-settings-field input[type=text],
+.eead-settings-field input[type=time],
 .eead-settings-field input[type=url],
-.eead-settings-field input[type=week]{
+.eead-settings-field input[type=week] {
     width: 500px;
     min-height: 38px;
 }
 
-.eead-settings-field label{
+.eead-settings-field label {
     margin-bottom: 6px;
     display: block;
 }
 
-.eead-save-button{
+.eead-save-button {
     background: #000;
     padding: 12px 30px;
     border-radius: 20px;
@@ -200,19 +200,19 @@
     cursor: pointer;
 }
 
-.eead-save-button i{
+.eead-save-button i {
     margin-right: 6px;
 }
 
 .eead-widget-action-buttons,
-.eead-extender-action-buttons{
+.eead-extender-action-buttons {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
 }
 
 .eead-widget-action-buttons .eead-widget-action-btn,
-.eead-extender-action-buttons .eead-extender-action-btn{
+.eead-extender-action-buttons .eead-extender-action-btn {
     background: #000;
     padding: 8px 15px;
     margin-left: 10px;
@@ -224,15 +224,15 @@
 }
 
 .eead-widget-action-buttons .eead-widget-action-btn i,
-.eead-extender-action-buttons .eead-extender-action-btn i{
+.eead-extender-action-buttons .eead-extender-action-btn i {
     margin-right: 6px;
     font-weight: bold;
 }
 
-.eaad-save-button-wrap{
+.eaad-save-button-wrap {
     margin-top: 50px;
 }
 
-.eead-admin-notificn{
+.eead-admin-notificn {
     margin-top: 20px;
 }

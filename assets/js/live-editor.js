@@ -86,7 +86,7 @@
                             settingsToChange[liveTempId] = $('#eead-live-temp-title').val();
 
                             $(".eead-live-temp-title").removeClass("control-hidden");
-                            $e.run('document/elements/settings', { container: e.container, settings: settingsToChange, options: { external: !0 } });
+                            $e.run('document/elements/settings', {container: e.container, settings: settingsToChange, options: {external: !0}});
 
                             var tempTitle = $('#eead-live-temp-title').val();
 

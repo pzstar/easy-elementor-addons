@@ -185,7 +185,7 @@
                         $tspan.text($this.text());
                     }
                     var LoadMoreShow = $(this).data("load-more-status"),
-                            loadMore = $(".eead-gallery-load-more", $scope);
+                        loadMore = $(".eead-gallery-load-more", $scope);
 
                     //hide load more button if no item to show
                     if (LoadMoreShow || fg_items.length < 1) {
@@ -245,7 +245,7 @@
                         _step;
 
                     try {
-                        for (_iterator.s(); !(_step = _iterator.n()).done; ) {
+                        for (_iterator.s(); !(_step = _iterator.n()).done;) {
                             var _step$value = _slicedToArray(_step.value, 2),
                                 index = _step$value[0],
                                 item = _step$value[1];
@@ -322,7 +322,7 @@
                     for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
                         _arr.push(_s.value);
                         if (i && _arr.length === i)
-                        break;
+                            break;
                     }
                 } catch (err) {
                     _d = true;
@@ -330,10 +330,10 @@
                 } finally {
                     try {
                         if (!_n && _i["return"] != null)
-                        _i["return"]();
+                            _i["return"]();
                     } finally {
                         if (_d)
-                        throw _e;
+                            throw _e;
                     }
                 }
                 return _arr;
@@ -341,7 +341,7 @@
 
             function _arrayWithHoles(arr) {
                 if (Array.isArray(arr))
-                return arr;
+                    return arr;
             }
             function _createForOfIteratorHelper(o, allowArrayLike) {
                 var it;
@@ -350,7 +350,7 @@
                         if (it)
                             o = it;
                         var i = 0;
-                        var F = function F() {};
+                        var F = function F() { };
                         return {
                             s: F,
                             n: function n() {
@@ -371,8 +371,8 @@
                     throw new TypeError("Invalid attempt to iterate non-iterable instance.In order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
                 }
                 var normalCompletion = true,
-                        didErr = false,
-                        err;
+                    didErr = false,
+                    err;
                 return {
                     s: function s() {
                         it = o[Symbol.iterator]();
@@ -400,7 +400,7 @@
 
             function _unsupportedIterableToArray(o, minLen) {
                 if (!o)
-                return;
+                    return;
                 if (typeof o === "string")
                     return _arrayLikeToArray(o, minLen);
                 var n = Object.prototype.toString.call(o).slice(8, -1);
@@ -590,8 +590,7 @@
                 map.markers.push(marker);
 
                 // if marker has html elements, add it to an infoWindow
-                if ($marker.html())
-                {
+                if ($marker.html()) {
                     // make info window
                     var infowindow = new google.maps.InfoWindow({
                         content: $marker.html()
@@ -623,8 +622,7 @@
                 });
 
                 // If only 1 marker exist
-                if (map.markers.length == 1)
-                {
+                if (map.markers.length == 1) {
                     map.setCenter(bounds.getCenter());
                     map.setZoom(zoom);
                 } else {
@@ -1006,12 +1004,12 @@
 
         toggleBlock: function ($scope, $) {
             var $el = $scope.find('.eead-toggle-container').eq(0),
-                    $toggle_switch_container = $el.find('.eead-toggle-switch-container'),
-                    $toggle_switch = $el.find('.eead-toggle-switch'),
-                    $label_primary = $el.find('.eead-primary-toggle-label'),
-                    $label_secondary = $el.find('.eead-secondary-toggle-label'),
-                    $section_primary = $el.find('.eead-toggle-section-primary'),
-                    $section_secondary = $el.find('.eead-toggle-section-secondary');
+                $toggle_switch_container = $el.find('.eead-toggle-switch-container'),
+                $toggle_switch = $el.find('.eead-toggle-switch'),
+                $label_primary = $el.find('.eead-primary-toggle-label'),
+                $label_secondary = $el.find('.eead-secondary-toggle-label'),
+                $section_primary = $el.find('.eead-toggle-section-primary'),
+                $section_secondary = $el.find('.eead-toggle-section-secondary');
 
             $toggle_switch.on('click', function () {
                 $section_primary.toggle(0, 'swing', function () {
@@ -1190,7 +1188,7 @@
 
         advancedIconBox: function ($scope) {
             var $divider = $scope.find('.eead-advanced-icon-box'),
-                    divider = $($divider).find('.eead-title-separator-wrapper > img');
+                divider = $($divider).find('.eead-title-separator-wrapper > img');
 
             if ($divider.length) {
                 elementorFrontend.waypoint(divider, function () {
@@ -1389,10 +1387,10 @@
             if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                 var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
                 var $isotope_args = {
-                        itemSelector: '.eead-gallery-item',
-                        layoutMode: layout,
-                        percentPosition: true,
-                    },
+                    itemSelector: '.eead-gallery-item',
+                    layoutMode: layout,
+                    percentPosition: true,
+                },
                     $isotope_gallery = {};
 
                 $scope.imagesLoaded(function () {
@@ -1699,8 +1697,8 @@
 
                     $(window).resize(function () {
                         var currentDeviceMode = elementorFrontend.getCurrentDeviceMode(),
-                                availableDevices = ['desktop', 'tablet'],
-                                isInit = $scope.attr('data-sticky-column');
+                            availableDevices = ['desktop', 'tablet'],
+                            isInit = $scope.attr('data-sticky-column');
 
                         if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
                             if (isInit === 'false') {
@@ -2154,171 +2152,171 @@
             }
         },
         tiltHoverImageBlock: function ($scope) {
-            var tiltImageBlock = $scope.find('a.eead-tilter'),tiltSettings = [
+            var tiltImageBlock = $scope.find('a.eead-tilter'), tiltSettings = [
                 {},
                 {
                     movement: {
-                        imgWrapper : {
-                            translation : {x: 10, y: 10, z: 30},
-                            rotation : {x: 0, y: -10, z: 0},
-                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        imgWrapper: {
+                            translation: {x: 10, y: 10, z: 30},
+                            rotation: {x: 0, y: -10, z: 0},
+                            reverseAnimation: {duration: 200, easing: 'easeOutQuad'}
                         },
-                        lines : {
-                            translation : {x: 10, y: 10, z: [0,70]},
-                            rotation : {x: 0, y: 0, z: -2},
-                            reverseAnimation : {duration : 2000, easing : 'easeOutExpo'}
+                        lines: {
+                            translation: {x: 10, y: 10, z: [0, 70]},
+                            rotation: {x: 0, y: 0, z: -2},
+                            reverseAnimation: {duration: 2000, easing: 'easeOutExpo'}
                         },
-                        caption : {
-                            rotation : {x: 0, y: 0, z: 2},
-                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        caption: {
+                            rotation: {x: 0, y: 0, z: 2},
+                            reverseAnimation: {duration: 200, easing: 'easeOutQuad'}
                         },
-                        overlay : {
-                            translation : {x: 10, y: -10, z: 0},
-                            rotation : {x: 0, y: 0, z: 2},
-                            reverseAnimation : {duration : 2000, easing : 'easeOutExpo'}
+                        overlay: {
+                            translation: {x: 10, y: -10, z: 0},
+                            rotation: {x: 0, y: 0, z: 2},
+                            reverseAnimation: {duration: 2000, easing: 'easeOutExpo'}
                         },
-                        shine : {
-                            translation : {x: 100, y: 100, z: 0},
-                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        shine: {
+                            translation: {x: 100, y: 100, z: 0},
+                            reverseAnimation: {duration: 200, easing: 'easeOutQuad'}
                         }
                     }
                 },
                 {
                     movement: {
-                        imgWrapper : {
-                            rotation : {x: -5, y: 10, z: 0},
-                            reverseAnimation : {duration : 900, easing : 'easeOutCubic'}
+                        imgWrapper: {
+                            rotation: {x: -5, y: 10, z: 0},
+                            reverseAnimation: {duration: 900, easing: 'easeOutCubic'}
                         },
-                        caption : {
-                            translation : {x: 30, y: 30, z: [0,40]},
-                            rotation : {x: [0,15], y: 0, z: 0},
-                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        caption: {
+                            translation: {x: 30, y: 30, z: [0, 40]},
+                            rotation: {x: [0, 15], y: 0, z: 0},
+                            reverseAnimation: {duration: 1200, easing: 'easeOutExpo'}
                         },
-                        overlay : {
-                            translation : {x: 10, y: 10, z: [0,20]},
-                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        overlay: {
+                            translation: {x: 10, y: 10, z: [0, 20]},
+                            reverseAnimation: {duration: 1000, easing: 'easeOutExpo'}
                         },
-                        shine : {
-                            translation : {x: 100, y: 100, z: 0},
-                            reverseAnimation : {duration : 900, easing : 'easeOutCubic'}
+                        shine: {
+                            translation: {x: 100, y: 100, z: 0},
+                            reverseAnimation: {duration: 900, easing: 'easeOutCubic'}
                         }
                     }
                 },
                 {
                     movement: {
-                        imgWrapper : {
-                            rotation : {x: -5, y: 10, z: 0},
-                            reverseAnimation : {duration : 50, easing : 'easeOutQuad'}
+                        imgWrapper: {
+                            rotation: {x: -5, y: 10, z: 0},
+                            reverseAnimation: {duration: 50, easing: 'easeOutQuad'}
                         },
-                        caption : {
-                            translation : {x: 20, y: 20, z: 0},
-                            reverseAnimation : {duration : 200, easing : 'easeOutQuad'}
+                        caption: {
+                            translation: {x: 20, y: 20, z: 0},
+                            reverseAnimation: {duration: 200, easing: 'easeOutQuad'}
                         },
-                        overlay : {
-                            translation : {x: 5, y: -5, z: 0},
-                            rotation : {x: 0, y: 0, z: 6},
-                            reverseAnimation : {duration : 1000, easing : 'easeOutQuad'}
+                        overlay: {
+                            translation: {x: 5, y: -5, z: 0},
+                            rotation: {x: 0, y: 0, z: 6},
+                            reverseAnimation: {duration: 1000, easing: 'easeOutQuad'}
                         },
-                        shine : {
-                            translation : {x: 50, y: 50, z: 0},
-                            reverseAnimation : {duration : 50, easing : 'easeOutQuad'}
+                        shine: {
+                            translation: {x: 50, y: 50, z: 0},
+                            reverseAnimation: {duration: 50, easing: 'easeOutQuad'}
                         }
                     }
                 },
                 {
                     movement: {
-                        imgWrapper : {
-                            translation : {x: 0, y: -8, z: 0},
-                            rotation : {x: 3, y: 3, z: 0},
-                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        imgWrapper: {
+                            translation: {x: 0, y: -8, z: 0},
+                            rotation: {x: 3, y: 3, z: 0},
+                            reverseAnimation: {duration: 1200, easing: 'easeOutExpo'}
                         },
-                        lines : {
-                            translation : {x: 15, y: 15, z: [0,15]},
-                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        lines: {
+                            translation: {x: 15, y: 15, z: [0, 15]},
+                            reverseAnimation: {duration: 1200, easing: 'easeOutExpo'}
                         },
-                        overlay : {
-                            translation : {x: 0, y: 8, z: 0},
-                            reverseAnimation : {duration : 600, easing : 'easeOutExpo'}
+                        overlay: {
+                            translation: {x: 0, y: 8, z: 0},
+                            reverseAnimation: {duration: 600, easing: 'easeOutExpo'}
                         },
-                        caption : {
-                            translation : {x: 10, y: -15, z: 0},
-                            reverseAnimation : {duration : 900, easing : 'easeOutExpo'}
+                        caption: {
+                            translation: {x: 10, y: -15, z: 0},
+                            reverseAnimation: {duration: 900, easing: 'easeOutExpo'}
                         },
-                        shine : {
-                            translation : {x: 50, y: 50, z: 0},
-                            reverseAnimation : {duration : 1200, easing : 'easeOutExpo'}
+                        shine: {
+                            translation: {x: 50, y: 50, z: 0},
+                            reverseAnimation: {duration: 1200, easing: 'easeOutExpo'}
                         }
                     }
                 },
                 {
                     movement: {
-                        lines : {
-                            translation : {x: -5, y: 5, z: 0},
-                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        lines: {
+                            translation: {x: -5, y: 5, z: 0},
+                            reverseAnimation: {duration: 1000, easing: 'easeOutExpo'}
                         },
-                        caption : {
-                            translation : {x: 15, y: 15, z: 0},
-                            rotation : {x: 0, y: 0, z: 3},
-                            reverseAnimation : {duration : 1500, easing : 'easeOutElastic', elasticity : 700}
+                        caption: {
+                            translation: {x: 15, y: 15, z: 0},
+                            rotation: {x: 0, y: 0, z: 3},
+                            reverseAnimation: {duration: 1500, easing: 'easeOutElastic', elasticity: 700}
                         },
-                        overlay : {
-                            translation : {x: 15, y: -15, z: 0},
-                            reverseAnimation : {duration : 500,easing : 'easeOutExpo'}
+                        overlay: {
+                            translation: {x: 15, y: -15, z: 0},
+                            reverseAnimation: {duration: 500, easing: 'easeOutExpo'}
                         },
-                        shine : {
-                            translation : {x: 50, y: 50, z: 0},
-                            reverseAnimation : {duration : 500, easing : 'easeOutExpo'}
+                        shine: {
+                            translation: {x: 50, y: 50, z: 0},
+                            reverseAnimation: {duration: 500, easing: 'easeOutExpo'}
                         }
                     }
                 },
                 {
                     movement: {
-                        imgWrapper : {
-                            translation : {x: 5, y: 5, z: 0},
-                            reverseAnimation : {duration : 800, easing : 'easeOutQuart'}
+                        imgWrapper: {
+                            translation: {x: 5, y: 5, z: 0},
+                            reverseAnimation: {duration: 800, easing: 'easeOutQuart'}
                         },
-                        caption : {
-                            translation : {x: 10, y: 10, z: [0,50]},
-                            reverseAnimation : {duration : 1000, easing : 'easeOutQuart'}
+                        caption: {
+                            translation: {x: 10, y: 10, z: [0, 50]},
+                            reverseAnimation: {duration: 1000, easing: 'easeOutQuart'}
                         },
-                        shine : {
-                            translation : {x: 50, y: 50, z: 0},
-                            reverseAnimation : {duration : 800, easing : 'easeOutQuart'}
+                        shine: {
+                            translation: {x: 50, y: 50, z: 0},
+                            reverseAnimation: {duration: 800, easing: 'easeOutQuart'}
                         }
                     }
                 },
                 {
                     movement: {
-                        lines : {
-                            translation : {x: 40, y: 40, z: 0},
-                            reverseAnimation : {duration : 1500, easing : 'easeOutElastic'}
+                        lines: {
+                            translation: {x: 40, y: 40, z: 0},
+                            reverseAnimation: {duration: 1500, easing: 'easeOutElastic'}
                         },
-                        caption : {
-                            translation : {x: 20, y: 20, z: 0},
-                            rotation : {x: 0, y: 0, z: -5},
-                            reverseAnimation : {duration : 1000, easing : 'easeOutExpo'}
+                        caption: {
+                            translation: {x: 20, y: 20, z: 0},
+                            rotation: {x: 0, y: 0, z: -5},
+                            reverseAnimation: {duration: 1000, easing: 'easeOutExpo'}
                         },
-                        overlay : {
-                            translation : {x: -30, y: -30, z: 0},
-                            rotation : {x: 0, y: 0, z: 3},
-                            reverseAnimation : {duration : 750, easing : 'easeOutExpo'}
+                        overlay: {
+                            translation: {x: -30, y: -30, z: 0},
+                            rotation: {x: 0, y: 0, z: 3},
+                            reverseAnimation: {duration: 750, easing: 'easeOutExpo'}
                         },
-                        shine : {
-                            translation : {x: 100, y: 100, z: 0},
-                            reverseAnimation : {duration : 750, easing : 'easeOutExpo'}
+                        shine: {
+                            translation: {x: 100, y: 100, z: 0},
+                            reverseAnimation: {duration: 750, easing: 'easeOutExpo'}
                         }
                     }
                 }
             ];
-            new TiltFx( tiltImageBlock[0], tiltSettings[ tiltImageBlock.data('hoverstyle') ] );
+            new TiltFx(tiltImageBlock[0], tiltSettings[tiltImageBlock.data('hoverstyle')]);
         },
-        slinkyVerticalMenuBlock : function ($scope) {
+        slinkyVerticalMenuBlock: function ($scope) {
             var $vrMenu = $scope.find('.eead-slinky-vertical-menu');
             var $settings = $vrMenu.attr('id');
             if (!$vrMenu.length) {
                 return;
             }
-            const slinky = $('#'+$settings).slinky();
+            const slinky = $('#' + $settings).slinky();
         },
         portfolioGrid: function ($scope) {
             $scope.find("form.eead-fpg-toolbar").each(function () {
@@ -2330,48 +2328,48 @@
                 var i = $(this);
                 i.filter("[data-filter~=" + n + "]").length ? i.show() : i.hide();
             }),
-            $scope.find(".eead-fpg-container").fadeIn(200);
+                $scope.find(".eead-fpg-container").fadeIn(200);
             $scope.find("li.eead-fpg-mobile-icon").on("click", function (e) {
                 i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").toggle();
             }),
-            $(window).on("resize", function () {
-                $(window).width() > 767 ? $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
-            }),
-            $scope.find("input[name='view']").change(function () {
-                $scope.find(".eead-fpg-view-options label").removeClass("active"),
-                $scope.find("input[name='view']:checked").parent().find("label").addClass("active"),
-                "show-grid" == $(this).val() ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-list-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-grid-view"))
-                : "show-list" == $(this).val() && ($scope.find(".eead-fpg-container").removeClass("eead-fpg-grid-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-list-view"));
-            }),
-            $scope.find("input[name='filter']").change(function () {
-                var n = $(this).val();
-                $scope.find(".eead-fpg-search-wrapper li label").removeClass("active"),
-                $scope.find("input[name='filter']:checked").parent().find("label").addClass("active"),
-                "all" === n ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
-                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
-                $scope.find(".eead-fpg-container").fadeOut(200, function () {
-                    $scope.find(".eead-fpg-container li").show(),
-                    $(this).fadeIn(200, function () {
-                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
-                    });
-                }))
-                : ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
-                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
-                $scope.find(".eead-fpg-container").fadeOut(200, function () {
-                    $scope.find(".eead-fpg-container li").each(function () {
-                        var e = $(this);
-                        e.filter("[data-filter~=" + n + "]").length ? e.show() : e.hide();
-                    }),
-                    $(this).fadeIn(200, function () {
-                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
-                    });
-                }));
-            });
+                $(window).on("resize", function () {
+                    $(window).width() > 767 ? $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
+                }),
+                $scope.find("input[name='view']").change(function () {
+                    $scope.find(".eead-fpg-view-options label").removeClass("active"),
+                        $scope.find("input[name='view']:checked").parent().find("label").addClass("active"),
+                        "show-grid" == $(this).val() ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-list-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-grid-view"))
+                            : "show-list" == $(this).val() && ($scope.find(".eead-fpg-container").removeClass("eead-fpg-grid-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-list-view"));
+                }),
+                $scope.find("input[name='filter']").change(function () {
+                    var n = $(this).val();
+                    $scope.find(".eead-fpg-search-wrapper li label").removeClass("active"),
+                        $scope.find("input[name='filter']:checked").parent().find("label").addClass("active"),
+                        "all" === n ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
+                            $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
+                            $scope.find(".eead-fpg-container").fadeOut(200, function () {
+                                $scope.find(".eead-fpg-container li").show(),
+                                    $(this).fadeIn(200, function () {
+                                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                                    });
+                            }))
+                            : ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
+                                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
+                                $scope.find(".eead-fpg-container").fadeOut(200, function () {
+                                    $scope.find(".eead-fpg-container li").each(function () {
+                                        var e = $(this);
+                                        e.filter("[data-filter~=" + n + "]").length ? e.show() : e.hide();
+                                    }),
+                                        $(this).fadeIn(200, function () {
+                                            $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                                        });
+                                }));
+                });
         },
 
-        captionHoverEffect: function($scope) {
-            if( Modernizr.touch ) {
-                function classReg( className ) {
+        captionHoverEffect: function ($scope) {
+            if (Modernizr.touch) {
+                function classReg(className) {
                     return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
                 }
 
@@ -2379,34 +2377,34 @@
                 // altho to be fair, the api sucks because it won't accept multiple classes at once
                 var hasClass, addClass, removeClass;
 
-                if ( 'classList' in document.documentElement ) {
-                    hasClass = function( elem, c ) {
-                        return elem.classList.contains( c );
+                if ('classList' in document.documentElement) {
+                    hasClass = function (elem, c) {
+                        return elem.classList.contains(c);
                     };
-                    addClass = function( elem, c ) {
-                        elem.classList.add( c );
+                    addClass = function (elem, c) {
+                        elem.classList.add(c);
                     };
-                    removeClass = function( elem, c ) {
-                        elem.classList.remove( c );
+                    removeClass = function (elem, c) {
+                        elem.classList.remove(c);
                     };
                 }
                 else {
-                    hasClass = function( elem, c ) {
-                        return classReg( c ).test( elem.className );
+                    hasClass = function (elem, c) {
+                        return classReg(c).test(elem.className);
                     };
-                    addClass = function( elem, c ) {
-                        if ( !hasClass( elem, c ) ) {
-                                elem.className = elem.className + ' ' + c;
+                    addClass = function (elem, c) {
+                        if (!hasClass(elem, c)) {
+                            elem.className = elem.className + ' ' + c;
                         }
                     };
-                    removeClass = function( elem, c ) {
-                        elem.className = elem.className.replace( classReg( c ), ' ' );
+                    removeClass = function (elem, c) {
+                        elem.className = elem.className.replace(classReg(c), ' ');
                     };
                 }
 
-                function toggleClass( elem, c ) {
-                    var fn = hasClass( elem, c ) ? removeClass : addClass;
-                    fn( elem, c );
+                function toggleClass(elem, c) {
+                    var fn = hasClass(elem, c) ? removeClass : addClass;
+                    fn(elem, c);
                 }
 
                 var classie = {
@@ -2423,21 +2421,21 @@
                 };
 
                 // transport
-                if ( typeof define === 'function' && define.amd ) {
+                if (typeof define === 'function' && define.amd) {
                     // AMD
-                    define( classie );
+                    define(classie);
                 } else {
                     // browser global
                     window.classie = classie;
                 }
 
-                el = $scope.find( 'figcaption > a' )[0];
-                el.addEventListener( 'touchstart', function(e) {
+                el = $scope.find('figcaption > a')[0];
+                el.addEventListener('touchstart', function (e) {
                     e.stopPropagation();
-                }, false );
-                el.addEventListener( 'touchstart', function(e) {
-                    classie.toggle( this, 'cs-hover' );
-                }, false );
+                }, false);
+                el.addEventListener('touchstart', function (e) {
+                    classie.toggle(this, 'cs-hover');
+                }, false);
             }
         },
 
@@ -2588,10 +2586,10 @@
                 .on("resize", self.refresh);
 
             if (snapScroll)
-            document.addEventListener ? document.addEventListener("wheel", self.onScroll, {passive: false}) : document.attachEvent("onmousewheel", self.onScroll);
+                document.addEventListener ? document.addEventListener("wheel", self.onScroll, {passive: false}) : document.attachEvent("onmousewheel", self.onScroll);
 
             if (settings.keyboard)
-            document.addEventListener ? document.addEventListener("keydown", self.onKeyboardPress) : document.attachEvent("keydown", self.onKeyboardPress);
+                document.addEventListener ? document.addEventListener("keydown", self.onKeyboardPress) : document.attachEvent("keydown", self.onKeyboardPress);
 
             if (snapScroll) {
                 $(window).on("load", function () {
@@ -2725,7 +2723,7 @@
             distance = distanceBeyond + distance;
 
             if (rtlMode)
-            $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
+                $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
 
             var ease = Power2.easeOut;
             ease = Power0.easeNone;
@@ -2743,8 +2741,8 @@
             dimensions = self.getDimensions();
 
             horizontalSlide
-                .to("#eead-hscroll-scroller-wrap-" + id, 1, { x: rtlMode ? "0px" : -dimensions.distance, ease: dimensions.ease }, 0)
-                .to("#eead-hscroll-progress-line-" + id, 1, { width: dimensions.progressBar + "px", ease: dimensions.ease }, 0);
+                .to("#eead-hscroll-scroller-wrap-" + id, 1, {x: rtlMode ? "0px" : -dimensions.distance, ease: dimensions.ease}, 0)
+                .to("#eead-hscroll-progress-line-" + id, 1, {width: dimensions.progressBar + "px", ease: dimensions.ease}, 0);
 
             if ('undefined' !== typeof progress) {
                 scene.progress(0);
@@ -2798,7 +2796,7 @@
                 );
 
                 if (window.pageYOffset - lastScrollOffset <= 300 && window.pageYOffset - lastScrollOffset > 100)
-                self.scrollToSlide(count - 1);
+                    self.scrollToSlide(count - 1);
             }
 
             if ("DURING" === state) {
@@ -2837,7 +2835,7 @@
                 }
             } else {
                 if (!isScrolling && 0 !== currentActive)
-                $prevArrow.trigger("click.eeadHorizontalScroll");
+                    $prevArrow.trigger("click.eeadHorizontalScroll");
             }
         };
 

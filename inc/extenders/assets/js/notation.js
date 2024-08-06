@@ -78,7 +78,7 @@
                             elementorFrontend.waypoint($element, function () {
                                 const t = "http://www.w3.org/2000/svg";
                                 class e {
-                                    constructor(t) {
+                                    constructor (t) {
                                         this.seed = t;
                                     }
                                     next() {
@@ -440,7 +440,7 @@
                                     }
                                 }
                                 class p {
-                                    constructor(t, e) {
+                                    constructor (t, e) {
                                         this._state = "unattached", this._resizing = !1, this._seed = Math.floor(Math.random() * 2 ** 31), this._lastSizes = [], this._animationDelay = 0, this._resizeListener = () => {
                                             this._resizing || (this._resizing = !0, setTimeout(() => {
                                                 this._resizing = !1, "showing" === this._state && this.haveRectsChanged() && this.show();
