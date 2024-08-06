@@ -24,7 +24,6 @@ final class EEAD_Modules_Manager {
 
     private function require_files() {
         require (EEAD_PATH . 'base/module-base.php');
-        require (EEAD_PATH . 'inc/extenders/extender.php');
     }
 
     public function register_modules() {

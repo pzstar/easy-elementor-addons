@@ -23,10 +23,6 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
             <i class="mdi mdi-buffer"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
         </a>
 
-        <a href="javascript:void(0)" class="eead-tab" data-tab="eead-extenders-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-buffer"></i><?php esc_html_e('Extenders', 'easy-elementor-addons'); ?>
-        </a>
-
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-about-section-content" data-tohide="tab-content">
             <i class="mdi mdi-rocket"></i><?php esc_html_e('About', 'easy-elementor-addons'); ?>
         </a>
@@ -130,36 +126,6 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">
                         <i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?>
                     </button>
-                </div>
-            </form>
-        </div>
-
-        <div id="eead-extenders-section-content" class="tab-content" style="display: none;">
-            <div class="eead-extender-action-buttons">
-                <button class="eead-extender-action-btn eead-extender-enable-all">
-                    <i class="mdi mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons'); ?>
-                </button>
-                <button class="eead-extender-action-btn eead-extender-disable-all">
-                    <i class="mdi mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons'); ?>
-                </button>
-            </div>
-
-            <form id="eead-extender-selection-form">
-                <div class="eead-extender-section-inner-wrap">
-                    <?php $this->get_extender_field('Advanced Tile Scroll', 'advanced-tile-scroll'); ?>
-                    <?php $this->get_extender_field('Backdrop Effect', 'backdrop-effect'); ?>
-                    <?php $this->get_extender_field('Background Overlay', 'background-overlay'); ?>
-                    <?php $this->get_extender_field('Custom Cursor', 'custom-cursor'); ?>
-                    <?php $this->get_extender_field('Notation', 'notation'); ?>
-                    <?php $this->get_extender_field('Section Sticky', 'section-sticky'); ?>
-                    <?php $this->get_extender_field('Tile Scroll', 'tile-scroll'); ?>
-                    <?php $this->get_extender_field('Tooltip', 'tooltip'); ?>
-                    <?php $this->get_extender_field('Visibility Controls', 'visibility-controls'); ?>
-                    <?php $this->get_extender_field('Wrapper Link', 'wrapper-link'); ?>
-                </div>
-
-                <div class="eaad-save-button-wrap">
-                    <button name="eead-extender-enable" id="eead-extender-selection-btn" class="eead-save-button"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
                 </div>
             </form>
         </div>

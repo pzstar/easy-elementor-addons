@@ -4,7 +4,7 @@
  * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
  * Description: Elementor addons for WordPress Themes developed by HashThemes https://hashthemes.com
- * Version: 1.0.3
+ * Version: 2.0.0
  * Author: HashThemes
  * Author URI: https://hashthemes.com/
  * Text Domain: easy-elementor-addons
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
     die();
 }
 
-define('EEAD_VERSION', '1.0.3');
+define('EEAD_VERSION', '2.0.0');
 
 define('EEAD_FILE', __FILE__);
 define('EEAD_PLUGIN_BASENAME', plugin_basename(EEAD_FILE));
@@ -120,13 +120,8 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
         public function plugin_activation() {
             $widgets = $this->get_all_default_widgets();
-            $extenders = $this->get_all_default_extenders();
             if (get_option('eead_widgets') == false) {
                 update_option('eead_widgets', $widgets);
-            }
-
-            if (get_option('eead_extenders') == false) {
-                update_option('eead_extenders', $extenders);
             }
         }
 
@@ -203,25 +198,6 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
             return $modules_list;
         }
-
-        public function get_all_default_extenders() {
-            $extenders_list = [];
-            $extenders_list = [
-                'advanced-tile-scroll',
-                'backdrop-effect',
-                'background-overlay',
-                'custom-cursor',
-                'notation',
-                'section-sticky',
-                'tile-scroll',
-                'tooltip',
-                'visibility-controls',
-                'wrapper-link',
-            ];
-
-            return $extenders_list;
-        }
-
     }
 
 }
