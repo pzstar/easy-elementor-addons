@@ -29,22 +29,17 @@ final class EEAD_Modules_Manager {
     public function register_modules() {
 
         $modules = get_option('eead_widgets') ? get_option('eead_widgets') : array();
-
-        if (isset($modules)) {
-            if (empty($modules)) {
-                return;
+        $default_modules = \Easy_Elementor_Addons::get_all_default_widgets();
+        if ($modules) {
+            foreach ($modules as $module) {
+                if(!in_array($module, $default_modules)){
+                    continue;
+                }
+                $class_name = str_replace('-', ' ', $module);
+                $class_name = str_replace(' ', '', ucwords($class_name));
+                $class_name = __NAMESPACE__ . '\\Modules\\' . $class_name . '\Module';
+                $class_name::instance();
             }
-        }
-
-        foreach ($modules as $key => $module) {
-            if (!$this->is_module_active($module)) {
-                continue;
-            }
-
-            $class_name = str_replace('-', ' ', $module);
-            $class_name = str_replace(' ', '', ucwords($class_name));
-            $class_name = __NAMESPACE__ . '\\Modules\\' . $class_name . '\Module';
-            $class_name::instance();
         }
     }
 

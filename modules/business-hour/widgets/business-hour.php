@@ -5,10 +5,8 @@ namespace EasyElementorAddons\Modules\BusinessHour\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Utils;
 use DateTime;
 
 if (!defined('ABSPATH')) {

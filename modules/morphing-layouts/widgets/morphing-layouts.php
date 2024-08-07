@@ -5,7 +5,6 @@ namespace EasyElementorAddons\Modules\MorphingLayouts\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Utils;
 use Elementor\Group_Control_Background;
 use Elementor\Repeater;
 

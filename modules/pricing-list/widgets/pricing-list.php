@@ -9,8 +9,6 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Utils;
-use EasyElementorAddons\Group_Control_Query;
-use EasyElementorAddons\Group_Control_Header;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

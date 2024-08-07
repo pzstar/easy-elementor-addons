@@ -5,10 +5,6 @@ namespace EasyElementorAddons\Modules\LinkEffect\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Utils;
-use Elementor\Repeater;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 
 if (!defined('ABSPATH')) {

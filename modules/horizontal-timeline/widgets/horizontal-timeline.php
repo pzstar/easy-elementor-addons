@@ -10,8 +10,6 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Repeater;
 use Elementor\Utils;
-use EasyElementorAddons\Group_Control_Query;
-use EasyElementorAddons\Group_Control_Header;
 use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
@@ -30,7 +28,7 @@ class HorizontalTimeline extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Horizontal Timeline Block', 'easy-elementor-addons');
+        return esc_html__('Horizontal Timeline', 'easy-elementor-addons');
     }
 
     /** Icon */

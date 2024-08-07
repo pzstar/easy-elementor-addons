@@ -119,16 +119,15 @@ if (!class_exists('Easy_Elementor_Addons')) {
         }
 
         public function plugin_activation() {
-            $widgets = $this->get_all_default_widgets();
+            $widgets = self::get_all_default_widgets();
             if (get_option('eead_widgets') == false) {
                 update_option('eead_widgets', $widgets);
             }
         }
 
-        public function get_all_default_widgets() {
-            $modules_list = [];
+        public static function get_all_default_widgets() {
             $modules_list = [
-                'accordion-block',
+                'accordion',
                 'advanced-button',
                 'advanced-heading',
                 'advanced-icon-box',
@@ -140,7 +139,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'charts',
                 'circular-progressbar',
                 'countdown',
-                'counter-block',
+                'counter',
                 'drop-bar',
                 'dual-button',
                 'dual-heading',
@@ -149,9 +148,9 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'flip-box',
                 'flip-box-advanced',
                 'horizontal-scroll',
-                'horizontal-tab-block',
+                'horizontal-tab',
                 'horizontal-timeline',
-                'hotspot-block',
+                'hotspot',
                 'icon-list',
                 'image-accordion',
                 'image-comparison',
@@ -166,34 +165,34 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'pie-chart',
                 'popup-modal',
                 'popup-video',
-                'portfolio-block',
+                'portfolio',
                 'portfolio-grid',
                 'pricing-list',
                 'pricing-table',
                 'progressbar',
                 'scroll-image',
                 'scroll-nav',
-                'slider-block',
+                'slider',
                 'slinky-vertical-menu',
                 'social-share',
                 'step-flow',
                 'sticky-video',
-                'switcher-block',
+                'switcher',
                 'team-member',
                 'team-member-carousel',
-                'testimonial-block',
+                'testimonial',
                 'testimonial-slider',
                 'text-marquee',
                 'threed-text',
                 'threesixty-image',
                 'tilt-hover-image',
-                'toggle-block',
+                'toggle',
                 'twitter-feed',
                 'twitter-feed-carousel',
-                'vertical-tab-block',
+                'vertical-tab',
                 'vertical-timeline',
                 'video-player',
-                'weather-block',
+                'weather',
             ];
 
             return $modules_list;

@@ -3,7 +3,6 @@
 namespace EasyElementorAddons\Modules\TwitterFeed\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Plugin;
 use Elementor\Widget_Base;
 
 if (!defined('ABSPATH')) {

@@ -6,7 +6,6 @@ use Elementor\Repeater;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
 use EasyElementorAddons\Modules\SlinkyVerticalMenu\EEAD_Slinky_Vertical_Menu_Walker;

@@ -5,12 +5,8 @@ namespace EasyElementorAddons\Modules\Progressbar\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Utils;
 use Elementor\Repeater;
-use EasyElementorAddons\Group_Control_Query;
-use EasyElementorAddons\Group_Control_Header;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

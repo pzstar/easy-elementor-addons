@@ -9,8 +9,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
 use Elementor\Repeater;
 use Elementor\Utils;
 
@@ -30,7 +28,7 @@ class VerticalTimeline extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Vertical Timeline Block', 'easy-elementor-addons');
+        return esc_html__('Vertical Timeline', 'easy-elementor-addons');
     }
 
     /** Icon */
