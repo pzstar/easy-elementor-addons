@@ -734,8 +734,7 @@ class HotspotBlock extends Widget_Base {
 
                             if ($item['hotspot_type'] == 'icon') {
                                 ?>
-                                <div class="eead-hotspot-item eead-hotspot-icon elementor-repeater-item-<?php echo esc_attr($item['_id']);
-                                b ?> drag_element" id=<?php echo 'hotspot_id_' . esc_attr($key); ?>>
+                                <div class="eead-hotspot-item eead-hotspot-icon elementor-repeater-item-<?php echo esc_attr($item['_id']); ?> drag_element" id=<?php echo 'hotspot_id_' . esc_attr($key); ?>>
                                     <a href="javascript:void(0);">
                                         <?php
                                         $this->pulsate_animation();
