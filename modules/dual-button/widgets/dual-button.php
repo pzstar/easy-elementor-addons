@@ -33,7 +33,7 @@ class DualButton extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-button';
+        return 'eead-dual-button';
     }
 
     /** Category */

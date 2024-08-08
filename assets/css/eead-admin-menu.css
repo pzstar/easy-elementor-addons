@@ -25,6 +25,15 @@
     justify-content: space-between;
 }
 
+.eead-widget-section-inner-wrap {
+    counter-reset: my-sec-counter;
+}
+
+.eead-widget-section-inner-wrap .eead-widget-wrap span:before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter) ") ";
+}
+
 .eead-checkbox {
     position: relative;
     display: inline-block;

@@ -26,7 +26,7 @@ class TwitterFeed extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-twitter';
+        return 'eead-twitter1';
     }
 
     /** Category */

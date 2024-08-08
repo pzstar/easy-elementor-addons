@@ -60,10 +60,10 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box'); ?>
                     <?php $this->get_widget_field('Advanced Map', 'advanced-map'); ?>
                     <?php $this->get_widget_field('Animated Heading', 'animated-heading'); ?>
-                    <?php $this->get_widget_field('Animated Icon', 'animated-icon'); ?>
+                    <?php //$this->get_widget_field('Animated Icon', 'animated-icon'); ?>
                     <?php $this->get_widget_field('Business Hour', 'business-hour'); ?>
-                    <?php $this->get_widget_field('Caption Hover Effect', 'caption-hover-effect'); ?>
-                    <?php $this->get_widget_field('Charts', 'charts'); ?>
+                    <?php //$this->get_widget_field('Caption Hover Effect', 'caption-hover-effect'); ?>
+                    <?php //$this->get_widget_field('Charts', 'charts'); ?>
                     <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
                     <?php $this->get_widget_field('Countdown', 'countdown'); ?>
                     <?php $this->get_widget_field('Counter Block', 'counter'); ?>
@@ -73,8 +73,8 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Feature List', 'feature-list'); ?>
                     <?php $this->get_widget_field('Filterable Gallery', 'filterable-gallery'); ?>
                     <?php $this->get_widget_field('Flip Box', 'flip-box'); ?>
-                    <?php $this->get_widget_field('Flip Box Advanced', 'flip-box-advanced'); ?>
-                    <?php $this->get_widget_field('Horizontal Scroll', 'horizontal-scroll'); ?>
+                    <?php //$this->get_widget_field('Flip Box Advanced', 'flip-box-advanced'); ?>
+                    <?php //$this->get_widget_field('Horizontal Scroll', 'horizontal-scroll'); ?>
                     <?php $this->get_widget_field('Horizontal Tab', 'horizontal-tab'); ?>
                     <?php $this->get_widget_field('Horizontal Timeline', 'horizontal-timeline'); ?>
                     <?php $this->get_widget_field('Hotspot', 'hotspot'); ?>
@@ -86,8 +86,8 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Logo Carousel', 'logo-carousel'); ?>
                     <?php $this->get_widget_field('Logo Grid', 'logo-grid'); ?>
                     <?php $this->get_widget_field('Lottie', 'lottie'); ?>
-                    <?php $this->get_widget_field('Morphing Layouts', 'morphing-layouts'); ?>
-                    <?php $this->get_widget_field('Multi Scroll', 'multi-scroll'); ?>
+                    <?php //$this->get_widget_field('Morphing Layouts', 'morphing-layouts'); ?>
+                    <?php //$this->get_widget_field('Multi Scroll', 'multi-scroll'); ?>
                     <?php $this->get_widget_field('One Page Navigation', 'one-page-navigation'); ?>
                     <?php $this->get_widget_field('Pie Chart', 'pie-chart'); ?>
                     <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
@@ -100,7 +100,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Scroll Image', 'scroll-image'); ?>
                     <?php $this->get_widget_field('Scroll Nav', 'scroll-nav'); ?>
                     <?php $this->get_widget_field('Slider', 'slider'); ?>
-                    <?php $this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu'); ?>
+                    <?php //$this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu'); ?>
                     <?php $this->get_widget_field('Social Share', 'social-share'); ?>
                     <?php $this->get_widget_field('Step Flow', 'step-flow'); ?>
                     <?php $this->get_widget_field('Sticky Video', 'sticky-video'); ?>
@@ -109,10 +109,10 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel'); ?>
                     <?php $this->get_widget_field('Testimonial', 'testimonial'); ?>
                     <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
-                    <?php $this->get_widget_field('Text Marquee', 'text-marquee'); ?>
-                    <?php $this->get_widget_field('3D Text', 'threed-text'); ?>
+                    <?php //$this->get_widget_field('Text Marquee', 'text-marquee'); ?>
+                    <?php //$this->get_widget_field('3D Text', 'threed-text'); ?>
                     <?php $this->get_widget_field('360 Image', 'threesixty-image'); ?>
-                    <?php $this->get_widget_field('Tilt Hover Image', 'tilt-hover-image'); ?>
+                    <?php //$this->get_widget_field('Tilt Hover Image', 'tilt-hover-image'); ?>
                     <?php $this->get_widget_field('Toggle', 'toggle'); ?>
                     <?php $this->get_widget_field('Twitter Feed', 'twitter-feed'); ?>
                     <?php $this->get_widget_field('Twitter Feed Carousel', 'twitter-feed-carousel'); ?>

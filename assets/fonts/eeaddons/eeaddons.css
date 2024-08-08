@@ -1,16 +1,15 @@
 @font-face {
   font-family: 'EEaddons';
   src:
-    url('fonts/EEaddons.ttf') format('truetype'),
-    url('fonts/EEaddons.woff') format('woff'),
-    url('fonts/EEaddons.svg') format('svg');
+    url('fonts/EEaddons.ttf?3yszdi') format('truetype'),
+    url('fonts/EEaddons.woff?3yszdi') format('woff'),
+    url('fonts/EEaddons.svg?3yszdi#EEaddons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="eead-"],
-[class*=" eead-"] {
+[class^="eead-"], [class*=" eead-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'EEaddons' !important;
   speak: never;
@@ -25,206 +24,180 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.eead-list:before {
+.eead-accordion:before {
+  content: "\e934";
+}
+.eead-animated-heading:before {
   content: "\e900";
 }
-
-.eead-testimonial-slider:before {
-  content: "\e901";
-}
-
-.eead-team-carousel:before {
-  content: "\e902";
-}
-
-.eead-team-member:before {
-  content: "\e903";
-}
-
-.eead-portfolio:before {
-  content: "\e904";
-}
-
-.eead-dual-heading:before {
-  content: "\e905";
-}
-
-.eead-counter:before {
-  content: "\e906";
-}
-
-.eead-logo-carousel:before {
-  content: "\e907";
-}
-
-.eead-circular-progressbar:before {
-  content: "\e908";
-}
-
-.eead-twitter:before {
-  content: "\e909";
-}
-
-.eead-one-page-nav:before {
-  content: "\e90a";
-}
-
-.eead-icon-box:before {
-  content: "\e90b";
-}
-
-.eead-vertical-timeline:before {
-  content: "\e90c";
-}
-
-.eead-flip-box:before {
-  content: "\e90d";
-}
-
-.eead-weather:before {
-  content: "\e90e";
-}
-
-.eead-link:before {
-  content: "\e90f";
-}
-
-.eead-image-gallery:before {
-  content: "\e910";
-}
-
-.eead-pricing-list:before {
-  content: "\e911";
-}
-
-.eead-listing:before {
-  content: "\e912";
-}
-
 .eead-business-hours:before {
   content: "\e913";
 }
-
-.eead-comparision:before {
-  content: "\e914";
-}
-
-.eead-testimonial:before {
-  content: "\e915";
-}
-
-.eead-switcher:before {
-  content: "\e916";
-}
-
-.eead-pricing-table:before {
-  content: "\e917";
-}
-
-.eead-vertical-tab:before {
-  content: "\e918";
-}
-
-.eead-horizontal-tab:before {
-  content: "\e919";
-}
-
-.eead-social-share:before {
-  content: "\e91a";
-}
-
-.eead-hot-spot:before {
-  content: "\e91b";
-}
-
-.eead-animated-heading:before {
-  content: "\e91c";
-}
-
-.eead-scroll-image:before {
-  content: "\e91d";
-}
-
-.eead-video-player:before {
-  content: "\e91e";
-}
-
-.eead-progress-bar:before {
-  content: "\e91f";
-}
-
-.eead-pie-chart:before {
-  content: "\e920";
-}
-
-.eead-twitter-feed:before {
-  content: "\e921";
-}
-
-.eead-feature-list:before {
-  content: "\e922";
-}
-
-.eead-logo-grid:before {
-  content: "\e923";
-}
-
-.eead-slider:before {
-  content: "\e924";
-}
-
-.eead-popup:before {
-  content: "\e925";
-}
-
-.eead-toggle:before {
-  content: "\e926";
-}
-
-.eead-advanced-heading:before {
-  content: "\e927";
-}
-
-.eead-drop-bar:before {
-  content: "\e928";
-}
-
 .eead-button:before {
   content: "\e929";
 }
-
-.eead-sticky-video:before {
-  content: "\e92a";
+.eead-button-click:before {
+  content: "\e904";
 }
-
-.eead-step-flow:before {
-  content: "\e92b";
+.eead-circular-progressbar:before {
+  content: "\e908";
 }
-
-.eead-lottie:before {
-  content: "\e92c";
+.eead-compare-image:before {
+  content: "\e901";
 }
-
+.eead-compare:before {
+  content: "\e914";
+}
+.eead-comparison:before {
+  content: "\e922";
+}
+.eead-count-down:before {
+  content: "\e927";
+}
+.eead-counter:before {
+  content: "\e906";
+}
+.eead-drop-bar:before {
+  content: "\e928";
+}
+.eead-dual-button:before {
+  content: "\e92f";
+}
+.eead-dual-heading:before {
+  content: "\e905";
+}
+.eead-flip-box:before {
+  content: "\e90d";
+}
+.eead-gallery-grid:before {
+  content: "\e932";
+}
+.eead-heading:before {
+  content: "\e91c";
+}
+.eead-heading-text:before {
+  content: "\e933";
+}
+.eead-horizontal-tab:before {
+  content: "\e919";
+}
+.eead-hot-spot:before {
+  content: "\e91b";
+}
+.eead-icon-box:before {
+  content: "\e90b";
+}
+.eead-image-accordion:before {
+  content: "\e903";
+}
+.eead-image-gallery:before {
+  content: "\e910";
+}
 .eead-image360:before {
   content: "\e92d";
 }
-
-.eead-video-popup:before {
-  content: "\e92e";
+.eead-link:before {
+  content: "\e90f";
 }
-
-.eead-filter-galler:before {
-  content: "\e92f";
+.eead-listing:before {
+  content: "\e912";
 }
-
+.eead-logo-carousel:before {
+  content: "\e907";
+}
+.eead-logo-grid:before {
+  content: "\e923";
+}
+.eead-lottie:before {
+  content: "\e92c";
+}
 .eead-map:before {
   content: "\e930";
 }
-
-.eead-accordion:before {
+.eead-one-page-nav:before {
+  content: "\e90a";
+}
+.eead-pie-chart:before {
+  content: "\e920";
+}
+.eead-popup:before {
+  content: "\e925";
+}
+.eead-portfolio-grid:before {
+  content: "\e935";
+}
+.eead-pricing:before {
+  content: "\e917";
+}
+.eead-pricing-list:before {
+  content: "\e911";
+}
+.eead-pricing-table:before {
+  content: "\e936";
+}
+.eead-progress-bar:before {
+  content: "\e91f";
+}
+.eead-scroll-image:before {
+  content: "\e91d";
+}
+.eead-slider:before {
+  content: "\e924";
+}
+.eead-social-share:before {
+  content: "\e91a";
+}
+.eead-step-flow:before {
+  content: "\e92b";
+}
+.eead-sticky-video:before {
+  content: "\e92a";
+}
+.eead-switcher:before {
+  content: "\e916";
+}
+.eead-team:before {
+  content: "\e937";
+}
+.eead-team-carousel:before {
+  content: "\e938";
+}
+.eead-team-slider:before {
+  content: "\e902";
+}
+.eead-testimonial:before {
+  content: "\e915";
+}
+.eead-testimonial-slider:before {
+  content: "\e939";
+}
+.eead-toggle:before {
+  content: "\e926";
+}
+.eead-twitter:before {
+  content: "\e909";
+}
+.eead-twitter1:before {
   content: "\e931";
 }
-
-.eead-image-accordion:before {
-  content: "\e932";
+.eead-twitter-feed:before {
+  content: "\e921";
+}
+.eead-vertical-tab:before {
+  content: "\e918";
+}
+.eead-vertical-timeline:before {
+  content: "\e90c";
+}
+.eead-video-player:before {
+  content: "\e91e";
+}
+.eead-video-popup:before {
+  content: "\e92e";
+}
+.eead-video-screen:before {
+  content: "\e93a";
+}
+.eead-weather:before {
+  content: "\e90e";
 }

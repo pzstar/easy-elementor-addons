@@ -32,7 +32,7 @@ class AdvancedHeading extends Widget_Base {
 
 	/** Icon */
 	public function get_icon() {
-		return 'advanced-heading';
+		return 'eead-heading-text';
 	}
 
 	public function get_keywords() {

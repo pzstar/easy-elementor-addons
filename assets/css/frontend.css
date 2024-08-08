@@ -1,3 +1,115 @@
+
+/*--------------------------------------------------------------
+k. accordion css
+--------------------------------------------------------------*/
+.eead-accordion-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.eead-each-accordion{
+    overflow: hidden;
+}
+
+.eead-accordion-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eead-accordion-title-section .eead-accordion-open-icon,
+.eead-accordion-title-section.active .eead-accordion-close-icon {
+    display: block;
+}
+
+.eead-accordion-title-section .eead-accordion-close-icon,
+.eead-accordion-title-section.active .eead-accordion-open-icon {
+    display: none;
+}
+
+.eead-accordion-container .eead-each-accordion h3 {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eead-accordion-content {
+    padding: 0 10px;
+    overflow-y: auto;
+}
+
+.eead-accordion-content *:last-child{
+    margin-bottom: 0;
+}
+
+.eead-accordion-icon-left .eead-accordion-title-section{
+    justify-content: initial;
+    gap: 1em;
+}
+
+.eead-accordion-icon-left .eead-accordion-icon{
+    order: -1;
+}
+
+/*style 1*/
+.eead-accordion-style1 .eead-accordion-title-section {
+    background: #000;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.eead-accordion-style1 .eead-accordion-content{
+    padding: 10px 15px;
+}
+
+/*style 2*/
+.eead-accordion-style2 .eead-accordion-title-section {
+    padding: 10px 15px;
+}
+
+.eead-accordion-container.style2 .eead-each-accordion h3 {
+    color: #808080;
+    font-weight: 400;
+}
+
+/*style 3*/
+.eead-accordion-container.style3 .eead-accordion-title-section {
+    padding: 10px 15px;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-title-section {
+    border: 1px solid #bce8f1;
+    background: #d9edf6;
+    line-height: 1;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:first-child h3,
+.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-icon {
+    color: #4182a8;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-title-section {
+    border: 1px solid #ebccd1;
+    background: #f2dedf;
+    line-height: 1;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) h3,
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-icon {
+    color: #aa4442;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-title-section {
+    border: 1px solid #d5e9c6;
+    background: #e0efd8;
+    line-height: 1;
+}
+
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) h3,
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-icon {
+    color: #3d773a;
+}
+
 /*Social Share Buttons*/
 .eead-social-share-container a {
     display: flex;
@@ -2764,134 +2876,6 @@ j. Portfolio css
     right: 0;
 }
 
-/*--------------------------------------------------------------
-k. accordion css
---------------------------------------------------------------*/
-.eead-accordion-title-section {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.eead-accordion-title-section .eead-accordion-open-icon,
-.eead-accordion-title-section.active .eead-accordion-close-icon {
-    display: block;
-}
-
-.eead-accordion-title-section .eead-accordion-close-icon,
-.eead-accordion-title-section.active .eead-accordion-open-icon {
-    display: none;
-}
-
-.eead-accordion-container .eead-each-accordion h3 {
-    margin-bottom: 0;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.eead-accordion-content {
-    padding: 0 10px;
-    font-size: 16px;
-    font-weight: normal;
-    overflow: hidden;
-    height: 0;
-    -webkit-transition: height .5s ease-in-out;
-    -o-transition: height .5s ease-in-out;
-    transition: height .5s ease-in-out;
-}
-
-.eead-accordion-title-section.active + .eead-accordion-content {
-    padding: 0 10px;
-}
-
-.eead-accordion-container .eead-each-accordion {
-    margin-bottom: 8px;
-}
-
-/*style 1*/
-.eead-accordion-container.style1 .eead-accordion-title-section {
-    background: #fa6463;
-    padding: 10px 15px;
-    position: relative;
-    height: 40px;
-    margin-bottom: 5px;
-}
-
-.eead-accordion-container.style1 .eead-accordion-icon {
-    position: absolute;
-    right: 0;
-    width: 40px;
-    height: 100%;
-    text-align: center;
-    line-height: 40px;
-    color: #fff;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/*style 2*/
-.eead-accordion-container.style2 .eead-accordion-title-section {
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    position: relative;
-    height: 40px;
-    margin-bottom: 5px;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-}
-
-.eead-accordion-container.style2 .eead-each-accordion h3 {
-    color: #808080;
-    font-weight: 400;
-}
-
-/*style 3*/
-.eead-accordion-container.style3 .eead-accordion-title-section {
-    padding: 10px 15px;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-title-section {
-    border: 1px solid #bce8f1;
-    background: #d9edf6;
-    line-height: 1;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:first-child h3,
-.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-icon {
-    color: #4182a8;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-title-section {
-    border: 1px solid #ebccd1;
-    background: #f2dedf;
-    line-height: 1;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) h3,
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-icon {
-    color: #aa4442;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-title-section {
-    border: 1px solid #d5e9c6;
-    background: #e0efd8;
-    line-height: 1;
-}
-
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) h3,
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-icon {
-    color: #3d773a;
-}
 
 /*--------------------------------------------------------------
 l. image gallery css

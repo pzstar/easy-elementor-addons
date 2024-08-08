@@ -29,7 +29,7 @@ class Counter extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-counter';
+        return 'eead-counter';
     }
 
     /** Category */

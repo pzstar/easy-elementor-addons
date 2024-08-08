@@ -36,7 +36,7 @@ class TeamMember extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-team-member';
+        return 'eead-team';
     }
 
     /** Category */
