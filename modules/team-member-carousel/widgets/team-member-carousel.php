@@ -27,7 +27,7 @@ class TeamMemberCarousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-posts-carousel';
+		return 'eead-team-carousel';
 	}
 
 	public function get_categories() {

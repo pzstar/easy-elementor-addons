@@ -225,6 +225,7 @@ class EEAD_Widget_Loader {
      * Enqueue Editor Styles
      */
     public function enqueue_editor_styles() {
+        wp_enqueue_style('easy-elementor-addons-icon-style', EEAD_ASSETS_URL . 'fonts/eeaddons/eeaddons.css', array(), EEAD_VERSION);
         wp_enqueue_style('easy-elementor-addons-editor-style', EEAD_ASSETS_URL . 'css/editor-styles.css', array(), EEAD_VERSION);
     }
 

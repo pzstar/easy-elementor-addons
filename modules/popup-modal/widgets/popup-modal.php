@@ -25,7 +25,7 @@ class PopupModal extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-slideshow';
+		return 'eead-popup';
 	}
 
 	public function get_categories() {

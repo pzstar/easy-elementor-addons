@@ -25,7 +25,7 @@ class PopupVideo extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-navigation-vertical';
+        return 'eead-video-popup';
     }
 
     public function get_categories() {

@@ -30,7 +30,7 @@ class Weather extends Widget_Base {
 
     /* Icon */
     public function get_icon() {
-        return 'eicon-flash';
+        return 'eead-weather';
     }
 
     /* Category */

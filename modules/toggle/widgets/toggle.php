@@ -32,7 +32,7 @@ class Toggle extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-post-navigation';
+        return 'eead-toggle';
     }
 
     /** Category */

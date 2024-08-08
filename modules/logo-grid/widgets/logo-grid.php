@@ -35,7 +35,7 @@ class LogoGrid extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-apps';
+        return 'eead-logo-grid';
     }
 
     public function get_keywords() {

@@ -25,7 +25,7 @@ class OnePageNavigation extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-navigation-vertical';
+		return 'eead-one-page-nav';
 	}
 
 	public function get_categories() {

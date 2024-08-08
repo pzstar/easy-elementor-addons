@@ -28,7 +28,7 @@ class CircularProgressbar extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-counter-circle';
+        return 'eead-circular-progressbar';
     }
 
     /** Category */

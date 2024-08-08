@@ -31,7 +31,7 @@ class PricingTable extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-price-table';
+        return 'eead-pricing-table';
     }
 
     /** Category */

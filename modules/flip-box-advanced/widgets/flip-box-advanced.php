@@ -30,7 +30,7 @@ class FlipBoxAdvanced extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-flip-box';
+        return 'eead-flip-box';
     }
 
     /** Category */

@@ -31,7 +31,7 @@ class VerticalTab extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-tabs eead-icon-rotate';
+        return 'eead-vertical-tab';
     }
 
     /** Category */

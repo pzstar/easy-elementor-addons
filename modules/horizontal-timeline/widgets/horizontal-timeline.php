@@ -33,7 +33,7 @@ class HorizontalTimeline extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-time-line eead-icon-rotate';
+        return 'eead-vertical-timeline';
     }
 
     /** Category */

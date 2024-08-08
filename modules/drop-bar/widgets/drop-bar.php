@@ -32,7 +32,7 @@ class DropBar extends Widget_Base {
 
 	/** Icon */
 	public function get_icon() {
-		return 'eicon-nav-menu';
+		return 'eead-drop-bar';
 	}
 
 	public function get_keywords() {

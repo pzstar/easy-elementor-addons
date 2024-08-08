@@ -30,7 +30,7 @@ class BusinessHour extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-clock';
+        return 'eead-business-hours';
     }
 
     /** Category */

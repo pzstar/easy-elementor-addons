@@ -31,7 +31,7 @@ class Countdown extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-counter-circle';
+        return 'eead-counter';
     }
 
     /** Category */

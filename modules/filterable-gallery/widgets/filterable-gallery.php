@@ -33,7 +33,7 @@ class FilterableGallery extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-gallery-grid';
+        return 'eead-filter-galler';
     }
 
     /** Category */

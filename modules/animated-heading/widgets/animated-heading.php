@@ -28,7 +28,7 @@ class AnimatedHeading extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-animated-headline';
+        return 'eead-animated-heading';
     }
 
     /** Category */

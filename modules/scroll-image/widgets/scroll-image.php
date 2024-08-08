@@ -22,7 +22,7 @@ class ScrollImage extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-scroll';
+		return 'eead-scroll-image';
 	}
 
 	public function get_categories() {

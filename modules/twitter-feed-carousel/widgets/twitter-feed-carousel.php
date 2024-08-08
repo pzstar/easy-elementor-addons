@@ -30,7 +30,7 @@ class TwitterFeedCarousel extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-editor-h1';
+        return 'eead-twitter-feed';
     }
 
     /** Category */

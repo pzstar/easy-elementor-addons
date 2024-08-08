@@ -34,7 +34,7 @@ class Portfolio extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-posts-grid';
+        return 'eead-portfolio';
     }
 
     /** Category */

@@ -35,7 +35,7 @@ class IconList extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-checkbox';
+        return 'eead-list';
     }
 
     /** Category */

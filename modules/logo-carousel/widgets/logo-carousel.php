@@ -29,7 +29,7 @@ class LogoCarousel extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-carousel';
+        return 'eead-logo-carousel';
     }
 
     /** Category */

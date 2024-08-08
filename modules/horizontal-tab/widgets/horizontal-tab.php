@@ -31,7 +31,7 @@ class HorizontalTab extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-tabs';
+        return 'eead-horizontal-tab';
     }
 
     /** Category */

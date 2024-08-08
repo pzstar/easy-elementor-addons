@@ -30,7 +30,7 @@ class ImageComparison extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-image-before-after';
+        return 'eead-comparision';
     }
 
     /** Category */

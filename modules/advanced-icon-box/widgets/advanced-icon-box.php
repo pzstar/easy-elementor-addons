@@ -34,7 +34,7 @@ class AdvancedIconBox extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-icon-box';
+        return 'eead-icon-box';
     }
 
     /** Category */
