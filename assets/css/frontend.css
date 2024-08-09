@@ -5,36 +5,37 @@ k. accordion css
 .eead-accordion-container{
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
 }
 
 .eead-each-accordion{
     overflow: hidden;
 }
 
-.eead-accordion-title-section {
+.eead-accordion-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
-.eead-accordion-title-section .eead-accordion-open-icon,
-.eead-accordion-title-section.active .eead-accordion-close-icon {
+.eead-each-accordion .eead-accordion-open-icon,
+.eead-each-accordion.eead-open .eead-accordion-close-icon {
     display: block;
 }
 
-.eead-accordion-title-section .eead-accordion-close-icon,
-.eead-accordion-title-section.active .eead-accordion-open-icon {
+.eead-each-accordion .eead-accordion-close-icon,
+.eead-each-accordion.eead-open .eead-accordion-open-icon {
     display: none;
 }
 
 .eead-accordion-container .eead-each-accordion h3 {
-    margin-bottom: 0;
-    font-size: 16px;
-    font-weight: 600;
+    margin: 0;
+    font-size: 1.2em;
 }
 
 .eead-accordion-content {
-    padding: 0 10px;
+    display: none;
     overflow-y: auto;
 }
 
@@ -42,7 +43,7 @@ k. accordion css
     margin-bottom: 0;
 }
 
-.eead-accordion-icon-left .eead-accordion-title-section{
+.eead-accordion-icon-left .eead-accordion-title{
     justify-content: initial;
     gap: 1em;
 }
@@ -52,18 +53,18 @@ k. accordion css
 }
 
 /*style 1*/
-.eead-accordion-style1 .eead-accordion-title-section {
+.eead-accordion-style1 .eead-accordion-title{
     background: #000;
-    padding: 10px 15px;
+    padding: 1em;
     color: #fff;
 }
 
 .eead-accordion-style1 .eead-accordion-content{
-    padding: 10px 15px;
+    padding: 1em 0;
 }
 
 /*style 2*/
-.eead-accordion-style2 .eead-accordion-title-section {
+.eead-accordion-style2 .eead-accordion-title{
     padding: 10px 15px;
 }
 
@@ -73,11 +74,11 @@ k. accordion css
 }
 
 /*style 3*/
-.eead-accordion-container.style3 .eead-accordion-title-section {
+.eead-accordion-container.style3 .eead-accordion-title{
     padding: 10px 15px;
 }
 
-.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-title-section {
+.eead-accordion-container.style3 .eead-each-accordion:first-child .eead-accordion-title{
     border: 1px solid #bce8f1;
     background: #d9edf6;
     line-height: 1;
@@ -88,7 +89,7 @@ k. accordion css
     color: #4182a8;
 }
 
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-title-section {
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(2) .eead-accordion-title{
     border: 1px solid #ebccd1;
     background: #f2dedf;
     line-height: 1;
@@ -99,7 +100,7 @@ k. accordion css
     color: #aa4442;
 }
 
-.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-title-section {
+.eead-accordion-container.style3 .eead-each-accordion:nth-child(3) .eead-accordion-title{
     border: 1px solid #d5e9c6;
     background: #e0efd8;
     line-height: 1;

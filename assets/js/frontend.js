@@ -1521,41 +1521,18 @@
 
         accordionBlock: function ($scope) {
             var accordion = $scope.find('.eead-each-accordion');
-            var windowsize = window.innerWidth;
 
             if (accordion.length > 0) {
-                $scope.find('.eead-accordion-title-section').each(function () {
+                accordion.find('.eead-accordion-title').each(function () {
                     var eachTitle = $(this);
-                    var eachHeight = JSON.parse(eachTitle.attr('data-height'));
-
-                    // Check If active on windows load
-                    if (eachTitle.hasClass('active')) {
-                        if (windowsize > 768) {
-                            eachTitle.next().css({'height': eachHeight.content_height + 'px'});
-                        } else if (windowsize > 480) {
-                            eachTitle.next().css({'height': eachHeight.content_height_tablet + 'px'});
-                        } else {
-                            eachTitle.next().css({'height': eachHeight.content_height_mobile + 'px'});
-                        }
-                    }
-
                     // On Accordion Click
                     eachTitle.on('click', function () {
-                        var content = $(this).parent().find('.eead-accordion-content');
-                        var height = JSON.parse($(this).attr('data-height'));
-                        if (!$(this).hasClass('active')) {
-                            $(this).addClass('active');
-                            // content.css({ 'height': height+'px' });
-                            if (windowsize > 768) {
-                                content.css({'height': height.content_height + 'px'});
-                            } else if (windowsize > 480) {
-                                content.css({'height': height.content_height_tablet + 'px'});
-                            } else {
-                                content.css({'height': height.content_height_mobile + 'px'});
-                            }
-                        } else {
-                            $(this).removeClass('active');
-                            content.css({'height': '0px'});
+                        if(!$(this).parent('.eead-each-accordion').hasClass('eead-open')){
+                            $(this).next('.eead-accordion-content').slideDown();
+                            $(this).parent('.eead-each-accordion').addClass('eead-open');
+                        }else{
+                            $(this).next('.eead-accordion-content').slideUp();
+                            $(this).parent('.eead-each-accordion').removeClass('eead-open');
                         }
                     });
                 });
