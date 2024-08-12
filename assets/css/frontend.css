@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-k. accordion css
+Accordion
 --------------------------------------------------------------*/
 .eead-accordion-container {
     display: flex;
@@ -83,10 +83,11 @@ k. accordion css
     color: var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #FFF));
 }
 
-
-/* Advanced Button */
-.eead-ep-button {
-    cursor: pointer;
+/*--------------------------------------------------------------
+Advanced Button
+--------------------------------------------------------------*/
+/* General */
+.eead-ab-button-wrapper .eead-ab-button {
     display: inline-block;
     text-transform: uppercase;
     outline: none;
@@ -94,50 +95,112 @@ k. accordion css
     transition: all .3s ease-out;
     z-index: 0;
     text-align: center;
-    overflow: hidden
+    overflow: hidden;
+    padding: var(--eead-ab-button-padding, 0);
+    border-radius: var(--eead-ab-button-border-radius, 0);
+    color: var(--eead-ab-button-text-color, inherit);
+    transition: all .3s ease-out;
 }
 
-.eead-ep-button:hover {
-    background-color: transparent;
-    color: #fff
+.eead-ab-button-wrapper .eead-ab-button:hover,
+.eead-ab-button-wrapper .eead-ab-button:active {
+    color: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
 }
 
-.eead-ep-button .eead-ep-button-icon {
+.eead-ab-button .eead-ab-button-icon {
     position: relative;
     display: inline-flex;
     z-index: 0
 }
 
-.eead-ep-button .eead-ep-button-icon .eead-ep-button-a-icon-inner,
-.eead-ep-button .eead-ep-button-icon .eead-ep-button-b-icon-inner,
-.eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner {
-    display: inline-flex
+.eead-ab-button .eead-ab-button-icon i,
+.eead-ab-button .eead-ab-button-icon svg {
+    width: 1em;
+    color: var(--eead-ab-button-text-color, inherit);
+    fill: var(--eead-ab-button-text-color, inherit);
+    transition: all .3s ease-out;
 }
 
-.eead-ep-button .eead-ep-button-icon i,
-.eead-ep-button .eead-ep-button-icon svg {
-    width: 1em
+.eead-ab-button:hover .eead-ab-button-icon i,
+.eead-ab-button:hover .eead-ab-button-icon svg {
+    color: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
+    fill: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
 }
 
-.eead-ep-button .eead-ep-button-text {
+.eead-ab-button .eead-ab-button-text {
     position: relative;
     display: inline-block;
     z-index: 0
 }
 
-.eead-ep-button:after {
+.eead-ab-button:after {
     content: '';
     position: absolute;
     z-index: -1;
     transition: all .3s ease-out;
-    background: #666
 }
 
-.eead-ep-button:active {
-    color: #fff
+/* Size */
+.eead-ab-button-size-sm .eead-ab-button {
+    --eead-ab-button-padding: 10px 20px;
+    font-size: 12px;
 }
 
-.eead-ep-button.eead-ep-button-effect-a:after {
+.eead-ab-button-size-md .eead-ab-button {
+    --eead-ab-button-padding: 15px 30px;
+    font-size: 14px;
+}
+
+.eead-ab-button-size-lg .eead-ab-button {
+    --eead-ab-button-padding: 20px 40px;
+    font-size: 16px;
+}
+
+.eead-ab-button-size-xl .eead-ab-button {
+    --eead-ab-button-padding: 25px 50px;
+    font-size: 18px;
+}
+
+.eead-ab-button-size-xs .eead-ab-button {
+    --eead-ab-button-padding: 5px 10px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+/* Alignment */
+.eead-ab-button-wrapper {
+    display: flex;
+}
+
+.eead-ab-button-align-center .eead-ab-button-wrapper {
+    justify-content: center;
+}
+
+.eead-ab-button-align-right .eead-ab-button-wrapper {
+    justify-content: flex-end;
+}
+
+/* Icon Alignment */
+.eead-ab-button-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--eead-ab-button-icon-spacing, 1em);
+}
+
+.eead-ab-icon-align-right .eead-ab-button-content-wrapper {
+    flex-direction: row-reverse;
+}
+
+.eead-ab-icon-align-top .eead-ab-button-content-wrapper {
+    flex-direction: column;
+}
+
+.eead-ab-icon-align-bottom .eead-ab-button-content-wrapper {
+    flex-direction: column-reverse;
+}
+
+/* Animation */
+.eead-ab-button-effect-a .eead-ab-button:after {
     width: 100%;
     height: 100%;
     top: 0;
@@ -145,46 +208,39 @@ k. accordion css
     opacity: 0
 }
 
-.eead-ep-button.eead-ep-button-effect-a:hover:after,
-.eead-ep-button.eead-ep-button-effect-a:active:after {
+.eead-ab-button-effect-a .eead-ab-button:hover:after,
+.eead-ab-button-effect-a .eead-ab-button:active:after {
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-b:after {
+.eead-ab-button-effect-b .eead-ab-button:after {
     width: 100%;
     height: 0;
     top: 0;
     left: 0
 }
 
-.eead-ep-button.eead-ep-button-effect-b:hover:after {
+.eead-ab-button-effect-b .eead-ab-button:hover:after {
     height: 100%
 }
 
-.eead-ep-button.eead-ep-button-effect-b:active:after {
+.eead-ab-button-effect-b .eead-ab-button:active:after {
     height: 100%
 }
 
-.eead-ep-button.eead-ep-button-effect-c:after {
+.eead-ab-button-effect-c .eead-ab-button:after {
     width: 0;
     height: 100%;
     top: 0;
     left: 0
 }
 
-.eead-ep-button.eead-ep-button-effect-c:hover:after {
+.eead-ab-button-effect-c .eead-ab-button:hover:after,
+.eead-ab-button-effect-c .eead-ab-button:active:after {
     width: 100%
 }
 
-.eead-ep-button.eead-ep-button-effect-c:active:after {
-    width: 100%
-}
-
-.eead-ep-button.eead-ep-button-effect-d {
-    overflow: hidden
-}
-
-.eead-ep-button.eead-ep-button-effect-d:after {
+.eead-ab-button-effect-d .eead-ab-button:after {
     width: 0;
     height: 103%;
     top: 50%;
@@ -193,21 +249,17 @@ k. accordion css
     transform: translateX(-50%) translateY(-50%)
 }
 
-.eead-ep-button.eead-ep-button-effect-d:hover:after {
+.eead-ab-button-effect-d .eead-ab-button:hover:after {
     width: 90%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-d:active:after {
+.eead-ab-button-effect-d .eead-ab-button:active:after {
     width: 101%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-e {
-    overflow: hidden
-}
-
-.eead-ep-button.eead-ep-button-effect-e:after {
+.eead-ab-button-effect-e .eead-ab-button:after {
     width: 100%;
     height: 0;
     top: 50%;
@@ -216,21 +268,17 @@ k. accordion css
     transform: translateX(-50%) translateY(-50%) rotate(45deg)
 }
 
-.eead-ep-button.eead-ep-button-effect-e:hover:after {
+.eead-ab-button-effect-e .eead-ab-button:hover:after {
     height: 260%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-e:active:after {
+.eead-ab-button-effect-e .eead-ab-button:active:after {
     height: 400%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-f {
-    overflow: hidden
-}
-
-.eead-ep-button.eead-ep-button-effect-f:after {
+.eead-ab-button-effect-f .eead-ab-button:after {
     width: 101%;
     height: 0;
     top: 50%;
@@ -239,36 +287,36 @@ k. accordion css
     transform: translateX(-50%) translateY(-50%)
 }
 
-.eead-ep-button.eead-ep-button-effect-f:hover:after {
-    height: 75%;
+.eead-ab-button-effect-f .eead-ab-button:hover:after {
+    height: 80%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-f:active:after {
+.eead-ab-button-effect-f .eead-ab-button:active:after {
     height: 130%;
     opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-g {
-    transition-timing-function: cubic-bezier(.31, 1.13, .64, .94)
+.eead-ab-button-effect-g .eead-ab-button:after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0
 }
 
-.eead-ep-button.eead-ep-button-effect-g .eead-ep-button-content-wrapper {
-    position: relative
+.eead-ab-button-effect-g .eead-ab-button:hover:after,
+.eead-ab-button-effect-g .eead-ab-button:active:after {
+    opacity: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-g .eead-ep-button-content-wrapper .eead-ep-button-text {
-    display: block;
-    position: relative
-}
-
-.eead-ep-button.eead-ep-button-effect-g .eead-ep-button-content-wrapper .avdbtn-text {
+.eead-ab-button-effect-g .eead-ab-button .eead-ab-button-span-text {
     display: block;
     transition: transform .5s, opacity .8s;
     transition-timing-function: cubic-bezier(.31, 1.13, .64, .94)
 }
 
-.eead-ep-button.eead-ep-button-effect-g .eead-ep-button-content-wrapper .avdbtn-alt-text {
+.eead-ab-button-effect-g .eead-ab-button .eead-ab-button-span-alt-text {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -280,167 +328,70 @@ k. accordion css
     transition-timing-function: cubic-bezier(.31, 1.13, .64, .94)
 }
 
-.eead-ep-button.eead-ep-button-effect-g:hover {
-    background-color: transparent;
-    color: #666
-}
-
-.eead-ep-button.eead-ep-button-effect-g:hover .avdbtn-alt-text {
+.eead-ab-button-effect-g .eead-ab-button:hover .eead-ab-button-span-alt-text {
     opacity: 1;
     transform: translate3d(0, 0, 0)
 }
 
-.eead-ep-button.eead-ep-button-effect-g:hover .avdbtn-text {
+.eead-ab-button-effect-g .eead-ab-button:hover .eead-ab-button-span-text {
     opacity: 0;
     transform: translate3d(0, -25%, 0)
 }
 
-.eead-ep-button.eead-ep-button-effect-h {
-    transition: color .3s;
-    transition-timing-function: cubic-bezier(.2, 1, .3, 1)
-}
-
-.eead-ep-button.eead-ep-button-effect-h::after {
+.eead-ab-button-effect-h .eead-ab-button::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 150%;
     height: 100%;
-    background: #666;
     z-index: -1;
     transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
     transform-origin: 0 100%;
     transition: transform .3s, opacity .3s, background-color .3s
 }
 
-.eead-ep-button.eead-ep-button-effect-h:hover::after {
+.eead-ab-button-effect-h .eead-ab-button:hover::after {
     opacity: 1;
-    background-color: #666;
     transform: rotate3d(0, 0, 1, 0deg);
     transition-timing-function: cubic-bezier(.2, 1, .3, 1)
 }
 
-.eead-ep-button.eead-ep-button-effect-i {
-    color: #fff;
-    background: #666
-}
-
-.eead-ep-button.eead-ep-button-effect-i .eead-ep-button-content-wrapper::before {
+.eead-ab-button-effect-i .eead-ab-button::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 50%;
     left: 0;
-    background: #666;
-    color: #fff;
     overflow: hidden;
     transition: transform .3s;
     transition-timing-function: cubic-bezier(.2, 1, .3, 1);
     top: 0;
-    padding-top: 1em
 }
 
-.eead-ep-button.eead-ep-button-effect-i .eead-ep-button-content-wrapper::after {
+.eead-ab-button-effect-i .eead-ab-button::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 50%;
     left: 0;
-    background: #666;
-    color: #fff;
     overflow: hidden;
     transition: transform .3s;
     transition-timing-function: cubic-bezier(.2, 1, .3, 1);
     bottom: 0;
-    line-height: 0
 }
 
-.eead-ep-button.eead-ep-button-effect-i .eead-ep-button-text {
+.eead-ab-button-effect-i .eead-ab-button-text {
     position: relative;
     z-index: 1
 }
 
-.eead-ep-button.eead-ep-button-effect-i:hover {
-    color: #666;
-    background: #fff
-}
-
-.eead-ep-button.eead-ep-button-effect-i:hover .eead-ep-button-content-wrapper::before {
+.eead-ab-button-effect-i .eead-ab-button:hover::before {
     transform: translate3d(0, -100%, 0)
 }
 
-.eead-ep-button.eead-ep-button-effect-i:hover .eead-ep-button-content-wrapper::after {
+.eead-ab-button-effect-i .eead-ab-button:hover::after {
     transform: translate3d(0, 100%, 0)
-}
-
-.eead-ep-button.eead-ep-button-size-xs {
-    padding: 5px 10px;
-    font-size: 10px;
-    font-weight: 400;
-}
-
-.eead-ep-button.eead-ep-button-size-sm {
-    padding: 10px 20px;
-    font-size: 12px;
-}
-
-.eead-ep-button.eead-ep-button-size-md {
-    padding: 15px 30px;
-}
-
-.eead-ep-button.eead-ep-button-size-lg {
-    padding: 20px 30px;
-    font-size: 16px;
-}
-
-.eead-ep-button.eead-ep-button-size-xl {
-    padding: 25px 30px;
-    font-size: 18px;
-}
-
-.eead-flex {
-    display: flex;
-}
-
-.eead-flex-center {
-    justify-content: center;
-}
-
-.eead-flex-middle {
-    align-items: center;
-}
-
-.eead-flex-column {
-    flex-direction: column;
-}
-
-.eead-flex-column-reverse {
-    flex-direction: column-reverse;
-}
-
-.eead-flex-align-right {
-    order: 99;
-}
-
-.eead-flex-align-left {
-    order: -1;
-}
-
-.eead-ep-button .eead-flex-align-left {
-    margin-right: 8px;
-}
-
-.eead-ep-button .eead-flex-align-right {
-    margin-left: 8px;
-}
-
-.eead-ep-button .eead-flex-align-top {
-    margin-bottom: 8px;
-}
-
-.eead-ep-button .eead-flex-align-bottom {
-    margin-top: 8px;
 }
 
 

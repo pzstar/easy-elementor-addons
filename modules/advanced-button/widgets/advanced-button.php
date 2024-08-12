@@ -90,6 +90,28 @@ class AdvancedButton extends Widget_Base {
                     'lg' => esc_html__('Large', 'easy-elementor-addons'),
                     'xl' => esc_html__('Extra Large', 'easy-elementor-addons'),
                 ],
+                'prefix_class' => 'eead-ab-button-size-'
+            ]
+        );
+
+        $this->add_control(
+            'button_animation',
+            [
+                'label' => esc_html__('Animation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'b',
+                'options' => [
+                    'a' => esc_html__('Animation A', 'easy-elementor-addons'),
+                    'b' => esc_html__('Animation B', 'easy-elementor-addons'),
+                    'c' => esc_html__('Animation C', 'easy-elementor-addons'),
+                    'd' => esc_html__('Animation D', 'easy-elementor-addons'),
+                    'e' => esc_html__('Animation E', 'easy-elementor-addons'),
+                    'f' => esc_html__('Animation F', 'easy-elementor-addons'),
+                    'g' => esc_html__('Animation G', 'easy-elementor-addons'),
+                    'h' => esc_html__('Animation H', 'easy-elementor-addons'),
+                    'i' => esc_html__('Animation I', 'easy-elementor-addons'),
+                ],
+                'prefix_class' => 'eead-ab-button-effect-'
             ]
         );
 
@@ -149,6 +171,7 @@ class AdvancedButton extends Widget_Base {
                 'condition' => [
                     'button_icon[value]!' => '',
                 ],
+                'prefix_class' => 'eead-ab-icon-align-'
             ]
         );
 
@@ -169,10 +192,7 @@ class AdvancedButton extends Widget_Base {
                     'button_icon[value]!' => '',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button .eead-flex-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ep-button .eead-flex-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ep-button .eead-flex-align-top' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ep-button .eead-flex-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-ab-button-icon-spacing: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -187,24 +207,11 @@ class AdvancedButton extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'button_animation',
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
             [
-                'label' => esc_html__('Animation', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'b',
-                'options' => [
-                    'a' => esc_html__('Animation A', 'easy-elementor-addons'),
-                    'b' => esc_html__('Animation B', 'easy-elementor-addons'),
-                    'c' => esc_html__('Animation C', 'easy-elementor-addons'),
-                    'd' => esc_html__('Animation D', 'easy-elementor-addons'),
-                    'e' => esc_html__('Animation E', 'easy-elementor-addons'),
-                    'f' => esc_html__('Animation F', 'easy-elementor-addons'),
-                    'g' => esc_html__('Animation G', 'easy-elementor-addons'),
-                    'h' => esc_html__('Animation H', 'easy-elementor-addons'),
-                    'i' => esc_html__('Animation I', 'easy-elementor-addons'),
-                ],
-                'render_type' => 'template',
+                'name' => 'button_typography',
+                'selector' => '{{WRAPPER}} .eead-ab-button',
             ]
         );
 
@@ -213,7 +220,6 @@ class AdvancedButton extends Widget_Base {
             [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'prefix_class' => 'elementor%s-align-',
                 'default' => '',
                 'options' => [
                     'left' => [
@@ -229,26 +235,50 @@ class AdvancedButton extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
+                'prefix_class' => 'eead-ab-button-align-',
             ]
         );
 
-        $this->start_controls_tabs('tabs_advanced_button_style');
+        $this->add_responsive_control(
+            'button_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-ab-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-ab-button-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_button_style');
 
         $this->start_controls_tab(
-            'tab_advanced_button_normal',
+            'tab_button_normal',
             [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'advanced_button_text_color',
+            'button_text_color',
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#666',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-ab-button-text-color: {{VALUE}};',
                 ],
             ]
         );
@@ -258,127 +288,61 @@ class AdvancedButton extends Widget_Base {
             [
                 'name' => 'button_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-ep-button,
-                    {{WRAPPER}} .eead-ep-button.eead-ep-button-effect-i .eead-ep-button-content-wrapper:after,
-                    {{WRAPPER}} .eead-ep-button.eead-ep-button-effect-i .eead-ep-button-content-wrapper:before,
-                    {{WRAPPER}} .eead-ep-button.eead-ep-button-effect-h:hover',
-                'separator' => 'after',
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-ab-button'
             ]
         );
 
-        $this->add_control(
-            'button_border_style',
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
             [
-                'label' => esc_html__('Border Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'solid',
-                'options' => [
-                    'none' => esc_html__('None', 'easy-elementor-addons'),
-                    'solid' => esc_html__('Solid', 'easy-elementor-addons'),
-                    'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
-                    'dashed' => esc_html__('Dashed', 'easy-elementor-addons'),
-                    'groove' => esc_html__('Groove', 'easy-elementor-addons'),
+                'name' => 'button_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'solid',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ],
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'border-style: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'button_border_width',
-            [
-                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'default' => [
-                    'top' => 3,
-                    'right' => 3,
-                    'bottom' => 3,
-                    'left' => 3,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'button_border_style!' => 'none'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'button_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#666',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'border-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'button_border_style!' => 'none'
-                ],
-                'separator' => 'after',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'advanced_button_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'selector' => '{{WRAPPER}} .eead-ab-button',
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'advanced_button_shadow',
-                'selector' => '{{WRAPPER}} .eead-ep-button',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'advanced_button_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'advanced_button_typography',
-                'selector' => '{{WRAPPER}} .eead-ep-button',
+                'name' => 'button_shadow',
+                'selector' => '{{WRAPPER}} .eead-ab-button',
             ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_advanced_button_hover',
+            'tab_button_hover',
             [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'advanced_button_hover_text_color',
+            'button_text_color_hover',
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
+                'default' => '#FFF',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-ab-button-text-color-hover: {{VALUE}};',
                 ],
             ]
         );
@@ -386,87 +350,35 @@ class AdvancedButton extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name' => 'button_hover_background',
+                'name' => 'button_background_hover',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-ep-button:after, 
-                    {{WRAPPER}} .eead-ep-button:hover,
-                    {{WRAPPER}} .eead-ep-button.eead-ep-button-effect-i,
-                    {{WRAPPER}} .eead-ep-button.eead-ep-button-effect-h:after',
+                'exclude' => ['image'],
+                'fields_options' => [
+                    'background' => [
+                        'default' => 'classic'
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ],
+                ],
+                'selector' => '{{WRAPPER}} .eead-ab-button:after,
+                {{WRAPPER}} .eead-ab-button::before',
             ]
         );
 
-        $this->add_control(
-            'button_hover_border_style',
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
             [
-                'label' => esc_html__('Border Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'solid',
-                'options' => [
-                    'none' => esc_html__('None', 'easy-elementor-addons'),
-                    'solid' => esc_html__('Solid', 'easy-elementor-addons'),
-                    'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
-                    'dashed' => esc_html__('Dashed', 'easy-elementor-addons'),
-                    'groove' => esc_html__('Groove', 'easy-elementor-addons'),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover' => 'border-style: {{VALUE}};',
-                ],
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'button_hover_border_width',
-            [
-                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'default' => [
-                    'top' => 3,
-                    'right' => 3,
-                    'bottom' => 3,
-                    'left' => 3,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'button_hover_border_style!' => 'none'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'button_hover_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover' => 'border-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'button_hover_border_style!' => 'none'
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'advanced_button_hover_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'name' => 'button_border_hover',
+                'selector' => '{{WRAPPER}} .eead-ab-button:hover',
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'advanced_button_hover_shadow',
-                'selector' => '{{WRAPPER}} .eead-ep-button:hover',
+                'name' => 'button_shadow_hover',
+                'selector' => '{{WRAPPER}} .eead-ab-button:hover',
             ]
         );
 
@@ -483,179 +395,27 @@ class AdvancedButton extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style_icon',
-            [
-                'label' => esc_html__('Icon', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'button_icon[value]!' => '',
-                ],
-            ]
-        );
-
-        $this->start_controls_tabs('tabs_advanced_button_icon_style');
-
-        $this->start_controls_tab(
-            'tab_advanced_button_icon_normal',
-            [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
-            ]
-        );
-
-        $this->add_control(
-            'advanced_button_icon_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon i' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon svg' => 'fill: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'advanced_button_icon_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner',
-                'separator' => 'after',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'advanced_button_icon_border',
-                'placeholder' => '1px',
-                'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner',
-            ]
-        );
-
-        $this->add_control(
-            'advanced_button_icon_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'advanced_button_icon_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'advanced_button_icon_shadow',
-                'selector' => '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'advanced_button_icon_size',
-            [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button .eead-ep-button-icon .eead-ep-button-icon-inner' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'tab_advanced_button_icon_hover',
-            [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
-            ]
-        );
-
-        $this->add_control(
-            'advanced_button_hover_icon_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover .eead-ep-button-icon i' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ep-button:hover .eead-ep-button-icon svg' => 'fill: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'advanced_button_icon_hover_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-ep-button:hover .eead-ep-button-icon .eead-ep-button-icon-inner',
-                'separator' => 'after',
-            ]
-        );
-
-        $this->add_control(
-            'icon_hover_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'button_border_style!' => 'none'
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ep-button:hover .eead-ep-button-icon .eead-ep-button-icon-inner' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-
-        $this->end_controls_section();
     }
 
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute('wrapper', 'class', 'eead-ep-button-wrapper');
+        $this->add_render_attribute('wrapper', 'class', 'eead-ab-button-wrapper');
 
         if (!empty($settings['link']['url'])) {
-            $this->add_render_attribute('advanced_button', 'href', $settings['link']['url']);
+            $this->add_render_attribute('button', 'href', $settings['link']['url']);
 
             if ($settings['link']['is_external']) {
-                $this->add_render_attribute('advanced_button', 'target', '_blank');
+                $this->add_render_attribute('button', 'target', '_blank');
             }
 
             if ($settings['link']['nofollow']) {
-                $this->add_render_attribute('advanced_button', 'rel', 'nofollow');
+                $this->add_render_attribute('button', 'rel', 'nofollow');
             }
         }
 
         if ($settings['link']['nofollow']) {
-            $this->add_render_attribute('advanced_button', 'rel', 'nofollow');
+            $this->add_render_attribute('button', 'rel', 'nofollow');
         }
 
         if ($settings['add_custom_attributes'] and !empty($settings['custom_attributes'])) {
@@ -670,23 +430,21 @@ class AdvancedButton extends Widget_Base {
                     }
 
                     if (!in_array(strtolower($attr[0]), $reserved_attr)) {
-                        $this->add_render_attribute('advanced_button', trim($attr[0]), trim($attr[1]));
+                        $this->add_render_attribute('button', trim($attr[0]), trim($attr[1]));
                     }
                 }
             }
         }
 
-        $this->add_render_attribute('advanced_button', 'class', 'eead-ep-button');
-        $this->add_render_attribute('advanced_button', 'class', 'eead-ep-button-effect-' . esc_attr($settings['button_animation']));
-        $this->add_render_attribute('advanced_button', 'class', 'eead-ep-button-size-' . esc_attr($settings['button_size']));
+        $this->add_render_attribute('button', 'class', 'eead-ab-button');
 
         if ($settings['hover_animation']) {
-            $this->add_render_attribute('advanced_button', 'class', 'elementor-animation-' . $settings['hover_animation']);
+            $this->add_render_attribute('button', 'class', 'elementor-animation-' . $settings['hover_animation']);
         }
 
         ?>
         <div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
-            <a <?php echo $this->get_render_attribute_string('advanced_button'); ?>>
+            <a <?php echo $this->get_render_attribute_string('button'); ?>>
                 <?php $this->render_text(); ?>
             </a>
         </div>
@@ -695,18 +453,8 @@ class AdvancedButton extends Widget_Base {
 
     public function render_text() {
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute('content-wrapper', 'class', 'eead-ep-button-content-wrapper');
-
-        if ('left' == $settings['icon_align'] or 'right' == $settings['icon_align']) {
-            $this->add_render_attribute('content-wrapper', 'class', 'eead-flex eead-flex-middle');
-        }
-
-        $this->add_render_attribute('content-wrapper', 'class', ('top' == $settings['icon_align']) ? 'eead-flex eead-flex-column' : '');
-        $this->add_render_attribute('content-wrapper', 'class', ('bottom' == $settings['icon_align']) ? 'eead-flex eead-flex-column-reverse' : '');
-        $this->add_render_attribute('content-wrapper', 'data-text', esc_attr($settings['text']));
-        $this->add_render_attribute('icon-align', 'class', 'elementor-align-icon-' . $settings['icon_align']);
-        $this->add_render_attribute('icon-align', 'class', 'eead-ep-button-icon');
-        $this->add_render_attribute('text', 'class', 'eead-ep-button-text');
+        $this->add_render_attribute('content-wrapper', 'class', 'eead-ab-button-content-wrapper');
+        $this->add_render_attribute('text', 'class', 'eead-ab-button-text');
         $this->add_inline_editing_attributes('text', 'none');
 
         $migrated = isset($settings['__fa4_migrated']['button_icon']);
@@ -717,32 +465,30 @@ class AdvancedButton extends Widget_Base {
             <?php
             if (!empty($settings['button_icon']['value'])) {
                 ?>
-                <div class="eead-ep-button-icon eead-flex-center eead-flex-align-<?php echo esc_attr($settings['icon_align']); ?>">
-                    <div class="eead-ep-button-icon-inner">
-                        <?php
-                        if ($is_new || $migrated) {
-                            Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
-                        } else {
-                            ?>
-                            <i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
-                            <?php
-                        }
+                <div class="eead-ab-button-icon">
+                    <?php
+                    if ($is_new || $migrated) {
+                        Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+                    } else {
                         ?>
-                    </div>
+                        <i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <?php
             }
             ?>
 
             <div <?php $this->print_render_attribute_string('text'); ?>>
-                <span class="avdbtn-text">
+                <span class="eead-ab-button-span-text">
                     <?php echo esc_html($settings['text']); ?>
                 </span>
 
                 <?php
                 if ('g' == $settings['button_animation']) {
                     ?>
-                    <span class="avdbtn-alt-text">
+                    <span class="eead-ab-button-span-alt-text">
                         <?php echo esc_html($settings['text']); ?>
                     </span>
                     <?php

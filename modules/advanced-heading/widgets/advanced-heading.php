@@ -728,7 +728,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Advanced Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'prefix_class' => 'eead-ep-main-color-',
+				'prefix_class' => 'eead-ab-main-color-',
 				'render_type' => 'template',
 			]
 		);
@@ -874,7 +874,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Advanced Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'prefix_class' => 'eead-ep-advanced-color-',
+				'prefix_class' => 'eead-ab-advanced-color-',
 				'render_type' => 'template',
 			]
 		);
