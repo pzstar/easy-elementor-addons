@@ -484,16 +484,6 @@ class AdvancedButton extends Widget_Base {
                 <span class="eead-ab-button-span-text">
                     <?php echo esc_html($settings['text']); ?>
                 </span>
-
-                <?php
-                if ('g' == $settings['button_animation']) {
-                    ?>
-                    <span class="eead-ab-button-span-alt-text">
-                        <?php echo esc_html($settings['text']); ?>
-                    </span>
-                    <?php
-                }
-                ?>
             </div>
         </div>
         <?php

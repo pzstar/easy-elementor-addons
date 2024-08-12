@@ -310,32 +310,9 @@ Advanced Button
     opacity: 1
 }
 
-.eead-ab-button-effect-g .eead-ab-button .eead-ab-button-span-text {
-    display: block;
-    transition: transform .5s, opacity .8s;
-    transition-timing-function: cubic-bezier(.31, 1.13, .64, .94)
-}
-
-.eead-ab-button-effect-g .eead-ab-button .eead-ab-button-span-alt-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transform: translate3d(0, 25%, 0);
-    transition: transform .5s, opacity .8s;
-    transition-timing-function: cubic-bezier(.31, 1.13, .64, .94)
-}
-
-.eead-ab-button-effect-g .eead-ab-button:hover .eead-ab-button-span-alt-text {
-    opacity: 1;
-    transform: translate3d(0, 0, 0)
-}
-
 .eead-ab-button-effect-g .eead-ab-button:hover .eead-ab-button-span-text {
-    opacity: 0;
-    transform: translate3d(0, -25%, 0)
+    display: inline-block;
+    animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
 }
 
 .eead-ab-button-effect-h .eead-ab-button::after {
@@ -355,6 +332,14 @@ Advanced Button
     opacity: 1;
     transform: rotate3d(0, 0, 1, 0deg);
     transition-timing-function: cubic-bezier(.2, 1, .3, 1)
+}
+
+.eead-ab-button-effect-i .eead-ab-button{
+    color: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
+}
+
+.eead-ab-button-effect-i .eead-ab-button:hover{
+    color: var(--eead-ab-button-text-color, inherit);
 }
 
 .eead-ab-button-effect-i .eead-ab-button::before {
@@ -392,6 +377,21 @@ Advanced Button
 
 .eead-ab-button-effect-i .eead-ab-button:hover::after {
     transform: translate3d(0, 100%, 0)
+}
+
+@keyframes MoveUpInitial {
+	to {
+		transform: translate3d(0,-105%,0);
+	}
+}
+
+@keyframes MoveUpEnd {
+	from {
+		transform: translate3d(0,100%,0);
+	}
+	to {
+		transform: translate3d(0,0,0);
+	}
 }
 
 
