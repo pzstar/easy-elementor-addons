@@ -7,9 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
@@ -129,7 +126,7 @@ class AdvancedHeading extends Widget_Base {
 				'condition' => [
 					'split_main_heading' => 'yes'
 				],
-				'separator' => 'after',
+
 			]
 		);
 
@@ -140,6 +137,7 @@ class AdvancedHeading extends Widget_Base {
 				'type' => Controls_Manager::URL,
 				'dynamic' => ['active' => true],
 				'placeholder' => 'http://your-link.com',
+				'separator' => 'before'
 			]
 		);
 
@@ -220,15 +218,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('X Offset', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 0,
-				],
-				'tablet_default' => [
-					'size' => 0,
-				],
-				'mobile_default' => [
-					'size' => 0,
-				],
+				'size_units' => ['px', 'em', '%'],
 				'range' => [
 					'px' => [
 						'min' => -800,
@@ -246,15 +236,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Y Offset', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 54,
-				],
-				'tablet_default' => [
-					'size' => 0,
-				],
-				'mobile_default' => [
-					'size' => 0,
-				],
+				'size_units' => ['px', 'em', '%'],
 				'range' => [
 					'px' => [
 						'min' => -800,
@@ -268,14 +250,11 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_origin',
+			'advanced_heading_enable_rotate',
 			[
-				'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
-				'description' => esc_html__('Please set the rotate value to make it work.', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'top-left',
-				'options' => get_element_position(),
-				'label_block' => true,
+				'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+				'separator' => 'before',
+				'type' => Controls_Manager::SWITCHER,
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
 				]
@@ -309,7 +288,24 @@ class AdvancedHeading extends Widget_Base {
 					'(mobile){{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_mobile.SIZE}}px, {{advanced_heading_y_position_mobile.SIZE}}px) rotate({{SIZE}}deg);',
 				],
 				'condition' => [
-					'advanced_heading_visibility' => 'yes'
+					'advanced_heading_visibility' => 'yes',
+					'advanced_heading_enable_rotate' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'advanced_heading_origin',
+			[
+				'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
+				'description' => esc_html__('Please set the rotate value to make it work.', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'top-left',
+				'options' => get_element_position(),
+				'label_block' => true,
+				'condition' => [
+					'advanced_heading_visibility' => 'yes',
+					'advanced_heading_enable_rotate' => 'yes'
 				]
 			]
 		);
@@ -318,14 +314,14 @@ class AdvancedHeading extends Widget_Base {
 			'advanced_heading_hide',
 			[
 				'label' => esc_html__('Hide On Devices', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'm',
-				'options' => [
-					'' => esc_html__('Nothing', 'easy-elementor-addons'),
-					'm' => esc_html__('Tablet and Mobile', 'easy-elementor-addons'),
-					's' => esc_html__('Mobile', 'easy-elementor-addons'),
-				],
+				'type' => \Elementor\Controls_Manager::SELECT2,
 				'label_block' => true,
+				'multiple' => true,
+				'options' => [
+					'tablet' => esc_html__('Tablet', 'easy-elementor-addons'),
+					'mobile' => esc_html__('Mobile', 'easy-elementor-addons'),
+				],
+				'separator' => 'before',
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
 				]
@@ -497,9 +493,9 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_tabs('tabs_style_main_heading');
 
 		$this->start_controls_tab(
-			'tab_style_normal',
+			'tab_main_text',
 			[
-				'label' => esc_html__('Normal', 'easy-elementor-addons')
+				'label' => esc_html__('Heading', 'easy-elementor-addons')
 			]
 		);
 
@@ -514,56 +510,15 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'main_heading_background',
-			[
-				'label' => esc_html__('Background', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'background-color: {{VALUE}};',
-				]
-			]
-		);
-
 		$this->add_responsive_control(
-			'main_heading_padding',
+			'main_heading_margin',
 			[
-				'label' => esc_html__('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Margin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'main_heading_border',
-				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
-			]
-		);
-
-		$this->add_control(
-			'main_heading_radius',
-			[
-				'label' => esc_html__('Radius', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
-				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'main_heading_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
 			]
 		);
 
@@ -580,6 +535,15 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'name' => 'main_heading_typography',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_split_text',
+			[
+				'label' => esc_html__('Split Heading', 'easy-elementor-addons')
 			]
 		);
 
@@ -611,21 +575,6 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'mainh_split_text_background',
-			[
-				'label' => esc_html__('Background', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
 		$this->add_responsive_control(
 			'split_text_space',
 			[
@@ -644,64 +593,6 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'mainh_split_text_padding',
-			[
-				'label' => esc_html__('Padding', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				],
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'mainh_split_text_border',
-				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
-		$this->add_control(
-			'mainh_split_text_radius',
-			[
-				'label' => esc_html__('Radius', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
-				],
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'mainh_split_text_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -711,33 +602,6 @@ class AdvancedHeading extends Widget_Base {
 					'split_main_heading' => 'yes',
 					'split_text!' => ''
 				]
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_style_advanced',
-			[
-				'label' => esc_html__('Advanced', 'easy-elementor-addons')
-			]
-		);
-
-		$this->add_control(
-			'main_heading_advanced_color',
-			[
-				'label' => esc_html__('Advanced Style', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SWITCHER,
-				'prefix_class' => 'eead-ab-main-color-',
-				'render_type' => 'template',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'main_heading_advanced_color',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
 			]
 		);
 
@@ -870,27 +734,6 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'advanced_heading_advanced_color',
-			[
-				'label' => esc_html__('Advanced Style', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SWITCHER,
-				'prefix_class' => 'eead-ab-advanced-color-',
-				'render_type' => 'template',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'advanced_heading_advanced_color',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
-				'condition' => [
-					'advanced_heading_advanced_color' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'advanced_heading_color',
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
@@ -900,32 +743,6 @@ class AdvancedHeading extends Widget_Base {
 				],
 				'condition' => [
 					'advanced_heading_advanced_color!' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'advanced_heading_background_color',
-			[
-				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'advanced_heading_advanced_color!' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'advanced_heading_padding',
-			[
-				'label' => esc_html__('Padding', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -943,39 +760,6 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'advanced_heading_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'advanced_heading_border',
-				'label' => esc_html__('Border', 'easy-elementor-addons'),
-				'placeholder' => '1px',
-				'default' => '1px',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'advanced_heading_border_radius',
-			[
-				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'advanced_heading_box_shadow',
 				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
 			]
 		);
