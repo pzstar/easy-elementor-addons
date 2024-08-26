@@ -46,7 +46,7 @@ class EEAD_Widget_Loader {
             $filename = EEAD_PATH . $filename . '.php';
 
             if (is_readable($filename)) {
-                include ($filename);
+                include($filename);
             }
         }
 

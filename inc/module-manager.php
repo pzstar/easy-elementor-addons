@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!function_exists('is_plugin_active')) {
-    include_once (ABSPATH . 'wp-admin/includes/plugin.php');
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 }
 
 final class EEAD_Modules_Manager {
@@ -23,7 +23,7 @@ final class EEAD_Modules_Manager {
     }
 
     private function require_files() {
-        require (EEAD_PATH . 'base/module-base.php');
+        require(EEAD_PATH . 'base/module-base.php');
     }
 
     public function register_modules() {
@@ -32,7 +32,7 @@ final class EEAD_Modules_Manager {
         $default_modules = \Easy_Elementor_Addons::get_all_default_widgets();
         if ($modules) {
             foreach ($modules as $module) {
-                if(!in_array($module, $default_modules)){
+                if (!in_array($module, $default_modules)) {
                     continue;
                 }
                 $class_name = str_replace('-', ' ', $module);
