@@ -1061,7 +1061,7 @@ class Portfolio extends Widget_Base {
                 'items' => (int) isset($settings['no_of_slides']['size']) ? $settings['no_of_slides']['size'] : 3,
                 'items_tablet' => (int) isset($settings['no_of_slides_tablet']['size']) ? $settings['no_of_slides_tablet']['size'] : 2,
                 'items_mobile' => (int) isset($settings['no_of_slides_mobile']['size']) ? $settings['no_of_slides_mobile']['size'] : 1,
-                'margin' => (int) isset($settings['slides_margin']['size']) ? $settings['slides_margin']['size']  : '',
+                'margin' => (int) isset($settings['slides_margin']['size']) ? $settings['slides_margin']['size'] : '',
                 'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : '',
                 'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : '',
                 'loop' => $settings['infinite'] && $settings['infinite'] == 'yes' ? true : false,

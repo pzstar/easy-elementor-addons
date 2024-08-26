@@ -34,7 +34,7 @@ class Extender {
 
             $file = EEAD_PATH . 'inc/extenders/' . $extender . '.php';
             if (file_exists($file)) {
-                require_once ($file);
+                require_once($file);
             }
         }
 
@@ -78,7 +78,7 @@ class Extender {
         foreach ($get_conditions as $condition) {
             $file = EEAD_PATH . 'inc/extenders/conditions/' . $condition . '.php';
             if (file_exists($file)) {
-                require_once ($file);
+                require_once($file);
             }
         }
     }

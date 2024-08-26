@@ -334,11 +334,11 @@ Advanced Button
     transition-timing-function: cubic-bezier(.2, 1, .3, 1)
 }
 
-.eead-ab-button-effect-i .eead-ab-button{
+.eead-ab-button-effect-i .eead-ab-button {
     color: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
 }
 
-.eead-ab-button-effect-i .eead-ab-button:hover{
+.eead-ab-button-effect-i .eead-ab-button:hover {
     color: var(--eead-ab-button-text-color, inherit);
 }
 
@@ -380,18 +380,19 @@ Advanced Button
 }
 
 @keyframes MoveUpInitial {
-	to {
-		transform: translate3d(0,-105%,0);
-	}
+    to {
+        transform: translate3d(0, -105%, 0);
+    }
 }
 
 @keyframes MoveUpEnd {
-	from {
-		transform: translate3d(0,100%,0);
-	}
-	to {
-		transform: translate3d(0,0,0);
-	}
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 /*--------------------------------------------------------------

@@ -1527,10 +1527,10 @@
                     var eachTitle = $(this);
                     // On Accordion Click
                     eachTitle.on('click', function () {
-                        if(!$(this).parent('.eead-each-accordion').hasClass('eead-open')){
+                        if (!$(this).parent('.eead-each-accordion').hasClass('eead-open')) {
                             $(this).next('.eead-accordion-content').slideDown();
                             $(this).parent('.eead-each-accordion').addClass('eead-open');
-                        }else{
+                        } else {
                             $(this).next('.eead-accordion-content').slideUp();
                             $(this).parent('.eead-each-accordion').removeClass('eead-open');
                         }

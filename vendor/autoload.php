@@ -23,7 +23,7 @@ spl_autoload_register(function ($class) {
 	/** If the file exists for the class name, load it. */
 	if (file_exists($file)) {
 		/** @noinspection PhpIncludeInspection */
-		include ($file);
+		include($file);
 	}
 
 });
