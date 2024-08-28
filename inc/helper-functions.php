@@ -70,16 +70,15 @@ if (!function_exists('get_element_position')) {
 
     function get_element_position() {
         $position_options = [
-            '' => esc_html__('Default', 'easy-elementor-addons'),
-            'top-left' => esc_html__('Top Left', 'easy-elementor-addons'),
-            'top-center' => esc_html__('Top Center', 'easy-elementor-addons'),
-            'top-right' => esc_html__('Top Right', 'easy-elementor-addons'),
-            'center' => esc_html__('Center', 'easy-elementor-addons'),
-            'center-left' => esc_html__('Center Left', 'easy-elementor-addons'),
-            'center-right' => esc_html__('Center Right', 'easy-elementor-addons'),
-            'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
-            'bottom-center' => esc_html__('Bottom Center', 'easy-elementor-addons'),
-            'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
+            'top left' => esc_html__('Top Left', 'easy-elementor-addons'),
+            'top center' => esc_html__('Top Center', 'easy-elementor-addons'),
+            'top right' => esc_html__('Top Right', 'easy-elementor-addons'),
+            'center' => esc_html__('Center Center', 'easy-elementor-addons'),
+            'center left' => esc_html__('Center Left', 'easy-elementor-addons'),
+            'center right' => esc_html__('Center Right', 'easy-elementor-addons'),
+            'bottom left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
+            'bottom center' => esc_html__('Bottom Center', 'easy-elementor-addons'),
+            'bottom right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
         ];
 
         return $position_options;

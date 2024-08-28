@@ -76,8 +76,9 @@ class AdvancedHeading extends Widget_Base {
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .eead-advanced-heading' => 'text-align: {{VALUE}};',
 				],
+				'prefix_class' => 'eead-ah-align-',
 
 			]
 		);
@@ -205,7 +206,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .eead-ah-adv-heading' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
@@ -225,6 +226,9 @@ class AdvancedHeading extends Widget_Base {
 						'max' => 800,
 					],
 				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-offset-x:{{SIZE}}{{UNIT}}',
+				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
 				]
@@ -242,6 +246,9 @@ class AdvancedHeading extends Widget_Base {
 						'min' => -800,
 						'max' => 800,
 					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-offset-y:{{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
@@ -283,9 +290,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position.SIZE}}px, {{advanced_heading_y_position.SIZE}}px) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_tablet.SIZE}}px, {{advanced_heading_y_position_tablet.SIZE}}px) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_mobile.SIZE}}px, {{advanced_heading_y_position_mobile.SIZE}}px) rotate({{SIZE}}deg);',
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-rotate:{{SIZE}}deg',
 				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes',
@@ -298,11 +303,13 @@ class AdvancedHeading extends Widget_Base {
 			'advanced_heading_origin',
 			[
 				'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
-				'description' => esc_html__('Please set the rotate value to make it work.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'top-left',
+				'default' => 'center',
 				'options' => get_element_position(),
 				'label_block' => true,
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-rotate-origin:{{VALUE}}',
+				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes',
 					'advanced_heading_enable_rotate' => 'yes'
@@ -347,7 +354,7 @@ class AdvancedHeading extends Widget_Base {
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-sub-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -356,7 +363,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sub_heading_typography',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-sub-heading',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading',
 			]
 		);
 
@@ -364,7 +371,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'sub_heading_text_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-sub-heading',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading',
 			]
 		);
 
@@ -382,63 +389,9 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'sub_heading_style_color',
+			'sub_heading_line_position',
 			[
-				'label' => esc_html__('Style Color', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-sub-heading .line:after' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'sub_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'sub_heading_style_width',
-			[
-				'label' => esc_html__('Width', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 1,
-						'max' => 200,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-sub-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'sub_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'sub_heading_style_height',
-			[
-				'label' => esc_html__('Height', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 1,
-						'max' => 48,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-sub-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'sub_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_control(
-			'sub_heading_style_align',
-			[
-				'label' => esc_html__('Style Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Line Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
@@ -453,26 +406,75 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'sub_heading_style_indent',
+		$this->add_control(
+			'sub_heading_line_color',
 			[
-				'label' => esc_html__('Style Spacing', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 8,
+				'label' => esc_html__('Line Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-sh-line-color: {{VALUE}};',
 				],
+				'condition' => [
+					'sub_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'sub_heading_line_width',
+			[
+				'label' => esc_html__('Line Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
-						'max' => 50,
+						'min' => 1,
+						'max' => 200,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-sh-line-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'sub_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'sub_heading_line_height',
+			[
+				'label' => esc_html__('Line Height', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 48,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-sh-line-height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'sub_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'sub_heading_line_spacing',
+			[
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 200,
 					],
 				],
 				'condition' => [
 					'sub_heading_style' => 'line',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eead-advanced-heading .eead-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eead-advanced-heading .eead-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-ah-sub-heading' => '--eead-ah-sh-line-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -505,7 +507,7 @@ class AdvancedHeading extends Widget_Base {
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -517,7 +519,7 @@ class AdvancedHeading extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .eead-advanced-heading .eeah-ah-main-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -526,7 +528,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'main_heading_text_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div'
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text'
 			]
 		);
 
@@ -534,7 +536,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'main_heading_typography',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading > div',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text',
 			]
 		);
 
@@ -566,7 +568,7 @@ class AdvancedHeading extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -584,7 +586,7 @@ class AdvancedHeading extends Widget_Base {
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-main-heading .eead-main-heading-inner' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'split_main_heading' => 'yes'
@@ -597,7 +599,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'mainh_split_text_typography',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-mainh-split-text',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text',
 				'condition' => [
 					'split_main_heading' => 'yes',
 					'split_text!' => ''
@@ -623,63 +625,9 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'main_heading_style_color',
+			'main_heading_line_position',
 			[
-				'label' => esc_html__('Style Color', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .line:after' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'main_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'main_heading_style_width',
-			[
-				'label' => esc_html__('Width', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 1,
-						'max' => 200,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'main_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'main_heading_style_height',
-			[
-				'label' => esc_html__('Height', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 1,
-						'max' => 48,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'main_heading_style' => 'line',
-				],
-			]
-		);
-
-		$this->add_control(
-			'main_heading_style_align',
-			[
-				'label' => esc_html__('Style Position', 'easy-elementor-addons'),
+				'label' => esc_html__('Line Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'bottom',
 				'options' => [
@@ -694,10 +642,64 @@ class AdvancedHeading extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'main_heading_style_indent',
+		$this->add_control(
+			'main_heading_line_color',
 			[
-				'label' => esc_html__('Style Spacing', 'easy-elementor-addons'),
+				'label' => esc_html__('Line Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .line:after' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'main_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'main_heading_line_width',
+			[
+				'label' => esc_html__('Line Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 200,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'main_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'main_heading_line_height',
+			[
+				'label' => esc_html__('Line Height', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 48,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'main_heading_style' => 'line',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'main_heading_line_spacing',
+			[
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -711,9 +713,7 @@ class AdvancedHeading extends Widget_Base {
 					'main_heading_style' => 'line',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .eead-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -788,89 +788,69 @@ class AdvancedHeading extends Widget_Base {
 	/** Render Layout */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id = $this->get_id();
-		$main_heading = '';
 
 		if (empty($settings['sub_heading']) && empty($settings['advanced_heading']) && empty($settings['main_heading'])) {
 			return;
 		}
-
-		$this->add_render_attribute('heading', 'class', 'eead-heading-title');
-		$this->add_render_attribute('main_heading', 'class', 'eead-main-heading-inner');
-		$this->add_inline_editing_attributes('main_heading');
-		$this->add_render_attribute('split_heading', 'class', 'eead-mainh-split-text');
-
-		if ($settings['main_heading']) {
-			$mainh_style = '';
-
-			if ('line' === $settings['main_heading_style']) {
-				if ('left-right' === $settings['main_heading_style_align']) {
-					$mainh_style = '<div class="line eead-button-icon-align-left"></div><div class="line eead-button-icon-align-right"></div>';
-				} elseif ('bottom' === $settings['main_heading_style_align']) {
-					$mainh_style = '<div class="line eead-button-icon-align-' . esc_attr($settings['main_heading_style_align']) . '"></div>';
-				} else {
-					$mainh_style = '<div class="line eead-button-icon-align-' . esc_attr($settings['main_heading_style_align']) . '"></div>';
-				}
-			}
-
-			$split_heading = '';
-			if ($settings['split_main_heading'] == 'yes' && !empty($settings['split_text'])) {
-				$split_heading = '<div ' . $this->get_render_attribute_string('split_heading') . '>' . $settings['split_text'] . '</div>';
-			}
-
-			$main_heading = '<div ' . $this->get_render_attribute_string('main_heading') . '>' . $settings['main_heading'] . '</div>';
-			$main_heading = '<div class="eead-main-heading">' . $main_heading . $split_heading . $mainh_style . '</div>';
-		}
-
-		if (!empty($settings['link']['url'])) {
-			$this->add_render_attribute('url', 'href', $settings['link']['url']);
-
-			if ($settings['link']['is_external']) {
-				$this->add_render_attribute('url', 'target', '_blank');
-			}
-
-			if (!empty($settings['link']['nofollow'])) {
-				$this->add_render_attribute('url', 'rel', 'nofollow');
-			}
-		}
 		?>
-		<div id="<?php echo esc_attr($id); ?>" class="eead-advanced-heading">
+		<div class="eead-advanced-heading">
 			<?php
-			echo $this->get_subheading();
+			echo $this->get_sub_heading();
 			echo $this->get_advanced_heading();
+			echo $this->get_main_heading();
 			?>
-			<<?php echo esc_attr($settings['header_size']); ?> 		<?php $this->print_render_attribute_string('heading') ?>>
-				<?php
-				if (!empty($settings['link']['url'])) {
-					$main_heading = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('url'), $main_heading);
-					echo wp_kses_post($main_heading);
-				} else {
-					echo wp_kses_post($main_heading);
-				}
-				?>
-			</<?php echo esc_attr($settings['header_size']) ?>>
 		</div>
 		<?php
 	}
 
-	protected function get_subheading() {
+	protected function get_sub_heading() {
 		$settings = $this->get_settings_for_display();
 		$sub_heading = '';
+
 		if ($settings['sub_heading']) {
-			$subh_style = '';
-			if ('line' === $settings['sub_heading_style']) {
-				if ('left-right' === $settings['sub_heading_style_align']) {
-					$subh_style = '<div class="line eead-button-icon-align-left"></div><div class="line eead-button-icon-align-right"></div>';
-				} else if ('bottom' === $settings['sub_heading_style_align']) {
-					$subh_style = '<div class="line eead-button-icon-align-' . esc_attr($settings['sub_heading_style_align']) . '"></div>';
-				} else {
-					$subh_style = '<div class="line eead-button-icon-align-' . esc_attr($settings['sub_heading_style_align']) . '"></div>';
+			$sub_heading .= '<div class="eead-ah-sub-heading eeah-ah-line-' . esc_attr($settings['sub_heading_line_position']) . '"><span>';
+			$sub_heading .= esc_html($settings['sub_heading']);
+			$sub_heading .= '</span></div>';
+		}
+		return $sub_heading;
+	}
+
+	protected function get_main_heading() {
+		$settings = $this->get_settings_for_display();
+		$main_heading = $heading = '';
+
+		if ($settings['main_heading']) {
+			$main_heading .= '<span class="eead-ah-main-heading-text">';
+			$main_heading .= $settings['main_heading'];
+			if ($settings['split_main_heading'] == 'yes' && !empty($settings['split_text'])) {
+				$main_heading .= '<span class="eead-ah-split-text"> ';
+				$main_heading .= $settings['split_text'];
+				$main_heading .= '</span>';
+			}
+			$main_heading .= '</span>';
+
+			if (!empty($settings['link']['url'])) {
+				$this->add_render_attribute('url', 'href', $settings['link']['url']);
+
+				if ($settings['link']['is_external']) {
+					$this->add_render_attribute('url', 'target', '_blank');
+				}
+
+				if (!empty($settings['link']['nofollow'])) {
+					$this->add_render_attribute('url', 'rel', 'nofollow');
 				}
 			}
 
-			$sub_heading = '<div class="eead-sub-heading"><div class="eead-sub-heading-content">' . esc_html($settings['sub_heading']) . '</div>' . $subh_style . '</div> ';
+			$heading .= '<' . esc_attr($settings['header_size']) . ' class="eead-ah-main-heading eeah-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
+			if (!empty($settings['link']['url'])) {
+				$heading .= wp_kses_post(sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('url'), $main_heading));
+			} else {
+				$heading .= wp_kses_post($main_heading);
+			}
+			$heading .= '</' . esc_attr($settings['header_size']) . '>';
 		}
-		return $sub_heading;
+
+		return $heading;
 	}
 
 	protected function get_advanced_heading() {
@@ -878,29 +858,16 @@ class AdvancedHeading extends Widget_Base {
 		$advanced_heading = '';
 
 		if ($settings['advanced_heading'] && $settings['advanced_heading_visibility'] == 'yes') {
-
-			$this->add_render_attribute(
+			$this->add_render_attribute('advanced_heading', 'class',
 				[
-					'adv-hclass' => [
-						'class' => [
-							'eead-advanced-heading-content',
-							$settings['advanced_heading_hide'] ? 'eead-visible@' . $settings['advanced_heading_hide'] : '',
-						],
-					],
-				]
+					'eead-ah-adv-heading',
+					$settings['advanced_heading_hide'] ? 'eead-hide-' . implode('-', $settings['advanced_heading_hide']) : '',
+				],
 			);
 
-			$this->add_render_attribute(
-				[
-					'adv-hcclass' => [
-						'class' => [
-							$settings['advanced_heading_origin'] ? 'uk-transform-origin-' . $settings['advanced_heading_origin'] : '',
-						],
-					],
-				]
-			);
-
-			$advanced_heading = '<div ' . $this->get_render_attribute_string('adv-hclass') . '><div ' . $this->get_render_attribute_string('adv-hcclass') . '>' . $settings['advanced_heading'] . '</div></div>';
+			$advanced_heading .= '<div ' . $this->get_render_attribute_string('advanced_heading') . '>';
+			$advanced_heading .= esc_html($settings['advanced_heading']);
+			$advanced_heading .= '</div>';
 		}
 		return $advanced_heading;
 	}
