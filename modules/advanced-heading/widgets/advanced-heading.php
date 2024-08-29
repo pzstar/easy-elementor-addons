@@ -74,6 +74,7 @@ class AdvancedHeading extends Widget_Base {
 						'icon' => 'eicon-text-align-right',
 					],
 				],
+				'toggle' => false,
 				'default' => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .eead-advanced-heading' => 'text-align: {{VALUE}};',
@@ -187,26 +188,54 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'advanced_heading_align',
+			'advanced_heading_h_align',
 			[
-				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Horizontal Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'left' => [
+					'flex-start' => [
 						'title' => esc_html__('Left', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-left',
+						'icon' => 'eicon-h-align-left',
 					],
 					'center' => [
 						'title' => esc_html__('Center', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-center',
+						'icon' => 'eicon-h-align-center',
 					],
-					'right' => [
+					'flex-end' => [
 						'title' => esc_html__('Right', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-right',
+						'icon' => 'eicon-h-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-ah-adv-heading' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .eead-ah-adv-heading' => 'justify-content: {{VALUE}};',
+				],
+				'condition' => [
+					'advanced_heading_visibility' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'advanced_heading_v_align',
+			[
+				'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'flex-start' => [
+						'title' => esc_html__('Top', 'easy-elementor-addons'),
+						'icon' => 'eicon-v-align-top',
+					],
+					'center' => [
+						'title' => esc_html__('Middle', 'easy-elementor-addons'),
+						'icon' => 'eicon-v-align-middle',
+					],
+					'flex-end' => [
+						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+						'icon' => 'eicon-v-align-bottom',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-ah-adv-heading' => 'align-items: {{VALUE}};',
 				],
 				'condition' => [
 					'advanced_heading_visibility' => 'yes'
@@ -274,12 +303,6 @@ class AdvancedHeading extends Widget_Base {
 				'label' => esc_html__('Rotate', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => 0,
-				],
-				'tablet_default' => [
-					'size' => 0,
-				],
-				'mobile_default' => [
 					'size' => 0,
 				],
 				'range' => [
@@ -519,7 +542,7 @@ class AdvancedHeading extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eeah-ah-main-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -586,7 +609,7 @@ class AdvancedHeading extends Widget_Base {
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text' => 'gap: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'split_main_heading' => 'yes'
@@ -739,10 +762,7 @@ class AdvancedHeading extends Widget_Base {
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'color: {{VALUE}};',
-				],
-				'condition' => [
-					'advanced_heading_advanced_color!' => 'yes',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -751,7 +771,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'advanced_heading_typography',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading',
 				'separator' => 'before',
 			]
 		);
@@ -760,7 +780,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'advanced_heading_shadow',
-				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div',
+				'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading',
 			]
 		);
 
@@ -777,7 +797,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-advanced-heading-content > div' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -808,7 +828,7 @@ class AdvancedHeading extends Widget_Base {
 		$sub_heading = '';
 
 		if ($settings['sub_heading']) {
-			$sub_heading .= '<div class="eead-ah-sub-heading eeah-ah-line-' . esc_attr($settings['sub_heading_line_position']) . '"><span>';
+			$sub_heading .= '<div class="eead-ah-sub-heading eead-ah-line-' . esc_attr($settings['sub_heading_line_position']) . '"><span>';
 			$sub_heading .= esc_html($settings['sub_heading']);
 			$sub_heading .= '</span></div>';
 		}
@@ -820,6 +840,7 @@ class AdvancedHeading extends Widget_Base {
 		$main_heading = $heading = '';
 
 		if ($settings['main_heading']) {
+			$main_heading .= '<span class="eead-ah-main-heading-wrap">';
 			$main_heading .= '<span class="eead-ah-main-heading-text">';
 			$main_heading .= $settings['main_heading'];
 			if ($settings['split_main_heading'] == 'yes' && !empty($settings['split_text'])) {
@@ -827,6 +848,7 @@ class AdvancedHeading extends Widget_Base {
 				$main_heading .= $settings['split_text'];
 				$main_heading .= '</span>';
 			}
+			$main_heading .= '</span>';
 			$main_heading .= '</span>';
 
 			if (!empty($settings['link']['url'])) {
@@ -841,7 +863,7 @@ class AdvancedHeading extends Widget_Base {
 				}
 			}
 
-			$heading .= '<' . esc_attr($settings['header_size']) . ' class="eead-ah-main-heading eeah-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
+			$heading .= '<' . esc_attr($settings['header_size']) . ' class="eead-ah-main-heading eead-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
 			if (!empty($settings['link']['url'])) {
 				$heading .= wp_kses_post(sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('url'), $main_heading));
 			} else {
