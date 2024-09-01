@@ -9,7 +9,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Css_Filter;
 use Elementor\Icons_Manager;
 use Elementor\Utils;
 
@@ -110,9 +109,6 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Icon Box Heading', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Enter your title', 'easy-elementor-addons'),
                 'label_block' => true,
@@ -124,12 +120,8 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Enter your description', 'easy-elementor-addons'),
-                'rows' => 6
             ]
         );
 
@@ -167,11 +159,6 @@ class AdvancedIconBox extends Widget_Base {
                     'furrow' => esc_html__('Furrow', 'easy-elementor-addons'),
                     'peak' => esc_html__('Peak', 'easy-elementor-addons'),
                     'melody' => esc_html__('Melody', 'easy-elementor-addons'),
-                    'bloomstar' => esc_html__('Bloomstar', 'easy-elementor-addons'),
-                    'bobbleaf' => esc_html__('Bobbleaf', 'easy-elementor-addons'),
-                    'demaxa' => esc_html__('Demaxa', 'easy-elementor-addons'),
-                    'fill-circle' => esc_html__('Fill Circle', 'easy-elementor-addons'),
-                    'finalio' => esc_html__('Finalio', 'easy-elementor-addons'),
                     'jemik' => esc_html__('Jemik', 'easy-elementor-addons'),
                     'separk' => esc_html__('Separk', 'easy-elementor-addons'),
                     'zigzag-dot' => esc_html__('Zigzag Dot', 'easy-elementor-addons'),
@@ -223,41 +210,10 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'icon_vertical_alignment',
-            [
-                'label' => esc_html__('Icon Vertical Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'flex-start' => [
-                        'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-middle',
-                    ],
-                    'flex-end' => [
-                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-bottom',
-                    ],
-                ],
-                'default' => 'flex-start',
-                'toggle' => false,
-                'condition' => [
-                    'icon_inline' => '',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-v-align: {{VALUE}};',
-                ],
-
-            ]
-        );
-
         $this->add_responsive_control(
             'text_align',
             [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
@@ -276,7 +232,9 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => 'text-align: {{VALUE}};',
                 ],
-                'separator' => 'after'
+                'condition' => [
+                    'icon_position' => 'top',
+                ],
             ]
         );
 
@@ -286,6 +244,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Read More Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
+                'separator' => 'before',
             ]
         );
 
@@ -343,7 +302,9 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'label_block' => true,
+                'default' => [
+                    'value' => 'mdi mdi-arrow-right-thin-circle-outline',
+                ],
                 'condition' => [
                     'readmore' => 'yes'
                 ]
@@ -535,16 +496,19 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
             'badge_rotate',
             [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'deg',
+                ],
                 'range' => [
                     'deg' => [
-                        'min' => -360,
                         'max' => 360,
-                        'step' => 5,
+                        'min' => -360,
                     ],
                 ],
                 'selectors' => [
@@ -626,34 +590,7 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_type!' => 'image',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'svg_icon_fill_color',
-            [
-                'label' => esc_html__('Fill Color (SVG)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'fill: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_type!' => 'image',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'svg_icon_stroke_color',
-            [
-                'label' => esc_html__('Stroke Color (SVG)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'stroke: {{VALUE}};',
                 ],
                 'condition' => [
                     'icon_type!' => 'image',
@@ -665,7 +602,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'icon_background',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span',
                 'separator' => 'before'
             ]
         );
@@ -678,7 +615,7 @@ class AdvancedIconBox extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -690,7 +627,7 @@ class AdvancedIconBox extends Widget_Base {
                 'placeholder' => '1px',
                 'separator' => 'before',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon'
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
             ]
         );
 
@@ -702,7 +639,7 @@ class AdvancedIconBox extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'separator' => 'after',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'icon_radius_advanced_show!' => 'yes',
@@ -728,8 +665,7 @@ class AdvancedIconBox extends Widget_Base {
                 'separator' => 'after',
                 'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'border-radius: {{VALUE}}; overflow: hidden;',
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon img' => 'border-radius: {{VALUE}}; overflow: hidden;'
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{VALUE}};'
                 ],
                 'condition' => [
                     'icon_radius_advanced_show' => 'yes',
@@ -741,7 +677,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'icon_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon'
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
             ]
         );
 
@@ -778,7 +714,7 @@ class AdvancedIconBox extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 'conditions' => [
                     'relation' => 'or',
@@ -815,7 +751,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'top_icon_vertical_offset',
+            'icon_vertical_offset',
             [
                 'label' => esc_html__('Icon Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -833,7 +769,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'top_icon_horizontal_offset',
+            'icon_horizontal_offset',
             [
                 'label' => esc_html__('Icon Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -866,48 +802,11 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_type!' => 'image',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'svg_icon_hover_fill_color',
-            [
-                'label' => esc_html__('Fill Color (SVG)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon svg' => 'fill: {{VALUE}};',
                 ],
                 'condition' => [
                     'icon_type!' => 'image',
-                    'show_svg_icon_color' => 'yes',
                 ],
-            ]
-        );
-
-        $this->add_control(
-            'svg_icon_hover_stroke_color',
-            [
-                'label' => esc_html__('Stroke Color (SVG)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon svg' => 'stroke: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_type!' => 'image',
-                    'show_svg_icon_color' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_hover_animation',
-            [
-                'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
 
@@ -918,7 +817,7 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon span' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'icon_border_border!' => '',
@@ -926,65 +825,19 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'icon_hover_radius',
-            [
-                'label' => esc_html__('Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'separator' => 'after',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
-                ]
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'icon_hover_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon'
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon span'
             ]
         );
 
         $this->add_control(
-            'icon_hover_rotate',
+            'icon_hover_animation',
             [
-                'label' => esc_html__('Rotate', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'unit' => 'deg',
-                ],
-                'range' => [
-                    'deg' => [
-                        'max' => 360,
-                        'min' => -360,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon i' => 'transform: rotate({{SIZE}}{{UNIT}});',
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon img' => 'transform: rotate({{SIZE}}{{UNIT}});',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_hover_background_rotate',
-            [
-                'label' => esc_html__('Background Rotate', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'unit' => 'deg',
-                ],
-                'range' => [
-                    'deg' => [
-                        'max' => 360,
-                        'min' => -360,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon' => 'transform: rotate({{SIZE}}{{UNIT}});',
-                ],
+                'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
 
@@ -1024,7 +877,7 @@ class AdvancedIconBox extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-header' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -1161,33 +1014,6 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'divider_align',
-            [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'toggle' => false,
-                'default' => 'center',
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-line-separator, {{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'title_separator_border_style',
             [
                 'label' => esc_html__('Separator Style', 'easy-elementor-addons'),
@@ -1268,29 +1094,15 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_separator_svg_fill_color',
+            'title_separator_svg_color',
             [
-                'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'title_separator_type!' => 'line'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator svg *' => 'fill: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'title_separator_svg_stroke_color',
-            [
-                'label' => esc_html__('Stroke Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'title_separator_type!' => 'line'
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator svg *' => 'stroke: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator svg' => 'stroke: {{VALUE}};',
                 ],
             ]
         );
@@ -1342,7 +1154,6 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Stroke Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em', '%'],
                 'range' => [
                     'px' => [
                         'max' => 10,
@@ -1350,7 +1161,7 @@ class AdvancedIconBox extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator svg' => 'stroke-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-svg-separator svg *' => 'stroke-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'title_separator_type!' => 'line'
@@ -1403,8 +1214,8 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -1413,8 +1224,8 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'readmore_background',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore',
-                'separator' => 'before',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
+                'exclude' => ['image']
             ]
         );
 
@@ -1425,7 +1236,7 @@ class AdvancedIconBox extends Widget_Base {
                 'placeholder' => '1px',
                 'separator' => 'before',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore'
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button'
             ]
         );
 
@@ -1437,7 +1248,7 @@ class AdvancedIconBox extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'separator' => 'after',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1446,7 +1257,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'readmore_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
             ]
         );
 
@@ -1457,7 +1268,7 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1466,7 +1277,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'readmore_typography',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
             ]
         );
 
@@ -1485,8 +1296,8 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore:hover svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -1495,8 +1306,8 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'readmore_hover_background',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore:hover',
-                'separator' => 'before',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover',
+                'exclude' => ['image']
             ]
         );
 
@@ -1506,7 +1317,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-readmore:hover' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'readmore_border_border!' => ''
@@ -1518,7 +1329,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'readmore_hover_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-readmore:hover',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover',
             ]
         );
 
@@ -1553,7 +1364,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-badge span' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1562,8 +1373,8 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name' => 'badge_background',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-badge span',
-                'separator' => 'before',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
+                'exclude' => ['image'],
             ]
         );
 
@@ -1574,7 +1385,7 @@ class AdvancedIconBox extends Widget_Base {
                 'placeholder' => '1px',
                 'separator' => 'before',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-badge span'
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge'
             ]
         );
 
@@ -1586,7 +1397,7 @@ class AdvancedIconBox extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'separator' => 'after',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-badge span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1595,7 +1406,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'badge_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-badge span',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
             ]
         );
 
@@ -1606,7 +1417,7 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box-badge span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1615,7 +1426,7 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'badge_typography',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box-badge span',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
             ]
         );
 
@@ -1629,17 +1440,7 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'content_padding',
-            [
-                'label' => esc_html__('Content Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-advanced-icon-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
+
 
         $this->add_responsive_control(
             'outer_box_padding',
@@ -1650,26 +1451,6 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'icon_inline_spacing',
-            [
-                'label' => esc_html__('Icon Inline Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                    ],
-                ],
-                'condition' => [
-                    'position' => ['left', 'right'],
-                    'icon_inline' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-icon-heading' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
             ]
         );
 
@@ -1691,12 +1472,14 @@ class AdvancedIconBox extends Widget_Base {
             $this->add_render_attribute('image-icon', 'alt', $settings['title_text']);
         }
 
+        $this->add_render_attribute('icon-class', 'class', 'eead-aib-icon');
+
         if ($settings['icon_hover_animation']) {
-            $this->add_render_attribute('icon-wrapper', 'classs', 'elementor-animation-' . $settings['icon_hover_animation']);
+            $this->add_render_attribute('icon-class', 'class', 'elementor-animation-' . $settings['icon_hover_animation']);
         }
 
         if ($has_icon or $has_image) { ?>
-            <div class="eead-aib-icon">
+            <div <?php $this->print_render_attribute_string('icon-class'); ?>>
                 <span>
                     <?php
                     if ($has_icon && 'icon' == $settings['icon_type']) {
@@ -1745,8 +1528,8 @@ class AdvancedIconBox extends Widget_Base {
     public function render_svg_image() {
         $settings = $this->get_settings_for_display();
 
-        $align = $settings['divider_align'] ? '-' . $settings['divider_align'] : '';
-        $svg_image = EEAD_PATH . 'assets/img/divider/' . $settings['title_separator_type'] . $align . '.svg';
+        $align = $settings['text_align'] ? $settings['text_align'] : $settings['icon_position'];
+        $svg_image = EEAD_PATH . 'assets/img/divider/' . $settings['title_separator_type'] . '-' . $align . '.svg';
         if (file_exists($svg_image)) {
             $file_path = $svg_image;
         } else {
@@ -1782,7 +1565,7 @@ class AdvancedIconBox extends Widget_Base {
                 <?php
                 echo esc_html($settings['readmore_text']);
                 if ($settings['advanced_readmore_icon']['value']) {
-                    Icons_Manager::render_icon($settings['advanced_readmore_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+                    Icons_Manager::render_icon($settings['advanced_readmore_icon'], ['aria-hidden' => 'true']);
                 }
                 ?>
             </a>
@@ -1830,7 +1613,7 @@ class AdvancedIconBox extends Widget_Base {
                         <?php
                     } else {
                         ?>
-                        <div class="eead-aib-svg-separator eead-aib-svg-separator-align-<?php echo esc_attr($settings['divider_align']); ?>">
+                        <div class="eead-aib-svg-separator">
                             <span>
                                 <?php $this->render_svg_image(); ?>
                             </span>
