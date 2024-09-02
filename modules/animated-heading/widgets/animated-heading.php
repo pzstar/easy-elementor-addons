@@ -99,7 +99,7 @@ class AnimatedHeading extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
             'layout',
             [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
@@ -132,6 +132,9 @@ class AnimatedHeading extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ),
                 ),
+                'selectors' => [
+                    '{{WRAPPER}} .eead-ah-heading' => 'text-align: {{VALUE}}',
+                ],
             ]
         );
 
@@ -152,11 +155,9 @@ class AnimatedHeading extends Widget_Base {
             'animation_settings',
             [
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'layout' => ['animated'],
                 ],
-                'render_type' => 'template',
             ]
         );
 
@@ -217,11 +218,9 @@ class AnimatedHeading extends Widget_Base {
             'typed_settings',
             [
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'layout' => ['typed'],
                 ],
-                'render_type' => 'template',
             ]
         );
 
@@ -303,26 +302,14 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'background_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#FFFFFF',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-animated-heading-wrap' => 'background: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'text_color',
             [
                 'label' => esc_html__('Pre/Post Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-animated-heading-wrap .eead-pre-heading,
-                 {{WRAPPER}} .eead-animated-heading-wrap .eead-post-heading' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-ah-heading .eead-ah-pre-heading,
+                 {{WRAPPER}} .eead-ah-heading .eead-ah-post-heading' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -334,7 +321,7 @@ class AnimatedHeading extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-animated-heading-wrap .eead-animated-heading' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-ah-heading .eead-animated-heading' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -344,7 +331,7 @@ class AnimatedHeading extends Widget_Base {
             [
                 'name' => 'text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-animated-heading-wrap',
+                'selector' => '{{WRAPPER}} .eead-ah-heading',
             ]
         );
 
@@ -357,13 +344,6 @@ class AnimatedHeading extends Widget_Base {
         $id = $this->get_id();
         $type_heading = explode(",", esc_html($settings['animated_heading']));
         $html_tag = $settings['html_tag'];
-
-        $this->add_render_attribute([
-            'heading' => [
-                'class' => 'eead-heading-tag',
-                'style' => 'opacity: 1;'
-            ]
-        ]);
 
         $this->add_render_attribute([
             'animated-heading' => [
@@ -407,7 +387,7 @@ class AnimatedHeading extends Widget_Base {
         }
         ?>
 
-        <<?php echo esc_attr($html_tag); ?> class="eead-animated-heading-wrap <?php echo 'eead-align-' . esc_attr($settings['alignment']); ?>">
+        <<?php echo esc_attr($html_tag); ?> class="eead-ah-heading">
 
             <?php
             if (!empty($settings['heading_link']['url'])) {
@@ -424,29 +404,29 @@ class AnimatedHeading extends Widget_Base {
 
             if ($settings['pre_heading']) {
                 ?>
-                <div class="eead-pre-heading">
+                <span class="eead-ah-pre-heading">
                     <?php echo esc_html($settings['pre_heading']); ?>
-                </div>
+                </span>
                 <?php
             }
 
             if ($settings['animated_heading']) {
                 ?>
-                <div <?php $this->print_render_attribute_string('animated-heading'); ?>>
+                <span <?php $this->print_render_attribute_string('animated-heading'); ?>>
                     <?php
                     if ($settings['layout'] != 'typed') {
                         echo rtrim(esc_attr($settings['animated_heading']), ',');
                     }
                     ?>
-                </div>
+                </span>
                 <?php
             }
 
             if ($settings['post_heading']) {
                 ?>
-                <div class="eead-post-heading">
+                <span class="eead-ah-post-heading">
                     <?php echo esc_html($settings['post_heading']); ?>
-                </div>
+                </span>
                 <?php
             }
 

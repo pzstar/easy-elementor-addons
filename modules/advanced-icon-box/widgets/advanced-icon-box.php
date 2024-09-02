@@ -232,6 +232,7 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => 'text-align: {{VALUE}};',
                 ],
+                'prefix_class' => 'eead-aib-text-align-',
                 'condition' => [
                     'icon_position' => 'top',
                 ],
@@ -346,72 +347,6 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'readmore_on_hover',
-            [
-                'label' => esc_html__('Show on Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'prefix_class' => 'eead-readmore-on-hover-',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'readmore_horizontal_offset',
-            [
-                'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => -50,
-                ],
-                'tablet_default' => [
-                    'size' => 0,
-                ],
-                'mobile_default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'condition' => [
-                    'readmore_on_hover' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'readmore_vertical_offset',
-            [
-                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'tablet_default' => [
-                    'size' => 0,
-                ],
-                'mobile_default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}}.eead-readmore-on-hover-yes .eead-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset.SIZE || 0}}px, {{readmore_vertical_offset.SIZE || 0}}px);',
-                    '(tablet){{WRAPPER}}.eead-readmore-on-hover-yes .eead-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_tablet.SIZE || 0}}px, {{readmore_vertical_offset_tablet.SIZE || 0}}px);',
-                    '(mobile){{WRAPPER}}.eead-readmore-on-hover-yes .eead-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_mobile.SIZE || 0}}px, {{readmore_vertical_offset_mobile.SIZE || 0}}px);',
-                ],
-                'condition' => [
-                    'readmore_on_hover' => 'yes',
                 ],
             ]
         );
@@ -609,17 +544,11 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box .eead-aib-icon' => 'width: {{SIZE}}{{UNIT}};',
                 ],
-                'conditions' => [
-                    'relation' => 'or',
-                    'terms' => [
-                        [
-                            'name' => 'icon_type',
-                            'operator' => '==',
-                            'value' => 'image'
-                        ],
-                    ]
-                ]
+                'condition' => [
+                    'icon_type' => 'image',
+                ],
             ]
         );
 
@@ -649,9 +578,17 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'name' => 'icon_border',
                 'placeholder' => '1px',
-                'separator' => 'before',
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius_advanced_show',
+            [
+                'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before',
             ]
         );
 
@@ -661,7 +598,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
-                'separator' => 'after',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -672,21 +609,12 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_radius_advanced_show',
-            [
-                'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-            ]
-        );
-
-        $this->add_control(
             'icon_radius_advanced',
             [
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
                 'type' => Controls_Manager::TEXT,
                 'size_units' => ['px', '%'],
-                'separator' => 'after',
                 'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{VALUE}};'
@@ -807,6 +735,23 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-h-offset:{{SIZE}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_overflow',
+            [
+                'label' => esc_html__('Overflow', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'show',
+                'options' => [
+                    'visible' => esc_html__('Show', 'easy-elementor-addons'),
+                    'hidden' => esc_html__('Hidden', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'overflow:{{VALUE}};',
+                ],
+                'separator' => 'before',
             ]
         );
 

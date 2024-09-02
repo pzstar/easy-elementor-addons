@@ -110,7 +110,7 @@ class EEAD_Widget_Loader {
             wp_register_script('gmap-api', '//maps.google.com/maps/api/js?sensor=true', ['jquery'], EEAD_VERSION, true);
         }
 
-        wp_script_add_data('eead-gmap', 'async/defer', true);
+        wp_script_add_data('gmap-api', 'async/defer', true);
         wp_register_script('circlr', EEAD_URL . 'assets/lib/threesixty-rotation/circlr.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('simple-magnify', EEAD_URL . 'assets/lib/threesixty-rotation/simple-magnify.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.js', ['jquery'], EEAD_VERSION, true);

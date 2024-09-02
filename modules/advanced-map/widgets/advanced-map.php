@@ -54,16 +54,14 @@ class AdvancedMap extends Widget_Base {
 			]
 		);
 
-		$map_key = 'AIzaSyBWbk2I3GRGYSSOU1tld0TIpfa_rSBbd6M';
-		if (!isset($map_key) || $map_key === '') {
-			$this->add_control(
-				'notice',
-				[
-					'type' => Controls_Manager::RAW_HTML,
-					'raw' => '<div class="eead-notice">' . esc_html__('To add google map api key', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a></div>',
-				]
-			);
-		}
+		$this->add_control(
+			'api-notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'heading' => esc_html__('Notice', 'easy-elementor-addons'),
+				'content' => esc_html__('Google Map API key is required. To add Google Map API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>',
+			]
+		);
 
 		$repeater = new Repeater();
 
@@ -72,9 +70,6 @@ class AdvancedMap extends Widget_Base {
 			[
 				'label' => esc_html__('Latitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
-					'active' => true,
-				],
 				'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
 			]
 		);
@@ -84,9 +79,6 @@ class AdvancedMap extends Widget_Base {
 			[
 				'label' => esc_html__('Longitude', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
-					'active' => true,
-				],
 				'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
 			]
 		);
@@ -95,10 +87,8 @@ class AdvancedMap extends Widget_Base {
 			'address',
 			[
 				'label' => esc_html__('Address', 'easy-elementor-addons'),
+				'description' => esc_html__('Use line break to move to next line.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
-				'dynamic' => [
-					'active' => true,
-				],
 				'placeholder' => esc_html__('Enter address here..', 'easy-elementor-addons'),
 			]
 		);
@@ -106,7 +96,7 @@ class AdvancedMap extends Widget_Base {
 		$repeater->add_control(
 			'icon',
 			[
-				'label' => esc_html__('Icon', 'easy-elementor-addons'),
+				'label' => esc_html__('Upload Pin Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 			]
 		);
@@ -114,7 +104,7 @@ class AdvancedMap extends Widget_Base {
 		$repeater->add_control(
 			'icon_size',
 			[
-				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Pin Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -149,8 +139,8 @@ class AdvancedMap extends Widget_Base {
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'lat' => '-25.363',
-						'long' => '131.044',
+						'lat' => '34.1063202',
+						'long' => '-118.1418337',
 						'address' => esc_html__('Enter Address Here', 'easy-elementor-addons'),
 					],
 				],
@@ -173,7 +163,7 @@ class AdvancedMap extends Widget_Base {
 				'type' => Controls_Manager::NUMBER,
 				'default' => 300,
 				'selectors' => [
-					'{{WRAPPER}} .eead-markers' => 'height:{{VALUE}}px',
+					'{{WRAPPER}} .eead-gmap-markers' => 'height:{{VALUE}}px',
 				],
 			]
 		);
@@ -191,7 +181,7 @@ class AdvancedMap extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 10,
+					'size' => 13,
 				],
 			]
 		);
@@ -264,7 +254,8 @@ class AdvancedMap extends Widget_Base {
 		$this->add_control(
 			'map_type',
 			[
-				'label' => esc_html__('Map Type Controls (Map/Satellite)', 'easy-elementor-addons'),
+				'label' => esc_html__('Map Type', 'easy-elementor-addons'),
+				'description' => esc_html__('Map/Satellite', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'true',
 				'options' => array(
@@ -324,12 +315,12 @@ class AdvancedMap extends Widget_Base {
 
 		if (count($markers) >= 1) {
 			?>
-			<div class="eead-gmap-wrapper">
-				<div class="eead-markers" <?php $this->print_render_attribute_string('wrapper'); ?>>
+			<div class="eead-gmap-container">
+				<div class="eead-gmap-markers" <?php $this->print_render_attribute_string('wrapper'); ?>>
 					<?php
 					foreach ($markers as $marker) {
 						?>
-						<div class="marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['long']); ?>" data-icon-size="<?php echo esc_attr($marker['icon_size']['size']); ?>" data-icon="<?php echo esc_attr($marker['icon']['url']); ?>" data-info-window="<?php echo esc_attr($marker['info_window_onload']); ?>">
+						<div class="eead-gmap-marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['long']); ?>" data-icon-size="<?php echo esc_attr($marker['icon_size']['size']); ?>" data-icon="<?php echo esc_attr($marker['icon']['url']); ?>" data-info-window="<?php echo esc_attr($marker['info_window_onload']); ?>" data-animate="<?php echo esc_attr('animate-' . $settings['animate']) ?>">
 							<?php echo wp_kses_post($marker['address']); ?>
 						</div>
 						<?php

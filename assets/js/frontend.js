@@ -7,7 +7,6 @@
             var widgets = {
                 'eead-accordion.default': EEA.accordionBlock,
                 'eead-advanced-map.default': EEA.advancedMap,
-                'eead-advanced-icon-box.default': EEA.advancedIconBox,
                 'eead-animated-heading.default': EEA.animatedHeading,
                 'eead-business-hour.default': EEA.businessHours,
                 'eead-countdown.default': EEA.countdown,
@@ -76,6 +75,169 @@
                     });
                 });
             }
+        },
+
+        accordionBlock: function ($scope) {
+            var accordion = $scope.find('.eead-each-accordion');
+
+            if (accordion.length > 0) {
+                accordion.find('.eead-accordion-title').each(function () {
+                    var eachTitle = $(this);
+                    // On Accordion Click
+                    eachTitle.on('click', function () {
+                        if (!$(this).parent('.eead-each-accordion').hasClass('eead-open')) {
+                            $(this).next('.eead-accordion-content').slideDown();
+                            $(this).parent('.eead-each-accordion').addClass('eead-open');
+                        } else {
+                            $(this).next('.eead-accordion-content').slideUp();
+                            $(this).parent('.eead-each-accordion').removeClass('eead-open');
+                        }
+                    });
+                });
+            }
+        },
+
+        advancedMap: function ($scope) {
+            new_map($scope.find('.eead-gmap-markers'));
+
+            function new_map($el) {
+                var zoom = $el.data('zoom');
+                var scrollwheel = $el.data('scrollwheel') ? true : false;
+                var zoomControl = $el.data('zoomcontrol') ? true : false;
+                var fullscreenControl = $el.data('fullscreencontrol') ? true : false;
+                var streetViewControl = $el.data('streetviewcontrol') ? true : false;
+                var mapTypeControl = $el.data('maptypecontrol') ? true : false;
+                var gestureHandling = $el.data('gesturehandling') ? $el.data('gesturehandling') : null;
+                var $markers = $el.find('.eead-gmap-marker');
+                var styles = $el.data('style');
+                var mapOption = {
+                    zoom: zoom,
+                    scrollwheel: scrollwheel,
+                    zoomControl: zoomControl,
+                    fullscreenControl: fullscreenControl,
+                    streetViewControl: streetViewControl,
+                    mapTypeControl: mapTypeControl,
+                    center: new google.maps.LatLng(0, 0),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    styles: styles
+                };
+
+                if (typeof gestureHandling !== 'undefined' && gestureHandling === 'none') {
+                    mapOption['gestureHandling'] = 'none';
+                }
+
+                // Generate map
+                var map = new google.maps.Map($el[0], mapOption);
+
+                // add a markers reference
+                map.markers = [];
+
+                // add markers
+                $markers.each(function () {
+                    add_marker($(this), map);
+                });
+
+                // center map
+                center_map(map, zoom);
+
+                return map;
+            }
+
+            function add_marker($marker, map) {
+                var animate = $marker.attr('data-animate');
+                var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
+                var icon_img = $marker.attr('data-icon');
+
+                if (icon_img != '') {
+                    var icon = {
+                        url: $marker.attr('data-icon'),
+                        scaledSize: new google.maps.Size($marker.attr('data-icon-size'), $marker.attr('data-icon-size'))
+                    };
+                }
+
+                // create marker
+                var marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                    icon: icon,
+                    animation: google.maps.Animation.DROP,
+                });
+
+                if (animate == 'animate-yes' && $marker.data('info-window') != 'yes') {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+
+                if (animate == 'animate-yes') {
+                    google.maps.event.addListener(marker, 'click', function () {
+                        marker.setAnimation(null);
+                    });
+                }
+
+                // add to array
+                map.markers.push(marker);
+
+                // if marker has html elements, add it to an infoWindow
+                if ($marker.html()) {
+                    // make info window
+                    var infowindow = new google.maps.InfoWindow({
+                        content: $marker.html()
+                    });
+
+                    // show info window when marker is clicked
+                    if ($marker.data('info-window') == 'yes') {
+                        infowindow.open(map, marker);
+                    }
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+                }
+
+                if (animate == 'animate-yes') {
+                    google.maps.event.addListener(infowindow, 'closeclick', function () {
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                    });
+                }
+            }
+
+            function center_map(map, zoom) {
+                var bounds = new google.maps.LatLngBounds();
+
+                // loop markers and create bounds
+                $.each(map.markers, function (i, marker) {
+                    var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+                    bounds.extend(latlng);
+                });
+
+                // If only 1 marker exist
+                if (map.markers.length == 1) {
+                    map.setCenter(bounds.getCenter());
+                    map.setZoom(zoom);
+                } else {
+                    map.fitBounds(bounds);
+                }
+            }
+        },
+
+        animatedHeading: function ($scope, $) {
+            var $heading = $scope.find('.eead-ah-heading > *'),
+                $animatedHeading = $scope.find('.eead-animated-heading'),
+                $settings = $scope.find('.eead-animated-heading').data('settings');
+
+            if (!$heading.length) {
+                return;
+            }
+
+            if ($settings.layout === 'animated') {
+                $($animatedHeading).Morphext($settings);
+            } else if ($settings.layout === 'typed') {
+                var animateSelector = $($animatedHeading).attr('id');
+                var typed = new Typed('#' + animateSelector, $settings);
+            }
+
+            $($heading).animate({
+                easing: 'slow',
+                opacity: 1
+            }, 500);
         },
 
         hotspotBlock: function ($scope) {
@@ -508,128 +670,7 @@
             });
         },
 
-        advancedMap: function ($scope) {
-            var map = new_map($scope.find('.eead-markers'));
 
-            function new_map($el) {
-                var zoom = $el.data('zoom');
-                var scrollwheel = $el.data('scrollwheel') ? true : false;
-                var zoomControl = $el.data('zoomcontrol') ? true : false;
-                var fullscreenControl = $el.data('fullscreencontrol') ? true : false;
-                var streetViewControl = $el.data('streetviewcontrol') ? true : false;
-                var mapTypeControl = $el.data('maptypecontrol') ? true : false;
-                var gestureHandling = $el.data('gesturehandling') ? $el.data('gesturehandling') : null;
-                var $markers = $el.find('.marker');
-                var styles = $el.data('style');
-                var prevent_scroll = $el.data('scroll');
-                var mapOption = {
-                    zoom: zoom,
-                    scrollwheel: scrollwheel,
-                    zoomControl: zoomControl,
-                    fullscreenControl: fullscreenControl,
-                    streetViewControl: streetViewControl,
-                    mapTypeControl: mapTypeControl,
-                    center: new google.maps.LatLng(0, 0),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    styles: styles
-                };
-
-                if (typeof gestureHandling !== 'undefined' && gestureHandling === 'none') {
-                    mapOption['gestureHandling'] = 'none';
-                }
-
-                // Generate map
-                var map = new google.maps.Map($el[0], mapOption);
-
-                // add a markers reference
-                map.markers = [];
-
-                // add markers
-                $markers.each(function () {
-                    add_marker($(this), map);
-                });
-
-                // center map
-                center_map(map, zoom);
-
-                return map;
-            }
-
-            function add_marker($marker, map) {
-                var animate = $marker.data('animate');
-                var info_window_onload = $marker.data('show-info-window-onload');
-                var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
-                var icon_img = $marker.attr('data-icon');
-
-                if (icon_img != '') {
-                    var icon = {
-                        url: $marker.attr('data-icon'),
-                        scaledSize: new google.maps.Size($marker.attr('data-icon-size'), $marker.attr('data-icon-size'))
-                    };
-                }
-
-                // create marker
-                var marker = new google.maps.Marker({
-                    position: latlng,
-                    map: map,
-                    icon: icon,
-                    animation: google.maps.Animation.DROP
-                });
-
-                if (animate == 'animate-yes' && $marker.data('info-window') != 'yes') {
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                }
-
-                if (animate == 'animate-yes') {
-                    google.maps.event.addListener(marker, 'click', function () {
-                        marker.setAnimation(null);
-                    });
-                }
-
-                // add to array
-                map.markers.push(marker);
-
-                // if marker has html elements, add it to an infoWindow
-                if ($marker.html()) {
-                    // make info window
-                    var infowindow = new google.maps.InfoWindow({
-                        content: $marker.html()
-                    });
-
-                    // show info window when marker is clicked
-                    if ($marker.data('info-window') == 'yes') {
-                        infowindow.open(map, marker);
-                    }
-                    google.maps.event.addListener(marker, 'click', function () {
-                        infowindow.open(map, marker);
-                    });
-                }
-
-                if (animate == 'animate-yes') {
-                    google.maps.event.addListener(infowindow, 'closeclick', function () {
-                        marker.setAnimation(google.maps.Animation.BOUNCE);
-                    });
-                }
-            }
-
-            function center_map(map, zoom) {
-                var bounds = new google.maps.LatLngBounds();
-
-                // loop markers and create bounds
-                $.each(map.markers, function (i, marker) {
-                    var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
-                    bounds.extend(latlng);
-                });
-
-                // If only 1 marker exist
-                if (map.markers.length == 1) {
-                    map.setCenter(bounds.getCenter());
-                    map.setZoom(zoom);
-                } else {
-                    map.fitBounds(bounds);
-                }
-            }
-        },
 
         stickyVideo: function ($scope) {
             $(".eead-sticky-player-close", $scope).hide();
@@ -1186,21 +1227,6 @@
             }
         },
 
-        advancedIconBox: function ($scope) {
-            var $divider = $scope.find('.eead-advanced-icon-box'),
-                divider = $($divider).find('.eead-title-separator-wrapper > img');
-
-            if ($divider.length) {
-                elementorFrontend.waypoint(divider, function () {
-                    UIkit.svg(this, {
-                        strokeAnimation: true
-                    });
-                }, {
-                    offset: 'bottom-in-view'
-                });
-            }
-            return;
-        },
 
         portfolioBlock: function ($scope) {
             var $element = $scope.find('.eead-portfolio-lists');
@@ -1497,47 +1523,9 @@
             });
         },
 
-        animatedHeading: function ($scope, $) {
-            var $heading = $scope.find('.eead-animated-heading-wrap > *'),
-                $animatedHeading = $scope.find('.eead-animated-heading'),
-                $settings = $scope.find('.eead-animated-heading').data('settings');
+        
 
-            if (!$heading.length) {
-                return;
-            }
 
-            if ($settings.layout === 'animated') {
-                $($animatedHeading).Morphext($settings);
-            } else if ($settings.layout === 'typed') {
-                var animateSelector = $($animatedHeading).attr('id');
-                var typed = new Typed('#' + animateSelector, $settings);
-            }
-
-            $($heading).animate({
-                easing: 'slow',
-                opacity: 1
-            }, 500);
-        },
-
-        accordionBlock: function ($scope) {
-            var accordion = $scope.find('.eead-each-accordion');
-
-            if (accordion.length > 0) {
-                accordion.find('.eead-accordion-title').each(function () {
-                    var eachTitle = $(this);
-                    // On Accordion Click
-                    eachTitle.on('click', function () {
-                        if (!$(this).parent('.eead-each-accordion').hasClass('eead-open')) {
-                            $(this).next('.eead-accordion-content').slideDown();
-                            $(this).parent('.eead-each-accordion').addClass('eead-open');
-                        } else {
-                            $(this).next('.eead-accordion-content').slideUp();
-                            $(this).parent('.eead-each-accordion').removeClass('eead-open');
-                        }
-                    });
-                });
-            }
-        },
 
         switcherBlock: function ($scope) {
             $scope.find('.eead-switch-tab').on('click', function () {
