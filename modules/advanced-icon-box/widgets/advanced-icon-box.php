@@ -302,9 +302,6 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'mdi mdi-arrow-right-thin-circle-outline',
-                ],
                 'condition' => [
                     'readmore' => 'yes'
                 ]
@@ -598,12 +595,39 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'image_width',
+            [
+                'label' => esc_html__('Image Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 600,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+                'conditions' => [
+                    'relation' => 'or',
+                    'terms' => [
+                        [
+                            'name' => 'icon_type',
+                            'operator' => '==',
+                            'value' => 'image'
+                        ],
+                    ]
+                ]
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' => 'icon_background',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span',
-                'separator' => 'before'
             ]
         );
 
@@ -1137,7 +1161,7 @@ class AdvancedIconBox extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                        'min' => 10,
+                        'min' => 1,
                     ],
                 ],
                 'condition' => [
@@ -1564,9 +1588,7 @@ class AdvancedIconBox extends Widget_Base {
             <a <?php $this->print_render_attribute_string('readmore'); ?>>
                 <?php
                 echo esc_html($settings['readmore_text']);
-                if ($settings['advanced_readmore_icon']['value']) {
-                    Icons_Manager::render_icon($settings['advanced_readmore_icon'], ['aria-hidden' => 'true']);
-                }
+                Icons_Manager::render_icon($settings['advanced_readmore_icon'], ['aria-hidden' => 'true']);
                 ?>
             </a>
             <?php

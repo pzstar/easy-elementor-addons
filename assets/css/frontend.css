@@ -552,9 +552,9 @@ Advanced Icon Box
     gap: 20px;
 }
 
-:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box {
+:where(.eead-aib-icon-pos-left, 
+.eead-aib-icon-pos-right) .eead-advanced-icon-box {
     display: flex;
-    align-items: var(--eead-aib-icon-v-align);
     gap: 20px;
 }
 
@@ -574,14 +574,22 @@ Advanced Icon Box
 .eead-advanced-icon-box .eead-aib-icon > span {
     display: inline-block;
     line-height: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.eead-advanced-icon-box .eead-aib-icon svg,
-.eead-advanced-icon-box .eead-aib-icon img {
+.eead-advanced-icon-box .eead-aib-icon svg{
     display: inline-block;
     height: 1em;
     width: auto;
     line-height: 1;
+    transform: translateX(var(--eead-aib-icon-h-offset, 0)) translateY(var(--eead-aib-icon-v-offset, 0)) rotate(var(--eead-aib-icon-rotate, 0deg));
+}
+
+.eead-advanced-icon-box .eead-aib-icon img{
+    display: inline-block;
+    height: auto;
+    width: 100%;
     transform: translateX(var(--eead-aib-icon-h-offset, 0)) translateY(var(--eead-aib-icon-v-offset, 0)) rotate(var(--eead-aib-icon-rotate, 0deg));
 }
 
@@ -590,6 +598,11 @@ Advanced Icon Box
     font-size: 1em;
     line-height: 1;
     transform: translateX(var(--eead-aib-icon-h-offset, 0)) translateY(var(--eead-aib-icon-v-offset, 0)) rotate(var(--eead-aib-icon-rotate, 0deg));
+}
+
+.eead-advanced-icon-box .eead-aib-content{
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .eead-advanced-icon-box .eead-aib-header {
