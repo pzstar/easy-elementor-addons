@@ -299,10 +299,11 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'advanced_readmore_icon',
-            [
+            'advanced_readmore_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'condition' => [
                     'readmore' => 'yes'
                 ]
@@ -396,6 +397,7 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => -300,
@@ -598,7 +600,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
-                
+
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],

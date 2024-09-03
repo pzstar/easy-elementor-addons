@@ -148,11 +148,11 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button_icon',
-            [
+            'button_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon',
+                'skin' => 'inline',
+                'label_block' => false
             ]
         );
 
