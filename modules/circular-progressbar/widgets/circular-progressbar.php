@@ -97,7 +97,7 @@ class CircularProgressbar extends Widget_Base {
                 ],
                 'render_type' => 'template',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-cb-percent' => 'font-size: {{SIZE}}px',
+                    '{{WRAPPER}} .eead-circular-progressbar' => '--eead-cb-circle-size: {{SIZE}}px;',
                 ],
             ]
         );
@@ -117,6 +117,10 @@ class CircularProgressbar extends Widget_Base {
                         'max' => 100,
                         'step' => 1,
                     ]
+                ],
+                'render_type' => 'template',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-circular-progressbar' => '--eead-cb-circle-stroke: {{SIZE}}px;',
                 ],
             ]
         );

@@ -60,60 +60,9 @@ class Countdown extends Widget_Base {
         $this->add_control(
             'eead_countdown_due_time',
             [
-                'label' => esc_html__('Countdown Due Date & Time', 'easy-elementor-addons'),
+                'label' => esc_html__('Countdown Date & Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DATE_TIME,
                 'default' => date("Y-m-d", strtotime("+ 1 day")),
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_label_view',
-            [
-                'label' => esc_html__('Label Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'eead-countdown-label-block',
-                'options' => [
-                    'eead-countdown-label-block' => esc_html__('Block', 'easy-elementor-addons'),
-                    'eead-countdown-label-inline' => esc_html__('Inline', 'easy-elementor-addons'),
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_label_padding_left',
-            [
-                'label' => esc_html__('Left spacing for Labels', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'description' => esc_html__('Use when you select inline labels', 'easy-elementor-addons'),
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-label' => 'padding-left:{{SIZE}}px;',
-                ],
-                'condition' => [
-                    'eead_countdown_label_view' => 'eead-countdown-label-inline',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_alignment',
-            [
-                'label' => esc_html__('Label Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'center',
-                'options' => [
-                    'left' => esc_html__('Left', 'easy-elementor-addons'),
-                    'center' => esc_html__('Center', 'easy-elementor-addons'),
-                    'right' => esc_html__('Right', 'easy-elementor-addons'),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'text-align: {{VALUE}};',
-                ],
             ]
         );
 
@@ -187,13 +136,70 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'table-cell',
+                'default' => 'flex',
                 'options' => [
-                    'grid' => esc_html__('List', 'easy-elementor-addons'),
-                    'table-cell' => esc_html__('Grid', 'easy-elementor-addons'),
+                    'column' => esc_html__('List', 'easy-elementor-addons'),
+                    'row' => esc_html__('Grid', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-items>li' => 'display: {{VALUE}};',
+                    '{{WRAPPER}} .eead-countdown-items' => 'flex-direction:{{VALUE}};',
+                ],
+                'separator' => 'after'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_label_spacing',
+            [
+                'label' => esc_html__('Label Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item > div' => 'gap:{{SIZE}}px;',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_label_view',
+            [
+                'label' => esc_html__('Label Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'eead-countdown-label-block',
+                'options' => [
+                    'column' => esc_html__('Block', 'easy-elementor-addons'),
+                    'row' => esc_html__('Inline', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item > div' => 'flex-direction:{{VALUE}};',
+                ],
+                'condition' => [
+                    'eead_section_countdown_layout' => 'column'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_alignment',
+            [
+                'label' => esc_html__('Label Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'center',
+                'options' => [
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'center' => esc_html__('Center', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item > div' => 'text-align: {{VALUE}};',
+                ],
+                'condition' => [
+                    'eead_section_countdown_layout' => 'column',
                 ],
             ]
         );
@@ -205,6 +211,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => 'yes',
+                'separator' => 'before'
             ]
         );
 
@@ -368,7 +375,7 @@ class Countdown extends Widget_Base {
                     '{{WRAPPER}} .eead-countdown-items>li' => 'margin-bottom:{{SIZE}}px;',
                 ],
                 'condition' => [
-                    'eead_section_countdown_layout' => 'grid',
+                    'eead_section_countdown_layout' => 'block',
                 ],
             ]
         );
@@ -392,7 +399,7 @@ class Countdown extends Widget_Base {
                     '{{WRAPPER}} .eead-countdown-container' => 'margin-right: -{{SIZE}}px; margin-left: -{{SIZE}}px;',
                 ],
                 'condition' => [
-                    'eead_section_countdown_layout' => 'table-cell',
+                    'eead_section_countdown_layout' => 'flex',
                 ],
             ]
         );

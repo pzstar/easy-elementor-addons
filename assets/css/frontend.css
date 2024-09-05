@@ -742,7 +742,7 @@ Business Hours
     text-transform: uppercase;
 }
 
-.eead-business-hour .eead-business-time-interval{
+.eead-business-hour .eead-business-time-interval {
     text-transform: uppercase;
 }
 
@@ -770,9 +770,14 @@ Circular Progressbar
     stroke: #03a9f4;
 }
 
-.eead-circular-progressbar-box .eead-cb-percent{
+.eead-circular-progressbar-box .eead-cb-percent {
     position: relative;
     line-height: 0;
+    font-size: var(--eead-cb-circle-size);
+}
+
+.eead-circular-progressbar-box{
+    width: calc(var(--eead-cb-circle-size) * 2 + var(--eead-cb-circle-stroke));
 }
 
 .eead-circular-progressbar-box .eead-cb-number {
@@ -791,6 +796,100 @@ Circular Progressbar
     margin: 20px 0 0;
     text-align: center;
 }
+
+
+/*--------------------------------------------------------------
+Countdown Styles
+--------------------------------------------------------------*/
+.eead-countdown-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.eead-countdown-items > li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.eead-countdown-item > div {
+    display: flex;
+}
+
+.eead-countdown-digits {
+    font-size: 54px;
+    line-height: 1;
+}
+
+.eead-countdown-label {
+    font-size: 18px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.eead-countdown-show-separator.eead-countdown-separator-solid .eead-countdown-digits::after {
+    content: "|";
+    position: absolute;
+    left: 98%;
+    z-index: 1;
+}
+
+.eead-countdown-show-separator.eead-countdown-separator-dotted .eead-countdown-digits::after {
+    content: ":";
+    position: absolute;
+    left: 98%;
+    z-index: 1;
+}
+
+.eead-countdown-item:last-child .eead-countdown-digits::after {
+    display: none;
+}
+
+/*--- Style 1 ---*/
+
+.eead-countdown-items.style-1 .eead-countdown-item > div {
+    background: #262625;
+}
+
+@media all and (min-width: 1025px) {
+
+    .eead-countdown-label-block .eead-countdown-digits,
+    .eead-countdown-label-block .eead-countdown-label {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 1025px) {
+
+    .eead-countdown-label-inline-tablet .eead-countdown-digits,
+    .eead-countdown-label-inline-tablet .eead-countdown-label {
+        display: inline-block !important;
+    }
+
+    .eead-countdown-label-block-tablet .eead-countdown-digits,
+    .eead-countdown-label-block-tablet .eead-countdown-label {
+        display: block !important;
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    .eead-countdown-label-inline-mobile .eead-countdown-digits,
+    .eead-countdown-label-inline-mobile .eead-countdown-label {
+        display: inline-block !important;
+    }
+
+    .eead-countdown-label-block-mobile .eead-countdown-digits,
+    .eead-countdown-label-block-mobile .eead-countdown-label {
+        display: block !important;
+    }
+}
+
 
 
 /*ProgressBar Style*/
@@ -7261,99 +7360,6 @@ q. slider css
 
 .eead-popup-modal-container.mCustomScrollbar .mCSB_draggerRail {
     display: none;
-}
-
-/* Countdown Styles*/
-.eead-countdown-items {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-}
-
-.eead-countdown-items > li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: table-cell;
-    position: relative;
-}
-
-.eead-countdown-item > div {
-    text-align: center;
-    padding: 20px;
-}
-
-.eead-countdown-digits {
-    font-size: 54px;
-    line-height: 1;
-}
-
-.eead-countdown-label {
-    font-size: 18px;
-    line-height: 1;
-    color: #ffffff;
-}
-
-.eead-countdown-show-separator.eead-countdown-separator-solid .eead-countdown-digits::after {
-    content: "|";
-    position: absolute;
-    left: 98%;
-    z-index: 1;
-}
-
-.eead-countdown-show-separator.eead-countdown-separator-dotted .eead-countdown-digits::after {
-    content: ":";
-    position: absolute;
-    left: 98%;
-    z-index: 1;
-}
-
-.eead-countdown-item:last-child .eead-countdown-digits::after {
-    display: none;
-}
-
-/*--- Style 1 ---*/
-
-.eead-countdown-items.style-1 .eead-countdown-item > div {
-    background: #262625;
-}
-
-@media all and (min-width: 1025px) {
-
-    .eead-countdown-label-block .eead-countdown-digits,
-    .eead-countdown-label-block .eead-countdown-label {
-        display: block;
-        text-align: center;
-    }
-}
-
-@media all and (max-width: 1025px) {
-
-    .eead-countdown-label-inline-tablet .eead-countdown-digits,
-    .eead-countdown-label-inline-tablet .eead-countdown-label {
-        display: inline-block !important;
-    }
-
-    .eead-countdown-label-block-tablet .eead-countdown-digits,
-    .eead-countdown-label-block-tablet .eead-countdown-label {
-        display: block !important;
-    }
-}
-
-@media all and (max-width: 767px) {
-
-    .eead-countdown-label-inline-mobile .eead-countdown-digits,
-    .eead-countdown-label-inline-mobile .eead-countdown-label {
-        display: inline-block !important;
-    }
-
-    .eead-countdown-label-block-mobile .eead-countdown-digits,
-    .eead-countdown-label-block-mobile .eead-countdown-label {
-        display: block !important;
-    }
 }
 
 

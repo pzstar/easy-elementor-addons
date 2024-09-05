@@ -10,8 +10,8 @@
                 'eead-animated-heading.default': EEA.animatedHeading,
                 'eead-business-hour.default': EEA.businessHours,
                 'eead-circular-progressbar.default': EEA.circularProgressBar,
-
                 'eead-countdown.default': EEA.countdown,
+
                 'eead-counter.default': EEA.counterBlock,
                 'eead-caption-hover-effect.default': EEA.captionHoverEffect,
                 'eead-charts.default': EEA.chartsBlock,
@@ -303,6 +303,25 @@
                     offset: '90%',
                 });
             }
+        },
+
+        countdown: function ($scope) {
+            var $coundDown = $scope.find(".eead-countdown-wrapper"),
+                $countdown_id = $coundDown.data("countdown-id") !== "" ? $coundDown.data("countdown-id") : "",
+                $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
+                $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
+                $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
+                $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
+
+            $("#eead-countdown-" + $countdown_id).countdown({
+                end: function end() {
+                    if ($expire_type == "text") {
+                        countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + "</h4>" + '<div class="eead-countdown-finish-text">' + $expiry_text + "</div></div>");
+                    } else if ($expire_type === "url") {
+                        window.location.href = $redirect_url;
+                    }
+                }
+            });
         },
 
         hotspotBlock: function ($scope) {
@@ -945,25 +964,7 @@
             }
         },
 
-        countdown: function ($scope) {
-            var $coundDown = $scope.find(".eead-countdown-wrapper").eq(0),
-                $countdown_id = $coundDown.data("countdown-id") !== "" ? $coundDown.data("countdown-id") : "",
-                $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
-                $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
-                $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
-                $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
-
-            var countDown = $("#eead-countdown-" + $countdown_id);
-            countDown.countdown({
-                end: function end() {
-                    if ($expire_type == "text") {
-                        countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + "</h4>" + '<div class="eead-countdown-finish-text">' + $expiry_text + "</div></div>");
-                    } else if ($expire_type === "url") {
-                        window.location.href = $redirect_url;
-                    }
-                }
-            });
-        },
+        
 
         popupModal: function ($scope) {
             var $open = $scope.find('.eead-popup-modal-trigger');
