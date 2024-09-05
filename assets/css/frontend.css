@@ -712,6 +712,139 @@ Animated Heading
     opacity: 0;
 }
 
+
+/*--------------------------------------------------------------
+Business Hours
+--------------------------------------------------------------*/
+.eead-business-hour .eead-bh-header,
+.eead-business-hour .eead-bh-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+}
+
+.eead-business-hour-details .eead-business-hour-row {
+    padding: 15px;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.eead-business-hour-details .eead-business-hour-row .eead-business-day,
+.eead-business-hour-details .eead-business-hour-row .eead-business-time {
+    flex-basis: 50%;
+}
+
+.eead-business-hour .eead-bh-current-time {
+    font-size: 2em;
+    line-height: 1;
+    margin-bottom: 0.2em;
+    text-transform: uppercase;
+}
+
+.eead-business-hour .eead-business-time-interval{
+    text-transform: uppercase;
+}
+
+/*--------------------------------------------------------------
+Circular Progressbar
+--------------------------------------------------------------*/
+.eead-circular-progressbar {
+    display: flex;
+    justify-content: center;
+}
+
+.eead-circular-progressbar-box svg circle {
+    fill: none;
+    stroke: #000;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.eead-circular-progressbar-box svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: #f3f3f3;
+}
+
+.eead-circular-progressbar-box svg circle:nth-child(2) {
+    stroke: #03a9f4;
+}
+
+.eead-circular-progressbar-box .eead-cb-percent{
+    position: relative;
+    line-height: 0;
+}
+
+.eead-circular-progressbar-box .eead-cb-number {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.4em;
+}
+
+.eead-circular-progressbar-box .eead-cb-title {
+    margin: 20px 0 0;
+    text-align: center;
+}
+
+
+/*ProgressBar Style*/
+.eead-progress {
+    margin-bottom: 30px;
+}
+
+.eead-progress h2,
+.eead-progress-bar-length span {
+    color: #333333;
+}
+
+.eead-progress h2 {
+    margin-bottom: 8px;
+}
+
+.eead-progress-bar {
+    background: #F6F6F6;
+}
+
+.eead-progress-bar {
+    height: 12px;
+    width: 100%;
+    position: relative;
+    background: #f6f6f6;
+    border-radius: 20px;
+}
+
+.eead-progress-bar-length {
+    background: #4ec5ef;
+    height: 100%;
+    text-align: right;
+    width: 0;
+    border-radius: 20px;
+}
+
+.eead-progress h2,
+.eead-progress-bar-length span {
+    color: #333333;
+    font-weight: 600;
+}
+
+.eead-progress h2 {
+    font-size: 20px;
+}
+
+.eead-progress-bar-length span {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 8px);
+}
+
+
+
 /*Social Share Buttons*/
 .eead-social-share-container a {
     display: flex;
@@ -4500,74 +4633,6 @@ q. slider css
 
 
 
-/* Business Hours */
-.eead-header-content,
-.eead-footer-content {
-    background-color: #b2b2b2;
-    color: #fff;
-    padding: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.eead-header-content.align-center,
-.eead-footer-content.align-center {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-}
-
-.eead-header-content.align-center .eead-header-inner,
-.eead-footer-content.align-center .eead-footer-inner {
-    text-align: center;
-}
-
-.eead-header-content.align-left,
-.eead-footer-content.align-left {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-}
-
-.eead-header-content.align-right,
-.eead-footer-content.align-right {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-}
-
-.eead-header-content.align-right .eead-header-inner,
-.eead-footer-content.align-right .eead-footer-inner {
-    text-align: right;
-}
-
-.eead-business-hour-details .eead-business-hour-row {
-    background-color: #fff;
-    color: #333;
-    padding: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-.eead-business-hour-section .eead-current-time {
-    font-family: sans-serif;
-    font-weight: 900;
-    font-size: 32px;
-    text-transform: uppercase;
-}
-
-.eead-business-hour-row.active-day {
-    background-color: #f8f8f8;
-}
-
 /* Scroll Image Container */
 .eead-scroll-image-container {
     position: relative;
@@ -4837,167 +4902,6 @@ q. slider css
     font-size: 22px;
     font-weight: 600;
 
-}
-
-
-/*Circular Progressbar*/
-.eead-circular-progressbar {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    background: #eeeeee;
-}
-
-.eead-circular-progressbar-box {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background: #ffffff;
-    -webkit-box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
-}
-
-.eead-circular-progressbar-box .percent {
-    position: relative;
-    height: 150px;
-    width: 150px;
-}
-
-.eead-circular-progressbar-box .text {
-    text-align: center;
-}
-
-.eead-circular-progressbar-box .percent svg {
-    position: relative;
-    height: 150px;
-    width: 150px;
-}
-
-.eead-circular-progressbar-box .percent svg circle {
-    width: 150px;
-    height: 150px;
-    fill: none;
-    stroke-width: 10;
-    stroke: #000;
-    -webkit-transform: translate(5px, 5px);
-    -ms-transform: translate(5px, 5px);
-    transform: translate(5px, 5px);
-    stroke-dasharray: 440;
-    stroke-dashoffset: 440;
-    stroke-linecap: round;
-    -webkit-transition: stroke-dashoffset 1s linear;
-    -o-transition: stroke-dashoffset 1s linear;
-    transition: stroke-dashoffset 1s linear;
-}
-
-.eead-circular-progressbar-box .percent svg circle:nth-child(1) {
-    stroke-dashoffset: 0;
-    stroke: #f3f3f3;
-}
-
-.eead-circular-progressbar-box .percent svg circle:nth-child(2) {
-    stroke-dashoffset: 440;
-    /*0% start at 440*/
-    stroke: #03a9f4;
-}
-
-.eead-circular-progressbar-box h2 {
-    margin: 0;
-}
-
-.eead-circular-progressbar-box .percent .number h2 {
-    font-size: 50px;
-}
-
-.eead-circular-progressbar-box .percent .number span {
-    font-size: 25px;
-}
-
-.eead-circular-progressbar-box .percent .number {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: #111;
-}
-
-/*ProgressBar Style*/
-.eead-progress {
-    margin-bottom: 30px;
-}
-
-.eead-progress h2,
-.eead-progress-bar-length span {
-    color: #333333;
-}
-
-.eead-progress h2 {
-    margin-bottom: 8px;
-}
-
-.eead-progress-bar {
-    background: #F6F6F6;
-}
-
-.eead-progress-bar {
-    height: 12px;
-    width: 100%;
-    position: relative;
-    background: #f6f6f6;
-    border-radius: 20px;
-}
-
-.eead-progress-bar-length {
-    background: #4ec5ef;
-    height: 100%;
-    text-align: right;
-    width: 0;
-    border-radius: 20px;
-}
-
-.eead-progress h2,
-.eead-progress-bar-length span {
-    color: #333333;
-    font-weight: 600;
-}
-
-.eead-progress h2 {
-    font-size: 20px;
-}
-
-.eead-progress-bar-length span {
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 8px);
 }
 
 

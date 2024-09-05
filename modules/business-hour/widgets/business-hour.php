@@ -44,8 +44,6 @@ class BusinessHour extends Widget_Base {
 
     /** Controls */
     protected function register_controls() {
-
-        /** Enable 24-hour Time format depending on global WP settings. */
         $time_24hr = false;
         $wp_time_format = get_option('time_format');
         if ((strpos($wp_time_format, 'G') !== false) or (strpos($wp_time_format, 'H') !== false)) {
@@ -60,97 +58,28 @@ class BusinessHour extends Widget_Base {
         );
 
         $this->add_control(
-            'business_hour_style',
-            [
-                'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'default' => esc_html__('Static', 'easy-elementor-addons'),
-                    'dynamic' => esc_html__('Dynamic', 'easy-elementor-addons'),
-                ],
-                'default' => 'default',
-            ]
-        );
-
-        $this->add_control(
-            'dynamic_timezone',
-            [
-                'label' => esc_html__('Timezone', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'default',
-                'options' => [
-                    'default' => 'Website Time',
-                    '-0' => esc_html__('UT or UTC - GMT -0', 'easy-elementor-addons'),
-                    '+1' => esc_html__('CET - GMT+1', 'easy-elementor-addons'),
-                    '+2' => esc_html__('EET - GMT+2', 'easy-elementor-addons'),
-                    '+3' => esc_html__('MSK - GMT+3', 'easy-elementor-addons'),
-                    '+4' => esc_html__('SMT - GMT+4', 'easy-elementor-addons'),
-                    '+5' => esc_html__('PKT - GMT+5', 'easy-elementor-addons'),
-                    '+5.5' => esc_html__('IND - GMT+5.5', 'easy-elementor-addons'),
-                    '+6' => esc_html__('OMSK / BD - GMT+6', 'easy-elementor-addons'),
-                    '+7' => esc_html__('CXT - GMT+7', 'easy-elementor-addons'),
-                    '+8' => esc_html__('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
-                    '+9' => esc_html__('JST - GMT+9', 'easy-elementor-addons'),
-                    '+10' => esc_html__('EAST - GMT+10', 'easy-elementor-addons'),
-                    '+11' => esc_html__('SAKT - GMT+11', 'easy-elementor-addons'),
-                    '+12' => esc_html__('IDLE  - GMT+12', 'easy-elementor-addons'),
-                    '+13' => esc_html__('NZDT  - GMT+13', 'easy-elementor-addons'),
-                    '-1' => esc_html__('WAT  - GMT-1', 'easy-elementor-addons'),
-                    '-2' => esc_html__('AT  - GMT-2', 'easy-elementor-addons'),
-                    '-3' => esc_html__('ART  - GMT-3', 'easy-elementor-addons'),
-                    '-4' => esc_html__('AST  - GMT-4', 'easy-elementor-addons'),
-                    '-5' => esc_html__('EST  - GMT-5', 'easy-elementor-addons'),
-                    '-6' => esc_html__('CST  - GMT-6', 'easy-elementor-addons'),
-                    '-7' => esc_html__('MST  - GMT-7', 'easy-elementor-addons'),
-                    '-8' => esc_html__('PST  - GMT-8', 'easy-elementor-addons'),
-                    '-9' => esc_html__('AKST  - GMT-9', 'easy-elementor-addons'),
-                    '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
-                    '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
-                    '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
-                    'custom' => "Custom",
-                ],
-                'condition' => [
-                    'business_hour_style' => 'dynamic',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'custom_timezone_input',
-            [
-                'label' => esc_html__('Custom Timezone', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => '+6',
-                'placeholder' => '+6',
-                'condition' => [
-                    'dynamic_timezone' => 'custom',
-                    'business_hour_style' => 'dynamic',
-                ]
-            ]
-        );
-
-        $this->add_control(
             'header_content_type',
             [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
+                'label_block' => true,
+                'toggle' => 'false',
                 'options' => [
                     'none' => [
                         'title' => esc_html__('None', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-ban',
+                        'icon' => 'eicon-close',
                     ],
                     'date' => [
                         'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-calendar-check',
+                        'icon' => 'eicon-calendar',
                     ],
                     'status' => [
                         'title' => esc_html__('Open Status', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-info',
+                        'icon' => 'eicon-info',
                     ],
                     'text' => [
                         'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-font',
+                        'icon' => 'eicon-animated-headline',
                     ],
                 ],
                 'default' => 'date',
@@ -211,6 +140,9 @@ class BusinessHour extends Widget_Base {
                 'condition' => [
                     'header_content_type!' => 'none',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'text-align: {{VALUE}}',
+                ]
             ]
         );
 
@@ -247,7 +179,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('End Time', 'easy-elementor-addons'),
                 'label_block' => false,
                 'type' => Controls_Manager::DATE_TIME,
-                'default' => $this->format_time('20:00'),//'H:i'
+                'default' => $this->format_time('18:00'),//'H:i'
                 'picker_options' => [
                     'enableTime' => true,
                     'noCalendar' => true,
@@ -367,23 +299,24 @@ class BusinessHour extends Widget_Base {
             [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
+                'label_block' => true,
+                'toggle' => 'false',
                 'options' => [
                     'none' => [
-                        'title' => esc_html__('Nothing', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-ban',
+                        'title' => esc_html__('None', 'easy-elementor-addons'),
+                        'icon' => 'eicon-close',
                     ],
                     'date' => [
-                        'title' => esc_html__('Current Date', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-calendar-check',
+                        'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
+                        'icon' => 'eicon-calendar',
                     ],
                     'status' => [
-                        'title' => esc_html__('Current Status', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-info',
+                        'title' => esc_html__('Open Status', 'easy-elementor-addons'),
+                        'icon' => 'eicon-info',
                     ],
                     'text' => [
                         'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-font',
+                        'icon' => 'eicon-animated-headline',
                     ],
                 ],
                 'default' => 'status',
@@ -444,6 +377,99 @@ class BusinessHour extends Widget_Base {
                 'condition' => [
                     'footer_content_type!' => 'none',
                 ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'text-align: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'time_zone',
+            [
+                'label' => esc_html__('Time Zone', 'easy-elementor-addons'),
+                'conditions' => [
+                    'relation' => 'or',
+                    'terms' => [
+                        [
+                            'name' => 'header_content_type',
+                            'operator' => '==',
+                            'value' => 'date',
+                        ],
+                        [
+                            'name' => 'footer_content_type',
+                            'operator' => '==',
+                            'value' => 'date',
+                        ]
+                    ]
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'business_hour_style',
+            [
+                'label' => esc_html__('Display Timer', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'default' => esc_html__('No', 'easy-elementor-addons'),
+                    'dynamic' => esc_html__('Yes', 'easy-elementor-addons'),
+                ],
+                'default' => 'default',
+            ]
+        );
+
+        $this->add_control(
+            'dynamic_timezone',
+            [
+                'label' => esc_html__('Timezone', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'default',
+                'options' => [
+                    'default' => 'Website Time',
+                    '-0' => esc_html__('UT or UTC - GMT -0', 'easy-elementor-addons'),
+                    '+1' => esc_html__('CET - GMT+1', 'easy-elementor-addons'),
+                    '+2' => esc_html__('EET - GMT+2', 'easy-elementor-addons'),
+                    '+3' => esc_html__('MSK - GMT+3', 'easy-elementor-addons'),
+                    '+4' => esc_html__('SMT - GMT+4', 'easy-elementor-addons'),
+                    '+5' => esc_html__('PKT - GMT+5', 'easy-elementor-addons'),
+                    '+5.5' => esc_html__('IND - GMT+5.5', 'easy-elementor-addons'),
+                    '+6' => esc_html__('OMSK / BD - GMT+6', 'easy-elementor-addons'),
+                    '+7' => esc_html__('CXT - GMT+7', 'easy-elementor-addons'),
+                    '+8' => esc_html__('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
+                    '+9' => esc_html__('JST - GMT+9', 'easy-elementor-addons'),
+                    '+10' => esc_html__('EAST - GMT+10', 'easy-elementor-addons'),
+                    '+11' => esc_html__('SAKT - GMT+11', 'easy-elementor-addons'),
+                    '+12' => esc_html__('IDLE  - GMT+12', 'easy-elementor-addons'),
+                    '+13' => esc_html__('NZDT  - GMT+13', 'easy-elementor-addons'),
+                    '-1' => esc_html__('WAT  - GMT-1', 'easy-elementor-addons'),
+                    '-2' => esc_html__('AT  - GMT-2', 'easy-elementor-addons'),
+                    '-3' => esc_html__('ART  - GMT-3', 'easy-elementor-addons'),
+                    '-4' => esc_html__('AST  - GMT-4', 'easy-elementor-addons'),
+                    '-5' => esc_html__('EST  - GMT-5', 'easy-elementor-addons'),
+                    '-6' => esc_html__('CST  - GMT-6', 'easy-elementor-addons'),
+                    '-7' => esc_html__('MST  - GMT-7', 'easy-elementor-addons'),
+                    '-8' => esc_html__('PST  - GMT-8', 'easy-elementor-addons'),
+                    '-9' => esc_html__('AKST  - GMT-9', 'easy-elementor-addons'),
+                    '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
+                    '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
+                    '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
+                    'custom' => "Custom",
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'custom_timezone_input',
+            [
+                'label' => esc_html__('Custom Timezone', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '+6',
+                'placeholder' => '+6',
+                'condition' => [
+                    'dynamic_timezone' => 'custom',
+                ]
             ]
         );
 
@@ -454,46 +480,43 @@ class BusinessHour extends Widget_Base {
             'header_style',
             [
                 'label' => esc_html__('Header Section', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_control(
-            'content_bg_color',
-            [
-                'label' => esc_html__('Content Background', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-header-content' => 'background-color: {{VALUE}}',
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'header_content_type!' => 'none',
                 ],
             ]
         );
 
         $this->add_control(
-            'time_style_heading',
+            'header_bg_color',
             [
-                'label' => esc_html__('Time Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
+                'label' => esc_html__('Header Background', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}',
+                ],
             ]
         );
 
         $this->add_control(
-            'time_color',
+            'header_text_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-header-inner .eead-current-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'color: {{VALUE}}',
                 ],
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'header_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-header',
             ]
         );
 
@@ -501,8 +524,8 @@ class BusinessHour extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'time_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-header-inner .eead-current-time',
+                'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-current-time',
                 'condition' => [
                     'header_content_type' => 'date'
                 ]
@@ -510,235 +533,61 @@ class BusinessHour extends Widget_Base {
         );
 
         $this->add_control(
-            'time_margin',
+            'header_padding',
             [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
+                'size_units' => ['px', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-header-inner .eead-current-time' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'date_style_heading',
-            [
-                'label' => esc_html__('Date Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'date_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-header-inner .eead-current-date' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'date_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-header-inner .eead-current-date',
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'date_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-header-inner .eead-current-date' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'header_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'status_style_heading',
-            [
-                'label' => esc_html__('Status Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'header_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'status_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-open-status,
-                {{WRAPPER}} .eead-close-status' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'header_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'status_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-open-status, {{WRAPPER}} .eead-close-status',
-                'condition' => [
-                    'header_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'status_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-open-status,
-                {{WRAPPER}} .eead-close-status' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'header_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'custom_msg_style_heading',
-            [
-                'label' => esc_html__('Custom Message Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'header_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'custom_msg_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-custom-text' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'header_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'custom_msg_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-custom-text',
-                'condition' => [
-                    'header_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'custom_msg_margin',
-            [
-                'label' => esc_html__('Custom Message Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-custom-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'header_content_type' => 'text'
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->end_controls_section();
 
-        //Footer Styles
+        /*  Style Tabs  */
         $this->start_controls_section(
             'footer_style',
             [
                 'label' => esc_html__('Footer Section', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_control(
-            'footer_content_bg_color',
-            [
-                'label' => esc_html__('Content Background', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-content' => 'background-color: {{VALUE}}',
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'footer_content_type!' => 'none',
                 ],
             ]
         );
 
         $this->add_control(
-            'footer_time_style_heading',
+            'footer_bg_color',
             [
-                'label' => esc_html__('Time Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
+                'label' => esc_html__('Footer Background', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}',
+                ],
             ]
         );
 
         $this->add_control(
-            'footer_time_color',
+            'footer_text_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-current-time' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'color: {{VALUE}}',
                 ],
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'footer_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-footer',
             ]
         );
 
@@ -746,8 +595,8 @@ class BusinessHour extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'footer_time_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-footer-inner .eead-current-time',
+                'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}}  .eead-business-hour .eead-bh-current-time',
                 'condition' => [
                     'footer_content_type' => 'date'
                 ]
@@ -755,184 +604,13 @@ class BusinessHour extends Widget_Base {
         );
 
         $this->add_control(
-            'footer_time_margin',
+            'footer_padding',
             [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
+                'size_units' => ['px', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-current-time' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_date_style_heading',
-            [
-                'label' => esc_html__('Date Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_date_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-current-date' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'footer_date_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-footer-inner .eead-current-date',
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_date_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-current-date' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'date'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_status_style_heading',
-            [
-                'label' => esc_html__('Status Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'footer_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_status_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-open-status,
-                {{WRAPPER}} .eead-footer-inner .eead-close-status' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'footer_status_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-footer-inner .eead-open-status, {{WRAPPER}} .eead-footer-inner .eead-close-status',
-                'condition' => [
-                    'footer_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_status_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-open-status,
-                {{WRAPPER}} .eead-footer-inner .eead-close-status' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'status'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_custom_msg_style_heading',
-            [
-                'label' => esc_html__('Custom Message Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'footer_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_custom_msg_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-custom-text' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'footer_custom_msg_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-footer-inner .eead-custom-text',
-                'condition' => [
-                    'footer_content_type' => 'text'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'footer_custom_msg_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-footer-inner .eead-custom-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-                'condition' => [
-                    'footer_content_type' => 'text'
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -948,7 +626,64 @@ class BusinessHour extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'work_hour_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-business-hour-details',
+            ]
+        );
+
+        $this->add_control(
+            'work_day_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'work_day_text_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'current_day_bg_color',
+            [
+                'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ccc',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'current_day_text_color',
+            [
+                'label' => esc_html__('Current Day Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'business_hours_day_align',
             [
                 'label' => esc_html__('Day Alignment', 'easy-elementor-addons'),
@@ -969,14 +704,12 @@ class BusinessHour extends Widget_Base {
                 ],
                 'default' => 'left',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-row .eead-business-day,
-                     {{WRAPPER}} .eead-business-hour-row .eead-business-time' => 'flex-basis: 50%;',
-                    '{{WRAPPER}} .eead-business-hour-row .eead-business-day' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
             'business_hours_time_align',
             [
                 'label' => esc_html__('Time Alignment', 'easy-elementor-addons'),
@@ -997,135 +730,40 @@ class BusinessHour extends Widget_Base {
                 ],
                 'default' => 'right',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-row .eead-business-day,
-                     {{WRAPPER}} .eead-business-hour-row .eead-business-time' => 'flex-basis: 50%;',
-                    '{{WRAPPER}} .eead-business-hour-row .eead-business-time' => 'text-align: {{VALUE}};'
+                    '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'text-align: {{VALUE}};'
                 ],
             ]
         );
 
-        $this->add_control(
-            'current_day_bg_color',
+        $this->add_responsive_control(
+            'day_width',
             [
-                'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ccc',
+                'label' => esc_html__('Day Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'step' => 1,
+                        'max' => 600,
+                    ],
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'flex-basis:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'flex-basis:calc(100% - {{SIZE}}{{UNIT}});',
                 ],
             ]
         );
 
         $this->add_control(
-            'work_day_bg_color',
+            'work_day_padding',
             [
-                'label' => esc_html__('Work Days Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-row' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        //Day Style
-        $this->add_control(
-            'day_style_heading',
-            [
-                'label' => esc_html__('Day Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'day_text_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-day' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'day_text_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-business-hour-details .eead-business-day',
-            ]
-        );
-
-        $this->add_control(
-            'day_text_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
+                'size_units' => ['px', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-day' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-            ]
-        );
-
-        //Business Day Time Style
-        $this->add_control(
-            'business_time_style_heading',
-            [
-                'label' => esc_html__('Business Time Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'business_time_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-time' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'business_time_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-business-hour-details .eead-business-time',
-            ]
-        );
-
-        $this->add_control(
-            'business_time_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-time' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'closed_all_day_color',
-            [
-                'label' => esc_html__('Closed All Day Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'separator' => 'before',
-                'default' => '#333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-time .eead-closed-all-day' => 'color: {{VALUE}}',
-                ],
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
             ]
         );
 
@@ -1161,7 +799,7 @@ class BusinessHour extends Widget_Base {
                 ],
                 'default' => 'solid',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};',
                 ],
                 'condition' => [
                     'day_divider' => 'yes',
@@ -1175,7 +813,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'day_divider' => 'yes',
@@ -1199,7 +837,7 @@ class BusinessHour extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'day_divider' => 'yes',
@@ -1233,7 +871,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('Striped Odd Rows Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};',
                 ],
                 'condition' => [
                     'business_hours_striped' => 'yes',
@@ -1247,7 +885,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('Striped Even Rows Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-business-hour-details .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};',
                 ],
                 'condition' => [
                     'business_hours_striped' => 'yes',
@@ -1260,20 +898,16 @@ class BusinessHour extends Widget_Base {
 
     public function set_time_zone() {
         $settingsTimeZone = $this->get_settings_for_display();
-        if ($settingsTimeZone['business_hour_style'] != 'default') { //static & dynamic checking
-            if ($settingsTimeZone['dynamic_timezone'] != 'default') { // timezone default checking
-                // $ct_input = $settingsTimeZone['custom_timezone_input']; // ct = custom timezone
-                // dynamic_timezone
-                if ($settingsTimeZone['dynamic_timezone'] == 'custom') {
-                    $ct_input = $settingsTimeZone['custom_timezone_input'] ? $settingsTimeZone['custom_timezone_input'] : '+6';
-                } else {
-                    $ct_input = $settingsTimeZone['dynamic_timezone'];
-                }
-
-                return $this->set_gmt_zone($ct_input);
+        if ($settingsTimeZone['dynamic_timezone'] != 'default') { // timezone default checking
+            if ($settingsTimeZone['dynamic_timezone'] == 'custom') {
+                $ct_input = $settingsTimeZone['custom_timezone_input'] ? $settingsTimeZone['custom_timezone_input'] : '+6';
             } else {
-                return $this->set_gmt_zone(get_option('gmt_offset'));
+                $ct_input = $settingsTimeZone['dynamic_timezone'];
             }
+
+            return $this->set_gmt_zone($ct_input);
+        } else {
+            return $this->set_gmt_zone(get_option('gmt_offset'));
         }
     }
 
@@ -1291,7 +925,6 @@ class BusinessHour extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $start_of_week = get_option('start_of_week');
 
         $timeNotation = (get_option('time_format') == 'H:i') ? '24h' : '12h';
         $ct_input = get_option('gmt_offset');
@@ -1318,59 +951,57 @@ class BusinessHour extends Widget_Base {
             ],
         ]);
         ?>
-        <div class="eead-business-hour-section" <?php $this->print_render_attribute_string('business-hours-data'); ?>>
+        <div class="eead-business-hour" <?php $this->print_render_attribute_string('business-hours-data'); ?>>
 
             <?php
             if ($settings['header_content_type'] != 'none') {
                 ?>
-                <div class="eead-header-content align-<?php echo esc_attr($settings['header_content_alignment']); ?>">
-                    <div class="eead-header-inner">
-                        <?php
-                        if ($settings['header_content_type'] == 'date') {
-                            ?>
-                            <div class="eead-current-time">
-                                <?php
-                                if ($settings['business_hour_style'] == 'default') {
-                                    echo date(get_option('time_format'), current_time('timestamp'));
-                                } else {
-                                    $cur_time = strtotime($this->set_time_zone());
-                                    echo date('h:i a', $cur_time);
-                                }
-                                ?>
-                            </div>
-
-                            <div class="eead-current-date">
-                                <?php
-                                if ($settings['business_hour_style'] == 'default') {
-                                    echo date(get_option('date_format'), current_time('timestamp'));
-                                } else {
-                                    $cur_time = strtotime($this->set_time_zone());
-                                    echo date(get_option('date_format'), $cur_time);
-                                }
-                                ?>
-                            </div>
-                            <?php
-                        } else if ($settings['header_content_type'] == 'status') {
-                            ?>
-                                <div class="eead-open-status">
-                                    <?php
-                                    if ($this->is_open($settings)) {
-                                        echo wp_kses_post($settings['header_open_msg']);
-                                    } else {
-                                        echo wp_kses_post($settings['header_closed_msg']);
-                                    }
-                                    ?>
-                                </div>
-                            <?php
-                        } else if ($settings['header_content_type'] == 'text') {
-                            ?>
-                                    <div class="eead-custom-text">
-                                <?php echo do_shortcode($settings['header_text']); ?>
-                                    </div>
-                            <?php
-                        }
+                <div class="eead-bh-header">
+                    <?php
+                    if ($settings['header_content_type'] == 'date') {
                         ?>
-                    </div>
+                        <div class="eead-bh-current-time">
+                            <?php
+                            if ($settings['business_hour_style'] == 'default') {
+                                echo date(get_option('time_format'), current_time('timestamp'));
+                            } else {
+                                $cur_time = strtotime($this->set_time_zone());
+                                echo date('h:i a', $cur_time);
+                            }
+                            ?>
+                        </div>
+
+                        <div class="eead-bh-current-date">
+                            <?php
+                            if ($settings['business_hour_style'] == 'default') {
+                                echo date(get_option('date_format'), current_time('timestamp'));
+                            } else {
+                                $cur_time = strtotime($this->set_time_zone());
+                                echo date(get_option('date_format'), $cur_time);
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    } elseif ($settings['header_content_type'] == 'status') {
+                        ?>
+                        <div class="eead-bh-open-status">
+                            <?php
+                            if ($this->is_open($settings)) {
+                                echo wp_kses_post($settings['header_open_msg']);
+                            } else {
+                                echo wp_kses_post($settings['header_closed_msg']);
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    } elseif ($settings['header_content_type'] == 'text') {
+                        ?>
+                        <div class="eead-bh-custom-text">
+                            <?php echo do_shortcode($settings['header_text']); ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             <?php } ?>
 
@@ -1394,7 +1025,9 @@ class BusinessHour extends Widget_Base {
                                 <?php
                             } else {
                                 foreach ($settings["{$day}_business_hours"] as $hours) { ?>
-                                    <?php echo esc_html($hours['start_time']); ?> - <?php echo esc_html($hours['end_time']); ?>
+                                    <div class="eead-business-time-interval">
+                                        <?php echo esc_html($hours['start_time']); ?> - <?php echo esc_html($hours['end_time']); ?>
+                                    </div>
                                     <?php
                                 }
                             }
@@ -1405,54 +1038,52 @@ class BusinessHour extends Widget_Base {
             </div>
 
             <?php if ($settings['footer_content_type'] != 'none') { ?>
-                <div class="eead-footer-content align-<?php echo esc_attr($settings['footer_content_alignment']); ?>">
-                    <div class="eead-footer-inner">
-                        <?php
-                        if ($settings['footer_content_type'] == 'date') {
-                            ?>
-                            <div class="eead-current-time">
-                                <?php
-                                if ($settings['business_hour_style'] == 'default') {
-                                    echo date(get_option('time_format'), current_time('timestamp'));
-                                } else {
-                                    $cur_time = strtotime($this->set_time_zone());
-                                    echo date('h:i a', $cur_time);
-                                }
-                                ?>
-                            </div>
-
-                            <div class="eead-current-date">
-                                <?php
-                                if ($settings['business_hour_style'] == 'default') {
-                                    echo date(get_option('date_format'), current_time('timestamp'));
-                                } else {
-                                    $cur_time = strtotime($this->set_time_zone());
-                                    echo date(get_option('date_format'), $cur_time);
-                                }
-                                ?>
-                            </div>
-                            <?php
-                        } else if ($settings['footer_content_type'] == 'status') {
-                            ?>
-                                <div class="eead-open-status">
-                                    <?php
-                                    if ($this->is_open($settings)) {
-                                        echo wp_kses_post($settings['footer_open_msg']);
-                                    } else {
-                                        echo wp_kses_post($settings['footer_closed_msg']);
-                                    }
-                                    ?>
-                                </div>
-                            <?php
-                        } else if ($settings['footer_content_type'] == 'text') {
-                            ?>
-                                    <div class="eead-custom-text">
-                                <?php echo do_shortcode($settings['footer_text']); ?>
-                                    </div>
-                            <?php
-                        }
+                <div class="eead-bh-footer">
+                    <?php
+                    if ($settings['footer_content_type'] == 'date') {
                         ?>
-                    </div>
+                        <div class="eead-bh-current-time">
+                            <?php
+                            if ($settings['business_hour_style'] == 'default') {
+                                echo date(get_option('time_format'), current_time('timestamp'));
+                            } else {
+                                $cur_time = strtotime($this->set_time_zone());
+                                echo date('h:i a', $cur_time);
+                            }
+                            ?>
+                        </div>
+
+                        <div class="eead-bh-current-date">
+                            <?php
+                            if ($settings['business_hour_style'] == 'default') {
+                                echo date(get_option('date_format'), current_time('timestamp'));
+                            } else {
+                                $cur_time = strtotime($this->set_time_zone());
+                                echo date(get_option('date_format'), $cur_time);
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    } elseif ($settings['footer_content_type'] == 'status') {
+                        ?>
+                        <div class="eead-bh-open-status">
+                            <?php
+                            if ($this->is_open($settings)) {
+                                echo wp_kses_post($settings['footer_open_msg']);
+                            } else {
+                                echo wp_kses_post($settings['footer_closed_msg']);
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    } elseif ($settings['footer_content_type'] == 'text') {
+                        ?>
+                        <div class="eead-bh-custom-text">
+                            <?php echo do_shortcode($settings['footer_text']); ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             <?php } ?>
 

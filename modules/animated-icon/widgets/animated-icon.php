@@ -183,13 +183,7 @@ class AnimatedIcon extends Widget_Base {
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 72,
-                ],
-                'tablet_default' => [
-                    'size' => 72,
-                ],
-                'mobile_default' => [
-                    'size' => 72,
+                    'size' => 72
                 ],
                 'range' => [
                     'px' => [

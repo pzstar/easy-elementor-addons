@@ -9,9 +9,10 @@
                 'eead-advanced-map.default': EEA.advancedMap,
                 'eead-animated-heading.default': EEA.animatedHeading,
                 'eead-business-hour.default': EEA.businessHours,
+                'eead-circular-progressbar.default': EEA.circularProgressBar,
+
                 'eead-countdown.default': EEA.countdown,
                 'eead-counter.default': EEA.counterBlock,
-                'eead-circular-progressbar.default': EEA.circularProgressBar,
                 'eead-caption-hover-effect.default': EEA.captionHoverEffect,
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-filterable-gallery.default': EEA.filterableGallery,
@@ -238,6 +239,70 @@
                 easing: 'slow',
                 opacity: 1
             }, 500);
+        },
+
+        businessHours: function ($scope) {
+            var $container = $scope.find('.eead-business-hour');
+            if (!$container.length) {
+                return;
+            }
+
+            var $settings = $container.data('settings');
+            var timeNotation = $settings.timeNotation;
+            var business_hour_style = $settings.business_hour_style;
+
+            if (business_hour_style != 'dynamic')
+                return;
+
+            $(document).ready(function () {
+                var offset_val;
+                var timeFormat = '%H:%M:%S', timeZoneFormat;
+                var dynamic_timezone = $settings.dynamic_timezone;
+
+                if (business_hour_style == 'static') {
+                    offset_val = $settings.dynamic_timezone_default;
+                } else {
+                    offset_val = dynamic_timezone;
+                }
+
+                if (timeNotation == '12h') {
+                    timeFormat = '%I:%M:%S %p';
+                }
+
+                if (offset_val == '') {
+                    return;
+                }
+
+                var options = {
+                    format: timeFormat,
+                    timeNotation: timeNotation, //'24h',
+                    am_pm: true,
+                    utc: true,
+                    utc_offset: offset_val
+                }
+                $($container).find('.eead-bh-current-time').jclock(options);
+
+            });
+        },
+
+        circularProgressBar: function ($scope) {
+            var container = $scope.find('.eead-circular-progressbar');
+            var percentage = container.attr("data-number");
+            var radius =  container.attr("data-radius");
+            const circumference = 2 * Math.PI * radius;
+            const dashOffset = circumference - (percentage / 100) * circumference;
+            if ((container.length > 0)) {
+                container.waypoint(function () {
+                    setTimeout(function () {
+                        container.find('circle:nth-child(2)').css({
+                            'stroke-dashoffset': dashOffset
+                        }, 1000);
+                    }, 400);
+                    this.destroy();
+                }, {
+                    offset: '90%',
+                });
+            }
         },
 
         hotspotBlock: function ($scope) {
@@ -1313,23 +1378,7 @@
             });
         },
 
-        circularProgressBar: function ($scope) {
-            var container = $scope.find('.eead-circular-progressbar');
-            var number = container.attr("data-number");
-            var math = 440 - (440 * number) / 100;
-            if ((container.length > 0)) {
-                container.waypoint(function () {
-                    setTimeout(function () {
-                        container.find('.eead-circular-progressbar-box .percent svg circle:nth-child(2)').css({
-                            'stroke-dashoffset': math
-                        }, 1000);
-                    }, 400);
-                    this.destroy();
-                }, {
-                    offset: '90%',
-                });
-            }
-        },
+        
 
         progressBar: function ($scope) {
             var $el = $scope.find('.eead-progress-bar');
@@ -1477,51 +1526,7 @@
             });
         },
 
-        businessHours: function ($scope) {
-            var $container = $scope.find('.eead-business-hour-section');
-            var $businessHours = $container.find('.eead-current-time');
-            if (!$container.length) {
-                return;
-            }
-
-            var $settings = $container.data('settings');
-            var dynamic_timezone = $settings.dynamic_timezone;
-            var timeNotation = $settings.timeNotation;
-            var business_hour_style = $settings.business_hour_style;
-
-            if (business_hour_style != 'dynamic')
-                return;
-
-            $(document).ready(function () {
-                var offset_val;
-                var timeFormat = '%H:%M:%S', timeZoneFormat;
-                var dynamic_timezone = $settings.dynamic_timezone;
-
-                if (business_hour_style == 'static') {
-                    offset_val = $settings.dynamic_timezone_default;
-                } else {
-                    offset_val = dynamic_timezone;
-                }
-
-                if (timeNotation == '12h') {
-                    timeFormat = '%I:%M:%S %p';
-                }
-
-                if (offset_val == '') {
-                    return;
-                }
-
-                var options = {
-                    format: timeFormat,
-                    timeNotation: timeNotation, //'24h',
-                    am_pm: true,
-                    utc: true,
-                    utc_offset: offset_val
-                }
-                $($container).find('.eead-current-time').jclock(options);
-
-            });
-        },
+        
 
         
 
