@@ -1,3 +1,5 @@
+odometerOptions = {auto: false};
+
 (function ($, elementor) {
     "use strict";
     var EEA = {
@@ -11,8 +13,9 @@
                 'eead-business-hour.default': EEA.businessHours,
                 'eead-circular-progressbar.default': EEA.circularProgressBar,
                 'eead-countdown.default': EEA.countdown,
-
                 'eead-counter.default': EEA.counterBlock,
+
+
                 'eead-caption-hover-effect.default': EEA.captionHoverEffect,
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-filterable-gallery.default': EEA.filterableGallery,
@@ -53,6 +56,9 @@
             $.each(widgets, function (widget, callback) {
                 elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
             });
+
+            
+
             elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
 
             if (elementorFrontend.isEditMode() == true) {
@@ -76,6 +82,8 @@
                     });
                 });
             }
+
+
         },
 
         accordionBlock: function ($scope) {
@@ -288,7 +296,7 @@
         circularProgressBar: function ($scope) {
             var container = $scope.find('.eead-circular-progressbar');
             var percentage = container.attr("data-number");
-            var radius =  container.attr("data-radius");
+            var radius = container.attr("data-radius");
             const circumference = 2 * Math.PI * radius;
             const dashOffset = circumference - (percentage / 100) * circumference;
             if ((container.length > 0)) {
@@ -306,14 +314,13 @@
         },
 
         countdown: function ($scope) {
-            var $coundDown = $scope.find(".eead-countdown-wrapper"),
-                $countdown_id = $coundDown.data("countdown-id") !== "" ? $coundDown.data("countdown-id") : "",
+            var $coundDown = $scope.find(".eead-countdown"),
                 $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
                 $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
                 $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
                 $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
 
-            $("#eead-countdown-" + $countdown_id).countdown({
+            $coundDown.find('.eead-countdown-items').countdown({
                 end: function end() {
                     if ($expire_type == "text") {
                         countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + "</h4>" + '<div class="eead-countdown-finish-text">' + $expiry_text + "</div></div>");
@@ -321,6 +328,25 @@
                         window.location.href = $redirect_url;
                     }
                 }
+            });
+        },
+
+        counterBlock: function ($scope) {
+            var $ele = $scope.find('.eead-counter-box');
+            var $odometer = $ele.find('.eead-odometer');
+            $ele.waypoint(function () {
+                var od = new Odometer({
+                    el: $odometer[0],
+                    format: '(,ddd).dd',
+                    value: $odometer.data('start'),
+                });
+                setTimeout(function () {
+                    od.render();
+                    od.update($odometer.data('count'));
+                }, 1000);
+                this.destroy();
+            }, {
+                offset: '90%'
             });
         },
 
@@ -964,7 +990,7 @@
             }
         },
 
-        
+
 
         popupModal: function ($scope) {
             var $open = $scope.find('.eead-popup-modal-trigger');
@@ -1337,20 +1363,7 @@
             }
         },
 
-        counterBlock: function ($scope) {
-            var $ele = $scope.find('.eead-counter-container');
-            $ele.waypoint(function () {
-                $ele.each(function () {
-                    var $odometer = $(this).find('.odometer');
-                    setTimeout(function () {
-                        $odometer.html($odometer.data('count'));
-                    }, 1000);
-                });
-                this.destroy();
-            }, {
-                offset: '90%'
-            });
-        },
+
 
         horizontalTabsBlock: function ($scope) {
             $scope.find('.eead-each-content').eq(0).fadeIn();
@@ -1379,7 +1392,7 @@
             });
         },
 
-        
+
 
         progressBar: function ($scope) {
             var $el = $scope.find('.eead-progress-bar');
@@ -1527,9 +1540,9 @@
             });
         },
 
-        
 
-        
+
+
 
 
 

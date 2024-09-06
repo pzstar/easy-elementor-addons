@@ -62,7 +62,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Countdown Date & Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DATE_TIME,
-                'default' => date("Y-m-d", strtotime("+ 1 day")),
+                'default' => date("Y-m-d", strtotime("+ 2 day")),
             ]
         );
 
@@ -87,7 +87,6 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Expiry Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'dynamic' => ['active' => true],
                 'description' => esc_html__('On Expiry, this title will be shown in the message.', 'easy-elementor-addons'),
                 'default' => esc_html__('Finished Countdown!', 'easy-elementor-addons'),
                 'condition' => [
@@ -114,7 +113,6 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Redirect URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'condition' => [
                     'countdown_expire_type' => 'url',
                 ],
@@ -136,71 +134,42 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'flex',
+                'default' => 'row',
                 'options' => [
-                    'column' => esc_html__('List', 'easy-elementor-addons'),
-                    'row' => esc_html__('Grid', 'easy-elementor-addons'),
+                    'row' => esc_html__('Row', 'easy-elementor-addons'),
+                    'column' => esc_html__('Column', 'easy-elementor-addons'),
                 ],
+                'render_type' => 'template',
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-items' => 'flex-direction:{{VALUE}};',
                 ],
-                'separator' => 'after'
             ]
         );
 
-        $this->add_responsive_control(
-            'eead_countdown_label_spacing',
+        $this->add_control(
+            'countdown_alignment',
             [
-                'label' => esc_html__('Label Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
+                'default' => 'flex-start',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'gap:{{SIZE}}px;',
+                    '{{WRAPPER}} .eead-countdown-items' => 'justify-content: {{VALUE}}; align-items: {{VALUE}};',
                 ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_label_view',
-            [
-                'label' => esc_html__('Label Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'eead-countdown-label-block',
-                'options' => [
-                    'column' => esc_html__('Block', 'easy-elementor-addons'),
-                    'row' => esc_html__('Inline', 'easy-elementor-addons'),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'flex-direction:{{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_section_countdown_layout' => 'column'
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_alignment',
-            [
-                'label' => esc_html__('Label Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'center',
-                'options' => [
-                    'left' => esc_html__('Left', 'easy-elementor-addons'),
-                    'center' => esc_html__('Center', 'easy-elementor-addons'),
-                    'right' => esc_html__('Right', 'easy-elementor-addons'),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'text-align: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_section_countdown_layout' => 'column',
-                ],
+                'separator' => 'after'
             ]
         );
 
@@ -221,9 +190,6 @@ class Countdown extends Widget_Base {
                 'label' => esc_html__('Label for Days', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Days', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_countdown_days' => 'yes',
@@ -247,9 +213,6 @@ class Countdown extends Widget_Base {
                 'label' => esc_html__('Label for Hours', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Hours', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_countdown_hours' => 'yes',
@@ -273,9 +236,6 @@ class Countdown extends Widget_Base {
                 'label' => esc_html__('Label for Minutes', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Minutes', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_countdown_minutes' => 'yes',
@@ -299,9 +259,6 @@ class Countdown extends Widget_Base {
                 'label' => esc_html__('Label for Seconds', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Seconds', 'easy-elementor-addons'),
                 'condition' => [
                     'eead_countdown_seconds' => 'yes',
@@ -319,108 +276,36 @@ class Countdown extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'eead_countdown_is_gradient',
-            [
-                'label' => esc_html__('Use Gradient Background?', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
                 'name' => 'eead_countdown_background',
-                'label' => esc_html__('Box Background Color', 'easy-elementor-addons'),
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div',
-                'condition' => [
-                    'eead_countdown_is_gradient' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_background',
-            [
-                'label' => esc_html__('Box Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'background: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_countdown_is_gradient' => '',
-                ],
-            ]
-        );
-        $this->add_responsive_control(
-            'eead_countdown_item_bottom_margin',
-            [
-                'label' => esc_html__('Space Between Boxes', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 15,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-items>li' => 'margin-bottom:{{SIZE}}px;',
-                ],
-                'condition' => [
-                    'eead_section_countdown_layout' => 'block',
-                ],
+                'label' => esc_html__('Counter Background Color', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-countdown-item',
             ]
         );
 
         $this->add_responsive_control(
             'eead_countdown_spacing',
             [
-                'label' => esc_html__('Space Between Boxes', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'description' => esc_html__('Spacing between counters', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 15,
-                ],
+                'size_units' => ['px', 'em', 'rem'],
                 'range' => [
                     'px' => [
                         'min' => 0,
-                        'max' => 100,
+                        'max' => 200,
                     ],
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'margin-right:{{SIZE}}px; margin-left:{{SIZE}}px;',
-                    '{{WRAPPER}} .eead-countdown-container' => 'margin-right: -{{SIZE}}px; margin-left: -{{SIZE}}px;',
-                ],
-                'condition' => [
-                    'eead_section_countdown_layout' => 'flex',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_countdown_container_margin_bottom',
-            [
-                'label' => esc_html__('Space Below Container', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
+                    'unit' => 'px',
+                    'size' => 50,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-container' => 'margin-bottom:{{SIZE}}px;',
+                    '{{WRAPPER}} .eead-countdown' => '--eead-countdown-gap:{{SIZE}}{{UNIT}};',
                 ],
+                'separator' => 'before'
             ]
         );
 
@@ -431,8 +316,9 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-countdown-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+                'separator' => 'after'
             ]
         );
 
@@ -441,7 +327,7 @@ class Countdown extends Widget_Base {
             [
                 'name' => 'eead_countdown_box_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div',
+                'selector' => '{{WRAPPER}} .eead-countdown-item',
             ]
         );
 
@@ -451,7 +337,7 @@ class Countdown extends Widget_Base {
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                    '{{WRAPPER}} .eead-countdown-item' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                 ],
             ]
         );
@@ -460,7 +346,142 @@ class Countdown extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'eead_countdown_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div',
+                'selector' => '{{WRAPPER}} .eead-countdown-item',
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_fixed_size',
+            [
+                'label' => esc_html__('Assign Fixed Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Assign Fixed height and width of the counters', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_width',
+            [
+                'label' => esc_html__('Counter Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 500,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item' => 'width:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'eead_countdown_fixed_size' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_height',
+            [
+                'label' => esc_html__('Counter Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 500,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item' => 'height:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'eead_countdown_fixed_size' => 'yes',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_countdown_digits_style_settings',
+            [
+                'label' => esc_html__('Countdown Digits', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_digits_color',
+            [
+                'label' => esc_html__('Digits Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-digits' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'eead_countdown_digit_typography',
+                'selector' => '{{WRAPPER}} .eead-countdown-digits',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_countdown_label_style_settings',
+            [
+                'label' => esc_html__('Countdown Label', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_label_color',
+            [
+                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'eead_countdown_label_typography',
+                'selector' => '{{WRAPPER}} .eead-countdown-label',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eead_countdown_label_spacing',
+            [
+                'label' => esc_html__('Label Spacing', 'easy-elementor-addons'),
+                'description' => esc_html__('Spacing between counter and label', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item' => 'gap:{{SIZE}}px;',
+                ],
             ]
         );
 
@@ -471,6 +492,9 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'eead_section_countdown_layout' => 'row',
+                ],
             ]
         );
 
@@ -479,76 +503,49 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Show Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'eead-countdown-show-separator',
-                'default' => '',
             ]
         );
 
         $this->add_control(
-            'eead_countdown_separator_style',
+            'eead_countdown_separator_vertical_offset',
             [
-                'label' => esc_html__('Separator Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'dotted',
-                'options' => [
-                    'solid' => esc_html__('Solid', 'easy-elementor-addons'),
-                    'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                        'step' => 1,
+                    ],
                 ],
                 'condition' => [
-                    'eead_countdown_separator' => 'eead-countdown-show-separator',
+                    'eead_countdown_separator' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'transform: translateY({{SIZE}}{{UNIT}});',
                 ],
             ]
         );
 
         $this->add_control(
-            'eead_countdown_separator_position_top',
+            'eead_countdown_separator_size',
             [
-                'label' => esc_html__('Position Top', 'easy-elementor-addons'),
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', 'em', 'rem'],
                 'range' => [
                     'px' => [
-                        'min' => 0,
-                        'max' => 1000,
-                        'step' => 5,
-                    ],
-                    '%' => [
-                        'min' => 0,
+                        'min' => 1,
                         'max' => 100,
+                        'step' => 1,
                     ],
                 ],
-                'default' => [
-                    'unit' => '%',
+                'condition' => [
+                    'eead_countdown_separator' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-digits::after' => 'top: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_separator_position_left',
-            [
-                'label' => esc_html__('Position Left', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 1000,
-                        'step' => 5,
-                    ],
-                    '%' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'default' => [
-                    'unit' => '%',
-                    'size' => 98,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-digits::after' => 'left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -560,21 +557,230 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'condition' => [
-                    'eead_countdown_separator' => 'eead-countdown-show-separator',
+                    'eead_countdown_separator' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-digits::after' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_days_style_settings',
             [
-                'name' => 'eead_countdown_separator_typography',
-                'selector' => '{{WRAPPER}} .eead-countdown-digits::after',
-                'condition' => [
-                    'eead_countdown_separator' => 'eead-countdown-show-separator',
+                'label' => esc_html__('Days', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'eead_countdown_days_background_color',
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-days',
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_days_digit_color',
+            [
+                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-days .eead-countdown-digits' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_days_label_color',
+            [
+                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-days .eead-countdown-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_days_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item.eead-countdown-days' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_hour_style_settings',
+            [
+                'label' => esc_html__('Hour', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'eead_countdown_hours_background_color',
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours',
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_hours_digit_color',
+            [
+                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-hours .eead-countdown-digits' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_hours_label_color',
+            [
+                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-hours .eead-countdown-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_hours_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_minute_style_settings',
+            [
+                'label' => esc_html__('Minute', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'eead_countdown_minutes_background_color',
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes',
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_minutes_digit_color',
+            [
+                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-digits' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_minutes_label_color',
+            [
+                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_minutes_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'eead_seconds_style_settings',
+            [
+                'label' => esc_html__('Seconds', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'eead_countdown_seconds_background_color',
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds',
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_seconds_digit_color',
+            [
+                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-digits' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_seconds_label_color',
+            [
+                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'eead_countdown_seconds_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -718,361 +924,6 @@ class Countdown extends Widget_Base {
 
         $this->end_controls_section();
 
-        $this->start_controls_section(
-            'eead_days_style_settings',
-            [
-                'label' => esc_html__('Days', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'eead_countdown_days_background_color',
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-days',
-                'condition' => [
-                    'eead_countdown_is_gradient' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_days_background_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-days' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_countdown_is_gradient' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_days_digit_color',
-            [
-                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-days .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_days_label_color',
-            [
-                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-days .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_days_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-days' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_hour_style_settings',
-            [
-                'label' => esc_html__('Hour', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'eead_countdown_hours_background_color',
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-hours',
-                'condition' => [
-                    'eead_countdown_is_gradient' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_hours_background_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-hours' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_countdown_is_gradient' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_hours_digit_color',
-            [
-                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-hours .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_hours_label_color',
-            [
-                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-hours .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_hours_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-hours' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_minute_style_settings',
-            [
-                'label' => esc_html__('Minute', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'eead_countdown_minutes_background_color',
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-minutes',
-                'condition' => [
-                    'eead_countdown_is_gradient' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_minutes_background_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-minutes' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_countdown_is_gradient' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_minutes_digit_color',
-            [
-                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_minutes_label_color',
-            [
-                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_minutes_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-minutes' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_seconds_style_settings',
-            [
-                'label' => esc_html__('Seconds', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'eead_countdown_seconds_background_color',
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-seconds',
-                'condition' => [
-                    'eead_countdown_is_gradient' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_seconds_background_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-seconds' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_countdown_is_gradient' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_seconds_digit_color',
-            [
-                'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_seconds_label_color',
-            [
-                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_seconds_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-item > div.eead-countdown-seconds' => 'border-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_countdown_digits_style_settings',
-            [
-                'label' => esc_html__('Countdown Digits', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_digits_color',
-            [
-                'label' => esc_html__('Digits Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'eead_countdown_digit_typography',
-                'selector' => '{{WRAPPER}} .eead-countdown-digits',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_countdown_label_style_settings',
-            [
-                'label' => esc_html__('Countdown Label', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'eead_countdown_label_color',
-            [
-                'label' => esc_html__('Label Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#333',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'eead_countdown_label_typography',
-                'selector' => '{{WRAPPER}} .eead-countdown-label',
-            ]
-        );
-
-        $this->end_controls_section();
     }
 
     protected function render() {
@@ -1080,12 +931,16 @@ class Countdown extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $get_due_date = esc_attr($settings['eead_countdown_due_time']);
         $due_date = date("M d Y G:i:s", strtotime($get_due_date));
+        $separator = '';
 
         $this->add_render_attribute('eead-countdown', [
-            'class' => 'eead-countdown-wrapper',
-            'data-countdown-id' => esc_attr($this->get_id()),
-            'data-expire-type' => $settings['countdown_expire_type']
+            'class' => 'eead-countdown',
+            'data-expire-type' => $settings['countdown_expire_type'],
         ]);
+
+        if ($settings['eead_countdown_separator']) {
+            $separator = '<span class="eead-countdown-separator">:</span>';
+        }
 
         if ($settings['countdown_expire_type'] == 'text') {
             if (!empty($settings['countdown_expiry_text'])) {
@@ -1098,95 +953,76 @@ class Countdown extends Widget_Base {
         } elseif ($settings['countdown_expire_type'] == 'url') {
             $this->add_render_attribute('eead-countdown', 'data-redirect-url', $settings['countdown_expiry_redirection']);
         }
-
-        // label view
-        $this->add_render_attribute('eead-countdown-container', [
-            'class' => [
-                'eead-countdown-container',
-                $settings['eead_countdown_label_view'],
-                (isset($settings['eead_countdown_label_view_tablet']) ? $settings['eead_countdown_label_view_tablet'] : 'eead-countdown-label-block') . '-tablet',
-                (isset($settings['eead_countdown_label_view_mobile']) ? $settings['eead_countdown_label_view_mobile'] : 'eead-countdown-label-block') . '-mobile',
-                $settings['eead_countdown_separator'] === 'eead-countdown-show-separator' ? 'eead-countdown-show-separator eead-countdown-separator-' . $settings['eead_countdown_separator_style'] : '',
-            ],
-        ]);
         ?>
 
         <div <?php $this->print_render_attribute_string('eead-countdown'); ?>>
-            <div <?php $this->print_render_attribute_string('eead-countdown-container'); ?>>
-                <ul id="eead-countdown-<?php echo esc_attr($this->get_id()); ?>" class="eead-countdown-items" data-date="<?php echo esc_attr($due_date); ?>">
-                    <?php
-                    if (!empty($settings['eead_countdown_days'])) {
-                        ?>
-                        <li class="eead-countdown-item">
-                            <div class="eead-countdown-days">
-                                <span data-days class="eead-countdown-digits">00</span>
-                                <?php
-                                if (!empty($settings['eead_countdown_days_label'])) {
-                                    ?>
-                                    <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_days_label']); ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </li>
-                        <?php
-                    }
-
-                    if (!empty($settings['eead_countdown_hours'])) {
-                        ?>
-                        <li class="eead-countdown-item">
-                            <div class="eead-countdown-hours">
-                                <span data-hours class="eead-countdown-digits">00</span>
-                                <?php
-                                if (!empty($settings['eead_countdown_hours_label'])) {
-                                    ?>
-                                    <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_hours_label']); ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </li>
-                        <?php
-                    }
-
-                    if (!empty($settings['eead_countdown_minutes'])) {
-                        ?>
-                        <li class="eead-countdown-item">
-                            <div class="eead-countdown-minutes">
-                                <span data-minutes class="eead-countdown-digits">00</span>
-                                <?php
-                                if (!empty($settings['eead_countdown_minutes_label'])) {
-                                    ?>
-                                    <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_minutes_label']); ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </li>
-                        <?php
-                    }
-
-                    if (!empty($settings['eead_countdown_seconds'])) {
-                        ?>
-                        <li class="eead-countdown-item">
-                            <div class="eead-countdown-seconds">
-                                <span data-seconds class="eead-countdown-digits">00</span>
-                                <?php
-                                if (!empty($settings['eead_countdown_seconds_label'])) {
-                                    ?>
-                                    <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_seconds_label']); ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </li>
-                        <?php
-                    }
+            <div class="eead-countdown-items" data-date="<?php echo esc_attr($due_date); ?>">
+                <?php
+                if (!empty($settings['eead_countdown_days'])) {
                     ?>
-                </ul>
+                    <div class="eead-countdown-item eead-countdown-days">
+                        <span data-days class="eead-countdown-digits">00</span>
+                        <?php
+                        if (!empty($settings['eead_countdown_days_label'])) {
+                            ?>
+                            <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_days_label']); ?></span>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                    echo $separator;
+                }
 
-                <div class="clearfix"></div>
+                if (!empty($settings['eead_countdown_hours'])) {
+                    ?>
+                    <div class="eead-countdown-item eead-countdown-hours">
+                        <span data-hours class="eead-countdown-digits">00</span>
+                        <?php
+                        if (!empty($settings['eead_countdown_hours_label'])) {
+                            ?>
+                            <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_hours_label']); ?></span>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                    echo $separator;
+                }
+
+                if (!empty($settings['eead_countdown_minutes'])) {
+                    ?>
+                    <div class="eead-countdown-item eead-countdown-minutes">
+                        <span data-minutes class="eead-countdown-digits">00</span>
+                        <?php
+                        if (!empty($settings['eead_countdown_minutes_label'])) {
+                            ?>
+                            <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_minutes_label']); ?></span>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                    echo $separator;
+                }
+
+                if (!empty($settings['eead_countdown_seconds'])) {
+                    ?>
+                    <div class="eead-countdown-item eead-countdown-seconds">
+                        <span data-seconds class="eead-countdown-digits">00</span>
+                        <?php
+                        if (!empty($settings['eead_countdown_seconds_label'])) {
+                            ?>
+                            <span class="eead-countdown-label"><?php echo esc_attr($settings['eead_countdown_seconds_label']); ?></span>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
+
         </div>
         <?php
     }
