@@ -1004,6 +1004,7 @@ Counter
 }
 
 
+/*--------------------------------------------------------------
 Drop Bar
 --------------------------------------------------------------*/
 .eead-dropbar-button{
@@ -1011,6 +1012,8 @@ Drop Bar
     display: inline-flex;
     align-items: center;
     padding: 0.8em 1.3em;
+    gap: 0.4em;
+    color: #FFF;
 }
 
 .eead-dropbar-button span{
