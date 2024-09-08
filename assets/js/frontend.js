@@ -57,7 +57,7 @@ odometerOptions = {auto: false};
                 elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
             });
 
-            
+
 
             elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
 
@@ -334,10 +334,11 @@ odometerOptions = {auto: false};
         counterBlock: function ($scope) {
             var $ele = $scope.find('.eead-counter-box');
             var $odometer = $ele.find('.eead-odometer');
+            var format = $odometer.data('comma') == 'yes' ? '(,ddd)' : 'd';
             $ele.waypoint(function () {
                 var od = new Odometer({
                     el: $odometer[0],
-                    format: '(,ddd).dd',
+                    format: format,
                     value: $odometer.data('start'),
                 });
                 setTimeout(function () {

@@ -7,6 +7,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Icons_Manager;
+use Elementor\Group_Control_Background;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -83,7 +84,7 @@ class Counter extends Widget_Base {
             [
                 'label' => esc_html__('Count Value (Number Only)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => 500,
+                'default' => 5500,
             ]
         );
 
@@ -116,6 +117,29 @@ class Counter extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'pre_post_text_spacing',
+            [
+                'label' => esc_html__('Pre/Post Text Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-count' => 'gap: {{SIZE}}px'
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -141,6 +165,15 @@ class Counter extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'counter_comma',
+            [
+                'label' => esc_html__('Show Comma Notation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -151,14 +184,12 @@ class Counter extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'box_bg_color',
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-counter' => 'background: {{VALUE}}',
-                ],
+                'name' => 'counter_bg',
+                'label' => esc_html__('Counter Background Color', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-counter',
             ]
         );
 
@@ -237,8 +268,6 @@ class Counter extends Widget_Base {
             ]
         );
 
-
-
         $this->add_control(
             'icon_border_color',
             [
@@ -278,20 +307,20 @@ class Counter extends Widget_Base {
         );
 
         $this->add_control(
-            'style_4_icon_spacing',
+            'icon_spacing',
             [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
+                'size_units' => ['px', 'em', 'rem'],
                 'range' => [
                     'px' => [
                         'min' => 0,
-                        'max' => 20,
+                        'max' => 100,
                         'step' => 1,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-counter-box.eadd-counter-style4 .eead-counter-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-counter-box.eead-counter-style4 .eead-counter' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'counter_style' => 'style4'
@@ -346,11 +375,11 @@ class Counter extends Widget_Base {
         $this->start_controls_tabs(
             'counter_pre_post_tabs'
         );
-        
+
         $this->start_controls_tab(
             'counter_pre_tab',
             [
-                'label' => esc_html__( 'Pre Text', 'textdomain' ),
+                'label' => esc_html__('Pre Text', 'textdomain'),
             ]
         );
 
@@ -373,13 +402,13 @@ class Counter extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-counter-box .eead-counter-pre-text',
             ]
         );
-        
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
             'counter_post_tab',
             [
-                'label' => esc_html__( 'Post Text', 'textdomain' ),
+                'label' => esc_html__('Post Text', 'textdomain'),
             ]
         );
 
@@ -402,9 +431,9 @@ class Counter extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-counter-box .eead-counter-post-text',
             ]
         );
-        
+
         $this->end_controls_tab();
-        
+
         $this->end_controls_tabs();
 
         $this->end_controls_section();
@@ -438,19 +467,6 @@ class Counter extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'title_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
-            ]
-        );
-
         $this->end_controls_section();
     }
 
@@ -459,6 +475,7 @@ class Counter extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
         $counter_style = $settings['counter_style'];
+        $counter_comma = isset($settings['counter_comma']) && $settings['counter_comma'] == 'yes' ? 'yes' : 'no';
         $counter_class = array(
             'eead-counter-' . $counter_style,
             'eead-counter-box'
@@ -470,89 +487,45 @@ class Counter extends Widget_Base {
             $counter_count = $settings['count'];
 
             if ($counter_count) {
-                if ($counter_style == 'style1' || $counter_style == 'style2') {
-                    ?>
-                    <div class="eead-counter">
+                ?>
+                <div class="eead-counter">
+                    <?php
+                    if ($settings['icon']['value']) { ?>
                         <div class="eead-counter-icon">
                             <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                         </div>
+                    <?php } ?>
 
-                        <div class="eead-counter-count">
+                    <?php if ($counter_style == 'style4') {
+                        echo '<div class="eead-counter-block">';
+                    } ?>
+
+                    <div class="eead-counter-count">
+                        <?php if (trim($settings['pre_text'])) { ?>
                             <span class="eead-counter-pre-text">
                                 <?php echo esc_html($settings['pre_text']); ?>
                             </span>
+                        <?php } ?>
 
-                            <span class="eead-odometer" data-count="<?php echo $counter_count; ?>" data-start="<?php echo $settings['starting_value']; ?>">
-                                <?php echo esc_html($settings['starting_value']); ?>
-                            </span>
+                        <span class="eead-odometer" data-count="<?php echo $counter_count; ?>" data-start="<?php echo $settings['starting_value']; ?>" data-comma="<?php echo $counter_comma; ?>">
+                            <?php echo esc_html($settings['starting_value']); ?>
+                        </span>
 
+                        <?php if (trim($settings['post_text'])) { ?>
                             <span class="eead-counter-post-text">
                                 <?php echo esc_html($settings['post_text']); ?>
                             </span>
-                        </div>
-
-                        <h5 class="eead-counter-title">
-                            <?php echo esc_html($counter_title); ?>
-                        </h5>
+                        <?php } ?>
                     </div>
-                    <?php
 
-                } elseif ($counter_style == 'style3') {
-                    ?>
-                    <div class="eead-counter">
-                        <div class="eead-counter-icon">
-                            <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
-                        </div>
-
-                        <div class="eead-counter-count">
-                            <span class="eead-counter-pre-text">
-                                <?php echo esc_html($settings['pre_text']); ?>
-                            </span>
-
-                            <span class="eead-odometer" data-count="<?php echo absint($counter_count); ?>">
-                                <?php echo esc_html($settings['starting_value']); ?>
-                            </span>
-
-                            <span class="eead-counter-post-text">
-                                <?php echo esc_html($settings['post_text']); ?>
-                            </span>
-                        </div>
-
-                        <h5 class="eead-counter-title">
-                            <?php echo esc_html($counter_title); ?>
-                        </h5>
-                    </div>
-                    <?php
-
-                } elseif ($counter_style == 'style4') {
-                    ?>
-                    <div class="eead-counter">
-                        <div class="eead-counter-icon">
-                            <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
-                        </div>
-
-                        <div class="eead-counter-right-block">
-                            <div class="eead-counter-count">
-                                <span class="eead-counter-pre-text">
-                                    <?php echo esc_html($settings['pre_text']); ?>
-                                </span>
-
-                                <span class="eead-odometer" data-count="<?php echo absint($counter_count); ?>">
-                                    <?php echo esc_html($settings['starting_value']); ?>
-                                </span>
-
-                                <span class="eead-counter-post-text">
-                                    <?php echo esc_html($settings['post_text']); ?>
-                                </span>
-                            </div>
-
-                            <h5 class="eead-counter-title">
-                                <?php echo esc_html($counter_title); ?>
-                            </h5>
-                        </div>
-                    </div>
-                    <?php
-                }
+                    <h5 class="eead-counter-title">
+                        <?php echo esc_html($counter_title); ?>
+                    </h5>
+                    <?php if ($counter_style == 'style4') {
+                        echo '</div>';
+                    } ?>
+                </div>
+                <?php
             }
             ?>
         </div>

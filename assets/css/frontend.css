@@ -776,7 +776,7 @@ Circular Progressbar
     font-size: var(--eead-cb-circle-size);
 }
 
-.eead-circular-progressbar-box{
+.eead-circular-progressbar-box {
     width: calc(var(--eead-cb-circle-size) * 2 + var(--eead-cb-circle-stroke));
 }
 
@@ -801,7 +801,7 @@ Circular Progressbar
 /*--------------------------------------------------------------
 Countdown Styles
 --------------------------------------------------------------*/
-.eead-counter-layout-column .eead-countdown-items{
+.eead-counter-layout-column .eead-countdown-items {
     flex-direction: column;
 }
 
@@ -831,7 +831,7 @@ Countdown Styles
     color: #ffffff;
 }
 
-.eead-countdown-separator{
+.eead-countdown-separator {
     align-self: center;
     font-size: 58px;
     line-height: 1;
@@ -839,34 +839,48 @@ Countdown Styles
 
 
 /*--------------------------------------------------------------
-Counter Widget
+Counter
 --------------------------------------------------------------*/
 .eead-counter-box .eead-counter {
     width: 100%;
     text-align: center;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .eead-counter-box .eead-counter-count {
     font-weight: bold;
     display: flex;
+    justify-content: center;
     align-items: center;
     line-height: 1;
+    margin: 15px 0;
+}
+
+.eead-counter-box .odometer-inside {
+    display: flex;
+}
+
+.eead-counter-box .eead-counter-icon {
+    font-size: 2em;
+    line-height: 1;
+    position: relative;
+}
+
+.eead-counter-box .eead-counter-count {
+    font-size: 48px;
 }
 
 .eead-counter-box .eead-counter-title {
     margin: 0;
 }
 
+/*Style 1*/
 .eead-counter-box.eead-counter-style1 .eead-counter {
     position: relative;
     text-align: center;
     border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
     border-top: 0;
+    padding: 25px;
 }
 
 .eead-counter-box.eead-counter-style1 .eead-counter:after {
@@ -889,25 +903,13 @@ Counter Widget
     background: var(--eead-counter-border-color);
 }
 
-.eead-counter-box.eead-counter-style1 .eead-counter-count {
-    font-size: 48px;
-}
-
-.eead-counter-box.eead-counter-style1 .eead-counter-icon {
-    display: inline-block;
-    font-size: 36px;
-}
-
-.eead-counter-box.eead-counter-style1 .eead-counter-title {
-    margin: 15px 0;
+/*Style 2*/
+.eead-counter-box.eead-counter-style2 .eead-counter {
+    padding: 25px;
 }
 
 .eead-counter-box.eead-counter-style2 .eead-counter-icon {
-    font-size: 2em;
-    line-height: 1;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    position: relative
+    margin-bottom: 50px;
 }
 
 .eead-counter-box.eead-counter-style2 .eead-counter-icon:after {
@@ -915,22 +917,11 @@ Counter Widget
     position: absolute;
     top: 100%;
     left: 50%;
-    width: 30px;
-    height: 2px;
-    background: #FFF;
-    margin-left: -15px;
+    width: calc(10 * var(--eead-counter-border-width));
+    height: var(--eead-counter-border-width);
+    background: var(--eead-counter-border-color);
+    transform: translateX(-50%);
     margin-top: 25px;
-}
-
-.eead-counter-box.eead-counter-style2 .eead-counter-count {
-    font-weight: bold;
-    font-size: 3em;
-    line-height: 1;
-}
-
-.eead-counter-box.eead-counter-style2 .eead-counter-title {
-    margin: 0;
-    padding: 20px;
 }
 
 .eead-counter-box.eead-counter-style2 .eead-counter:before {
@@ -938,12 +929,10 @@ Counter Widget
     position: absolute;
     left: 0;
     top: 0;
-    width: 30px;
-    height: 2px;
-    background: #FFF;
-    -o-transition: all 0.3s ease;
+    width: calc(10 * var(--eead-counter-border-width));
+    height: var(--eead-counter-border-width);
+    background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
 .eead-counter-box.eead-counter-style2 .eead-counter:after {
@@ -951,56 +940,49 @@ Counter Widget
     position: absolute;
     left: 0;
     top: 0;
-    height: 30px;
-    width: 2px;
-    background: #FFF;
-    -o-transition: all 0.3s ease;
+    height: calc(10 * var(--eead-counter-border-width));
+    width: var(--eead-counter-border-width);
+    background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
-.eead-counter-box.eead-counter-style2 .eead-counter > span:before {
+.eead-counter-box.eead-counter-style2:before {
     content: "";
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 30px;
-    height: 2px;
-    background: #FFF;
-    -o-transition: all 0.3s ease;
+    width: calc(10 * var(--eead-counter-border-width));
+    height: var(--eead-counter-border-width);
+    background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
-.eead-counter-box.eead-counter-style2 .eead-counter > span:after {
+.eead-counter-box.eead-counter-style2:after {
     content: "";
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 30px;
-    width: 2px;
-    background: #FFF;
-    -o-transition: all 0.3s ease;
+    height: calc(10 * var(--eead-counter-border-width));
+    width: var(--eead-counter-border-width);
+    background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
 }
 
-.eead-counter-box.eead-counter-style2 .eead-counter:hover:before,
-.eead-counter-box.eead-counter-style2 .eead-counter:hover > span:before {
+.eead-counter-box.eead-counter-style2:hover .eead-counter:before,
+.eead-counter-box.eead-counter-style2:hover:before {
     width: 100%;
 }
 
-.eead-counter-box.eead-counter-style2 .eead-counter:hover:after,
-.eead-counter-box.eead-counter-style2 .eead-counter:hover > span:after {
+.eead-counter-box.eead-counter-style2:hover .eead-counter:after,
+.eead-counter-box.eead-counter-style2:hover:after {
     height: 100%;
 }
 
+/*Style 3*/
 .eead-counter-box.eead-counter-style3 .eead-counter {
-    background: #FFF;
-    padding: 50px 20px;
-    -webkit-box-shadow: 0px 14px 22px -2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 14px 22px -2px rgba(0, 0, 0, 0.3);
     position: relative;
+    box-shadow: 0px 14px 22px -2px rgba(0, 0, 0, 0.3);
+    padding: 40px 25px;
 }
 
 .eead-counter-box.eead-counter-style3 .eead-counter:before {
@@ -1010,47 +992,21 @@ Counter Widget
     right: 10px;
     top: 10px;
     bottom: 10px;
-    border: 1px solid #666;
+    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
 }
 
-.eead-counter-box.eead-counter-style3 .eead-counter-icon {
-    font-size: 2em;
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
-.eead-counter-box.eead-counter-style3 .eead-counter-count {
-    font-weight: bold;
-    font-size: 3.4em;
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
+/*Style 4*/
 .eead-counter-box.eead-counter-style4 .eead-counter {
+    display: flex;
+    align-items: center;
+    gap: 2em;
     text-align: left;
-    /*padding-left: 80px;*/
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
 }
 
-.eead-counter-box.eead-counter-style4 .eead-counter-icon {
-    font-size: 42px;
-    width: 70px;
-    float: left;
-    text-align: center;
-    opacity: 0.8;
-    margin-left: -80px;
-    line-height: 1;
-    margin-top: 10px;
-}
+.eead-counter-box.eead-counter-style4 .eead-counter-count
 
-.eead-counter-box.eead-counter-style4 .eead-counter-count {
-    font-size: 2em;
-    line-height: 1;
-    margin-bottom: 10px;
-}
+
+
 
 
 
