@@ -1004,6 +1004,104 @@ Counter
 }
 
 
+Drop Bar
+--------------------------------------------------------------*/
+.eead-dropbar-button{
+    background: #111;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 1.3em;
+}
+
+.eead-dropbar-button span{
+    line-height: 1;
+}
+
+.eead-dropbar-button i{
+    font-size: 1em;
+    color: inherit;
+}
+
+.eead-dropbar-button svg{
+    height: 1em;
+    width: auto;
+    fill: #FFF;
+}
+
+
+/*--------------------------------------------------------------
+Dual Button Css 
+--------------------------------------------------------------*/
+.eead-dual-buttons{
+    display: flex;
+}
+
+.eead-dual-button-container{
+    display: flex;
+    align-items: center;
+}
+
+.eead-dual-button-container.eead-button-style-vertical{
+    flex-direction: column;
+}
+
+.eead-dual-button .eead-dual-button-text{
+    padding: 0.8em 1.3em;
+    gap: 0.4em;
+    display: inline-flex;
+    align-items: center;
+    background: #111;
+    color: #FFF;
+}
+
+.eead-dual-button .eead-dual-button-text span{
+    line-height: 1;
+}
+
+.eead-dual-button .eead-dual-button-text i{
+    font-size: 1em;
+    color: inherit;
+}
+
+.eead-dual-button .eead-dual-button-text svg{
+    height: 1em;
+    width: auto;
+    fill: #FFF;
+}
+
+.eead-dual-button-separator {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+    background: #fafaf8;
+    color: #444;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*ProgressBar Style*/
 .eead-progress {
     margin-bottom: 30px;
@@ -5160,14 +5258,7 @@ q. slider css
 
 
 
-/* Drop Bar Styles */
-.eead-dropbar-wrapper .eead-drop-content {
-    line-height: 1.4;
-}
 
-.eead-dropbar-wrapper .eead-drop-content.uk-card-default {
-    background: #f6f6f6;
-}
 
 
 /*Dual Heading Styles*/
@@ -5347,10 +5438,6 @@ q. slider css
 
 
 
-
-.eead-dropbar-button {
-    background: #f49f1d;
-}
 
 
 .eead-modal-popup-button {
@@ -9836,205 +9923,6 @@ a.eead-gallery-load-more:hover {
 button.mfp-close:not(.toggle),
 button.mfp-arrow:not(.toggle) {
     background: transparent;
-}
-
-/**
-** 
-** Dual Button Css 
-**
-**/
-.eead-dual-button-wrapper .eead-button-1-wrapper,
-.eead-dual-button-wrapper .eead-button-2-wrapper {
-    overflow: hidden;
-}
-
-.eead-dual-button-wrapper.button-style-horizontal {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
-
-.eead-dual-button-main-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.eead-dual-button-wrapper a {
-    min-width: 0px;
-}
-
-.eead-dual-button-wrapper.button-style-vertical {
-    display: inline-flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.eead-button-1.icon-before,
-.eead-button-2.icon-before {
-    display: flex;
-    flex-direction: row;
-}
-
-body.rtl .eead-button-1.icon-before,
-body.rtl .eead-button-2.icon-before {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.eead-button-1.icon-after,
-.eead-button-2.icon-after {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-body.rtl .eead-button-1.icon-after,
-body.rtl .eead-button-2.icon-after {
-    display: flex;
-    flex-direction: row;
-}
-
-.eead-button-1-wrapper .eead-button-1,
-.eead-button-2-wrapper .eead-button-2 {
-    color: #fff;
-    align-items: center;
-}
-
-.eead-button-1-wrapper:hover .eead-button-1,
-.eead-button-2-wrapper:hover .eead-button-2 {
-    color: #fff;
-}
-
-.eead-dual-button-wrapper.button-style-vertical .eead-button-1.icon-before,
-.eead-dual-button-wrapper.button-style-vertical .eead-button-2.icon-before,
-.eead-dual-button-wrapper.button-style-vertical .eead-button-1.icon-after,
-.eead-dual-button-wrapper.button-style-vertical .eead-button-2.icon-after {
-    justify-content: center;
-}
-
-.eead-button-1.icon-up,
-.eead-button-2.icon-up {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.eead-button-1.icon-down,
-.eead-button-2.icon-down {
-    display: flex;
-    flex-direction: column-reverse;
-    text-align: center;
-}
-
-.eead-button-1-wrapper {
-    background: #1a47eb;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    line-height: 1;
-}
-
-.eead-button-2-wrapper {
-    background: #ff0000;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    line-height: 1;
-}
-
-.eead-button-1.icon-up .icon-wrapper,
-.eead-button-2.icon-up .icon-wrapper,
-.eead-button-2.icon-down .icon-wrapper,
-.eead-button-2.icon-down .icon-wrapper {
-    text-align: center;
-}
-
-.eead-button-1.icon-up .eead-button-text,
-.eead-button-2.icon-up .eead-button-text,
-.eead-button-2.icon-down .eead-button-text,
-.eead-button-2.icon-down .eead-button-text {
-    text-align: center;
-}
-
-.eead-button-1.icon-before i,
-.eead-button-2.icon-before i,
-.eead-button-2.icon-after i {
-    align-self: center;
-    margin: 0 10px 0 0;
-}
-
-.eead-button-1.icon-after i,
-.eead-button-2.icon-after i {
-    align-self: center;
-    margin: 0 0 0 10px;
-}
-
-.eead-button-1.icon-up i,
-.eead-button-1.icon-down i,
-.eead-button-2.icon-up i,
-.eead-button-2.icon-down i {
-    align-self: center;
-    margin: 5px 0;
-}
-
-.eead-dual-button-wrapper.button-style-horizontal .eead-button-1-wrapper,
-.eead-dual-button-wrapper.button-style-horizontal .eead-button-2-wrapper {
-    padding: 25px 30px;
-}
-
-.eead-dual-button-wrapper.button-style-vertical .eead-button-1-wrapper,
-.eead-dual-button-wrapper.button-style-vertical .eead-button-2-wrapper {
-    padding: 32px 60px;
-}
-
-.eead-button1,
-.eead-button2 {
-    position: relative;
-    display: flex;
-}
-
-.eead-dual-button-wrapper.button-style-horizontal .eead-button1,
-.eead-dual-button-wrapper.button-style-horizontal .eead-button2 {
-    min-width: 150px;
-}
-
-.eead-dual-button-wrapper.button-style-vertical .eead-button1 {
-    display: flex;
-    flex-direction: column;
-}
-
-.eead-button-separator-wrapper .eead-button-separator {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
-    z-index: 1;
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
-    background: #fafaf8;
-    color: #444;
-    text-transform: uppercase;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: 400;
-    font-size: 14px;
-    position: absolute;
-    transform: translateY(-50%);
-}
-
-.eead-button-separator span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-body.rtl.elementor-editor-active .eead-dual-button-main-wrapper .button-style-horizontal .eead-button1 .eead-button-separator-wrapper.not-rtl .eead-button-separator {
-    display: none !important;
-}
-
-body:not(.rtl).elementor-editor-active .eead-dual-button-main-wrapper .button-style-horizontal .eead-button2 .eead-button-separator-wrapper.rtl .eead-button-separator,
-body:not(.rtl).elementor-editor-preview .eead-dual-button-main-wrapper .button-style-horizontal .eead-button2 .eead-button-separator-wrapper.rtl .eead-button-separator {
-    display: none !important;
 }
 
 

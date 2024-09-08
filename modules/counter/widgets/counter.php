@@ -8,6 +8,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -232,6 +233,17 @@ class Counter extends Widget_Base {
                     'counter_style!' => 'style4'
                 ]
             ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'box_shadow',
+                'selector' => '{{WRAPPER}} .eead-counter-box .eead-counter',
+                'condition' => [
+                    'counter_style' => 'style3'
+                ]
+            ],
         );
 
         $this->add_control(

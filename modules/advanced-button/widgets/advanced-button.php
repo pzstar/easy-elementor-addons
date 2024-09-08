@@ -456,10 +456,6 @@ class AdvancedButton extends Widget_Base {
         $this->add_render_attribute('content-wrapper', 'class', 'eead-ab-button-content-wrapper');
         $this->add_render_attribute('text', 'class', 'eead-ab-button-text');
         $this->add_inline_editing_attributes('text', 'none');
-
-        $migrated = isset($settings['__fa4_migrated']['button_icon']);
-        $is_new = empty($settings['icon']) && Icons_Manager::is_migration_allowed();
-
         ?>
         <div <?php echo $this->get_render_attribute_string('content-wrapper'); ?>>
             <?php
@@ -467,13 +463,7 @@ class AdvancedButton extends Widget_Base {
                 ?>
                 <div class="eead-ab-button-icon">
                     <?php
-                    if ($is_new || $migrated) {
-                        Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
-                    } else {
-                        ?>
-                        <i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
-                        <?php
-                    }
+                    Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
                     ?>
                 </div>
                 <?php

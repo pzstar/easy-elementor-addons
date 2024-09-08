@@ -45,9 +45,9 @@ class DualButton extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'dual_btn_settings_field',
+            'dual_btn_settings',
             [
-                'label' => esc_html__('Button Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Button', 'easy-elementor-addons'),
             ]
         );
 
@@ -63,9 +63,6 @@ class DualButton extends Widget_Base {
                 'default' => 'horizontal',
             ]
         );
-
-        $start = is_rtl() ? 'end' : 'start';
-        $end = is_rtl() ? 'start' : 'end';
 
         $this->add_responsive_control(
             'button_align',
@@ -86,14 +83,9 @@ class DualButton extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
-                'selectors_dictionary' => [
-                    'flex-start' => 'flex-' . $start,
-                    'flex-end' => 'flex-' . $end,
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-button-main-wrapper' => 'justify-content: {{VALUE}}',
-                ],
-                'default' => 'center',
+                    '{{WRAPPER}} .eead-dual-buttons' => 'justify-content: {{VALUE}}',
+                ]
             ]
         );
 
@@ -112,9 +104,6 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => 'true',
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'default' => esc_html__('Primary Button', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Primary Button', 'easy-elementor-addons'),
             ]
@@ -125,9 +114,6 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
@@ -136,11 +122,12 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button1_icon_new',
+            'button1_icon',
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'button1_icon',
+                'skin' => 'inline',
+                'label_block' => false
             ]
         );
 
@@ -149,27 +136,13 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'before',
+                'default' => 'row',
                 'options' => [
-                    'before' => esc_html__('Before', 'easy-elementor-addons'),
-                    'after' => esc_html__('After', 'easy-elementor-addons'),
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'button1_icon_spacing',
-            [
-                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 50,
-                    ],
+                    'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
+                    'row' => esc_html__('After', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-button-1.icon-before .eead-db-icon-wrapper' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .eead-button-1.icon-after .eead-db-icon-wrapper' => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-dual-button1 .eead-dual-button-text' => 'flex-direction: {{VALUE}};',
                 ],
             ]
         );
@@ -213,11 +186,12 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button2_icon_new',
+            'button2_icon',
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'button2_icon',
+                'skin' => 'inline',
+                'label_block' => false
             ]
         );
 
@@ -226,16 +200,23 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'after',
+                'default' => 'row',
                 'options' => [
-                    'before' => esc_html__('Before', 'easy-elementor-addons'),
-                    'after' => esc_html__('After', 'easy-elementor-addons'),
+                    'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
+                    'row' => esc_html__('After', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-button2 .eead-dual-button-text' => 'flex-direction: {{VALUE}};',
                 ],
             ]
         );
 
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
         $this->add_control(
-            'button2_icon_spacing',
+            'button_icon_spacing',
             [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -245,15 +226,11 @@ class DualButton extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-button-2.icon-before .eead-db-icon-wrapper' => 'margin-right: {{SIZE}}px;',
-                    '{{WRAPPER}} .eead-button-2.icon-after .eead-db-icon-wrapper' => 'margin-left: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-dual-button .eead-dual-button-text' => 'gap: {{SIZE}}px;',
                 ],
+                'separator' => 'before'
             ]
         );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -276,11 +253,12 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_control(
-            'separator_icon_new',
+            'separator_icon',
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'separator_icon',
+                'skin' => 'inline',
+                'label_block' => false
             ]
         );
 
@@ -821,31 +799,18 @@ class DualButton extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute('main_wrapper', 'class', 'eead-dual-button-main-wrapper');
-        if (is_rtl()) {
-            $this->add_render_attribute('main_wrapper', 'class', 'eead-dual-button-rtl');
-        }
-
-        $this->add_render_attribute('button1', 'class', 'eead-button-1-wrapper');
+        $this->add_render_attribute('button1', 'class', 'eead-dual-button eead-dual-button1');
         if (!empty($settings['button1_link']['url'])) {
             $this->add_link_attributes('button1', $settings['button1_link']);
         }
 
-        $this->add_render_attribute('button2', 'class', 'eead-button-2-wrapper');
+        $this->add_render_attribute('button2', 'class', 'eead-dual-button eead-dual-button2');
         if (!empty($settings['button2_link']['url'])) {
             $this->add_link_attributes('button2', $settings['button2_link']);
         }
 
-        $this->add_render_attribute('button1_inner', [
-            'class' => ['eead-button-1', 'icon-' . $settings['button1_icon_align']]
-        ]);
-
-        $this->add_render_attribute('button2_inner', [
-            'class' => ['eead-button-2', 'icon-' . $settings['button2_icon_align']]
-        ]);
-
         $this->add_render_attribute('wrapper', [
-            'class' => ['eead-dual-button-wrapper', 'button-style-' . $settings['button_layout']]
+            'class' => ['eead-dual-button-container', 'eead-button-style-' . $settings['button_layout']]
         ]);
 
         if ($settings['button_animation'] !== 'none') {
@@ -884,116 +849,72 @@ class DualButton extends Widget_Base {
         }
 
         ?>
-        <div <?php $this->print_render_attribute_string('main_wrapper'); ?>>
+        <div class="eead-dual-buttons">
             <div <?php $this->print_render_attribute_string('wrapper'); ?>>
-                <div class="eead-button1">
+                <div class="eead-dual-button1">
                     <a <?php $this->print_render_attribute_string('button1'); ?>>
-                        <div <?php $this->print_render_attribute_string('button1_inner'); ?>>
+                        <div class="eead-dual-button-text">
                             <?php
-                            if ($settings['button1_icon_new'] !== '') {
+                            echo esc_html($settings['button1_text']);
+
+                            if ($settings['button1_icon']['value'] !== '') {
                                 ?>
-                                <div class="eead-db-icon-wrapper">
+                                <span>
                                     <?php
-                                    if (isset($settings['__fa4_migrated']['button1_icon_new']) || empty($settings['button1_icon'])) {
-                                        Icons_Manager::render_icon($settings['button1_icon_new'], ['aria-hidden' => 'true']);
-                                    } else {
-                                        ?>
-                                        <i class="<?php echo $settings['button1_icon']; ?>"></i>
-                                        <?php
-                                    }
+                                    Icons_Manager::render_icon($settings['button1_icon'], ['aria-hidden' => 'true']);
                                     ?>
-                                </div>
+                                </span>
                                 <?php
                             }
                             ?>
-                            <div class="eead-button-text"><?php echo esc_html($settings['button1_text']); ?></div>
                         </div>
                     </a>
-
-                    <?php
-                    if ((!empty($settings['separator_icon_new']['value']) || !empty($settings['separator_text'])) && !is_rtl()) {
-                        ?>
-                        <span class="eead-button-separator-wrapper">
-                            <span class="eead-button-separator">
-                                <span>
-                                    <?php
-                                    if (!empty($settings['separator_icon_new'])) {
-                                        if (isset($settings['__fa4_migrated']['separator_icon_new']) || empty($settings['separator_icon'])) {
-                                            Icons_Manager::render_icon($settings['separator_icon_new'], ['aria-hidden' => 'true']);
-
-                                        } else {
-                                            ?>
-                                            <i class="<?php echo esc_attr($settings['separator_icon']); ?>"></i>
-                                            <?php
-                                        }
-                                    }
-
-                                    if (!empty($settings['separator_text'])) {
-                                        echo $settings['separator_text'];
-                                    }
-                                    ?>
-                                </span>
-                            </span>
-                        </span>
-                        <?php
-                    }
-                    ?>
                 </div>
 
-                <div class="eead-button2">
-                    <?php
-                    if ((!empty($settings['separator_icon_new']['value']) || !empty($settings['separator_text'])) && is_rtl()) {
+                <?php
+                if ((!empty($settings['separator_icon_new']['value']) || !empty($settings['separator_text']))) {
+                    ?>
+                    <span class="eead-dual-button-separator">
+                        <?php
+                        if (!empty($settings['separator_text'])) {
+                            ?>
+                            <span class="eead-dual-button-separator-text">
+                                <?php
+                                echo $settings['separator_text'];
+                                ?>
+                            </span>
+                            <?php
+                        }
+
+                        if (!empty($settings['separator_icon']['value'])) {
+                            ?>
+                            <span class="eead-dual-button-separator-icon">
+                                <?php
+                                Icons_Manager::render_icon($settings['separator_icon'], ['aria-hidden' => 'true']);
+                                ?>
+                            </span>
+                            <?php
+                        }
                         ?>
-                        <span class="eead-button-separator-wrapper">
-                            <span class="eead-button-separator">
+                    </span>
+                <?php } ?>
+
+                <div class="eead-dual-button2">
+                    <a <?php $this->print_render_attribute_string('button2'); ?>>
+                        <div class="eead-dual-button-text">
+                            <?php
+                            echo esc_html($settings['button2_text']);
+
+                            if ($settings['button2_icon']['value'] !== '') {
+                                ?>
                                 <span>
                                     <?php
-                                    if (!empty($settings['separator_icon_new'])) {
-                                        if ($separator_icon_migrated || $separator_icon_is_new) {
-                                            Icons_Manager::render_icon($settings['separator_icon_new'], ['aria-hidden' => 'true']);
-
-                                        } else {
-                                            ?>
-                                            <i class="<?php echo esc_attr($settings['separator_icon']); ?>"></i>
-                                            <?php
-                                        }
-                                    }
-
-                                    if (!empty($settings['separator_text'])) {
-                                        echo $settings['separator_text'];
-                                    }
+                                    Icons_Manager::render_icon($settings['button2_icon'], ['aria-hidden' => 'true']);
                                     ?>
                                 </span>
-                            </span>
-                        </span>
-                        <?php
-                    }
-                    ?>
-
-                    <a <?php $this->print_render_attribute_string('button2'); ?>>
-                        <div <?php $this->print_render_attribute_string('button2_inner'); ?>>
-                            <?php
-                            if (!empty($settings['button2_icon_new'])) {
-                                ?>
-                                <div class="eead-db-icon-wrapper">
-                                    <?php
-                                    if (isset($settings['__fa4_migrated']['button2_icon_new']) || empty($settings['button2_icon'])) {
-                                        Icons_Manager::render_icon($settings['button2_icon_new'], ['aria-hidden' => 'true']);
-
-                                    } else {
-                                        ?>
-                                        <i class="<?php echo esc_attr($settings['button2_icon']); ?>"></i>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
                                 <?php
                             }
                             ?>
-
-                            <div class="eead-button-text">
-                                <?php echo esc_html($settings['button2_text']); ?>
-                            </div>
                         </div>
                     </a>
                 </div>

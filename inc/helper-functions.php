@@ -304,33 +304,6 @@ if (!function_exists('eead_plugin_instance')) {
 
 }
 
-if (!function_exists('eead_anywhere_templates')) {
-
-    function eead_anywhere_templates() {
-
-        if (post_type_exists('ae_global_templates')) {
-            $anywhere = get_posts(
-                array(
-                    'fields' => 'ids', // Only get post IDs
-                    'posts_per_page' => -1,
-                    'post_type' => 'ae_global_templates',
-                )
-            );
-
-            $anywhere_options = ['0' => esc_html__('Select Template', 'easy-elementor-addons')];
-
-            foreach ($anywhere as $key => $value) {
-                $anywhere_options[$value] = get_the_title($value);
-            }
-
-        } else {
-            $anywhere_options = ['0' => esc_html__('Please Install AE Plugin', 'easy-elementor-addons')];
-        }
-        return $anywhere_options;
-    }
-
-}
-
 if (!function_exists('eead_button_sizes')) {
 
     function eead_button_sizes() {
