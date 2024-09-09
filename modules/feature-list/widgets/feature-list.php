@@ -53,7 +53,7 @@ class FeatureList extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'eead_feature_list_icon_type',
+            'icon_type',
             [
                 'label' => esc_html__('Icon Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -73,19 +73,20 @@ class FeatureList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'eead_feature_list_icon_new',
+            'icon',
             [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'eead_feature_list_icon',
+                'skin' => 'inline',
+                'label_block' => false,
                 'condition' => [
-                    'eead_feature_list_icon_type' => 'icon',
+                    'icon_type' => 'icon',
                 ],
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_img',
+            'img',
             [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
@@ -93,99 +94,94 @@ class FeatureList extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'eead_feature_list_icon_type' => 'image',
+                    'icon_type' => 'image',
                 ],
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_title',
+            'title',
             [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Title', 'easy-elementor-addons'),
-                'dynamic' => ['active' => true],
+                'label_block' => true,
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_subtitle',
+            'subtitle',
             [
                 'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                'label_block' => true,
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_content',
+            'content',
             [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons'),
-                'dynamic' => ['active' => true],
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_link',
+            'link',
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'dynamic' => ['active' => true],
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
             ]
         );
 
         // Each icon custom color style
         $repeater->add_control(
-            'eead_feature_list_icon_enable_each_style',
+            'icon_enable_each_style',
             [
                 'label' => esc_html__('Custom Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('ON', 'easy-elementor-addons'),
-                'label_off' => esc_html__('OFF', 'easy-elementor-addons'),
-                'return_value' => 'on',
-                'default' => '',
-                'fa4compatibility' => 'eead_feature_list_icon',
-                'condition' => [
-                    'eead_feature_list_icon_type' => 'icon',
-                ],
+                'return_value' => 'on'
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_icon_individual_color',
+            'icon_individual_color',
             [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'fa4compatibility' => 'eead_feature_list_icon',
+                'selectors' => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .eead-fl-icon-box i' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .eead-fl-icon-box svg' => 'fill: {{VALUE}}'
+                ],
                 'condition' => [
-                    'eead_feature_list_icon_enable_each_style' => 'on',
+                    'icon_enable_each_style' => 'on',
                 ],
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_icon_individual_bg_color',
+            'icon_individual_bg_color',
             [
                 'label' => esc_html__('Icon Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'fa4compatibility' => 'eead_feature_list_icon',
+                'selectors' => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .eead-fl-icon-box' => 'background: {{VALUE}}',
+                ],
                 'condition' => [
-                    'eead_feature_list_icon_enable_each_style' => 'on',
+                    'icon_enable_each_style' => 'on',
                 ],
             ]
         );
 
         $repeater->add_control(
-            'eead_feature_list_icon_individual_box_bg_color',
+            'icon_individual_box_bg_color',
             [
                 'label' => esc_html__('Icon Box Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'fa4compatibility' => 'eead_feature_list_icon',
                 'condition' => [
-                    'eead_feature_list_icon_enable_each_style' => 'on',
+                    'icon_enable_each_style' => 'on',
                 ],
             ]
         );
@@ -198,50 +194,50 @@ class FeatureList extends Widget_Base {
                 'seperator' => 'before',
                 'default' => [
                     [
-                        'eead_feature_list_icon_new' => [
+                        'icon' => [
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => esc_html__('Feature List Item 1', 'easy-elementor-addons'),
-                        'eead_feature_list_subtitle' => 'Consectetur adipisi cing elit',
-                        'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
+                        'title' => esc_html__('Feature List Item 1', 'easy-elementor-addons'),
+                        'subtitle' => 'Consectetur adipisi cing elit',
+                        'content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
                     [
-                        'eead_feature_list_icon_new' => [
+                        'icon' => [
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => esc_html__('Feature List Item 2', 'easy-elementor-addons'),
-                        'eead_feature_list_subtitle' => 'Rem ipsum dolor sit amet',
+                        'title' => esc_html__('Feature List Item 2', 'easy-elementor-addons'),
+                        'subtitle' => 'Rem ipsum dolor sit amet',
                         'easy-elementor-addons',
-                        'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
+                        'content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
                     [
-                        'eead_feature_list_icon_new' => [
+                        'icon' => [
                             'value' => 'fas fa-check',
                             'library' => 'fa-solid',
                         ],
-                        'eead_feature_list_title' => esc_html__('Feature List Item 3', 'easy-elementor-addons'),
-                        'eead_feature_list_subtitle' => 'Seo eiusmod tempor incididunt ut',
-                        'eead_feature_list_content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
+                        'title' => esc_html__('Feature List Item 3', 'easy-elementor-addons'),
+                        'subtitle' => 'Seo eiusmod tempor incididunt ut',
+                        'content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
                     ],
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '<i class="{{eead_feature_list_icon_new.value}}" aria-hidden="true"></i> {{{eead_feature_list_title}}}',
+                'title_field' => '<i class="{{icon.value}}" aria-hidden="true"></i> {{{title}}}',
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_feature_list_additional_settings',
+            'additional_settings',
             [
                 'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'eead_feature_list_title_size',
+            'title_size',
             [
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
@@ -261,8 +257,27 @@ class FeatureList extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'list_space',
+            [
+                'label' => esc_html__('Listing Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 30,
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-feature-list-items' => 'gap: {{SIZE}}{{UNIT}}',
+                ],
+            ]
+        );
+
         $this->add_control(
-            'eead_feature_list_icon_shape',
+            'icon_shape',
             [
                 'label' => esc_html__('Icon Shape', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
@@ -277,9 +292,9 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_feature_list_icon_layout',
+            'icon_style',
             [
-                'label' => esc_html__('Icon Box Layout', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'stacked',
                 'label_block' => false,
@@ -291,69 +306,84 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_icon_position',
+            'icon_position',
             [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
-                    'left' => [
+                    'row-reverse' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
+                        'icon' => 'eicon-h-align-left',
                     ],
-                    'top' => [
-                        'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
+                    'row' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
+                        'icon' => 'eicon-h-align-right',
                     ],
                 ],
-                'default' => 'left',
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => 'left',
-                'tablet_default' => 'left',
-                'mobile_default' => 'left',
+                'default' => 'row-reverse',
                 'toggle' => false,
             ]
         );
 
-        $this->add_responsive_control(
-            'eead_feature_list_text_align',
+        $this->end_controls_section();
+
+        /* Icon Style */
+        $this->start_controls_section(
+            'style_icon',
             [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
-                    ],
-                    'justify' => [
-                        'title' => esc_html__('Justified', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-justify',
-                    ],
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'icon_color',
+            [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box svg' => 'fill: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'icon_background',
+                'types' => ['classic', 'gradient'],
+                'exclude' => [
+                    'image',
+                ],
+                'color' => [
+                    'default' => '#3858f4',
+                ],
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-style-stacked .eead-fl-icon-box',
+            ]
+        );
+
+        $this->add_control(
+            'icon_frame_color',
+            [
+                'label' => esc_html__('Frame Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
-                    'eead_feature_list_icon_position' => 'top',
+                    'icon_style' => 'framed',
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-item' => 'text-align: {{VALUE}};',
-                ],
+                'separator' => 'before',
             ]
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_space_between',
+            'icon_space',
             [
-                'label' => esc_html__('Space Between', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 15,
@@ -364,72 +394,13 @@ class FeatureList extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-items .eead-feature-list-item:not(:last-child)' => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
-                    '{{WRAPPER}} .eead-feature-list-items .eead-feature-list-item:not(:first-child)' => 'padding-top: calc({{SIZE}}{{UNIT}}/2)',
-                    '{{WRAPPER}} .eead-feature-list-items.connector-type-modern .eead-feature-list-item:not(:last-child):before' => 'height: calc(100% + {{SIZE}}{{UNIT}})',
-                    'body.rtl {{WRAPPER}} .eead-feature-list-items .eead-feature-list-item:after' => 'left: calc(-{{SIZE}}{{UNIT}}/2)',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-item' => 'gap: {{SIZE}}{{UNIT}}',
                 ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /* Icon Style */
-        $this->start_controls_section(
-            'eead_section_feature_list_style_icon',
-            [
-                'label' => esc_html__('Icon', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'eead_feature_list_icon_background',
-                'types' => ['classic', 'gradient'],
-                'exclude' => [
-                    'image',
-                ],
-                'color' => [
-                    'default' => '#3858f4',
-                ],
-                'selector' => '{{WRAPPER}} .eead-feature-list-items .eead-feature-list-icon-box .eead-feature-list-icon-inner',
-            ]
-        );
-
-        $this->add_control(
-            'eead_feature_list_secondary_color',
-            [
-                'label' => esc_html__('Secondary Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-items.framed .eead-feature-list-icon' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'eead_feature_list_icon_layout' => 'framed',
-                ],
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'eead_feature_list_icon_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-items .eead-feature-list-icon' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-feature-list-items .eead-feature-list-icon svg' => 'fill: {{VALUE}};',
-                ],
-                'separator' => 'before',
             ]
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_icon_circle_size',
+            'icon_circle_size',
             [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -443,14 +414,13 @@ class FeatureList extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-feature-list-items.connector-type-classic .connector' => 'right: calc(100% - {{SIZE}}{{UNIT}});',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_icon_size',
+            'icon_size',
             [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -464,15 +434,15 @@ class FeatureList extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-feature-list-img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_icon_padding',
+            'icon_padding',
             [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -485,13 +455,13 @@ class FeatureList extends Widget_Base {
                     'isLinked' => true,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box a, {{WRAPPER}} .eead-feature-list .eead-fl-icon-box span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'eead_feature_list_icon_border_width',
+            'icon_border_width',
             [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -505,94 +475,34 @@ class FeatureList extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon-inner' => 'padding: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'border-width: {{SIZE}}{{UNIT}};',
 
                 ],
                 'condition' => [
-                    'eead_feature_list_icon_layout' => 'framed',
+                    'icon_style' => 'framed',
                 ],
             ]
         );
 
         $this->add_control(
-            'eead_feature_list_icon_border_radius',
+            'icon_border_radius',
             [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-feature-list-icon-box .eead-feature-list-icon-inner .eead-feature-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'eead_feature_list_icon_layout' => 'framed',
+                    'icon_style' => 'framed',
                 ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'eead_feature_list_icon_space',
-            [
-                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 30,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 20,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 10,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .-icon-position-left .eead-feature-list-content-box, {{WRAPPER}} .-icon-position-right .eead-feature-list-content-box, {{WRAPPER}} .-icon-position-top .eead-feature-list-content-box' => 'margin: {{SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .-mobile-icon-position-left .eead-feature-list-content-box' => 'margin: 0 0 0 {{SIZE}}{{UNIT}} !important;',
-                    '(mobile){{WRAPPER}} .-mobile-icon-position-right .eead-feature-list-content-box' => 'margin: 0 {{SIZE}}{{UNIT}} 0 0 !important;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_vertical_align',
-            [
-                'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'default' => 'center',
-                'options' => [
-                    'flex-start' => [
-                        'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-middle',
-                    ],
-                    'flex-end' => [
-                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-bottom',
-                    ],
-                ],
-                'condition' => [
-                    'eead_feature_list_icon_position!' => 'top'
-                ]
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_feature_list_title_style',
+            'title_style',
             [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
@@ -600,7 +510,7 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_feature_list_title_bottom_space',
+            'title_bottom_space',
             [
                 'label' => esc_html__('Title Bottom Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -614,19 +524,19 @@ class FeatureList extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-item .eead-feature-list-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'eead_feature_list_title_color',
+            'title_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#414247',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title > a, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title:visited' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -634,48 +544,15 @@ class FeatureList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'eead_feature_list_title_typography',
-                'selector' => '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title, {{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-title a',
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-title',
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'eead_section_feature_list_description_style',
-            [
-                'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'eead_feature_list_description_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-content' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'eead_feature_list_description_typography',
-                'selector' => '{{WRAPPER}} .eead-feature-list-content-box .eead-feature-list-content',
-                'fields_options' => [
-                    'font_size' => ['default' => ['unit' => 'px', 'size' => 16]],
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'eead_section_feature_list_subtitle_style',
+            'subtitle_style',
             [
                 'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
@@ -683,13 +560,13 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_feature_list_subtitle_color',
+            'subtitle_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list-subtitle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -697,11 +574,38 @@ class FeatureList extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'eead_feature_list_subtitle_typography',
-                'selector' => '{{WRAPPER}} .eead-feature-list-subtitle',
-                'fields_options' => [
-                    'font_size' => ['default' => ['unit' => 'px', 'size' => 13]],
+                'name' => 'subtitle_typography',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'description_style',
+            [
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'description_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-content' => 'color: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-content'
             ]
         );
 
@@ -713,136 +617,71 @@ class FeatureList extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('eead_feature_list', [
-            'id' => 'eead-feature-list-' . esc_attr($this->get_id()),
             'class' => [
                 'eead-feature-list-items',
-                $settings['eead_feature_list_icon_shape'],
-                $settings['eead_feature_list_icon_layout'],
+                'eead-fl-shape-' . $settings['icon_shape'],
+                'eead-fl-style-' . $settings['icon_style']
             ],
         ]);
-
-        $this->add_render_attribute(
-            'eead_feature_list_wrapper',
-            [
-                'class' => [
-                    '-icon-position-' . $settings['eead_feature_list_icon_position'],
-                    '-tablet-icon-position-' . (isset($settings['eead_feature_list_icon_position_tablet']) ? $settings['eead_feature_list_icon_position_tablet'] : 'left'),
-                    '-mobile-icon-position-' . (isset($settings['eead_feature_list_icon_position_mobile']) ? $settings['eead_feature_list_icon_position_mobile'] : 'left'),
-                ],
-            ]
-        );
         ?>
-        <div class="eead-feature-list-main-wrapper">
-            <div <?php $this->print_render_attribute_string('eead_feature_list_wrapper'); ?>>
-                <ul <?php $this->print_render_attribute_string('eead_feature_list'); ?>>
+        <div class="eead-feature-list">
+            <ul <?php $this->print_render_attribute_string('eead_feature_list'); ?>>
+                <?php
+                foreach ($settings['eead_feature_list'] as $index => $item) {
+                    $feature_title_tag = $settings['title_size'];
+                    $feature_icon_tag = $item['link']['url'] ? 'a' : 'span';
 
-                    <?php
-                    foreach ($settings['eead_feature_list'] as $index => $item) {
-
-                        $this->add_render_attribute('eead_feature_list_icon' . $index, 'class', 'eead-feature-list-icon fl-icon-' . $index);
-                        $this->add_render_attribute('eead_feature_list_title' . $index, 'class', 'eead-feature-list-title');
-                        $this->add_render_attribute('eead_feature_list_content' . $index, 'class', 'eead-feature-list-content');
-
-                        // Icon
-                        $icon_color = ($item['eead_feature_list_icon_enable_each_style'] == 'on' && isset($item['eead_feature_list_icon_individual_color'])) ? esc_attr($item['eead_feature_list_icon_individual_color']) : '';
-                        $icon_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? 'style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_bg_color']) . '"' : '');
-                        $icon_box_bg = (($item['eead_feature_list_icon_enable_each_style'] == 'on') ? 'style="background-color:' . esc_attr($item['eead_feature_list_icon_individual_box_bg_color']) . '"' : '');
-
-                        $feature_title_tag = $settings['eead_feature_list_title_size'];
-
-                        if ($item['eead_feature_list_link']['url']) {
-                            $this->add_render_attribute('eead_feature_list_title_anchor' . $index, [
-                                'href' => esc_url($item['eead_feature_list_link']['url']),
-                                'target' => $item['eead_feature_list_link']['is_external'] ? '_blank' : '_self',
-                                'rel' => $item['eead_feature_list_link']['nofollow'] ? 'nofollow' : ''
-                            ]);
-
-                            $this->add_render_attribute('eead_feature_list_link' . $index, [
-                                'href' => $item['eead_feature_list_link']['url'],
-                                'target' => $item['eead_feature_list_link']['is_external'] ? '_blank' : '',
-                                'rel' => $item['eead_feature_list_link']['nofollow'] ? 'nofollow' : ''
-                            ]);
-                        }
-
-                        $feature_icon_tag = ($item['eead_feature_list_link']['url'] ? 'a' : 'span');
-                        $feature_list_icon_box_css = (($settings['eead_feature_list_icon_position'] == 'left') || ($settings['eead_feature_list_icon_position'] == 'right')) ? 'style="display: flex; align-items: ' . $settings['icon_vertical_align'] . '"' : '';
-                        ?>
-                        <li class="eead-feature-list-item">
-                            <div class="eead-feature-list-icon-box" <?php echo wp_kses_post($feature_list_icon_box_css); ?>>
-                                <div class="eead-feature-list-icon-inner" <?php echo wp_kses_post($icon_box_bg); ?>>
-                                    <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('eead_feature_list_icon' . $index) . $this->get_render_attribute_string('eead_feature_list_link' . $index) . $icon_bg; ?>>
-                                        <?php
-                                        if ($item['eead_feature_list_icon_type'] == 'icon' && (!empty($item['eead_feature_list_icon']) || !empty($item['eead_feature_list_icon_new']))) {
-
-                                            if (empty($item['eead_feature_list_icon']) || isset($item['__fa4_migrated']['eead_feature_list_icon_new'])) {
-                                                if ($item['eead_feature_list_icon_new']['library'] == 'svg' && $icon_color) {
-                                                    ?>
-                                                    <style>
-                                                        #eead-feature-list-<?php echo esc_attr($this->get_id()); ?> .eead-feature-list-icon.fl-icon-<?php echo esc_attr($index); ?> svg {
-                                                            color:
-                                                                <?php echo $icon_color; ?>
-                                                                !important;
-                                                            fill:
-                                                                <?php echo $icon_color; ?>
-                                                                !important;
-                                                        }
-                                                    </style>
-                                                    <?php
-                                                }
-                                                Icons_Manager::render_icon($item['eead_feature_list_icon_new'], ['aria-hidden' => 'true', 'style' => "color:{$icon_color};"]);
-                                            } else {
-                                                echo '<i class="' . esc_attr($item['eead_feature_list_icon']) . '" aria-hidden="true"></i>';
-                                            }
-                                        } else if ($item['eead_feature_list_icon_type'] == 'image') {
-                                            $this->add_render_attribute(
-                                                'feature_list_image' . $index,
-                                                [
-                                                    'src' => esc_url($item['eead_feature_list_img']['url']),
-                                                    'class' => 'eead-feature-list-img',
-                                                    'alt' => esc_attr(get_post_meta($item['eead_feature_list_img']['id'], '_wp_attachment_image_alt', true)),
-                                                ]
-                                            );
-                                            ?>
-                                                <img <?php $this->print_render_attribute_string('feature_list_image' . $index); ?>>
-                                            <?php
-                                        }
-                                        ?>
-                                    </<?php echo esc_attr($feature_icon_tag); ?>>
-                                </div>
-                            </div>
-
-                            <div class="eead-feature-list-content-box">
-                                <<?php echo esc_attr($feature_title_tag); ?>             <?php $this->print_render_attribute_string('eead_feature_list_title' . $index); ?>>
-
-                                    <?php
-                                    if (!empty($item['eead_feature_list_link']['url'])) { ?>
-                                        <a <?php $this->print_render_attribute_string('eead_feature_list_title_anchor' . $index); ?>>
-                                            <?php
-                                    }
-                                    echo esc_html($item['eead_feature_list_title']);
-
-                                    if (!empty($item['eead_feature_list_link']['url'])) {
-                                        ?>
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                </<?php echo esc_attr($feature_title_tag); ?>>
-
-                                <div class="eead-feature-list-subtitle">
-                                    <?php echo esc_html($item['eead_feature_list_subtitle']); ?>
-                                </div>
-
-                                <p <?php $this->print_render_attribute_string('eead_feature_list_content' . $index); ?>>
-                                    <?php echo wp_kses_post($item['eead_feature_list_content']); ?>
-                                </p>
-                            </div>
-                        </li>
-                        <?php
+                    if ($item['link']['url']) {
+                        $this->add_render_attribute('link' . $index, [
+                            'href' => $item['link']['url'],
+                            'target' => $item['link']['is_external'] ? '_blank' : '',
+                            'rel' => $item['link']['nofollow'] ? 'nofollow' : ''
+                        ]);
                     }
                     ?>
-                </ul>
-            </div>
+                    <li class="eead-fl-item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
+                        <div class="eead-fl-icon-box">
+                            <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('link' . $index); ?>>
+                                <?php
+                                if ($item['icon_type'] == 'icon' && !empty($item['icon']['value'])) {
+                                    Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
+                                } else if ($item['icon_type'] == 'image') {
+                                    $this->add_render_attribute(
+                                        'feature_list_image' . $index,
+                                        [
+                                            'src' => esc_url($item['img']['url']),
+                                            'class' => 'eead-feature-list-img',
+                                            'alt' => esc_attr(get_post_meta($item['img']['id'], '_wp_attachment_image_alt', true)),
+                                        ]
+                                    );
+                                    echo '<img ' . $this->get_render_attribute_string('feature_list_image' . $index) . '/>';
+                                }
+                                ?>
+                            </<?php echo esc_attr($feature_icon_tag); ?>>
+                        </div>
+
+                        <div class="eead-fl-content-box">
+                            <<?php echo esc_attr($feature_title_tag); ?> class="eead-fl-title">
+                                <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('link' . $index); ?>>
+                                    <?php
+                                    echo esc_html($item['title']);
+                                    ?>
+                                </<?php echo esc_attr($feature_icon_tag); ?>>
+                            </<?php echo esc_attr($feature_title_tag); ?>>
+
+                            <div class="eead-fl-subtitle">
+                                <?php echo esc_html($item['subtitle']); ?>
+                            </div>
+
+                            <div class="eead-fl-content">
+                                <?php echo wp_kses_post($item['content']); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
         </div>
         <?php
     }

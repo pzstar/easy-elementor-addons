@@ -10,7 +10,6 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -60,9 +59,6 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('First Heading Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'label_block' => true,
                 'rows' => 3,
                 'default' => esc_html__('Dual', 'easy-elementor-addons'),
@@ -74,9 +70,6 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Second Heading Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'dynamic' => [
-                    'active' => true,
-                ],
                 'label_block' => true,
                 'rows' => 3,
                 'default' => esc_html__('Heading', 'easy-elementor-addons'),
@@ -88,13 +81,6 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'dynamic' => [
-                    'active' => true,
-                    'categories' => [
-                        TagsModule::POST_META_CATEGORY,
-                        TagsModule::URL_CATEGORY,
-                    ],
-                ],
                 'label_block' => true,
                 'placeholder' => 'https://www.your-link.com',
             ]
@@ -111,48 +97,74 @@ class DualHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'second_part_display',
+        $this->add_responsive_control(
+            'horizontal_align',
             [
-                'label' => esc_html__('Second Heading Display', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
+                'label' => esc_html__('Horizontal Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
-                'default' => 'inline-block',
                 'options' => [
-                    'inline-block' => esc_html__('Inline', 'easy-elementor-addons'),
-                    'block' => esc_html__('Block', 'easy-elementor-addons'),
+                    'flex-start' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ],
                 ],
-                'prefix_class' => 'eead-dual-heading-',
+                'default' => 'flex-start',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-second-text' => 'display: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-heading' => 'justify-content: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'align',
+            'vertical_align',
             [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
+                    'flex-start' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
+                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-middle',
                     ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
+                    'flex-end' => [
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
-                'default' => '',
+                'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}}' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-heading' => 'align-items: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'spacing',
+            [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'max' => 300,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-heading' => 'column-gap: calc({{SIZE}}{{UNIT}}/2);',
+                ]
             ]
         );
 
@@ -167,15 +179,26 @@ class DualHeading extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'first_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-first-text',
+                'separator' => 'before',
+            ]
+        );
+
         $this->add_control(
             'dual_header_first_back_clip',
             [
-                'label' => esc_html__('Background Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Heading Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'color',
                 'options' => [
                     'color' => esc_html__('Normal', 'easy-elementor-addons'),
-                    'clipped' => esc_html__('Clipped', 'easy-elementor-addons'),
+                    'clipped' => esc_html__('Clipped Background', 'easy-elementor-addons'),
+                    'stroke' => esc_html__('Stroke', 'easy-elementor-addons'),
                 ],
                 'label_block' => true
             ]
@@ -208,24 +231,12 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'dual_header_first_stroke',
-            [
-                'label' => esc_html__('Stroke', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'condition' => [
-                    'dual_header_first_back_clip' => 'clipped'
-                ],
-            ]
-        );
-
-        $this->add_control(
             'dual_header_first_stroke_text_color',
             [
                 'label' => esc_html__('Stroke Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
-                    'dual_header_first_back_clip' => 'clipped',
-                    'dual_header_first_stroke' => 'yes'
+                    'dual_header_first_back_clip' => 'stroke',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => '-webkit-text-stroke-color: {{VALUE}};'
@@ -238,9 +249,9 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Stroke Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
+                'default' => 'rgba(0,0,0,0)',
                 'condition' => [
-                    'dual_header_first_back_clip' => 'clipped',
-                    'dual_header_first_stroke' => 'yes'
+                    'dual_header_first_back_clip' => 'stroke'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => '-webkit-text-fill-color: {{VALUE}};'
@@ -253,9 +264,18 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Stroke Fill Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'max' => 50,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 1,
+                ],
                 'condition' => [
-                    'dual_header_first_back_clip' => 'clipped',
-                    'dual_header_first_stroke' => 'yes'
+                    'dual_header_first_back_clip' => 'stroke'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => '-webkit-text-stroke-width: {{SIZE}}px;'
@@ -270,21 +290,12 @@ class DualHeading extends Widget_Base {
                 'types' => ['classic', 'gradient'],
                 'condition' => [
                     'dual_header_first_back_clip' => 'clipped',
-                    'dual_header_first_stroke!' => 'yes'
                 ],
                 'selector' => '{{WRAPPER}} .eead-first-text'
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'first_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-first-text',
-                'separator' => 'before',
-            ]
-        );
+
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
@@ -341,7 +352,7 @@ class DualHeading extends Widget_Base {
 
         $this->end_controls_section();
 
-        /*Second Heading Styles*/
+        /* Second Heading Styles */
         $this->start_controls_section(
             'second_section_style',
             [
@@ -350,15 +361,26 @@ class DualHeading extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'second_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-second-text',
+                'separator' => 'before',
+            ]
+        );
+
         $this->add_control(
             'dual_header_second_back_clip',
             [
-                'label' => esc_html__('Background Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Heading Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'color',
                 'options' => [
                     'color' => esc_html__('Normal', 'easy-elementor-addons'),
-                    'clipped' => esc_html__('Clipped', 'easy-elementor-addons'),
+                    'clipped' => esc_html__('Clipped Background', 'easy-elementor-addons'),
+                    'stroke' => esc_html__('Stroke', 'easy-elementor-addons'),
                 ],
                 'label_block' => true
             ]
@@ -391,24 +413,12 @@ class DualHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'dual_header_second_stroke',
-            [
-                'label' => esc_html__('Stroke', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'condition' => [
-                    'dual_header_second_back_clip' => 'clipped'
-                ],
-            ]
-        );
-
-        $this->add_control(
             'dual_header_second_stroke_text_color',
             [
                 'label' => esc_html__('Stroke Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
-                    'dual_header_second_back_clip' => 'clipped',
-                    'dual_header_second_stroke' => 'yes'
+                    'dual_header_second_back_clip' => 'stroke',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => '-webkit-text-stroke-color: {{VALUE}};'
@@ -421,9 +431,9 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Stroke Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
+                'default' => 'rgba(0,0,0,0)',
                 'condition' => [
-                    'dual_header_second_back_clip' => 'clipped',
-                    'dual_header_second_stroke' => 'yes'
+                    'dual_header_second_back_clip' => 'stroke'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => '-webkit-text-fill-color: {{VALUE}};'
@@ -436,9 +446,18 @@ class DualHeading extends Widget_Base {
             [
                 'label' => esc_html__('Stroke Fill Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'max' => 50,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 1,
+                ],
                 'condition' => [
-                    'dual_header_second_back_clip' => 'clipped',
-                    'dual_header_second_stroke' => 'yes'
+                    'dual_header_second_back_clip' => 'stroke'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => '-webkit-text-stroke-width: {{SIZE}}px;'
@@ -453,21 +472,12 @@ class DualHeading extends Widget_Base {
                 'types' => ['classic', 'gradient'],
                 'condition' => [
                     'dual_header_second_back_clip' => 'clipped',
-                    'dual_header_second_stroke!' => 'yes'
                 ],
                 'selector' => '{{WRAPPER}} .eead-second-text'
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'second_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-second-text',
-                'separator' => 'before',
-            ]
-        );
+
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
@@ -489,35 +499,6 @@ class DualHeading extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'second_text_margin',
-            [
-                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['%', 'px'],
-                'default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                    ],
-                ],
-                'tablet_default' => [
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}.eead-dual-heading-inline-block .eead-second-text' => 'margin-left: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.eead-dual-heading-block .eead-second-text' => 'margin-top: {{SIZE}}{{UNIT}};',
-                ],
-                'separator' => 'before',
             ]
         );
 
@@ -564,11 +545,11 @@ class DualHeading extends Widget_Base {
         $this->add_inline_editing_attributes('second_heading', 'basic');
         $this->add_render_attribute('second_heading', 'class', 'eead-second-text');
 
-        if (!$settings['dual_header_first_stroke'] && $settings['dual_header_first_back_clip'] == 'clipped') {
+        if ($settings['dual_header_first_back_clip'] == 'clipped') {
             $this->add_render_attribute('first_heading', 'class', 'eead-clipped');
         }
 
-        if (!$settings['dual_header_second_stroke'] && $settings['dual_header_second_back_clip'] == 'clipped') {
+        if ($settings['dual_header_second_back_clip'] == 'clipped') {
             $this->add_render_attribute('second_heading', 'class', 'eead-clipped');
         }
 
@@ -577,6 +558,7 @@ class DualHeading extends Widget_Base {
         if ($settings['first_heading']) {
             $heading_text = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('first_heading'), esc_html($settings['first_heading']));
         }
+        $heading_text .= '&nbsp;';
         if ($settings['second_heading']) {
             $heading_text .= sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('second_heading'), esc_html($settings['second_heading']));
         }
