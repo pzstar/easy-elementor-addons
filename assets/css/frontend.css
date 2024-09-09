@@ -1040,12 +1040,21 @@ Dual Button Css
 }
 
 .eead-dual-button-container{
+    position: relative;
     display: flex;
     align-items: center;
 }
 
 .eead-dual-button-container.eead-button-style-vertical{
     flex-direction: column;
+}
+
+.eead-dual-pri-button{
+    position: relative;
+}
+
+.eead-dual-button{
+    display: block;
 }
 
 .eead-dual-button .eead-dual-button-text{
@@ -1075,17 +1084,19 @@ Dual Button Css
 .eead-dual-button-separator {
     width: 40px;
     height: 40px;
-    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     z-index: 1;
     box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
     background: #fafaf8;
     color: #444;
     text-transform: uppercase;
-    text-align: center;
-    vertical-align: middle;
     position: absolute;
-    transform: translateY(-50%);
+    left: 100%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 
