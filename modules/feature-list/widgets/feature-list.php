@@ -277,6 +277,21 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_control(
+            'icon_style',
+            [
+                'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'stacked',
+                'label_block' => false,
+                'options' => [
+                    'default' => esc_html__('Default', 'easy-elementor-addons'),
+                    'framed' => esc_html__('Framed', 'easy-elementor-addons'),
+                    'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
+                ],
+            ]
+        );
+
+        $this->add_control(
             'icon_shape',
             [
                 'label' => esc_html__('Icon Shape', 'easy-elementor-addons'),
@@ -288,19 +303,8 @@ class FeatureList extends Widget_Base {
                     'square' => esc_html__('Square', 'easy-elementor-addons'),
                     'rhombus' => esc_html__('Rhombus', 'easy-elementor-addons'),
                 ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_style',
-            [
-                'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'stacked',
-                'label_block' => false,
-                'options' => [
-                    'framed' => esc_html__('Framed', 'easy-elementor-addons'),
-                    'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
+                'condition' => [
+                    'icon_style!' => 'default',
                 ],
             ]
         );
