@@ -237,22 +237,7 @@ class Accordion extends Widget_Base {
                 'type' => \Elementor\Controls_Manager::DIVIDER,
             ]
         );
-        /*
-                $this->add_control(
-                    'layout',
-                    [
-                        'label' => esc_html__('Style', 'easy-elementor-addons'),
-                        'type' => Controls_Manager::SELECT,
-                        'default' => 'style1',
-                        'options' => [
-                            'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                            'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                            'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
-                        ],
-                        'prefix_class' => 'eead-accordion-'
-                    ]
-                );
-        */
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -353,47 +338,9 @@ class Accordion extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_size',
-            [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em', 'rem', 'custom'],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 80,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-size: {{SIZE}}{{UNIT}};'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_background_width',
-            [
-                'label' => esc_html__('Icon Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em', 'rem', 'custom'],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 120,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
             'header_padding',
             [
-                'label' => esc_html__('Header Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -414,6 +361,50 @@ class Accordion extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 1,
+                    ]
+                ],
+                'separator' => 'before',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-icon-size: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_padding',
+            [
+                'label' => esc_html__('Icon Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-icon-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'icon_border_radius',
+            [
+                'label' => esc_html__('Icon Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-icon-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->start_controls_tabs(
             'title_tabs'
         );
@@ -428,7 +419,7 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'title_bg_color',
             [
-                'label' => esc_html__('Header Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-background: {{VALUE}}',
@@ -443,6 +434,17 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-title-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_bg_color',
+            [
+                'label' => esc_html__('Icon Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-icon-bg-color: {{VALUE}}'
                 ],
             ]
         );
@@ -470,7 +472,7 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'title_bg_color_active',
             [
-                'label' => esc_html__('Header Background Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-background-active: {{VALUE}}',
@@ -485,6 +487,17 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-title-color-active: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_bg_color_active',
+            [
+                'label' => esc_html__('Icon Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-active-icon-bg-color: {{VALUE}}'
                 ],
             ]
         );
@@ -524,6 +537,17 @@ class Accordion extends Widget_Base {
         );
 
         $this->add_control(
+            'content_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-content-bg-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'content_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
@@ -546,7 +570,17 @@ class Accordion extends Widget_Base {
             ]
         );
 
-
+        $this->add_responsive_control(
+            'content_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eed-accordion-content-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
     }

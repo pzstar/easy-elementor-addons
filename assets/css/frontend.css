@@ -7,14 +7,14 @@ Accordion
     gap: var(--eed-accordion-gap, 0.5em);
 }
 
-.eead-each-accordion {
+.eead-accordion-container .eead-each-accordion {
     overflow: hidden;
     border-radius: var(--eed-accordion-border-radius, 0);
     padding: var(--eed-accordion-padding, 0);
     background-color: var(--eed-accordion-background, transparent);
 }
 
-.eead-accordion-title {
+.eead-accordion-container .eead-accordion-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,63 +24,82 @@ Accordion
     border-radius: var(--eed-accordion-header-border-radius, 0);
 }
 
-.eead-each-accordion.eead-open .eead-accordion-title {
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-title {
     background-color: var(--eed-accordion-header-background-active, var(--eed-accordion-header-background, #EEE));
 }
 
-.eead-accordion-title h3 {
+.eead-accordion-container .eead-accordion-title h3 {
     font-size: 1em;
     margin: 0;
-    color: var(--eed-accordion-title-color, inherit)
+    color: var(--eed-accordion-title-color, #333)
 }
 
-.eead-each-accordion.eead-open .eead-accordion-title h3 {
-    color: var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, inherit));
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-title h3 {
+    color: var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333));
 }
 
-.eead-each-accordion .eead-accordion-open-icon,
-.eead-each-accordion.eead-open .eead-accordion-close-icon {
+.eead-accordion-container .eead-each-accordion .eead-accordion-open-icon,
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-close-icon {
     display: block;
 }
 
-.eead-each-accordion .eead-accordion-close-icon,
-.eead-each-accordion.eead-open .eead-accordion-open-icon {
+.eead-accordion-container .eead-each-accordion .eead-accordion-close-icon,
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-open-icon {
     display: none;
 }
 
-.eead-accordion-content {
+.eead-accordion-container .eead-accordion-content {
     display: none;
     height: var(--eed-accordion-content-height, auto);
     overflow-y: auto;
     color: var(--eed-accordion-content-color, inherit);
     padding: var(--eed-accordion-content-padding, 1em);
+    background: var(--eed-accordion-content-bg-color, trasparent);
+    border-radius: var(--eed-accordion-content-border-radius, 0);
 }
 
-.eead-accordion-content *:last-child {
+.eead-accordion-container .eead-accordion-content *:last-child {
     margin-bottom: 0;
 }
 
-.eead-accordion-icon-left .eead-accordion-title {
+.eead-accordion-icon-left .eead-accordion-container .eead-accordion-title {
     justify-content: initial;
     gap: 1em;
 }
 
-.eead-accordion-icon-left .eead-accordion-icon {
+.eead-accordion-icon-left .eead-accordion-container .eead-accordion-icon {
     order: -1;
 }
 
-.eead-accordion-icon i {
+.eead-accordion-container .eead-each-accordion .eead-accordion-icon {
+    padding: var(--eed-accordion-icon-padding, 0);
+    background-color: var(--eed-accordion-icon-bg-color, transparent);
+    border-radius: var(--eed-accordion-icon-border-radius, 0);
+    line-height: 1;
+}
+
+.eead-accordion-container .eead-each-accordion .eead-accordion-icon i {
     font-size: var(--eed-accordion-icon-size, 1em);
-    color: inherit;
+    color: var(--eed-accordion-icon-color, var(--eed-accordion-title-color, #333));
+    line-height: 1;
 }
 
-.eead-accordion-icon svg {
+.eead-accordion-container .eead-each-accordion .eead-accordion-icon svg {
     width: var(--eed-accordion-icon-size, 1em);
-    fill: var(--eed-accordion-title-color, #FFF);
+    height: auto;
+    fill: var(--eed-accordion-icon-color, var(--eed-accordion-title-color, #333));
 }
 
-.eead-each-accordion.eead-open .eead-accordion-icon svg {
-    color: var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #FFF));
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon{
+    background-color: var(--eed-accordion-active-icon-bg-color, var(--eed-accordion-icon-bg-color, transparent));
+}
+
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon i{
+    color: var(--eed-accordion-active-icon-color, var(--eed-accordion-icon-color, var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333))));
+}
+
+.eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon svg {
+    fill: var(--eed-accordion-active-icon-color, var(--eed-accordion-icon-color, var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333))));
 }
 
 /*--------------------------------------------------------------
