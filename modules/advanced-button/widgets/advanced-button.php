@@ -234,6 +234,10 @@ class AdvancedButton extends Widget_Base {
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
+                    'stretch' => [
+                        'title' => esc_html__('Stretch', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-justify',
+                    ],
                 ],
                 'prefix_class' => 'eead-ab-button-align-',
             ]
@@ -246,7 +250,7 @@ class AdvancedButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eead-ab-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-ab-button' => '--eead-ab-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -258,7 +262,7 @@ class AdvancedButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eead-ab-button-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-ab-button' => '--eead-ab-button-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );

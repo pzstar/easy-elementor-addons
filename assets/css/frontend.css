@@ -199,10 +199,15 @@ Advanced Button
     justify-content: flex-end;
 }
 
+.eead-ab-button-align-stretch .eead-ab-button-wrapper {
+    flex-direction: column;
+}
+
 /* Icon Alignment */
 .eead-ab-button-content-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--eead-ab-button-icon-spacing, 1em);
 }
 
