@@ -252,7 +252,7 @@ class FeatureList extends Widget_Base {
                     'span' => 'span',
                     'p' => 'p',
                 ],
-                'default' => 'h2',
+                'default' => 'h4',
                 'separator' => 'before',
             ]
         );
@@ -281,30 +281,12 @@ class FeatureList extends Widget_Base {
             [
                 'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'stacked',
+                'default' => 'default',
                 'label_block' => false,
                 'options' => [
                     'default' => esc_html__('Default', 'easy-elementor-addons'),
                     'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                     'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_shape',
-            [
-                'label' => esc_html__('Icon Shape', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'circle',
-                'label_block' => false,
-                'options' => [
-                    'circle' => esc_html__('Circle', 'easy-elementor-addons'),
-                    'square' => esc_html__('Square', 'easy-elementor-addons'),
-                    'rhombus' => esc_html__('Rhombus', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'icon_style!' => 'default',
                 ],
             ]
         );
@@ -315,17 +297,29 @@ class FeatureList extends Widget_Base {
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
-                    'row-reverse' => [
+                    'row' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
-                    'row' => [
+                    'column' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'row-reverse' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
-                'default' => 'row-reverse',
+                'default' => 'row',
                 'toggle' => false,
+                'selectors_dictionary' => [
+                    'row' => 'text-align:left; flex-direction:row',
+                    'column' => 'text-align:center; flex-direction:column; align-items: center;',
+                    'row-reverse' => 'text-align:right; flex-direction:row-reverse',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-item' => '{{VALUE}};',
+                ]
             ]
         );
 
@@ -347,8 +341,9 @@ class FeatureList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box' => 'border-color: {{VALUE}};',
                 ]
             ]
         );
@@ -364,25 +359,13 @@ class FeatureList extends Widget_Base {
                 'color' => [
                     'default' => '#3858f4',
                 ],
+                'condition' => [
+                    'icon_style' => 'stacked',
+                ],
                 'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-style-stacked .eead-fl-icon-box',
             ]
         );
 
-        $this->add_control(
-            'icon_frame_color',
-            [
-                'label' => esc_html__('Frame Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-framed .eead-fl-icon-box' => 'border-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_style' => 'framed',
-                ],
-                'separator' => 'before',
-            ]
-        );
 
         $this->add_responsive_control(
             'icon_space',
@@ -399,26 +382,6 @@ class FeatureList extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-item' => 'gap: {{SIZE}}{{UNIT}}',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_circle_size',
-            [
-                'label' => esc_html__('Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 70,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 6,
-                        'max' => 300,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -446,20 +409,21 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_padding',
+            'icon_circle_size',
             [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
+                'label' => esc_html__('Icon Outer Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'top' => 15,
-                    'right' => 15,
-                    'bottom' => 15,
-                    'left' => 15,
-                    'isLinked' => true,
+                    'size' => 70,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 6,
+                        'max' => 300,
+                    ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box a, {{WRAPPER}} .eead-feature-list .eead-fl-icon-box span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -489,16 +453,43 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_border_radius',
+            'icon_radius_advanced_show',
+            [
+                'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius',
             [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
+
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'icon_style' => 'framed',
+                    'icon_radius_advanced_show!' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius_advanced',
+            [
+                'label' => esc_html__('Radius', 'easy-elementor-addons'),
+                'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
+                'type' => Controls_Manager::TEXT,
+                'size_units' => ['px', '%'],
+                'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'border-radius: {{VALUE}};'
+                ],
+                'condition' => [
+                    'icon_radius_advanced_show' => 'yes',
                 ],
             ]
         );
@@ -575,6 +566,26 @@ class FeatureList extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'subtitle_bottom_space',
+            [
+                'label' => esc_html__('Title Bottom Space', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 10,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -623,7 +634,6 @@ class FeatureList extends Widget_Base {
         $this->add_render_attribute('eead_feature_list', [
             'class' => [
                 'eead-feature-list-items',
-                'eead-fl-shape-' . $settings['icon_shape'],
                 'eead-fl-style-' . $settings['icon_style']
             ],
         ]);

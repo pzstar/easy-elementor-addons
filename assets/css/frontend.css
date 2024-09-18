@@ -1057,7 +1057,7 @@ Drop Bar
 
 
 /*--------------------------------------------------------------
-Dual Button Css 
+Dual Button 
 --------------------------------------------------------------*/
 .eead-dual-buttons {
     display: flex;
@@ -1479,9 +1479,29 @@ Feature List
     display: flex;
 }
 
+.eead-feature-list .eead-fl-icon-box{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEFEFE;
+    line-height: 1;
+}
 
+.eead-feature-list .eead-fl-subtitle{
+    font-size: 1.2em;
+    line-height: 1;
+}
 
+/* Framed */
+.eead-fl-style-framed .eead-fl-icon-box{
+    border-style: solid;
+}
 
+/* Stacked */
+.eead-fl-style-stacked .eead-fl-icon-box{
+    background: #EEE;
+}
 
 
 
