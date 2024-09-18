@@ -471,8 +471,8 @@ Advanced Heading
 .eead-advanced-heading .eead-ah-sub-heading span::after {
     display: block;
     background: var(--eead-ah-sh-line-color, #000);
-    height: var(--eead-ah-sh-line-height, 4px);
-    width: var(--eead-ah-sh-line-width, 20px);
+    height: var(--eead-ah-sh-line-height, 2px);
+    width: var(--eead-ah-sh-line-width, 30px);
 }
 
 .eead-advanced-heading .eead-ah-sub-heading.eead-ah-line-left-right span::before,
@@ -509,7 +509,7 @@ Advanced Heading
 .eead-advanced-heading .eead-ah-main-heading span.eead-ah-main-heading-wrap::after {
     display: block;
     background: var(--eead-ah-mh-line-color, #000);
-    height: var(--eead-ah-mh-line-height, 4px);
+    height: var(--eead-ah-mh-line-height, 2px);
     width: var(--eead-ah-mh-line-width, 20px);
 }
 
