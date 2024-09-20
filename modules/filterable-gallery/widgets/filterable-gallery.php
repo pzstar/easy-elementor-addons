@@ -75,9 +75,8 @@ class FilterableGallery extends Widget_Base {
         $this->add_control(
             'filter_all_label',
             [
-                'label' => esc_html__('All Gallery Label', 'easy-elementor-addons'),
+                'label' => esc_html__('All Filter Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => 'All',
                 'condition' => [
                     'enable_filter' => 'yes',
@@ -90,19 +89,18 @@ class FilterableGallery extends Widget_Base {
             [
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
-                    ['filter_control' => 'Control Name'],
+                    ['filter_title' => 'Filter Title'],
                 ],
                 'fields' => [
                     [
-                        'name' => 'filter_control',
-                        'label' => esc_html__('Control Name', 'easy-elementor-addons'),
+                        'name' => 'filter_title',
+                        'label' => esc_html__('Filter Title', 'easy-elementor-addons'),
                         'type' => Controls_Manager::TEXT,
-                        'dynamic' => ['active' => true],
                         'label_block' => true,
-                        'default' => esc_html__('Gallery Control Name', 'easy-elementor-addons'),
+                        'default' => esc_html__('Filter Title', 'easy-elementor-addons'),
                     ],
                 ],
-                'title_field' => '{{filter_control}}',
+                'title_field' => '{{filter_title}}',
                 'condition' => [
                     'enable_filter' => 'yes',
                 ],
@@ -137,16 +135,6 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'enable_gallery',
-            [
-                'label' => esc_html__('Enable Photo Gallery', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-                'frontend_available' => true,
-            ]
-        );
-
         $repeater = new Repeater();
 
         $repeater->add_control(
@@ -165,7 +153,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Item Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'label_block' => true,
                 'default' => esc_html__('Item Name', 'easy-elementor-addons'),
             ]
@@ -175,7 +162,8 @@ class FilterableGallery extends Widget_Base {
             'gallery_item_content',
             [
                 'label' => esc_html__('Item Content', 'easy-elementor-addons'),
-                'type' => Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::TEXTAREA,
+                'rows' => 6,
                 'label_block' => true,
                 'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elit.'
             ]
@@ -184,12 +172,11 @@ class FilterableGallery extends Widget_Base {
         $repeater->add_control(
             'gallery_filter_name',
             [
-                'label' => esc_html__('Control Name', 'easy-elementor-addons'),
+                'label' => esc_html__('Enter Filter Titles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'label_block' => true,
                 'default' => '',
-                'description' => esc_html__('Enter the control name from Filterable Control Settings, separated with comma. | e.g. Control 1, Control 2', 'easy-elementor-addons'),
+                'description' => esc_html__('Enter the filter names from Filters Settings, separated with comma. | e.g. Filter 1, Filter 2', 'easy-elementor-addons'),
             ]
         );
 
@@ -210,7 +197,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Item Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => esc_html__('$100', 'easy-elementor-addons'),
                 'condition' => [
                     'gallery_show_price' => 'true'
@@ -235,7 +221,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Item Ratings', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => esc_html__('5', 'easy-elementor-addons'),
                 'condition' => [
                     'gallery_show_rating' => 'true'
@@ -260,7 +245,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Item Category', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => esc_html__('Landscapes', 'easy-elementor-addons'),
                 'condition' => [
                     'gallery_show_category' => 'true'
@@ -327,7 +311,6 @@ class FilterableGallery extends Widget_Base {
             'gallery_image_link',
             [
                 'type' => Controls_Manager::URL,
-                'dynamic' => ['active' => true],
                 'label_block' => true,
                 'default' => [
                     'url' => '#',
@@ -417,6 +400,19 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
+            'enable_gallery',
+            [
+                'label' => esc_html__('Enable Prev/Next Gallery', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'frontend_available' => true,
+                'condition' => [
+                    'gallery_link_to!' => 'none',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'gallery_zoom_icon',
             [
                 'label' => esc_html__('Lightbox Button Icon', 'easy-elementor-addons'),
@@ -451,18 +447,6 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_popup_caption',
-            [
-                'label' => esc_html__('Enable Popup Caption', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => ''
-            ]
-        );
-
-        $this->add_control(
             'title_tag',
             [
                 'label' => esc_html__('Title Tag', 'easy-elementor-addons'),
@@ -486,9 +470,10 @@ class FilterableGallery extends Widget_Base {
             'items_to_show',
             [
                 'label' => esc_html__('Items To Display', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
+                'min' => 1,
+                'max' => 100,
                 'default' => 6,
                 'separator' => 'before'
             ]
@@ -498,9 +483,28 @@ class FilterableGallery extends Widget_Base {
             'filter_duration',
             [
                 'label' => esc_html__('Animation Duration (ms)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
+                'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
                 'default' => 500,
+                'min' => 100,
+                'max' => 8000,
+            ]
+        );
+
+        $this->add_control(
+            'gallery_image_height',
+            [
+                'label' => esc_html__('Image Height(px)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => '300',
+                'min' => 100,
+                'max' => 800,
+                'condition' => [
+                    'gallery_grid_style' => 'grid',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item .eead-fg-item-thumbnail' => 'height: {{VALUE}}px;',
+                ],
             ]
         );
 
@@ -538,21 +542,6 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'gallery_image_height',
-            [
-                'label' => esc_html__('Image Height', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => '300',
-                'condition' => [
-                    'gallery_grid_style' => 'grid',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item .eead-fg-item-thumbnail' => 'height: {{VALUE}}px;',
-                ],
-            ]
-        );
-
         $this->end_controls_section();
 
         /**
@@ -572,6 +561,20 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'false',
                 'frontend_available' => true,
+            ]
+        );
+
+        $this->add_control(
+            'images_per_page',
+            [
+                'label' => esc_html__('Images Per Load', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 6,
+                'min' => 1,
+                'max' => 200,
+                'condition' => [
+                    'pagination' => 'yes',
+                ],
             ]
         );
 
@@ -608,9 +611,10 @@ class FilterableGallery extends Widget_Base {
             'images_per_page',
             [
                 'label' => esc_html__('Images Per Load', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                'type' => Controls_Manager::NUMBER,
                 'default' => 6,
+                'min' => 1,
+                'max' => 200,
                 'condition' => [
                     'pagination' => 'yes',
                 ],
@@ -622,7 +626,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => esc_html__('Load More', 'easy-elementor-addons'),
                 'condition' => [
                     'pagination' => 'yes',
@@ -635,30 +638,9 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('No More Items Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
                 'default' => esc_html__('No more items!', 'easy-elementor-addons'),
                 'condition' => [
                     'pagination' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'button_size',
-            [
-                'label' => esc_html__('Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'sm',
-                'options' => [
-                    'xs' => esc_html__('Extra Small', 'easy-elementor-addons'),
-                    'sm' => esc_html__('Small', 'easy-elementor-addons'),
-                    'md' => esc_html__('Medium', 'easy-elementor-addons'),
-                    'lg' => esc_html__('Large', 'easy-elementor-addons'),
-                    'xl' => esc_html__('Extra Large', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
                 ],
             ]
         );
@@ -688,6 +670,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'condition' => [
                     'pagination' => 'yes',
+                    'button_icon[value]!' => ''
                 ],
             ]
         );
@@ -1912,9 +1895,6 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Search Form', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ]
             ]
         );
 
@@ -2524,20 +2504,6 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function sorter_class($string) {
-        $sorter_class = strtolower($string);
-        $sorter_class = str_replace(' ', '-', $sorter_class);
-        $sorter_class = str_replace('&', 'and', $sorter_class);
-        $sorter_class = str_replace('amp;', '', $sorter_class);
-        $sorter_class = str_replace('/', 'slash', $sorter_class);
-        $sorter_class = str_replace("'", 'apostrophe', $sorter_class);
-        $sorter_class = str_replace('"', 'apostrophe', $sorter_class);
-        $sorter_class = str_replace(',-', ' eead-cf-', $sorter_class);
-        $sorter_class = str_replace('.', '-', $sorter_class);
-        $sorter_class = str_replace(',', ' ', $sorter_class);
-        return $sorter_class;
-    }
-
     protected function minifyHTML($html) {
         // Remove extra spaces, newlines, and tabs
         $search = [
@@ -2561,14 +2527,14 @@ class FilterableGallery extends Widget_Base {
 
     protected function render_filters() {
         $settings = $this->get_settings_for_display();
-        $all_text = ($settings['filter_all_label'] != '') ? esc_html($settings['filter_all_label']) : esc_html__('All', 'easy-elementor-addons');
+        $all_text = $settings['filter_all_label'] != '' ? esc_html($settings['filter_all_label']) : '';
 
         if ($settings['enable_filter'] == 'yes') {
             ?>
             <div class="eead-filter-gallery-control">
                 <ul>
                     <?php
-                    if (trim($all_text)) {
+                    if (!empty(trim($all_text))) {
                         ?>
                         <li data-load-more-status="0" class="eead-fg-filter-control eead-fg-all-control eead-fg-active" data-filter="*"><?php echo esc_attr($all_text); ?></li>
                         <?php
@@ -2576,8 +2542,8 @@ class FilterableGallery extends Widget_Base {
 
                     foreach ($settings['filters_tabs'] as $key => $control) {
                         ?>
-                        <li data-load-more-status="0" class="eead-fg-filter-control <?php echo (($key == 0 && empty($settings['filter_all_label'])) ? 'eead-fg-active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr(sanitize_title($control['filter_control'])); ?>">
-                            <?php echo esc_html($control['filter_control']); ?>
+                        <li data-load-more-status="0" class="eead-fg-filter-control <?php echo (($key == 0 && empty($settings['filter_all_label'])) ? 'eead-fg-active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr(sanitize_title($control['filter_title'])); ?>">
+                            <?php echo esc_html($control['filter_title']); ?>
                         </li>
                         <?php
                     }
@@ -2592,57 +2558,52 @@ class FilterableGallery extends Widget_Base {
         $settings = $this->get_settings_for_display();
         if ($settings['enable_filter'] == 'yes') {
             ?>
-            <div class="eead-fg-filters">
-                <div class="eead-fg-filter-wrap">
-                    <button id="eead-fg-filter-trigger" class="eead-fg-filter-trigger">
-                        <span>
-                            <?php
-                            if ($settings['filter_all_label']) {
-                                echo wp_kses_post($settings['filter_all_label']);
+            <div class="eead-fg-search-filter">
+                <div class="eead-fg-filter-box">
+                    <div class="eead-fg-select-filter">
+                        <button id="eead-fg-filter-trigger" class="eead-fg-filter-trigger">
+                            <span>
+                                <?php
+                                if ($settings['filter_all_label']) {
+                                    echo wp_kses_post($settings['filter_all_label']);
 
-                            } elseif (isset($settings['filters_tabs']) && !empty($settings['filters_tabs'])) {
-                                echo $settings['filters_tabs'][0]['filter_control'];
-                            }
-                            ?>
-                        </span>
+                                } elseif (isset($settings['filters_tabs']) && !empty($settings['filters_tabs'])) {
+                                    echo $settings['filters_tabs'][0]['filter_title'];
+                                }
+                                ?>
+                            </span>
 
-                        <i class="fas fa-angle-down"></i>
-                    </button>
+                            <i class="eead-fg-dropdown-icon"></i>
+                        </button>
 
-                    <ul class="eead-fg-filter-dropdown">
-                        <?php if ($settings['filter_all_label']) { ?>
-                            <li class="eead-fg-filter-control eead-fg-active" data-filter="*"><?php echo wp_kses_post($settings['filter_all_label']); ?></li>
-                        <?php } ?>
+                        <ul class="eead-fg-filter-dropdown">
+                            <?php if ($settings['filter_all_label']) { ?>
+                                <li class="eead-fg-filter-control eead-fg-active" data-filter="*"><?php echo wp_kses_post($settings['filter_all_label']); ?></li>
+                            <?php } ?>
 
-                        <?php foreach ($settings['filters_tabs'] as $key => $control) {
-                            ?>
-                            <li class="eead-fg-filter-control <?php echo (($key == 0 && empty($settings['filter_all_label'])) ? 'eead-fg-active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr(sanitize_title($control['filter_control'])); ?>">
-                                <?php echo esc_html($control['filter_control']); ?>
-                            </li>
-                        <?php } ?>
-                    </ul>
+                            <?php foreach ($settings['filters_tabs'] as $key => $control) {
+                                ?>
+                                <li class="eead-fg-filter-control <?php echo (($key == 0 && empty($settings['filter_all_label'])) ? 'eead-fg-active' : ''); ?>" data-filter=".eead-cf-<?php echo esc_attr(sanitize_title($control['filter_title'])); ?>">
+                                    <?php echo esc_html($control['filter_title']); ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
+                    <form class="eead-fg-search-box" id="eead-fg-search-box" autocomplete="off">
+                        <input type="text" id="eead-fg-search-input" placeholder="<?php echo $settings['fg_sf_placeholder']; ?>" />
+                    </form>
                 </div>
-
-                <form class="eead-fg-search-box" id="eead-fg-search-box" autocomplete="off">
-                    <input type="text" id="eead-fg-search-input" placeholder="<?php echo $settings['fg_sf_placeholder']; ?>" />
-                </form>
-
             </div>
             <?php
         }
-    }
-
-    protected function render_gallery_item() {
-        $settings = $this->get_settings_for_display();
     }
 
     protected function render_loadmore_button() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('load-more-button', 'class', [
-            'eead-gallery-load-more',
-            'elementor-button',
-            'elementor-size-' . $settings['button_size'],
+            'eead-gallery-load-more'
         ]);
 
         if ($settings['pagination'] == 'yes') {
@@ -2662,7 +2623,7 @@ class FilterableGallery extends Widget_Base {
         }
     }
 
-    protected function render_gallery_class($classes) {
+    protected function render_filter_class($classes) {
         $classes = explode(',', $classes);
         $classes = array_map(function ($a) {
             return 'eead-cf-' . sanitize_title($a);
@@ -2672,7 +2633,7 @@ class FilterableGallery extends Widget_Base {
     }
 
 
-    protected function gallery_items() {
+    protected function get_gallery_items() {
         $settings = $this->get_settings_for_display();
         $gallery_items = $settings['gallery_items'];
         $gallery_store = [];
@@ -2699,7 +2660,7 @@ class FilterableGallery extends Widget_Base {
             }
 
             $gallery_store[$counter]['show_lightbox'] = $gallery['gallery_show_lighbox'];
-            $gallery_store[$counter]['controls'] = isset($gallery['gallery_filter_name']) && $gallery['gallery_filter_name'] ? implode(' ', $this->render_gallery_class($gallery['gallery_filter_name'])) : '';
+            $gallery_store[$counter]['controls'] = isset($gallery['gallery_filter_name']) && $gallery['gallery_filter_name'] ? implode(' ', $this->render_filter_class($gallery['gallery_filter_name'])) : '';
             $gallery_store[$counter]['price_switch'] = $gallery['gallery_show_price'];
             $gallery_store[$counter]['price'] = $gallery['gallery_item_price'];
             $gallery_store[$counter]['ratings_switch'] = $gallery['gallery_show_rating'];
@@ -2728,14 +2689,10 @@ class FilterableGallery extends Widget_Base {
             }
 
             if (isset($item['video_gallery_switch']) && ($item['video_gallery_switch'] === 'true')) {
-                $icon_url = isset($item['play_icon']['url']) ? $item['play_icon']['url'] : '';
                 $video_url = isset($item['video_link']) ? $item['video_link'] : '#';
                 ?>
-                <a href="<?php echo esc_url($video_url); ?>" class="video-popup eead-magnific-link eead-magnific-video-link mfp-iframe">
-                    <div class="video-popup-bg"></div>
-                    <?php if (!empty($icon_url)) { ?>
-                        <img src="<?php echo esc_url($icon_url); ?>">
-                    <?php } ?>
+                <a href="<?php echo esc_url($video_url); ?>" class="eead-fg-video-popup eead-magnific-link eead-magnific-video-link">
+                    <i class=""></i>
                 </a>
                 <?php
             }
@@ -2791,7 +2748,7 @@ class FilterableGallery extends Widget_Base {
 
     protected function render_gallery_items($init_show = 0) {
         $settings = $this->get_settings_for_display();
-        $gallery = $this->gallery_items();
+        $gallery = $this->get_gallery_items();
         $gallery_markup = [];
 
         foreach ($gallery as $item) {
@@ -2880,8 +2837,7 @@ class FilterableGallery extends Widget_Base {
             'gallery',
             [
                 'class' => 'eead-filter-gallery',
-                'data-filter-type' => $settings['filter_type'],
-                'data-mfp_caption' => $settings['gallery_popup_caption']
+                'data-filter-type' => $settings['filter_type']
             ]
         );
 
@@ -2892,13 +2848,7 @@ class FilterableGallery extends Widget_Base {
             'gallery_enabled' => $settings['enable_gallery'],
         ];
 
-        if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-            //$gallery_settings['post_id'] = \Elementor\Plugin::$instance->editor->get_post_id();
-        } else {
-            //$gallery_settings['post_id'] = get_the_ID();
-        }
 
-        //$gallery_settings['widget_id'] = $this->get_id();
         $no_more_items_text = $settings['nomore_items_text'];
         $grid_class = $settings['gallery_grid_style'] == 'grid' ? 'eead-filter-gallery-grid' : 'masonry';
         $gallery_style = 'eead-fg-style-' . $settings['gallery_style'];
@@ -2975,7 +2925,6 @@ class FilterableGallery extends Widget_Base {
 
                     // init isotope
                     var layoutMode = $('.eead-filter-gallery').data('filter-type');
-                    var mfpCaption = $('.eead-filter-gallery').data('mfp_caption');
 
                     var $isotope_gallery = $gallery.isotope({
                         itemSelector: ".eead-fg-item-list",

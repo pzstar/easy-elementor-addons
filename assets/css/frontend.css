@@ -1506,10 +1506,12 @@ Feature List
 /*--------------------------------------------------------------
 Filterable Gallery
 --------------------------------------------------------------*/
+/* Filter List */
 .eead-filter-gallery-control {
     width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .eead-filter-gallery-control ul {
@@ -1517,15 +1519,96 @@ Filterable Gallery
     padding: 0;
     list-style: none;
     text-align: center;
+    display: flex;
+    gap: 20px;
+    font-size: 1.1em;
 }
 
 .eead-filter-gallery-control ul li {
     list-style: none;
-    font-size: 24px;
-    display: inline-block;
+    line-height: 1;
+    padding: 5px 8px;
+    cursor: pointer;
 }
 
-.eead-filter-gallery-container {}
+/* Filter with Search */
+.eead-filter-gallery .eead-fg-search-filter {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.eead-filter-gallery .eead-fg-filter-box {
+    display: flex;
+    background-color: #f1f8ff;
+    border-radius: 3px;
+    border: 1px solid #dcedfe;
+}
+
+.eead-filter-gallery .eead-fg-select-filter {
+    position: relative;
+}
+
+.eead-filter-gallery button.eead-fg-filter-trigger {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    outline: 0;
+    min-width: 200px;
+    color: inherit;
+    border-right: 1px solid #dcedfe;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.eead-filter-gallery button.eead-fg-filter-trigger .eead-fg-dropdown-icon {
+    height: 8px;
+    width: 8px;
+    border: 1px solid #444;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+    margin-top: -4px;
+}
+
+.eead-filter-gallery ul.eead-fg-filter-dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #FFF;
+    color: #000;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    min-width: 200px;
+    font-size: 0.9em;
+    margin-top: 1px;
+    border-radius: 0 0 3px 3px;
+}
+
+.eead-filter-gallery ul.eead-fg-filter-dropdown.open-filters {
+    display: block;
+}
+
+.eead-filter-gallery ul.eead-fg-filter-dropdown li {
+    list-style: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.eead-fg-search-box input {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    outline: 0;
+    min-width: 400px;
+    color: inherit;
+}
+
 
 .eead-fg-grid-3 .eead-filter-gallery-container .eead-fg-item-list {
     width: 33.33%;
