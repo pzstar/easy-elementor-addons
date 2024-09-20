@@ -376,9 +376,9 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'hoverer',
+                'default' => 'overlay',
                 'options' => [
-                    'hoverer' => esc_html__('Overlay', 'easy-elementor-addons'),
+                    'overlay' => esc_html__('Overlay', 'easy-elementor-addons'),
                     'card' => esc_html__('Card', 'easy-elementor-addons'),
                 ],
             ]
@@ -397,7 +397,7 @@ class FilterableGallery extends Widget_Base {
                     'eead-zoom-in' => esc_html__('Zoom In ', 'easy-elementor-addons'),
                 ],
                 'condition' => [
-                    'gallery_style' => 'hoverer',
+                    'gallery_style' => 'overlay',
                 ],
             ]
         );
@@ -668,6 +668,8 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'condition' => [
                     'pagination' => 'yes',
                 ],
@@ -798,7 +800,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -810,7 +812,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -820,7 +822,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_control_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.control',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control',
             ]
         );
 
@@ -837,7 +839,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -849,7 +851,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control' => 'background: {{VALUE}};',
                 ],
             ]
         );
@@ -859,7 +861,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_control_normal_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul > li.control',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul > li.eead-fg-filter-control',
             ]
         );
 
@@ -877,7 +879,7 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul > li.control' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul > li.eead-fg-filter-control' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -886,7 +888,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'fg_control_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.control',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control',
                 'separator' => 'before',
             ]
         );
@@ -916,7 +918,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control.eead-fg-active' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control.eead-fg-active' => 'background: {{VALUE}};',
                 ],
             ]
         );
@@ -926,7 +928,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_control_active_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul > li.control.eead-fg-active',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul > li.eead-fg-filter-control.eead-fg-active',
             ]
         );
 
@@ -944,7 +946,7 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery-control ul li.control.eead-fg-active' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control.eead-fg-active' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -953,7 +955,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'fg_control_active_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.control.eead-fg-active',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery-control ul li.eead-fg-filter-control.eead-fg-active',
                 'separator' => 'before',
             ]
         );
@@ -1068,13 +1070,13 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Item Hover', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'gallery_style' => ['hoverer']
+                    'gallery_style' => ['overlay']
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'fg_item_hoverer_content_alignment',
+            'fg_item_overlay_content_alignment',
             [
                 'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -1094,7 +1096,7 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'default' => 'center',
-                'prefix_class' => 'eead-fg-hoverer-content-align-',
+                'prefix_class' => 'eead-fg-overlay-content-align-',
             ]
         );
 
@@ -1105,7 +1107,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.7)',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .gallery-item-hoverer-bg' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-caption-overlay' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -1117,7 +1119,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1138,7 +1140,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer .fg-item-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1149,7 +1151,7 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer .fg-item-title:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1159,7 +1161,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_item_hover_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer .fg-item-title',
+                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title',
             ]
         );
 
@@ -1179,7 +1181,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer .fg-item-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-content' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1189,7 +1191,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_item_hover_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer .fg-item-content',
+                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-content',
             ]
         );
 
@@ -1206,7 +1208,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_item_cap_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-hoverer',
+                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay',
             ]
         );
 
@@ -1243,7 +1245,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .fg-layout-3-item-thumb' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .fg-layout-3-item .eead-fg-item-caption.card-hover-bg.caption-style-hoverer' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .fg-layout-3-item .eead-fg-item-caption.card-hover-bg.caption-style-overlay' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
             ]
         );
@@ -2187,7 +2189,7 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.control' => 'color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control' => 'color: {{VALUE}}'
                 ]
             ]
         );
@@ -2198,7 +2200,7 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.control:hover' => 'color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control:hover' => 'color: {{VALUE}}'
                 ]
             ]
         );
@@ -2220,7 +2222,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'fg_sf_dropdown_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.control'
+                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control'
             ]
         );
 
@@ -2230,7 +2232,7 @@ class FilterableGallery extends Widget_Base {
                 'name' => 'fg_sf_dropdown_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.control'
+                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control'
             ]
         );
 
@@ -2241,7 +2243,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -2591,7 +2593,7 @@ class FilterableGallery extends Widget_Base {
         if ($settings['enable_filter'] == 'yes') {
             ?>
             <div class="eead-fg-filters">
-                <div class="fg-filter-wrap">
+                <div class="eead-fg-filter-wrap">
                     <button id="eead-fg-filter-trigger" class="eead-fg-filter-trigger">
                         <span>
                             <?php
@@ -2717,9 +2719,9 @@ class FilterableGallery extends Widget_Base {
             <img src="<?php echo $item['image']; ?>" alt="<?php echo esc_attr(get_post_meta($item['image_id'], '_wp_attachment_image_alt', true)); ?>" class="eead-fg-item-thumbnail-image">
 
             <?php
-            if ($settings['gallery_link_to'] == 'buttons') {
+            if ('card' == $settings['gallery_style'] && $settings['gallery_link_to'] == 'buttons') {
                 ?>
-                <div class="eead-fg-item-caption card-hover-bg caption-style-hoverer <?php echo $settings['gallery_hover_style']; ?>">
+                <div class="eead-fg-item-caption <?php echo $settings['gallery_hover_style']; ?>">
                     <?php $this->render_fg_buttons($item); ?>
                 </div>
                 <?php
@@ -2750,7 +2752,7 @@ class FilterableGallery extends Widget_Base {
             if ($item['show_lightbox']) {
                 ?>
                 <a href="<?php echo esc_url($item['image']); ?>" class="eead-magnific-link" data-elementor-open-lightbox="no">
-                    <span class="fg-item-icon-inner">
+                    <span class="eead-fg-item-icon-inner">
                         <?php
                         Icons_Manager::render_icon($settings['gallery_zoom_icon'], ['aria-hidden' => 'true']);
                         ?>
@@ -2773,7 +2775,7 @@ class FilterableGallery extends Widget_Base {
                 if (!empty($item['link']['url'])) {
                     ?>
                     <a <?php echo $link_attr; ?>>
-                        <span class="fg-item-icon-inner">
+                        <span class="eead-fg-item-icon-inner">
                             <?php
                             Icons_Manager::render_icon($settings['gallery_link_icon'], ['aria-hidden' => 'true']);
                             ?>
@@ -2791,7 +2793,6 @@ class FilterableGallery extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $gallery = $this->gallery_items();
         $gallery_markup = [];
-        $caption_style = $settings['gallery_style'] == 'card' ? 'caption-style-card' : 'caption-style-hoverer';
 
         foreach ($gallery as $item) {
             $html = '';
@@ -2805,19 +2806,18 @@ class FilterableGallery extends Widget_Base {
                     }
 
                     $this->render_gallery_thumb($item);
-
                     ?>
-                    <div class="eead-fg-item-caption <?php echo $caption_style; ?> <?php echo $settings['gallery_hover_style']; ?>">
+                    <div class="eead-fg-item-caption <?php echo $settings['gallery_hover_style']; ?>">
 
-                        <?php if ('hoverer' == $settings['gallery_style']) { ?>
-                            <div class="gallery-item-hoverer-bg"></div>
+                        <?php if ('overlay' == $settings['gallery_style']) { ?>
+                            <div class="eead-fg-item-caption-overlay"></div>
                         <?php } ?>
 
-                        <div class="gallery-item-caption-over">
+                        <div class="eead-fg-item-caption-content">
                             <?php
                             if (!empty($item['title'])) {
                                 ?>
-                                <<?php echo esc_attr($settings['title_tag']); ?> class="fg-item-title">
+                                <<?php echo esc_attr($settings['title_tag']); ?> class="eead-fg-item-title">
                                     <?php echo esc_html($item['title']); ?>
                                 </<?php echo esc_attr($settings['title_tag']); ?>>
                                 <?php
@@ -2825,7 +2825,7 @@ class FilterableGallery extends Widget_Base {
 
                             if (!empty($item['content'])) {
                                 ?>
-                                <div class="fg-item-content"><?php echo wpautop($item['content']); ?></div>
+                                <div class="eead-fg-item-content"><?php echo wpautop($item['content']); ?></div>
                                 <?php
                             }
 
@@ -2833,18 +2833,18 @@ class FilterableGallery extends Widget_Base {
                                 echo $this->render_fg_buttons($item);
                             }
                             ?>
-                            <div class="fg-caption-head">
+                            <div class="eead-fg-caption-head">
                                 <?php
                                 if (isset($item['price_switch']) && $item['price_switch'] == 'true') {
                                     ?>
-                                    <div class="fg-item-price">
+                                    <div class="eead-fg-item-price">
                                         <?php echo $item['price']; ?>
                                     </div>
                                     <?php
                                 }
                                 if (isset($item['ratings_switch']) && $item['ratings_switch'] == 'true') {
                                     ?>
-                                    <div class="fg-item-ratings">
+                                    <div class="eead-fg-item-ratings">
                                         <i class="fas fa-star"></i>
                                         <?php echo $item['ratings']; ?>
                                     </div>
@@ -2854,7 +2854,6 @@ class FilterableGallery extends Widget_Base {
                             </div>
 
                         </div>
-
                     </div>
                     <?php
                     if ($settings['gallery_link_to'] == 'media') {
@@ -2866,7 +2865,7 @@ class FilterableGallery extends Widget_Base {
             <?php
             $html = ob_get_clean();
 
-            $gallery_markup[] = $this->minifyHTML(html: $html);
+            $gallery_markup[] = $this->minifyHTML($html);
         }
 
         return $gallery_markup;
@@ -2902,9 +2901,10 @@ class FilterableGallery extends Widget_Base {
         //$gallery_settings['widget_id'] = $this->get_id();
         $no_more_items_text = $settings['nomore_items_text'];
         $grid_class = $settings['gallery_grid_style'] == 'grid' ? 'eead-filter-gallery-grid' : 'masonry';
+        $gallery_style = 'eead-fg-style-' . $settings['gallery_style'];
 
         $this->add_render_attribute('gallery-items-wrap', [
-            'class' => ['eead-filter-gallery-container', $grid_class],
+            'class' => ['eead-filter-gallery-container', $grid_class, $gallery_style],
             'data-images-per-page' => $settings['images_per_page'],
             'data-total-gallery-items' => count($settings['gallery_items']),
             'data-nomore-item-text' => $no_more_items_text,
@@ -2937,11 +2937,11 @@ class FilterableGallery extends Widget_Base {
             </div>
 
             <?php
+            $this->render_loadmore_button();
+
             if (\Elementor\Plugin::instance()->editor->is_edit_mode()) {
                 //$this->render_editor_script();
             }
-
-            $this->render_loadmore_button();
             ?>
         </div>
         <?php
@@ -2974,11 +2974,11 @@ class FilterableGallery extends Widget_Base {
                     }
 
                     // init isotope
-                    var layoutMode = $('.eead-filter-gallery').data('layout-mode');
+                    var layoutMode = $('.eead-filter-gallery').data('filter-type');
                     var mfpCaption = $('.eead-filter-gallery').data('mfp_caption');
 
                     var $isotope_gallery = $gallery.isotope({
-                        itemSelector: '.eead-filterable-gallery-item-wrap',
+                        itemSelector: ".eead-fg-item-list",
                         layoutMode: $layout_mode,
                         percentPosition: true,
                         filter: function () {
@@ -2986,7 +2986,7 @@ class FilterableGallery extends Widget_Base {
                             var $result = searchRegex ? $this.text().match(searchRegex) : true;
 
                             if (buttonFilter == undefined) {
-                                if (layoutMode != 'layout_3') {
+                                if (layoutMode != 'normal') {
                                     buttonFilter = $scope.find('.eead-filter-gallery-control ul li').first().data('filter');
                                 } else {
                                     buttonFilter = $scope.find('.eead-fg-filter-dropdown li').first().data('filter');
@@ -3008,14 +3008,14 @@ class FilterableGallery extends Widget_Base {
                         image: {
                             titleSrc: function (item) {
                                 if (mfpCaption == "yes") {
-                                    return item.el.parents('.gallery-item-caption-over').find('.fg-item-title').html() || item.el.parents('.eead-fg-item-caption').find('.fg-item-title').html() || item.el.parents('.eead-filterable-gallery-item-wrap').find('.fg-item-title').html();
+                                    return item.el.parents('.eead-fg-item-caption-content').find('.fg-item-title').html() || item.el.parents('.eead-fg-item-caption').find('.fg-item-title').html() || item.el.parents('.eead-filter-gallery').find('.fg-item-title').html();
                                 }
                             }
                         }
                     });
 
                     // filter
-                    $scope.on("click", ".control", function () {
+                    $scope.on("click", ".eead-fg-filter-control", function () {
                         var $this = $(this);
                         buttonFilter = $(this).attr('data-filter');
                         //delegateAbc = $(this).attr('data-filter') + ' a.eead-magnific-link';
@@ -3045,16 +3045,15 @@ class FilterableGallery extends Widget_Base {
                     });
 
                     // resize
-                    $('.eead-filterable-gallery-item-wrap', $gallery).resize(function () {
+                    $('.eead-filter-gallery', $gallery).resize(function () {
                         $isotope_gallery.isotope('layout');
                     });
 
                     // Load more button
                     $scope.on("click", ".eead-gallery-load-more", function (e) {
                         e.preventDefault();
-
                         var $this = $(this),
-                            $init_show = $(".eead-filter-gallery-container", $scope).children(".eead-filterable-gallery-item-wrap").length,
+                            $init_show = $(".eead-filter-gallery-container", $scope).children(".eead-filter-gallery").length,
                             $total_items = $gallery.data("total-gallery-items"),
                             $images_per_page = $gallery.data("images-per-page"),
                             $nomore_text = $gallery.data("nomore-item-text"),

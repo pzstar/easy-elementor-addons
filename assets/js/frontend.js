@@ -374,7 +374,7 @@ odometerOptions = {auto: false};
                 filterControls.removeClass("open-filters");
             });
 
-            if (elementorFrontend.isEditMode() == false) {
+            //if (elementorFrontend.isEditMode() == false) {
                 var $gallery = $(".eead-filter-gallery-container", $scope),
                     $settings = $gallery.data("settings"),
                     fg_items = $gallery.data("gallery-items"),
@@ -399,7 +399,7 @@ odometerOptions = {auto: false};
                         var $result = searchRegex ? $this.text().match(searchRegex) : true;
                         if (buttonFilter === undefined) {
                             if (layoutMode !== "normal") {
-                                buttonFilter = $scope.find(".eead-filter-gallery-control ul li").first().data("filter");
+                                buttonFilter = $scope.find(".eead-fg-filter-control ul li").first().data("filter");
                             } else {
                                 buttonFilter = $scope.find(".eead-fg-filter-dropdown li").first().data("filter");
                             }
@@ -419,7 +419,7 @@ odometerOptions = {auto: false};
                     image: {
                         titleSrc: function titleSrc(item) {
                             if (mfpCaption === "yes") {
-                                return item.el.parents('.gallery-item-caption-over').find('.fg-item-title').html() || item.el.parents('.gallery-item-caption-wrap').find('.fg-item-title').html() || item.el.parents('.eead-filter-gallery').find('.fg-item-title').html();
+                                return item.el.parents('.eead-fg-item-caption-content').find('.fg-item-title').html() || item.el.parents('.gallery-item-caption-wrap').find('.fg-item-title').html() || item.el.parents('.eead-filter-gallery').find('.fg-item-title').html();
                             }
                         }
                     }
@@ -429,10 +429,7 @@ odometerOptions = {auto: false};
                 $scope.on("click", ".eead-fg-filter-control", function () {
                     var $this = $(this);
                     buttonFilter = $(this).attr("data-filter");
-                    var $tspan = $scope.find("#eead-fg-filter-trigger > span");
-                    if ($tspan.length) {
-                        $tspan.text($this.text());
-                    }
+    
                     var LoadMoreShow = $(this).data("load-more-status"),
                         loadMore = $(".eead-gallery-load-more", $scope);
 
@@ -442,8 +439,8 @@ odometerOptions = {auto: false};
                     } else {
                         loadMore.show();
                     }
-                    $this.siblings().removeClass("active");
-                    $this.addClass("active");
+                    $this.siblings().removeClass("eead-fg-active");
+                    $this.addClass("eead-fg-active");
                     $isotope_gallery.isotope();
                 });
 
@@ -480,48 +477,40 @@ odometerOptions = {auto: false};
                         $total_items = $gallery.data("total-gallery-items"),
                         $images_per_page = $gallery.data("images-per-page"),
                         $nomore_text = $gallery.data("nomore-item-text"),
-                        filter_enable = $(".eead-filter-gallery-control", $scope).length,
+                        enable_filter = $(".eead-filter-gallery-control", $scope).length,
                         $items = [];
-                    var filter_name = $(".eead-filter-gallery-control li.eead-fg-active'", $scope).data('filter');
+                    var filter_name = $(".eead-filter-gallery-control li.eead-fg-active", $scope).data('filter');
 
                     if (filterControls.length > 0) {
-                        filter_name = $(".eead-fg-filter-dropdown li.eead-fg-active'", $scope).data('filter');
+                        filter_name = $(".eead-fg-filter-dropdown li.eead-fg-active", $scope).data('filter');
                     }
 
-                    var item_found = 0;
-                    var index_list = [];
-                    var _iterator = _createForOfIteratorHelper(fg_items.entries()),
-                        _step;
+                    console.log(filter_name);
 
-                    try {
-                        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                            var _step$value = _slicedToArray(_step.value, 2),
-                                index = _step$value[0],
-                                item = _step$value[1];
-                            if (filter_name !== '' && filter_name !== '*' && filter_enable) {
-                                var element = $($(item)[0]);
-                                if (element.is(filter_name)) {
-                                    ++item_found;
-                                    $items.push($(item)[0]);
-                                    index_list.push(index);
-                                }
-                                if (fg_items.length - 1 === index) {
-                                    $(".eead-filter-gallery-control li.eead-fg-active'", $scope).data('load-more-status', 1);
-                                    $this.hide();
-                                }
-                            } else {
+                    let item_found = 0;
+                    let index_list = []
+                    for (const [index, item] of fg_items.entries()) {
+                        if (filter_name !== '' && filter_name !== '*' && enable_filter) {
+                            let element = $($(item)[0]);
+                            if (element.is(filter_name)) {
                                 ++item_found;
                                 $items.push($(item)[0]);
                                 index_list.push(index);
                             }
-                            if (item_found === $images_per_page) {
-                                break;
+
+                            if ((fg_items.length - 1) === index) {
+                                $(".eead-filter-gallery-control li.eead-fg-active", $scope).data('load-more-status', 1)
+                                $this.hide()
                             }
+                        } else {
+                            ++item_found;
+                            $items.push($(item)[0]);
+                            index_list.push(index);
                         }
-                    } catch (err) {
-                        _iterator.e(err);
-                    } finally {
-                        _iterator.f();
+
+                        if (item_found === $images_per_page) {
+                            break;
+                        }
                     }
 
                     if (index_list.length > 0) {
@@ -533,13 +522,13 @@ odometerOptions = {auto: false};
                     if (fg_items.length < 1) {
                         $this.html('<div class="no-more-items-text">' + $nomore_text + "</div>");
                         setTimeout(function () {
-                            $this.fadeOut("slow");
+                            $this.fadeOut();
                         }, 600);
                     }
 
                     // append items
                     $gallery.append($items);
-                    $isotope_gallery.isotope("appended", $items);
+                    $isotope_gallery.isotope("insert", $items);
                     $isotope_gallery.imagesLoaded().progress(function () {
                         $isotope_gallery.isotope("layout");
                     });
@@ -551,125 +540,7 @@ odometerOptions = {auto: false};
                         filterControls.removeClass("open-filters");
                     }
                 });
-            }
-
-            function _slicedToArray(arr, i) {
-                return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-            }
-
-            function _nonIterableRest() {
-                throw new TypeError("Invalid attempt to destructure non-iterable instance.In order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-            }
-            function _iterableToArrayLimit(arr, i) {
-                if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr)))
-                    return;
-                var _arr = [];
-                var _n = true;
-                var _d = false;
-                var _e = undefined;
-                try {
-                    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-                        _arr.push(_s.value);
-                        if (i && _arr.length === i)
-                            break;
-                    }
-                } catch (err) {
-                    _d = true;
-                    _e = err;
-                } finally {
-                    try {
-                        if (!_n && _i["return"] != null)
-                            _i["return"]();
-                    } finally {
-                        if (_d)
-                            throw _e;
-                    }
-                }
-                return _arr;
-            }
-
-            function _arrayWithHoles(arr) {
-                if (Array.isArray(arr))
-                    return arr;
-            }
-            function _createForOfIteratorHelper(o, allowArrayLike) {
-                var it;
-                if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-                    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-                        if (it)
-                            o = it;
-                        var i = 0;
-                        var F = function F() { };
-                        return {
-                            s: F,
-                            n: function n() {
-                                if (i >= o.length)
-                                    return {
-                                        done: true
-                                    };
-                                return {
-                                    done: false,
-                                    value: o[i++]
-                                };
-                            },
-                            e: function e(_e2) {
-                                throw _e2;
-                            }, f: F
-                        };
-                    }
-                    throw new TypeError("Invalid attempt to iterate non-iterable instance.In order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-                }
-                var normalCompletion = true,
-                    didErr = false,
-                    err;
-                return {
-                    s: function s() {
-                        it = o[Symbol.iterator]();
-                    },
-                    n: function n() {
-                        var step = it.next();
-                        normalCompletion = step.done;
-                        return step;
-                    },
-                    e: function e(_e3) {
-                        didErr = true;
-                        err = _e3;
-                    },
-                    f: function f() {
-                        try {
-                            if (!normalCompletion && it["return"] != null)
-                                it["return"]();
-                        } finally {
-                            if (didErr)
-                                throw err;
-                        }
-                    }
-                };
-            }
-
-            function _unsupportedIterableToArray(o, minLen) {
-                if (!o)
-                    return;
-                if (typeof o === "string")
-                    return _arrayLikeToArray(o, minLen);
-                var n = Object.prototype.toString.call(o).slice(8, -1);
-                if (n === "Object" && o.constructor)
-                    n = o.constructor.name;
-                if (n === "Map" || n === "Set")
-                    return Array.from(o);
-                if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-                    return _arrayLikeToArray(o, minLen);
-            }
-
-            function _arrayLikeToArray(arr, len) {
-                if (len == null || len > arr.length)
-                    len = arr.length;
-
-                for (var i = 0, arr2 = new Array(len); i < len; i++) {
-                    arr2[i] = arr[i];
-                }
-                return arr2;
-            }
+           // }
         },
 
 
@@ -703,7 +574,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        
+
 
         popupVideo: function ($scope) {
             $(document).ready(function () {
