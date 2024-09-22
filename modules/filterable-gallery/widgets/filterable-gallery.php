@@ -255,7 +255,7 @@ class FilterableGallery extends Widget_Base {
         $repeater->add_control(
             'gallery_show_video',
             [
-                'label' => esc_html__('Enable Video', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable Video PopUp', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'false',
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
@@ -354,6 +354,40 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'gallery_columns',
+            [
+                'label' => esc_html__('Columns', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '3',
+                'tablet_default' => '2',
+                'mobile_default' => '1',
+                'options' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                ],
+                'prefix_class' => 'eead-fg-grid%s-',
+                'frontend_available' => true,
+            ]
+        );
+
+        $this->add_control(
+            'gallery_grid_style',
+            [
+                'label' => esc_html__('Grid Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'grid',
+                'options' => [
+                    'grid' => esc_html__('Grid', 'easy-elementor-addons'),
+                    'masonry' => esc_html__('Masonry', 'easy-elementor-addons'),
+                ],
+            ]
+        );
+
         $this->add_control(
             'gallery_style',
             [
@@ -402,7 +436,7 @@ class FilterableGallery extends Widget_Base {
         $this->add_control(
             'enable_gallery',
             [
-                'label' => esc_html__('Enable Prev/Next Gallery', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable Prev/Next Lightbox Gallery', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
                 'frontend_available' => true,
@@ -467,19 +501,6 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'items_to_show',
-            [
-                'label' => esc_html__('Items To Display', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'label_block' => false,
-                'min' => 1,
-                'max' => 100,
-                'default' => 6,
-                'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
             'filter_duration',
             [
                 'label' => esc_html__('Animation Duration (ms)', 'easy-elementor-addons'),
@@ -508,40 +529,6 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'gallery_columns',
-            [
-                'label' => esc_html__('Columns', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => '3',
-                'tablet_default' => '2',
-                'mobile_default' => '1',
-                'options' => [
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                ],
-                'prefix_class' => 'eead-fg-grid%s-',
-                'frontend_available' => true,
-            ]
-        );
-
-        $this->add_control(
-            'gallery_grid_style',
-            [
-                'label' => esc_html__('Grid Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'grid',
-                'options' => [
-                    'grid' => esc_html__('Grid', 'easy-elementor-addons'),
-                    'masonry' => esc_html__('Masonry', 'easy-elementor-addons'),
-                ],
-            ]
-        );
-
         $this->end_controls_section();
 
         /**
@@ -561,6 +548,21 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'false',
                 'frontend_available' => true,
+            ]
+        );
+
+        $this->add_control(
+            'items_to_show',
+            [
+                'label' => esc_html__('Items To Display Initially', 'easy-elementor-addons'),
+                'type' => Controls_Manager::NUMBER,
+                'label_block' => false,
+                'min' => 1,
+                'max' => 100,
+                'default' => 6,
+                'condition' => [
+                    'pagination' => 'yes',
+                ],
             ]
         );
 
@@ -599,7 +601,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filterable-gallery-loadmore' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-fg-loadmore' => 'text-align: {{VALUE}};',
                 ],
                 'condition' => [
                     'pagination' => 'yes',
@@ -2602,19 +2604,15 @@ class FilterableGallery extends Widget_Base {
     protected function render_loadmore_button() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute('load-more-button', 'class', [
-            'eead-gallery-load-more'
-        ]);
-
         if ($settings['pagination'] == 'yes') {
             ?>
-            <div class="eead-filterable-gallery-loadmore">
-                <a href="#" <?php $this->print_render_attribute_string('load-more-button'); ?>>
-                    <span class="eead-btn-loader"></span>
+            <div class="eead-fg-loadmore">
+                <a href="#" class="eead-fg-loadmore-btn">
+                    <span class="eead-fg-btn-loader"></span>
                     <?php
                     Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']);
                     ?>
-                    <span class="eead-filterable-gallery-load-more-text">
+                    <span>
                         <?php echo wp_kses_post($settings['load_more_text']); ?>
                     </span>
                 </a>
@@ -2649,7 +2647,7 @@ class FilterableGallery extends Widget_Base {
             $gallery_store[$counter]['image_id'] = $gallery['gallery_image']['id'];
             $gallery_store[$counter]['maybe_link'] = $gallery['gallery_show_link'];
             $gallery_store[$counter]['link'] = $gallery['gallery_image_link'];
-            $gallery_store[$counter]['video_gallery_switch'] = $gallery['gallery_show_video'];
+            $gallery_store[$counter]['show_video'] = $gallery['gallery_show_video'];
 
             if (isset($gallery['gallery_item_video_link']) && !empty($gallery['gallery_item_video_link']) && (strpos($gallery['gallery_item_video_link'], 'youtu.be') != false)) {
                 preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $gallery['gallery_item_video_link'], $matches);
@@ -2682,18 +2680,12 @@ class FilterableGallery extends Widget_Base {
             <?php
             if ('card' == $settings['gallery_style'] && $settings['gallery_link_to'] == 'buttons') {
                 ?>
-                <div class="eead-fg-item-caption <?php echo $settings['gallery_hover_style']; ?>">
-                    <?php $this->render_fg_buttons($item); ?>
+                <div class="eead-fg-item-thumb-caption <?php echo $settings['gallery_hover_style']; ?>">
+                    <?php
+                    echo $this->render_fg_buttons($item);
+                    echo $this->render_fg_video_button($item);
+                    ?>
                 </div>
-                <?php
-            }
-
-            if (isset($item['video_gallery_switch']) && ($item['video_gallery_switch'] === 'true')) {
-                $video_url = isset($item['video_link']) ? $item['video_link'] : '#';
-                ?>
-                <a href="<?php echo esc_url($video_url); ?>" class="eead-fg-video-popup eead-magnific-link eead-magnific-video-link">
-                    <i class=""></i>
-                </a>
                 <?php
             }
             ?>
@@ -2703,47 +2695,56 @@ class FilterableGallery extends Widget_Base {
 
     protected function render_fg_buttons($item) {
         $settings = $this->get_settings_for_display();
-        ?>
-        <div class="eead-fg-item-buttons">
-            <?php
-            if ($item['show_lightbox']) {
-                ?>
-                <a href="<?php echo esc_url($item['image']); ?>" class="eead-magnific-link" data-elementor-open-lightbox="no">
-                    <span class="eead-fg-item-icon-inner">
+        if ($settings['gallery_link_to'] == 'buttons') {
+            ?>
+            <div class="eead-fg-item-buttons">
+                <?php
+                if ($item['show_lightbox']) {
+                    ?>
+                    <a href="<?php echo esc_url($item['image']); ?>" class="eead-magnific-link" data-elementor-open-lightbox="no">
                         <?php
                         Icons_Manager::render_icon($settings['gallery_zoom_icon'], ['aria-hidden' => 'true']);
                         ?>
-                    </span>
-                </a>
-                <?php
-            }
-
-            if ($item['maybe_link']) {
-                $link_attr = 'href="' . esc_url($item['link']['url']) . '"';
-
-                if ($item['link']['nofollow']) {
-                    $link_attr .= 'rel="nofollow"';
-                }
-
-                if ($item['link']['is_external']) {
-                    $link_attr .= 'target="_blank"';
-                }
-
-                if (!empty($item['link']['url'])) {
-                    ?>
-                    <a <?php echo $link_attr; ?>>
-                        <span class="eead-fg-item-icon-inner">
-                            <?php
-                            Icons_Manager::render_icon($settings['gallery_link_icon'], ['aria-hidden' => 'true']);
-                            ?>
-                        </span>
                     </a>
                     <?php
                 }
-            }
+
+                if ($item['maybe_link']) {
+                    $link_attr = 'href="' . esc_url($item['link']['url']) . '"';
+
+                    if ($item['link']['nofollow']) {
+                        $link_attr .= 'rel="nofollow"';
+                    }
+
+                    if ($item['link']['is_external']) {
+                        $link_attr .= 'target="_blank"';
+                    }
+
+                    if (!empty($item['link']['url'])) {
+                        ?>
+                        <a <?php echo $link_attr; ?>>
+                            <?php
+                            Icons_Manager::render_icon($settings['gallery_link_icon'], ['aria-hidden' => 'true']);
+                            ?>
+                        </a>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            <?php
+        }
+    }
+
+    protected function render_fg_video_button($item) {
+        if (isset($item['show_video']) && ($item['show_video'] === 'true')) {
+            $video_url = isset($item['video_link']) ? $item['video_link'] : '#';
             ?>
-        </div>
-        <?php
+            <a href="<?php echo esc_url($video_url); ?>" class="eead-fg-video-popup eead-magnific-link eead-fg-video-link">
+                <i class="far fa-play-circle"></i>
+            </a>
+            <?php
+        }
     }
 
     protected function render_gallery_items($init_show = 0) {
@@ -2779,17 +2780,8 @@ class FilterableGallery extends Widget_Base {
                                 </<?php echo esc_attr($settings['title_tag']); ?>>
                                 <?php
                             }
-
-                            if (!empty($item['content'])) {
-                                ?>
-                                <div class="eead-fg-item-content"><?php echo wpautop($item['content']); ?></div>
-                                <?php
-                            }
-
-                            if ($settings['gallery_link_to'] == 'buttons') {
-                                echo $this->render_fg_buttons($item);
-                            }
                             ?>
+
                             <div class="eead-fg-caption-head">
                                 <?php
                                 if (isset($item['price_switch']) && $item['price_switch'] == 'true') {
@@ -2810,6 +2802,18 @@ class FilterableGallery extends Widget_Base {
                                 ?>
                             </div>
 
+                            <?php
+                            if (!empty($item['content'])) {
+                                ?>
+                                <div class="eead-fg-item-content"><?php echo esc_html($item['content']); ?></div>
+                                <?php
+                            }
+
+                            if ('card' !== $settings['gallery_style']) {
+                                echo $this->render_fg_buttons($item);
+                                echo $this->render_fg_video_button($item);
+                            }
+                            ?>
                         </div>
                     </div>
                     <?php
@@ -2832,6 +2836,8 @@ class FilterableGallery extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $filter_duration = !empty($settings['filter_duration']) ? $settings['filter_duration'] : 500;
+        $total_items = count($settings['gallery_items']);
+        $items_to_show = isset($settings['items_to_show']) ? $settings['items_to_show'] : $total_items;
 
         $this->add_render_attribute(
             'gallery',
@@ -2856,9 +2862,9 @@ class FilterableGallery extends Widget_Base {
         $this->add_render_attribute('gallery-items-wrap', [
             'class' => ['eead-filter-gallery-container', $grid_class, $gallery_style],
             'data-images-per-page' => $settings['images_per_page'],
-            'data-total-gallery-items' => count($settings['gallery_items']),
+            'data-total-gallery-items' => $total_items,
             'data-nomore-item-text' => $no_more_items_text,
-            'data-init-show' => $settings['items_to_show'],
+            'data-init-show' => $items_to_show,
             'data-settings' => wp_json_encode($gallery_settings),
             'data-gallery-items' => wp_json_encode($this->render_gallery_items())
         ]);
@@ -2876,9 +2882,7 @@ class FilterableGallery extends Widget_Base {
 
             <div <?php $this->print_render_attribute_string('gallery-items-wrap'); ?>>
                 <?php
-                $init_show = absint($settings['items_to_show']);
-
-                for ($i = 0; $i < $init_show; $i++) {
+                for ($i = 0; $i < $items_to_show; $i++) {
                     if (array_key_exists($i, $this->render_gallery_items())) {
                         echo $this->render_gallery_items()[$i];
                     }

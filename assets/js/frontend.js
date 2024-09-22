@@ -414,6 +414,16 @@ odometerOptions = {auto: false};
                 type: "image",
                 gallery: {
                     enabled: $gallery_enabled
+                },
+                callbacks: {
+                    elementParse: function (item) {
+                        console.log(item.el);
+                        if (item.el.hasClass('eead-fg-video-link')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
                 }
             });
 
@@ -428,7 +438,7 @@ odometerOptions = {auto: false};
                 }
 
                 var LoadMoreShow = $(this).data("load-more-status"),
-                    loadMore = $(".eead-gallery-load-more", $scope);
+                    loadMore = $(".eead-fg-loadmore-btn", $scope);
 
                 //hide load more button if no item to show
                 if (LoadMoreShow || fg_items.length < 1) {
@@ -467,7 +477,7 @@ odometerOptions = {auto: false};
             });
 
             // Load more button
-            $scope.on("click", ".eead-gallery-load-more", function (e) {
+            $scope.on("click", ".eead-fg-loadmore-btn", function (e) {
                 e.preventDefault();
                 var $this = $(this),
                     $images_per_page = $gallery.data("images-per-page"),

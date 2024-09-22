@@ -1511,7 +1511,7 @@ Filterable Gallery
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .eead-filter-gallery-control ul {
@@ -1527,8 +1527,9 @@ Filterable Gallery
 .eead-filter-gallery-control ul li {
     list-style: none;
     line-height: 1;
-    padding: 5px 8px;
+    padding: 8px 16px;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 /* Filter with Search */
@@ -1609,14 +1610,37 @@ Filterable Gallery
     color: inherit;
 }
 
+.eead-filter-gallery .eead-fg-item-list {
+    float: left;
+}
 
-.eead-fg-grid-3 .eead-filter-gallery-container .eead-fg-item-list {
+.eead-filter-gallery .eead-fg-item {
+    position: relative;
+}
+
+/* Columns */
+.eead-fg-grid-6 .eead-filter-gallery .eead-fg-item-list {
+    width: 16.66%;
+}
+
+.eead-fg-grid-5 .eead-filter-gallery .eead-fg-item-list {
+    width: 20%;
+}
+
+.eead-fg-grid-4 .eead-filter-gallery .eead-fg-item-list {
+    width: 25%;
+}
+
+.eead-fg-grid-3 .eead-filter-gallery .eead-fg-item-list {
     width: 33.33%;
 }
 
+.eead-fg-grid-2 .eead-filter-gallery .eead-fg-item-list {
+    width: 50%;
+}
 
-.eead-fg-item-list .eead-fg-item {
-    position: relative;
+.eead-fg-grid-1 .eead-filter-gallery .eead-fg-item-list {
+    width: 100%;
 }
 
 /* Overlay */
@@ -1629,6 +1653,89 @@ Filterable Gallery
     padding: 30px;
 }
 
+.eead-filter-gallery .eead-fg-item-caption-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-caption-content {
+    position: relative;
+    color: #FFF;
+}
+
+.eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title {
+    color: #FFF;
+    font-size: 1.2em;
+}
+
+
+
+/* Card */
+
+.eead-filter-gallery .eead-fg-style-card .eead-fg-item-list {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.eead-filter-gallery .eead-fg-style-card .eead-fg-item {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+}
+
+.eead-filter-gallery .eead-fg-item-thumbnail {
+    position: relative;
+}
+
+.eead-filter-gallery .eead-fg-style-card .eead-fg-item-thumb-caption {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+}
+
+.eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption {
+    padding: 30px;
+}
+
+
+.eead-filter-gallery .eead-fg-video-popup {
+    font-size: 40px;
+    color: #FFF;
+}
+
+.eead-filter-gallery .eead-fg-item-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.eead-filter-gallery .eead-fg-item-buttons a {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    border-radius: 50%;
+}
+
+.eead-filter-gallery .eead-fg-item-buttons a i {
+    font-size: 14px;
+    color: #FFF;
+}
+
+.eead-fg-caption-head {
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Caption Animation */
 .eead-filter-gallery-container .eead-fg-item-list .eead-fg-item-caption.eead-zoom-in {
