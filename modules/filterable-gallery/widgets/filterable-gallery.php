@@ -513,21 +513,79 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_image_height',
+            'image_dynamic_height',
             [
-                'label' => esc_html__('Image Height(px)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => '300',
-                'min' => 100,
-                'max' => 800,
-                'condition' => [
-                    'gallery_grid_style' => 'grid',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item .eead-fg-item-thumbnail' => 'height: {{VALUE}}px;',
-                ],
+                'label' => esc_html__('Dynamic Height', 'easy-elementor-addons'),
+                'separator' => 'before',
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes'
             ]
         );
+
+        $this->add_responsive_control(
+			'gallery_image_height_px',
+			[
+				'label' => esc_html__('Image Height(px)', 'easy-elementor-addons'),
+				'type' => Controls_Manager::NUMBER,
+                'default' => '300',
+                'min' => 10,
+				'max' => 800,
+				'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-thumbnail' => 'height: {{SIZE}}px;',
+				],
+				'condition' => [
+                    'gallery_grid_style' => 'grid',
+                    'image_dynamic_height' => ''
+                ],
+			]
+		);
+
+        $this->add_responsive_control(
+			'gallery_image_height_per',
+			[
+				'label' => esc_html__('Image Height(%)', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 150,
+					],
+				],
+                'default' => [
+					'size' => 100,
+				],
+				'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-thumbnail' => 'padding-bottom: {{SIZE}}%;',
+				],
+				'condition' => [
+                    'gallery_grid_style' => 'grid',
+                    'image_dynamic_height' => 'yes'
+                ],
+			]
+		);
+
+        $this->add_responsive_control(
+			'gallery_image_spacing',
+			[
+				'label' => esc_html__('Image Spacing(px)', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+                'default' => [
+					'size' => 10,
+				],
+				'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-list' => 'padding: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-filter-gallery-container' => 'margin: calc({{SIZE}}px * -1);',
+				]
+			]
+		);
 
         $this->end_controls_section();
 
@@ -603,20 +661,6 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore' => 'text-align: {{VALUE}};',
                 ],
-                'condition' => [
-                    'pagination' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'images_per_page',
-            [
-                'label' => esc_html__('Images Per Load', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 6,
-                'min' => 1,
-                'max' => 200,
                 'condition' => [
                     'pagination' => 'yes',
                 ],
