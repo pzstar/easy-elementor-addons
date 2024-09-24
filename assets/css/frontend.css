@@ -1558,6 +1558,7 @@ Filterable Gallery
 
 .eead-filter-gallery .eead-fg-select-filter {
     position: relative;
+    border-right: 1px solid rgba(0,0,0,0.1);
 }
 
 .eead-filter-gallery button.eead-fg-filter-trigger {
@@ -1567,17 +1568,23 @@ Filterable Gallery
     outline: 0;
     min-width: 200px;
     color: inherit;
-    border-right: 1px solid #dcedfe;
     display: flex;
     align-items: center;
     gap: 15px;
     justify-content: center;
+    transition: none;
+    padding: 20px;
+    height: auto;
+    max-height: none;
 }
 
 .eead-filter-gallery button.eead-fg-filter-trigger .eead-fg-dropdown-icon {
     height: 8px;
     width: 8px;
-    border: 1px solid #444;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: inherit;
+    border-bottom-color: inherit;
     border-top-color: transparent;
     border-right-color: transparent;
     transform: rotate(-45deg);
@@ -1596,7 +1603,6 @@ Filterable Gallery
     padding: 0;
     list-style: none;
     min-width: 200px;
-    font-size: 0.9em;
     margin-top: 1px;
     border-radius: 0 0 3px 3px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
@@ -1610,6 +1616,7 @@ Filterable Gallery
     list-style: none;
     padding: 10px 20px;
     cursor: pointer;
+    font-size: 0.8em;
 }
 
 .eead-fg-search-box input {
@@ -1619,6 +1626,14 @@ Filterable Gallery
     outline: 0;
     min-width: 400px;
     color: inherit;
+    transition: none;
+    padding: 20px;
+    height: auto;
+    max-height: none;
+}
+
+.eead-fg-search-box input::placeholder{
+    opacity: 0.6;
 }
 
 .eead-filter-gallery .eead-fg-item-list {

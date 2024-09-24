@@ -522,7 +522,7 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'default' => [
-                    'size' => 10,
+                    'size' => 30,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-list' => 'padding: calc({{SIZE}}px/2);',
@@ -741,7 +741,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'filter_btn_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li, {{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} eead-fg-filter-dropdown',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li, {{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown',
             ]
         );
 
@@ -871,20 +871,13 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-            'filter_btn_normal_border_radius',
+            'filter_btn_border_radius',
             [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 10,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                    ],
-                ],
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' => 'before',
                 'condition' => [
@@ -899,7 +892,7 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Button Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 0,
+                    'size' => 10,
                 ],
                 'range' => [
                     'px' => [
@@ -916,20 +909,13 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_height',
+            'search_filter_padding',
             [
-                'label' => esc_html__('Height', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                    ],
-                ],
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'filter_type!' => 'normal',
@@ -938,23 +924,98 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_btn_active_bg_color',
+            'search_filter_bg_color',
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#444',
+                'default' => '#f1f8ff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box' => 'background: {{VALUE}};',
                 ],
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'search_filter_text_color',
+            [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-search-box input::placeholder' => 'color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'search_filter_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box',
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'filter_btn_active_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active.eead-fg-active',
-                'separator' => 'before',
+                'name' => 'search_filter_border_shadow',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box',
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'search_filter_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'search_filter_dropdown_color',
+            [
+                'label' => esc_html__('Drop Down Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'search_filter_dropdown_bg_color',
+            [
+                'label' => esc_html__('Drop Down Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'background: {{VALUE}};',
+                ],
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
             ]
         );
 
@@ -974,22 +1035,22 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'fg_item_shadow',
-                'selector' => '{{WRAPPER}} .eead-fg-item-list.eead-fg-item',
+                'name' => 'item_shadow',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'fg_item_border',
+                'name' => 'item_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-list.eead-fg-item',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
             ]
         );
 
         $this->add_control(
-            'fg_item_border_radius',
+            'item_border_radius',
             [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -998,57 +1059,11 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'range' => [
                     'px' => [
-                        'max' => 500,
+                        'max' => 100,
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_grid_hover_transition',
-            [
-                'label' => esc_html__('Hover Transition', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 500,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 4000,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption' => 'transition: {{SIZE}}ms;',
-                ],
-                'condition' => [
-                    'gallery_hover_style!' => 'eead-none',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_container_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_container_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
