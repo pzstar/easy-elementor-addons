@@ -136,7 +136,7 @@ class HorizontalTab extends Widget_Base {
         $this->add_control(
             'tabs',
             [
-                'label' => esc_html__('Plan Feature List', 'easy-elementor-addons'),
+                'label' => esc_html__('Add Tabs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -177,8 +177,6 @@ class HorizontalTab extends Widget_Base {
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
-
-
 
         $this->add_control(
             'tab_layout',
@@ -510,47 +508,50 @@ class HorizontalTab extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <section class="eead-horizontal-tab-section eead-tab-section <?php echo esc_attr($settings['tab_layout']); ?>">
-            <div class="eead-tab-container top">
-                <div class="eead-tabs">
-                    <?php
-                    if (!empty($settings['tabs'])) {
-                        $i = 0;
-                        foreach ($settings['tabs'] as $tab) {
-                            if ($tab['enable'] == 'yes') {
-                                $i++;
-                                ?>
-                                <div class="eead-tab <?php echo ($i == 1 ? 'active' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
-                                    <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
-                                    <span><?php echo esc_html($tab['title']); ?></span>
-                                </div>
-                                <?php
-                            }
-                        }
-                    }
-                    ?>
+        <div class="eead-horizontal-tab eead-horizontal-tab-<?php echo esc_attr($settings['tab_layout']); ?>">
+            <div class="eead-ht-container">
+                <div class="eead-ht-tabs">
+                    <?php $this->get_tabs(); ?>
                 </div>
 
-                <div class="eead-tab-content">
+                <div class="eead-ht-contents">
                     <?php $this->get_tab_content(); ?>
                 </div>
             </div>
-        </section>
+        </div>
         <?php
+    }
+
+    private function get_tabs() {
+        $settings = $this->get_settings_for_display();
+        if (!empty($settings['tabs'])) {
+            $i = 0;
+            foreach ($settings['tabs'] as $tab) {
+                if ($tab['enable'] == 'yes') {
+                    $i++;
+                    ?>
+                    <div class="eead-ht-tab <?php echo ($i == 1 ? 'eead-ht-active-tab' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
+                        <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
+                        <span><?php echo esc_html($tab['title']); ?></span>
+                    </div>
+                    <?php
+                }
+            }
+        }
     }
 
     private function get_tab_content() {
         $settings = $this->get_settings_for_display();
-        $i = 0;
 
-        foreach ($settings['tabs'] as $tab) {
-            if ($tab['enable'] == 'yes') {
-                $i++;
-                ?>
-                <div class="eead-each-content eead-content-<?php echo esc_attr($i) . ' ' . (($i == 1) ? 'eead-active' : ''); ?>" style="<?php echo (($i > 1) ? 'display:none;' : ''); ?>">
-                    <?php
-                    if ($tab['content_type'] == 'page') {
-                        if ($tab['enable'] == 'yes' && !empty($tab['page'])) {
+        if (!empty($settings['tabs'])) {
+            $i = 0;
+            foreach ($settings['tabs'] as $tab) {
+                if ($tab['enable'] == 'yes') {
+                    $i++;
+                    ?>
+                    <div class="eead-ht-content eead-ht-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-ht-active-content' : ''); ?>">
+                        <?php
+                        if ($tab['content_type'] == 'page' && !empty($tab['page'])) {
                             $args = array(
                                 'page_id' => absint($tab['page'])
                             );
@@ -558,25 +559,20 @@ class HorizontalTab extends Widget_Base {
                             if ($query->have_posts()):
                                 while ($query->have_posts()):
                                     $query->the_post();
-                                    ?>
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="eead-clearfix">
-                                        <?php the_content(); ?>
-                                    </div>
-                                    <?php
+                                    the_content();
                                 endwhile;
                             endif;
                             wp_reset_postdata();
+                        } elseif ($tab['content_type'] == 'elementor_template') {
+                            echo $this->elementor()->frontend->get_builder_content_for_display($tab['elementor_template']);
+                            echo $this->eead_template_edit_link($item['template_id']);
+                        } elseif ($tab['content_type'] == 'wisiwyg' and $tab['wisiwyg_content']) {
+                            echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
                         }
-                    } else if ($tab['content_type'] == 'elementor_template') {
-                        echo $this->elementor()->frontend->get_builder_content_for_display($tab['elementor_template']);
-                        echo $this->eead_template_edit_link($item['template_id']);
-                    } else if ($tab['content_type'] == 'wisiwyg' and $tab['wisiwyg_content']) {
-                        echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
-                    }
-                    ?>
-                </div>
-                <?php
+                        ?>
+                    </div>
+                    <?php
+                }
             }
         }
     }
@@ -605,11 +601,7 @@ class HorizontalTab extends Widget_Base {
     }
 
     protected function get_pages() {
-        $pages = get_pages(
-            array(
-                'order' => 'ASC'
-            )
-        );
+        $pages = get_pages();
 
         $_pages = [];
         foreach ($pages as $key => $object) {

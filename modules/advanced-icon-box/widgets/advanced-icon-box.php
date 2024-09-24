@@ -745,7 +745,7 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Overflow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'show',
+                'default' => 'visible',
                 'options' => [
                     'visible' => esc_html__('Show', 'easy-elementor-addons'),
                     'hidden' => esc_html__('Hidden', 'easy-elementor-addons'),
@@ -789,9 +789,6 @@ class AdvancedIconBox extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon span' => 'border-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'icon_border_border!' => '',
                 ],
             ]
         );
@@ -1290,9 +1287,6 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover' => 'border-color: {{VALUE}};',
                 ],
-                'condition' => [
-                    'readmore_border_border!' => ''
-                ]
             ]
         );
 

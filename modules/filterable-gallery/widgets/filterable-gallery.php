@@ -547,17 +547,25 @@ class FilterableGallery extends Widget_Base {
             'gallery_image_height_px',
             [
                 'label' => esc_html__('Image Height(px)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => '300',
-                'min' => 10,
-                'max' => 800,
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 800,
+                    ],
+                ],
+                'default' => [
+                    'size' => 300,
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-thumbnail' => 'height: {{SIZE}}px;',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-thumbnail' => 'padding-bottom: {{SIZE}}px;',
                 ],
                 'condition' => [
                     'gallery_grid_style' => 'grid',
                     'image_dynamic_height' => ''
                 ],
+                'render_type' => 'template'
             ]
         );
 
@@ -583,6 +591,7 @@ class FilterableGallery extends Widget_Base {
                     'gallery_grid_style' => 'grid',
                     'image_dynamic_height' => 'yes'
                 ],
+                'render_type' => 'template'
             ]
         );
 
@@ -630,35 +639,6 @@ class FilterableGallery extends Widget_Base {
                 'default' => 6,
                 'min' => 1,
                 'max' => 200,
-                'condition' => [
-                    'pagination' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'load_more_align',
-            [
-                'label' => esc_html__('Button Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'flex-start' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-center',
-                    ],
-                    'flex-end' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-loadmore' => 'justify-content: {{VALUE}};',
-                ],
                 'condition' => [
                     'pagination' => 'yes',
                 ],
@@ -724,6 +704,44 @@ class FilterableGallery extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'items_style_section',
+            [
+                'label' => esc_html__('Item', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'item_shadow',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'item_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
+            ]
+        );
+
+        $this->add_control(
+            'item_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
 
         /**
          * Control Style
@@ -733,6 +751,9 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Filter Buttons', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'filter_type' => 'normal',
+                ]
             ]
         );
 
@@ -741,7 +762,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'filter_btn_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li, {{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
             ]
         );
 
@@ -766,20 +787,10 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'condition' => [
-                    'filter_type' => 'normal',
-                ],
             ]
         );
 
-        $this->start_controls_tabs(
-            'filter_btn_tabs',
-            [
-                'condition' => [
-                    'filter_type' => 'normal',
-                ]
-            ]
-        );
+        $this->start_controls_tabs('filter_btn_tabs');
 
         $this->start_controls_tab('filter_btn_normal', [
             'label' => esc_html__('Normal', 'easy-elementor-addons')
@@ -908,6 +919,37 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'filter_search_style_section',
+            [
+                'label' => esc_html__('Filter Search', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'search_filter_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'search_filter_margin',
+            [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->add_control(
             'search_filter_padding',
             [
@@ -991,1030 +1033,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown_color',
-            [
-                'label' => esc_html__('Drop Down Text Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'filter_type!' => 'normal',
-                ],
-                'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'search_filter_dropdown_bg_color',
-            [
-                'label' => esc_html__('Drop Down Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'background: {{VALUE}};',
-                ],
-                'condition' => [
-                    'filter_type!' => 'normal',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Filterable Gallery Item Style
-         */
-        $this->start_controls_section(
-            'items_style_section',
-            [
-                'label' => esc_html__('Item', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'item_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'item_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
-            ]
-        );
-
-        $this->add_control(
-            'item_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Gallery Hoverer Style
-         */
-        $this->start_controls_section(
-            'section_fg_item_cap_style_settings',
-            [
-                'label' => esc_html__('Item Hover', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => ['overlay']
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_overlay_content_alignment',
-            [
-                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'prefix_class' => 'eead-fg-overlay-content-align-',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_cap_bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0,0,0,0.7)',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-caption-overlay' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_cap_container_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_hover_title_typography_heading',
-            [
-                'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_hover_title_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_hover_title_hover_color',
-            [
-                'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'fg_item_hover_title_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-title',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_hover_content_typography_heading',
-            [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_hover_content_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-content' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'fg_item_hover_content_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay .fg-item-content',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'fg_item_cap_shadow',
-                'selector' => '{{WRAPPER}} .eead-fg-item-thumbnail .eead-fg-item-caption',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'fg_item_cap_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-overlay',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Layout 3 Thumb Image Style
-         */
-        $this->start_controls_section(
-            'fg_item_thumb_style',
-            [
-                'label' => esc_html__('Thumbnail Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'fg_item_thubm_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .fg-layout-3-item-thumb',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_thubm_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .fg-layout-3-item-thumb' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .fg-layout-3-item .eead-fg-item-caption.card-hover-bg.caption-style-overlay' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Video Gallery Item Style
-         */
-        $this->start_controls_section(
-            'section_fg_video_item_style',
-            [
-                'label' => esc_html__('Video item hover', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style!' => 'layout_3'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'fg_video_item_hover_bg',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0, 0, 0, .7)',
-                'selectors' => [
-                    '{{WRAPPER}} .video-popup-bg' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_video_item_hover_bg_trans',
-            [
-                'label' => esc_html__('Background transition', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'default' => [
-                    'px' => 350,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 4000,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .video-popup-bg' => 'transition: {{SIZE}}ms;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_video_item_hover_icon_size',
-            [
-                'label' => esc_html__('Icon size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em'],
-                'default' => [
-                    'px' => 62,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 150,
-                    ],
-                    'em' => [
-                        'max' => 150,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .video-popup > img' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_video_item_icon_hover_scale',
-            [
-                'label' => esc_html__('Hover icon scale', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => '1.1',
-                'selectors' => [
-                    '{{WRAPPER}} .video-popup:hover > img' => 'transform: scale({{VALUE}});',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_video_item_icon_hover_scale_transition',
-            [
-                'label' => esc_html__('Icon transition', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'default' => [
-                    'px' => 350,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 4000,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .video-popup > img' => 'transition: {{SIZE}}ms;',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Card Gallery Item Style
-         */
-        $this->start_controls_section(
-            'section_fg_item_content_style_settings',
-            [
-                'label' => esc_html__('Gallery Card', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => ['card', 'layout_3']
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_content_alignment',
-            [
-                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'prefix_class' => 'eead-fg-card-content-align-',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#f1f2f9',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item-caption.caption-style-card' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .fg-layout-3-item-content' => 'background-color: {{VALUE}};'
-                ],
-                'condition' => [
-                    'gallery_style' => 'card'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_layout_3_content_bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .fg-layout-3-item-content' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_card_hover_bg_color',
-            [
-                'label' => esc_html__('Hover Overlay Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0,0,0,0.7)',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.card-hover-bg' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'gallery_style' => ['card', 'layout_3']
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'fg_item_content_shadow',
-                'selector' => '{{WRAPPER}} .eead-fg-item-list.eead-fg-item-caption.caption-style-card, {{WRAPPER}} .fg-layout-3-item-content',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'fg_item_content_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-list.eead-fg-item-caption.caption-style-card, {{WRAPPER}} .fg-layout-3-item-content',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_content_container_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-list.eead-fg-item-caption.caption-style-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .fg-layout-3-item-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_title_typography_settings',
-            [
-                'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_title_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#F56A6A',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-card .fg-item-title' => 'color: {{VALUE}};'
-                ],
-                'condition' => [
-                    'gallery_style' => 'card'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_layout_3_content_title_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#031d3c',
-                'selectors' => [
-                    '{{WRAPPER}} .fg-layout-3-item-content .fg-item-title' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_title_hover_color',
-            [
-                'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-card .fg-item-title:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .fg-layout-3-item-content .fg-item-title:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'fg_item_content_title_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-card .fg-item-title, {{WRAPPER}} .fg-layout-3-item-content .fg-item-title',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_text_typography_settings',
-            [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_content_text_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#444',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption.caption-style-card .fg-item-content' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'gallery_style' => 'card'
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_layout_3_content_text_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#7f8995',
-                'selectors' => [
-                    '{{WRAPPER}} .fg-layout-3-item-content .fg-item-content p' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'fg_item_content_text_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption.caption-style-card .fg-item-content, {{WRAPPER}} .fg-layout-3-item-content .fg-item-content p',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Hoverer Icon Style
-         */
-        $this->start_controls_section(
-            'section_fg_item_hover_icons_style',
-            [
-                'label' => esc_html__('Icons', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_exact_size',
-            [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 50,
-                        'max' => 120,
-                    ],
-                    'em' => [
-                        'min' => 10,
-                        'max' => 50,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 50,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_size',
-            [
-                'label' => esc_html__('Icon Font Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em'],
-                'range' => [
-                    'px' => [
-                        'max' => 50,
-                    ],
-                    'em' => [
-                        'max' => 50,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 18,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span img' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'fg_item_icon_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span',
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 100,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 500,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'border-radius: {{SIZE}}px;',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_icon_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_item_icon_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->start_controls_tabs('fg_icons_style');
-
-        $this->start_controls_tab(
-            'fg_icons_style_normal',
-            [
-                'label' => esc_html__('Normal', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#3c25f7',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'fg_icons_style_hover',
-            [
-                'label' => esc_html__('Hover', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_bg_color_hover',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#3c25f7',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span:hover' => 'background: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_color_hover',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'fg_item_icon_transition',
-            [
-                'label' => esc_html__('Transition', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 300,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 1000,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-item-caption .eead-fg-item-buttons > a span' => 'transition: {{SIZE}}ms;',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'gallery_item_price_style',
-            [
-                'label' => esc_html__('Price', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'gallery_item_price_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .fg-caption-head .fg-item-price' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'gallery_item_price_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .fg-caption-head .fg-item-price'
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'gallery_item_rating_style',
-            [
-                'label' => esc_html__('Ratings', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'gallery_style' => 'layout_3'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'gallery_item_rating_color',
-            [
-                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .fg-caption-head .fg-item-ratings' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'gallery_item_rating_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .fg-caption-head .fg-item-ratings'
-            ]
-        );
-
-        $this->add_control(
-            'gallery_item_rating_star_color',
-            [
-                'label' => esc_html__('Star Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .fg-caption-head .fg-item-ratings i' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'fg_search_form_style',
-            [
-                'label' => esc_html__('Search Form', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_controls',
-            [
-                'label' => esc_html__('Controls', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_controls_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#7f8995',
-                'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap button' => 'color: {{VALUE}}'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_controls_background',
-            [
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap button' => 'background: {{VALUE}}'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'fg_sf_controls_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-filter-trigger > span'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_controls_icon_space',
-            [
-                'label' => esc_html__('Icon Space', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 10,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 50,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-trigger > i' => 'margin-left: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-fg-filter-trigger img' => 'margin-left: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_controls_icon_size',
-            [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 14,
-                ],
-                'range' => [
-                    'px' => [
-                        'max' => 50,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-trigger > i' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-fg-filter-trigger img' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_controls_width',
-            [
-                'label' => esc_html__('Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'max' => 500,
-                    ],
-                    '%' => [
-                        'max' => 100
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap' => 'flex-basis: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_controls_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_controls_margin',
-            [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'fg_sf_controls_box_shadow',
-                'selector' => '{{WRAPPER}} .fg-filter-wrap button'
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_separator',
+            'search_filter_separator',
             [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
@@ -2022,8 +1041,8 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'sf_left_border_size',
+        $this->add_control(
+            'search_filter_sep_border_size',
             [
                 'label' => esc_html__('Separator Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -2036,108 +1055,25 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap button' => 'border-right: {{SIZE}}px solid;',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-select-filter' => 'border-right: {{SIZE}}px solid;',
                 ]
             ]
         );
 
         $this->add_control(
-            'sf_left_border_color',
+            'search_filter_sep_border_color',
             [
                 'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#abb5ff',
+                'default' => '#dcedfe',
                 'selectors' => [
-                    '{{WRAPPER}} .fg-filter-wrap button' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-select-filter' => 'border-color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'fg_sf',
-            [
-                'label' => esc_html__('Form', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_background',
-            [
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filters .eead-fg-search-box' => 'background: {{VALUE}}'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_placeholder',
-            [
-                'label' => esc_html__('Placeholder', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Search Gallery Item...', 'easy-elementor-addons'),
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_placeholder_color',
-            [
-                'label' => esc_html__('Placeholder Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-search-box input[type="text"]::-webkit-input-placeholder' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-fg-search-box input[type="text"]::-moz-placeholder' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-fg-search-box input[type="text"]:-ms-input-placeholder' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-fg-search-box input[type="text"]:-moz-placeholder' => 'color: {{VALUE}}'
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_form_width',
-            [
-                'label' => esc_html__('Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'max' => 500,
-                    ],
-                    '%' => [
-                        'max' => 100
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-search-box' => 'flex-basis: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_form_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filters .eead-fg-search-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'fg_sf_form_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-fg-filters .eead-fg-search-box'
-            ]
-        );
-
-        $this->add_control(
-            'fg_sf_dropdown',
+            'search_filter_dropdown',
             [
                 'label' => esc_html__('Dropdown', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
@@ -2146,79 +1082,620 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'fg_sf_dropdown_color',
+            'search_filter_dropdown_color',
             [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control' => 'color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown li' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'search_filter_dropdown_color_hover',
+            [
+                'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown li:hover' => 'color: {{VALUE}}'
                 ]
             ]
         );
 
         $this->add_control(
-            'fg_sf_dropdown_hover_color',
+            'search_filter_dropdown_bg_color',
             [
-                'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control:hover' => 'color: {{VALUE}}'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'fg_sf_dropdown_bg',
-                'types' => ['classic', 'gradient'],
-                'exclude' => [
-                    'image',
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'background: {{VALUE}};',
                 ],
-                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown',
+                'condition' => [
+                    'filter_type!' => 'normal',
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'fg_sf_dropdown_typography',
+                'name' => 'search_filter_dropdown_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control'
+                'selector' => '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'fg_sf_dropdown_border',
+                'name' => 'search_filter_dropdown_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control'
+                'selector' => '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown'
             ]
         );
 
-        $this->add_responsive_control(
-            'fg_sf_dropdown_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown li.eead-fg-filter-control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'fg_sf_dropdown_border_radius',
+        $this->add_control(
+            'search_filter_dropdown_border_radius',
             [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-fg-filter-dropdown.open-filters' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Gallery Hoverer Style
+         */
+        $this->start_controls_section(
+            'overlay_caption_style_section',
+            [
+                'label' => esc_html__('Overlay Caption', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'gallery_style' => 'overlay'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_overlay_caption_alignment',
+            [
+                'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-fg-style-overlay .eead-fg-item-caption ' => 'text-align: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'overlay_overlay_caption_v_alignment',
+            [
+                'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'flex-start' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-middle',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-bottom',
+                    ],
+                ],
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-caption' => 'align-items: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'overlay_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => 'rgba(0,0,0,0.7)',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-caption-overlay' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'overlay_caption_container_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_title_heading',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'overlay_caption_title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title',
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_title_bottom_spacing',
+            [
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'size' => 15,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_content_typography_heading',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_content_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content, {{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'overlay_caption_content_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content,{{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head',
+            ]
+        );
+
+        $this->add_control(
+            'overlay_caption_content_bottom_spacing',
+            [
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'size' => 15,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Card Gallery Item Style
+         */
+        $this->start_controls_section(
+            'card_caption_style_section',
+            [
+                'label' => esc_html__('Card Caption', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'gallery_style' => 'card'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_caption_alignment',
+            [
+                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'prefix_class' => 'eead-fg-card-caption-align-',
+            ]
+        );
+
+        $this->add_control(
+            'card_caption_content_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption' => 'background-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_caption_container_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'render_type' => 'template',
+            ]
+        );
+
+        $this->add_control(
+            'card_caption_title_heading',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'card_caption_title_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#F56A6A',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title' => 'color: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'card_caption_title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title',
+            ]
+        );
+
+        $this->add_control(
+            'card_caption_content_heading',
+            [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'card_caption_content_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#444',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'card_caption_content_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Hoverer Icon Style
+         */
+        $this->start_controls_section(
+            'overlay_button_style_section',
+            [
+                'label' => esc_html__('Gallery/Link Buttons', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_size',
+            [
+                'label' => esc_html__('Button Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 50,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 16,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs('overlay_button_tabs');
+
+        $this->start_controls_tab(
+            'overlay_button_style_normal',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_icon_color',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a svg' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'overlay_button_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'overlay_button_style_hover',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_bg_color_hover',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_icon_color_hover',
+            [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover svg' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_button_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+
+        /**
+         * Video Gallery Item Style
+         */
+        $this->start_controls_section(
+            'video_button_style',
+            [
+                'label' => esc_html__('Video Button', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'video_button_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-video-popup' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'video_button_icon_color',
+            [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-video-popup' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'video_button_size',
+            [
+                'label' => esc_html__('Button Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'max' => 150,
+                    ],
+                    'em' => [
+                        'max' => 150,
+                    ],
+                ],
+                'selectors' => [
+                    ' .eead-filter-gallery .eead-fg-video-popup' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'video_button_icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'max' => 150,
+                    ],
+                    'em' => [
+                        'max' => 150,
+                    ],
+                ],
+                'selectors' => [
+                    ' .eead-filter-gallery .eead-fg-video-popup i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    ' .eead-filter-gallery .eead-fg-video-popup svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -2228,7 +1705,7 @@ class FilterableGallery extends Widget_Base {
          * Load More Button Style
          */
         $this->start_controls_section(
-            'section_loadmore_button_style',
+            'loadmore_button_style_section',
             [
                 'label' => esc_html__('Load More Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
@@ -2244,11 +1721,7 @@ class FilterableGallery extends Widget_Base {
             [
                 'name' => 'load_more_button_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-gallery-load-more .eead-filterable-gallery-load-more-text',
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
             ]
         );
 
@@ -2256,52 +1729,58 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'load_more_button_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-gallery-load-more',
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
             ]
         );
 
         $this->add_responsive_control(
-            'button_margin_top',
+            'load_more_button_margin_top',
             [
                 'label' => esc_html__('Top Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
                         'min' => 0,
-                        'max' => 80,
+                        'max' => 100,
                         'step' => 1,
                     ],
                 ],
-                'size_units' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more' => 'margin-top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'margin-top: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'load_more_button_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'load_more_button_icon_size',
+            'load_more_button_border_radius',
             [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 15,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 500,
-                        'step' => 1,
-                    ]
-                ],
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more .eead-filterable-gallery-load-more-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-gallery-load-more img.eead-filterable-gallery-load-more-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
-                ]
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'load_more_button_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
             ]
         );
 
@@ -2320,60 +1799,12 @@ class FilterableGallery extends Widget_Base {
                     'size' => 10,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more .fg-load-more-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-gallery-load-more .fg-load-more-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
-        $this->add_responsive_control(
-            'load_more_button_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'load_more_button_border_normal',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-gallery-load-more',
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'load_more_button_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
-            ]
-        );
-
-        $this->start_controls_tabs('tabs_load_more_button_style');
+        $this->start_controls_tabs('tabs_load_more_button');
 
         $this->start_controls_tab(
             'tab_load_more_button_normal',
@@ -2391,14 +1822,9 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'background-color: {{VALUE}}',
+                ]
             ]
         );
 
@@ -2407,13 +1833,9 @@ class FilterableGallery extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-filter-gallery .eead-fg-loadmore a.eead-fg-loadmore-btn svg' => 'fill: {{VALUE}}',
                 ],
             ]
         );
@@ -2423,58 +1845,41 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'button_bg_color_hover',
+            'load_more_button_bg_color_hover',
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more:hover' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
 
         $this->add_control(
-            'button_text_color_hover',
+            'load_more_button_text_color_hover',
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more:hover' => 'color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
-                ],
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'color: {{VALUE}}',
+                ]
             ]
         );
 
         $this->add_control(
-            'button_border_color_hover',
+            'load_more_button_border_color_hover',
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-gallery-load-more:hover' => 'border-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'pagination' => 'yes',
-                    'load_more_text!' => '',
+                    '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'border-color: {{VALUE}}',
                 ],
             ]
         );

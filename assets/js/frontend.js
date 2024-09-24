@@ -544,6 +544,19 @@ odometerOptions = {auto: false};
             }
         },
 
+        horizontalTabsBlock: function ($scope) {
+            $scope.find('.eead-horizontal-tab').on('click', '.eead-ht-tab', function () {
+                var $tab_id = $(this).data('tabid');
+                if ($tab_id) {
+                    $scope.find('.eead-ht-tab').removeClass('eead-ht-active-tab');
+                    $(this).addClass('eead-ht-active-tab');
+
+                    $scope.find('.eead-ht-content').removeClass('eead-ht-active-content');
+                    $scope.find('.eead-ht-content-' + $tab_id).addClass('eead-ht-active-content');
+                }
+            });
+        },
+
 
 
 
@@ -1247,20 +1260,7 @@ odometerOptions = {auto: false};
 
 
 
-        horizontalTabsBlock: function ($scope) {
-            $scope.find('.eead-each-content').eq(0).fadeIn();
-            $scope.find('.eead-horizontal-tab-section').on('click', '.eead-tab', function () {
-                var $tab_id = $(this).data('tabid');
-                if ($tab_id) {
-                    $scope.find('.eead-tab').removeClass('active');
-                    $(this).addClass('active');
-                    $scope.find('.eead-each-content').removeClass('eead-active');
-                    $scope.find('.eead-tab-content').find('.eead-content-' + $tab_id).addClass('eead-active');
-                    $scope.find('.eead-each-content').hide();
-                    $scope.find('.eead-tab-content').find('.eead-content-' + $tab_id).fadeIn();
-                }
-            });
-        },
+        
 
         verticalTabsBlock: function ($scope) {
             $scope.find('.eead-vertical-tab-section').on('click', '.eead-tab', function () {

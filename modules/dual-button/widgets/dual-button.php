@@ -164,7 +164,7 @@ class DualButton extends Widget_Base {
                     'row' => esc_html__('After', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-pri-button' => 'flex-direction: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-pri-button .eead-dual-button' => 'flex-direction: {{VALUE}};',
                 ],
             ]
         );
@@ -228,7 +228,7 @@ class DualButton extends Widget_Base {
                     'row' => esc_html__('After', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-sec-button' => 'flex-direction: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-sec-button .eead-dual-button' => 'flex-direction: {{VALUE}};',
                 ],
             ]
         );
@@ -377,8 +377,8 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -389,7 +389,7 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'background: {{VALUE}};',
                 ],
             ]
         );
@@ -409,8 +409,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button:hover svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -421,8 +421,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
                 ],
             ]
         );
@@ -433,7 +433,7 @@ class DualButton extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'pri_button_border',
-                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button',
                 'separator' => 'before',
             ]
         );
@@ -445,7 +445,7 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -457,7 +457,7 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -496,8 +496,8 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -508,7 +508,7 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'background: {{VALUE}};',
                 ],
             ]
         );
@@ -528,8 +528,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button:hover svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -540,8 +540,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
                 ],
             ]
         );
@@ -555,7 +555,7 @@ class DualButton extends Widget_Base {
                     'sec_button_border_border!' => '',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button:hover' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -566,7 +566,7 @@ class DualButton extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'sec_button_border',
-                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button',
                 'separator' => 'before',
             ]
         );
@@ -578,7 +578,7 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -590,7 +590,7 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -738,12 +738,12 @@ class DualButton extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $this->add_render_attribute('pri-button', 'class', 'eead-dual-button eead-dual-pri-button');
+        $this->add_render_attribute('pri-button', 'class', 'eead-dual-button');
         if (!empty($settings['pri_button_link']['url'])) {
             $this->add_link_attributes('pri-button', $settings['pri_button_link']);
         }
 
-        $this->add_render_attribute('sec-button', 'class', 'eead-dual-button eead-dual-sec-button');
+        $this->add_render_attribute('sec-button', 'class', 'eead-dual-button');
         if (!empty($settings['sec_button_link']['url'])) {
             $this->add_link_attributes('sec-button', $settings['sec_button_link']);
         }

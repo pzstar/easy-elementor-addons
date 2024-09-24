@@ -671,7 +671,7 @@ class AdvancedHeading extends Widget_Base {
 				'label' => esc_html__('Line Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eead-advanced-heading .eead-main-heading .line:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-color: {{VALUE}};',
 				],
 				'condition' => [
 					'main_heading_style' => 'line',

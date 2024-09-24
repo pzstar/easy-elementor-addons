@@ -371,14 +371,6 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'button_border_hover',
-                'selector' => '{{WRAPPER}} .eead-ab-button:hover',
-            ]
-        );
-
-        $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'button_shadow_hover',
