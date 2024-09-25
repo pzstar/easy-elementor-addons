@@ -2203,6 +2203,18 @@ Flip Box
 /*--------------------------------------------------------------
 Horizontal Tabs
 --------------------------------------------------------------*/
+.eead-ht-tabs{
+    display: flex;
+    gap: 20px;
+}
+
+.eead-ht-tabs .eead-ht-tab{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
 .eead-ht-content{
     display: none;
 }
