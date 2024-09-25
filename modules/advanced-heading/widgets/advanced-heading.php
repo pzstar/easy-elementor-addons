@@ -327,7 +327,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'center',
+				'default' => 'center center',
 				'options' => get_element_position(),
 				'label_block' => true,
 				'selectors' => [
