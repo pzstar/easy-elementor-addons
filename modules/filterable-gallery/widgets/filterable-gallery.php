@@ -123,6 +123,18 @@ class FilterableGallery extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'search_filter_placeholder',
+            [
+                'label' => esc_html__('Search Placeholder Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('Search Items', 'easy-elementor-addons'),
+                'condition' => [
+                    'filter_type' => 'with-search',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         /**
@@ -1978,7 +1990,7 @@ class FilterableGallery extends Widget_Base {
                     </div>
 
                     <form class="eead-fg-search-box" id="eead-fg-search-box" autocomplete="off">
-                        <input type="text" id="eead-fg-search-input" placeholder="<?php echo $settings['fg_sf_placeholder']; ?>" />
+                        <input type="text" id="eead-fg-search-input" placeholder="<?php echo $settings['search_filter_placeholder']; ?>" />
                     </form>
                 </div>
             </div>

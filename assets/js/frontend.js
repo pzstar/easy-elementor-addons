@@ -15,12 +15,15 @@ odometerOptions = {auto: false};
                 'eead-countdown.default': EEA.countdown,
                 'eead-counter.default': EEA.counterBlock,
                 'eead-filterable-gallery.default': EEA.filterableGallery,
+                'eead-horizontal-timeline.default': EEA.horizontalTimelineCarousel,
+                'eead-hotspot.default': EEA.hotspotBlock,
+
+
 
 
                 'eead-caption-hover-effect.default': EEA.captionHoverEffect,
                 'eead-charts.default': EEA.chartsBlock,
-                'eead-horizontal-timeline.default': EEA.horizontalTimelineCarousel,
-                'eead-hotspot.default': EEA.hotspotBlock,
+
                 'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
                 'eead-image-comparison.default': EEA.imageComparison,
@@ -557,36 +560,30 @@ odometerOptions = {auto: false};
             });
         },
 
-
-
-
-
-
-
+        horizontalTimelineCarousel: function ($scope) {
+            $scope.find(".eead-horizontal-timeline-scrollbar").mCustomScrollbar({
+                theme: "dark",
+                scrollInertia: 500,
+                axis: "x",
+                advanced: {autoExpandHorizontalScroll: true}
+            });
+        },
 
         hotspotBlock: function ($scope) {
-            if ($scope.find('.eead-hotspot-section').hasClass('eead-open-onclick')) {
-                $scope.find('.eead-hotspot-section .eead-hotspot-item a').on('click', function () {
-                    $(this).toggleClass('active');
-                });
-
-                $(document).on('mouseup', function (e) {
-                    var container = $(".eead-hotspot-item");
-                    if (!container.is(e.target) && container.has(e.target).length === 0) {
-                        container.find('a.eead-fg-active').removeClass('active');
-                    }
-                });
-            } else {
-                $scope.find('.eead-hotspot-section:not(.eead-open-onclick) .eead-hotspot-item a').hover(
-                    function () {
-                        $(this).addClass('active');
-                    },
-                    function () {
-                        $(this).removeClass('active');
-                    }
-                );
-            }
+            $scope.find('.eead-open-onclick .eead-hotspot-item > a').on('click', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('eead-active');
+            });
         },
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1260,7 +1257,7 @@ odometerOptions = {auto: false};
 
 
 
-        
+
 
         verticalTabsBlock: function ($scope) {
             $scope.find('.eead-vertical-tab-section').on('click', '.eead-tab', function () {
@@ -1398,15 +1395,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        horizontalTimelineCarousel: function ($scope) {
-            var $element = $scope.find('.eead-htimeline-lists');
-            $scope.find(".eead-horizontal-timeline-scrollbar").mCustomScrollbar({
-                theme: "dark",
-                scrollInertia: 500,
-                axis: "x",
-                advanced: {autoExpandHorizontalScroll: true}
-            });
-        },
+
 
         scrollImage: function ($scope) {
             var gallery = $scope.find('.eead-scroll-image-lightbox-item');

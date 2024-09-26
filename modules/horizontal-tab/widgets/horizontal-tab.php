@@ -184,13 +184,10 @@ class HorizontalTab extends Widget_Base {
             'tab_content_animation',
             [
                 'label' => esc_html__('Content Display Animation', 'easy-elementor-addons'),
+                'label_block' => true,
                 'type' => Controls_Manager::SELECT,
-                'default' => 'default',
-                'options' => [
-                    'default' => esc_html__('None', 'easy-elementor-addons'),
-                    'stacked' => esc_html__('Background', 'easy-elementor-addons'),
-                    'framed' => esc_html__('Frame', 'easy-elementor-addons'),
-                ],
+                'default' => 'none',
+                'options' => eead_show_animations(),
             ]
         );
 
@@ -865,7 +862,7 @@ class HorizontalTab extends Widget_Base {
                 if ($tab['enable'] == 'yes') {
                     $i++;
                     ?>
-                    <div class="animated fadeInDown eead-ht-content eead-ht-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-ht-active-content' : ''); ?>">
+                    <div class="animated <?php echo $settings['tab_content_animation']; ?> eead-ht-content eead-ht-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-ht-active-content' : ''); ?>">
                         <?php
                         if ($tab['content_type'] == 'page' && !empty($tab['page'])) {
                             $page_id = $tab['page'];

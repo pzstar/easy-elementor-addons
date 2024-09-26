@@ -49,11 +49,7 @@ if (!function_exists('parse_wisiwyg_content')) {
 if (!function_exists('get_pages')) {
 
     function get_pages() {
-        $pages = get_pages(
-            array(
-                'order' => 'ASC'
-            )
-        );
+        $pages = get_pages();
 
         $_pages = [];
 
@@ -131,6 +127,42 @@ if (!function_exists('eead_anime_animation_easing')) {
             'easeInBounce' => esc_html__('Ease-In Bounce', 'easy-elementor-addons'),
             'easeInOutBounce' => esc_html__('Ease-InOut Bounce', 'easy-elementor-addons'),
         );
+    }
+}
+
+if (!function_exists('eead_show_animations')) {
+    function eead_show_animations() {
+        $animations = [
+            'none' => 'No Animation',
+            'fadeIn' => 'fadeIn',
+            'fadeInLeft' => 'fadeInLeft',
+            'fadeInRight' => 'fadeInRight',
+            'fadeInUp' => 'fadeInUp',
+            'fadeInDown' => 'fadeInDown',
+            'zoomIn' => 'zoomIn',
+            'zoomInDown' => 'zoomInDown',
+            'zoomInLeft' => 'zoomInLeft',
+            'zoomInRight' => 'zoomInRight',
+            'zoomInUp' => 'zoomInUp',
+            'bounceIn' => 'bounceIn',
+            'bounceInDown' => 'bounceInDown',
+            'bounceInLeft' => 'bounceInLeft',
+            'bounceInRight' => 'bounceInRight',
+            'bounceInUp' => 'bounceInUp',
+            'slideInUp' => 'slideInUp',
+            'slideInDown' => 'slideInDown',
+            'slideInLeft' => 'slideInLeft',
+            'slideInRight' => 'slideInRight',
+            'flipInX' => 'flipInX',
+            'flipInY' => 'flipInY',
+            'rotateIn' => 'rotateIn',
+            'rotateInDownLeft' => 'rotateInDownLeft',
+            'rotateInDownRight' => 'rotateInDownRight',
+            'rotateInUpLeft' => 'rotateInUpLeft',
+            'rotateInUpRight' => 'rotateInUpRight',
+            'rollIn' => 'rollIn'
+        ];
+        return $animations;
     }
 }
 
