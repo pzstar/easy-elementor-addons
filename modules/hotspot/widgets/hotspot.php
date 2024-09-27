@@ -119,7 +119,6 @@ class Hotspot extends Widget_Base {
                     'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                     'bottom-middle' => esc_html__('Bottom Middle', 'easy-elementor-addons'),
                     'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
-                    'center' => esc_html__('Center', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -341,7 +340,6 @@ class Hotspot extends Widget_Base {
                     'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                     'bottom-middle' => esc_html__('Bottom Middle', 'easy-elementor-addons'),
                     'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
-                    'center' => esc_html__('Center', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -364,12 +362,16 @@ class Hotspot extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 600,
-                        'max' => 2000,
+                        'max' => 6000,
                         'step' => 100
                     ],
                 ],
+                'default' => [
+                    'size' => 2000,
+                    'unit' => 'px'
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'animation: eead-pulsate {{SIZE}}ms infinite;',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'animation-duration: {{SIZE}}ms;',
                 ],
                 'condition' => ['enable_pulse_animation' => 'yes']
             ]
@@ -425,7 +427,8 @@ class Hotspot extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -444,7 +447,7 @@ class Hotspot extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a, {{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-hotspot' => '--eead-hotspot-box-size: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -454,7 +457,7 @@ class Hotspot extends Widget_Base {
         $this->start_controls_section(
             'tooltip_style',
             [
-                'label' => esc_html__('Tool Tip', 'easy-elementor-addons'),
+                'label' => esc_html__('Tool Tip Box', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -464,9 +467,9 @@ class Hotspot extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#f1f0e4',
+                'default' => '#FFFFFF',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot-content' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-hotspot-content,  {{WRAPPER}} .eead-hotspot .eead-hotspot-content:after' => 'background: {{VALUE}}',
                 ],
             ]
         );
@@ -620,7 +623,7 @@ class Hotspot extends Widget_Base {
                         }
                         ?>
                         <div class="eead-hotspot-item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
-                            <a href="#">
+                            <a href="javascript:void()">
                                 <?php
                                 $this->pulsate_animation();
                                 if ($item['hotspot_type'] == 'icon' && $item['icon']['value']) {
@@ -629,9 +632,11 @@ class Hotspot extends Widget_Base {
                                 } elseif ($item['hotspot_type'] == 'image' && $item['image']['url']) {
                                     echo Group_Control_Image_Size::get_attachment_image_html($item, 'thumb', 'image');
                                 }
-                                $this->get_content($key);
                                 ?>
                             </a>
+                            <?php
+                            $this->get_content($key);
+                            ?>
                         </div>
                         <?php
                     }
