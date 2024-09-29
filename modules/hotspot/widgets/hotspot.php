@@ -158,7 +158,7 @@ class Hotspot extends Widget_Base {
                 'label' => esc_html__('Hotspot Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'icon_target',
+                    'value' => 'eicon-plus',
                     'library' => 'solid',
                 ],
                 'condition' => ['hotspot_type' => 'icon']

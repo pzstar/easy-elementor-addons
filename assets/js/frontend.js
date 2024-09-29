@@ -571,7 +571,7 @@ odometerOptions = {auto: false};
         hotspotBlock: function ($scope) {
             $scope.find('.eead-open-onclick .eead-hotspot-item > a').on('click', function (e) {
                 e.preventDefault();
-                $(this).toggleClass('eead-active');
+                $(this).parent('.eead-hotspot-item').toggleClass('eead-active');
             });
         },
 
@@ -621,6 +621,14 @@ odometerOptions = {auto: false};
 
                     $accordion.removeClass("eead-tab-active");
                     $this.addClass("eead-tab-active");
+                });
+            } else {
+                $scope.find(".eead-image-accordion-on-hover").mouseenter(function () {
+                    $(this).find('.eead-image-accordion-item.eead-tab-active').removeClass('eead-tab-active').addClass('eead-trigger');
+                });
+
+                $scope.find(".eead-image-accordion-on-hover").mouseleave(function () {
+                    $(this).find('.eead-image-accordion-item.eead-trigger').addClass('eead-tab-active').removeClass('eead-trigger');
                 });
             }
         },
@@ -892,7 +900,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        
+
 
 
         popupModal: function ($scope) {

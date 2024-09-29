@@ -202,7 +202,7 @@ class ImageComparison extends Widget_Base {
             [
                 'label' => esc_html__('Show Before/After Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'drag',
+                'default' => 'hover',
                 'options' => [
                     'no' => esc_html__('No', 'easy-elementor-addons'),
                     'yes' => esc_html__('Yes', 'easy-elementor-addons'),

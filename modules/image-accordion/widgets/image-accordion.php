@@ -99,22 +99,19 @@ class ImageAccordion extends Widget_Base {
         );
 
         $repeater->add_control(
-            'image_accordion_enable_title_link',
+            'image_accordion_link_image',
             [
-                'label' => esc_html__('Enable Title Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => 'yes',
+                'default' => '',
             ]
         );
 
         $repeater->add_control(
-            'image_accordion_title_link',
+            'image_accordion_link',
             [
-                'name' => 'image_accordion_title_link',
-                'label' => esc_html__('Title Link', 'easy-elementor-addons'),
+                'name' => 'image_accordion_link',
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => ['active' => true],
                 'label_block' => true,
@@ -124,7 +121,7 @@ class ImageAccordion extends Widget_Base {
                 ],
                 'show_external' => true,
                 'condition' => [
-                    'image_accordion_enable_title_link' => 'yes',
+                    'image_accordion_link_image' => 'yes',
                 ],
             ]
         );
@@ -179,7 +176,7 @@ class ImageAccordion extends Widget_Base {
             [
                 'label' => esc_html__('Open Accordion', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'on_hover',
+                'default' => 'on-hover',
                 'label_block' => false,
                 'options' => [
                     'on-hover' => esc_html__('On Hover', 'easy-elementor-addons'),
@@ -208,6 +205,8 @@ class ImageAccordion extends Widget_Base {
                 'label' => esc_html__('Content Text Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
+                'toggle' => false,
+                'default' => 'center',
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
@@ -239,6 +238,8 @@ class ImageAccordion extends Widget_Base {
                 'label' => esc_html__('Content Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
+                'toggle' => false,
+                'default' => 'center',
                 'options' => [
                     'flex-start' => [
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
@@ -293,11 +294,26 @@ class ImageAccordion extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
+        $this->add_responsive_control(
+            'image_accordion_height',
             [
-                'name' => 'image_accordion_shadow',
-                'selector' => '{{WRAPPER}} .eead-image-accordion',
+                'label' => esc_html__('Height (px)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1000,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 500,
+				],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-image-accordion' => 'height: {{SIZE}}px;'
+                ],
             ]
         );
 
@@ -314,7 +330,7 @@ class ImageAccordion extends Widget_Base {
         );
 
         $this->add_control(
-            'image_accordion_hover_color',
+            'image_accordion_overlay_hover_color',
             [
                 'label' => esc_html__('Hover Overlay Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -326,22 +342,11 @@ class ImageAccordion extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'image_accordion_height',
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
             [
-                'label' => esc_html__('Height (px)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 100,
-                        'max' => 1000,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-image-accordion ' => 'height: {{VALUE}}px;'
-                ],
+                'name' => 'image_accordion_shadow',
+                'selector' => '{{WRAPPER}} .eead-image-accordion',
             ]
         );
 
@@ -437,7 +442,7 @@ class ImageAccordion extends Widget_Base {
         $this->add_control(
             'eead_image_accordion_title_margin',
             [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em'],
                 'range' => [
@@ -486,25 +491,6 @@ class ImageAccordion extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'eead_image_accordion_content_margin',
-            [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-text' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
         $this->end_controls_section();
     }
 
@@ -535,18 +521,18 @@ class ImageAccordion extends Widget_Base {
             <?php foreach ($settings['image_accordions'] as $key => $img_accordion) { ?>
                 <?php
                 $active = '';
-                $tag = $img_accordion['image_accordion_enable_title_link'] == 'yes' ? 'a' : 'div';
-                if ($img_accordion['image_accordion_enable_title_link'] == 'yes') {
-
+                $tag = $img_accordion['image_accordion_link_image'] == 'yes' ? 'a' : 'div';
+                $active = $img_accordion['image_accordion_is_active'];
+                
+                if ($img_accordion['image_accordion_link_image'] == 'yes') {
                     $this->add_render_attribute(
                         'eead-image-accordion-' . $key,
                         [
-                            'href' => esc_url($img_accordion['image_accordion_title_link']['url']),
-                            'target' => $img_accordion['image_accordion_title_link']['is_external'] ? '_blank' : '_self',
-                            'rel' => $img_accordion['image_accordion_title_link']['nofollow'] ? 'nofollow' : '',
+                            'href' => esc_url($img_accordion['image_accordion_link']['url']),
+                            'target' => $img_accordion['image_accordion_link']['is_external'] ? '_blank' : '_self',
+                            'rel' => $img_accordion['image_accordion_link']['nofollow'] ? 'nofollow' : '',
                         ]
                     );
-                    $active = $img_accordion['image_accordion_is_active'];
                 }
 
                 $this->add_render_attribute(
