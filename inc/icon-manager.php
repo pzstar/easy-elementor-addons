@@ -48,16 +48,6 @@ class EEAD_Icon_Manager {
                 'icons' => eead_icofont_icon_array(),
                 'ver' => EEAD_VERSION,
             ),
-            'eead-elegant-icon' => array(
-                'name' => 'eead-elegant-icon',
-                'label' => esc_html__('EEA - Elegant Icons', 'easy-elementor-addons'),
-                'labelIcon' => 'mdi mdi-rhombus',
-                'prefix' => '',
-                'displayPrefix' => '',
-                'url' => EEAD_URL . 'assets/fonts/elegant-icons/elegant-icons.css',
-                'icons' => eead_eleganticons_array(),
-                'ver' => EEAD_VERSION,
-            )
         );
 
         return $icons_args;

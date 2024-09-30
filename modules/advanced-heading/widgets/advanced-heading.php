@@ -573,18 +573,6 @@ class AdvancedHeading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'heading_mainh_split_text',
-			[
-				'label' => esc_html__('Split Text', 'easy-elementor-addons'),
-				'type' => Controls_Manager::HEADING,
-				'condition' => [
-					'split_main_heading' => 'yes',
-					'split_text!' => ''
-				]
-			]
-		);
-
-		$this->add_control(
 			'mainh_split_text_color',
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),

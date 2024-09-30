@@ -465,7 +465,7 @@ class Counter extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-counter-section .eead-counter-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-counter-box .eead-counter-title' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -475,7 +475,7 @@ class Counter extends Widget_Base {
             [
                 'name' => 'counter_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-counter-section .eead-counter-title',
+                'selector' => '{{WRAPPER}} .eead-counter-box .eead-counter-title',
             ]
         );
 

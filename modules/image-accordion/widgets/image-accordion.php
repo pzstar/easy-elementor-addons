@@ -308,9 +308,9 @@ class ImageAccordion extends Widget_Base {
                     ]
                 ],
                 'default' => [
-					'unit' => 'px',
-					'size' => 500,
-				],
+                    'unit' => 'px',
+                    'size' => 500,
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-accordion' => 'height: {{SIZE}}px;'
                 ],
@@ -523,7 +523,7 @@ class ImageAccordion extends Widget_Base {
                 $active = '';
                 $tag = $img_accordion['image_accordion_link_image'] == 'yes' ? 'a' : 'div';
                 $active = $img_accordion['image_accordion_is_active'];
-                
+
                 if ($img_accordion['image_accordion_link_image'] == 'yes') {
                     $this->add_render_attribute(
                         'eead-image-accordion-' . $key,

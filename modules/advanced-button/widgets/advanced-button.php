@@ -370,6 +370,17 @@ class AdvancedButton extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'button_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-ab-button:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [

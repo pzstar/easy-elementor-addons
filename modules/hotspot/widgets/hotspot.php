@@ -628,7 +628,6 @@ class Hotspot extends Widget_Base {
                                 $this->pulsate_animation();
                                 if ($item['hotspot_type'] == 'icon' && $item['icon']['value']) {
                                     Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
-
                                 } elseif ($item['hotspot_type'] == 'image' && $item['image']['url']) {
                                     echo Group_Control_Image_Size::get_attachment_image_html($item, 'thumb', 'image');
                                 }

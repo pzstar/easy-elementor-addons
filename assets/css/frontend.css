@@ -2789,84 +2789,69 @@ Image Accordion
 /*--------------------------------------------------------------
 Icon List
 --------------------------------------------------------------*/
-.eead-list-container .eead-icon-wrapper {
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    line-height: 1;
-    -webkit-transition: all 0.25s linear 0s;
-    transition: all 0.25s linear 0s;
-}
-
-.eead-list-container .eead-icon-list-icon {
-    display: inline-block;
-    text-align: center;
-}
-
-.eead-list-container .eead-list-items {
+.eead-icon-list-container .eead-icon-list-items{
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-.eead-list-container .eead-list-items li {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
+    gap: 15px;
+    flex-direction: column;
 }
 
-.eead-list-container .eead-list-items li:after {
-    bottom: 0;
-    display: block;
-    position: absolute;
-    margin-bottom: -5px;
-}
-
-.eead-list-container .eead-list-items li .eead-icon-list-text {
-    -webkit-transition: color 0.2s ease-in-out;
-    transition: color 0.2s ease-in-out;
-}
-
-.eead-list-container .eead-list-items .fa {
-    text-align: center;
-}
-
-.eead-list-container .eead-list-items a {
-    display: inherit;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.eead-list-items.eead-inline-items {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
+.eead-icon-list-inline .eead-icon-list-container .eead-icon-list-items{
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
-.eead-list-items.eead-inline-items li:not(:last-child) {
-    margin-right: 8px;
+.eead-icon-list-grid .eead-icon-list-items {
+    display: grid;
 }
 
-.eead-icon-right .eead-list-items li {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    text-align: right;
+.eead-icon-list-container .eead-icon-list-items li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    line-height: 1.2;
 }
 
-.eead-icon-right .eead-icon-wrapper {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
+.eead-icon-list-container .eead-icon-list-items li > span, 
+.eead-icon-list-container .eead-icon-list-items li > a{
+    display: inline-flex;
+    gap: 10px;
 }
+.eead-icon-list-container .eead-il-icon img,
+.eead-icon-list-container .eead-il-icon i,
+.eead-icon-list-container .eead-il-icon svg{
+    height: auto;
+    width: 1em;
+    font-size: 1em;
+    display: block;
+}
+
+:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    transform: translateY(-50%);
+}
+
+.eead-icon-list-inline .eead-icon-list-items li:after{
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
 
 
 

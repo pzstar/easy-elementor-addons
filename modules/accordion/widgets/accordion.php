@@ -138,22 +138,9 @@ class Accordion extends Widget_Base {
             [
                 'label' => esc_html__('Open Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon',
                 'default' => [
-                    'value' => 'fas fa-plus',
-                    'library' => 'fa-solid',
-                ],
-                'recommended' => [
-                    'fa-solid' => [
-                        'chevron-down',
-                        'angle-down',
-                        'angle-double-down',
-                        'caret-down',
-                        'caret-square-down',
-                    ],
-                    'fa-regular' => [
-                        'caret-square-down',
-                    ],
+                    'value' => 'mdi-chevron-down',
+                    'library' => 'mdi ',
                 ],
                 'skin' => 'inline',
                 'label_block' => false,
@@ -167,20 +154,8 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'fa4compatibility' => 'icon_active',
                 'default' => [
-                    'value' => 'fas fa-minus',
-                    'library' => 'fa-solid',
-                ],
-                'recommended' => [
-                    'fa-solid' => [
-                        'chevron-up',
-                        'angle-up',
-                        'angle-double-up',
-                        'caret-up',
-                        'caret-square-up',
-                    ],
-                    'fa-regular' => [
-                        'caret-square-up',
-                    ],
+                    'value' => 'mdi-chevron-up',
+                    'library' => 'mdi',
                 ],
                 'skin' => 'inline',
                 'label_block' => false,
@@ -228,13 +203,6 @@ class Accordion extends Widget_Base {
                     '{{WRAPPER}}' => '--eed-accordion-content-height: {{SIZE}}{{UNIT}};',
                 ],
 
-            ]
-        );
-
-        $this->add_control(
-            'hr2',
-            [
-                'type' => \Elementor\Controls_Manager::DIVIDER,
             ]
         );
 

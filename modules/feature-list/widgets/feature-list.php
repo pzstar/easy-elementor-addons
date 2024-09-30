@@ -247,7 +247,7 @@ class FeatureList extends Widget_Base {
                 'default' => 'h4',
                 'separator' => 'before',
             ]
-            );
+        );
 
         $this->add_control(
             'icon_style',

@@ -521,27 +521,27 @@ class HorizontalTab extends Widget_Base {
         );
 
         $this->add_control(
-			'tab_buttons_shape',
-			[
-				'label' => esc_html__('Pre Defined Button Shape', 'easy-elementor-addons'),
+            'tab_buttons_shape',
+            [
+                'label' => esc_html__('Pre Defined Button Shape', 'easy-elementor-addons'),
                 'label_block' => true,
-				'type' => Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => [
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
                     'none' => 'none',
-					'Trapezoid' => esc_html__('Trapezoid', 'easy-elementor-addons'),
+                    'Trapezoid' => esc_html__('Trapezoid', 'easy-elementor-addons'),
                     'Right Angled Trapezoid' => esc_html__('Right Angled Trapezoid', 'easy-elementor-addons'),
                     'Left Angled Trapezoid' => esc_html__('Left Angled Trapezoid', 'easy-elementor-addons'),
-					'Parallelogram' => esc_html__('Parallelogram', 'easy-elementor-addons'),
-					'Bevel' => esc_html__('Bevel', 'easy-elementor-addons'),
+                    'Parallelogram' => esc_html__('Parallelogram', 'easy-elementor-addons'),
+                    'Bevel' => esc_html__('Bevel', 'easy-elementor-addons'),
                     'Rabbet' => esc_html__('Rabbet', 'easy-elementor-addons'),
                     'Left Point' => esc_html__('Left Point', 'easy-elementor-addons'),
                     'Right Point' => esc_html__('Right Point', 'easy-elementor-addons'),
                     'Left Chevron' => esc_html__('Left Chevron', 'easy-elementor-addons'),
                     'Right Chevron' => esc_html__('Right Chevron', 'easy-elementor-addons'),
                     'Message' => esc_html__('Message Box', 'easy-elementor-addons'),
-				],
-				'selectors_dictionary' => [
+                ],
+                'selectors_dictionary' => [
                     'none' => 'none',
                     'Trapezoid' => 'clip-path:polygon(20px 0%, calc(100% - 20px) 0%, 100% 100%, 0% 100%);--eead-horizontal-tab-padding-left-extra: 20px;--eead-horizontal-tab-padding-right-extra: 20px;',
                     'Right Angled Trapezoid' => 'clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0% 100%);--eead-horizontal-tab-padding-right-extra: 20px;',
@@ -558,8 +558,8 @@ class HorizontalTab extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab' => '{{VALUE}};',
                 ],
-			]
-		);
+            ]
+        );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
