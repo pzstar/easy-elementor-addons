@@ -1055,6 +1055,11 @@ Drop Bar
     fill: #FFF;
 }
 
+.elementor-align-justify a.eead-dropbar-button{
+    display: flex;
+    justify-content: center;
+}
+
 
 /*--------------------------------------------------------------
 Dual Button 
@@ -2781,19 +2786,89 @@ Image Accordion
 }
 
 
-@media screen and (max-width: 800px) {
-    .eead-image-accordion {
-        flex-direction: column;
-    }
-
-    .eead-image-accordion .eead-image-accordion-item:hover {
-        flex: 1;
-    }
-
-    .eead-image-accordion .eead-image-accordion-item:hover .overlay {
-        background-color: transparent;
-    }
+/*--------------------------------------------------------------
+Icon List
+--------------------------------------------------------------*/
+.eead-list-container .eead-icon-wrapper {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    line-height: 1;
+    -webkit-transition: all 0.25s linear 0s;
+    transition: all 0.25s linear 0s;
 }
+
+.eead-list-container .eead-icon-list-icon {
+    display: inline-block;
+    text-align: center;
+}
+
+.eead-list-container .eead-list-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.eead-list-container .eead-list-items li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.eead-list-container .eead-list-items li:after {
+    bottom: 0;
+    display: block;
+    position: absolute;
+    margin-bottom: -5px;
+}
+
+.eead-list-container .eead-list-items li .eead-icon-list-text {
+    -webkit-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+.eead-list-container .eead-list-items .fa {
+    text-align: center;
+}
+
+.eead-list-container .eead-list-items a {
+    display: inherit;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.eead-list-items.eead-inline-items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.eead-list-items.eead-inline-items li:not(:last-child) {
+    margin-right: 8px;
+}
+
+.eead-icon-right .eead-list-items li {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.eead-icon-right .eead-icon-wrapper {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+
 
 
 /*--------------------------------------------------------------
@@ -6578,89 +6653,6 @@ q. slider css
 
 
 
-
-
-
-
-/*List Icon Style*/
-.eead-list-container .eead-icon-wrapper {
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    line-height: 1;
-    -webkit-transition: all 0.25s linear 0s;
-    transition: all 0.25s linear 0s;
-}
-
-.eead-list-container .eead-icon-list-icon {
-    display: inline-block;
-    text-align: center;
-}
-
-.eead-list-container .eead-list-items {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.eead-list-container .eead-list-items li {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.eead-list-container .eead-list-items li:after {
-    bottom: 0;
-    display: block;
-    position: absolute;
-    margin-bottom: -5px;
-}
-
-.eead-list-container .eead-list-items li .eead-icon-list-text {
-    -webkit-transition: color 0.2s ease-in-out;
-    transition: color 0.2s ease-in-out;
-}
-
-.eead-list-container .eead-list-items .fa {
-    text-align: center;
-}
-
-.eead-list-container .eead-list-items a {
-    display: inherit;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.eead-list-items.eead-inline-items {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.eead-list-items.eead-inline-items li:not(:last-child) {
-    margin-right: 8px;
-}
-
-.eead-icon-right .eead-list-items li {
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.eead-icon-right .eead-icon-wrapper {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-}
 
 
 

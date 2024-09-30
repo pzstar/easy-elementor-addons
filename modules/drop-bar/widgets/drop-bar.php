@@ -187,6 +187,10 @@ class DropBar extends Widget_Base {
 						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-right',
 					],
+					'justify' => [
+						'title' => esc_html__('Stretch', 'easy-elementor-addons'),
+						'icon' => 'eicon-text-align-justify',
+					],
 				],
 				'prefix_class' => 'elementor%s-align-',
 			]
