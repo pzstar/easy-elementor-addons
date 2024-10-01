@@ -5,7 +5,6 @@ namespace EasyElementorAddons\Modules\IconList\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Control_Media;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Icons_Manager;
@@ -13,6 +12,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -221,27 +221,27 @@ class IconList extends Widget_Base {
         $this->add_responsive_control(
             'list_alignment',
             [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
-                    'left' => [
+                    'flex-start' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-center',
-                    ],
-                    'right' => [
+                    'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
-                'default' => 'left',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-icon-list-items li' => 'text-align: {{VALUE}};'
+                'default' => 'flex-start',
+                'selectors_dictionary' => [
+                    'flex-start' => 'text-align:left; justify-content:flex-start;',
+                    'flex-end' => 'text-align:right; justify-content:flex-end;',
                 ],
-                'condition' => ['list_view' => 'default']
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => '{{VALUE}};'
+                ],
+                'condition' => ['list_view!' => 'inline']
             ]
         );
 
@@ -306,7 +306,23 @@ class IconList extends Widget_Base {
                 'name' => 'item_background',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-icon-list-container .eead-icon-list-items li',
+                'selector' => '{{WRAPPER}} .eead-icon-list-items li .eead-il-block',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'item_border',
+                'selector' => '{{WRAPPER}} .eead-icon-list-items li .eead-il-block',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'item_boxshadow',
+                'selector' => '{{WRAPPER}} .eead-icon-list-items li .eead-il-block',
             ]
         );
 
@@ -317,7 +333,19 @@ class IconList extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-icon-list-container .eead-icon-list-items li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'item_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -443,19 +471,19 @@ class IconList extends Widget_Base {
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'toggle' => false,
-                'default' => 'left',
+                'default' => '0',
                 'options' => [
-                    'row' => [
+                    '0' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
-                    'row-reverse' => [
+                    '2' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'flex-direction:{{VALUE}}'
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block .eead-il-icon' => 'order:{{VALUE}}'
                 ]
             ]
         );
@@ -466,7 +494,7 @@ class IconList extends Widget_Base {
                 'label' => esc_html__('Icon Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
-                'default' => 'middle',
+                'default' => 'center',
                 'options' => [
                     'flex-start' => [
                         'title' => esc_html__('Top', 'easy-elementor-addons'),

@@ -9,7 +9,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Group_Control_Background;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 
@@ -396,6 +395,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'eead-fade-in',
                 'options' => [
                     'eead-none' => esc_html__('None', 'easy-elementor-addons'),
+                    'eead-fade-in' => esc_html__('Fade In', 'easy-elementor-addons'),
                     'eead-slide-left' => esc_html__('Slide Left', 'easy-elementor-addons'),
                     'eead-slide-right' => esc_html__('Slide Right', 'easy-elementor-addons'),
                     'eead-slide-top' => esc_html__('Slide Top', 'easy-elementor-addons'),
@@ -534,12 +534,13 @@ class FilterableGallery extends Widget_Base {
                     ],
                 ],
                 'default' => [
-                    'size' => 30,
+                    'size' => 15,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-list' => 'padding: calc({{SIZE}}px/2);',
                     '{{WRAPPER}} .eead-filter-gallery-container' => 'margin: calc({{SIZE}}px/2 * -1);',
-                ]
+                ],
+                'render_type' => 'template'
             ]
         );
 
@@ -884,7 +885,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'filter_btn_active_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active.eead-fg-active',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active',
                 'separator' => 'before',
             ]
         );
@@ -903,9 +904,6 @@ class FilterableGallery extends Widget_Base {
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' => 'before',
-                'condition' => [
-                    'filter_type' => 'normal',
-                ]
             ]
         );
 
@@ -925,9 +923,6 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
-                'condition' => [
-                    'filter_type' => 'normal',
-                ]
             ]
         );
 
@@ -1177,7 +1172,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_overlay_caption_alignment',
+            'overlay_caption_alignment',
             [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -1204,7 +1199,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_overlay_caption_v_alignment',
+            'overlay_caption_v_alignment',
             [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,

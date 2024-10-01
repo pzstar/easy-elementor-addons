@@ -19,6 +19,7 @@ odometerOptions = {auto: false};
                 'eead-hotspot.default': EEA.hotspotBlock,
                 'eead-image-comparison.default': EEA.imageComparison,
                 'eead-image-accordion.default': EEA.imageAccordion,
+                'eead-image-gallery.default': EEA.imageGallery,
 
 
 
@@ -27,7 +28,6 @@ odometerOptions = {auto: false};
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
-                'eead-image-gallery.default': EEA.imageGallery,
                 'eead-logo-carousel.default': EEA.logoCarousel,
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-one-page-nav.default': EEA.onePageNav,
@@ -630,6 +630,46 @@ odometerOptions = {auto: false};
                 $scope.find(".eead-image-accordion-on-hover").mouseleave(function () {
                     $(this).find('.eead-image-accordion-item.eead-trigger').addClass('eead-tab-active').removeClass('eead-trigger');
                 });
+            }
+        },
+
+        imageGallery: function ($scope, $) {
+            if (elementorFrontend.isEditMode() == false) {
+                var $gallery_container = $scope.find('.eead-image-gallery-container');
+                var $gallery = $scope.find('.eead-ig-wrap');
+                var $settings = $gallery_container.data('settings');
+
+                if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
+                    var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
+
+                    var $isotope_gallery = $gallery.isotope({
+                        itemSelector: '.eead-ig-item-box',
+                        layoutMode: layout,
+                        percentPosition: true,
+                        stagger: 30,
+                        transitionDuration: $settings.duration + "ms",
+                    });
+
+                    $gallery_container.on('click', '.eead-ig-filter', function () {
+                        var $this = $(this),
+                            filterValue = $this.attr('data-filter');
+
+                        $this.siblings().removeClass('eead-ig-active');
+                        $this.addClass('eead-ig-active');
+                        $isotope_gallery.isotope({filter: filterValue});
+                    });
+
+                    $gallery_container.addClass('eead-isotope-initialized');
+
+                    // Init Magnific Popup
+                    $($gallery_container).magnificPopup({
+                        delegate: ".eead-ig-lightbox",
+                        type: "image",
+                        gallery: {
+                            enabled: true
+                        }
+                    });
+                }
             }
         },
 
@@ -1366,53 +1406,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        imageGallery: function ($scope, $) {
-            var $gallery_container = $scope.find('.eead-image-gallery-container').eq(0);
-            var $widget_id = $scope.data('id');
-            var $gallery = $scope.find('.eead-image-gallery-wrapper').eq(0);
-            var $settings = $gallery_container.data('settings');
-            if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
-                var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
-                var $isotope_args = {
-                    itemSelector: '.eead-gallery-item',
-                    layoutMode: layout,
-                    percentPosition: true,
-                },
-                    $isotope_gallery = {};
 
-                $scope.imagesLoaded(function () {
-                    $isotope_gallery = $gallery.isotope($isotope_args);
-                    $gallery.find('.eead-gallery-image').on('load', function () {
-                        if ($(this).hasClass('lazyloaded')) {
-                            return;
-                        }
-                        setTimeout(function () {
-                            $gallery.isotope('layout');
-                        }, 1000);
-                    });
-                });
-
-
-                $scope.on('click', '.eead-gallery-filter', function () {
-                    var $this = $(this),
-                        filterValue = $this.attr('data-filter'),
-                        filter_index = $this.attr('data-gallery-index'),
-                        $gallery_items = $gallery.find(filterValue);
-
-                    $this.siblings().removeClass('eead-active');
-                    $this.addClass('eead-active');
-                    $isotope_gallery.isotope({filter: filterValue});
-                });
-
-                $scope.find('.eead-gallery-lightbox').on('click', function () {
-                    $gallery.lightGallery({
-                        selector: '.eead-gallery-lightbox',
-                        thumbnail: false
-                    });
-                    $gallery.data('lightGallery').destroy(true);
-                });
-            }
-        },
 
 
 
