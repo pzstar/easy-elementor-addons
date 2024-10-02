@@ -93,6 +93,7 @@ class LinkEffect extends Widget_Base {
             'effect',
             [
                 'label' => esc_html__('Animation Effect', 'easy-elementor-addons'),
+                'label_block' => true,
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'effect-1' => esc_html__('Border Slide In', 'easy-elementor-addons'),
@@ -161,6 +162,62 @@ class LinkEffect extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'border_thickness',
+            [
+                'label' => esc_html__('Border Thickness', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 2,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-link-border-thickness:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-14'],
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_padding_alt',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'allowed_dimensions' => 'vertical',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-link-button-padding-alt: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+                'condition' => [
+                    'effect' => ['effect-1', 'effect-2', 'effect-11'],
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-link-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-4', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-14'],
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -210,9 +267,27 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'default' => '#000',
                 'selectors' => [
-                    '{{WRAPPER}} a.eead-link, {{WRAPPER}} .eead-link-effect-10 span, {{WRAPPER}} .eead-link-effect-15:before, {{WRAPPER}} .eead-link-effect-16, {{WRAPPER}} .eead-link-effect-17:before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-link-effect-color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect!' => ['effect-4', 'effect-10'],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'link_color_normal_alt',
+            [
+                'label' => esc_html__('Link Color Alt', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#FFF',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-link-effect-color-alt: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-4', 'effect-10'],
                 ],
             ]
         );
@@ -222,9 +297,12 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'default' => '#2195de',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-link-effect-4 span, {{WRAPPER}} .eead-link-effect-10 span, {{WRAPPER}} .eead-link-effect-19 span, {{WRAPPER}} .eead-link-effect-20 span' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-link-effect-bg-color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-4', 'effect-10'],
                 ],
             ]
         );
@@ -234,13 +312,12 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'default' => '#000',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-link-effect-8:before' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-11' => 'border-top-color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-1:after, {{WRAPPER}} .eead-link-effect-2:after, {{WRAPPER}} .eead-link-effect-6:before, {{WRAPPER}} .eead-link-effect-6:after, {{WRAPPER}} .eead-link-effect-7:before, {{WRAPPER}} .eead-link-effect-7:after, {{WRAPPER}} .eead-link-effect-14:before, {{WRAPPER}} .eead-link-effect-14:after, {{WRAPPER}} .eead-link-effect-18:before, {{WRAPPER}} .eead-link-effect-18:after' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-3:before, {{WRAPPER}} .eead-link-effect-3:after' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-20 span' => 'box-shadow: inset 0 3px {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-link-effect-border-color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-14'],
                 ],
             ]
         );
@@ -259,9 +336,27 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
+                'default' => '#2195de',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-link-effect-color-hover: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect!' => ['effect-4', 'effect-10'],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'link_color_hover_alt',
+            [
+                'label' => esc_html__('Link Color Alt', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} a.eead-link:hover, {{WRAPPER}} .eead-link-effect-10:before, {{WRAPPER}} .eead-link-effect-11:before, {{WRAPPER}} .eead-link-effect-15, {{WRAPPER}} .eead-link-effect-16:before, {{WRAPPER}} .eead-link-effect-20 span:before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-link-effect-color-alt-hover: {{VALUE}};',
+                ],
+                'condition' => [
+                    'effect' => ['effect-4', 'effect-10'],
                 ],
             ]
         );
@@ -273,7 +368,10 @@ class LinkEffect extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-link-effect-4 span:before, {{WRAPPER}} .eead-link-effect-10:before, {{WRAPPER}} .eead-link-effect-19 span:before, {{WRAPPER}} .eead-link-effect-20 span:before' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}}' => '--eead-link-effect-bg-color-hover: {{VALUE}};'
+                ],
+                'condition' => [
+                    'effect' => ['effect-4', 'effect-10'],
                 ],
             ]
         );
@@ -285,11 +383,10 @@ class LinkEffect extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-link-effect-8:after' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-11:before' => 'border-bottom-color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-9:before, {{WRAPPER}} .eead-link-effect-9:after, {{WRAPPER}} .eead-link-effect-14:hover:before, {{WRAPPER}} .eead-link-effect-14:focus:before, {{WRAPPER}} .eead-link-effect-14:hover:after, {{WRAPPER}} .eead-link-effect-14:focus:after, {{WRAPPER}} .eead-link-effect-17:after, {{WRAPPER}} .eead-link-effect-18:hover:before, {{WRAPPER}} .eead-link-effect-18:focus:before, {{WRAPPER}} .eead-link-effect-18:hover:after, {{WRAPPER}} .eead-link-effect-18:focus:after, {{WRAPPER}} .eead-link-effect-21:before, {{WRAPPER}} .eead-link-effect-21:after' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-17' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-link-effect-13:hover:before, {{WRAPPER}} .eead-link-effect-13:focus:before' => 'color: {{VALUE}}; text-shadow: 10px 0 {{VALUE}}, -10px 0 {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-link-effect-border-color-hover: {{VALUE}};'
+                ],
+                'condition' => [
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14'],
                 ],
             ]
         );

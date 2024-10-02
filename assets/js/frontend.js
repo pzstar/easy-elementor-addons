@@ -641,6 +641,7 @@ odometerOptions = {auto: false};
 
                 if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                     var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
+                    var filterValue = $gallery_container.find(".eead-ig-filter-list .eead-ig-filter").first().data("filter");
 
                     var $isotope_gallery = $gallery.isotope({
                         itemSelector: '.eead-ig-item-box',
@@ -648,6 +649,7 @@ odometerOptions = {auto: false};
                         percentPosition: true,
                         stagger: 30,
                         transitionDuration: $settings.duration + "ms",
+                        filter: filterValue
                     });
 
                     $gallery_container.on('click', '.eead-ig-filter', function () {

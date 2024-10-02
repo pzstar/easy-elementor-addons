@@ -10,6 +10,7 @@ use Elementor\Repeater;
 use Elementor\Icons_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Background;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -654,17 +655,15 @@ class ImageGallery extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'overlay_bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0,0,0,0.7)',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
+        $this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'overlay_bg_color',
+				'types' => [ 'classic', 'gradient' ],
+                'exclude' => ['image'],
+				'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption',
+			]
+		);
 
         $this->add_responsive_control(
             'overlay_caption_container_padding',
@@ -1038,8 +1037,9 @@ class ImageGallery extends Widget_Base {
                         if (empty($filter_label)) {
                             $filter_label = esc_html__('Group ', 'easy-elementor-addons') . $index + 1;
                         }
+                        $active_class = empty($settings['filter_all_label']) && $index == 0 ? ' eead-ig-active' : '';
                         ?>
-                        <div class="eead-ig-filter" data-filter=".<?php echo esc_attr(strtolower(str_replace(' ', '-', $filter_label))); ?>">
+                        <div class="eead-ig-filter<?php echo esc_attr($active_class); ?>" data-filter=".<?php echo esc_attr(strtolower(str_replace(' ', '-', $filter_label))); ?>">
                             <?php echo esc_html($filter_label); ?>
                         </div>
                         <?php
@@ -1064,6 +1064,7 @@ class ImageGallery extends Widget_Base {
 
                     if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                         var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
+                        var filterValue = $gallery_container.find(".eead-ig-filter-list .eead-ig-filter").first().data("filter");
 
                         var $isotope_gallery = $gallery.isotope({
                             itemSelector: '.eead-ig-item-box',
@@ -1071,6 +1072,7 @@ class ImageGallery extends Widget_Base {
                             percentPosition: true,
                             stagger: 30,
                             transitionDuration: $settings.duration + "ms",
+                            filter: filterValue
                         });
 
                         $gallery_container.on('click', '.eead-ig-filter', function () {
