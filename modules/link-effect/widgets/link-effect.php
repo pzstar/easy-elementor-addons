@@ -105,7 +105,7 @@ class LinkEffect extends Widget_Base {
                     'effect-7' => esc_html__('Second Border Slides Up', 'easy-elementor-addons'),
                     'effect-8' => esc_html__('Border Translate', 'easy-elementor-addons'),
                     'effect-9' => esc_html__('Second Text and Borders', 'easy-elementor-addons'),
-                    'effect-10' => esc_html__('Duplicate Text Slide Right', 'easy-elementor-addons'),
+                    'effect-10' => esc_html__('Slide Right', 'easy-elementor-addons'),
                     'effect-11' => esc_html__('Text Fill', 'easy-elementor-addons'),
                     'effect-12' => esc_html__('Circle', 'easy-elementor-addons'),
                     'effect-13' => esc_html__('Three Dots', 'easy-elementor-addons'),
@@ -119,6 +119,32 @@ class LinkEffect extends Widget_Base {
                     'effect-21' => esc_html__('Dual Borders Translate', 'easy-elementor-addons'),
                 ],
                 'default' => 'effect-1',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_width',
+            [
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 200,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                ],
+                'size_units' => ['px'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-link-effect-19' => 'width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .eead-link-effect-19 span' => 'transform-origin: 50% 50% calc(-{{SIZE}}{{UNIT}}/2)',
+                ],
+                'condition' => [
+                    'effect' => 'effect-19',
+                ],
             ]
         );
 
@@ -182,7 +208,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-border-thickness:{{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-14'],
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-13', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
                 ],
             ]
         );
@@ -198,7 +224,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-button-padding-alt: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ],
                 'condition' => [
-                    'effect' => ['effect-1', 'effect-2', 'effect-11'],
+                    'effect' => ['effect-1', 'effect-2', 'effect-11', 'effect-13', 'effect-17', 'effect-18', 'effect-21'],
                 ],
             ]
         );
@@ -213,7 +239,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-4', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-14'],
+                    'effect' => ['effect-4', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-10', 'effect-14', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -224,32 +250,6 @@ class LinkEffect extends Widget_Base {
                 'name' => 'typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} a.eead-link',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'divider_title_width',
-            [
-                'label' => esc_html__('Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 200,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 1000,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-link-effect-19' => 'width: {{SIZE}}{{UNIT}}',
-                    '{{WRAPPER}} .eead-link-effect-19 span' => 'transform-origin: 50% 50% calc(-{{SIZE}}{{UNIT}}/2)',
-                ],
-                'condition' => [
-                    'effect' => 'effect-19',
-                ],
             ]
         );
 
@@ -272,7 +272,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-color: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect!' => ['effect-4', 'effect-10'],
+                    'effect!' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -280,14 +280,14 @@ class LinkEffect extends Widget_Base {
         $this->add_control(
             'link_color_normal_alt',
             [
-                'label' => esc_html__('Link Color Alt', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFF',
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-color-alt: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-4', 'effect-10'],
+                    'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -302,7 +302,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-bg-color: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-4', 'effect-10'],
+                    'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -317,7 +317,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-border-color: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-14'],
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
                 ],
             ]
         );
@@ -341,7 +341,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-color-hover: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect!' => ['effect-4', 'effect-10'],
+                    'effect!' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -349,14 +349,14 @@ class LinkEffect extends Widget_Base {
         $this->add_control(
             'link_color_hover_alt',
             [
-                'label' => esc_html__('Link Color Alt', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-color-alt-hover: {{VALUE}};',
                 ],
                 'condition' => [
-                    'effect' => ['effect-4', 'effect-10'],
+                    'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -371,7 +371,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-bg-color-hover: {{VALUE}};'
                 ],
                 'condition' => [
-                    'effect' => ['effect-4', 'effect-10'],
+                    'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
                 ],
             ]
         );
@@ -386,7 +386,7 @@ class LinkEffect extends Widget_Base {
                     '{{WRAPPER}}' => '--eead-link-effect-border-color-hover: {{VALUE}};'
                 ],
                 'condition' => [
-                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14'],
+                    'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
                 ],
             ]
         );

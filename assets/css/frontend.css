@@ -736,6 +736,10 @@ Animated Heading
     opacity: 0;
 }
 
+.eead-ah-heading{
+    margin: 0 !important;
+}
+
 
 /*--------------------------------------------------------------
 Business Hours
@@ -3073,13 +3077,14 @@ Link Effects
     display: inline-block;
     position: relative;
     color: var(--eead-link-effect-color, #111);
+    white-space: nowrap;
 }
 
 .elementor-widget-eead-link-effect .eead-link:hover {
     color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
 }
 
-/* Effect 1 */
+/* Effect 1 : Border Slide In */
 .eead-link-effect-1 {
     padding: var(--eead-link-button-padding-alt, 10px 0);
 }
@@ -3104,7 +3109,7 @@ Link Effects
     background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #111));
 }
 
-/* Effect 2 */
+/* Effect 2 : Border Slide Out */
 .eead-link-effect-2 {
     padding: var(--eead-link-button-padding-alt, 10px 0);
 }
@@ -3129,7 +3134,7 @@ Link Effects
     background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #111))
 }
 
-/* Effect 3 */
+/* Effect 3 : Brackets */
 .eead-link-effect-3:before,
 .eead-link-effect-3:after {
     display: inline-block;
@@ -3157,7 +3162,7 @@ Link Effects
     transform: translateX(0px);
 }
 
-/* Effect 4 */
+/* Effect 4 : 3D Cube */
 .eead-link-effect-4 {
     perspective: 1000px;
 }
@@ -3199,7 +3204,7 @@ Link Effects
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
 }
 
-/* Effect 5 */
+/* Effect 5: duplicate text slide in */
 .eead-link-effect-5 {
     display: inline-block;
     overflow: hidden;
@@ -3225,7 +3230,7 @@ Link Effects
     transform: translateY(-100%);
 }
 
-/* Effect 6 */
+/* Effect 6: Right Angle Slide Down */
 .eead-link-effect-6 {
     padding: var(--eead-link-button-padding, 10px 20px);
 }
@@ -3263,7 +3268,7 @@ Link Effects
     background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
-/* Effect 7: second border slides up */
+/* Effect 7: Second Border Slides Up */
 .eead-link-effect-7 {
     padding: var(--eead-link-button-padding, 10px 0);
     text-shadow: none;
@@ -3298,7 +3303,7 @@ Link Effects
     background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
-/* Effect 8: border slight translate */
+/* Effect 8: Border Translate */
 .eead-link-effect-8 {
     padding: var(--eead-link-button-padding, 10px 20px);
 }
@@ -3333,7 +3338,7 @@ Link Effects
     transform: translateY(0px) translateX(0px);
 }
 
-/* Effect 9: second text and borders */
+/* Effect 9: Second Text and Borders */
 .eead-link-effect-9 {
     display: inline-block;
     padding: var(--eead-link-button-padding, 10px 15px);
@@ -3347,8 +3352,7 @@ Link Effects
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--eead-link-effect-border-color, #2195de);
-    ;
+    background: var(--eead-link-effect-border-color, #000);
     content: '';
     opacity: 0.2;
     transition: opacity 0.3s, height 0.3s;
@@ -3387,6 +3391,7 @@ Link Effects
 .eead-link-effect-9:focus:after {
     opacity: 1;
     transform: translateY(0px);
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
 .eead-link-effect-9:hover span:last-child,
@@ -3395,7 +3400,7 @@ Link Effects
     transform: translateY(0%);
 }
 
-/* Effect 10: reveal, push out */
+/* Effect 10: Slide Right */
 .eead-link-effect-10 {
     display: inline-block;
     overflow: hidden;
@@ -3406,14 +3411,14 @@ Link Effects
     background: var(--eead-link-effect-bg-color, #2195de);
     color: var(--eead-link-effect-color-alt, #FFF);
     padding: var(--eead-link-button-padding, 10px 15px);
+    transform: translateX(0);
     transition: transform 0.3s;
-    transform: translateX(0%);
 }
 
 .eead-link-effect-10:before {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -3421,7 +3426,7 @@ Link Effects
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     padding: var(--eead-link-button-padding, 10px 15px);
-    transition: transform 0.3s;
+    transition: left 0.3s;
 }
 
 .eead-link-effect-10:hover span,
@@ -3431,30 +3436,35 @@ Link Effects
 
 .eead-link-effect-10:hover:before,
 .eead-link-effect-10:focus:before {
-    transform: translateX(0%);
+    left: 0;
     z-index: 1;
 }
 
-/* Effect 11 */
+/* Effect 11: Text Fill */
 .eead-link-effect-11 {
+    overflow: hidden;
+}
+
+.eead-link-effect-11 span {
+    display: inline-block;
     padding: var(--eead-link-button-padding-alt, 10px 0);
     border-top: var(--eead-link-border-thickness, 2px) solid var(--eead-link-effect-border-color, #000);
+    border-bottom: var(--eead-link-border-thickness, 2px) solid transparent;
     color: var(--eead-link-effect-color, #111);
-    overflow: hidden;
 }
 
 .eead-link-effect-11:before {
     position: absolute;
     top: 0;
-    left: 0;
     overflow: hidden;
     padding: var(--eead-link-button-padding-alt, 10px 0);
     width: 100%;
     height: 100%;
+    border-top: var(--eead-link-border-thickness, 2px) solid var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
     border-bottom: var(--eead-link-border-thickness, 2px) solid var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
     color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
     content: attr(data-hover);
-    transition: 0.5s;
+    transition: 0.3s;
     left: -100%;
 }
 
@@ -3465,7 +3475,7 @@ Link Effects
 }
 
 .eead-link-effect-11 span {
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .eead-link-effect-11:hover {
@@ -3477,7 +3487,7 @@ Link Effects
     visibility: hidden;
 }
 
-/* Effect 12: circle */
+/* Effect 12: Circle */
 .eead-link-effect-12:before,
 .eead-link-effect-12:after {
     position: absolute;
@@ -3485,7 +3495,7 @@ Link Effects
     left: 50%;
     width: 100px;
     height: 100px;
-    border: 2px solid var(--eead-link-effect-border-color-hover,var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111)));
+    border: 2px solid var(--eead-link-effect-border-color, #000);
     border-radius: 50%;
     content: '';
     opacity: 0;
@@ -3504,23 +3514,25 @@ Link Effects
 .eead-link-effect-12:hover:after,
 .eead-link-effect-12:focus:before,
 .eead-link-effect-12:focus:after {
-    opacity: 1;
+    opacity: 0.6;
     transform: translateX(-50%) translateY(-50%) scale(1);
+    border-color: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
-/* Effect 13: three circles */
+/* Effect 13: Three Circles */
 .eead-link-effect-13 {
     display: inline-block;
     transition: color 0.3s;
+    padding: var(--eead-link-button-padding-alt, 10px 0);
 }
 
 .eead-link-effect-13:before {
     position: absolute;
-    top: 100%;
+    bottom: 0;
     left: 50%;
     content: '';
-    height: 8px;
-    width: 8px;
+    height: var(--eead-link-border-thickness, 2px);
+    width: var(--eead-link-border-thickness, 2px);
     background: transparent;
     border-radius: 50%;
     transition: box-shadow 0.3s, background 0.3s;
@@ -3531,11 +3543,11 @@ Link Effects
 .eead-link-effect-13:hover:before,
 .eead-link-effect-13:focus:before {
     background: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
-    box-shadow: 12px 0 var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111)), -12px 0 var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
+    box-shadow: calc(var(--eead-link-border-thickness, 2px) * 2) 0 var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111)), calc(-2 * var(--eead-link-border-thickness, 2px)) 0 var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
 }
 
 
-/* Effect 14: border switch */
+/* Effect 14: Border Switch */
 .eead-link-effect-14 {
     display: inline-block;
     padding: var(--eead-link-button-padding, 10px 20px);
@@ -3550,7 +3562,7 @@ Link Effects
     content: '';
     transition: all 0.3s;
     pointer-events: none;
-    
+
 }
 
 .eead-link-effect-14:before {
@@ -3562,7 +3574,7 @@ Link Effects
 .eead-link-effect-14:after {
     right: 0;
     bottom: 0;
-    transform-origin: 100% 100%;
+    transform-origin: 50% 100%;
 }
 
 .eead-link-effect-14:hover:before,
@@ -3575,26 +3587,24 @@ Link Effects
 
 .eead-link-effect-14:hover:before,
 .eead-link-effect-14:focus:before {
-    left: 10%;
-    transform: rotate(-90deg) translateX(-50%);
+    left: 50%;
+    transform: rotate(90deg) translateX(-50%) translateY(-50%)
 }
 
 .eead-link-effect-14:hover:after,
 .eead-link-effect-14:focus:after {
-    right: 10%;
-    transform: rotate(-90deg) translateX(-50%);
+    right: 50%;
+    transform: rotate(90deg) translateX(50%) translateY(50%);
 }
 
-/* Effect 15: scale down, reveal */
+/* Effect 15: Scale Down, Reveal */
 .eead-link-effect-15 {
     display: inline-block;
-    color: rgba(0, 0, 0, 0.2);
-    font-weight: 700;
-    text-shadow: none;
+    color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
 }
 
 .eead-link-effect-15:before {
-    color: #fff;
+    color: var(--eead-link-effect-color, #111);
     content: attr(data-hover);
     position: absolute;
     transition: transform 0.3s, opacity 0.3s;
@@ -3606,19 +3616,17 @@ Link Effects
     opacity: 0;
 }
 
-/* Effect 16: fall down */
+/* Effect 16: Fall Down */
 .eead-link-effect-16 {
     display: inline-block;
-    color: #6f8686;
-    text-shadow: 0 0 1px rgba(111, 134, 134, 0.3);
+    color: var(--eead-link-effect-color, #111) !important;
 }
 
 .eead-link-effect-16:before {
-    color: #fff;
+    color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
     content: attr(data-hover);
     position: absolute;
     opacity: 0;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
     transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
     transition: transform 0.3s, opacity 0.3s;
     pointer-events: none;
@@ -3630,17 +3638,15 @@ Link Effects
     opacity: 1;
 }
 
-/* Effect 17: move up fade out, push border */
+/* Effect 17: Move Up Fade Out, Push Border */
 .eead-link-effect-17 {
     display: inline-block;
-    color: #10649b;
-    text-shadow: none;
-    padding: 10px 0;
+    color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
+    padding: var(--eead-link-button-padding-alt, 10px 0);
 }
 
 .eead-link-effect-17:before {
-    color: #fff;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    color: var(--eead-link-effect-color, #111) !important;
     content: attr(data-hover);
     position: absolute;
     transition: transform 0.3s, opacity 0.3s;
@@ -3653,8 +3659,8 @@ Link Effects
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
-    background: #fff;
+    height: var(--eead-link-border-thickness, 2px);
+    background: var(--eead-link-effect-border-color, #000);
     opacity: 0;
     transform: translateY(5px);
     transition: transform 0.3s, opacity 0.3s;
@@ -3664,23 +3670,23 @@ Link Effects
 .eead-link-effect-17:hover:before,
 .eead-link-effect-17:focus:before {
     opacity: 0;
-    transform: translateY(-2px);
+    transform: translateY(5px);
 }
 
 .eead-link-effect-17:hover:after,
 .eead-link-effect-17:focus:after {
     opacity: 1;
     transform: translateY(0px);
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
-/* Effect 18: cross */
+/* Effect 18: Cross */
 .eead-link-effect-18 {
     display: inline-block;
     position: relative;
     z-index: 1;
-    padding: 0 5px;
-    color: #000;
-    font-weight: 700;
+    padding: var(--eead-link-button-padding-alt, 10px 0);
+    color: var(--eead-link-effect-color, #111);
     transition: color 0.3s;
 }
 
@@ -3689,27 +3695,26 @@ Link Effects
     position: absolute;
     width: 100%;
     left: 0;
-    top: 50%;
-    height: 2px;
-    margin-top: -1px;
-    background: #000;
+    height: var(--eead-link-border-thickness, 2px);
+    background: var(--eead-link-effect-border-color, #000);
     content: '';
     z-index: -1;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s, top 0.3s, bottom 0.3s;
     pointer-events: none;
+    transform-origin: 50% 50%;
 }
 
 .eead-link-effect-18:before {
-    transform: translateY(-20px);
+    top: 0;
 }
 
 .eead-link-effect-18:after {
-    transform: translateY(20px);
+    bottom: 0;
 }
 
 .eead-link-effect-18:hover,
 .eead-link-effect-18:focus {
-    color: #000;
+    color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
 }
 
 .eead-link-effect-18:hover:before,
@@ -3717,32 +3722,35 @@ Link Effects
 .eead-link-effect-18:focus:before,
 .eead-link-effect-18:focus:after {
     opacity: 0.7;
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
 .eead-link-effect-18:hover:before,
 .eead-link-effect-18:focus:before {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateY(-50%);
+    top: 50%;
 }
 
 .eead-link-effect-18:hover:after,
 .eead-link-effect-18:focus:after {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translateY(50%);
+    bottom: 50%;
 }
 
-/* Effect 19: 3D side */
+/* Effect 19: 3D Cube */
 .eead-link-effect-19 {
     display: inline-block;
-    line-height: 2em;
     perspective: 800px;
-    width: 200px;
+    text-align: center;
 }
 
 .eead-link-effect-19 span {
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 0 14px;
-    background: #e35041;
+    padding: var(--eead-link-button-padding, 10px 20px);
+    background: var(--eead-link-effect-bg-color, #2195de);
+    color: var(--eead-link-effect-color-alt, #FFF);
     transition: transform 0.4s, background 0.4s;
     transform-style: preserve-3d;
     transform-origin: 50% 50% -100px;
@@ -3754,7 +3762,9 @@ Link Effects
     left: 100%;
     width: 100%;
     height: 100%;
-    background: #b53a2d;
+    padding: var(--eead-link-button-padding, 10px 20px);
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     transition: background 0.4s;
     transform: rotateY(90deg);
@@ -3764,19 +3774,12 @@ Link Effects
 
 .eead-link-effect-19:hover span,
 .eead-link-effect-19:focus span {
-    background: #b53a2d;
     transform: rotateY(-90deg);
 }
 
-.eead-link-effect-19:hover span:before,
-.eead-link-effect-19:focus span:before {
-    background: #ef5e50;
-}
-
-/* Effect 20: 3D side */
+/* Effect 20: Flip Unfold */
 .eead-link-effect-20 {
     display: inline-block;
-    line-height: 2em;
     perspective: 800px;
 }
 
@@ -3784,9 +3787,9 @@ Link Effects
     position: relative;
     display: inline-block;
     text-align: center;
-    padding: 3px 15px 0;
-    background: #587285;
-    box-shadow: inset 0 3px #2f4351;
+    padding: var(--eead-link-button-padding, 10px 20px);
+    background: var(--eead-link-effect-bg-color, #2195de);
+    color: var(--eead-link-effect-color-alt, #FFF);
     transition: background 0.6s;
     transform-origin: 50% 0;
     transform-style: preserve-3d;
@@ -3799,8 +3802,9 @@ Link Effects
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
-    color: #2f4351;
+    padding: var(--eead-link-button-padding, 10px 20px);
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     transform: rotateX(270deg);
     transition: transform 0.6s;
@@ -3808,23 +3812,16 @@ Link Effects
     pointer-events: none;
 }
 
-.eead-link-effect-20:hover span,
-.eead-link-effect-20:focus span {
-    background: #2f4351;
-}
-
 .eead-link-effect-20:hover span::before,
 .eead-link-effect-20:focus span::before {
-    transform: rotateX(10deg);
+    transform: rotateX(0deg);
 }
 
-/* Effect 21: borders slight translate */
+/* Effect 21: Dual Border Translate */
 .eead-link-effect-21 {
     display: inline-block;
-    padding: 10px;
-    color: #237546;
-    font-weight: 700;
-    text-shadow: none;
+    padding: var(--eead-link-button-padding-alt, 10px 20px);
+    color: var(--eead-link-effect-color, #111);
     transition: color 0.3s;
 }
 
@@ -3833,12 +3830,11 @@ Link Effects
     position: absolute;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: #fff;
+    height: var(--eead-link-border-thickness, 2px);
+    background: var(--eead-link-effect-border-color, #000);
     content: '';
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
-    transform: translateY(-10px);
 }
 
 .eead-link-effect-21:before {
@@ -3853,7 +3849,7 @@ Link Effects
 
 .eead-link-effect-21:hover,
 .eead-link-effect-21:focus {
-    color: #fff;
+    color: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
 }
 
 .eead-link-effect-21:hover:before,
@@ -3862,8 +3858,26 @@ Link Effects
 .eead-link-effect-21:focus:after {
     opacity: 1;
     transform: translateY(0px);
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #000));
 }
 
+
+/*--------------------------------------------------------------
+Pie Chart
+--------------------------------------------------------------*/
+.eead-pie-chart-container,
+.eead-bar-chart-container {
+    position: relative;
+    height: 400px;
+    max-width: 100%;
+}
+
+.eead-pie-chart-title-container .eead-pie-chart-title {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
 
 /*--------------------------------------------------------------
@@ -8264,20 +8278,6 @@ q. slider css
     right: 0;
 }
 
-/*Pie Chart*/
-.eead-pie-chart-container,
-.eead-bar-chart-container {
-    position: relative;
-    height: 400px;
-    max-width: 100%;
-}
-
-.eead-pie-chart-title-container .eead-pie-chart-title {
-    display: block;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 
 /* Popup Modal Micromodal */
 .eead-popup-modal-overlay.modal__overlay {

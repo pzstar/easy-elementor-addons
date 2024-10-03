@@ -20,6 +20,7 @@ odometerOptions = {auto: false};
                 'eead-image-comparison.default': EEA.imageComparison,
                 'eead-image-accordion.default': EEA.imageAccordion,
                 'eead-image-gallery.default': EEA.imageGallery,
+                'eead-pie-chart.default': EEA.pieChart,
 
 
 
@@ -35,7 +36,6 @@ odometerOptions = {auto: false};
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-popup-modal.default': EEA.popupModal,
                 'eead-progressbar.default': EEA.progressBar,
-                'eead-pie-chart.default': EEA.pieChart,
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-switcher.default': EEA.switcherBlock,
@@ -675,6 +675,27 @@ odometerOptions = {auto: false};
             }
         },
 
+        pieChart: function ($scope) {
+            var $container = $scope.find('.eead-pie-chart-container'),
+                $canvas = $scope.find('.eead-pie-chart')[0],
+                data = $container.data('chart') || {},
+                options = $container.data('options') || {};
+            var chartInstance = new Chart($canvas, {
+                type: 'pie',
+                data: data,
+                options: {
+                    cutout: options.cutoutPercentage,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: options.tooltips,
+                        legend: options.legend
+                    },
+                    animation: options.animation
+                }
+            });
+
+        },
+
 
 
 
@@ -1055,26 +1076,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        pieChart: function ($scope) {
-            var $container = $scope.find('.eead-pie-chart-container'),
-                $canvas = $scope.find('.eead-pie-chart')[0],
-                data = $container.data('chart') || {},
-                options = $container.data('options') || {};
-            var chartInstance = new Chart($canvas, {
-                type: 'pie',
-                data: data,
-                options: {
-                    cutout: options.cutoutPercentage,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        tooltip: options.tooltips,
-                        legend: options.legend
-                    },
-                    animation: options.animation
-                }
-            });
-
-        },
+        
 
         teamMemberCarouselBlock: function ($scope, $) {
             var $carousel = $scope.find('.eead-swiper-slider').eq(0),

@@ -608,10 +608,12 @@ class PieChart extends Widget_Base {
 
 		<div class="elementor-eead-pie-chart eead-elements">
 			<?php $this->render_chart_title('before'); ?>
+
 			<div class="eead-pie-chart-container" data-chart="<?php echo esc_attr(json_encode($data_chart)); ?>" data-options="<?php echo esc_attr(json_encode($data_options)); ?>">
 				<canvas class="eead-pie-chart" role="img" aria-label="<?php echo !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : '' ?>">
 				</canvas>
 			</div>
+			
 			<?php $this->render_chart_title('after'); ?>
 		</div>
 
