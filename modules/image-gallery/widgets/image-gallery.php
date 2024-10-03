@@ -1010,7 +1010,7 @@ class ImageGallery extends Widget_Base {
             foreach ($item['image_group'] as $key => $image) {
                 $gallery[$i]['id'] = $image['id'];
                 $gallery[$i]['url'] = $image['url'];
-                $gallery[$i]['filter_label'] = !empty($item['filter_label']) ? $item['filter_label'] : 'Group-' . $key + 1;
+                $gallery[$i]['filter_label'] = !empty($item['filter_label']) ? $item['filter_label'] : 'Group-' . ($key + 1);
                 $i++;
             }
         }
@@ -1035,7 +1035,7 @@ class ImageGallery extends Widget_Base {
                     foreach ($gallery as $index => $item) {
                         $filter_label = $item['filter_label'];
                         if (empty($filter_label)) {
-                            $filter_label = esc_html__('Group ', 'easy-elementor-addons') . $index + 1;
+                            $filter_label = esc_html__('Group ', 'easy-elementor-addons') . ($index + 1);
                         }
                         $active_class = empty($settings['filter_all_label']) && $index == 0 ? ' eead-ig-active' : '';
                         ?>

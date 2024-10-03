@@ -3085,7 +3085,7 @@ Link Effects
 }
 
 .eead-link-effect-1:after {
-    background: var(--eead-link-effect-color, #111);
+    background: var(--eead-link-effect-border-color, #111);
     position: absolute;
     bottom: 0;
     content: '';
@@ -3101,7 +3101,7 @@ Link Effects
     height: var(--eead-link-border-thickness, 4px);
     opacity: 1;
     transform: translateY(0);
-    background: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #111));
 }
 
 /* Effect 2 */
@@ -3110,7 +3110,7 @@ Link Effects
 }
 
 .eead-link-effect-2:after {
-    background: var(--eead-link-effect-color, #111);
+    background: var(--eead-link-effect-border-color, #111);
     position: absolute;
     bottom: 0;
     content: '';
@@ -3126,7 +3126,7 @@ Link Effects
     height: var(--eead-link-border-thickness, 4px);
     opacity: 1;
     transform: translateY(0);
-    background: var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111))
+    background: var(--eead-link-effect-border-color-hover, var(--eead-link-effect-border-color, #111))
 }
 
 /* Effect 3 */
@@ -3485,7 +3485,7 @@ Link Effects
     left: 50%;
     width: 100px;
     height: 100px;
-    border: 2px solid var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111));
+    border: 2px solid var(--eead-link-effect-border-color-hover,var(--eead-link-effect-color-hover, var(--eead-link-effect-color, #111)));
     border-radius: 50%;
     content: '';
     opacity: 0;
