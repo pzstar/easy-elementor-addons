@@ -97,19 +97,19 @@ class AdvancedButton extends Widget_Base {
         $this->add_control(
             'button_animation',
             [
-                'label' => esc_html__('Animation', 'easy-elementor-addons'),
+                'label' => esc_html__('Background Animation (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'b',
                 'options' => [
-                    'a' => esc_html__('Animation A', 'easy-elementor-addons'),
-                    'b' => esc_html__('Animation B', 'easy-elementor-addons'),
-                    'c' => esc_html__('Animation C', 'easy-elementor-addons'),
-                    'd' => esc_html__('Animation D', 'easy-elementor-addons'),
-                    'e' => esc_html__('Animation E', 'easy-elementor-addons'),
-                    'f' => esc_html__('Animation F', 'easy-elementor-addons'),
-                    'g' => esc_html__('Animation G', 'easy-elementor-addons'),
-                    'h' => esc_html__('Animation H', 'easy-elementor-addons'),
-                    'i' => esc_html__('Animation I', 'easy-elementor-addons'),
+                    'a' => esc_html__('Fade In', 'easy-elementor-addons'),
+                    'b' => esc_html__('Slide Down', 'easy-elementor-addons'),
+                    'c' => esc_html__('Slide Right', 'easy-elementor-addons'),
+                    'd' => esc_html__('Horizontal Center In', 'easy-elementor-addons'),
+                    'e' => esc_html__('Center In Skew', 'easy-elementor-addons'),
+                    'f' => esc_html__('Vertical Center In', 'easy-elementor-addons'),
+                    'g' => esc_html__('Move Text', 'easy-elementor-addons'),
+                    'h' => esc_html__('Inclined Slide Down', 'easy-elementor-addons'),
+                    'i' => esc_html__('Horizontal Center Out', 'easy-elementor-addons'),
                 ],
                 'prefix_class' => 'eead-ab-button-effect-'
             ]

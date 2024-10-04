@@ -50,7 +50,6 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Label', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => array('active' => true),
 			]
 		);
 
@@ -59,15 +58,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Value', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
-				'min' => 0,
-				'dynamic' => version_compare(ELEMENTOR_VERSION, '2.7.0', '>=') ?
-					array(
-						'active' => true,
-						'categories' => array(
-							TagsModule::POST_META_CATEGORY,
-							TagsModule::NUMBER_CATEGORY,
-						),
-					) : array(),
+				'min' => 0
 			]
 		);
 
@@ -111,7 +102,6 @@ class PieChart extends Widget_Base {
 				'label' => esc_html__('Chart Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
 				'default' => esc_html__('Pie Chart', 'easy-elementor-addons'),
-				'dynamic' => array('active' => true),
 				'separator' => 'before',
 			]
 		);
@@ -153,6 +143,7 @@ class PieChart extends Widget_Base {
 			'chart_legend_display',
 			[
 				'label' => esc_html__('Enable', 'easy-elementor-addons'),
+				'description' => esc_html__('Shows which color corresponds to which label or data', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'true',
 				'return_value' => 'true',
@@ -171,6 +162,7 @@ class PieChart extends Widget_Base {
 					'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
 					'right' => esc_html__('Right', 'easy-elementor-addons'),
 				),
+				'condition' => ['chart_legend_display' => 'true']
 			]
 		);
 
@@ -182,6 +174,7 @@ class PieChart extends Widget_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
 				'return_value' => 'true',
+				'condition' => ['chart_legend_display' => 'true']
 			]
 		);
 
@@ -209,42 +202,9 @@ class PieChart extends Widget_Base {
 				),
 				'default' => array(
 					'unit' => 'ms',
+					'size' => 1000
 				),
 			]
-		);
-
-		$animation_easing = array(
-			'linear',
-			'easeInQuad',
-			'easeOutQuad',
-			'easeInOutQuad',
-			'easeInCubic',
-			'easeOutCubic',
-			'easeInOutCubic',
-			'easeInQuart',
-			'easeOutQuart',
-			'easeInOutQuart',
-			'easeInQuint',
-			'easeOutQuint',
-			'easeInOutQuint',
-			'easeInSine',
-			'easeOutSine',
-			'easeInOutSine',
-			'easeInExpo',
-			'easeOutExpo',
-			'easeInOutExpo',
-			'easeInCirc',
-			'easeOutCirc',
-			'easeInOutCirc',
-			'easeInElastic',
-			'easeOutElastic',
-			'easeInOutElastic',
-			'easeInBack',
-			'easeOutBack',
-			'easeInOutBack',
-			'easeInBounce',
-			'easeOutBounce',
-			'easeInOutBounce',
 		);
 
 		$this->add_control(
@@ -252,8 +212,40 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Easing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'easeOutQuart',
-				'options' => array_combine($animation_easing, $animation_easing)
+				'default' => 'easeInQuad',
+				'options' => [
+					'linear' => 'linear',
+					'easeInQuad' => 'easeInQuad',
+					'easeOutQuad' => 'easeOutQuad',
+					'easeInOutQuad' => 'easeInOutQuad',
+					'easeInCubic' => 'easeInCubic',
+					'easeOutCubic' => 'easeOutCubic',
+					'easeInOutCubic' => 'easeInOutCubic',
+					'easeInQuart' => 'easeInQuart',
+					'easeOutQuart' => 'easeOutQuart',
+					'easeInOutQuart' => 'easeInOutQuart',
+					'easeInQuint' => 'easeInQuint',
+					'easeOutQuint' => 'easeOutQuint',
+					'easeInOutQuint' => 'easeInOutQuint',
+					'easeInSine' => 'easeInSine',
+					'easeOutSine' => 'easeOutSine',
+					'easeInOutSine' => 'easeInOutSine',
+					'easeInExpo' => 'easeInExpo',
+					'easeOutExpo' => 'easeOutExpo',
+					'easeInOutExpo' => 'easeInOutExpo',
+					'easeInCirc' => 'easeInCirc',
+					'easeOutCirc' => 'easeOutCirc',
+					'easeInOutCirc' => 'easeInOutCirc',
+					'easeInElastic' => 'easeInElastic',
+					'easeOutElastic' => 'easeOutElastic',
+					'easeInOutElastic' => 'easeInOutElastic',
+					'easeInBack' => 'easeInBack',
+					'easeOutBack' => 'easeOutBack',
+					'easeInOutBack' => 'easeInOutBack',
+					'easeInBounce' => 'easeInBounce',
+					'easeOutBounce' => 'easeOutBounce',
+					'easeInOutBounce' => 'easeInOutBounce',
+				]
 			]
 		);
 
@@ -396,18 +388,6 @@ class PieChart extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'chart_title_padding',
-			[
-				'label' => esc_html__('Padding', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => array('px', '%'),
-				'selectors' => array(
-					'{{WRAPPER}} .eead-pie-chart-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
@@ -444,13 +424,28 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
+			'chart_legend_padding',
+			[
+				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => array(
+					'px' => array(
+						'min' => 1,
+						'max' => 50,
+					),
+				),
+			]
+		);
+
+		/*
+			$this->add_control(
 			'chart_legend_font_family',
 			[
 				'label' => esc_html__('Font Family', 'easy-elementor-addons'),
 				'type' => Controls_Manager::FONT,
-				'default' => '',
 			]
-		);
+			);
+		*/
 
 		$this->add_control(
 			'chart_legend_font_size',
@@ -472,7 +467,12 @@ class PieChart extends Widget_Base {
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
-				'options' => $this->typo_weight_options(),
+				'options' => [
+					'' => esc_html__('Default', 'easy-elementor-addons'),
+					'300' => esc_html__('Thin', 'easy-elementor-addons'),
+					'normal' => esc_html__('Normal', 'easy-elementor-addons'),
+					'bold' => esc_html__('Bold', 'easy-elementor-addons')
+				]
 			]
 		);
 
@@ -504,7 +504,7 @@ class PieChart extends Widget_Base {
 		$this->start_controls_section(
 			'section_chart_tooltips_style',
 			[
-				'label' => esc_html__('Tooltips', 'easy-elementor-addons'),
+				'label' => esc_html__('Tool Tip', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'chart_tooltip_enabled' => 'true',
@@ -521,6 +521,15 @@ class PieChart extends Widget_Base {
 		);
 
 		$this->add_control(
+			'chart_tooltip_font_color',
+			[
+				'label' => esc_html__('Font Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+			]
+		);
+
+		/*
+		$this->add_control(
 			'chart_tooltip_font_family',
 			[
 				'label' => esc_html__('Font Family', 'easy-elementor-addons'),
@@ -528,6 +537,7 @@ class PieChart extends Widget_Base {
 				'default' => '',
 			]
 		);
+		*/
 
 		$this->add_control(
 			'chart_tooltip_font_size',
@@ -549,7 +559,11 @@ class PieChart extends Widget_Base {
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
-				'options' => $this->typo_weight_options(),
+				'options' => [
+					'' => esc_html__('Default', 'easy-elementor-addons'),
+					'normal' => esc_html__('Normal', 'easy-elementor-addons'),
+					'bold' => esc_html__('Bold', 'easy-elementor-addons')
+				]
 			]
 		);
 
@@ -565,14 +579,6 @@ class PieChart extends Widget_Base {
 					'italic' => esc_attr_x('Italic', 'Typography Control', 'easy-elementor-addons'),
 					'oblique' => esc_attr_x('Oblique', 'Typography Control', 'easy-elementor-addons'),
 				),
-			]
-		);
-
-		$this->add_control(
-			'chart_tooltip_font_color',
-			[
-				'label' => esc_html__('Font Color', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
 			]
 		);
 
@@ -601,7 +607,6 @@ class PieChart extends Widget_Base {
 
 		$this->add_render_attribute('canvas', [
 			'class' => 'eead-pie-chart',
-			'role' => 'img',
 			'aria-label' => !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : ''
 		]);
 		?>
@@ -610,10 +615,9 @@ class PieChart extends Widget_Base {
 			<?php $this->render_chart_title('before'); ?>
 
 			<div class="eead-pie-chart-container" data-chart="<?php echo esc_attr(json_encode($data_chart)); ?>" data-options="<?php echo esc_attr(json_encode($data_options)); ?>">
-				<canvas class="eead-pie-chart" role="img" aria-label="<?php echo !empty($settings['chart_title']) ? esc_attr($settings['chart_title']) : '' ?>">
-				</canvas>
+				<canvas <?php $this->print_render_attribute_string('canvas'); ?>></canvas>
 			</div>
-			
+
 			<?php $this->render_chart_title('after'); ?>
 		</div>
 
@@ -642,7 +646,6 @@ class PieChart extends Widget_Base {
 
 		$data['datasets'][0]['borderWidth'] = isset($settings['chart_border_width']['size']) && !empty($settings['chart_border_width']['size']) ? $settings['chart_border_width']['size'] : 1;
 		$data['datasets'][0]['borderColor'] = !empty($settings['chart_border_color']) ? $settings['chart_border_color'] : '#ffffff';
-		$data['datasets'][0]['hoverBorderColor'] = !empty($settings['chart_border_color']) ? $settings['chart_border_color'] : '#ffffff';
 
 		return $data;
 	}
@@ -678,29 +681,30 @@ class PieChart extends Widget_Base {
 
 		$legend_style_dictionary = [
 			'boxWidth' => 'chart_legend_box_width',
-			'fontFamily' => 'chart_legend_font_family',
-			'fontSize' => 'chart_legend_font_size',
-			'fontStyle' => ['chart_legend_font_style', 'chart_legend_font_weight'],
-			'fontColor' => 'chart_legend_font_color',
+			'color' => 'chart_legend_font_color',
+			//'family' => 'chart_legend_font_family',
+			'size' => 'chart_legend_font_size',
+			'style' => 'chart_legend_font_style',
+			'weight' => 'chart_legend_font_weight',
+			'padding' => 'chart_legend_padding',
 		];
 
 		if ($legend_display) {
-
 			foreach ($legend_style_dictionary as $style_property => $setting_name) {
-
-				if (is_array($setting_name)) {
-					$style_value = $this->get_chart_font_style_string($setting_name);
-					if (!empty($style_value)) {
-						$legend_style[$style_property] = $style_value;
-					}
-				} else {
-					if (!empty($settings[$setting_name])) {
-						if (is_array($settings[$setting_name])) {
-							if (!empty($settings[$setting_name]['size'])) {
+				if (!empty($settings[$setting_name])) {
+					if (is_array($settings[$setting_name])) {
+						if (!empty($settings[$setting_name]['size'])) {
+							if (in_array($style_property, ['color', 'boxWidth', 'padding'])) {
 								$legend_style[$style_property] = $settings[$setting_name]['size'];
+							} else {
+								$legend_style['font'][$style_property] = $settings[$setting_name]['size'];
 							}
-						} else {
+						}
+					} else {
+						if (in_array($style_property, ['color', 'boxWidth', 'padding'])) {
 							$legend_style[$style_property] = $settings[$setting_name];
+						} else {
+							$legend_style['font'][$style_property] = $settings[$setting_name];
 						}
 					}
 				}
@@ -711,77 +715,29 @@ class PieChart extends Widget_Base {
 			}
 		}
 
-		$tooltip_style_dictionary = [
-			'backgroundColor' => 'chart_tooltip_bg_color',
-			'bodyFontFamily' => 'chart_tooltip_font_family',
-			'bodyFontSize' => 'chart_tooltip_font_size',
-			'bodyFontStyle' => ['chart_tooltip_font_style', 'chart_tooltip_font_weight'],
-			'bodyFontColor' => 'chart_tooltip_font_color',
-		];
 
 		if ($tooltips_enabled) {
+			if (isset($settings['chart_tooltip_bg_color']) && !empty($settings['chart_tooltip_bg_color'])) {
+				$options['tooltips']['backgroundColor'] = $settings['chart_tooltip_bg_color'];
+			}
 
-			foreach ($tooltip_style_dictionary as $style_property => $setting_name) {
+			if (isset($settings['chart_tooltip_font_color']) && !empty($settings['chart_tooltip_font_color'])) {
+				$options['tooltips']['titleColor'] = $options['tooltips']['bodyColor'] = $settings['chart_tooltip_font_color'];
+			}
 
-				if (is_array($setting_name)) {
-					$style_value = $this->get_chart_font_style_string($setting_name);
+			if (isset($settings['chart_tooltip_font_size']) && !empty($settings['chart_tooltip_font_size'])) {
+				$options['tooltips']['titleFont']['size'] = $options['tooltips']['bodyFont']['size'] = $settings['chart_tooltip_font_size']['size'];
+			}
 
-					if (!empty($style_value)) {
-						$options['tooltips'][$style_property] = $style_value;
-					}
+			if (isset($settings['chart_tooltip_font_weight']) && !empty($settings['chart_tooltip_font_weight'])) {
+				$options['tooltips']['titleFont']['weight'] = $options['tooltips']['bodyFont']['weight'] = $settings['chart_tooltip_font_weight'];
+			}
 
-				} else {
-					if (!empty($settings[$setting_name])) {
-						if (is_array($settings[$setting_name])) {
-							if (!empty($settings[$setting_name]['size'])) {
-								$options['tooltips'][$style_property] = $settings[$setting_name]['size'];
-							}
-
-						} else {
-							$options['tooltips'][$style_property] = $settings[$setting_name];
-						}
-					}
-				}
+			if (isset($settings['chart_tooltip_font_style']) && !empty($settings['chart_tooltip_font_style'])) {
+				$options['tooltips']['titleFont']['style'] = $options['tooltips']['bodyFont']['style'] = $settings['chart_tooltip_font_style'];
 			}
 		}
 
 		return $options;
-	}
-
-	public function get_chart_font_style_string($settings_names = array()) {
-		if (!is_array($settings_names)) {
-			return '';
-		}
-
-		$settings = $this->get_settings_for_display();
-		$font_styles = array();
-
-		foreach ($settings_names as $setting_name) {
-			if (!empty($settings[$setting_name])) {
-				$font_styles[] = $settings[$setting_name];
-			}
-		}
-
-		if (empty($font_styles)) {
-			return '';
-		}
-
-		$font_styles = array_unique($font_styles);
-		return join(' ', $font_styles);
-	}
-
-
-	protected function typo_weight_options() {
-		$typo_weight_options = array(
-			'' => esc_html__('Default', 'easy-elementor-addons'),
-		);
-
-		$weight_options = array_merge(['normal', 'bold'], range(100, 900, 100));
-
-		foreach ($weight_options as $weight) {
-			$typo_weight_options[$weight] = ucfirst($weight);
-		}
-
-		return $typo_weight_options;
 	}
 }

@@ -21,6 +21,7 @@ odometerOptions = {auto: false};
                 'eead-image-accordion.default': EEA.imageAccordion,
                 'eead-image-gallery.default': EEA.imageGallery,
                 'eead-pie-chart.default': EEA.pieChart,
+                'eead-one-page-nav.default': EEA.onePageNav,
 
 
 
@@ -31,7 +32,7 @@ odometerOptions = {auto: false};
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
                 'eead-logo-carousel.default': EEA.logoCarousel,
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
-                'eead-one-page-nav.default': EEA.onePageNav,
+                
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-popup-modal.default': EEA.popupModal,
@@ -677,9 +678,10 @@ odometerOptions = {auto: false};
 
         pieChart: function ($scope) {
             var $container = $scope.find('.eead-pie-chart-container'),
-                $canvas = $scope.find('.eead-pie-chart')[0],
+                $canvas = $scope.find('.eead-pie-chart'),
                 data = $container.data('chart') || {},
                 options = $container.data('options') || {};
+                console.log(options);
             var chartInstance = new Chart($canvas, {
                 type: 'pie',
                 data: data,
@@ -694,6 +696,148 @@ odometerOptions = {auto: false};
                 }
             });
 
+        },
+
+        onePageNav: function ($scope) {
+            var nav_el = $scope.find('.eead-one-page-nav');
+            var $section_id = '#' + nav_el.data('section-id'),
+                $top_offset = nav_el.data('top-offset'),
+                $scroll_speed = nav_el.data('scroll-speed'),
+                $scroll_wheel = nav_el.data('scroll-wheel'),
+                $scroll_touch = nav_el.data('scroll-touch'),
+                $scroll_keys = nav_el.data('scroll-keys'),
+                $target_dot = $section_id + ' .eead-one-page-nav-item a',
+                $active_item = $section_id + ' .eead-one-page-nav-item.active';
+
+            $($target_dot).on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ($('#' + $(this).data('row-id')).length === 0) {
+                    return;
+                }
+                if ($('html, body').is(':animated')) {
+                    return;
+                }
+
+                $('html, body').animate({
+                    scrollTop: $('#' + $(this).data('row-id')).offset().top - $top_offset
+                }, $scroll_speed);
+
+                $($section_id + ' .eead-one-page-nav-item').removeClass('active');
+                $(this).parent().addClass('active');
+                return false;
+            });
+
+            updateDot();
+
+            $(window).on('scroll', function () {
+                updateDot();
+            });
+
+            function updateDot() {
+                $('.elementor-element').each(function () {
+                    var $this = $(this);
+                    if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && ($this.offset().top >= $(window).scrollTop() || $this.offset().top + $this.height() - $(window).height() / 2 > $(window).scrollTop())) {
+                        $($section_id + ' .eead-one-page-nav-item a[data-row-id="' + $this.attr('id') + '"]').parent().addClass('active');
+                    } else {
+                        $($section_id + ' .eead-one-page-nav-item a[data-row-id="' + $this.attr('id') + '"]').parent().removeClass('active');
+                    }
+                });
+            }
+
+            // When Mouse Wheel Scrolled
+            if ($scroll_wheel === 'on') {
+                var lastAnimation = 0,
+                    quietPeriod = 500,
+                    animationTime = 800,
+                    startX,
+                    startY,
+                    timestamp;
+
+                $(document).on('mousewheel DOMMouseScroll', function (e) {
+                    var timeNow = new Date().getTime();
+                    if (timeNow - lastAnimation < quietPeriod + animationTime) {
+                        return;
+                    }
+
+                    var delta = e.originalEvent.detail < 0 || e.originalEvent.wheelDelta > 0 ? 1 : -1;
+                    if (!$('html,body').is(':animated')) {
+                        if (delta < 0) {
+                            if ($($active_item).next().length > 0) {
+                                $($active_item).next().find('a').trigger('click');
+                            }
+                        } else {
+                            if ($($active_item).prev().length > 0) {
+                                $($active_item).prev().find('a').trigger('click');
+                            }
+                        }
+                    }
+                    lastAnimation = timeNow;
+                });
+
+                // When Screen Touch swiped
+                if ($scroll_touch === 'on') {
+                    $(document).on('pointerdown touchstart', function (e) {
+                        var touches = e.originalEvent.touches;
+                        if (touches && touches.length) {
+                            startY = touches[0].screenY;
+                            timestamp = e.originalEvent.timeStamp;
+                        }
+                    }).on('touchmove', function (e) {
+                        if ($('html,body').is(':animated')) {
+                            e.preventDefault();
+                        }
+                    }).on('pointerup touchend', function (e) {
+                        var touches = e.originalEvent;
+                        if (touches.pointerType === 'touch' || e.type === 'touchend') {
+                            var Y = touches.screenY || touches.changedTouches[0].screenY;
+                            var deltaY = startY - Y;
+                            var time = touches.timeStamp - timestamp;
+                            // screen swipe up.
+                            if (deltaY < 0) {
+                                if ($($active_item).prev().length > 0) {
+                                    $($active_item).prev().find('a').trigger('click');
+                                }
+                            }
+                            // screen swipe down.
+                            if (deltaY > 0) {
+                                if ($($active_item).next().length > 0) {
+                                    $($active_item).next().find('a').trigger('click');
+                                }
+                            }
+                            if (Math.abs(deltaY) < 2) {
+                                return;
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Key Press Scroll
+            if ($scroll_keys === 'on') {
+                $(document).keydown(function (e) {
+                    var tag = e.target.tagName.toLowerCase();
+                    if (tag === 'input' && tag === 'textarea') {
+                        return;
+                    }
+                    switch (e.which) {
+                        case 38:
+                            $($active_item).prev().find('a').trigger('click');
+                            break;
+                        case 40:
+                            $($active_item).next().find('a').trigger('click');
+                            break;
+                        case 33:
+                            $($active_item).prev().find('a').trigger('click');
+                            break;
+                        case 36:
+                            $($active_item).next().find('a').trigger('click');
+                            break;
+                        default:
+                            return;
+                    }
+                });
+            }
         },
 
 
@@ -1133,146 +1277,7 @@ odometerOptions = {auto: false};
             });
         },
 
-        onePageNav: function ($scope) {
-            var nav_el = $scope.find('.eead-one-page-nav').eq(0);
-            var $section_id = '#' + nav_el.data('section-id'),
-                $top_offset = nav_el.data('top-offset'),
-                $scroll_speed = nav_el.data('scroll-speed'),
-                $scroll_wheel = nav_el.data('scroll-wheel'),
-                $scroll_touch = nav_el.data('scroll-touch'),
-                $scroll_keys = nav_el.data('scroll-keys'),
-                $target_dot = $section_id + ' .eead-one-page-nav-item a',
-                $active_item = $section_id + ' .eead-one-page-nav-item.eead-fg-active';
-
-            $($target_dot).on('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if ($('#' + $(this).data('row-id')).length === 0) {
-                    return;
-                }
-                if ($('html, body').is(':animated')) {
-                    return;
-                }
-
-                $('html, body').animate({
-                    scrollTop: $('#' + $(this).data('row-id')).offset().top - $top_offset
-                }, $scroll_speed);
-
-                $($section_id + ' .eead-one-page-nav-item').removeClass('active');
-                $(this).parent().addClass('active');
-                return false;
-            });
-            updateDot();
-
-            $(window).on('scroll', function () {
-                updateDot();
-            });
-
-            function updateDot() {
-                $('.elementor-section').each(function () {
-                    var $this = $(this);
-                    if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && ($this.offset().top >= $(window).scrollTop() || $this.offset().top + $this.height() - $(window).height() / 2 > $(window).scrollTop())) {
-                        $($section_id + ' .eead-one-page-nav-item a[data-row-id="' + $this.attr('id') + '"]').parent().addClass('active');
-                    } else {
-                        $($section_id + ' .eead-one-page-nav-item a[data-row-id="' + $this.attr('id') + '"]').parent().removeClass('active');
-                    }
-                });
-            }
-
-            // When Mouse Wheel Scrolled
-            if ($scroll_wheel === 'on') {
-                var lastAnimation = 0,
-                    quietPeriod = 500,
-                    animationTime = 800,
-                    startX,
-                    startY,
-                    timestamp;
-
-                $(document).on('mousewheel DOMMouseScroll', function (e) {
-                    var timeNow = new Date().getTime();
-                    if (timeNow - lastAnimation < quietPeriod + animationTime) {
-                        return;
-                    }
-
-                    var delta = e.originalEvent.detail < 0 || e.originalEvent.wheelDelta > 0 ? 1 : -1;
-                    if (!$('html,body').is(':animated')) {
-                        if (delta < 0) {
-                            if ($($active_item).next().length > 0) {
-                                $($active_item).next().find('a').trigger('click');
-                            }
-                        } else {
-                            if ($($active_item).prev().length > 0) {
-                                $($active_item).prev().find('a').trigger('click');
-                            }
-                        }
-                    }
-                    lastAnimation = timeNow;
-                });
-
-                // When Screen Touch swiped
-                if ($scroll_touch === 'on') {
-                    $(document).on('pointerdown touchstart', function (e) {
-                        var touches = e.originalEvent.touches;
-                        if (touches && touches.length) {
-                            startY = touches[0].screenY;
-                            timestamp = e.originalEvent.timeStamp;
-                        }
-                    }).on('touchmove', function (e) {
-                        if ($('html,body').is(':animated')) {
-                            e.preventDefault();
-                        }
-                    }).on('pointerup touchend', function (e) {
-                        var touches = e.originalEvent;
-                        if (touches.pointerType === 'touch' || e.type === 'touchend') {
-                            var Y = touches.screenY || touches.changedTouches[0].screenY;
-                            var deltaY = startY - Y;
-                            var time = touches.timeStamp - timestamp;
-                            // screen swipe up.
-                            if (deltaY < 0) {
-                                if ($($active_item).prev().length > 0) {
-                                    $($active_item).prev().find('a').trigger('click');
-                                }
-                            }
-                            // screen swipe down.
-                            if (deltaY > 0) {
-                                if ($($active_item).next().length > 0) {
-                                    $($active_item).next().find('a').trigger('click');
-                                }
-                            }
-                            if (Math.abs(deltaY) < 2) {
-                                return;
-                            }
-                        }
-                    });
-                }
-            }
-
-            // Key Press Scroll
-            if ($scroll_keys === 'on') {
-                $(document).keydown(function (e) {
-                    var tag = e.target.tagName.toLowerCase();
-                    if (tag === 'input' && tag === 'textarea') {
-                        return;
-                    }
-                    switch (e.which) {
-                        case 38:
-                            $($active_item).prev().find('a').trigger('click');
-                            break;
-                        case 40:
-                            $($active_item).next().find('a').trigger('click');
-                            break;
-                        case 33:
-                            $($active_item).prev().find('a').trigger('click');
-                            break;
-                        case 36:
-                            $($active_item).next().find('a').trigger('click');
-                            break;
-                        default:
-                            return;
-                    }
-                });
-            }
-        },
+        
 
 
         portfolioBlock: function ($scope) {

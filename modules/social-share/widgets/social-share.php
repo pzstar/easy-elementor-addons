@@ -5,7 +5,10 @@ namespace EasyElementorAddons\Modules\SocialShare\Widgets;
 // Elementor Classes
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -66,6 +69,7 @@ class SocialShare extends Widget_Base {
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
                 'return_value' => 'yes',
+                'default' => 'yes',
             ]
         );
 
@@ -77,6 +81,7 @@ class SocialShare extends Widget_Base {
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
                 'return_value' => 'yes',
+                'default' => 'yes',
             ]
         );
 
@@ -88,6 +93,7 @@ class SocialShare extends Widget_Base {
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
                 'return_value' => 'yes',
+                'default' => 'yes',
             ]
         );
 
@@ -234,10 +240,19 @@ class SocialShare extends Widget_Base {
             ]
         );
 
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_settings',
+            [
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+            ]
+        );
+
         $this->add_responsive_control(
             'column_numbers',
             [
-                'label' => esc_html__('Columns Numbers', 'easy-elementor-addons'),
+                'label' => esc_html__('Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -247,7 +262,7 @@ class SocialShare extends Widget_Base {
                     ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 4,
                 ],
                 'tablet_default' => [
@@ -257,84 +272,17 @@ class SocialShare extends Widget_Base {
                     'size' => 1,
                 ],
                 'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-social-share-container' => 'display:grid; grid-template-columns: repeat({{column_numbers.SIZE}}, 1fr);',
-                    '(tablet){{WRAPPER}} .eead-social-share-container' => 'display:grid; grid-template-columns: repeat({{column_numbers_tablet.SIZE}}, 1fr);',
-                    '(mobile){{WRAPPER}} .eead-social-share-container' => 'display:grid; grid-template-columns: repeat({{column_numbers_mobile.SIZE}}, 1fr);',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'button_column_gap',
-            [
-                'label' => esc_html__('Columns Space', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-social-share-container' => 'grid-column-gap: {{button_column_gap.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}} .eead-social-share-container' => 'grid-column-gap: {{button_column_gap_tablet.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .eead-social-share-container' => 'grid-column-gap: {{button_column_gap_mobile.SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'button_row_gap',
-            [
-                'label' => esc_html__('Row Space', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 15,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-social-share-container' => 'grid-row-gap: {{button_row_gap.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}} .eead-social-share-container' => 'grid-row-gap: {{button_row_gap_tablet.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .eead-social-share-container' => 'grid-row-gap: {{button_row_gap_mobile.SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-social-share-container' => 'grid-template-columns: repeat({{column_numbers.SIZE}}, 1fr);',
                 ],
             ]
         );
 
         $this->add_control(
-            'button_border_radius',
+            'button_column_gap',
             [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Columns Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -343,20 +291,92 @@ class SocialShare extends Widget_Base {
                     ]
                 ],
                 'default' => [
-                    'size' => 0,
+                    'size' => 15,
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-social-share-container a' => 'border-radius: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-social-share-container' => 'grid-column-gap: {{button_column_gap.SIZE}}{{UNIT}};',
                 ],
             ]
         );
 
-        $this->add_responsive_control(
-            'icon_horizontal_spacing',
+        $this->add_control(
+            'button_row_gap',
             [
-                'label' => esc_html__('Icon Horizontal Space', 'easy-elementor-addons'),
+                'label' => esc_html__('Row Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container' => 'grid-row-gap: {{button_row_gap.SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'show_text',
+            [
+                'label' => esc_html__('Show Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'return_value' => 'yes',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'show_icon',
+            [
+                'label' => esc_html__('Show Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'return_value' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'icon_alignment',
+            [
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'right',
+                'options' => [
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons'),
+                    'top' => esc_html__('Top', 'easy-elementor-addons'),
+                    'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
+                ],
+                'selectors_dictionary' => [
+                    'left' => 'flex-direction: row;',
+                    'right' => 'flex-direction: row-reverse;',
+                    'top' => 'flex-direction: column;',
+                    'bottom' => 'flex-direction: column-reverse;',
+                ],
+                'condition' => [
+                    'show_icon' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container a' => '{{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_spacing',
+            [
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -365,146 +385,33 @@ class SocialShare extends Widget_Base {
                     ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 5,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 5,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 5,
+                'default' => [
+                    'size' => 8,
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-social-share-container a i' => 'margin-right: {{icon_horizontal_spacing.SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}} .eead-social-share-container a i' => 'margin-right: {{icon_horizontal_spacing_tablet.SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .eead-social-share-container a i' => 'margin-right: {{icon_horizontal_spacing_mobile.SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-social-share-container a' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'hide_icon!' => 'yes',
-                    'icon_alignment' => 'row'
+                    'show_icon' => 'yes',
                 ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_vertical_spacing',
-            [
-                'label' => esc_html__('Icon Vertical Space', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 50,
-                        'step' => 1,
-                    ]
-                ],
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 5,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 5,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 5,
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-social-share-container a i' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}} .eead-social-share-container a i' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .eead-social-share-container a i' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'hide_icon!' => 'yes',
-                    'icon_alignment' => 'column'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'icon_alignment',
-            [
-                'label' => esc_html__('Icon Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'row' => [
-                        'title' => esc_html__('Normal', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-arrows-h',
-                    ],
-                    'column' => [
-                        'title' => esc_html__('Row', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-arrows-v',
-                    ]
-                ],
-                'default' => 'row',
-                'toggle' => false
-            ]
-        );
-
-        $this->add_control(
-            'hide_icon',
-            [
-                'label' => esc_html__('Hide Icon', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('On', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'hide_text',
-            [
-                'label' => esc_html__('Hide Text', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('On', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'genral_section_style',
+            'section_content_style',
             [
-                'label' => esc_html__('General', 'easy-elementor-addons'),
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'bg_color',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-social-share-container a' => 'background: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'text_color',
-            [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-social-share-container a' => 'color: {{VALUE}}',
-                ],
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'text_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'name' => 'button_typography',
                 'selector' => '{{WRAPPER}} .eead-social-share-container a',
             ]
         );
@@ -520,6 +427,142 @@ class SocialShare extends Widget_Base {
                 ],
             ]
         );
+
+        $this->add_responsive_control(
+            'button_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_button_style');
+
+        $this->start_controls_tab(
+            'tab_button_normal',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color',
+            [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-social-share-container a'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'button_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ],
+                ],
+                'selector' => '{{WRAPPER}} .eead-social-share-container a',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'button_shadow',
+                'selector' => '{{WRAPPER}} .eead-social-share-container a',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_button_hover',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color_hover',
+            [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background_hover',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-social-share-container a:hover'
+            ]
+        );
+
+        $this->add_control(
+            'button_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-social-share-container a:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'button_shadow_hover',
+                'selector' => '{{WRAPPER}} .eead-social-share-container a:hover',
+            ]
+        );
+
+        $this->add_control(
+            'hover_animation',
+            [
+                'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HOVER_ANIMATION,
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
     }
@@ -544,115 +587,115 @@ class SocialShare extends Widget_Base {
         $wechat = esc_html($settings['wechat']);
         $line = esc_html($settings['line']);
         $email = esc_html($settings['email']);
-        $hide_text = $settings['hide_text'];
-        $hide_icon = $settings['hide_icon'];
+        $show_text = $settings['show_text'];
+        $show_icon = $settings['show_icon'];
 
         $title = get_the_title();
         $url = get_the_permalink();
-        $icon_alignment_class = 'eead-ssc-align-' . $settings['icon_alignment'];
+        $hover_animation = $settings['hover_animation'];
 
-        echo '<div class="eead-social-share-container ' . esc_attr($icon_alignment_class) . '">';
+        echo '<div class="eead-social-share-container">';
 
         if ($facebook == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-facebook" href="http://www.facebook.com/sharer/sharer.php?u=' . esc_url($url) . '&amp;t=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-facebook"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Facebook', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-facebook elementor-animation-' . $hover_animation . '" href="http://www.facebook.com/sharer/sharer.php?u=' . esc_url($url) . '&amp;t=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-facebook"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Facebook', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($twitter == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-twitter" href="https://twitter.com/intent/tweet?text=' . esc_html($title) . '&url=' . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-x-twitter"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Twitter', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-twitter elementor-animation-' . $hover_animation . '" href="https://twitter.com/intent/tweet?text=' . esc_html($title) . '&url=' . esc_url($url) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-x-twitter"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Twitter', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($pintrest == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-pinterest" href="http://pinterest.com/pin/create/button/?url=' . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-pinterest"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Pintrest', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-pinterest elementor-animation-' . $hover_animation . '" href="http://pinterest.com/pin/create/button/?url=' . esc_url($url) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-pinterest"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Pintrest', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($linkedin == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-linkedin"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Linkedin', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-linkedin elementor-animation-' . $hover_animation . '" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-linkedin"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Linkedin', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($vkontakte == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-vkontakte" href="http://vk.com/share.php?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-vk"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Vkontakte', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-vkontakte elementor-animation-' . $hover_animation . '" href="http://vk.com/share.php?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-vk"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Vkontakte', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($tumblr == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-tumblr" href="https://www.tumblr.com/share/link?url=' . esc_url($url) . '&name=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-tumblr"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Tumblr', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-tumblr elementor-animation-' . $hover_animation . '" href="https://www.tumblr.com/share/link?url=' . esc_url($url) . '&name=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-tumblr"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Tumblr', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($blogger == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-blogger" href="https://www.blogger.com/blog-this.g?u=' . esc_url($url) . '&n=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-blogger"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Blogger', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-blogger elementor-animation-' . $hover_animation . '" href="https://www.blogger.com/blog-this.g?u=' . esc_url($url) . '&n=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-blogger"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Blogger', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($digg == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-digg" href="http://digg.com/submit?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-digg"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Digg', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-digg elementor-animation-' . $hover_animation . '" href="http://digg.com/submit?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-digg"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Digg', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($reddit == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-reddit" href="https://reddit.com/submit?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-reddit"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Reddit', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-reddit elementor-animation-' . $hover_animation . '" href="https://reddit.com/submit?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-reddit"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Reddit', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($delicious == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-evernote" href="https://www.evernote.com/clip.action?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-evernote"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Evernote', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-evernote elementor-animation-' . $hover_animation . '" href="https://www.evernote.com/clip.action?url=' . esc_url($url) . '&title=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-evernote"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Evernote', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($wordpress == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-wordpress" href="https://wordpress.com/press-this.php?u=' . esc_url($url) . '&t=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-brand-wordpress"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('WordPress', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-wordpress elementor-animation-' . $hover_animation . '" href="https://wordpress.com/press-this.php?u=' . esc_url($url) . '&t=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-brand-wordpress"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('WordPress', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($skype == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-skype" href="https://web.skype.com/share?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-skype"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Skype', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-skype elementor-animation-' . $hover_animation . '" href="https://web.skype.com/share?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-skype"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Skype', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($telegram == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-telegram" href="https://t.me/share/url?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-telegram"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Telegram', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-telegram elementor-animation-' . $hover_animation . '" href="https://t.me/share/url?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-telegram"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Telegram', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($whatsapp == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-whatsapp" href="https://api.whatsapp.com/send?phone=&text=' . esc_html($title) . " " . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-whatsapp"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Whatsapp', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-whatsapp elementor-animation-' . $hover_animation . '" href="https://api.whatsapp.com/send?phone=&text=' . esc_html($title) . " " . esc_url($url) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-whatsapp"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Whatsapp', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($wechat == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-wechat" href="https://chart.googleapis.com/chart?cht=qr&chs=196x196&chd=t:60,40&chl=' . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-wechat"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Wechat', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-wechat elementor-animation-' . $hover_animation . '" href="https://chart.googleapis.com/chart?cht=qr&chs=196x196&chd=t:60,40&chl=' . esc_url($url) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-wechat"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Wechat', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($line == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-line" href="ttps://lineit.line.me/share/ui?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-line"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Line', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-line elementor-animation-' . $hover_animation . '" href="ttps://lineit.line.me/share/ui?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-line"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Line', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         if ($email == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-email" href="mailto:?Subject=' . esc_html($title) . '&Body=' . esc_url($url) . '">';
-            echo $hide_icon != 'yes' ? '<i class="eead-icon icofont-envelope"></i>' : NULL;
-            echo $hide_text != 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Email', 'easy-elementor-addons') . '</span>' : NULL;
+            echo '<a target="_blank" class="eead-social-share-link eead-email elementor-animation-' . $hover_animation . '" href="mailto:?Subject=' . esc_html($title) . '&Body=' . esc_url($url) . '">';
+            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-envelope"></i>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Email', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
         echo '</div>';
