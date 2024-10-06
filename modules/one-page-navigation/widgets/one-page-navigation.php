@@ -104,68 +104,6 @@ class OnePageNavigation extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_onepage_nav_tooltip_settings',
-			[
-				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
-			]
-		);
-
-		$this->add_control(
-			'nav_tooltip',
-			[
-				'label' => esc_html__('Enable', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'tooltip_arrow',
-			[
-				'label' => esc_html__('Tooltip Arrow', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-				'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-				'return_value' => 'yes',
-				'condition' => [
-					'nav_tooltip' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'distance',
-			[
-				'label' => esc_html__('Space Between Tooltip', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => '',
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 150,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}}.eead-nav-align-top .eead-nav-dot-tooltip' => 'top: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-bottom .eead-nav-dot-tooltip' => 'bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-left .eead-nav-dot-tooltip' => 'left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-right .eead-nav-dot-tooltip' => 'right: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'nav_tooltip' => 'yes',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
 			'section_onepage_nav_settings',
 			[
 				'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
@@ -215,11 +153,61 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_control(
+			'scrolling_speed',
+			[
+				'label' => esc_html__('Scrolling Speed', 'easy-elementor-addons'),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '700',
+			]
+		);
+
+		$this->add_control(
+			'position',
+			[
+				'label' => esc_html__('Position', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'left-top' => esc_html__('Left Top', 'easy-elementor-addons'),
+					'left-middle' => esc_html__('Left Middle', 'easy-elementor-addons'),
+					'left-bottom' => esc_html__('Left Bottom', 'easy-elementor-addons'),
+					'right-top' => esc_html__('Right Top', 'easy-elementor-addons'),
+					'right-middle' => esc_html__('Right Middle', 'easy-elementor-addons'),
+					'right-bottom' => esc_html__('Right Bottom', 'easy-elementor-addons'),
+					'center-top' => esc_html__('Center Top', 'easy-elementor-addons'),
+					'center-bottom' => esc_html__('Center Bottom', 'easy-elementor-addons'),
+				],
+				'prefix_class' => 'eead-opn-pos-',
+				'default' => 'right-middle',
+				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'oritentation',
+			[
+				'label' => esc_html__('Orientation', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
+					'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
+				],
+				'prefix_class' => 'eead-opn-orientation-',
+				'default' => 'vertical',
+				'condition' => [
+					'position!' => ['left-middle', 'right-middle', 'center-top', 'center-bottom'],
+				],
+			]
+		);
+
+		$this->add_control(
 			'top_offset',
 			[
-				'label' => esc_html__('Row Top Offset', 'easy-elementor-addons'),
+				'label' => esc_html__('Top Offset', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'default' => ['size' => '0'],
+				'default' => [
+					'unit' => 'px',
+					'size' => '20'
+				],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -227,16 +215,102 @@ class OnePageNavigation extends Widget_Base {
 						'step' => 1,
 					],
 				],
-				'size_units' => ['px'],
+				'size_units' => ['px', 'em', '%', 'vh'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-offset-top: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'position' => ['left-top', 'right-top', 'center-top'],
+				],
 			]
 		);
 
 		$this->add_control(
-			'scrolling_speed',
+			'bottom_offset',
 			[
-				'label' => esc_html__('Scrolling Speed', 'easy-elementor-addons'),
-				'type' => Controls_Manager::NUMBER,
-				'default' => '700',
+				'label' => esc_html__('Bottom Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => '20'
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 300,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', 'em', '%', 'vh'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-offset-bottom: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'position' => ['left-bottom', 'right-bottom', 'center-bottom'],
+				],
+			]
+		);
+
+		$this->add_control(
+			'left_offset',
+			[
+				'label' => esc_html__('Left Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => '20'
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 300,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', 'em', '%', 'vh'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-offset-left: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'position' => ['left-top', 'left-middle', 'left-bottom'],
+				],
+			]
+		);
+
+		$this->add_control(
+			'right_offset',
+			[
+				'label' => esc_html__('Right Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => '20'
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 300,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', 'em', '%', 'vh'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-offset-right: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'position' => ['right-top', 'right-middle', 'right-bottom'],
+				],
+			]
+		);
+
+		$this->add_control(
+			'nav_tooltip',
+			[
+				'label' => esc_html__('Enable Tool Tip', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'return_value' => 'yes',
+				'separator' => 'before'
 			]
 		);
 
@@ -251,43 +325,12 @@ class OnePageNavigation extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'heading_alignment',
-			[
-				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'top' => [
-						'title' => esc_html__('Top', 'easy-elementor-addons'),
-						'icon' => 'eicon-v-align-top',
-					],
-					'bottom' => [
-						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-						'icon' => 'eicon-v-align-bottom',
-					],
-					'left' => [
-						'title' => esc_html__('Left', 'easy-elementor-addons'),
-						'icon' => 'eicon-h-align-left',
-					],
-					'right' => [
-						'title' => esc_html__('Right', 'easy-elementor-addons'),
-						'icon' => 'eicon-h-align-right',
-					],
-				],
-				'default' => 'right',
-				'prefix_class' => 'eead-nav-align-',
-				'frontend_available' => true,
-				'selectors' => [
-					'{{WRAPPER}} .eead-caldera-form-heading' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'nav_container_background',
 				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
 				'selector' => '{{WRAPPER}} .eead-one-page-nav',
 			]
 		);
@@ -316,23 +359,11 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'nav_container_margin',
-			[
-				'label' => esc_html__('Margin', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'nav_container_padding',
 			[
 				'label' => esc_html__('Padding', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
+				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .eead-one-page-nav' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -363,7 +394,9 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'default' => ['size' => '18'],
+				'default' => [
+					'size' => '20'
+				],
 				'range' => [
 					'px' => [
 						'min' => 5,
@@ -373,7 +406,30 @@ class OnePageNavigation extends Widget_Base {
 				],
 				'size_units' => ['px'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-nav-dot' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_size',
+			[
+				'label' => esc_html__('Size', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '16'
+				],
+				'range' => [
+					'px' => [
+						'min' => 5,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-nav-dot i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-nav-dot svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -383,30 +439,32 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Spacing', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
-				'default' => ['size' => '15'],
+				'default' => [
+					'unit' => 'px',
+					'size' => '15'
+				],
 				'range' => [
 					'px' => [
-						'min' => 2,
-						'max' => 30,
+						'min' => 0,
+						'max' => 100,
 						'step' => 1,
 					],
 				],
-				'size_units' => ['px'],
+				'size_units' => ['px', 'em', 'vh', 'vw'],
 				'selectors' => [
-					'{{WRAPPER}}.eead-nav-align-right .eead-one-page-nav-item, {{WRAPPER}}.eead-nav-align-left .eead-one-page-nav-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-top .eead-one-page-nav-item, {{WRAPPER}}.eead-nav-align-bottom .eead-one-page-nav-item' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-one-page-nav' => 'gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-		$this->add_responsive_control(
-			'dots_padding',
+		$this->add_control(
+			'dots_border_radius',
 			[
-				'label' => esc_html__('Padding', 'easy-elementor-addons'),
+				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eead-nav-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -415,7 +473,7 @@ class OnePageNavigation extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'dots_box_shadow',
-				'selector' => '{{WRAPPER}} .eead-nav-dot-wrap',
+				'selector' => '{{WRAPPER}} .eead-nav-dot',
 				'separator' => 'before',
 			]
 		);
@@ -430,11 +488,10 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_control(
-			'dots_color_normal',
+			'dots_icon_color_normal',
 			[
-				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .eead-nav-dot' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .eead-nav-dot svg' => 'fill: {{VALUE}}',
@@ -443,13 +500,12 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_control(
-			'dots_bg_color_normal',
+			'dots_color_normal',
 			[
-				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-wrap' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -461,19 +517,7 @@ class OnePageNavigation extends Widget_Base {
 				'label' => esc_html__('Border', 'easy-elementor-addons'),
 				'placeholder' => '1px',
 				'default' => '1px',
-				'selector' => '{{WRAPPER}} .eead-nav-dot-wrap',
-			]
-		);
-
-		$this->add_control(
-			'dots_border_radius',
-			[
-				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
+				'selector' => '{{WRAPPER}} .eead-nav-dot',
 			]
 		);
 
@@ -487,26 +531,24 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_control(
-			'dots_color_hover',
+			'dots_icon_color_hover',
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item .eead-nav-dot-wrap:hover .eead-nav-dot' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .eead-one-page-nav-item .eead-nav-dot-wrap:hover .eead-nav-dot svg' => 'fill: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot:hover i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot:hover svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
 
 		$this->add_control(
-			'dots_bg_color_hover',
+			'dots_color_hover',
 			[
-				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item .eead-nav-dot-wrap:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot:hover' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -516,9 +558,8 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item .eead-nav-dot-wrap:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot:hover' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -533,26 +574,24 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_control(
-			'dots_color_active',
+			'dots_icon_color_active',
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot i' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
 
 		$this->add_control(
-			'dots_bg_color_active',
+			'dots_color_active',
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot-wrap' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -562,9 +601,8 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot-wrap' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -578,8 +616,49 @@ class OnePageNavigation extends Widget_Base {
 		$this->start_controls_section(
 			'section_tooltips_style',
 			[
-				'label' => esc_html__('Tooltip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tool Tip', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'nav_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'tooltip_arrow',
+			[
+				'label' => esc_html__('Tool Tip Arrow', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'label_on' => esc_html__('Show', 'easy-elementor-addons'),
+				'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
+				'return_value' => 'yes',
+				'condition' => [
+					'nav_tooltip' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'distance',
+			[
+				'label' => esc_html__('Space Between Tool Tip', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 150,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}}.eead-nav-align-top .eead-nav-dot-tooltip' => 'top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.eead-nav-align-bottom .eead-nav-dot-tooltip' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.eead-nav-align-left .eead-nav-dot-tooltip' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.eead-nav-align-right .eead-nav-dot-tooltip' => 'right: {{SIZE}}{{UNIT}};',
+				],
 				'condition' => [
 					'nav_tooltip' => 'yes',
 				],
@@ -591,13 +670,8 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-tooltip-content' => 'background-color: {{VALUE}}',
-					'{{WRAPPER}} .eead-nav-dot-tooltip' => 'color: {{VALUE}}',
-				],
-				'condition' => [
-					'nav_tooltip' => 'yes',
+					'{{WRAPPER}} .eead-nav-dot-tooltip' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -607,9 +681,8 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-tooltip-content' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot-tooltip' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'nav_tooltip' => 'yes',
@@ -634,7 +707,7 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'name' => 'tooltip_box_shadow',
 				'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
-				'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip-content',
+				'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip',
 			]
 		);
 
@@ -645,7 +718,7 @@ class OnePageNavigation extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eead-nav-dot-tooltip' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -655,11 +728,6 @@ class OnePageNavigation extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings();
-		$fallback_defaults = [
-			'fa fa-check',
-			'fa fa-times',
-			'fa fa-dot-circle-o',
-		];
 
 		$this->add_render_attribute(
 			'onepage-nav',
@@ -675,51 +743,28 @@ class OnePageNavigation extends Widget_Base {
 			]
 		);
 
-		$migration_allowed = Icons_Manager::is_migration_allowed();
+		$this->add_render_attribute('tooltip', 'class', 'eead-nav-dot-tooltip');
+		if ($settings['tooltip_arrow'] == 'yes') {
+			$this->add_render_attribute('tooltip', 'class', 'eead-tooltip-arrow');
+		}
 		?>
 		<div class='eead-one-page-nav-container'>
 			<ul <?php echo wp_kses_post($this->get_render_attribute_string('onepage-nav')); ?>>
 				<?php
 				$count = 1;
 				foreach ($settings['nav_dots'] as $index => $dot) {
-
-					// add old default
-					if (!isset($dot['dot_icon']) && !$migration_allowed) {
-						$dot['dot_icon'] = isset($fallback_defaults[$index]) ? $fallback_defaults[$index] : 'fa fa-check';
-					}
-
-					$migrated = isset($dot['__fa4_migrated']['select_dot_icon']);
-					$is_new = !isset($dot['dot_icon']) && $migration_allowed;
-
-					//tooltip attributes
-					$this->add_render_attribute('tooltip', 'class', 'eead-nav-dot-tooltip');
-					if ($settings['tooltip_arrow'] == 'yes') {
-						$this->add_render_attribute('tooltip', 'class', 'eead-tooltip-arrow');
-					}
-
 					?>
 					<li class="eead-one-page-nav-item">
 						<?php
 						if ($settings['nav_tooltip'] == 'yes') {
-							printf('<span %1$s><span class="eead-nav-dot-tooltip-content">%2$s</span></span>', $this->get_render_attribute_string('tooltip'), esc_html($dot['section_title']));
-
-						} else {
-							echo '';
+							printf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('tooltip'), esc_html($dot['section_title']));
 						}
 						?>
 						<a href="#" data-row-id="<?php echo esc_attr($dot['section_id']); ?>">
-							<span class="eead-nav-dot-wrap">
-								<span class="eead-nav-dot eead-icon">
-									<?php
-									if ($is_new || $migrated) {
-										Icons_Manager::render_icon($dot['select_dot_icon'], ['aria-hidden' => 'true']);
-									} else {
-										?>
-										<i class="<?php echo esc_attr($dot['dot_icon']); ?>" aria-hidden="true"></i>
-										<?php
-									}
-									?>
-								</span>
+							<span class="eead-nav-dot">
+								<?php
+								Icons_Manager::render_icon($dot['select_dot_icon'], ['aria-hidden' => 'true']);
+								?>
 							</span>
 						</a>
 					</li>
@@ -737,8 +782,7 @@ class OnePageNavigation extends Widget_Base {
 				</h4>
 
 				<div class="eead-editor-placeholder-content">
-					<p><?php _e('Click here to edit the Navigation settings.', 'easy-elementor-addons'); ?></p>
-					<p><?php _e('This text will not show in the frontend.', 'easy-elementor-addons'); ?></p>
+					<p><?php _e('Click here to edit the Navigation settings. This text will not show in the frontend.', 'easy-elementor-addons'); ?></p>
 				</div>
 			</div>
 			<?php

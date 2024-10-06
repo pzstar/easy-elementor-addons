@@ -270,6 +270,7 @@ class DualButton extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'text',
                 'options' => [
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
                     'text' => esc_html__('Text', 'easy-elementor-addons'),
                     'icon' => esc_html__('Icon', 'easy-elementor-addons'),
                 ],
@@ -281,7 +282,6 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'description' => esc_html__('Please leave the field blank to hide separator.', 'easy-elementor-addons'),
                 'default' => esc_html__('OR', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('OR', 'easy-elementor-addons'),
                 'condition' => [
@@ -296,6 +296,11 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
+                'exclude_inline_options' => 'none',
+                'default' => [
+					'value' => 'fas fa-plus',
+					'library' => 'solid',
+				],
                 'label_block' => false,
                 'condition' => [
                     'separator_type' => 'icon'
@@ -808,7 +813,7 @@ class DualButton extends Widget_Base {
                     </a>
 
                     <?php
-                    if ((!empty($settings['separator_icon_new']['value']) || !empty($settings['separator_text']))) {
+                    if ((!empty($settings['separator_icon']['value']) || !empty($settings['separator_text']))) {
                         ?>
                         <span class="eead-dual-button-separator">
                             <?php
