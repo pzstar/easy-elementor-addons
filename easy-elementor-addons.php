@@ -144,7 +144,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'dual-button',
                 'dual-heading',
                 'feature-list',
-                'filterable-gallery',
+                //'filterable-gallery',
                 'flip-box',
                 //'flip-box-advanced',
                 //'horizontal-scroll',
