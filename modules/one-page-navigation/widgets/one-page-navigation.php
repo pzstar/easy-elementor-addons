@@ -390,31 +390,9 @@ class OnePageNavigation extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'dots_size',
-			[
-				'label' => esc_html__('Size', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => '20'
-				],
-				'range' => [
-					'px' => [
-						'min' => 5,
-						'max' => 60,
-						'step' => 1,
-					],
-				],
-				'size_units' => ['px'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__('Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '16'
@@ -430,6 +408,28 @@ class OnePageNavigation extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .eead-nav-dot i' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .eead-nav-dot svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'dots_size',
+			[
+				'label' => esc_html__('Background Size', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '20'
+				],
+				'range' => [
+					'px' => [
+						'min' => 5,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-nav-dot' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -502,7 +502,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_control(
 			'dots_color_normal',
 			[
-				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-nav-dot' => 'background-color: {{VALUE}}',
@@ -533,7 +533,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_control(
 			'dots_icon_color_hover',
 			[
-				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-nav-dot:hover i' => 'color: {{VALUE}}',
@@ -545,7 +545,7 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_control(
 			'dots_color_hover',
 			[
-				'label' => esc_html__('Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .eead-nav-dot:hover' => 'background-color: {{VALUE}}',
@@ -642,10 +642,11 @@ class OnePageNavigation extends Widget_Base {
 		$this->add_control(
 			'distance',
 			[
-				'label' => esc_html__('Space Between Tool Tip', 'easy-elementor-addons'),
+				'label' => esc_html__('Tool Tip OffSet', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => '',
+					'unit' => 'px',
+					'size' => '10',
 				],
 				'range' => [
 					'px' => [
@@ -654,10 +655,7 @@ class OnePageNavigation extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}.eead-nav-align-top .eead-nav-dot-tooltip' => 'top: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-bottom .eead-nav-dot-tooltip' => 'bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-left .eead-nav-dot-tooltip' => 'left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.eead-nav-align-right .eead-nav-dot-tooltip' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-tooltip-offset: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'nav_tooltip' => 'yes',
@@ -671,7 +669,7 @@ class OnePageNavigation extends Widget_Base {
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eead-nav-dot-tooltip' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-nav-dot-tooltip, {{WRAPPER}} .eead-nav-dot-tooltip.eead-tooltip-arrow:after' => 'background-color: {{VALUE}}',
 				],
 			]
 		);

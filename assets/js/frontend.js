@@ -22,6 +22,7 @@ odometerOptions = {auto: false};
                 'eead-image-gallery.default': EEA.imageGallery,
                 'eead-pie-chart.default': EEA.pieChart,
                 'eead-one-page-nav.default': EEA.onePageNav,
+                'eead-lottie.default': EEA.Lottie,
 
 
 
@@ -32,7 +33,6 @@ odometerOptions = {auto: false};
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
                 'eead-logo-carousel.default': EEA.logoCarousel,
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
-                
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-popup-modal.default': EEA.popupModal,
@@ -681,7 +681,7 @@ odometerOptions = {auto: false};
                 $canvas = $scope.find('.eead-pie-chart'),
                 data = $container.data('chart') || {},
                 options = $container.data('options') || {};
-                console.log(options);
+            console.log(options);
             var chartInstance = new Chart($canvas, {
                 type: 'pie',
                 data: data,
@@ -838,6 +838,23 @@ odometerOptions = {auto: false};
                     }
                 });
             }
+        },
+
+        Lottie: function ($scope) {
+            var $container = $scope.find('.eead-lottie'),
+                id = $container.attr('id'),
+                settings = JSON.parse($container.attr('data-settings'));
+                console.log(settings);
+
+            let animation = lottie.loadAnimation({
+                container: document.getElementById(id),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: settings.path
+            });
+
+            animation.play();
         },
 
 
@@ -1220,7 +1237,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        
+
 
         teamMemberCarouselBlock: function ($scope, $) {
             var $carousel = $scope.find('.eead-swiper-slider').eq(0),
@@ -1277,7 +1294,7 @@ odometerOptions = {auto: false};
             });
         },
 
-        
+
 
 
         portfolioBlock: function ($scope) {

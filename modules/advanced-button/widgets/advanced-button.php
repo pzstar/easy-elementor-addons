@@ -421,10 +421,6 @@ class AdvancedButton extends Widget_Base {
             }
         }
 
-        if ($settings['link']['nofollow']) {
-            $this->add_render_attribute('button', 'rel', 'nofollow');
-        }
-
         if ($settings['add_custom_attributes'] and !empty($settings['custom_attributes'])) {
             $attributes = explode("\n", $settings['custom_attributes']);
             $reserved_attr = ['href', 'target'];
