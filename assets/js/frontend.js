@@ -23,6 +23,7 @@ odometerOptions = {auto: false};
                 'eead-pie-chart.default': EEA.pieChart,
                 'eead-one-page-nav.default': EEA.onePageNav,
                 'eead-lottie.default': EEA.Lottie,
+                'eead-scroll-image.default': EEA.scrollImage,
 
 
 
@@ -40,7 +41,7 @@ odometerOptions = {auto: false};
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-switcher.default': EEA.switcherBlock,
-                'eead-scroll-image.default': EEA.scrollImage,
+                
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
@@ -843,18 +844,70 @@ odometerOptions = {auto: false};
         Lottie: function ($scope) {
             var $container = $scope.find('.eead-lottie'),
                 id = $container.attr('id'),
-                settings = JSON.parse($container.attr('data-settings'));
-                console.log(settings);
+                settings = JSON.parse($container.attr('data-settings')),
+                action = settings.autoplay ? settings.action : settings.action_alt;
 
             let animation = lottie.loadAnimation({
                 container: document.getElementById(id),
-                renderer: 'svg',
+                renderer: settings.renderer,
+                autoplay: settings.autoplay,
+                path: settings.path,
                 loop: true,
-                autoplay: true,
-                path: settings.path
             });
 
-            animation.play();
+            animation.setDirection(settings.reverse);
+            animation.setSpeed(settings.speed);
+
+            switch (action) {
+                case "play":
+                    $container.on('mouseenter', function () {
+                        animation.play();
+                    });
+                    $container.on('mouseleave', function () {
+                        animation.pause();
+                    });
+                    break;
+                case "pause":
+                    $container.on('mouseenter', function () {
+                        animation.pause();
+                    });
+                    $container.on('mouseleave', function () {
+                        animation.play();
+                    });
+                    break;
+                case "reverse":
+                    var direction = settings.reverse == '1' ? '-1' : '1';
+                    $container.on('mouseenter', function () {
+                        animation.pause();
+                        setTimeout(function () {
+                            animation.setDirection(direction);
+                            animation.play();
+                        }, 200);
+                    });
+                    $container.on('mouseleave', function () {
+                        animation.pause();
+                        setTimeout(function () {
+                            animation.setDirection(settings.reverse);
+                            animation.play();
+                        }, 200);
+                    });
+                    break;
+            }
+
+        },
+
+        scrollImage: function ($scope) {
+            var gallery = $scope.find('.eead-scroll-image-lightbox-item');
+            gallery.on('click', function () {
+                gallery.lightGallery({
+                    selector: 'this',
+                    thumbnail: false
+                });
+            });
+
+            $scope.find('.eead-scroll-image-iframe-modal').lightGallery({
+                selector: 'this'
+            });
         },
 
 
@@ -1436,19 +1489,7 @@ odometerOptions = {auto: false};
 
 
 
-        scrollImage: function ($scope) {
-            var gallery = $scope.find('.eead-scroll-image-lightbox-item');
-            gallery.on('click', function () {
-                gallery.lightGallery({
-                    selector: 'this',
-                    thumbnail: false
-                });
-            });
-
-            $scope.find('.eead-scroll-image-iframe-modal').lightGallery({
-                selector: 'this'
-            });
-        },
+        
 
 
 

@@ -138,56 +138,19 @@ class Lottie extends Widget_Base {
         );
 
         $this->add_control(
-            'lottie_reverse',
-            [
-                'label' => esc_html__('Reverse', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-            ]
-        );
-
-        $this->add_control(
             'lottie_autoplay',
             [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'true',
-                'default' => 'true',
-            ]
-        );
-
-        $this->add_control(
-            'lottie_on_visible',
-            [
-                'label' => esc_html__('Start when visible', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'condition' => [
-                    'lottie_autoplay' => ''
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'lottie_loop',
-            [
-                'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'lottie_loop_count',
+            'lottie_reverse',
             [
-                'label' => esc_html__('Loop Count', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 10,
-                    ]
-                ],
-                'condition' => [
-                    'lottie_loop' => 'yes'
-                ],
+                'label' => esc_html__('Reverse', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
             ]
         );
 
@@ -198,8 +161,9 @@ class Lottie extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
+                        'min' => 0.1,
                         'max' => 10,
-                        'step' => 0.2,
+                        'step' => 0.1,
                     ]
                 ],
                 'default' => [
@@ -214,6 +178,7 @@ class Lottie extends Widget_Base {
                 'label' => esc_html__('Render Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'svg',
+                'toggle' => false,
                 'options' => [
                     'svg' => [
                         'title' => esc_html__('SVG', 'easy-elementor-addons'),
@@ -234,10 +199,29 @@ class Lottie extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     '' => esc_html__('None', 'easy-elementor-addons'),
-                    'play' => esc_html__('Play', 'easy-elementor-addons'),
                     'pause' => esc_html__('Pause', 'easy-elementor-addons'),
                     'reverse' => esc_html__('Reverse', 'easy-elementor-addons'),
                 ],
+                'condition' => [
+                    'lottie_autoplay' => 'yes'
+                ],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'lottie_action_alt',
+            [
+                'label' => esc_html__('On Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__('None', 'easy-elementor-addons'),
+                    'play' => esc_html__('Play', 'easy-elementor-addons'),
+                ],
+                'condition' => [
+                    'lottie_autoplay!' => 'yes'
+                ],
+                'separator' => 'before'
             ]
         );
 
@@ -276,7 +260,7 @@ class Lottie extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .eead-lottie' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -285,7 +269,7 @@ class Lottie extends Widget_Base {
             Group_Control_Css_Filter::get_type(),
             [
                 'name' => 'lottie_filter',
-                'selector' => '{{WRAPPER}}',
+                'selector' => '{{WRAPPER}} .eead-lottie',
             ]
         );
 
@@ -311,7 +295,7 @@ class Lottie extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:hover' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .eead-lottie:hover' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -320,14 +304,14 @@ class Lottie extends Widget_Base {
             Group_Control_Css_Filter::get_type(),
             [
                 'name' => 'lottie_filter_hover',
-                'selector' => '{{WRAPPER}}',
+                'selector' => '{{WRAPPER}} .eead-lottie:hover',
             ]
         );
 
         $this->add_control(
             'lottie_transition',
             [
-                'label' => esc_html__('Transition', 'easy-elementor-addons'),
+                'label' => esc_html__('Transition Duration(Seconds)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -335,8 +319,11 @@ class Lottie extends Widget_Base {
                         'step' => 0.1,
                     ],
                 ],
+                'default' => [
+                    'size' => '0.3'
+                ],
                 'selectors' => [
-                    '{{WRAPPER}}' => 'transition: all {{SIZE}}s ease;',
+                    '{{WRAPPER}} .eead-lottie' => 'transition: all {{SIZE}}s ease;',
                 ],
             ]
         );
@@ -358,22 +345,18 @@ class Lottie extends Widget_Base {
             $tag = 'div';
 
             $lottie_settings = array(
-                'direction' => $settings['lottie_reverse'],
-                'on-scroll' => $settings['lottie_on_visible'],
-                'autoplay' => $settings['lottie_autoplay'],
+                'renderer' => $settings['lottie_render_type'],
+                'autoplay' => $settings['lottie_autoplay'] ? true : false,
+                'reverse' => $settings['lottie_reverse'] ? '-1' : '1',
                 'speed' => isset($settings['lottie_speed']['size']) ? $settings['lottie_speed']['size'] : 1,
                 'action' => $settings['lottie_action'],
-                'renderer' => $settings['lottie_render_type'],
+                'action_alt' => $settings['lottie_action_alt'],
             );
 
             if (!empty($settings['lottie_json']['url'])) {
                 $lottie_settings['path'] = $settings['lottie_json']['url'];
             } else {
                 $lottie_settings['path'] = $settings['lottie_url'];
-            }
-
-            if ($settings['lottie_loop'] && $settings['lottie_loop_count']['size']) {
-                $lottie_settings['loop'] = $settings['lottie_loop_count']['size'];
             }
 
             $this->add_render_attribute('wrapper', [

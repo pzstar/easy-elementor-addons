@@ -545,7 +545,9 @@ class ScrollImage extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	protected function render_image($settings) {
+	protected function render_image() {
+		$settings = $this->get_settings_for_display();
+
 		$image_url = Group_Control_Image_Size::get_attachment_image_src($settings['image']['id'], 'image_size', $settings);
 
 		if (!$image_url) {
@@ -588,34 +590,20 @@ class ScrollImage extends Widget_Base {
 			$max_height = '1024';
 		}
 
-		$this->add_render_attribute('image-wrapper', [
-			'class' => 'uk-responsive-width',
-			'uk-responsive' => 'width: ' . esc_attr($max_width) . '; height: ' . esc_attr($max_height)
-		]);
-
-		if ($settings['image_scroll_option'] == 'top-bottom') {
-			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-top-bottom');
-		} elseif ($settings['image_scroll_option'] == 'bottom-top') {
-			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-bottom-top');
-		} elseif ($settings['image_scroll_option'] == 'left-right') {
-			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-left-right');
-		} elseif ($settings['image_scroll_option'] == 'right-left') {
-			$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-right-left');
-		}
+		$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-' . $settings['image_scroll_option']);
 
 		$this->add_render_attribute('image', 'style', 'background-image: url(' . esc_url($image_url) . ');');
 
-		if ($settings['image_framing']) { ?>
-			<div class="eead-slider-device-frame">
-				<img src="<?php echo EEAD_ASSETS_URL; ?>img/devices/<?php echo esc_attr($frame); ?>.svg" alt="">
-				<div <?php echo $this->get_render_attribute_string('image-wrapper'); ?>>
-				<?php } ?>
-				<div <?php echo $this->get_render_attribute_string('image'); ?>></div>
-				<?php if ($settings['image_framing']) { ?>
-				</div>
-			</div>
-			<?php
-				}
+		if ($settings['image_framing']) {
+			echo '<div class="eead-slider-device-frame">';
+			echo '<img src="' . EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg">';
+		} ?>
+
+		<div <?php echo $this->get_render_attribute_string('image'); ?>></div>
+
+		<?php if ($settings['image_framing']) {
+			echo '</div>';
+		}
 	}
 
 
@@ -625,92 +613,72 @@ class ScrollImage extends Widget_Base {
 		if (empty($settings['image']['url'])) {
 			return;
 		}
+
 		$this->add_render_attribute('wrapper', 'class', 'eead-scroll-image-wrapper');
 
 		if ($settings['image_framing']) {
 			$this->add_render_attribute('wrapper', 'class', 'eead-device-slider eead-device-slider-' . esc_attr($settings['frame']));
-			$link_icon_position = 'center';
-		} else {
-			$link_icon_position = $settings['link_icon_position'];
 		}
 
-		if ($settings['link_to'] !== '') {
-
-			if ($settings['link_to'] == 'lightbox') {
-				$link = $settings['image']['url'];
-			} else {
-				$link = $settings['external_link']['url'];
-			}
+		if ($settings['link_to'] == 'lightbox') {
 
 			$this->add_render_attribute('link', [
-				'href' => esc_url($link),
-				'class' => 'eead-position-' . esc_attr($link_icon_position)
+				'href' => esc_url($settings['image']['url']),
+				'class' => [
+					'eead-scroll-image-lightbox',
+				]
 			]);
 
-			if ($settings['link_icon']) {
-				$this->add_render_attribute('link', [
-					'class' => 'eead-link-icon ',
-				]);
-
-				$this->add_render_attribute('link-wrapper', [
-					'class' => 'eead-link-wrapper ',
-				]);
-			}
-		}
-
-		if ($settings['link_to'] === 'lightbox') {
+		} elseif ($settings['link_to'] === 'modal') {
 
 			$this->add_render_attribute('link', [
-				'class' => 'eead-scroll-image-lightbox-item'
-			]);
-		} else if ($settings['link_to'] === 'modal') {
-			$this->add_render_attribute('link', [
-				'class' => 'eead-scroll-image-iframe-modal',
+				'class' => 'eead-scroll-image-modal',
 				'data-iframe' => 'true',
-				'data-src' => esc_url($link)
+				'data-src' => esc_url($settings['external_link']['url'])
 			]);
-		}
 
-		$this->add_render_attribute('container', 'class', 'eead-scroll-image-container');
+		} else {
+
+			if (!empty($settings['external_link']['url'])) {
+				$this->add_link_attributes('link', $settings['external_link']);
+			}
+
+		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string('container'); ?>>
-			<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] == '')) { ?>
-				<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
+		<div class="eead-scroll-image-container">
+			<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] == '')) {
+				echo '<a target="_blank" ' . $this->get_render_attribute_string('link') . '>';
+			}
+			?>
+
+			<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+
+				<?php $this->render_image();
+
+				if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
+					<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
+						<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
+					</a>
 				<?php } ?>
 
-				<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
-					<?php if (!$settings['image_framing'] && !empty($settings['caption'])) { ?>
-						<figure class="eead-image-caption">
-						<?php } ?>
+				<?php if ($settings['badge'] && $settings['badge_text'] != '') { ?>
+					<span class="eead-scroll-image-badge">
+						<?php echo esc_html($settings['badge_text']); ?>
+					</span>
+				<?php } ?>
+			</div>
 
-						<?php $this->render_image($settings); ?>
+			<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] == '')) {
+				echo '</a>';
+			}
+			?>
 
-						<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
-							<div <?php echo $this->get_render_attribute_string('link-wrapper'); ?>>
-								<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
-									<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
-								</a>
-							</div>
-						<?php } ?>
-
-						<?php if (!$settings['image_framing'] && !empty($settings['caption'])) { ?>
-							<figcaption class="eead-scroll-image-caption eead-caption-text">
-								<?php echo esc_attr($settings['caption']); ?>
-							</figcaption>
-						</figure>
-					<?php } ?>
+			<?php if (!empty($settings['caption'])) { ?>
+				<div class="eead-scroll-image-caption">
+					<?php echo esc_attr($settings['caption']); ?>
 				</div>
-
-				<?php if (($settings['link_to'] !== '') && ($settings['link_icon'] == '')) { ?>
-				</a>
 			<?php } ?>
-
-			<?php if ($settings['badge'] && $settings['badge_text'] != ''): ?>
-				<div class="eead-scroll-image-badge">
-					<span class="eead-badge eead-padding-small"><?php echo esc_html($settings['badge_text']); ?></span>
-				</div>
-			<?php endif; ?>
 
 		</div>
 		<?php
