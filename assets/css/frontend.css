@@ -4584,7 +4584,7 @@ Scroll Image
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-tablet {
-    padding: 11% 9.5% 11% 9.5%;
+    padding: 4%;
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-desktop .eead-scroll-image {
@@ -4616,7 +4616,8 @@ Scroll Image
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-tablet .eead-scroll-image {
-    padding-bottom: 64%;;
+    padding-bottom: 134%;
+    border-radius: 2%;
 }
 
 .eead-scroll-image-container .eead-scroll-image {
