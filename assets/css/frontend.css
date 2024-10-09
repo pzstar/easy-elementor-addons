@@ -4445,7 +4445,7 @@ ul.eead-one-page-nav li a {
 /* Horizontal Tool Tip */
 .eead-opn-pos-right-bottom.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip,
 .eead-opn-pos-center-bottom .eead-one-page-nav-item .eead-nav-dot-tooltip,
-.eead-opn-pos-left-bottom.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip{
+.eead-opn-pos-left-bottom.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip {
     transform: rotate(-90deg) translateY(50%);
     transform-origin: 0 100%;
     left: 50%;
@@ -4454,7 +4454,7 @@ ul.eead-one-page-nav li a {
 
 .eead-opn-pos-right-top.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip,
 .eead-opn-pos-center-top .eead-one-page-nav-item .eead-nav-dot-tooltip,
-.eead-opn-pos-left-top.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip{
+.eead-opn-pos-left-top.eead-opn-orientation-horizontal .eead-one-page-nav-item .eead-nav-dot-tooltip {
     transform: rotate(90deg) translateY(-50%);
     transform-origin: 0 0;
     left: 50%;
@@ -4484,7 +4484,7 @@ ul.eead-one-page-nav li a {
 /* Horizontal Tool Tip Arrow */
 .eead-opn-pos-right-top.eead-opn-orientation-horizontal .eead-nav-dot-tooltip.eead-tooltip-arrow:after,
 .eead-opn-pos-center-top .eead-nav-dot-tooltip.eead-tooltip-arrow:after,
-.eead-opn-pos-left-top.eead-opn-orientation-horizontal .eead-nav-dot-tooltip.eead-tooltip-arrow:after{
+.eead-opn-pos-left-top.eead-opn-orientation-horizontal .eead-nav-dot-tooltip.eead-tooltip-arrow:after {
     right: 100%;
     top: 50%;
     transform: translateY(-50%);
@@ -4587,23 +4587,39 @@ Scroll Image
     padding: 11% 9.5% 11% 9.5%;
 }
 
-.eead-scroll-image-container .eead-device-slider .eead-scroll-image{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 3.9% 4% 23.5% 4%;
-    background-size: cover;
-    background-repeat: no-repeat;
-   
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-desktop .eead-scroll-image {
+    padding-bottom: 56%;
 }
 
-.eead-scroll-image-container .eead-slider-device-frame{
-    padding-bottom: 52.5%;
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-safari .eead-scroll-image {
+    padding-bottom: 52%;
 }
 
-.eead-scroll-image-container > .eead-scroll-image {
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome-dark .eead-scroll-image {
+    padding-bottom: 56.5%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
+    padding-bottom: 51%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
+    padding-bottom: 51%;;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookair .eead-scroll-image {
+    padding-bottom: 64%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-tablet .eead-scroll-image {
+    padding-bottom: 64%;;
+}
+
+.eead-scroll-image-container .eead-scroll-image {
     display: block;
     position: relative;
     padding: 0;
