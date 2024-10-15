@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 class Lottie extends Widget_Base {
 
     public function get_script_depends() {
-        return ['lottie', 'lottie-init'];
+        return ['lottie'];
     }
 
     /** Widget Name */

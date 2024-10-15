@@ -1180,12 +1180,6 @@ Dual Button Animations
     transition-timing-function: ease-out;
 }
 
-.eead-sweep-right:hover,
-.eead-sweep-right:focus,
-.eead-sweep-right:active {
-    color: white;
-}
-
 .eead-sweep-right:hover:before,
 .eead-sweep-right:focus:before,
 .eead-sweep-right:active:before {
@@ -1214,12 +1208,6 @@ Dual Button Animations
     transition-property: transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
-}
-
-.eead-sweep-left:hover,
-.eead-sweep-left:focus,
-.eead-sweep-left:active {
-    color: white;
 }
 
 .eead-sweep-left:hover:before,
@@ -1288,12 +1276,6 @@ Dual Button Animations
     transition-property: transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
-}
-
-.eead-sweep-top:hover,
-.eead-sweep-top:focus,
-.eead-sweep-top:active {
-    color: white;
 }
 
 .eead-sweep-top:hover:before,
@@ -1365,12 +1347,6 @@ Dual Button Animations
     transition-timing-function: ease-out;
 }
 
-.eead-bounce-left:hover,
-.eead-bounce-left:focus,
-.eead-bounce-left:active {
-    color: white;
-}
-
 .eead-bounce-left:hover:before,
 .eead-bounce-left:focus:before,
 .eead-bounce-left:active:before {
@@ -1403,12 +1379,6 @@ Dual Button Animations
     transition-timing-function: ease-out;
 }
 
-.eead-bounce-bottom:hover,
-.eead-bounce-bottom:focus,
-.eead-bounce-bottom:active {
-    color: white;
-}
-
 .eead-bounce-bottom:hover:before,
 .eead-bounce-bottom:focus:before,
 .eead-bounce-bottom:active:before {
@@ -1439,12 +1409,6 @@ Dual Button Animations
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
-}
-
-.eead-bounce-top:hover,
-.eead-bounce-top:focus,
-.eead-bounce-top:active {
-    color: white;
 }
 
 .eead-bounce-top:hover:before,
@@ -2353,6 +2317,10 @@ Hotspot
     right: 100%;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.eead-hotspot .eead-hotspot-content .eead-hotspot-desc *:last-child {
+    margin-bottom: 0;
 }
 
 .eead-hotspot.eead-open-onhover .eead-hotspot-item:hover,
@@ -4607,7 +4575,8 @@ Scroll Image
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
-    padding-bottom: 51%;;
+    padding-bottom: 51%;
+    ;
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro .eead-scroll-image,

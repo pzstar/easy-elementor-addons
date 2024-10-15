@@ -161,7 +161,6 @@ class EEAD_Widget_Loader {
 
         // Lottie
         wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
-        wp_register_script('lottie-init', EEAD_URL . 'assets/lib/lottie/lottie.init.js', ['lottie', 'elementor-frontend'], EEAD_VERSION, true);
 
         // Text Marquee
         wp_register_script('text-marquee', EEAD_URL . 'assets/lib/marquee/jquery.marquee.min.js', array('jquery'), EEAD_VERSION, true);

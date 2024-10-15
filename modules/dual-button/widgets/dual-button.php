@@ -414,8 +414,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -426,7 +426,7 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
                 ],
             ]
@@ -533,8 +533,8 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );
@@ -545,7 +545,7 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):hover' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
                 ],
             ]
@@ -560,7 +560,7 @@ class DualButton extends Widget_Base {
                     'sec_button_border_border!' => '',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
