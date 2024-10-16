@@ -60,7 +60,7 @@ class ScrollImage extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name' => 'image_size',
-				'default' => 'large',
+				'default' => 'full',
 				'separator' => 'none',
 			]
 		);
@@ -80,16 +80,25 @@ class ScrollImage extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => 'desktop',
 				'options' => [
-					'desktop' => esc_html__('Desktop', 'easy-elementor-addons'),
+					'imac-dark' => esc_html__('Imac Dark', 'easy-elementor-addons'),
+					'imac-light' => esc_html__('Imac Light', 'easy-elementor-addons'),
+					'imac-red' => esc_html__('Imac Red', 'easy-elementor-addons'),
+					'imac-blue' => esc_html__('Imac Blue', 'easy-elementor-addons'),
+					'imac-green' => esc_html__('Imac Green', 'easy-elementor-addons'),
+					'imac-yellow' => esc_html__('Imac Yellow', 'easy-elementor-addons'),
+					'macbook-pro' => esc_html__('Macbook Pro', 'easy-elementor-addons'),
+					'macbook-air' => esc_html__('Macbook Air', 'easy-elementor-addons'),
+					'ipad-pro-v' => esc_html__('Ipad Pro (Vertical)', 'easy-elementor-addons'),
+					'ipad-pro-h' => esc_html__('Ipad Pro (Horizontal)', 'easy-elementor-addons'),
+					'iphone-gold' => esc_html__('Iphone Gold', 'easy-elementor-addons'),
+					'iphone-black' => esc_html__('Iphone Black', 'easy-elementor-addons'),
+					'iphonex' => esc_html__('Iphone X', 'easy-elementor-addons'),
 					'safari' => esc_html__('Safari', 'easy-elementor-addons'),
 					'chrome' => esc_html__('Chrome', 'easy-elementor-addons'),
 					'chrome-dark' => esc_html__('Chrome Dark', 'easy-elementor-addons'),
 					'firefox' => esc_html__('Firefox', 'easy-elementor-addons'),
 					'edge' => esc_html__('Edge', 'easy-elementor-addons'),
 					'edge-dark' => esc_html__('Edge Dark', 'easy-elementor-addons'),
-					'macbookpro' => esc_html__('Macbook Pro', 'easy-elementor-addons'),
-					'macbookair' => esc_html__('Macbook Air', 'easy-elementor-addons'),
-					'tablet' => esc_html__('Tablet', 'easy-elementor-addons'),
 				],
 				'condition' => [
 					'image_framing' => 'yes'
@@ -159,10 +168,10 @@ class ScrollImage extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => 'lightbox',
 				'options' => [
+					'' => esc_html__('None', 'easy-elementor-addons'),
 					'lightbox' => esc_html__('Lightbox', 'easy-elementor-addons'),
 					'modal' => esc_html__('Modal', 'easy-elementor-addons'),
 					'external' => esc_html__('External', 'easy-elementor-addons'),
-					'' => esc_html__('None', 'easy-elementor-addons'),
 				],
 			]
 		);
@@ -555,40 +564,6 @@ class ScrollImage extends Widget_Base {
 		}
 
 		$frame = $settings['frame'];
-		$max_width = '1280';
-		$max_height = '720';
-
-		if ('desktop' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('safari' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('chrome' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('chrome-dark' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('firefox' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('edge' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('edge-dark' === $frame) {
-			$max_width = '1280';
-			$max_height = '720';
-		} elseif ('macbookpro' === $frame) {
-			$max_width = '1280';
-			$max_height = '815';
-		} elseif ('macbookair' === $frame) {
-			$max_width = '1280';
-			$max_height = '810';
-		} elseif ('tablet' === $frame) {
-			$max_width = '768';
-			$max_height = '1024';
-		}
 
 		$this->add_render_attribute('image', 'class', 'eead-scroll-image eead-scroll-image-' . $settings['image_scroll_option']);
 
@@ -609,10 +584,6 @@ class ScrollImage extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
-		if (empty($settings['image']['url'])) {
-			return;
-		}
 
 		$this->add_render_attribute('wrapper', 'class', 'eead-scroll-image-wrapper');
 

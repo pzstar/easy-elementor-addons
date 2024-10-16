@@ -4509,11 +4509,16 @@ Scroll Image
     background-position: center right;
 }
 
-
 .eead-scroll-image-container .eead-device-slider {
     position: relative;
     overflow: hidden;
 }
+
+.eead-scroll-image-modal,
+.eead-scroll-image-badge {
+    position: absolute;
+}
+
 
 .eead-slider-device-frame img {
     position: absolute;
@@ -4524,23 +4529,118 @@ Scroll Image
     display: block;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-desktop {
-    padding: 3.9% 4% 23.5% 4%;
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-dark {
+    padding: 4% 4.1% 24% 4.1%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-dark .eead-scroll-image {
+    padding-bottom: 60.8%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-light {
+    padding: 3% 4% 24% 4%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-light .eead-scroll-image {
+    padding-bottom: 58%;
+}
+
+.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-imac-red, .eead-device-slider-imac-blue, .eead-device-slider-imac-yellow, .eead-device-slider-imac-green) {
+    padding: 2.4% 2.4% 29% 2.4%;
+}
+
+.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-imac-red, .eead-device-slider-imac-blue, .eead-device-slider-imac-yellow, .eead-device-slider-imac-green) .eead-scroll-image {
+    padding-bottom: 56.4%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-pro {
+    padding: 3.3% 11% 6% 11.8%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-pro .eead-scroll-image {
+    padding-bottom: 61.8%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-air {
+    padding: 3.5% 11.1% 5.5% 11.1%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-air .eead-scroll-image {
+    padding-bottom: 62.6%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-v {
+    padding: 4.3% 4.1% 4.5% 4.1%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-v .eead-scroll-image {
+    padding-bottom: 133%;
+    -webkit-mask-image: url(../img/devices/ipad-v-mask.svg);
+    mask-image: url(../img/devices/ipad-v-mask.svg);
+    mask-repeat: no-repeat;    
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-h {
+    padding: 3.2% 3.2% 3.5% 3.2%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-h .eead-scroll-image {
+    padding-bottom: 74.8%;
+    -webkit-mask-image: url(../img/devices/ipad-h-mask.svg);
+    mask-image: url(../img/devices/ipad-h-mask.svg);
+    mask-repeat: no-repeat;   
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-gold,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-black {
+    padding: 3.6% 4.2% 3.5% 4.2%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-gold .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-black .eead-scroll-image {
+    padding-bottom: 217%;
+    -webkit-mask-image: url(../img/devices/iphone-mask.svg);
+    mask-image: url(../img/devices/iphone-mask.svg);
+    mask-repeat: no-repeat;    
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphonex {
+    padding: 3% 3.5% 3.5% 3.5%;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphonex .eead-scroll-image{
+    padding-bottom: 213.5%;
+    -webkit-mask-image: url(../img/devices/iphonex-mask.svg);
+    mask-image: url(../img/devices/iphonex-mask.svg);
+    mask-repeat: no-repeat;    
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-safari {
     padding: 4.3% 0 0 0;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome-dark {
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-safari .eead-scroll-image {
+    padding-bottom: 52%;
+}
+
+.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-chrome, .eead-device-slider-chrome-dark) {
     padding: 5.5% 0 0 0;
+}
+
+.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-chrome, .eead-device-slider-chrome-dark) .eead-scroll-image {
+    padding-bottom: 56.4%;
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox,
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-edge,
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark {
     padding: 5.3% 0 0 0;
+}
+
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge .eead-scroll-image,
+.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
+    padding-bottom: 51%;
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro {
@@ -4555,28 +4655,13 @@ Scroll Image
     padding: 4%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-desktop .eead-scroll-image {
-    padding-bottom: 56%;
-}
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-safari .eead-scroll-image {
-    padding-bottom: 52%;
-}
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-chrome-dark .eead-scroll-image {
-    padding-bottom: 56.5%;
-}
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
-    padding-bottom: 51%;
-}
+
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
     padding-bottom: 51%;
-    ;
 }
 
 .eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro .eead-scroll-image,
