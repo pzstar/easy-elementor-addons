@@ -41,7 +41,7 @@ odometerOptions = {auto: false};
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-switcher.default': EEA.switcherBlock,
-                
+
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
@@ -897,16 +897,14 @@ odometerOptions = {auto: false};
         },
 
         scrollImage: function ($scope) {
-            var gallery = $scope.find('.eead-scroll-image-lightbox-item');
-            gallery.on('click', function () {
-                gallery.lightGallery({
-                    selector: 'this',
-                    thumbnail: false
-                });
+            $scope.find('.eead-scroll-image-lightbox').lightGallery({
+                selector: 'this',
+                thumbnail: false
             });
 
-            $scope.find('.eead-scroll-image-iframe-modal').lightGallery({
-                selector: 'this'
+            $scope.find('.eead-scroll-image-modal').lightGallery({
+                selector: 'this',
+                iframeMaxWidth: '80%', 
             });
         },
 
@@ -1489,7 +1487,7 @@ odometerOptions = {auto: false};
 
 
 
-        
+
 
 
 

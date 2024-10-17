@@ -4472,55 +4472,60 @@ ul.eead-one-page-nav li a {
 /*--------------------------------------------------------------
 Scroll Image
 --------------------------------------------------------------*/
+.eead-scroll-image-container {
+    display: flex;
+}
+
+.eead-scroll-image-container .eead-scroll-image-frame,
 .eead-scroll-image-container .eead-scroll-image-wrapper {
     position: relative;
     width: 100%;
 }
 
-.eead-scroll-image.eead-scroll-image-top-bottom {
-    background-position: center top;
-}
-
-.eead-scroll-image.eead-scroll-image-top-bottom:hover {
-    background-position: center bottom;
-}
-
-.eead-scroll-image.eead-scroll-image-bottom-top {
-    background-position: center bottom;
-}
-
-.eead-scroll-image.eead-scroll-image-bottom-top:hover {
-    background-position: center top;
-}
-
-.eead-scroll-image.eead-scroll-image-right-left {
-    background-position: center right;
-}
-
-.eead-scroll-image.eead-scroll-image-right-left:hover {
-    background-position: center left;
-}
-
-.eead-scroll-image.eead-scroll-image-left-right {
-    background-position: center left;
-}
-
-.eead-scroll-image.eead-scroll-image-left-right:hover {
-    background-position: center right;
-}
-
-.eead-scroll-image-container .eead-device-slider {
+.eead-scroll-image-container .eead-scroll-image-frame {
     position: relative;
     overflow: hidden;
 }
 
-.eead-scroll-image-modal,
-.eead-scroll-image-badge {
-    position: absolute;
+.eead-scroll-image-container .eead-scroll-image-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
+.eead-scroll-image-box.eead-scroll-image-top-bottom .eead-scroll-image {
+    background-position: center top;
+}
 
-.eead-slider-device-frame img {
+.eead-scroll-image-box.eead-scroll-image-top-bottom:hover .eead-scroll-image {
+    background-position: center bottom;
+}
+
+.eead-scroll-image-box.eead-scroll-image-bottom-top .eead-scroll-image {
+    background-position: center bottom;
+}
+
+.eead-scroll-image-box.eead-scroll-image-bottom-top:hover .eead-scroll-image {
+    background-position: center top;
+}
+
+.eead-scroll-image-box.eead-scroll-image-right-left .eead-scroll-image {
+    background-position: center right;
+}
+
+.eead-scroll-image-box.eead-scroll-image-right-left:hover .eead-scroll-image {
+    background-position: center left;
+}
+
+.eead-scroll-image-box.eead-scroll-image-left-right .eead-scroll-image {
+    background-position: center left;
+}
+
+.eead-scroll-image-box.eead-scroll-image-left-right:hover .eead-scroll-image {
+    background-position: center right;
+}
+
+.eead-scroll-image-container .eead-scroll-image-device {
     position: absolute;
     top: 0;
     left: 0;
@@ -4529,147 +4534,138 @@ Scroll Image
     display: block;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-dark {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-imac-dark {
     padding: 4% 4.1% 24% 4.1%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-dark .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-imac-dark .eead-scroll-image {
     padding-bottom: 60.8%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-light {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-imac-light {
     padding: 3% 4% 24% 4%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-imac-light .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-imac-light .eead-scroll-image {
     padding-bottom: 58%;
 }
 
-.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-imac-red, .eead-device-slider-imac-blue, .eead-device-slider-imac-yellow, .eead-device-slider-imac-green) {
+.eead-scroll-image-container .eead-scroll-image-frame:where(.eead-scroll-image-frame-imac-red, .eead-scroll-image-frame-imac-blue, .eead-scroll-image-frame-imac-yellow, .eead-scroll-image-frame-imac-green) {
     padding: 2.4% 2.4% 29% 2.4%;
 }
 
-.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-imac-red, .eead-device-slider-imac-blue, .eead-device-slider-imac-yellow, .eead-device-slider-imac-green) .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame:where(.eead-scroll-image-frame-imac-red, .eead-scroll-image-frame-imac-blue, .eead-scroll-image-frame-imac-yellow, .eead-scroll-image-frame-imac-green) .eead-scroll-image {
     padding-bottom: 56.4%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-pro {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbook-pro {
     padding: 3.3% 11% 6% 11.8%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-pro .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbook-pro .eead-scroll-image {
     padding-bottom: 61.8%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-air {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbook-air {
     padding: 3.5% 11.1% 5.5% 11.1%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbook-air .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbook-air .eead-scroll-image {
     padding-bottom: 62.6%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-v {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-ipad-pro-v {
     padding: 4.3% 4.1% 4.5% 4.1%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-v .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-ipad-pro-v .eead-scroll-image {
     padding-bottom: 133%;
     -webkit-mask-image: url(../img/devices/ipad-v-mask.svg);
     mask-image: url(../img/devices/ipad-v-mask.svg);
-    mask-repeat: no-repeat;    
+    mask-repeat: no-repeat;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-h {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-ipad-pro-h {
     padding: 3.2% 3.2% 3.5% 3.2%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-ipad-pro-h .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-ipad-pro-h .eead-scroll-image {
     padding-bottom: 74.8%;
     -webkit-mask-image: url(../img/devices/ipad-h-mask.svg);
     mask-image: url(../img/devices/ipad-h-mask.svg);
-    mask-repeat: no-repeat;   
+    mask-repeat: no-repeat;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-gold,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-black {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphone-gold,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphone-black {
     padding: 3.6% 4.2% 3.5% 4.2%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-gold .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphone-black .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphone-gold .eead-scroll-image,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphone-black .eead-scroll-image {
     padding-bottom: 217%;
     -webkit-mask-image: url(../img/devices/iphone-mask.svg);
     mask-image: url(../img/devices/iphone-mask.svg);
-    mask-repeat: no-repeat;    
+    mask-repeat: no-repeat;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphonex {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphonex {
     padding: 3% 3.5% 3.5% 3.5%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-iphonex .eead-scroll-image{
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-iphonex .eead-scroll-image {
     padding-bottom: 213.5%;
     -webkit-mask-image: url(../img/devices/iphonex-mask.svg);
     mask-image: url(../img/devices/iphonex-mask.svg);
-    mask-repeat: no-repeat;    
+    mask-repeat: no-repeat;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-safari {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-safari {
     padding: 4.3% 0 0 0;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-safari .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-safari .eead-scroll-image {
     padding-bottom: 52%;
 }
 
-.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-chrome, .eead-device-slider-chrome-dark) {
+.eead-scroll-image-container .eead-scroll-image-frame:where(.eead-scroll-image-frame-chrome, .eead-scroll-image-frame-chrome-dark) {
     padding: 5.5% 0 0 0;
 }
 
-.eead-scroll-image-container .eead-device-slider:where(.eead-device-slider-chrome, .eead-device-slider-chrome-dark) .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame:where(.eead-scroll-image-frame-chrome, .eead-scroll-image-frame-chrome-dark) .eead-scroll-image {
     padding-bottom: 56.4%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-firefox,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-edge,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-edge-dark {
     padding: 5.3% 0 0 0;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-firefox .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-firefox .eead-scroll-image,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-edge .eead-scroll-image,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-edge-dark .eead-scroll-image {
     padding-bottom: 51%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbookpro {
     padding: 2.6% 9.5% 15.2% 9.5%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookair {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbookair {
     padding: 3.6% 14.5% 10% 14%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-tablet {
-    padding: 4%;
-}
-
-
-
-
-
-
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-edge-dark .eead-scroll-image {
-    padding-bottom: 51%;
-}
-
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookpro .eead-scroll-image,
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-macbookair .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbookpro .eead-scroll-image,
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-macbookair .eead-scroll-image {
     padding-bottom: 64%;
 }
 
-.eead-scroll-image-container .eead-device-slider.eead-device-slider-tablet .eead-scroll-image {
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-tablet {
+    padding: 4%;
+}
+
+.eead-scroll-image-container .eead-scroll-image-frame.eead-scroll-image-frame-tablet .eead-scroll-image {
     padding-bottom: 134%;
     border-radius: 2%;
 }
@@ -4687,9 +4683,45 @@ Scroll Image
     transition: background-position 2s ease-in-out;
 }
 
+/* Badge */
+.eead-scroll-image-container .eead-scroll-image-badge {
+    position: absolute;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1;
+    color: #FFF;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+/* Link */
+.eead-scroll-image-container .eead-scroll-image-link {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: #FFF;
+    color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(var(--eead-scroll-image-link-h, 0)) translateY(var(--eead-scroll-image-link-v, 0));
+}
 
+.eead-scroll-image-container .eead-scroll-image-hide-link .eead-scroll-image-link {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
+.eead-scroll-image-container .eead-scroll-image-hide-link .eead-scroll-image-box:hover .eead-scroll-image-link {
+    opacity: 1;
+}
+
+.eead-scroll-image-container .eead-scroll-image-caption {
+    margin-bottom: 20px;
+}
 
 
 
