@@ -466,7 +466,7 @@ class AdvancedButton extends Widget_Base {
                 ?>
                 <div class="eead-ab-button-icon">
                     <?php
-                    Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+                    Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']);
                     ?>
                 </div>
                 <?php

@@ -9,6 +9,7 @@ use Elementor\Utils;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
@@ -262,12 +263,32 @@ class ScrollImage extends Widget_Base {
 						'title' => esc_html__('Zoom', 'easy-elementor-addons'),
 						'icon' => 'fas fa-search',
 					],
+					'custom' => [
+						'title' => esc_html__('Custom', 'easy-elementor-addons'),
+						'icon' => 'eicon-circle',
+					],
 				],
 				'default' => 'fa fa-search',
 				'toggle' => false,
 				'condition' => [
 					'link_to!' => '',
 				],
+			]
+		);
+
+		$this->add_control(
+			'link_custom_icon',
+			[
+				'label' => esc_html__('Custom Icon', 'easy-elementor-addons'),
+				'type' => Controls_Manager::ICONS,
+				'label_block' => true,
+				'default' => array(
+					'value' => 'fa fa-check',
+					'library' => 'fa-solid',
+				),
+				'condition' => array(
+					'link_icon' => 'custom',
+				),
 			]
 		);
 
@@ -472,6 +493,49 @@ class ScrollImage extends Widget_Base {
 		);
 
 		$this->add_control(
+			'badge_type',
+			[
+				'label' => esc_html__('Badge Type', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'render_type' => 'template',
+				'prefix_class' => 'eead-cursor-',
+				'options' => array(
+					'text' => esc_html__('Text', 'easy-elementor-addons'),
+					'icon' => esc_html__('Icon', 'easy-elementor-addons'),
+					'image' => esc_html__('Image', 'easy-elementor-addons'),
+				),
+				'default' => 'text',
+				'condition' => [
+					'badge' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'badge_icon',
+			[
+				'label' => esc_html__('Badge Icon', 'easy-elementor-addons'),
+				'type' => Controls_Manager::ICONS,
+				'condition' => [
+					'badge' => 'yes',
+					'badge_type' => 'icon'
+				]
+			]
+		);
+
+		$this->add_control(
+			'badge_image',
+			[
+				'label' => esc_html__('Badge Image', 'easy-elementor-addons'),
+				'type' => Controls_Manager::MEDIA,
+				'condition' => [
+					'badge' => 'yes',
+					'badge_type' => 'image'
+				]
+			]
+		);
+
+		$this->add_control(
 			'badge_text',
 			[
 				'label' => esc_html__('Badge Text', 'easy-elementor-addons'),
@@ -480,6 +544,7 @@ class ScrollImage extends Widget_Base {
 				'label_block' => true,
 				'condition' => [
 					'badge' => 'yes',
+					'badge_type' => 'text'
 				]
 			]
 		);
@@ -502,7 +567,7 @@ class ScrollImage extends Widget_Base {
 				'default' => 'left',
 				'toggle' => false,
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'position:absolute',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'position:absolute',
 				],
 				'condition' => [
 					'badge' => 'yes'
@@ -527,7 +592,7 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'left:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'left:{{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'badge_h_position' => 'left',
@@ -553,7 +618,7 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'right:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'right:{{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'badge_h_position' => 'right',
@@ -580,7 +645,7 @@ class ScrollImage extends Widget_Base {
 				'default' => 'top',
 				'toggle' => false,
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'position:absolute',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'position:absolute',
 				],
 				'condition' => [
 					'badge' => 'yes'
@@ -605,7 +670,7 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'top:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'top:{{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'badge_v_position' => 'top',
@@ -631,7 +696,7 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'bottom:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'bottom:{{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'badge_v_position' => 'bottom',
@@ -656,7 +721,7 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'transform:rotate({{SIZE}}deg)',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'transform:rotate({{SIZE}}deg)',
 				],
 				'condition' => [
 					'badge' => 'yes'
@@ -673,7 +738,7 @@ class ScrollImage extends Widget_Base {
 				'options' => get_element_position(),
 				'label_block' => true,
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'transform-origin:{{VALUE}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'transform-origin:{{VALUE}}',
 				],
 				'condition' => [
 					'badge' => 'yes'
@@ -845,6 +910,7 @@ class ScrollImage extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'font-size:{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link svg' => 'height:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -869,6 +935,7 @@ class ScrollImage extends Widget_Base {
 				'default' => '#333333',
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -921,12 +988,18 @@ class ScrollImage extends Widget_Base {
 			[
 				'name' => 'badge_background',
 				'fields_options' => [
-					'background_type' => 'classic',
+					'background' => [
+						'default' => 'classic'
+					],
 					'color' => [
 						'default' => '#FF0000',
 					],
 				],
-				'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge',
+				'exclude' => ['image'],
+				'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge',
+				'condition' => [
+					'badge_type' => 'text'
+				]
 			]
 		);
 
@@ -937,8 +1010,12 @@ class ScrollImage extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFFFFF',
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge svg' => 'fill: {{VALUE}}',
 				],
+				'condition' => [
+					'badge_type!' => 'image'
+				]
 			]
 		);
 
@@ -946,25 +1023,22 @@ class ScrollImage extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'badge_typography',
-				'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge',
+				'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge',
+				'condition' => [
+					'badge_type' => 'text'
+				]
 			]
 		);
 
 		$this->add_control(
-			'badge_dimension',
+			'badge_size',
 			[
-				'label' => esc_html__('Fixed Height & Width', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SWITCHER,
-				'separator' => 'before'
-			]
-		);
-
-		$this->add_control(
-			'badge_height',
-			[
-				'label' => esc_html__('Height', 'easy-elementor-addons'),
+				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
+				'default' => [
+					'size' => 30
+				],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -972,10 +1046,10 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'height:{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge i' => 'font-size:{{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'badge_dimension' => 'yes'
+					'badge_type' => 'icon'
 				]
 			]
 		);
@@ -986,6 +1060,10 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
+				'default'  => [
+					'size' => 80,
+					'unit' => 'px'
+				],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -993,10 +1071,10 @@ class ScrollImage extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'width:{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'width:{{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'badge_dimension' => 'yes'
+					'badge_type' => 'image'
 				]
 			]
 		);
@@ -1008,8 +1086,11 @@ class ScrollImage extends Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'condition' => [
+					'badge_type' => 'text'
+				]
 			]
 		);
 
@@ -1020,8 +1101,11 @@ class ScrollImage extends Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'condition' => [
+					'badge_type' => 'text'
+				]
 			]
 		);
 
@@ -1057,18 +1141,34 @@ class ScrollImage extends Widget_Base {
 		}
 
 		echo '<div ' . $this->get_render_attribute_string('image-box') . '>';
-		?>
-		<div <?php echo $this->get_render_attribute_string('image'); ?>></div>
-
-		<?php if ($settings['badge'] && $settings['badge_text'] != '') { ?>
-			<span class="eead-scroll-image-badge">
-				<?php echo esc_html($settings['badge_text']); ?>
-			</span>
-		<?php }
-
+		echo '<div ' . $this->get_render_attribute_string('image') . '></div>';
+		$this->render_badge();
 		$this->render_link();
-
 		echo '</div>';
+	}
+
+	protected function render_badge() {
+		$settings = $this->get_settings_for_display();
+		if ($settings['badge']) {
+			echo '<span class="eead-scroll-badge">';
+			switch ($settings['badge_type']) {
+				case 'icon':
+					if (!empty($settings['badge_icon']['value'])) {
+						Icons_Manager::render_icon($settings['badge_icon'], ['aria-hidden' => 'true']);
+					}
+					break;
+
+				case 'image':
+					echo Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'badge_image');
+					break;
+
+				case 'text':
+					echo $settings['badge_text'];
+					break;
+
+			}
+			echo '</span>';
+		}
 	}
 
 	protected function render_link() {
@@ -1103,7 +1203,14 @@ class ScrollImage extends Widget_Base {
 
 		if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
 			<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
-				<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
+				<?php if ($settings['link_icon'] !== 'custom') { ?>
+					<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
+				<?php } else {
+					if (!empty($settings['link_custom_icon']['value'])) {
+						Icons_Manager::render_icon($settings['link_custom_icon'], ['aria-hidden' => 'true']);
+					}
+				}
+				?>
 			</a>
 		<?php }
 	}
