@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, block elements, elementor widgets
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 Requires PHP: 5.
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -121,6 +121,9 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 2.0.3 Oct 18, 2024 =
+* Modules Refinements
+
 = 2.0.2 Sep 30, 2024 =
 * Modules Refinements
 
