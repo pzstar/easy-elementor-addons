@@ -42,11 +42,11 @@ class FilterableGallery extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['magnific-popup', 'isotope'];
+        return ['lightgallery', 'isotope'];
     }
 
     public function get_style_depends() {
-        return ['magnific-popup'];
+        return ['lightgallery'];
     }
 
     /** Controls */
@@ -126,6 +126,7 @@ class FilterableGallery extends Widget_Base {
             'search_filter_placeholder',
             [
                 'label' => esc_html__('Search Placeholder Text', 'easy-elementor-addons'),
+                'label_block' => true,
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Search Items', 'easy-elementor-addons'),
                 'condition' => [
@@ -2039,16 +2040,11 @@ class FilterableGallery extends Widget_Base {
             $gallery_store[$counter]['link'] = $gallery['gallery_image_link'];
             $gallery_store[$counter]['show_video'] = isset($gallery['gallery_show_video']) && $gallery['gallery_show_video'] == 'yes' ? true : false;
 
-            if (isset($gallery['gallery_item_video_link']) && !empty($gallery['gallery_item_video_link']) && (strpos($gallery['gallery_item_video_link'], 'youtu.be') != false)) {
-                preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $gallery['gallery_item_video_link'], $matches);
-                $gallery_store[$counter]['video_link'] = !empty($matches) ? sprintf('https://www.youtube.com/watch?v=%s', $matches[1]) : '';
-
-            } else {
-                $gallery_store[$counter]['video_link'] = isset($gallery['gallery_item_video_link']) && $gallery['gallery_item_video_link'] == 'yes' ? true : false;
+            if (isset($gallery['gallery_item_video_link']) && !empty($gallery['gallery_item_video_link'])) {
+                $gallery_store[$counter]['video_link'] = $gallery['gallery_item_video_link'];
             }
 
             $gallery_store[$counter]['show_lightbox'] = isset($gallery['gallery_show_lighbox']) && $gallery['gallery_show_lighbox'] == 'yes' ? true : false;
-            ;
             $gallery_store[$counter]['controls'] = isset($gallery['gallery_filter_name']) && $gallery['gallery_filter_name'] ? implode(' ', $this->render_filter_class($gallery['gallery_filter_name'])) : '';
             $gallery_store[$counter]['show_price'] = isset($gallery['gallery_show_price']) && $gallery['gallery_show_price'] == 'yes' ? true : false;
             $gallery_store[$counter]['price'] = $gallery['gallery_item_price'];
@@ -2130,7 +2126,7 @@ class FilterableGallery extends Widget_Base {
         if ($item['show_video']) {
             $video_url = isset($item['video_link']) ? $item['video_link'] : '#';
             ?>
-            <a href="<?php echo esc_url($video_url); ?>" class="eead-fg-video-popup eead-magnific-link eead-fg-video-link">
+            <a href="<?php echo esc_url($video_url); ?>" data-src="<?php echo esc_url($video_url); ?>" class="eead-fg-video-popup eead-magnific-link">
                 <?php
                 Icons_Manager::render_icon($settings['video_play_icon'], ['aria-hidden' => 'true']);
                 ?>
@@ -2238,7 +2234,7 @@ class FilterableGallery extends Widget_Base {
         $gallery_settings = [
             'grid_style' => $settings['gallery_grid_style'],
             'duration' => $filter_duration,
-            'gallery_enabled' => $settings['enable_gallery'],
+            'gallery_enabled' => $settings['enable_gallery'] ? 'yes' : 'no',
             'filter_type' => $settings['filter_type'],
         ];
 

@@ -223,7 +223,8 @@ class ScrollImage extends Widget_Base {
 				'options' => [
 					'' => esc_html__('None', 'easy-elementor-addons'),
 					'lightbox' => esc_html__('Lightbox', 'easy-elementor-addons'),
-					'modal' => esc_html__('Modal', 'easy-elementor-addons'),
+					'modal' => esc_html__('Iframe Modal', 'easy-elementor-addons'),
+					'video' => esc_html__('Video', 'easy-elementor-addons'),
 					'external' => esc_html__('External', 'easy-elementor-addons'),
 				],
 			]
@@ -236,11 +237,21 @@ class ScrollImage extends Widget_Base {
 				'type' => Controls_Manager::URL,
 				'show_external' => false,
 				'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
-				'default' => [
-					'url' => '#',
-				],
 				'condition' => [
 					'link_to' => ['external', 'modal'],
+				],
+			]
+		);
+
+		$this->add_control(
+			'video_link',
+			[
+				'label' => esc_html__('Video Link', 'easy-elementor-addons'),
+				'type' => Controls_Manager::URL,
+				'show_external' => false,
+				'placeholder' => esc_html__('https://www.youtube.com/watch?v=FSDFEWFRW12', 'easy-elementor-addons'),
+				'condition' => [
+					'link_to' => 'video',
 				],
 			]
 		);
@@ -1060,7 +1071,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Width', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
-				'default'  => [
+				'default' => [
 					'size' => 80,
 					'unit' => 'px'
 				],
@@ -1184,16 +1195,21 @@ class ScrollImage extends Widget_Base {
 			$this->add_render_attribute('link', [
 				'href' => esc_url($settings['image']['url']),
 				'data-elementor-open-lightbox' => 'no',
-				'class' => [
-					'eead-scroll-image-lightbox',
-				]
+				'class' => 'eead-scroll-image-lightbox',
 			]);
 		} elseif ($settings['link_to'] === 'modal') {
 			$this->add_render_attribute('link', [
 				'href' => esc_url($settings['external_link']['url']),
-				'class' => 'eead-scroll-image-modal',
+				'class' => 'eead-scroll-iframe-modal',
 				'data-iframe' => 'true',
-				'data-src' => esc_url($settings['external_link']['url'])
+				'data-src' => esc_url($settings['external_link']['url']),
+				'data-elementor-open-lightbox' => 'no'
+			]);
+		} elseif ($settings['link_to'] === 'video') {
+			$this->add_render_attribute('link', [
+				'href' => esc_url($settings['video_link']['url']),
+				'class' => 'eead-scroll-video-modal',
+				'data-elementor-open-lightbox' => 'no'
 			]);
 		} else {
 			if (!empty($settings['external_link']['url'])) {
@@ -1230,7 +1246,7 @@ class ScrollImage extends Widget_Base {
 		}
 
 		?>
-		<div class="eead-scroll-image-container">
+		<div id="eead-scroll-image-container-<?php echo $this->get_id(); ?>" class="eead-scroll-image-container">
 			<div class="eead-scroll-image-wrapper">
 				<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
 					<?php $this->render_image(); ?>

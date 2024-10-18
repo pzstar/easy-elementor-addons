@@ -42,11 +42,11 @@ class ImageGallery extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['magnific-popup', 'justifiedGallery'];
+        return ['lightgallery'];
     }
 
     public function get_script_depends() {
-        return ['magnific-popup', 'isotope', 'justifiedGallery'];
+        return ['lightgallery', 'isotope'];
     }
 
     /** Controls */
@@ -656,14 +656,14 @@ class ImageGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'overlay_bg_color',
-				'types' => [ 'classic', 'gradient' ],
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'overlay_bg_color',
+                'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption',
-			]
-		);
+                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption',
+            ]
+        );
 
         $this->add_responsive_control(
             'overlay_caption_container_padding',

@@ -823,7 +823,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1050;
+    z-index: 99999;
     text-align: left;
     opacity: 0;
     -webkit-transition: opacity 0.15s ease 0s;
@@ -976,8 +976,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1040;
-    background-color: #000;
+    z-index: 99998;
+    background-color: #000000e8;
     opacity: 0;
     -webkit-transition: opacity 0.15s ease 0s;
     transition: opacity 0.15s ease 0s;

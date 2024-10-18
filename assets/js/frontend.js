@@ -412,23 +412,21 @@ odometerOptions = {auto: false};
 
                 $isotope_gallery.addClass('eead-isotope-initialized');
 
-                // Init Magnific Popup
-                $($scope).magnificPopup({
-                    delegate: ".eead-magnific-link",
-                    type: "image",
-                    gallery: {
-                        enabled: $gallery_enabled
-                    },
-                    callbacks: {
-                        elementParse: function (item) {
-                            if (item.el.hasClass('eead-fg-video-link')) {
-                                item.type = 'iframe';
-                            } else {
-                                item.type = 'image';
-                            }
-                        }
-                    }
-                });
+                // Init Popup
+                if ($gallery_enabled == 'yes') {
+                    $gallery.lightGallery({
+                        selector: '.eead-magnific-link',
+                        thumbnail: false,
+                        width: '80%',
+                    });
+                } else {
+                    $gallery.find('.eead-magnific-link').lightGallery({
+                        selector: 'this',
+                        thumbnail: false,
+                        width: '80%',
+                        counter: false
+                    });
+                }
 
                 // filter
                 $scope.on("click", ".eead-fg-filter-control", function () {
@@ -665,13 +663,10 @@ odometerOptions = {auto: false};
 
                     $gallery_container.addClass('eead-isotope-initialized');
 
-                    // Init Magnific Popup
-                    $($gallery_container).magnificPopup({
-                        delegate: ".eead-ig-lightbox",
-                        type: "image",
-                        gallery: {
-                            enabled: true
-                        }
+                    // Init Popup
+                    $gallery_container.lightGallery({
+                        selector: '.eead-ig-lightbox',
+                        thumbnail: false,
                     });
                 }
             }
@@ -899,12 +894,19 @@ odometerOptions = {auto: false};
         scrollImage: function ($scope) {
             $scope.find('.eead-scroll-image-lightbox').lightGallery({
                 selector: 'this',
-                thumbnail: false
+                thumbnail: false,
+                counter: false
             });
 
-            $scope.find('.eead-scroll-image-modal').lightGallery({
+            $scope.find('.eead-scroll-iframe-modal').lightGallery({
                 selector: 'this',
-                iframeMaxWidth: '80%', 
+                iframeMaxWidth: '80%',
+                counter: false
+            });
+
+            $scope.find('.eead-scroll-video-modal').lightGallery({
+                selector: 'this',
+                counter: false
             });
         },
 
