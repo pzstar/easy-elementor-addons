@@ -417,13 +417,11 @@ odometerOptions = {auto: false};
                     $gallery.lightGallery({
                         selector: '.eead-magnific-link',
                         thumbnail: false,
-                        width: '80%',
                     });
                 } else {
                     $gallery.find('.eead-magnific-link').lightGallery({
                         selector: 'this',
                         thumbnail: false,
-                        width: '80%',
                         counter: false
                     });
                 }
