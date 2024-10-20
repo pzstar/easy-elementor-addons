@@ -24,6 +24,7 @@ odometerOptions = {auto: false};
                 'eead-one-page-nav.default': EEA.onePageNav,
                 'eead-lottie.default': EEA.Lottie,
                 'eead-scroll-image.default': EEA.scrollImage,
+                'eead-logo-carousel.default': EEA.logoCarousel,
 
 
 
@@ -32,7 +33,7 @@ odometerOptions = {auto: false};
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
-                'eead-logo-carousel.default': EEA.logoCarousel,
+
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
@@ -908,6 +909,40 @@ odometerOptions = {auto: false};
             });
         },
 
+        logoCarousel: function ($scope) {
+            var $ele = $scope.find('.eead-logo-carousel');
+            if ($ele.length > 0) {
+                var params = JSON.parse($ele.attr('data-params'));
+                $ele.owlCarousel({
+                    loop: JSON.parse(params.loop),
+                    autoplay: JSON.parse(params.autoplay),
+                    autoplayTimeout: params.pause,
+                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
+                    nav: JSON.parse(params.arrows),
+                    dots: JSON.parse(params.dots),
+                    autoHeight: JSON.parse(params.auto_height),
+                    center: JSON.parse(params.focus_center_logo),
+                    responsive: {
+                        0: {
+                            items: params.items_mobile,
+                            margin: params.margin_mobile,
+                            stagePadding: params.stagepadding_mobile
+                        },
+                        480: {
+                            items: params.items_tablet,
+                            margin: params.margin_tablet,
+                            stagePadding: params.stagepadding_tablet
+                        },
+                        769: {
+                            items: params.items,
+                            margin: params.margin,
+                            stagePadding: params.stagepadding
+                        }
+                    }
+                });
+            }
+        },
+
 
 
 
@@ -1253,40 +1288,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        logoCarousel: function ($scope) {
-            var $ele = $scope.find('.eead-logo-carousel');
-            if ($ele.length > 0) {
-                var params = JSON.parse($ele.attr('data-params'));
-                $ele.owlCarousel({
-                    loop: JSON.parse(params.loop),
-                    autoplay: JSON.parse(params.autoplay),
-                    autoplaySpeed: params.speed,
-                    autoplayTimeout: params.pause,
-                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
-                    nav: JSON.parse(params.arrows),
-                    dots: JSON.parse(params.dots),
-                    autoHeight: JSON.parse(params.auto_height),
-                    center: JSON.parse(params.center_image_bigger),
-                    responsive: {
-                        0: {
-                            items: params.items_mobile,
-                            margin: params.margin_mobile,
-                            stagePadding: params.stagepadding_mobile
-                        },
-                        480: {
-                            items: params.items_tablet,
-                            margin: params.margin_tablet,
-                            stagePadding: params.stagepadding_tablet
-                        },
-                        769: {
-                            items: params.items,
-                            margin: params.margin,
-                            stagePadding: params.stagepadding
-                        }
-                    }
-                });
-            }
-        },
+
 
 
 

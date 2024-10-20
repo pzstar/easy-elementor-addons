@@ -109,26 +109,14 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_settings',
-            [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
-            ]
-        );
-
         $this->add_control(
-            'layout',
+            'show_title',
             [
-                'label' => esc_html__('Layout', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'style1',
-                'options' => [
-                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons')
-                ],
+                'label' => esc_html__('Show Logo Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
             ]
         );
 
@@ -163,7 +151,7 @@ class LogoCarousel extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 3,
                     'unit' => 'px',
                 ],
@@ -190,7 +178,7 @@ class LogoCarousel extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 20,
                     'unit' => 'px',
                 ],
@@ -205,6 +193,34 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'slides_stagepadding',
+            [
+                'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
+                'description' => esc_html__('Space or padding between the carousel stage and the edge of the container', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 300,
+                    ],
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ],
+            ]
+        );
+
         $this->add_control(
             'infinite',
             [
@@ -214,6 +230,7 @@ class LogoCarousel extends Widget_Base {
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
+                'separator' => 'before'
             ]
         );
 
@@ -268,11 +285,14 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'speed',
+            'auto_height',
             [
-                'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 500,
+                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
+                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                'return_value' => 'yes',
+                'default' => '',
             ]
         );
 
@@ -285,6 +305,7 @@ class LogoCarousel extends Widget_Base {
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => 'yes',
+                'separator' => 'before'
             ]
         );
 
@@ -301,88 +322,56 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'auto_height',
+            'focus_center_logo',
             [
-                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'label' => esc_html__('Focus Center Logo', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
-                'default' => '',
+                'separator' => 'before'
             ]
         );
 
         $this->add_control(
-            'center_image_bigger',
+            'grayscale_side_logos',
             [
-                'label' => esc_html__('Center Image Bigger', 'easy-elementor-addons'),
+                'label' => esc_html__('Grayscale Side Logos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
                 'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-                'condition' => ['layout' => 'style3']
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-item:not(.center)' => 'filter: grayscale(100%);'
+                ],
+                'condition' => [
+                    'focus_center_logo' => 'yes'
+                ]
             ]
         );
 
         $this->add_responsive_control(
-            'slides_stagepadding',
+            'shrink_side_logos',
             [
-                'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Shrink Side Logos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'unit' => 'px',
+                    'size' => '0.8'
+                ],
                 'range' => [
                     'px' => [
-                        'min' => 0,
-                        'max' => 300,
-                    ],
-                ],
-                'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'grayscale_enable',
-            [
-                'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
-                'description' => esc_html__('All logo beside middle logo image will turn black and white.'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-                'condition' => ['layout' => 'style3']
-            ]
-        );
-
-        $this->add_responsive_control(
-            'middle_logo_scale',
-            [
-                'label' => esc_html__('Scale Middle Logo', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 1.9,
-                        'step' => .1
+                        'min' => 0.6,
+                        'max' => 0.95,
+                        'step' => .05
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                    '{{WRAPPER}} .eead-logo-carousel .owl-item:not(.center)' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
                 ],
-                'condition' => ['layout' => 'style3']
+                'condition' => [
+                    'focus_center_logo' => 'yes'
+                ]
             ]
         );
 
@@ -402,10 +391,17 @@ class LogoCarousel extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'background-color: {{VALUE}}',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'logo_border',
+                'label' => esc_html__('Logo Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide',
             ]
         );
 
@@ -416,23 +412,19 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'logo_image_radius',
+            'logo_border_radius',
             [
-                'label' => esc_html__('Image Radius', 'easy-elementor-addons'),
+                'label' => esc_html__('Logo Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide img,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide img,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -442,63 +434,11 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Outer Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style3' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;'
+                    '{{WRAPPER}} .eead-logo-carousel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition' => ['layout' => 'style3']
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'border_style',
-            [
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'logo_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'border-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'logo_border_width',
-            [
-                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'logo_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.style1 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style2 .eead-logo-slide,
-                     {{WRAPPER}} .eead-logo-carousel.style3 .owl-item.center' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'render_type' => 'template'
             ]
         );
 
@@ -507,20 +447,108 @@ class LogoCarousel extends Widget_Base {
         $this->start_controls_section(
             'dot_style',
             [
-                'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Dot', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'dots' => 'yes'
+                ]
             ]
         );
 
         $this->add_control(
-            'dots_border_width',
+            'dots_width',
             [
-                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ],
                 ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots span' => 'width: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_height',
+            [
+                'label' => esc_html__('Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots span' => 'height: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_spacing',
+            [
+                'label' => esc_html__('Spacing Between Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots' => 'gap: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_upper_spacing',
+            [
+                'label' => esc_html__('Spacing Above Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 150,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots' => 'margin-top: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'dots_border',
+                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span',
             ]
         );
 
@@ -532,18 +560,6 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -560,23 +576,12 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_color',
+            'dot_bg_color',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dot_border_color_normal',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-color: {{VALUE}}',
                 ],
             ]
         );
@@ -591,7 +596,7 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_color_active',
+            'dot_bg_color_active',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -612,6 +617,28 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'dot_scale_active',
+            [
+                'label' => esc_html__('Scale Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'unit' => 'px',
+                    'size' => '1'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 1.5,
+                        'step' => .05
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                ],
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -622,7 +649,7 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_color_hover',
+            'dot_bg_color_hover',
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -653,8 +680,121 @@ class LogoCarousel extends Widget_Base {
         $this->start_controls_section(
             'arrow_style',
             [
-                'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Arrow', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'arrows' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_width',
+            [
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'width: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'add_responsive_control',
+            [
+                'label' => esc_html__('Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'height: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button span' => 'font-size: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_translate_y',
+            [
+                'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel' => '--eead-logo-carousel-offset-y:{{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_translate_x',
+            [
+                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                        'step' => 1
+                    ],
+                ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-carousel' => '--eead-logo-carousel-offset-x:{{SIZE}}{{UNIT}};'
+                ],
             ]
         );
 
@@ -663,20 +803,18 @@ class LogoCarousel extends Widget_Base {
             [
                 'name' => 'arrow_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-nav button',
             ]
         );
 
         $this->add_control(
-            'arrow_padding',
+            'arrows_border_radius',
             [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
+                'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
+                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -704,23 +842,12 @@ class LogoCarousel extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color',
+            'arrow_icon_color',
             [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'arrow_border_color_normal',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-color: {{VALUE}}',
                 ],
             ]
         );
@@ -748,7 +875,7 @@ class LogoCarousel extends Widget_Base {
         $this->add_control(
             'arrow_color_hover',
             [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
@@ -771,6 +898,24 @@ class LogoCarousel extends Widget_Base {
 
         $this->end_controls_tabs();
 
+        $this->add_control(
+            'prev_icon_arrow', [
+                'label' => esc_html__('Prev Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
+            ]
+        );
+
+        $this->add_control(
+            'nex_icon_arrow', [
+                'label' => esc_html__('Next Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -779,32 +924,27 @@ class LogoCarousel extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $target = $settings['link_new_tab'] ? '_blank' : '_self';
         $params = array(
-            'items' => (int) $settings['slides_to_show']['size'],
+            'items' => $settings['slides_to_show']['size'] ? (int) $settings['slides_to_show']['size'] : 3,
             'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
             'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
-            'margin' => (int) $settings['slides_margin']['size'],
+            'margin' => $settings['slides_margin']['size'] ? (int) $settings['slides_margin']['size'] : 20,
             'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
             'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
             'autoplay' => $settings['autoplay'] && $settings['autoplay'] == 'yes' ? true : false,
             'loop' => $settings['infinite'] && $settings['infinite'] == 'yes' ? true : false,
             'pause' => isset($settings['autoplay_speed']['size']) ? (int) $settings['autoplay_speed']['size'] * 1000 : 500,
-            'speed' => (int) $settings['speed'],
             'dots' => $settings['dots'] == 'yes' ? true : false,
             'arrows' => $settings['arrows'] == 'yes' ? true : false,
             'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
             'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
-            'stagepadding' => (int) $settings['slides_stagepadding']['size'],
-            'stagepadding_tablet' => (int) isset($settings['slides_stagepadding_tablet']['size']) ? $settings['slides_stagepadding_tablet']['size'] : 0,
-            'stagepadding_mobile' => (int) isset($settings['slides_stagepadding_mobile']['size']) ? $settings['slides_stagepadding_mobile']['size'] : 0,
-            'center_image_bigger' => $settings['center_image_bigger'] == 'yes' ? true : false,
+            'stagepadding' => $settings['slides_stagepadding']['size'] ? (int) $settings['slides_stagepadding']['size'] : false,
+            'stagepadding_tablet' => (int) isset($settings['slides_stagepadding_tablet']['size']) ? $settings['slides_stagepadding_tablet']['size'] : false,
+            'stagepadding_mobile' => (int) isset($settings['slides_stagepadding_mobile']['size']) ? $settings['slides_stagepadding_mobile']['size'] : false,
+            'focus_center_logo' => $settings['focus_center_logo'] == 'yes' ? true : false,
         );
         $params = json_encode($params);
-
-        if ($settings['layout'] == 'style3') {
-            $grayscale_class = $settings['grayscale_enable'] == 'yes' ? ' eead-grayscale' : '';
-        }
         ?>
-        <div class="eead-logo-carousel owl-carousel <?php echo esc_attr($settings['layout']); ?><?php echo esc_attr($grayscale_class); ?>" data-params='<?php echo esc_attr($params); ?>'>
+        <div class="eead-logo-carousel owl-carousel" data-params='<?php echo esc_attr($params); ?>'>
             <?php
             if ($settings['slides']) {
                 foreach ($settings['slides'] as $item) {
@@ -823,7 +963,11 @@ class LogoCarousel extends Widget_Base {
                     } else {
                         echo $image_html;
                     }
+                    if ($settings['show_title']) {
+                        echo '<h5>' . esc_html($item['title']) . '</h5>';
+                    }
                     echo '</div>';
+
                 }
             }
             ?>

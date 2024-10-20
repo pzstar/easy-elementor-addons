@@ -4723,6 +4723,86 @@ Scroll Image
 }
 
 
+/*--------------------------------------------------------------
+Logo Carousel
+--------------------------------------------------------------*/
+.eead-logo-carousel .owl-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.eead-logo-carousel .owl-dots .owl-dot {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    height: auto;
+    min-height: 0;
+}
+
+.eead-logo-carousel .owl-dots span {
+    display: block;
+    background: #009dea;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    transition: all ease 0.3s;
+}
+
+.eead-logo-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.eead-logo-carousel.owl-carousel .owl-nav .owl-prev,
+.eead-logo-carousel.owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    font-size: 34px;
+    line-height: 1;
+    background: #009dea;
+    color: #fff;
+    transition: all ease 0.3s;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.eead-logo-carousel .owl-nav button.owl-prev {
+    left: 0;
+    transform: translate(calc(var(--eead-logo-carousel-offset-x, 0) * -1), var(--eead-logo-carousel-offset-y, 0));
+}
+
+.eead-logo-carousel .owl-nav button.owl-next {
+    right: 0;
+    transform: translate(var(--eead-logo-carousel-offset-x, 0), var(--eead-logo-carousel-offset-y, 0));
+}
+
+.eead-logo-carousel .owl-item {
+    transition: 0.3s transform ease-in-out;
+}
+
+.eead-logo-carousel .owl-item.active.center {
+    z-index: 999;
+}
+
+.eead-logo-carousel.owl-carousel .owl-stage {
+    display: flex;
+    align-items: center;
+}
+
+.eead-logo-carousel.owl-carousel h5{
+    text-align: center;
+    margin: 20px 0 0;
+}
 
 
 
@@ -6942,181 +7022,6 @@ j. Portfolio css
     right: 0;
 }
 
-
-/*--------------------------------------------------------------
-m. logo carousel css
---------------------------------------------------------------*/
-.eead-logo-carousel {
-    position: relative;
-    overflow: hidden;
-}
-
-/*style 1*/
-.eead-logo-carousel.style1 .eead-logo-slide {
-    border: 1px solid #e6e6e6;
-    padding: 15px;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    box-shadow: inset 0 0 7px #f3f3f3;
-    -webkit-box-shadow: inset 0 0 7px #f3f3f3;
-    cursor: pointer;
-}
-
-.eead-logo-carousel.style1 .eead-logo-slide img {
-    filter: grayscale(1);
-    -webkit-filter: grayscale(1);
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-}
-
-.eead-logo-carousel.style1 .eead-logo-slide:hover img {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-}
-
-.eead-logo-carousel .owl-dots {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.eead-logo-carousel .owl-dots span {
-    display: block;
-    background: transparent;
-    border: 2px solid #009dea;
-    height: 15px;
-    width: 15px;
-    margin: 0 4px;
-    border-radius: 100%;
-    -webkit-border-radius: 100%;
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-}
-
-.eead-logo-carousel .owl-dots .owl-dot:hover span,
-.eead-logo-carousel .owl-dots .owl-dot.active span {
-    background: #009dea;
-}
-
-.eead-logo-carousel .owl-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    width: 100%;
-}
-
-.eead-logo-carousel .owl-nav button.owl-prev,
-.eead-logo-carousel .owl-nav button.owl-next {
-    width: 35px;
-    height: 35px;
-    font-size: 34px;
-    line-height: 1;
-    position: absolute;
-    top: -20px;
-    left: -30px;
-    background: #f78639;
-    color: #fff;
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
-}
-
-.eead-logo-carousel .owl-nav button.owl-next {
-    right: -30px;
-    left: auto;
-}
-
-.eead-logo-carousel:hover .owl-nav button.owl-prev {
-    left: 0;
-}
-
-.eead-logo-carousel:hover .owl-nav button.owl-next {
-    right: 0;
-    left: auto;
-}
-
-/*style 2*/
-.eead-logo-carousel.style2 .eead-logo-slide {
-    padding: 20px;
-    background-color: transparent;
-    position: relative;
-    -webkit-transition: all 350ms ease-in-out;
-    -moz-transition: all 350ms ease-in-out;
-    transition: all 350ms ease-in-out;
-    min-height: 150px;
-    max-height: 250px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #e9e9e9;
-    background: #f1f1f1;
-    overflow: hidden;
-}
-
-.eead-logo-carousel.style2 .eead-logo-slide:before {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    background: rgb(146 143 143 / 20%);
-    content: '';
-    z-index: 10;
-    -webkit-transition: -webkit-transform .6s;
-    -moz-transition: -moz-transform .6s;
-    -ms-transition: -ms-transform .6s;
-    transition: transform .6s;
-    -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 22px);
-    -moz-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 22px);
-    -ms-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 22px);
-    transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -110%, 22px);
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.eead-logo-carousel.style2 .eead-logo-slide:hover:before {
-    -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 22px);
-    -moz-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 22px);
-    -ms-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 22px);
-    transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, 110%, 22px);
-    opacity: 1;
-    left: -10px;
-}
-
-/*style 3*/
-.eead-logo-carousel.style3 {
-    padding: 80px 0;
-}
-
-.eead-logo-carousel.style3 .owl-item.center {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    z-index: 999999;
-    position: relative;
-    border: 5px solid #fff;
-    box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    -webkit-transition: all 350ms ease-in-out;
-    -moz-transition: all 350ms ease-in-out;
-    transition: all 350ms ease-in-out;
-}
-
-.eead-logo-carousel.style3.owl-carousel .owl-stage-outer {
-    overflow: visible;
-}
-
-.eead-logo-carousel.style3 .owl-dots {
-    margin-top: 60px;
-}
 
 /*--------------------------------------------------------------
 o. weather css

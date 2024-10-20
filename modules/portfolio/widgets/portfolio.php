@@ -396,7 +396,7 @@ class Portfolio extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 3,
                     'unit' => 'px',
                 ],

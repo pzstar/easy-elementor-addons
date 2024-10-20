@@ -200,7 +200,7 @@ class IconList extends Widget_Base {
             [
                 'label' => esc_html__('Grid Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'desktop_default' => 3,
+                'default' => 3,
                 'options' => [
                     '1' => esc_html__('1', 'easy-elementor-addons'),
                     '2' => esc_html__('2', 'easy-elementor-addons'),

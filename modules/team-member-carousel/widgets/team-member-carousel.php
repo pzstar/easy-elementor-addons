@@ -1229,7 +1229,7 @@ class TeamMemberCarousel extends Widget_Base {
 						'step' => 1,
 					),
 				),
-				'desktop_default' => [
+				'default' => [
 					'size' => 45,
 					'unit' => '%',
 				],

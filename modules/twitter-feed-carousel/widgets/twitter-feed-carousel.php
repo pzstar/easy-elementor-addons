@@ -236,7 +236,7 @@ class TwitterFeedCarousel extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 3,
                     'unit' => 'px',
                 ],
@@ -263,7 +263,7 @@ class TwitterFeedCarousel extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 20,
                     'unit' => 'px',
                 ],
@@ -397,7 +397,7 @@ class TwitterFeedCarousel extends Widget_Base {
                     ],
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
-                'desktop_default' => [
+                'default' => [
                     'size' => 0,
                     'unit' => 'px',
                 ],

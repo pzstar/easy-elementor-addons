@@ -371,7 +371,7 @@ class ThreedText extends Widget_Base {
                         'max' => 1000,
                     ],
                 ],
-                'desktop_default' => [
+                'default' => [
                     'size' => 500,
                     'unit' => 'px',
                 ],
