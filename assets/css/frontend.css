@@ -4786,17 +4786,42 @@ Logo Carousel
     transform: translate(var(--eead-logo-carousel-offset-x, 0), var(--eead-logo-carousel-offset-y, 0));
 }
 
-.eead-logo-carousel .owl-item {
-    transition: 0.3s transform ease-in-out;
+.eead-logo-carousel.eead-lg-hover-arrow-on .owl-nav{
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.eead-logo-carousel .owl-item.active.center {
-    z-index: 999;
+.eead-logo-carousel.eead-lg-hover-arrow-on:hover .owl-nav{
+    opacity: 1;
+}
+
+.eead-logo-carousel.eead-lg-hover-arrow-on .owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.eead-logo-carousel.eead-lg-hover-arrow-on .owl-nav button.owl-next {
+    right: -20px;
+}
+
+.eead-logo-carousel.eead-lg-hover-arrow-on:hover .owl-nav button.owl-prev {
+    left: 0;
+}
+
+.eead-logo-carousel.eead-lg-hover-arrow-on:hover .owl-nav button.owl-next {
+    right: 0;
+}
+
+.eead-logo-carousel .owl-item {
+    transition: 0.3s transform ease-in-out;
 }
 
 .eead-logo-carousel.owl-carousel .owl-stage {
     display: flex;
     align-items: center;
+}
+
+.eead-logo-carousel.owl-carousel .eead-logo-slide{
+    overflow: hidden;
 }
 
 .eead-logo-carousel.owl-carousel h5{

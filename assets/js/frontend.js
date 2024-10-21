@@ -922,6 +922,7 @@ odometerOptions = {auto: false};
                     dots: JSON.parse(params.dots),
                     autoHeight: JSON.parse(params.auto_height),
                     center: JSON.parse(params.focus_center_logo),
+                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
                     responsive: {
                         0: {
                             items: params.items_mobile,
