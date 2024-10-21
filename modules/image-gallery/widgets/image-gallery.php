@@ -507,6 +507,17 @@ class ImageGallery extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'filter_btn_active_border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter.eead-ig-active' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [

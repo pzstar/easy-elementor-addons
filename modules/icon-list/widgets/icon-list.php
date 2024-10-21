@@ -246,6 +246,33 @@ class IconList extends Widget_Base {
         );
 
         $this->add_responsive_control(
+            'list_inline_alignment',
+            [
+                'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'default' => 'flex-start',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items' => 'justify-content: {{VALUE}};'
+                ],
+                'condition' => ['list_view' => 'inline']
+            ]
+        );
+
+        $this->add_responsive_control(
             'v_list_spacing',
             [
                 'label' => esc_html__('Vertical List Spacing', 'easy-elementor-addons'),
@@ -458,7 +485,7 @@ class IconList extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-icon-list-items .eead-il-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-icon-list-items .eead-il-icon img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-icon-list-items .eead-il-icon img' => 'min-width: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-icon-list-items .eead-il-icon svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ],
             ]

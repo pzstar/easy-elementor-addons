@@ -122,6 +122,26 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'title_html_tag',
+            [
+                'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'h4',
+                'options' => [
+                    'h1' => esc_html__('H1', 'easy-elementor-addons'),
+                    'h2' => esc_html__('H2', 'easy-elementor-addons'),
+                    'h3' => esc_html__('H3', 'easy-elementor-addons'),
+                    'h4' => esc_html__('H4', 'easy-elementor-addons'),
+                    'h5' => esc_html__('H5', 'easy-elementor-addons'),
+                    'h6' => esc_html__('H6', 'easy-elementor-addons'),
+                    'div' => esc_html__('div', 'easy-elementor-addons'),
+                    'span' => esc_html__('span', 'easy-elementor-addons'),
+                    'p' => esc_html__('p', 'easy-elementor-addons'),
+                ]
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
@@ -183,15 +203,7 @@ class LogoCarousel extends Widget_Base {
                 'default' => [
                     'size' => 20,
                     'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 20,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 20,
-                    'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -211,15 +223,7 @@ class LogoCarousel extends Widget_Base {
                 'default' => [
                     'size' => 0,
                     'unit' => 'px',
-                ],
-                'tablet_default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'size' => 0,
-                    'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -351,7 +355,7 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
             'shrink_side_logos',
             [
                 'label' => esc_html__('Shrink Side Logos', 'easy-elementor-addons'),
@@ -380,9 +384,9 @@ class LogoCarousel extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'image_style',
+            'logo_style',
             [
-                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Logo', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -426,21 +430,20 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
-        $this->add_responsive_control(
-            'outer_box_padding',
+        $this->add_control(
+            'logo_container_border_radius',
             [
-                'label' => esc_html__('Outer Box Padding', 'easy-elementor-addons'),
+                'label' => esc_html__('Logo Container Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'render_type' => 'template'
             ]
         );
 
@@ -626,7 +629,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'unit' => 'px',
-                    'size' => '1'
+                    'size' => '1.3'
                 ],
                 'range' => [
                     'px' => [
@@ -913,17 +916,18 @@ class LogoCarousel extends Widget_Base {
 
         $this->add_control(
             'prev_icon_arrow', [
-                'label' => esc_html__('Prev Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Prev Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
                 'label_block' => false,
-                'exclude_inline_options' => ['svg']
+                'exclude_inline_options' => ['svg'],
+                'separator' => 'before'
             ]
         );
 
         $this->add_control(
             'next_icon_arrow', [
-                'label' => esc_html__('Next Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Custom Next Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
                 'label_block' => false,
@@ -951,15 +955,23 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.owl-carousel h5' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title' => 'color: {{VALUE}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title',
             ]
         );
 
         $this->add_responsive_control(
             'title_top_space',
             [
-                'label' => esc_html__('Title Top Space', 'easy-elementor-addons'),
+                'label' => esc_html__('Title Top Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
@@ -971,16 +983,8 @@ class LogoCarousel extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-carousel.owl-carousel h5' => 'margin-top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .eead-logo-carousel.owl-carousel h5',
             ]
         );
 
@@ -995,7 +999,7 @@ class LogoCarousel extends Widget_Base {
             'items' => $settings['slides_to_show']['size'] ? (int) $settings['slides_to_show']['size'] : 3,
             'items_tablet' => (int) isset($settings['slides_to_show_tablet']['size']) ? $settings['slides_to_show_tablet']['size'] : 2,
             'items_mobile' => (int) isset($settings['slides_to_show_mobile']['size']) ? $settings['slides_to_show_mobile']['size'] : 1,
-            'margin' => $settings['slides_margin']['size'] ? (int) $settings['slides_margin']['size'] : 20,
+            'margin' => (int) $settings['slides_margin']['size'] ? (int) $settings['slides_margin']['size'] : 20,
             'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
             'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
             'autoplay' => $settings['autoplay'] && $settings['autoplay'] == 'yes' ? true : false,
@@ -1005,7 +1009,7 @@ class LogoCarousel extends Widget_Base {
             'arrows' => $settings['arrows'] == 'yes' ? true : false,
             'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
             'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
-            'stagepadding' => $settings['slides_stagepadding']['size'] ? (int) $settings['slides_stagepadding']['size'] : false,
+            'stagepadding' => (int) $settings['slides_stagepadding']['size'] ? (int) $settings['slides_stagepadding']['size'] : false,
             'stagepadding_tablet' => (int) isset($settings['slides_stagepadding_tablet']['size']) ? $settings['slides_stagepadding_tablet']['size'] : false,
             'stagepadding_mobile' => (int) isset($settings['slides_stagepadding_mobile']['size']) ? $settings['slides_stagepadding_mobile']['size'] : false,
             'focus_center_logo' => $settings['focus_center_logo'] == 'yes' ? true : false,
@@ -1041,6 +1045,7 @@ class LogoCarousel extends Widget_Base {
                         $image_url = \Elementor\Utils::get_placeholder_image_src();
                     }
                     $image_html = '<img src="' . esc_url($image_url) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item['image'])) . '" />';
+
                     echo '<div class="eead-logo-slide">';
                     if (!empty($item['logo_link'])) {
                         ?>
@@ -1052,7 +1057,7 @@ class LogoCarousel extends Widget_Base {
                         echo $image_html;
                     }
                     if ($settings['show_title']) {
-                        echo '<h5>' . esc_html($item['title']) . '</h5>';
+                        echo '<' . $settings['title_html_tag'] . ' class="eead-logo-title">' . esc_html($item['title']) . '</' . $settings['title_html_tag'] . '>';
                     }
                     echo '</div>';
 

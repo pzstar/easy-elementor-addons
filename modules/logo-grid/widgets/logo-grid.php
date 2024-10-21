@@ -63,10 +63,6 @@ class LogoGrid extends Widget_Base {
 
         $repeater = new Repeater();
 
-        $repeater->start_controls_tabs('items_repeater');
-
-        $repeater->start_controls_tab('tab_content', ['label' => esc_html__('Content', 'easy-elementor-addons')]);
-
         $repeater->add_control(
             'logo_image',
             [
@@ -86,9 +82,6 @@ class LogoGrid extends Widget_Base {
             [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => [
-                    'active' => true,
-                ],
             ]
         );
 
@@ -106,78 +99,6 @@ class LogoGrid extends Widget_Base {
                 ],
             ]
         );
-
-        $repeater->end_controls_tab();
-
-        $repeater->start_controls_tab('tab_style', ['label' => esc_html__('Style', 'easy-elementor-addons')]);
-
-        $repeater->add_control(
-            'custom_style',
-            [
-                'label' => esc_html__('Custom Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'description' => esc_html__('Add custom styles which will affect only this item', 'easy-elementor-addons'),
-                'default' => '',
-                'label_on' => esc_html__('On', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-            ]
-        );
-
-        $repeater->add_control(
-            'custom_logo_wrapper_bg',
-            [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}}.eead-logo-grid-item-custom' => 'background-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'custom_style' => 'yes',
-                ],
-            ]
-        );
-
-        $repeater->add_control(
-            'custom_logo_wrapper_border_color',
-            [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
-                'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}}.eead-logo-grid-item-custom' => 'border-color: {{VALUE}}',
-                ],
-                'condition' => [
-                    'custom_style' => 'yes',
-                ],
-            ]
-        );
-
-        $repeater->add_control(
-            'custom_logo_border_width',
-            [
-                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 20,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}}.eead-logo-grid-item-custom' => 'border-width: {{SIZE}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'custom_style' => 'yes',
-                ],
-            ]
-        );
-
-        $repeater->end_controls_tab();
-
-        $repeater->end_controls_tabs();
 
         $this->add_control(
             'eead_logos',
@@ -206,12 +127,12 @@ class LogoGrid extends Widget_Base {
             ]
         );
 
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'logo_grid_settings',
+        $this->add_group_control(
+            Group_Control_Image_Size::get_type(),
             [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'name' => 'image',
+                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
+                'default' => 'full',
             ]
         );
 
@@ -235,6 +156,15 @@ class LogoGrid extends Widget_Base {
             ]
         );
 
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'logo_grid_settings',
+            [
+                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+            ]
+        );
+
         $this->add_responsive_control(
             'columns',
             [
@@ -251,15 +181,18 @@ class LogoGrid extends Widget_Base {
                     '5' => '5',
                     '6' => '6',
                 ],
-                'prefix_class' => 'elementor-grid%s-',
-                'frontend_available' => true,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid' => 'grid-template-columns: repeat({{VALUE}}, 1fr);'
+                ],
+                'prefix_class' => 'eead-lg%s-col-',
+                'render_type' => 'template'
             ]
         );
 
         $this->add_responsive_control(
             'logos_spacing',
             [
-                'label' => esc_html__('Logos Gap', 'easy-elementor-addons'),
+                'label' => esc_html__('Logos Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'default' => ['size' => 10],
@@ -270,9 +203,7 @@ class LogoGrid extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '(desktop){{WRAPPER}} .eead-grid-item-wrap' => 'width: calc( ( 100% - (({{columns.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
-                    '(tablet){{WRAPPER}} .eead-grid-item-wrap' => 'width: calc( ( 100% - (({{columns_tablet.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns_tablet.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
-                    '(mobile){{WRAPPER}} .eead-grid-item-wrap' => 'width: calc( ( 100% - (({{columns_mobile.SIZE}} - 1) * {{SIZE}}{{UNIT}}) ) / {{columns_mobile.SIZE}} ); margin-right: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-grid' => '--eead-logo-grid-gap: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -282,29 +213,24 @@ class LogoGrid extends Widget_Base {
             [
                 'label' => esc_html__('Vertical Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'default' => 'top',
+                'toggle' => false,
+                'default' => 'center',
                 'options' => [
-                    'top' => [
+                    'flex-start' => [
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-top',
                     ],
-                    'middle' => [
+                    'center' => [
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-middle',
                     ],
-                    'bottom' => [
+                    'flex-end' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item-wrap' => 'align-items: {{VALUE}};',
-                ],
-                'selectors_dictionary' => [
-                    'top' => 'flex-start',
-                    'middle' => 'center',
-                    'bottom' => 'flex-end',
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'justify-content: {{VALUE}};',
                 ],
             ]
         );
@@ -314,9 +240,10 @@ class LogoGrid extends Widget_Base {
             [
                 'label' => esc_html__('Horizontal Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
+                'toggle' => false,
+                'default' => 'center',
                 'options' => [
-                    'left' => [
+                    'flex-start' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
@@ -324,36 +251,21 @@ class LogoGrid extends Widget_Base {
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-center',
                     ],
-                    'right' => [
+                    'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
-                'default' => 'center',
-                'selectors_dictionary' => [
-                    'left' => 'flex-start',
-                    'center' => 'center',
-                    'right' => 'flex-end',
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item-wrap, {{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'justify-content: {{VALUE}};',
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'align-items: {{VALUE}};',
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-                'name' => 'image',
-                'label' => esc_html__('Image Size', 'easy-elementor-addons'),
-                'default' => 'full',
             ]
         );
 
         $this->add_responsive_control(
             'logos_width',
             [
-                'label' => esc_html__('Image Width', 'easy-elementor-addons'),
+                'label' => esc_html__('Image Max Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -364,8 +276,9 @@ class LogoGrid extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item img' => 'width: {{SIZE}}{{UNIT}};',
                 ],
+                'separator' => 'before'
             ]
         );
 
@@ -377,6 +290,96 @@ class LogoGrid extends Widget_Base {
             [
                 'label' => esc_html__('Logos', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'logo_container_border_radius',
+            [
+                'label' => esc_html__('Container Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'logo_border_radius',
+            [
+                'label' => esc_html__('Image Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'logo_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'border_type',
+            [
+                'label' => esc_html__('Border Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'around-container' => esc_html__('Around Container', 'easy-elementor-addons'),
+                    'around-image' => esc_html__('Around Image', 'easy-elementor-addons'),
+                    'table-cell' => esc_html__('Table Cell', 'easy-elementor-addons'),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'border_width',
+            [
+                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'size' => 1
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid' => '--eead-logo-grid-border-size: {{SIZE}}px;',
+                ],
+                'condition' => [
+                    'border_type!' => 'none'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'border_color',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid' => '--eead-logo-grid-border-color: {{VALUE}}',
+                ],
+                'default' => '#000',
+                'condition' => [
+                    'border_type!' => 'none'
+                ]
             ]
         );
 
@@ -395,54 +398,19 @@ class LogoGrid extends Widget_Base {
                 'name' => 'logo_bg',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap',
+                'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item',
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'logo_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap',
-            ]
-        );
-
-        $this->add_control(
-            'logo_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item-wrap, {{WRAPPER}} .eead-grid-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'logo_padding',
-            [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
 
         $this->add_control(
             'grayscale_normal',
             [
-                'label' => esc_html__('Grayscale', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
+                'separator' => 'before'
             ]
         );
 
@@ -458,8 +426,11 @@ class LogoGrid extends Widget_Base {
                         'step' => 0.1,
                     ],
                 ],
+                'default' => [
+                    'size' => 1
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item img' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -468,7 +439,7 @@ class LogoGrid extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'eead_logo_box_shadow_normal',
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap',
+                'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item',
                 'separator' => 'before',
             ]
         );
@@ -488,48 +459,16 @@ class LogoGrid extends Widget_Base {
                 'name' => 'logos_bg_hover',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap:hover',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'logo_border_hover',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap:hover',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'translate',
-            [
-                'label' => esc_html__('Slide', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => -40,
-                        'max' => 40,
-                        'step' => 1,
-                    ],
-                ],
-                'size_units' => '',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item-wrap:hover' => 'transform:translateY({{SIZE}}{{UNIT}})',
-                ],
+                'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover',
             ]
         );
 
         $this->add_control(
             'grayscale_hover',
             [
-                'label' => esc_html__('Grayscale', 'easy-elementor-addons'),
+                'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
                 'return_value' => 'yes',
             ]
         );
@@ -546,8 +485,11 @@ class LogoGrid extends Widget_Base {
                         'step' => 0.1,
                     ],
                 ],
+                'default' => [
+                    'size' => 1
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-grid-item:hover img' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover img' => 'opacity: {{SIZE}};',
                 ],
             ]
         );
@@ -556,7 +498,7 @@ class LogoGrid extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'eead_logo_box_shadow_hover',
-                'selector' => '{{WRAPPER}} .eead-grid-item-wrap:hover',
+                'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover',
                 'separator' => 'before',
             ]
         );
@@ -580,27 +522,8 @@ class LogoGrid extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-logo-grid-title' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'title_spacing',
-            [
-                'label' => esc_html__('Margin Top', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-logo-grid-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-logo-grid .eead-logo-grid-title' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -610,7 +533,29 @@ class LogoGrid extends Widget_Base {
             [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-logo-grid-title',
+                'selector' => '{{WRAPPER}} .eead-logo-grid .eead-logo-grid-title',
+            ]
+        );
+
+        $this->add_control(
+            'title_spacing',
+            [
+                'label' => esc_html__('Top Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'size' => 20,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-logo-grid .eead-grid-item' => 'gap: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -619,11 +564,10 @@ class LogoGrid extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-
         $settings = $this->get_settings_for_display();
-        $count = 1;
 
-        $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid eead-elementor-grid clearfix');
+        $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid');
+        $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid-border-' . $settings['border_type']);
 
         if ($settings['grayscale_normal'] === 'yes') {
             $this->add_render_attribute('logo-grid', 'class', 'grayscale-normal');
@@ -636,58 +580,60 @@ class LogoGrid extends Widget_Base {
 
         <div <?php echo $this->get_render_attribute_string('logo-grid'); ?>>
             <?php
+            $count = 1;
+            $logo_count = count($settings['eead_logos']);
+            $last_row_items = $logo_count % $settings['columns'] == 0 ? $settings['columns'] : $logo_count % $settings['columns'];
+            $tablet_last_row_items = $logo_count % $settings['columns_tablet'] == 0 ? $settings['columns_tablet'] : $logo_count % $settings['columns_tablet'];
+            $mobile_last_row_items = $logo_count % $settings['columns_mobile'] == 0 ? $settings['columns_mobile'] : $logo_count % $settings['columns_mobile'];
+
             foreach ($settings['eead_logos'] as $item) {
                 if (!empty($item['logo_image']['url'])) {
-
-                    $this->add_render_attribute('logo-grid-item-wrap-' . $count, 'class', 'eead-grid-item-wrap');
-                    $this->add_render_attribute('logo-grid-item-wrap-' . $count, 'class', 'elementor-repeater-item-' . esc_attr($item['_id']));
-
-                    $this->add_render_attribute('logo-grid-item-' . $count, 'class', 'eead-grid-item');
-
-                    if ($item['custom_style'] === 'yes') {
-                        $this->add_render_attribute('logo-grid-item-wrap-' . $count, 'class', 'eead-logo-grid-item-custom');
-                    }
-
-                    $this->add_render_attribute('title' . $count, 'class', 'eead-logo-grid-title');
+                    $classes = [
+                        'eead-grid-item',
+                        'eead-grid-item-' . $count,
+                        ($logo_count - $count < $last_row_items) ? 'eead-last-row' : '',
+                        ($logo_count - $count < $tablet_last_row_items) ? 'eead-tablet-last-row' : '',
+                        ($logo_count - $count < $mobile_last_row_items) ? 'eead-mobile-last-row' : '',
+                    ];
+                    $this->add_render_attribute('logo-item' . $count, ['class' => array_filter($classes)]);
                     ?>
-                    <div <?php echo $this->get_render_attribute_string('logo-grid-item-wrap-' . $count); ?>>
-                        <div <?php echo $this->get_render_attribute_string('logo-grid-item-' . $count); ?>>
-                            <?php
-                            if (!empty($item['link']['url'])) {
-                                $this->add_link_attributes('logo-link' . $count, $item['link']);
-                                echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
-                            }
-
-                            $image_alt = esc_attr(Control_Media::get_image_alt($item['logo_image']));
-                            $image_url = Group_Control_Image_Size::get_attachment_image_src($item['logo_image']['id'], 'image', $settings);
-
-                            if (!$image_url) {
-                                $image_url = $item['logo_image']['url'];
-                            }
-
-                            echo '<img src="' . $image_url . '" alt="' . esc_attr($image_alt) . '" />';
-
-                            if (!empty($item['link']['url'])) {
-                                echo '</a>';
-                            }
-                            ?>
-                        </div>
+                    <div <?php echo $this->get_render_attribute_string('logo-item' . $count); ?>>
                         <?php
+                        if (!empty($item['link']['url'])) {
+                            $this->add_link_attributes('logo-link' . $count, $item['link']);
+                            echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
+                        }
+
+                        $image_alt = Control_Media::get_image_alt($item['logo_image']);
+                        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['logo_image']['id'], 'image', $settings);
+
+                        if (!$image_url) {
+                            $image_url = $item['logo_image']['url'];
+                        }
+
+                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" />';
+
+                        if (!empty($item['link']['url'])) {
+                            echo '</a>';
+                        }
+
                         if (!empty($item['title'])) {
-                            printf('<%1$s %2$s>', $settings['title_html_tag'], $this->get_render_attribute_string('title' . $count));
+                            echo '<' . esc_attr($settings['title_html_tag']) . ' class="eead-logo-grid-title">';
 
                             if (!empty($item['link']['url'])) {
                                 echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
                             }
-                            echo $item['title'];
+
+                            echo esc_html($item['title']);
 
                             if (!empty($item['link']['url'])) {
                                 echo '</a>';
                             }
-                            printf('</%1$s>', $settings['title_html_tag']);
+                            echo '</' . esc_attr($settings['title_html_tag']) . '>';
                         }
                         ?>
                     </div>
+
                     <?php
                 }
                 $count++;

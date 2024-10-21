@@ -25,6 +25,7 @@ odometerOptions = {auto: false};
                 'eead-lottie.default': EEA.Lottie,
                 'eead-scroll-image.default': EEA.scrollImage,
                 'eead-logo-carousel.default': EEA.logoCarousel,
+                'eead-popup-modal.default': EEA.popupModal,
 
 
 
@@ -33,16 +34,13 @@ odometerOptions = {auto: false};
                 'eead-charts.default': EEA.chartsBlock,
                 'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
-
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
-                'eead-popup-modal.default': EEA.popupModal,
                 'eead-progressbar.default': EEA.progressBar,
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-switcher.default': EEA.switcherBlock,
-
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
@@ -944,17 +942,17 @@ odometerOptions = {auto: false};
             }
         },
 
-
-
-
-
-
-
-
-
-
-
-
+        popupModal: function ($scope) {
+            var $open = $scope.find('.eead-popup-modal-trigger');
+            $open.on('click', function () {
+                var $id = $(this).data('id');
+                MicroModal.show('eead-popup-modal-' + $id, {
+                    awaitCloseAnimation: true,
+                    openClass: 'open',
+                    disableScroll: true,
+                })
+            });
+        },
 
         popupVideo: function ($scope) {
             $(document).ready(function () {
@@ -967,6 +965,20 @@ odometerOptions = {auto: false};
                 }
             });
         },
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         offcanvasHeader: function ($scope) {
             var t = $scope.find(".ekit-sidebar-group");
@@ -1214,23 +1226,7 @@ odometerOptions = {auto: false};
 
 
 
-        popupModal: function ($scope) {
-            var $open = $scope.find('.eead-popup-modal-trigger');
-            $open.on('click', function () {
-                var $id = $(this).data('id');
-                MicroModal.show('eead-popup-modal-' + $id, {
-                    awaitCloseAnimation: true,
-                    openClass: 'open',
-                    disableScroll: true,
-                })
-            });
-
-            $scope.find(".eead-popup-modal-container.modal__container").mCustomScrollbar({
-                scrollInertia: 500,
-                axis: "y",
-                autoDraggerLength: true,
-            });
-        },
+        
 
         sliderBlock: function ($scope) {
             var $ele = $scope.find('.eead-slider');
