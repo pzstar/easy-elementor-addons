@@ -955,15 +955,42 @@ odometerOptions = {auto: false};
         },
 
         popupVideo: function ($scope) {
-            $(document).ready(function () {
-                if ($(".eead-video-popup").length > 0 && $(".eead-video-popup").magnificPopup({type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !0, fixedContentPos: !1}) && $("#wp-admin-bar-elementor_edit_page-default").length > 0) {
-                    let t = $("#wp-admin-bar-elementor_edit_page-default").children("li");
-                    $(t).map(function (t, n) {
-                        var i = $(n).find(".elementor-edit-link-title");
-                        -1 !== i.text().indexOf("dynamic-content-") && i.parent().parent().remove();
-                    });
-                }
-            });
+            var $video = $scope.find('.eead-video-popup-button');
+            var video_id = $video.attr('id');
+            var video_type = $video.attr('data-video-type');
+            console.log(video_id);
+            if (video_type == 'custom') {
+                lightGallery(document.getElementById(video_id), {
+                    selector: 'this',
+                    counter: false,
+                });
+            } else {
+                var settings = JSON.parse($video.attr('data-settings'));
+                lightGallery(document.getElementById(video_id), {
+                    selector: 'this',
+                    counter: false,
+                    videojs: true,           // Use Video.js for custom video controls
+                    videoMaxWidth: '1200px',
+                    youtubePlayerParams: {
+                        autoplay: settings.autoplay,        // Automatically play video when opened
+                        controls: settings.controls,        // Show video controls
+                        mute: settings.mute,        // Mute the video on start
+                        start: settings.start,           // Start video at 30 seconds
+                        end: settings.end,            // End video at 120 seconds
+                        loop: settings.loop,            // Loop video when finished
+                        modestbranding: 0,  // Minimize YouTube branding
+                        rel: 0            // Do not show related videos at the end
+                    },
+                    vimeoPlayerParams: {
+                        autoplay: settings.autoplay,          // Enable autoplay
+                        loop: settings.loop,              // Loop the video
+                        title: settings.title,             // Hide the title
+                        byline: settings.byline,            // Hide the byline
+                        portrait: settings.portrait,          // Hide the portrait
+                        muted: settings.mute            // Mute the video on start
+                    }
+                });
+            }
         },
 
 
@@ -978,7 +1005,7 @@ odometerOptions = {auto: false};
 
 
 
-        
+
 
         offcanvasHeader: function ($scope) {
             var t = $scope.find(".ekit-sidebar-group");
@@ -1226,7 +1253,7 @@ odometerOptions = {auto: false};
 
 
 
-        
+
 
         sliderBlock: function ($scope) {
             var $ele = $scope.find('.eead-slider');

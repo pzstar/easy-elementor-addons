@@ -2135,7 +2135,7 @@ class FilterableGallery extends Widget_Base {
         }
     }
 
-    protected function render_gallery_items($init_show = 0) {
+    protected function render_gallery_items() {
         $settings = $this->get_settings_for_display();
         $gallery = $this->get_gallery_items();
         $caption_hover_class = ('card' !== $settings['gallery_style']) ? $settings['gallery_hover_style'] : '';

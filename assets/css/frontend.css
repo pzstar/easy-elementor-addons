@@ -964,6 +964,7 @@ Counter
     height: var(--eead-counter-border-width);
     background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
+    z-index: 9;
 }
 
 .eead-counter-box.eead-counter-style2 .eead-counter:after {
@@ -975,6 +976,7 @@ Counter
     width: var(--eead-counter-border-width);
     background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
+    z-index: 9;
 }
 
 .eead-counter-box.eead-counter-style2:before {
@@ -986,6 +988,7 @@ Counter
     height: var(--eead-counter-border-width);
     background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
+    z-index: 9;
 }
 
 .eead-counter-box.eead-counter-style2:after {
@@ -997,6 +1000,7 @@ Counter
     width: var(--eead-counter-border-width);
     background: var(--eead-counter-border-color);
     transition: all 0.3s ease;
+    z-index: 9;
 }
 
 .eead-counter-box.eead-counter-style2:hover .eead-counter:before,
@@ -1032,6 +1036,7 @@ Counter
     align-items: center;
     gap: 2em;
     text-align: left;
+    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
 }
 
 

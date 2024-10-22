@@ -203,9 +203,6 @@ class Counter extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-counter-box' => '--eead-counter-border-color: {{VALUE}}'
                 ],
-                'condition' => [
-                    'counter_style!' => 'style4'
-                ]
             ]
         );
 
@@ -229,9 +226,6 @@ class Counter extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-counter-box' => '--eead-counter-border-width: {{SIZE}}px'
                 ],
-                'condition' => [
-                    'counter_style!' => 'style4'
-                ]
             ]
         );
 
@@ -241,9 +235,21 @@ class Counter extends Widget_Base {
                 'name' => 'box_shadow',
                 'selector' => '{{WRAPPER}} .eead-counter-box .eead-counter',
                 'condition' => [
-                    'counter_style' => 'style3'
+                    'counter_style' => ['style3', 'style4']
                 ]
             ],
+        );
+
+        $this->add_control(
+            'border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
         );
 
         $this->add_control(
