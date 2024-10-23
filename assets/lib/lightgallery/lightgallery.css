@@ -437,6 +437,7 @@
     left: 0;
     width: 100% !important;
     height: 100% !important;
+    object-fit: cover;
   }
   
   .lg-outer .lg-video .lg-video-play {

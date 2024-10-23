@@ -958,6 +958,7 @@ odometerOptions = {auto: false};
             var $video = $scope.find('.eead-video-popup-button');
             var video_id = $video.attr('id');
             var video_type = $video.attr('data-video-type');
+            var video_width = $video.attr('data-video-width');
             console.log(video_id);
             if (video_type == 'custom') {
                 lightGallery(document.getElementById(video_id), {
@@ -969,25 +970,24 @@ odometerOptions = {auto: false};
                 lightGallery(document.getElementById(video_id), {
                     selector: 'this',
                     counter: false,
-                    videojs: true,           // Use Video.js for custom video controls
-                    videoMaxWidth: '1200px',
+                    videoMaxWidth: video_width,
                     youtubePlayerParams: {
-                        autoplay: settings.autoplay,        // Automatically play video when opened
-                        controls: settings.controls,        // Show video controls
-                        mute: settings.mute,        // Mute the video on start
-                        start: settings.start,           // Start video at 30 seconds
-                        end: settings.end,            // End video at 120 seconds
-                        loop: settings.loop,            // Loop video when finished
-                        modestbranding: 0,  // Minimize YouTube branding
-                        rel: 0            // Do not show related videos at the end
+                        autoplay: settings.autoplay,
+                        controls: settings.controls,
+                        mute: settings.mute,
+                        start: settings.start,
+                        end: settings.end,
+                        loop: settings.loop,
+                        modestbranding: 0,
+                        rel: 0
                     },
                     vimeoPlayerParams: {
-                        autoplay: settings.autoplay,          // Enable autoplay
-                        loop: settings.loop,              // Loop the video
-                        title: settings.title,             // Hide the title
-                        byline: settings.byline,            // Hide the byline
-                        portrait: settings.portrait,          // Hide the portrait
-                        muted: settings.mute            // Mute the video on start
+                        autoplay: settings.autoplay,
+                        loop: settings.loop,
+                        title: settings.title,
+                        byline: settings.byline,
+                        portrait: settings.portrait,
+                        muted: settings.mute
                     }
                 });
             }

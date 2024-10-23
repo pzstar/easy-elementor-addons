@@ -169,6 +169,26 @@ class PopupVideo extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'video_width',
+            [
+                'label' => esc_html__('Video Max Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 400,
+                        'max' => 1200,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 800
+                ],
+                'separator' => 'before'
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -276,6 +296,26 @@ class PopupVideo extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'enable_video_poster',
+            [
+                'label' => esc_html__('Enable Video Poster', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'video_poster',
+            [
+                'label' => esc_html__('Upload Poster Image', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'condition' => [
+                    'enable_video_poster' => 'yes'
+                ]
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -310,8 +350,15 @@ class PopupVideo extends Widget_Base {
             'id' => 'eead-video-popup-' . $this->get_id(),
             'class' => "eead-video-popup-button",
             'data-elementor-open-lightbox' => 'no',
-            'data-video-type' => $settings['video_type']
+            'data-video-type' => $settings['video_type'],
+            'data-video-width' => isset($settings['video_width']['size']) ? $settings['video_width']['size'] . $settings['video_width']['unit'] : '800px'
         ]);
+
+        if ($settings['enable_video_poster'] && isset($settings['video_poster']['url'])) {
+            $this->add_render_attribute('popup-video', [
+                'data-poster' => $settings['video_poster']['url']
+            ]);
+        }
 
         if ($settings['video_type'] == 'youtube') {
             $video_settings = [
@@ -344,7 +391,6 @@ class PopupVideo extends Widget_Base {
         } elseif ($settings['video_type'] == 'custom') {
             $this->add_render_attribute('popup-video', [
                 'data-html' => '#eead-custom-video-' . $this->get_id(),
-                'data-poster' => "https://sachinchoolur.github.io/lightgallery.js/static/img/videos/h-video2-poster.jpg"
             ]);
         }
         ?>
