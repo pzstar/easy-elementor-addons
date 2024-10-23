@@ -1,6 +1,7 @@
 <?php
 namespace EasyElementorAddons\Modules\PopupVideo\Widgets;
 
+use Elementor\Utils;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
@@ -8,7 +9,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
-use Elementor\Group_Control_Text_Shadow;
+use Elementor\Group_Control_Image_Size;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -98,11 +99,41 @@ class PopupVideo extends Widget_Base {
             'custom_video',
             [
                 'label' => esc_html__('Upload Video', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
+                'type' => Controls_Manager::MEDIA,
                 'media_types' => ['video'],
                 'condition' => [
                     'video_type' => 'custom'
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'video_width',
+            [
+                'label' => esc_html__('Video Max Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 400,
+                        'max' => 1200,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 800
+                ],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'trigger_section',
+            [
+                'label' => esc_html__('Trigger Button', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -113,11 +144,9 @@ class PopupVideo extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'icon',
                 'options' => [
-                    'ripple_button' => esc_html__('Ripple Round Button', 'easy-elementor-addons'),
-                    'button' => esc_html__('Simple Button', 'easy-elementor-addons'),
+                    'button' => esc_html__('Button', 'easy-elementor-addons'),
                     'image' => esc_html__('Image', 'easy-elementor-addons'),
                     'icon' => esc_html__('Icon', 'easy-elementor-addons'),
-                    'text' => esc_html__('Text', 'easy-elementor-addons'),
                 ],
                 'separator' => 'before'
             ]
@@ -148,7 +177,64 @@ class PopupVideo extends Widget_Base {
                 ],
                 'label_block' => true,
                 'condition' => [
-                    'trigger_type!' => ['text'],
+                    'trigger_type' => ['button', 'icon']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'play_image',
+            [
+                'label' => esc_html__('Play Image', 'textdomain'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => Utils::get_placeholder_image_src(),
+                ],
+                'condition' => [
+                    'trigger_type' => 'image'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'play_image_thumbnail',
+                'exclude' => ['custom'],
+                'include' => [],
+                'default' => 'full',
+                'condition' => [
+                    'trigger_type' => 'image'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'enable_image_play_icon',
+            [
+                'label' => esc_html__('Show Play Icon', 'easy-elementor-addons'),
+                'description' => esc_html__('Display at the center of the image', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'condition' => [
+                    'trigger_type' => 'image',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'image_play_icon',
+            [
+                'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fa fa-play',
+                    'library' => 'fa-solid',
+                ],
+                'label_block' => true,
+                'condition' => [
+                    'trigger_type' => 'image',
+                    'enable_image_play_icon' => 'yes'
                 ]
             ]
         );
@@ -158,34 +244,17 @@ class PopupVideo extends Widget_Base {
             [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'before',
+                'default' => 'row',
                 'options' => [
-                    'before' => esc_html__('Before', 'easy-elementor-addons'),
-                    'after' => esc_html__('After', 'easy-elementor-addons'),
+                    'row' => esc_html__('Before', 'easy-elementor-addons'),
+                    'row-reverse' => esc_html__('After', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-popup-video .eead-vp-button' => 'flex-direction: {{VALUE}};',
                 ],
                 'condition' => [
                     'trigger_type' => ['button']
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'video_width',
-            [
-                'label' => esc_html__('Video Max Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 400,
-                        'max' => 1200,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 800
-                ],
-                'separator' => 'before'
             ]
         );
 
@@ -194,7 +263,7 @@ class PopupVideo extends Widget_Base {
         $this->start_controls_section(
             'controls_section',
             [
-                'label' => esc_html__('Play Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Player Settings', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -300,6 +369,7 @@ class PopupVideo extends Widget_Base {
             'enable_video_poster',
             [
                 'label' => esc_html__('Enable Video Poster', 'easy-elementor-addons'),
+                'description' => esc_html__('Preview of the video\'s content before clicking play.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'separator' => 'before'
             ]
@@ -309,7 +379,7 @@ class PopupVideo extends Widget_Base {
             'video_poster',
             [
                 'label' => esc_html__('Upload Poster Image', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
+                'type' => Controls_Manager::MEDIA,
                 'condition' => [
                     'enable_video_poster' => 'yes'
                 ]
@@ -321,34 +391,571 @@ class PopupVideo extends Widget_Base {
         $this->start_controls_section(
             'style_section',
             [
-                'label' => esc_html__('Wrapper', 'easy-elementor-addons'),
+                'label' => esc_html__('Container', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
-
-
-
+        $this->add_responsive_control(
+            'align',
+            [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-popup-video' => 'justify-content: {{VALUE}};',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style',
+            'section_image_style',
             [
-                'label' => esc_html__('Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'trigger_type' => ['image']
+                ]
             ]
         );
 
+        $this->add_control(
+            'play_image_width',
+            [
+                'label' => esc_html__('Image Max Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-image' => 'max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'play_image_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ],
+                ],
+                'selector' => '{{WRAPPER}} .eead-vp-image',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'play_image_shadow',
+                'selector' => '{{WRAPPER}} .eead-vp-image',
+            ]
+        );
+
+        $this->add_control(
+            'play_image_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'play_icon_size',
+            [
+                'label' => esc_html__('Play Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 200,
+                    ],
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-image span i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vp-image span svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'enable_image_play_icon' => 'yes'
+                ],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'play_icon_color',
+            [
+                'label' => esc_html__('Play Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#FFF',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-image span i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-vp-image span svg' => 'fill: {{VALUE}};',
+                ],
+                'condition' => [
+                    'enable_image_play_icon' => 'yes'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'overlay_color',
+            [
+                'label' => esc_html__('Image Overlay Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => 'rgba(0, 0, 0, 0.2)',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-image span' => 'background: {{VALUE}};',
+                ],
+                'condition' => [
+                    'enable_image_play_icon' => 'yes'
+                ],
+            ]
+        );
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_icon_style',
+            [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'trigger_type' => ['icon']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'icon_style',
+            [
+                'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'default',
+                'label_block' => false,
+                'options' => [
+                    'default' => esc_html__('Default', 'easy-elementor-addons'),
+                    'framed' => esc_html__('Framed', 'easy-elementor-addons'),
+                    'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_color',
+            [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-vp-icon svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-vp-icon.eead-vp-style-framed' => 'border-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'icon_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#F1E2FF',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-popup-video .eead-vp-icon.eead-vp-style-stacked, {{WRAPPER}} .eead-popup-video .eead-vp-icon.eead-vp-style-stacked.eead-vp-ripple:before' => 'background: {{VALUE}};',
+                ],
+                'condition' => [
+                    'icon_style' => 'stacked',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'icon_size',
+            [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 24,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 6,
+                        'max' => 250,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vp-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'icon_circle_size',
+            [
+                'label' => esc_html__('Icon Outer Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 70,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 6,
+                        'max' => 300,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; flex: 0 0 {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_border_width',
+            [
+                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 2,
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 20,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon' => 'border-width: {{SIZE}}{{UNIT}};',
+
+                ],
+                'condition' => [
+                    'icon_style' => 'framed',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius_advanced_show',
+            [
+                'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before',
+                'condition' => [
+                    'icon_style!' => 'default',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon, {{WRAPPER}} .eead-vp-icon.eead-vp-ripple:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'icon_style!' => 'default',
+                    'icon_radius_advanced_show!' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_radius_advanced',
+            [
+                'label' => esc_html__('Radius', 'easy-elementor-addons'),
+                'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-icon, {{WRAPPER}} .eead-vp-icon.eead-vp-ripple:before' => 'border-radius: {{VALUE}};'
+                ],
+                'condition' => [
+                    'icon_style!' => 'default',
+                    'icon_radius_advanced_show' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'enable_ripple',
+            [
+                'label' => esc_html__('Enable Ripple Effect', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'condition' => [
+                    'icon_style' => 'stacked',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_button_style',
+            [
+                'label' => esc_html__('Button', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'trigger_type' => ['button']
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'button_typography',
+                'selector' => '{{WRAPPER}} .eead-vp-button',
+            ]
+        );
+
+        $this->add_control(
+            'icon_indent',
+            [
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'size' => 8,
+                ],
+                'condition' => [
+                    'play_icon[value]!' => '',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button' => 'gap: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_padding',
+            [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_radius',
+            [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_button_style');
+
+        $this->start_controls_tab(
+            'tab_button_normal',
+            [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color',
+            [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-vp-button'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'button_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ],
+                ],
+                'selector' => '{{WRAPPER}} .eead-vp-button',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'button_shadow',
+                'selector' => '{{WRAPPER}} .eead-vp-button',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_button_hover',
+            [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color_hover',
+            [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background_hover',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-vp-button:hover'
+            ]
+        );
+
+        $this->add_control(
+            'button_border_color_hover',
+            [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vp-button:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'button_shadow_hover',
+                'selector' => '{{WRAPPER}} .eead-vp-button:hover',
+            ]
+        );
+
+        $this->add_control(
+            'button_hover_animation',
+            [
+                'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HOVER_ANIMATION,
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+    }
+
+    protected function render_button() {
+        $settings = $this->get_settings_for_display();
+
+        if ($settings['trigger_type'] == 'button') {
+            if (!empty($settings['play_icon']['value'])) {
+                Icons_Manager::render_icon($settings['play_icon'], ['aria-hidden' => 'true']);
+            }
+            echo '<span>' . esc_html($settings['play_text']) . '</span>';
+        } elseif ($settings['trigger_type'] == 'image') {
+            echo Group_Control_Image_Size::get_attachment_image_html($settings, 'play_image_thumbnail', 'play_image');
+            if($settings['enable_image_play_icon']){
+                echo '<span>';
+                Icons_Manager::render_icon($settings['image_play_icon'], ['aria-hidden' => 'true']);
+                echo '</span>';
+            }
+        } elseif ($settings['trigger_type'] == 'text') {
+            echo '<span>' . esc_html($settings['play_text']) . '</span>';
+        } elseif ($settings['trigger_type'] == 'icon') {
+            Icons_Manager::render_icon($settings['play_icon'], ['aria-hidden' => 'true']);
+        }
     }
 
     protected function render() {
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute('popup-video', [
             'id' => 'eead-video-popup-' . $this->get_id(),
-            'class' => "eead-video-popup-button",
+            'class' => ['eead-video-popup-button', 'eead-vp-'.$settings['trigger_type']],
             'data-elementor-open-lightbox' => 'no',
             'data-video-type' => $settings['video_type'],
             'data-video-width' => isset($settings['video_width']['size']) ? $settings['video_width']['size'] . $settings['video_width']['unit'] : '800px'
@@ -392,25 +999,34 @@ class PopupVideo extends Widget_Base {
             $this->add_render_attribute('popup-video', [
                 'data-html' => '#eead-custom-video-' . $this->get_id(),
             ]);
+            ?>
+            <div id="eead-custom-video-<?php echo $this->get_id(); ?>" style="display: none;">
+                <video class="lg-video-object lg-html5" controls preload="none">
+                    <source src="<?php echo $settings['custom_video']['url']; ?>" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <?php
+        }
+
+        if ($settings['button_hover_animation']) {
+            $this->add_render_attribute('popup-video', 'class', 'elementor-animation-' . $settings['button_hover_animation']);
+        }
+
+        if ($settings['trigger_type'] == 'icon') {
+            $this->add_render_attribute('popup-video', 'class', 'eead-vp-style-' . $settings['icon_style']);
+        }
+
+        if ($settings['enable_ripple']) {
+            $this->add_render_attribute('popup-video', 'class', 'eead-vp-ripple');
         }
         ?>
 
-        <div id="eead-custom-video-<?php echo $this->get_id(); ?>" style="display: none;">
-            <video class="lg-video-object lg-html5" controls preload="none">
-                <source src="<?php echo $settings['custom_video']['url']; ?>" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-        </div>
-
         <div class="eead-popup-video">
             <a <?php echo $this->get_render_attribute_string('popup-video'); ?>>
-                <?php if ($settings['trigger_type'] == 'text') { ?>
-                    <span><?php echo esc_html($settings['play_text']); ?></span>
-                <?php } ?>
+                <?php $this->render_button(); ?>
             </a>
         </div>
-
-
         <?php
     }
 }

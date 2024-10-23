@@ -34,11 +34,11 @@ class ScrollImage extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['lightgallery'];
+		return ['lightgallery1'];
 	}
 
 	public function get_script_depends() {
-		return ['lightgallery'];
+		return ['lightgallery1'];
 	}
 
 	protected function register_controls() {
@@ -279,7 +279,7 @@ class ScrollImage extends Widget_Base {
 						'icon' => 'eicon-circle',
 					],
 				],
-				'default' => 'fa fa-search',
+				'default' => 'fas fa-search',
 				'toggle' => false,
 				'condition' => [
 					'link_to!' => '',
@@ -1195,20 +1195,19 @@ class ScrollImage extends Widget_Base {
 			$this->add_render_attribute('link', [
 				'href' => esc_url($settings['image']['url']),
 				'data-elementor-open-lightbox' => 'no',
-				'class' => 'eead-scroll-image-lightbox',
+				'class' => 'eead-scroll-image-modal',
 			]);
 		} elseif ($settings['link_to'] === 'modal') {
 			$this->add_render_attribute('link', [
 				'href' => esc_url($settings['external_link']['url']),
-				'class' => 'eead-scroll-iframe-modal',
+				'class' => 'eead-scroll-image-modal',
 				'data-iframe' => 'true',
-				'data-src' => esc_url($settings['external_link']['url']),
 				'data-elementor-open-lightbox' => 'no'
 			]);
 		} elseif ($settings['link_to'] === 'video') {
 			$this->add_render_attribute('link', [
 				'href' => esc_url($settings['video_link']['url']),
-				'class' => 'eead-scroll-video-modal',
+				'class' => 'eead-scroll-image-modal',
 				'data-elementor-open-lightbox' => 'no'
 			]);
 		} else {
@@ -1218,7 +1217,7 @@ class ScrollImage extends Widget_Base {
 		}
 
 		if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) { ?>
-			<a target="_blank" <?php echo $this->get_render_attribute_string('link'); ?>>
+			<a <?php echo $this->get_render_attribute_string('link'); ?>>
 				<?php if ($settings['link_icon'] !== 'custom') { ?>
 					<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
 				<?php } else {

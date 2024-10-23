@@ -2316,8 +2316,13 @@
 
         // Set max width for video
         utils.on(_this.core.el, 'onAferAppendSlide.lgtm', function (event) {
+            var modalWidth = _this.core.s.videoMaxWidth;
+            if(_this.core.items[_this.core.index].getAttribute('data-iframe') === 'true'){
+                modalWidth = _this.core.s.iframeMaxWidth;
+            }
+
             if (_this.core.___slide[event.detail.index].querySelector('.lg-video-cont')) {
-                _this.core.___slide[event.detail.index].querySelector('.lg-video-cont').style.maxWidth = _this.core.s.videoMaxWidth;
+                _this.core.___slide[event.detail.index].querySelector('.lg-video-cont').style.maxWidth = modalWidth;
                 _this.videoLoaded = true;
             }
         });

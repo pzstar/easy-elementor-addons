@@ -379,10 +379,11 @@ odometerOptions = {auto: false};
 
             if (elementorFrontend.isEditMode() == false) {
                 var $gallery = $(".eead-filter-gallery-container", $scope),
+                    $gallery_items = $scope.find('.eead-filter-gallery'),
                     $settings = $gallery.data("settings"),
                     fg_items = $gallery.data("gallery-items"),
                     $layout_mode = $settings.grid_style === "masonry" ? "masonry" : "fitRows",
-                    $gallery_enabled = $settings.gallery_enabled === "yes",
+                    $gallery_enabled = $settings.gallery_enabled === "yes" ? true : false,
                     $init_show_setting = $gallery.data("init-show"),
                     filterType = $settings.filter_type;
                 fg_items.splice(0, $init_show_setting);
@@ -412,16 +413,19 @@ odometerOptions = {auto: false};
                 $isotope_gallery.addClass('eead-isotope-initialized');
 
                 // Init Popup
-                if ($gallery_enabled == 'yes') {
-                    $gallery.lightGallery({
+                if ($gallery_enabled) {
+                    lightGallery(document.getElementById($gallery_items.attr('id')), {
                         selector: '.eead-magnific-link',
                         thumbnail: false,
                     });
                 } else {
-                    $gallery.find('.eead-magnific-link').lightGallery({
-                        selector: 'this',
+                    lightGallery(document.getElementById($gallery_items.attr('id')), {
+                        selector: '.eead-magnific-link',
                         thumbnail: false,
-                        counter: false
+                        counter: false,
+                        controls: false,
+                        loop: false,
+                        mousewheel: false
                     });
                 }
 
@@ -661,7 +665,7 @@ odometerOptions = {auto: false};
                     $gallery_container.addClass('eead-isotope-initialized');
 
                     // Init Popup
-                    $gallery_container.lightGallery({
+                    lightGallery(document.getElementById($gallery_container.attr('id')), {
                         selector: '.eead-ig-lightbox',
                         thumbnail: false,
                     });
@@ -889,21 +893,12 @@ odometerOptions = {auto: false};
         },
 
         scrollImage: function ($scope) {
-            $scope.find('.eead-scroll-image-lightbox').lightGallery({
-                selector: 'this',
-                thumbnail: false,
-                counter: false
-            });
+            var $container = $scope.find('.eead-scroll-image-container');
 
-            $scope.find('.eead-scroll-iframe-modal').lightGallery({
-                selector: 'this',
+            lightGallery(document.getElementById($container.attr('id')), {
+                selector: '.eead-scroll-image-modal',
+                counter: false,
                 iframeMaxWidth: '80%',
-                counter: false
-            });
-
-            $scope.find('.eead-scroll-video-modal').lightGallery({
-                selector: 'this',
-                counter: false
             });
         },
 
@@ -959,11 +954,10 @@ odometerOptions = {auto: false};
             var video_id = $video.attr('id');
             var video_type = $video.attr('data-video-type');
             var video_width = $video.attr('data-video-width');
-            console.log(video_id);
             if (video_type == 'custom') {
                 lightGallery(document.getElementById(video_id), {
                     selector: 'this',
-                    counter: false,
+                    counter: false
                 });
             } else {
                 var settings = JSON.parse($video.attr('data-settings'));

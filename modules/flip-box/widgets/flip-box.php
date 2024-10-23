@@ -1277,7 +1277,7 @@ class FlipBox extends Widget_Base {
 					<div class="eead-fb-layer-inner">
 						<?php if ($settings['graphic_element'] === 'image' && !empty($settings['image']['url'])) { ?>
 							<div class="eead-fb-image">
-								<?php echo Group_Control_Image_Size::get_attachment_image_html($settings); ?>
+								<?php echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'image'); ?>
 							</div>
 						<?php } elseif ($settings['graphic_element'] === 'icon' && !empty($settings['box_icon']['value'])) { ?>
 							<div <?php $this->print_render_attribute_string('icon-wrapper'); ?>>

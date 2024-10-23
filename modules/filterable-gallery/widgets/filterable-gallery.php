@@ -2242,6 +2242,7 @@ class FilterableGallery extends Widget_Base {
         $gallery_style = 'eead-fg-style-' . $settings['gallery_style'];
 
         $this->add_render_attribute('gallery-items-wrap', [
+            'id' => 'eead-filter-gallery-container-' . $id,
             'class' => ['eead-filter-gallery-container', $gallery_style],
             'data-images-per-page' => $settings['images_per_page'],
             'data-total-gallery-items' => $total_items,
@@ -2252,7 +2253,7 @@ class FilterableGallery extends Widget_Base {
         ]);
         ?>
 
-        <div id="eead-filter-gallery-container-<?php echo $id; ?>" class="eead-filter-gallery">
+        <div id="<?php echo 'eead-filter-gallery-' . $id; ?>" class="eead-filter-gallery">
 
             <?php
             if ($settings['filter_type'] == 'normal') {
