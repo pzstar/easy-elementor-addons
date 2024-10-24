@@ -34,11 +34,11 @@ class PopupVideo extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['lightgallery1'];
+        return ['light-gallery'];
     }
 
     public function get_style_depends() {
-        return ['lightgallery1'];
+        return ['light-gallery'];
     }
 
     protected function register_controls() {

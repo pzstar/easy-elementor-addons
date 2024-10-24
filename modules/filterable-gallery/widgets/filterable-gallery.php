@@ -42,11 +42,11 @@ class FilterableGallery extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['lightgallery', 'isotope'];
+        return ['light-gallery', 'isotope'];
     }
 
     public function get_style_depends() {
-        return ['lightgallery'];
+        return ['light-gallery'];
     }
 
     /** Controls */

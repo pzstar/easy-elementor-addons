@@ -43,11 +43,11 @@ class Portfolio extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['lightgallery', 'owlcarousel'];
+        return ['light-gallery', 'owlcarousel'];
     }
 
     public function get_script_depends() {
-        return ['lightgallery', 'owlcarousel'];
+        return ['light-gallery', 'owlcarousel'];
     }
 
     /** Controls */
