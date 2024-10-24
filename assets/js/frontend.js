@@ -938,7 +938,7 @@ odometerOptions = {auto: false};
         },
 
         popupModal: function ($scope) {
-            var $open = $scope.find('.eead-popup-modal-trigger');
+            var $open = $scope.find('.eead-popup-modal-trigger-btn');
             $open.on('click', function () {
                 var $id = $(this).data('id');
                 MicroModal.show('eead-popup-modal-' + $id, {
