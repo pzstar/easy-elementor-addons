@@ -132,6 +132,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Show Header Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
+				'separator' => 'before'
 			]
 		);
 
@@ -141,80 +142,6 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Show Close Button', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-			]
-		);
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_layout',
-			[
-				'label' => esc_html__('Layout', 'easy-elementor-addons'),
-			]
-		);
-
-		$this->add_control(
-			'layout_type',
-			[
-				'label' => esc_html__('Layout', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'standard' => esc_html__('Standard', 'easy-elementor-addons'),
-					'fullscreen' => esc_html__('Fullscreen', 'easy-elementor-addons'),
-				],
-				'default' => 'standard',
-			]
-		);
-
-		$this->add_responsive_control(
-			'popup_width',
-			[
-				'label' => esc_html__('Width', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => '550',
-					'unit' => 'px',
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 1920,
-						'step' => 1,
-					],
-				],
-				'size_units' => ['px', '%', 'vw'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .modal__container' => 'width: {{SIZE}}{{UNIT}}; max-width: unset;',
-				],
-				'condition' => [
-					'layout_type' => 'standard',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'popup_height',
-			[
-				'label' => esc_html__('Height', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => '550',
-					'unit' => 'px',
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 1920,
-						'step' => 1,
-					],
-				],
-				'size_units' => ['px', '%', 'vh'],
-				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .modal__container' => 'height: {{SIZE}}{{UNIT}}; max-height: unset;',
-				],
-				'condition' => [
-					'layout_type' => 'standard',
-				],
 			]
 		);
 
@@ -232,7 +159,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Trigger Type', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'icon',
+				'default' => 'button',
 				'options' => [
 					'button' => esc_html__('Button', 'easy-elementor-addons'),
 					'image' => esc_html__('Image', 'easy-elementor-addons'),
@@ -261,7 +188,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fa fa-play',
+					'value' => 'fa fa-search',
 					'library' => 'fa-solid',
 				],
 				'label_block' => true,
@@ -317,7 +244,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Trigger Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fa fa-play',
+					'value' => 'fa fa-search',
 					'library' => 'fa-solid',
 				],
 				'label_block' => true,
@@ -339,11 +266,95 @@ class PopupModal extends Widget_Base {
 					'row-reverse' => esc_html__('After', 'easy-elementor-addons'),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal-trigger' => 'flex-direction: {{VALUE}};',
+					'{{WRAPPER}} .eead-popup-modal-trigger .eead-popup-modal-trigger-button' => 'flex-direction: {{VALUE}};',
 				],
 				'condition' => [
 					'trigger_type' => ['button']
 				]
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_layout',
+			[
+				'label' => esc_html__('Layout', 'easy-elementor-addons'),
+			]
+		);
+
+		$this->add_control(
+			'layout_type',
+			[
+				'label' => esc_html__('Layout', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'standard' => esc_html__('Standard', 'easy-elementor-addons'),
+					'fullscreen' => esc_html__('Fullscreen', 'easy-elementor-addons'),
+				],
+				'default' => 'standard',
+			]
+		);
+
+		$this->add_responsive_control(
+			'popup_width',
+			[
+				'label' => esc_html__('Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '850',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1600,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', '%', 'vw'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__container' => 'width: {{SIZE}}{{UNIT}}; max-width: 100%;',
+				],
+				'condition' => [
+					'layout_type' => 'standard',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'popup_height',
+			[
+				'label' => esc_html__('Max Height', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '90',
+					'unit' => 'vh',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1600,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', '%', 'vh'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__container' => 'max-height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout_type' => 'standard',
+				],
+			]
+		);
+
+		$this->add_control(
+			'popup_animation',
+			[
+				'label' => esc_html__('Popup Animation', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'fadeIn',
+				'options' => eead_show_animations(),
 			]
 		);
 
@@ -427,7 +438,7 @@ class PopupModal extends Widget_Base {
 		$this->add_control(
 			'trigger_icon_size',
 			[
-				'label' => esc_html__('Play Icon Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Trigger Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [
@@ -454,7 +465,7 @@ class PopupModal extends Widget_Base {
 		$this->add_control(
 			'trigger_icon_color',
 			[
-				'label' => esc_html__('Play Icon Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Trigger Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
@@ -519,7 +530,7 @@ class PopupModal extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-trigger-icon i' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .eead-popup-modal-trigger-icon svg' => 'fill: {{VALUE}};',
-					'{{WRAPPER}} .eead-popup-modal-trigger-icon.eead-vp-style-framed' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .eead-popup-modal-trigger-icon.eead-popup-modal-trigger-icon-framed' => 'border-color: {{VALUE}};',
 				]
 			]
 		);
@@ -531,7 +542,7 @@ class PopupModal extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#F1E2FF',
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-video .eead-popup-modal-trigger-icon.eead-vp-style-stacked' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eead-popup-modal-trigger-icon.eead-popup-modal-trigger-icon-stacked' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'icon_style' => 'stacked',
@@ -846,7 +857,7 @@ class PopupModal extends Widget_Base {
 		$this->start_controls_section(
 			'section_popup_window_style',
 			[
-				'label' => esc_html__('Popup', 'easy-elementor-addons'),
+				'label' => esc_html__('Popup Box', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -910,13 +921,13 @@ class PopupModal extends Widget_Base {
 		$this->start_controls_section(
 			'section_popup_overlay_style',
 			[
-				'label' => esc_html__('Overlay', 'easy-elementor-addons'),
+				'label' => esc_html__('Popup Overlay', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
-			'overlay_switch',
+			'show_overlay',
 			[
 				'label' => esc_html__('Overlay', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
@@ -933,7 +944,7 @@ class PopupModal extends Widget_Base {
 				'exclude' => array('image'),
 				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__overlay',
 				'condition' => [
-					'overlay_switch' => 'yes',
+					'show_overlay' => 'yes',
 				],
 			]
 		);
@@ -943,7 +954,7 @@ class PopupModal extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' => esc_html__('Title', 'easy-elementor-addons'),
+				'label' => esc_html__('Popup Title', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'popup_title' => 'yes',
@@ -972,10 +983,7 @@ class PopupModal extends Widget_Base {
 				],
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'display:flex; justify-content: {{VALUE}};',
-				],
-				'condition' => [
-					'popup_title' => 'yes',
+					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'justify-content: {{VALUE}};',
 				],
 			]
 		);
@@ -989,9 +997,6 @@ class PopupModal extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'background-color: {{VALUE}}',
 				],
-				'condition' => [
-					'popup_title' => 'yes',
-				],
 			]
 		);
 
@@ -1002,7 +1007,7 @@ class PopupModal extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal-title.modal__title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .eead-popup-modal .modal__title' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'popup_title' => 'yes',
@@ -1015,10 +1020,7 @@ class PopupModal extends Widget_Base {
 			[
 				'name' => 'title_typography',
 				'label' => esc_html__('Typography', 'easy-elementor-addons'),
-				'selector' => '{{WRAPPER}} .eead-popup-modal-title.modal__title',
-				'condition' => [
-					'popup_title' => 'yes',
-				],
+				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__title',
 			]
 		);
 
@@ -1030,9 +1032,6 @@ class PopupModal extends Widget_Base {
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__header',
-				'condition' => [
-					'popup_title' => 'yes',
-				],
 			]
 		);
 
@@ -1044,9 +1043,6 @@ class PopupModal extends Widget_Base {
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition' => [
-					'popup_title' => 'yes',
 				],
 			]
 		);
@@ -1060,9 +1056,6 @@ class PopupModal extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'condition' => [
-					'popup_title' => 'yes',
-				],
 			]
 		);
 
@@ -1072,10 +1065,7 @@ class PopupModal extends Widget_Base {
 			'section_popup_content_style',
 			[
 				'label' => esc_html__('Content', 'easy-elementor-addons'),
-				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'popup_type' => 'content',
-				],
+				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
 
@@ -1139,12 +1129,24 @@ class PopupModal extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'content_margin',
+			[
+				'label' => esc_html__('Margin', 'easy-elementor-addons'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_close_button_style',
 			[
-				'label' => esc_html__('Close Button', 'easy-elementor-addons'),
+				'label' => esc_html__('Popup Close Button', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'close_button' => 'yes',
@@ -1158,30 +1160,122 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'flex-start' => [
+					'left' => [
 						'title' => esc_html__('Left', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-left',
 					],
-					'center' => [
-						'title' => esc_html__('Center', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-center',
-					],
-					'flex-end' => [
+					'right' => [
 						'title' => esc_html__('Right', 'easy-elementor-addons'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
-				'default' => 'flex-end',
+				'toggle' => false,
+				'default' => 'right',
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_offset_top',
+			[
+				'label' => esc_html__('Top Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '0',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal-close' => 'justify-content: {{VALUE}};',
-				]
+					'{{WRAPPER}} .eead-popup-modal .eead-popup-modal-close' => 'top: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_offset_left',
+			[
+				'label' => esc_html__('Left Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '0',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .eead-popup-modal-close' => 'left: {{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'close_button_align' => 'left',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_offset_right',
+			[
+				'label' => esc_html__('Right Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '20',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .eead-popup-modal-close' => 'right: {{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'close_button_align' => 'right',
+				],
 			]
 		);
 
 		$this->add_responsive_control(
 			'close_button_size',
 			[
-				'label' => esc_html__('Size', 'easy-elementor-addons'),
+				'label' => esc_html__('Button Size', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '50',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 80,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__close' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_icon_size',
+			[
+				'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '28',
@@ -1194,9 +1288,9 @@ class PopupModal extends Widget_Base {
 						'step' => 1,
 					],
 				],
-				'size_units' => ['px', '%'],
+				'size_units' => ['px', 'em'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .modal__close span ' => 'font-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .eead-popup-modal .modal__close span' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -1222,14 +1316,14 @@ class PopupModal extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
+		$this->add_control(
+			'close_button_bg',
 			[
-				'name' => 'close_button_bg',
-				'label' => esc_html__('Background', 'easy-elementor-addons'),
-				'types' => ['classic', 'gradient'],
-				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__close',
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__close' => 'background: {{VALUE}}',
+				],
 			]
 		);
 
@@ -1270,20 +1364,20 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#333',
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__close:hover span' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
+		$this->add_control(
+			'close_button_bg_hover',
 			[
-				'name' => 'close_button_bg_hover',
-				'label' => esc_html__('Background', 'easy-elementor-addons'),
-				'types' => ['classic', 'gradient'],
-				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__close:hover',
+				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__close:hover' => 'background: {{VALUE}}',
+				],
 			]
 		);
 
@@ -1308,32 +1402,64 @@ class PopupModal extends Widget_Base {
 		$this->start_controls_section(
 			'scroll_bar_style',
 			[
-				'label' => esc_html__('Scroll Bar', 'easy-elementor-addons'),
+				'label' => esc_html__('Popup Scroll Bar', 'easy-elementor-addons'),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
 
-		$this->add_control(
-			'dragger_bar_color',
+		$this->add_responsive_control(
+			'scrollbar_width',
 			[
-				'label' => esc_html__('Dragger Bar Normal Color', 'easy-elementor-addons'),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#444',
+				'label' => esc_html__('Track Width', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => '3',
+					'unit' => 'px',
+				],
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px'],
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .mCustomScrollbar .mCSB_dragger_bar' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-popup-modal .modal__container::-webkit-scrollbar' => 'width: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'scrollbar_track_color',
+			[
+				'label' => esc_html__('Track Color', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__container::-webkit-scrollbar-track' => 'background-color: {{VALUE}}',
 				]
 			]
 		);
 
 		$this->add_control(
-			'dragger_bar_hover_color',
+			'scrollbar_thumb_color',
 			[
-				'label' => esc_html__('Dragger Bar Hover Color', 'easy-elementor-addons'),
+				'label' => esc_html__('Thumb Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#444',
 				'selectors' => [
-					'{{WRAPPER}} .eead-popup-modal .mCustomScrollbar .mCSB_dragger:hover .mCSB_dragger_bar,
-					 {{WRAPPER}} .eead-popup-modal .mCustomScrollbar .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .eead-popup-modal .modal__container::-webkit-scrollbar-thumb' => 'background-color: {{VALUE}}',
+				]
+			]
+		);
+
+		$this->add_control(
+			'scrollbar_thumb_hover_color',
+			[
+				'label' => esc_html__('Thumb Color (Hover)', 'easy-elementor-addons'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eead-popup-modal .modal__container::-webkit-scrollbar-thumb:hover' => 'background-color: {{VALUE}}',
 				]
 			]
 		);
@@ -1350,7 +1476,7 @@ class PopupModal extends Widget_Base {
 				'href' => '#',
 				'class' => [
 					'eead-popup-modal-trigger-btn',
-					'eead-popup-modal-trigger-'. $settings['trigger_type'],
+					'eead-popup-modal-trigger-' . $settings['trigger_type'],
 					'eead-modal-popup-btn-' . esc_attr($id),
 				],
 				'data-id' => esc_attr($id)
@@ -1359,6 +1485,10 @@ class PopupModal extends Widget_Base {
 
 		if ($settings['button_hover_animation']) {
 			$this->add_render_attribute('popup-modal-button', 'class', 'elementor-animation-' . $settings['button_hover_animation']);
+		}
+
+		if ($settings['trigger_type'] == 'icon') {
+			$this->add_render_attribute('popup-modal-button', 'class', 'eead-popup-modal-trigger-icon-' . $settings['icon_style']);
 		}
 		?>
 
@@ -1390,13 +1520,14 @@ class PopupModal extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$id = $this->get_id();
+		$overlay = $settings['show_overlay'] ? 'yes' : 'no';
 
 		$this->add_render_attribute('popup-modal', [
 			'id' => 'eead-popup-modal-' . $id,
 			'class' => [
 				'eead-popup-modal',
 				'eead-popup-modal-' . $settings['layout_type'],
-				'micromodal-slide'
+				'eead-popup-modal-overlay-' . $overlay,
 			],
 			'aria-hidden' => "true"
 		]);
@@ -1408,9 +1539,9 @@ class PopupModal extends Widget_Base {
 
 		<div <?php echo $this->get_render_attribute_string('popup-modal'); ?>>
 			<div class="modal__overlay" tabindex="-1" data-micromodal-close>
-				<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
+				<div class="modal__container animated animated-fast <?php echo $settings['popup_animation'] ?>" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
 					<?php if ($settings['close_button'] == 'yes') { ?>
-						<div class="eead-popup-modal ">
+						<div class="eead-popup-modal-close">
 							<button class="modal__close" aria-label="Close Modal" data-micromodal-close>
 								<span class="icofont-close-line" data-micromodal-close></span>
 							</button>
@@ -1418,7 +1549,7 @@ class PopupModal extends Widget_Base {
 					<?php } ?>
 
 					<?php if ($settings['popup_title'] == 'yes' && !empty($settings['title'])) { ?>
-						<header class="eead-popup-modal  modal__header">
+						<header class="modal__header">
 							<h2 class="modal__title" id="modal-<?php echo esc_attr($id); ?>-title">
 								<?php echo $settings['title']; ?>
 							</h2>

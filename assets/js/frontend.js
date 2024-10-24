@@ -26,6 +26,7 @@ odometerOptions = {auto: false};
                 'eead-scroll-image.default': EEA.scrollImage,
                 'eead-logo-carousel.default': EEA.logoCarousel,
                 'eead-popup-modal.default': EEA.popupModal,
+                'eead-progressbar.default': EEA.progressBar,
 
 
 
@@ -37,7 +38,6 @@ odometerOptions = {auto: false};
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
-                'eead-progressbar.default': EEA.progressBar,
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-switcher.default': EEA.switcherBlock,
@@ -59,8 +59,6 @@ odometerOptions = {auto: false};
             $.each(widgets, function (widget, callback) {
                 elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
             });
-
-
 
             elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
 
@@ -942,9 +940,14 @@ odometerOptions = {auto: false};
             $open.on('click', function () {
                 var $id = $(this).data('id');
                 MicroModal.show('eead-popup-modal-' + $id, {
+                    awaitOpenAnimation: true,
                     awaitCloseAnimation: true,
-                    openClass: 'open',
+                    openClass: 'eead-open-modal',
                     disableScroll: true,
+                    onShow: (modal) => {
+                    },
+                    onClose: (modal) => {
+                    }
                 })
             });
         },
@@ -987,6 +990,29 @@ odometerOptions = {auto: false};
             }
         },
 
+        progressBar: function ($scope) {
+            var $el = $scope.find('.eead-progress-bar');
+            if (($el.length > 0)) {
+                $el.each(function (index) {
+                    var $this = $(this);
+                    var delay_time = parseInt(index * 100 + 300);
+                    $this.waypoint(function () {
+                        setTimeout(function () {
+                            $this.find('.eead-progress-bar-length').animate({
+                                width: $this.attr("data-width") + '%'
+                            }, 1000, function () {
+                                $this.find("span").animate({
+                                    opacity: 1
+                                }, 500);
+                            });
+                        }, delay_time);
+                        this.destroy();
+                    }, {
+                        offset: '90%',
+                    });
+                });
+            }
+        },
 
 
 
@@ -1073,8 +1099,6 @@ odometerOptions = {auto: false};
                 image.remove();
             });
         },
-
-
 
         stickyVideo: function ($scope) {
             $(".eead-sticky-player-close", $scope).hide();
@@ -1244,11 +1268,6 @@ odometerOptions = {auto: false};
             }
         },
 
-
-
-
-
-
         sliderBlock: function ($scope) {
             var $ele = $scope.find('.eead-slider');
             if ($ele.find('.eead-slide').length > 0) {
@@ -1306,10 +1325,6 @@ odometerOptions = {auto: false};
             }
         },
 
-
-
-
-
         teamMemberCarouselBlock: function ($scope, $) {
             var $carousel = $scope.find('.eead-swiper-slider').eq(0),
                 $slider_options = JSON.parse($carousel.attr('data-slider-settings'));
@@ -1365,9 +1380,6 @@ odometerOptions = {auto: false};
             });
         },
 
-
-
-
         portfolioBlock: function ($scope) {
             var $element = $scope.find('.eead-portfolio-lists');
             if ($element.length > 0) {
@@ -1411,10 +1423,6 @@ odometerOptions = {auto: false};
             }
         },
 
-
-
-
-
         verticalTabsBlock: function ($scope) {
             $scope.find('.eead-vertical-tab-section').on('click', '.eead-tab', function () {
                 var $tab_id = $(this).data('tabid');
@@ -1425,32 +1433,6 @@ odometerOptions = {auto: false};
                     $scope.find('.eead-tab-content').find('.eead-content-' + $tab_id).fadeIn();
                 }
             });
-        },
-
-
-
-        progressBar: function ($scope) {
-            var $el = $scope.find('.eead-progress-bar');
-            if (($el.length > 0)) {
-                $el.each(function (index) {
-                    var $this = $(this);
-                    var delay_time = parseInt(index * 100 + 300);
-                    $this.waypoint(function () {
-                        setTimeout(function () {
-                            $this.find('.eead-progress-bar-length').animate({
-                                width: $this.attr("data-width") + '%'
-                            }, 1000, function () {
-                                $this.find("span").animate({
-                                    opacity: 1
-                                }, 500);
-                            });
-                        }, delay_time);
-                        this.destroy();
-                    }, {
-                        offset: '90%',
-                    });
-                });
-            }
         },
 
         videoPlayer: function ($scope) {
@@ -1503,18 +1485,6 @@ odometerOptions = {auto: false};
             }
         },
 
-
-
-
-
-
-
-
-
-
-
-
-
         switcherBlock: function ($scope) {
             $scope.find('.eead-switch-tab').on('click', function () {
                 $scope.find('.eead-switch-tab').removeClass('active');
@@ -1531,7 +1501,6 @@ odometerOptions = {auto: false};
                 }
             });
         },
-
 
         elementorColumn: function ($scope) {
             var columnId = $scope.data('id');
@@ -2053,6 +2022,7 @@ odometerOptions = {auto: false};
                 }
             }
         },
+
         tiltHoverImageBlock: function ($scope) {
             var tiltImageBlock = $scope.find('a.eead-tilter'), tiltSettings = [
                 {},
@@ -2212,6 +2182,7 @@ odometerOptions = {auto: false};
             ];
             new TiltFx(tiltImageBlock[0], tiltSettings[tiltImageBlock.data('hoverstyle')]);
         },
+
         slinkyVerticalMenuBlock: function ($scope) {
             var $vrMenu = $scope.find('.eead-slinky-vertical-menu');
             var $settings = $vrMenu.attr('id');
@@ -2220,6 +2191,7 @@ odometerOptions = {auto: false};
             }
             const slinky = $('#' + $settings).slinky();
         },
+
         portfolioGrid: function ($scope) {
             $scope.find("form.eead-fpg-toolbar").each(function () {
                 var i = $(this).attr("id");

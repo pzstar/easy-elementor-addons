@@ -10,10 +10,6 @@
   display: block;
 }
 
-.modal {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-}
-
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -48,7 +44,6 @@
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.25;
-  color: #00449e;
   box-sizing: border-box;
 }
 
@@ -152,31 +147,27 @@
   }
 }
 
-.micromodal-slide {
+.eead-popup-modal {
   display: none;
 }
 
-.micromodal-slide.open {
+.eead-popup-modal.eead-open-modal {
   display: block;
 }
 
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
+.eead-popup-modal[aria-hidden="false"] .modal__overlay {
   animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
-}
 
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
+
+.eead-popup-modal[aria-hidden="true"] .modal__overlay {
   animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
-}
 
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
+
+.eead-popup-modal .modal__container,
+.eead-popup-modal .modal__overlay {
   will-change: transform;
 }
