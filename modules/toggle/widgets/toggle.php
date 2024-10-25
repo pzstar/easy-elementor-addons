@@ -10,6 +10,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -27,7 +28,7 @@ class Toggle extends Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return esc_html__('Toggle', 'easy-elementor-addons');
+        return esc_html__('Toggle Content', 'easy-elementor-addons');
     }
 
     /** Icon */
@@ -275,7 +276,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => [
-                    'left' => [
+                    'flex-start' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
                     ],
@@ -283,67 +284,57 @@ class Toggle extends Widget_Base {
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-center',
                     ],
-                    'right' => [
+                    'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
-                'prefix_class' => 'eead-toggle-',
-                'frontend_available' => true,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-container' => 'justify-content: {{VALUE}};',
+                ],
             ]
         );
 
-        $this->add_responsive_control(
-            'toggle_switch_size',
+        $this->add_control(
+            'toggle_switch_width',
             [
-                'label' => esc_html__('Switch Controller Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Switch Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
-                        'min' => 15,
+                        'min' => 30,
+                        'max' => 150,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch' => '--eead-toggle-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_height',
+            [
+                'label' => esc_html__('Switch Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
                         'max' => 60,
                     ],
                 ],
-                'tablet_default' => [
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'unit' => 'px',
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-container' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-switch' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
 
-        $this->add_responsive_control(
-            'toggle_switch_spacing',
-            [
-                'label' => esc_html__('Labels Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'max' => 80,
-                    ],
-                ],
-                'tablet_default' => [
-                    'unit' => 'px',
-                ],
-                'mobile_default' => [
-                    'unit' => 'px',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-container' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
+        $this->add_control(
             'toggle_switch_gap',
             [
-                'label' => esc_html__('Content Spacing', 'easy-elementor-addons'),
+                'label' => esc_html__('Spacing Between Switch & Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -351,16 +342,36 @@ class Toggle extends Widget_Base {
                         'max' => 80,
                     ],
                 ],
-                'tablet_default' => [
-                    'unit' => 'px',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-inner' => 'gap: {{SIZE}}{{UNIT}};',
                 ],
-                'mobile_default' => [
-                    'unit' => 'px',
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_spacing',
+            [
+                'label' => esc_html__('Spacing Between Switch & Content', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'max' => 80,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-before' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-toggle-switch-after' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_round',
+            [
+                'label' => esc_html__('Rounded', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes'
             ]
         );
 
@@ -373,40 +384,27 @@ class Toggle extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
+        $this->add_control(
+            'switch_bg_color',
             [
-                'name' => 'toggle_switch_primary_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-slider',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'toggle_switch_primary_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-toggle-switch-container.eead-toggle-switch-style1,
-                    {{WRAPPER}} .eead-toggle-switch-container.eead-toggle-switch-style2 .eead-toggle-slider,
-                    {{WRAPPER}} .eead-toggle-switch-container.eead-toggle-switch-style3',
+                'label' => esc_html__('Switch Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#EEEEEE',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-bg-color: {{VALUE}}',
+                ],
             ]
         );
 
         $this->add_control(
-            'toggle_switch_primary_border_radius',
+            'switch_handle_color',
             [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
+                'label' => esc_html__('Switch Handle Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#EEEEEE',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-container.eead-toggle-switch-style1,
-                     {{WRAPPER}} .eead-toggle-switch-container.eead-toggle-switch-style3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-handle-color: {{VALUE}}',
                 ],
-                'condition' => [
-                    'switch_style!' => 'style2'
-                ]
             ]
         );
 
@@ -419,112 +417,26 @@ class Toggle extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'toggle_switch_secondary_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-switch-on .eead-toggle-slider, {{WRAPPER}} .eead-toggle-switch:checked + .eead-toggle-slider',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'toggle_switch_secondary_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container.eead-toggle-switch-style1,
-                    {{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container.eead-toggle-switch-style2 .eead-toggle-slider,
-                    {{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container.eead-toggle-switch-style3',
-            ]
-        );
-
         $this->add_control(
-            'toggle_switch_secondary_border_radius',
+            'switch_bg_color_active',
             [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
+                'label' => esc_html__('Switch Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#EEEEEE',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container.eead-toggle-switch-style1,
-                     {{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container.eead-toggle-switch-style3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'switch_style!' => 'style2'
-                ]
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-
-        $this->add_control(
-            'switch_controller_heading',
-            [
-                'label' => esc_html__('Controller', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->start_controls_tabs('tabs_switch_controller');
-
-        $this->start_controls_tab(
-            'tab_controller_primary',
-            [
-                'label' => esc_html__('Primary', 'easy-elementor-addons'),
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'primary_toggle_controller_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before',
-            ]
-        );
-
-        $this->add_control(
-            'primary_toggle_controller_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-bg-active-color: {{VALUE}}',
                 ],
             ]
         );
 
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'tab_controller_secondary',
-            [
-                'label' => esc_html__('Secondary', 'easy-elementor-addons'),
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'secondary_toggle_controller_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before',
-            ]
-        );
-
         $this->add_control(
-            'secondary_toggle_controller_border_radius',
+            'switch_handle_color_active',
             [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
+                'label' => esc_html__('Switch Handle Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#EEEEEE',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-on.eead-toggle-switch-container .eead-toggle-slider::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-handle-active-color: {{VALUE}}',
                 ],
             ]
         );
@@ -548,40 +460,7 @@ class Toggle extends Widget_Base {
             [
                 'name' => 'label_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-primary-toggle-label,
-                    {{WRAPPER}} .eead-secondary-toggle-label',
-            ]
-        );
-
-        $this->add_control(
-            'label_horizontal_position',
-            [
-                'label' => esc_html__('Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'default' => 'middle',
-                'options' => [
-                    'top' => [
-                        'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'middle' => [
-                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-middle',
-                    ],
-                    'bottom' => [
-                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-bottom',
-                    ],
-                ],
-                'selectors_dictionary' => [
-                    'top' => 'flex-start',
-                    'middle' => 'center',
-                    'bottom' => 'flex-end',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch-inner' => 'align-items: {{VALUE}}',
-                ],
+                'selector' => '{{WRAPPER}} .eead-toggle-label',
             ]
         );
 
@@ -599,9 +478,8 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-primary-toggle-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-toggle-label-primary' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -611,9 +489,8 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Active Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-primary-toggle-label.eead-toggle-active' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-toggle-container:not(.eead-switch-on) .eead-toggle-label-primary' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -632,9 +509,8 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-secondary-toggle-label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-toggle-label-secondary' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -644,9 +520,8 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Active Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-secondary-toggle-label.eead-toggle-active' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-toggle-container.eead-switch-on .eead-toggle-label-secondary' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -665,38 +540,12 @@ class Toggle extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'content_alignment',
-            [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'default' => 'center',
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-right',
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-content-wrap' => 'text-align: {{VALUE}}',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
                 'name' => 'content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-toggle-content-wrap',
+                'selector' => '{{WRAPPER}} .eead-toggle-section',
             ]
         );
 
@@ -707,7 +556,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-content-wrap' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-toggle-section' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -717,7 +566,7 @@ class Toggle extends Widget_Base {
             [
                 'name' => 'content_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-content-wrap',
+                'selector' => '{{WRAPPER}} .eead-toggle-content',
             ]
         );
 
@@ -727,9 +576,17 @@ class Toggle extends Widget_Base {
                 'name' => 'content_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-toggle-content-wrap',
+                'selector' => '{{WRAPPER}} .eead-toggle-content',
             ]
         );
+
+        $this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'content_box_shadow',
+				'selector' => '{{WRAPPER}} .eead-toggle-content',
+			]
+		);
 
         $this->add_responsive_control(
             'content_border_radius',
@@ -738,7 +595,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-content-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -750,7 +607,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-content-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -758,18 +615,16 @@ class Toggle extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function render_toggle_content($is_primary) {
-
+    protected function render_toggle_content($content) {
         $settings = $this->get_settings_for_display();
-        $primary_secondary = $is_primary == 'yes' ? 'primary' : 'secondary';
 
-        if ($settings[$primary_secondary . '_content_type'] === 'content') {
-            echo $this->parse_text_editor($settings[$primary_secondary . '_content']);
-        } else if ($settings[$primary_secondary . '_content_type'] === 'image') {
-            echo Group_Control_Image_Size::get_attachment_image_html($settings, $primary_secondary . '_image', $primary_secondary . '_image');
-        } else if ($settings[$primary_secondary . '_content_type'] === 'template') {
-            if (!empty($settings[$primary_secondary . '_templates'])) {
-                $template_id = $settings[$primary_secondary . '_templates'];
+        if ($settings[$content . '_content_type'] === 'content') {
+            echo $this->parse_text_editor($settings[$content . '_content']);
+        } else if ($settings[$content . '_content_type'] === 'image') {
+            echo Group_Control_Image_Size::get_attachment_image_html($settings, $content . '_image', $content . '_image');
+        } else if ($settings[$content . '_content_type'] === 'template') {
+            if (!empty($settings[$content . '_templates'])) {
+                $template_id = $settings[$content . '_templates'];
                 echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($template_id);
             }
         }
@@ -777,26 +632,27 @@ class Toggle extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-
         $settings = $this->get_settings_for_display();
-        $id = esc_attr($this->get_id());
-        $default_display = $settings['default_display'];
+        $this->add_render_attribute('toggle-container', 'class', 'eead-toggle-container');
+        if ($settings['default_display'] == 'secondary') {
+            $this->add_render_attribute('toggle-container', 'class', 'eead-switch-on');
+        }
         ?>
 
-        <div class="eead-toggle-container" id="eead-toggle-container-<?php echo $id ?>">
+        <div <?php echo $this->get_render_attribute_string('toggle-container'); ?>>
             <?php
             if ($settings['toggle_position'] === 'before' || $settings['toggle_position'] === 'before-after') {
                 $this->before_after_toggle('before');
             }
             ?>
 
-            <div class='eead-toggle-content-wrap'>
-                <div class="eead-toggle-section eead-toggle-section-primary" style="<?php echo $default_display == 'secondary' ? 'display: none;' : ''; ?>">
-                    <?php echo $this->render_toggle_content('yes'); ?>
+            <div class='eead-toggle-content'>
+                <div class="eead-toggle-section eead-toggle-primary">
+                    <?php echo $this->render_toggle_content('primary'); ?>
                 </div>
 
-                <div class="eead-toggle-section eead-toggle-section-secondary" style="<?php echo $default_display == 'primary' ? 'display: none;' : ''; ?>">
-                    <?php echo $this->render_toggle_content('no'); ?>
+                <div class="eead-toggle-section eead-toggle-secondary">
+                    <?php echo $this->render_toggle_content('secondary'); ?>
                 </div>
             </div>
 
@@ -810,34 +666,45 @@ class Toggle extends Widget_Base {
     }
 
     protected function before_after_toggle($toggle_position = 'before') {
-
         $settings = $this->get_settings();
 
-        $primary_active = $settings['default_display'] === 'primary' ? 'eead-toggle-active' : NULL;
-        $secondary_active = $settings['default_display'] === 'secondary' ? 'eead-toggle-active' : NULL;
+        $this->add_render_attribute('toggle-switch-' . $toggle_position,
+            [
+                'class' => [
+                    'eead-toggle-switch-container',
+                    'eead-toggle-switch-' . $toggle_position,
+                    'eead-toggle-switch-' . $settings['switch_style']
+                ]
+            ]
+        );
+
+        if ($settings['toggle_switch_round'] !== 'yes') {
+            $this->add_render_attribute('toggle-switch-' . $toggle_position, 'class', 'eead-toggle-square-switch');
+        }
         ?>
 
-        <div class="eead-toggle-switch-wrap eead-toggle-switch-<?php echo esc_attr($toggle_position); ?>">
+        <div <?php echo $this->get_render_attribute_string('toggle-switch-' . $toggle_position); ?>>
             <div class="eead-toggle-switch-inner">
 
                 <?php if ($settings['primary_label']) { ?>
-                    <div class="eead-toggle-label eead-primary-toggle-label <?php echo esc_attr($primary_active); ?>">
+                    <div class="eead-toggle-label eead-toggle-label-primary">
                         <?php echo esc_html($settings['primary_label']); ?>
                     </div>
                 <?php } ?>
 
-                <div class="eead-toggle-switch-container eead-toggle-switch-<?php echo $settings['switch_style']; ?> <?php echo $settings['default_display'] == 'secondary' ? 'eead-toggle-switch-on' : ''; ?>">
+                <div class="eead-toggle-switch">
                     <label class="eead-toggle-switch-label">
-                        <input class="eead-toggle-switch" type="checkbox" <?php checked(('secondary' === $settings['default_display']), true); ?>>
+                        <input class="eead-toggle-switch-checkbox" type="checkbox" <?php checked(('secondary' === $settings['default_display']), true); ?>>
                         <span class="eead-toggle-slider"></span>
                     </label>
                 </div>
 
                 <?php if ($settings['secondary_label']) { ?>
-                    <div class="eead-toggle-label eead-secondary-toggle-label <?php echo esc_attr($secondary_active); ?>">
+                    <div class="eead-toggle-label eead-toggle-label-secondary">
                         <?php echo esc_html($settings['secondary_label']); ?>
                     </div>
                 <?php } ?>
+
             </div>
         </div>
         <?php

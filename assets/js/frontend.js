@@ -27,6 +27,7 @@ odometerOptions = {auto: false};
                 'eead-logo-carousel.default': EEA.logoCarousel,
                 'eead-popup-modal.default': EEA.popupModal,
                 'eead-progressbar.default': EEA.progressBar,
+                'eead-toggle.default': EEA.toggleBlock,
 
 
 
@@ -45,7 +46,7 @@ odometerOptions = {auto: false};
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
                 'eead-text-marquee.default': EEA.textMarquee,
-                'eead-toggle.default': EEA.toggleBlock,
+
                 'eead-threesixty-image.default': EEA.threesixtyImage,
                 'eead-threed-text.default': EEA.threedTextBlock,
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
@@ -1014,6 +1015,32 @@ odometerOptions = {auto: false};
             }
         },
 
+        toggleBlock: function ($scope, $) {
+            var $container = $scope.find('.eead-toggle-container'),
+                $toggle_switch = $container.find('.eead-toggle-switch-checkbox'),
+                $label_primary = $container.find('.eead-toggle-label-primary'),
+                $label_secondary = $container.find('.eead-toggle-label-secondary');
+
+            $toggle_switch.on('click', function () {
+                $container.toggleClass('eead-switch-on');
+                if ($(this).prop('checked')) {
+                    $toggle_switch.prop('checked', true);
+                } else {
+                    $toggle_switch.prop('checked', false);
+                }
+            });
+
+            $label_primary.on('click', function () {
+                $container.removeClass('eead-switch-on');
+                $toggle_switch.prop('checked', false);
+            });
+
+            $label_secondary.on('click', function () {
+                $container.addClass('eead-switch-on');
+                $toggle_switch.prop('checked', true);
+            });
+        },
+
 
 
 
@@ -1337,48 +1364,6 @@ odometerOptions = {auto: false};
             }
         },
 
-        toggleBlock: function ($scope, $) {
-            var $el = $scope.find('.eead-toggle-container').eq(0),
-                $toggle_switch_container = $el.find('.eead-toggle-switch-container'),
-                $toggle_switch = $el.find('.eead-toggle-switch'),
-                $label_primary = $el.find('.eead-primary-toggle-label'),
-                $label_secondary = $el.find('.eead-secondary-toggle-label'),
-                $section_primary = $el.find('.eead-toggle-section-primary'),
-                $section_secondary = $el.find('.eead-toggle-section-secondary');
-
-            $toggle_switch.on('click', function () {
-                $section_primary.toggle(0, 'swing', function () {
-                    $toggle_switch_container.toggleClass('eead-toggle-switch-on');
-                });
-
-                $section_secondary.toggle();
-                if ($label_primary.hasClass('eead-toggle-active')) {
-                    $label_primary.removeClass('eead-toggle-active');
-                    $label_secondary.addClass('eead-toggle-active');
-                } else {
-                    $label_primary.addClass('eead-toggle-active');
-                    $label_secondary.removeClass('eead-toggle-active');
-                }
-            });
-
-            $label_primary.on('click', function () {
-                $toggle_switch.prop('checked', false);
-                $toggle_switch_container.removeClass('eead-toggle-switch-on');
-                $(this).addClass('eead-toggle-active');
-                $label_secondary.removeClass('eead-toggle-active');
-                $section_primary.show();
-                $section_secondary.hide();
-            });
-
-            $label_secondary.on('click', function () {
-                $toggle_switch.prop('checked', true);
-                $toggle_switch_container.addClass('eead-toggle-switch-on');
-                $(this).addClass('eead-toggle-active');
-                $label_primary.removeClass('eead-toggle-active');
-                $section_secondary.show();
-                $section_primary.hide();
-            });
-        },
 
         portfolioBlock: function ($scope) {
             var $element = $scope.find('.eead-portfolio-lists');
