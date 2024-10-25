@@ -336,7 +336,7 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Spacing Between Switch & Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'max' => 80,

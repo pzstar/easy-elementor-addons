@@ -5215,6 +5215,7 @@ Toggle
     cursor: pointer;
 }
 
+/*
 .eead-toggle-switch-label input[type=checkbox]:before,
 .eead-toggle-switch-label input[type=checkbox]:after {
     content: "";
@@ -5240,7 +5241,7 @@ Toggle
 
 .eead-toggle-switch-label input[type=checkbox]:checked:before {
     background-color: var(--eead-toggle-switch-bg-active-color, #FF0000);
-}
+}*/
 
 /*Style 1*/
 .eead-toggle-switch-style1 .eead-toggle-switch-label input[type=checkbox]:after {
@@ -5272,7 +5273,7 @@ Toggle
 
 
 .eead-toggle-square-switch .eead-toggle-switch-label input[type=checkbox]:before,
-.eead-toggle-square-switch .eead-toggle-switch-label input[type=checkbox]:after{
+.eead-toggle-square-switch .eead-toggle-switch-label input[type=checkbox]:after {
     border-radius: 0;
 }
 
@@ -5307,36 +5308,134 @@ Toggle
 }
 
 /*style 3*/
-
-.eead-toggle-switch-wrap .eead-toggle-switch-style3 .eead-toggle-switch-label {
-    width: 60px;
-    height: 7px;
-    background: #f49f1d;
-    margin: 20px 0;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
+.eead-toggle-switch-label {
+    display: block;
+    filter: grayscale(0.9);
+    margin: auto;
+    transition: filter 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+    width: 6em;
+    height: 2.75em;
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 60%);
+    --fg: hsl(var(--hue), 90%, 10%);
+    --primary: hsl(var(--hue), 90%, 50%);
+    --trans-dur: 0.3s;
+    --trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.eead-toggle-switch-wrap .eead-toggle-switch-style3.eead-toggle-switch-on .eead-toggle-switch-label {
-    background: #1d84cd;
+.eead-toggle-switch-label:has(:checked) {
+    filter: grayscale(0);
 }
 
-.eead-toggle-switch-wrap .eead-toggle-switch-style3 .eead-toggle-slider:before {
+.eead-toggle-switch-checkbox {
+    cursor: pointer;
+    outline: transparent;
+    width: 100%;
+    height: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    z-index: 2;
+}
+
+.eead-toggle-slider {
+    background:
+        radial-gradient(7.75em 7.75em at 50% 4.0625em,
+            hsla(var(--hue), 90%, 90%, 0) 29.9%,
+            hsl(var(--hue), 90%, 90%) 30.1% 31.9%,
+            hsl(0, 0%, 100%) 32.1% 35.2%,
+            hsl(var(--hue), 50%, 80%) 35.4% 36%,
+            hsl(var(--hue), 90%, 70%) 36.2% 41.8%,
+            hsl(var(--hue), 90%, 65%) 42% 43.6%,
+            hsl(var(--hue), 50%, 80%) 43.8% 44.4%,
+            hsl(0, 0%, 100%) 44.6% 46.6%,
+            hsl(var(--hue), 90%, 90%) 46.8% 49.3%,
+            hsl(var(--hue), 90%, 98%) 49.5% 49.8%,
+            hsla(var(--hue), 90%, 98%, 0) 49.9%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.eead-toggle-switch-label:before,
+.eead-toggle-switch-label:after,
+.eead-toggle-switch-checkbox:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.eead-toggle-switch-label:before,
+.eead-toggle-switch-label:after {
+    background:
+        radial-gradient(60% 60% at 50% 50%,
+            hsla(var(--hue), 50%, 80%, 0) 34%,
+            hsl(var(--hue), 50%, 80%) 35% 40.5%,
+            hsl(0, 0%, 100%) 41.5% 49%,
+            hsla(0, 0%, 100%, 0) 50%),
+        linear-gradient(hsla(var(--hue), 90%, 65%, 0) 30%,
+            hsl(var(--hue), 90%, 65%) 30% 40%,
+            hsla(var(--hue), 90%, 65%, 0) 40%) 50% 0 / 40% 100% no-repeat,
+        radial-gradient(50% 50% at 50% 50%,
+            hsl(var(--hue), 90%, 70%) 41%,
+            hsla(var(--hue), 90%, 70%, 0) 42%),
+        radial-gradient(75% 75% at 50% 52.5%,
+            hsl(0, 0%, 100%) 49.8%,
+            hsla(0, 0%, 100%, 0) 50%),
+        radial-gradient(112% 112% at 50% 55%,
+            hsl(var(--hue), 90%, 98%, 0) 46.8%,
+            hsl(var(--hue), 90%, 98%) 47% 49.8%,
+            hsla(var(--hue), 90%, 98%, 0) 50%),
+        radial-gradient(100% 100% at 50% 50%,
+            hsl(var(--hue), 90%, 90%) 49.8%,
+            hsla(var(--hue), 90%, 90%, 0) 50%);
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    background: #1d84cd;
-    top: 50%;
-    transform: translateY(-53%);
-    -webkit-transform: translateY(-53%);
+    top: auto;
+    bottom: 0.0625em;
+    width: 1.5625em;
+    height: 1.5625em;
 }
 
-.eead-toggle-switch-wrap .eead-toggle-switch-style3.eead-toggle-switch-on .eead-toggle-slider:before,
-.eead-toggle-switch-wrap .eead-toggle-switch-style3.eead-toggle-switch-on .eead-toggle-slider:before {
-    -webkit-transform: translateX(1em) translateY(-53%);
-    transform: translateX(1em) translateY(-53%);
-    background-color: #f49f1d;
+.eead-toggle-switch-label:before {
+    transform: rotate(-45deg);
 }
 
+.eead-toggle-switch-label:after {
+    right: 0;
+    left: auto;
+    transform: rotate(45deg);
+}
+
+.eead-toggle-switch-checkbox:before {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 0.5em hsla(var(--hue), 90%, 40%, 0),
+        0 0.25em 0.5em 0.125em hsl(var(--hue), 90%, 50%);
+    top: 3.5em;
+    left: calc(50% - 0.625em);
+    width: 1.25em;
+    height: 1.25em;
+    transform: rotate(-45deg) translateY(-3.125em) rotate(45deg);
+    transition:
+        background-color var(--trans-dur) var(--trans-timing),
+        box-shadow 0.15s var(--trans-timing),
+        transform var(--trans-dur) var(--trans-timing);
+}
+
+.eead-toggle-switch-checkbox:checked:before {
+    background-color: hsl(var(--hue), 90%, 70%);
+    transform: rotate(45deg) translateY(-3.125em) rotate(-45deg);
+}
+
+.eead-toggle-switch-checkbox:focus-visible:before {
+    box-shadow:
+        0 0 0 0.5em hsla(var(--hue), 90%, 40%, 0.5),
+        0 0.25em 0.5em 0.125em hsl(var(--hue), 90%, 50%);
+}
 
 
 
