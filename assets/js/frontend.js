@@ -28,6 +28,7 @@ odometerOptions = {auto: false};
                 'eead-popup-modal.default': EEA.popupModal,
                 'eead-progressbar.default': EEA.progressBar,
                 'eead-toggle.default': EEA.toggleBlock,
+                'eead-switcher.default': EEA.switcherBlock,
 
 
 
@@ -41,7 +42,7 @@ odometerOptions = {auto: false};
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
-                'eead-switcher.default': EEA.switcherBlock,
+
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
@@ -1041,6 +1042,23 @@ odometerOptions = {auto: false};
             });
         },
 
+        switcherBlock: function ($scope) {
+            $scope.find('.eead-switch-tab').on('click', function () {
+                $scope.find('.eead-switch-tab').removeClass('active');
+                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').removeClass('active');
+                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').hide();
+                if ($(this).hasClass('eead-switch-a')) {
+                    $(this).addClass('active');
+                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').addClass('active');
+                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').fadeIn();
+                } else if ($(this).hasClass('eead-switch-b')) {
+                    $(this).addClass('active');
+                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').addClass('active');
+                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').fadeIn();
+                }
+            });
+        },
+
 
 
 
@@ -1470,22 +1488,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        switcherBlock: function ($scope) {
-            $scope.find('.eead-switch-tab').on('click', function () {
-                $scope.find('.eead-switch-tab').removeClass('active');
-                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').removeClass('active');
-                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').hide();
-                if ($(this).hasClass('eead-switch-a')) {
-                    $(this).addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').fadeIn();
-                } else if ($(this).hasClass('eead-switch-b')) {
-                    $(this).addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').fadeIn();
-                }
-            });
-        },
+
 
         elementorColumn: function ($scope) {
             var columnId = $scope.data('id');

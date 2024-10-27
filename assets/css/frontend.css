@@ -5222,7 +5222,11 @@ Toggle
 
 /* Style 1 */
 .eead-toggle-switch-style1 .eead-toggle-switch {
-    max-height: var(--eead-handle-size, 20px);
+    height: var(--eead-toggle-height, 10px);
+}
+
+.eead-toggle-switch-style1 .eead-toggle-switch {
+    max-height: var(--eead-handle-size, 30px);
 }
 
 .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:before,
@@ -5252,9 +5256,9 @@ Toggle
 }
 
 .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:after {
-    width: var(--eead-handle-size, 20px);
-    height: var(--eead-handle-size, 20px);
-    border-radius: var(--eead-handle-size, 20px);
+    width: var(--eead-handle-size, 30px);
+    height: var(--eead-handle-size, 30px);
+    border-radius: var(--eead-handle-size, 30px);
     transform: translate(0, -50%);
     top: 50%;
     left: 0;
@@ -5265,6 +5269,10 @@ Toggle
 }
 
 /* Style 2*/
+.eead-toggle-switch-style2 .eead-toggle-switch {
+    height: var(--eead-toggle-height, 30px);
+}
+
 .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:before,
 .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:after {
     content: "";

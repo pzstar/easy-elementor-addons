@@ -298,6 +298,18 @@ class Toggle extends Widget_Base {
         );
 
         $this->add_control(
+            'toggle_switch_round',
+            [
+                'label' => esc_html__('Rounded', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'condition' => [
+                    'switch_style' => ['style1', 'style2', 'style5']
+                ]
+            ]
+        );
+
+        $this->add_control(
             'toggle_switch_width',
             [
                 'label' => esc_html__('Switch Width', 'easy-elementor-addons'),
@@ -306,14 +318,43 @@ class Toggle extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 30,
-                        'max' => 150,
+                        'max' => 100,
                     ],
+                ],
+                'default' => [
+                    'size' => 60,
+                    'unit' => 'px'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'switch_style!' => 'style4'
+                    'switch_style' => ['style1', 'style2', 'style5']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_width3',
+            [
+                'label' => esc_html__('Switch Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 60,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'size' => 80,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'switch_style' => 'style3'
                 ]
             ]
         );
@@ -326,13 +367,71 @@ class Toggle extends Widget_Base {
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
-                        'min' => 5,
+                        'min' => 30,
                         'max' => 60,
                     ],
+                ],
+                'default' => [
+                    'size' => 30,
+                    'unit' => 'px'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
                 ],
+                'condition' => [
+                    'switch_style' => ['style2', 'style4', 'style5']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_height1',
+            [
+                'label' => esc_html__('Switch Height', 'easy-elementor-addons'),
+                'description' => esc_html__('Switch Height will not increase beyond Handle Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 2,
+                        'max' => 30,
+                    ],
+                ],
+                'default' => [
+                    'size' => 10,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'switch_style' => 'style1'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'toggle_switch_height3',
+            [
+                'label' => esc_html__('Switch Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 20,
+                    ],
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'switch_style' => 'style3'
+                ]
             ]
         );
 
@@ -345,11 +444,15 @@ class Toggle extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 10,
-                        'max' => 60,
+                        'max' => 50,
                     ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-handle-size: {{SIZE}}{{UNIT}};',
+                ],
+                'default' => [
+                    'size' => 30,
+                    'unit' => 'px'
                 ],
                 'condition' => [
                     'switch_style' => 'style1'
@@ -389,18 +492,6 @@ class Toggle extends Widget_Base {
                     '{{WRAPPER}} .eead-toggle-switch-before' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-toggle-switch-after' => 'margin-top: {{SIZE}}{{UNIT}};',
                 ],
-            ]
-        );
-
-        $this->add_control(
-            'toggle_switch_round',
-            [
-                'label' => esc_html__('Rounded', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-                'condition' => [
-                    'switch_style' => ['style1', 'style2', 'style5']
-                ]
             ]
         );
 
