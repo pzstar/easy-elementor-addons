@@ -238,7 +238,9 @@ class Toggle extends Widget_Base {
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons')
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'style4' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'style5' => esc_html__('Style 5', 'easy-elementor-addons')
                 ],
                 'default' => 'style1',
             ]
@@ -308,8 +310,11 @@ class Toggle extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch' => '--eead-toggle-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-width: {{SIZE}}{{UNIT}};',
                 ],
+                'condition' => [
+                    'switch_style!' => 'style4'
+                ]
             ]
         );
 
@@ -321,13 +326,34 @@ class Toggle extends Widget_Base {
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
+                        'min' => 5,
+                        'max' => 60,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'toggle_handle_size',
+            [
+                'label' => esc_html__('Handle Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
                         'min' => 10,
                         'max' => 60,
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-toggle-switch' => '--eead-toggle-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-handle-size: {{SIZE}}{{UNIT}};',
                 ],
+                'condition' => [
+                    'switch_style' => 'style1'
+                ]
             ]
         );
 
@@ -371,7 +397,35 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Rounded', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes'
+                'default' => 'yes',
+                'condition' => [
+                    'switch_style' => ['style1', 'style2', 'style5']
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'switch_box_shadow',
+                'label' => esc_html__('Switch Box Shadow', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:before, {{WRAPPER}} .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:before',
+                'separator' => 'before',
+                'condition' => [
+                    'switch_style' => ['style1', 'style2']
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'switch_handle_box_shadow',
+                'label' => esc_html__('Switch Handle Box Shadow', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:after, {{WRAPPER}} .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:after, {{WRAPPER}} .eead-toggle-switch-style3 .eead-toggle-slider::before',
+                'condition' => [
+                    'switch_style' => ['style1', 'style2', 'style3']
+                ]
             ]
         );
 
@@ -401,10 +455,28 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Switch Handle Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#EEEEEE',
+                'default' => '#DCDCDC',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-handle-color: {{VALUE}}',
                 ],
+                'condition' => [
+                    'switch_style!' => 'style4'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'switch_border_color',
+            [
+                'label' => esc_html__('Switch Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#BBB',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'switch_style' => 'style3'
+                ]
             ]
         );
 
@@ -422,7 +494,7 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Switch Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#EEEEEE',
+                'default' => '#DDD',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-bg-active-color: {{VALUE}}',
                 ],
@@ -434,10 +506,28 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Switch Handle Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#EEEEEE',
+                'default' => '#FF0000',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-handle-active-color: {{VALUE}}',
                 ],
+                'condition' => [
+                    'switch_style!' => 'style4'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'switch_border_color_active',
+            [
+                'label' => esc_html__('Switch Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#BBB',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-border-active-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'switch_style' => 'style3'
+                ]
             ]
         );
 
@@ -581,12 +671,12 @@ class Toggle extends Widget_Base {
         );
 
         $this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'content_box_shadow',
-				'selector' => '{{WRAPPER}} .eead-toggle-content',
-			]
-		);
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'content_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-toggle-content',
+            ]
+        );
 
         $this->add_responsive_control(
             'content_border_radius',
@@ -678,7 +768,9 @@ class Toggle extends Widget_Base {
             ]
         );
 
-        if ($settings['toggle_switch_round'] !== 'yes') {
+        $round_switch = $settings['toggle_switch_round'] ? 'yes' : 'no';
+
+        if (in_array($settings['switch_style'], ['style1', 'style2', 'style5']) && $round_switch == 'no') {
             $this->add_render_attribute('toggle-switch-' . $toggle_position, 'class', 'eead-toggle-square-switch');
         }
         ?>
@@ -695,7 +787,29 @@ class Toggle extends Widget_Base {
                 <div class="eead-toggle-switch">
                     <label class="eead-toggle-switch-label">
                         <input class="eead-toggle-switch-checkbox" type="checkbox" <?php checked(('secondary' === $settings['default_display']), true); ?>>
-                        <span class="eead-toggle-slider"></span>
+
+                        <?php if ($settings['switch_style'] == 'style3') { ?>
+                            <span class="eead-toggle-slider"></span>
+                            <span class="eead-toggle-slider1"></span>
+                            <span class="eead-toggle-slider2"></span>
+                        <?php } elseif ($settings['switch_style'] == 'style4') {
+                            ?>
+                            <svg class="eead-svg-toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
+                                <path class="eead-svg-toggle-background" d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" />
+                                <rect class="eead-svg-toggle-icon on" x="64" y="39" width="12" height="64" rx="6" />
+                                <path class="eead-svg-toggle-icon off" fill-rule="evenodd" d="M221 91C232.046 91 241 82.0457 241 71C241 59.9543 232.046 51 221 51C209.954 51 201 59.9543 201 71C201 82.0457 209.954 91 221 91ZM221 103C238.673 103 253 88.6731 253 71C253 53.3269 238.673 39 221 39C203.327 39 189 53.3269 189 71C189 88.6731 203.327 103 221 103Z" />
+                                <g filter="url('#goo')">
+                                    <rect class="eead-svg-toggle-circle-center" x="13" y="42" width="116" height="58" rx="29" fill="#fff" />
+                                    <rect class="eead-svg-toggle-circle left" x="14" y="14" width="114" height="114" rx="58" fill="#fff" />
+                                    <rect class="eead-svg-toggle-circle right" x="164" y="14" width="114" height="114" rx="58" fill="#fff" />
+                                </g>
+                                <filter id="goo">
+                                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                                </filter>
+                            </svg>
+                            <?php
+                        } ?>
                     </label>
                 </div>
 
