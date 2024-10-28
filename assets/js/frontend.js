@@ -993,14 +993,14 @@ odometerOptions = {auto: false};
         },
 
         progressBar: function ($scope) {
-            var $el = $scope.find('.eead-progress-bar');
+            var $el = $scope.find('.eead-progressbar');
             if (($el.length > 0)) {
                 $el.each(function (index) {
                     var $this = $(this);
                     var delay_time = parseInt(index * 100 + 300);
                     $this.waypoint(function () {
                         setTimeout(function () {
-                            $this.find('.eead-progress-bar-length').animate({
+                            $this.find('.eead-progressbar-length').animate({
                                 width: $this.attr("data-width") + '%'
                             }, 1000, function () {
                                 $this.find("span").animate({
@@ -1043,19 +1043,27 @@ odometerOptions = {auto: false};
         },
 
         switcherBlock: function ($scope) {
-            $scope.find('.eead-switch-tab').on('click', function () {
-                $scope.find('.eead-switch-tab').removeClass('active');
-                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').removeClass('active');
-                $scope.find('.eead-switcher-inner-wrap').find('.eead-switch-content').hide();
-                if ($(this).hasClass('eead-switch-a')) {
-                    $(this).addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-a-content').fadeIn();
-                } else if ($(this).hasClass('eead-switch-b')) {
-                    $(this).addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').addClass('active');
-                    $(this).closest('.eead-switcher-inner-wrap').find('.eead-switch-b-content').fadeIn();
+            $scope.find('.eead-switcher-slider').css({
+                'width': $('.eead-switcher-active-tab').outerWidth() + 'px',
+                'left': $('.eead-switcher-active-tab').position().left + 'px'
+            });
+
+            $('.eead-switcher-tab').on('click', function () {
+                if ($(this).hasClass('eead-switcher-active-tab')) {
+                    return;
                 }
+
+                $scope.find('.eead-switcher-slider').css({
+                    'width': $(this).outerWidth() + 'px',
+                    'left': $(this).position().left + 'px'
+                });
+
+                $scope.find('.eead-switcher-tab').removeClass('eead-switcher-active-tab');
+                $scope.find('.eead-switcher-content').removeClass('eead-switcher-active-content');
+
+                $(this).addClass('eead-switcher-active-tab');
+                var clickedTabId = $(this).attr('data-switchid');
+                $scope.find('.eead-switcher-content-' + clickedTabId).addClass('eead-switcher-active-content');
             });
         },
 

@@ -819,7 +819,6 @@ class HorizontalTab extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-        $settings = $this->get_settings_for_display();
         ?>
         <div class="eead-horizontal-tab">
             <div class="eead-ht-container">
