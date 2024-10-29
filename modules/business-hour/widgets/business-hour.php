@@ -1065,7 +1065,7 @@ class BusinessHour extends Widget_Base {
 
         $wp_time_format = get_option('time_format');
 
-        $time_obj = \DateTime::createFromFormat('H:i', $ti me);
+        $time_obj = \DateTime::createFromFormat('H:i', $time);
 
         if (!$time_obj) {
             return $time;

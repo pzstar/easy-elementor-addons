@@ -280,7 +280,7 @@ class Switcher extends Widget_Base {
             [
                 'name' => 'switch_bar_shadow',
                 'selector' => '{{WRAPPER}} .eead-switcher-tabs'
-            ],
+            ]
         );
 
         $this->add_responsive_control(
@@ -498,7 +498,7 @@ class Switcher extends Widget_Base {
             [
                 'name' => 'switch_content_shadow',
                 'selector' => '{{WRAPPER}} .eead-switcher-contents'
-            ],
+            ]
         );
 
         $this->add_responsive_control(

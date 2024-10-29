@@ -1261,7 +1261,7 @@ class HorizontalScroll extends Widget_Base {
             'rtl' => $settings['rtl_mode'],
             'arrows' => 'true' === (esc_html($settings['nav_arrows'])) ? true : false,
             'dots' => 'true' === (esc_html($settings['nav_dots'])) ? true : false,
-            'disableOn' => $settings['disable_on'],
+            'disableOn' => $settings['disable_on']
         );
 
         // Fix warning trying to access array offset with value null.
@@ -1313,7 +1313,7 @@ class HorizontalScroll extends Widget_Base {
                     <div class="eead-hscroll-fixed-content">
                         <?php
                         $template_title = empty($settings['fixed_template']) ? $settings['live_temp_content_extra'] : $settings['fixed_template'];
-                        echo $this->get_el_template_content($templat e_title);  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $this->get_el_template_content($template_title);  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ?>
                     </div>
                     <?php
@@ -1415,9 +1415,9 @@ class HorizontalScroll extends Widget_Base {
                                 ?>
                                 <li <?php $this->print_render_attribute_string('item_' . $index); ?>>
                                     <span class="eead-hscroll-nav-dot"></span>
-                                    <?p hp if ('true' === $settings['tooltips'] &&!empty($tooltips[$index])): ?>
+                                    <?php if ('true' === $settings['tooltips'] &&!empty($tooltips[$index])){ ?>
                                     <span class="eead-hscroll-nav-tooltip"><?php echo esc_html($tooltips[$index]); ?></span>
-                                    <?php endif; ?>
+                                    <?php } ?>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

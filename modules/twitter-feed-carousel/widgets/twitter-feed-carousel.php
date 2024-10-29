@@ -4,6 +4,7 @@ namespace EasyElementorAddons\Modules\TwitterFeedCarousel\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
@@ -950,7 +951,7 @@ class TwitterFeedCarousel extends Widget_Base {
             'stagepadding' => (int) $settings['slides_stagepadding']['size'],
             'stagepadding_tablet' => (int) isset($settings['slides_stagepadding_tablet']['size']) ? $settings['slides_stagepadding_tablet']['size'] : 0,
             'stagepadding_mobile' => (int) isset($settings['slides_stagepadding_mobile']['size']) ? $settings['slides_stagepadding_mobile']['size'] : 0,
-            'center_image_bigger' => $settings['center_image_bigger'] == 'yes' ? true : false,
+            'center_image_bigger' => $settings['center_image_bigger'] == 'yes' ? true : false
         );
         $params = json_encode($params);
 

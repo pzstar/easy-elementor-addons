@@ -1015,7 +1015,7 @@ class MultiScroll extends Widget_Base {
             'fit' => $settings['scroll_container_height'],
             'keyboard' => ('yes' === $settings['keyboard_scrolling']) ? true : false,
             'rtl' => is_rtl(),
-            'id' => esc_attr($id),
+            'id' => esc_attr($id)
         );
 
         $this->add_render_attribute('multiscroll_wrapper', 'class', 'eead-multiscroll-wrap');

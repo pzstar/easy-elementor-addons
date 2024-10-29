@@ -216,7 +216,7 @@ class Counter extends Widget_Base {
                 'condition' => [
                     'counter_style' => ['style3', 'style4']
                 ]
-            ],
+            ]
         );
 
         $this->add_control(

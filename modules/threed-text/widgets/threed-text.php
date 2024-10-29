@@ -393,7 +393,7 @@ class ThreedText extends Widget_Base {
                         ),
                     ),
                 ),
-            ),
+            )
         );
 
         $this->add_responsive_control(

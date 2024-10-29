@@ -205,7 +205,7 @@ class HorizontalTab extends Widget_Base {
             [
                 'name' => 'tab_container_shadow',
                 'selector' => '{{WRAPPER}} .eead-horizontal-tab .eead-ht-container'
-            ],
+            ]
         );
 
         $this->add_responsive_control(
@@ -261,7 +261,7 @@ class HorizontalTab extends Widget_Base {
             [
                 'name' => 'tab_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tabs'
-            ],
+            ]
         );
 
         $this->add_control(
@@ -540,7 +540,7 @@ class HorizontalTab extends Widget_Base {
                 'condition' => [
                     'tab_buttons_shape' => 'none'
                 ]
-            ],
+            ]
         );
 
         $this->add_control(
@@ -729,7 +729,7 @@ class HorizontalTab extends Widget_Base {
             [
                 'name' => 'tab_content_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-horizontal-tab .eead-ht-contents'
-            ],
+            ]
         );
 
         $this->add_control(

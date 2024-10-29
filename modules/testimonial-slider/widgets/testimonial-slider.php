@@ -919,7 +919,7 @@ class TestimonialSlider extends Widget_Base {
             'margin_tablet' => (int) isset($settings['slides_margin_tablet']['size']) ? $settings['slides_margin_tablet']['size'] : 20,
             'margin_mobile' => (int) isset($settings['slides_margin_mobile']['size']) ? $settings['slides_margin_mobile']['size'] : 20,
             'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
-            'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
+            'auto_height' => $settings['auto_height'] == 'yes' ? true : false
         );
         ?>
         <div class="eead-testimonial-block eead-testimonial-slider <?php echo esc_attr(implode(' ', $testimonial_class)) ?>">

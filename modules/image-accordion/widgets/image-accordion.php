@@ -481,7 +481,7 @@ class ImageAccordion extends Widget_Base {
         ?>
 
         <div <?php $this->print_render_attribute_string('eead-image-accordion'); ?>>
-            <?php foreach ($settings['image_accordions'] as $key => $img_acc ordion) { ?>
+            <?php foreach ($settings['image_accordions'] as $key => $img_accordion) { ?>
                 <?php
                 $active = '';
                 $tag = $img_accordion['image_accordion_link_image'] == 'yes' ? 'a' : 'div';

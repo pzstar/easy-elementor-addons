@@ -3,10 +3,11 @@
 namespace EasyElementorAddons\Modules\StickyVideo\Widgets;
 
 // Elementor Classes
-use Modules\DynamicTags\Module as TagsModule;
+use Elementor\Modules\DynamicTags\Module as TagsModule;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
+use Elementor\Utils;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

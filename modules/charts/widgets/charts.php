@@ -1340,7 +1340,7 @@ class Charts extends Widget_Base {
             'height' => !empty($settings['height']) ? $settings['height'] : 400,
             'target' => ($settings['y_axis_urls_target']) ? '_blank' : '_top',
             'event' => $settings['render_event'],
-            'locale' => $settings['format_locale'],
+            'locale' => $settings['format_locale']
         );
 
         $this->add_render_attribute(

@@ -809,7 +809,7 @@ class AdvancedHeading extends Widget_Base {
                 [
                     'eead-ah-adv-heading',
                     $settings['advanced_heading_hide'] ? 'eead-hide-' . implode('-', $settings['advanced_heading_hide']) : '',
-                ],
+                ]
             );
 
             $advanced_heading .= '<div ' . $this->get_render_attribute_string('advanced_heading') . '>';
