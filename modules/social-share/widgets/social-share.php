@@ -43,215 +43,178 @@ class SocialShare extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Social Share', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'facebook',
-            [
+            'facebook', [
                 'label' => esc_html__('Facebook', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'twitter',
-            [
+            'twitter', [
                 'label' => esc_html__('Twitter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'pintrest',
-            [
+            'pintrest', [
                 'label' => esc_html__('Pintrest', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'linkedin',
-            [
+            'linkedin', [
                 'label' => esc_html__('Linkedin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'vkontakte',
-            [
+            'vkontakte', [
                 'label' => esc_html__('VKontakte', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'tumblr',
-            [
+            'tumblr', [
                 'label' => esc_html__('Tumblr', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'blogger',
-            [
+            'blogger', [
                 'label' => esc_html__('Blogger', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'digg',
-            [
+            'digg', [
                 'label' => esc_html__('Digg', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'reddit',
-            [
+            'reddit', [
                 'label' => esc_html__('Reddit', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'delicious',
-            [
+            'delicious', [
                 'label' => esc_html__('Delicious', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'wordpress',
-            [
+            'wordpress', [
                 'label' => esc_html__('WordPress', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'skype',
-            [
+            'skype', [
                 'label' => esc_html__('Skype', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'telegram',
-            [
+            'telegram', [
                 'label' => esc_html__('Telegram', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'whatsapp',
-            [
+            'whatsapp', [
                 'label' => esc_html__('Whatsapp', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'wechat',
-            [
+            'wechat', [
                 'label' => esc_html__('WeChat', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'line',
-            [
+            'line', [
                 'label' => esc_html__('Line', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->add_control(
-            'email',
-            [
+            'email', [
                 'label' => esc_html__('Email', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_settings',
-            [
+            'section_settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_responsive_control(
-            'column_numbers',
-            [
+            'column_numbers', [
                 'label' => esc_html__('Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -278,8 +241,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'button_column_gap',
-            [
+            'button_column_gap', [
                 'label' => esc_html__('Columns Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -301,8 +263,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'button_row_gap',
-            [
+            'button_row_gap', [
                 'label' => esc_html__('Row Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -324,29 +285,24 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'show_text',
-            [
+            'show_text', [
                 'label' => esc_html__('Show Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                
                 'separator' => 'before'
             ]
         );
 
         $this->add_control(
-            'show_icon',
-            [
+            'show_icon', [
                 'label' => esc_html__('Show Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                
             ]
         );
 
         $this->add_control(
-            'icon_alignment',
-            [
+            'icon_alignment', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'right',
@@ -372,8 +328,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_spacing',
-            [
+            'icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -401,24 +356,21 @@ class SocialShare extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_style',
-            [
+            'section_content_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'button_typography',
                 'selector' => '{{WRAPPER}} .eead-social-share-container a',
             ]
         );
 
         $this->add_responsive_control(
-            'button_padding',
-            [
+            'button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -429,8 +381,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_radius',
-            [
+            'button_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -443,15 +394,13 @@ class SocialShare extends Widget_Base {
         $this->start_controls_tabs('tabs_button_style');
 
         $this->start_controls_tab(
-            'tab_button_normal',
-            [
+            'tab_button_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_text_color',
-            [
+            'button_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -461,8 +410,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'button_background',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
@@ -471,8 +419,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'button_border',
                 'fields_options' => [
                     'border' => [
@@ -496,8 +443,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow',
                 'selector' => '{{WRAPPER}} .eead-social-share-container a',
             ]
@@ -506,15 +452,13 @@ class SocialShare extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_button_hover',
-            [
+            'tab_button_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_text_color_hover',
-            [
+            'button_text_color_hover', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -524,8 +468,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'button_background_hover',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
@@ -534,8 +477,7 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'button_border_color_hover',
-            [
+            'button_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -545,16 +487,14 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow_hover',
                 'selector' => '{{WRAPPER}} .eead-social-share-container a:hover',
             ]
         );
 
         $this->add_control(
-            'hover_animation',
-            [
+            'hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]

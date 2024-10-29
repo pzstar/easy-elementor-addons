@@ -45,8 +45,7 @@ class Switcher extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
@@ -54,8 +53,7 @@ class Switcher extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -64,8 +62,7 @@ class Switcher extends Widget_Base {
         );
 
         $repeater->add_control(
-            'content_type',
-            [
+            'content_type', [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
@@ -78,8 +75,7 @@ class Switcher extends Widget_Base {
         );
 
         $repeater->add_control(
-            'page',
-            [
+            'page', [
                 'label' => esc_html__('Select Page', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
@@ -90,8 +86,7 @@ class Switcher extends Widget_Base {
         );
 
         $repeater->add_control(
-            'wisiwyg_content',
-            [
+            'wisiwyg_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'condition' => ['content_type' => 'wisiwyg']
@@ -99,8 +94,7 @@ class Switcher extends Widget_Base {
         );
 
         $repeater->add_control(
-            'elementor_template',
-            [
+            'elementor_template', [
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
@@ -111,8 +105,7 @@ class Switcher extends Widget_Base {
         );
 
         $repeater->add_control(
-            'icon',
-            [
+            'icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -123,8 +116,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'switcher',
-            [
+            'switcher', [
                 'label' => esc_html__('Lists', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -161,15 +153,13 @@ class Switcher extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'settings',
-            [
+            'settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'active_switch',
-            [
+            'active_switch', [
                 'label' => esc_html__('Active Switch', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
@@ -187,8 +177,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'content_animation',
-            [
+            'content_animation', [
                 'label' => esc_html__('Content Display Animation', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::SELECT,
@@ -200,16 +189,14 @@ class Switcher extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'switch_custom_style',
-            [
+            'switch_custom_style', [
                 'label' => esc_html__('Switch Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'switch_alignment',
-            [
+            'switch_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
@@ -235,8 +222,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_spacing',
-            [
+            'switch_spacing', [
                 'label' => esc_html__('Spacing Between Buttons', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -255,8 +241,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_bottom_spacing',
-            [
+            'switch_bottom_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -278,8 +263,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_bar_padding',
-            [
+            'switch_bar_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -290,8 +274,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'switch_bar_border',
                 'selector' => '{{WRAPPER}} .eead-switcher-tabs',
             ]
@@ -306,8 +289,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_bar_border_radius',
-            [
+            'switch_bar_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -318,8 +300,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_bar_bg_color',
-            [
+            'switch_bar_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -331,16 +312,14 @@ class Switcher extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'switch_buttons_style',
-            [
+            'switch_buttons_style', [
                 'label' => esc_html__('Switch Buttons', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'switch_button_typography',
                 'selector' => '{{WRAPPER}} .eead-switcher-tab',
                 'render_type' => 'template'
@@ -348,8 +327,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_size',
-            [
+            'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -369,8 +347,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_spacing',
-            [
+            'icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -393,8 +370,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_border_radius',
-            [
+            'switch_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -409,15 +385,13 @@ class Switcher extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'switch_style_normal_tab',
-            [
+            'switch_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'switch_normal_color',
-            [
+            'switch_normal_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -429,15 +403,13 @@ class Switcher extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'switch_style_hover_tab',
-            [
+            'switch_style_hover_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'switch_hover_color',
-            [
+            'switch_hover_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -449,15 +421,13 @@ class Switcher extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'switch_style_active_tab',
-            [
+            'switch_style_active_tab', [
                 'label' => esc_html__('Active', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'switch_active_bg_color',
-            [
+            'switch_active_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -467,8 +437,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_active_color',
-            [
+            'switch_active_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -484,16 +453,14 @@ class Switcher extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'switch_content_custom_style',
-            [
+            'switch_content_custom_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'switch_content_color',
-            [
+            'switch_content_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -503,8 +470,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_control(
-            'switch_content_bg_color',
-            [
+            'switch_content_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -514,8 +480,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_content_padding',
-            [
+            'switch_content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -527,8 +492,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'switch_content_border',
                 'selector' => '{{WRAPPER}} .eead-switcher-contents',
             ]
@@ -543,8 +507,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'switch_content_border_radius',
-            [
+            'switch_content_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -555,8 +518,7 @@ class Switcher extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'switch_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-switcher-content',
@@ -565,7 +527,6 @@ class Switcher extends Widget_Base {
 
         $this->end_controls_section();
     }
-
 
     protected function render() {
         $settings = $this->get_settings_for_display();

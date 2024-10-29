@@ -40,15 +40,13 @@ class LinkEffect extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_link_effects',
-            [
+            'section_link_effects', [
                 'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'text',
-            [
+            'text', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -60,8 +58,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'secondary_text',
-            [
+            'secondary_text', [
                 'label' => esc_html__('Secondary Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
@@ -75,8 +72,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'link',
-            [
+            'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -90,8 +86,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'effect',
-            [
+            'effect', [
                 'label' => esc_html__('Animation Effect', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::SELECT,
@@ -123,8 +118,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_width',
-            [
+            'button_width', [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -151,16 +145,14 @@ class LinkEffect extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style',
-            [
+            'section_style', [
                 'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'align',
-            [
+            'align', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -181,7 +173,6 @@ class LinkEffect extends Widget_Base {
                         'icon' => 'eicon-text-align-justify',
                     ],
                 ],
-                
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                 ],
@@ -189,8 +180,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'border_thickness',
-            [
+            'border_thickness', [
                 'label' => esc_html__('Border Thickness', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -214,8 +204,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_padding_alt',
-            [
+            'button_padding_alt', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em'],
@@ -230,8 +219,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_padding',
-            [
+            'button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em'],
@@ -245,8 +233,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} a.eead-link',
@@ -256,15 +243,13 @@ class LinkEffect extends Widget_Base {
         $this->start_controls_tabs('tabs_link_style');
 
         $this->start_controls_tab(
-            'tab_link_normal',
-            [
+            'tab_link_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link_color_normal',
-            [
+            'link_color_normal', [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
@@ -278,8 +263,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_normal_alt',
-            [
+            'link_color_normal_alt', [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFF',
@@ -293,8 +277,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'background_color_normal',
-            [
+            'background_color_normal', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2195de',
@@ -308,8 +291,7 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'link_border_color',
-            [
+            'link_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
@@ -325,15 +307,13 @@ class LinkEffect extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_link_hover',
-            [
+            'tab_link_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link_color_hover',
-            [
+            'link_color_hover', [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2195de',
@@ -347,11 +327,9 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_hover_alt',
-            [
+            'link_color_hover_alt', [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-color-alt-hover: {{VALUE}};',
                 ],
@@ -362,11 +340,9 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'background_color_hover',
-            [
+            'background_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-bg-color-hover: {{VALUE}};'
                 ],
@@ -377,11 +353,9 @@ class LinkEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'link_border_color_hover',
-            [
+            'link_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-border-color-hover: {{VALUE}};'
                 ],
@@ -425,4 +399,5 @@ class LinkEffect extends Widget_Base {
         </a>
         <?php
     }
+
 }

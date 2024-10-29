@@ -44,288 +44,263 @@ class Lottie extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'lottie',
-            [
-                'label' => esc_html__('Lottie', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'lottie_type',
-            [
-                'label' => esc_html__('Select JSON', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'default' => 'url',
-                'options' => [
-                    'file' => [
-                        'title' => esc_html__('JSON File', 'easy-elementor-addons'),
-                        'icon' => 'eicon-document-file',
-                    ],
-                    'url' => [
-                        'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
-                        'icon' => 'eicon-link',
-                    ],
+                'lottie', [
+            'label' => esc_html__('Lottie', 'easy-elementor-addons'),
+            'tab' => Controls_Manager::TAB_CONTENT,
                 ]
-            ]
         );
 
         $this->add_control(
-            'lottie_json',
-            [
-                'show_label' => false,
-                'description' => sprintf(
-                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
-                    '<a href="https://lottiefiles.com/featured" target="_blank">',
-                    '</a>'
-                ),
-                'type' => Controls_Manager::MEDIA,
-                'media_type' => 'application/json',
-                'condition' => [
-                    'lottie_type' => 'file',
+                'lottie_type', [
+            'label' => esc_html__('Select JSON', 'easy-elementor-addons'),
+            'type' => Controls_Manager::CHOOSE,
+            'default' => 'url',
+            'options' => [
+                'file' => [
+                    'title' => esc_html__('JSON File', 'easy-elementor-addons'),
+                    'icon' => 'eicon-document-file',
+                ],
+                'url' => [
+                    'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
+                    'icon' => 'eicon-link',
                 ],
             ]
+                ]
         );
 
         $this->add_control(
-            'lottie_url',
-            [
-                'show_label' => false,
-                'label_block' => true,
-                'description' => sprintf(
-                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'),
-                    '<a href="https://lottiefiles.com/featured" target="_blank">',
-                    '</a>'
-                ),
-                'default' => 'https://assets6.lottiefiles.com/packages/lf20_sgnacf85.json',
-                'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://example.com/file.json', 'easy-elementor-addons'),
-                'show_external' => false,
-                'condition' => [
-                    'lottie_type' => 'url'
-                ],
-            ]
+                'lottie_json', [
+            'show_label' => false,
+            'description' => sprintf(
+                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
+            ),
+            'type' => Controls_Manager::MEDIA,
+            'media_type' => 'application/json',
+            'condition' => [
+                'lottie_type' => 'file',
+            ],
+                ]
         );
 
         $this->add_control(
-            'lottie_link_check',
-            [
-                'label' => esc_html__('Link', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-            ]
+                'lottie_url', [
+            'show_label' => false,
+            'label_block' => true,
+            'description' => sprintf(
+                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
+            ),
+            'default' => 'https://assets6.lottiefiles.com/packages/lf20_sgnacf85.json',
+            'type' => Controls_Manager::TEXT,
+            'placeholder' => esc_html__('https://example.com/file.json', 'easy-elementor-addons'),
+            'show_external' => false,
+            'condition' => [
+                'lottie_type' => 'url'
+            ],
+                ]
         );
 
         $this->add_control(
-            'lottie_link',
-            [
-                'show_label' => false,
-                'type' => Controls_Manager::URL,
-                'condition' => [
-                    'lottie_link_check' => 'yes'
-                ],
-            ]
+                'lottie_link_check', [
+            'label' => esc_html__('Link', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SWITCHER,
+                ]
+        );
+
+        $this->add_control(
+                'lottie_link', [
+            'show_label' => false,
+            'type' => Controls_Manager::URL,
+            'condition' => [
+                'lottie_link_check' => 'yes'
+            ],
+                ]
         );
 
         $this->end_controls_section();
 
         /* Animation Options */
         $this->start_controls_section(
-            'lottie_animation_options',
-            [
-                'label' => esc_html__('Animations', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
-            ]
+                'lottie_animation_options', [
+            'label' => esc_html__('Animations', 'easy-elementor-addons'),
+            'tab' => Controls_Manager::TAB_CONTENT,
+                ]
         );
 
         $this->add_control(
-            'lottie_autoplay',
-            [
-                'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            ]
+                'lottie_autoplay', [
+            'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SWITCHER,
+            'default' => 'yes',
+                ]
         );
 
         $this->add_control(
-            'lottie_reverse',
-            [
-                'label' => esc_html__('Reverse', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-            ]
+                'lottie_reverse', [
+            'label' => esc_html__('Reverse', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SWITCHER,
+                ]
         );
 
         $this->add_control(
-            'lottie_speed',
-            [
-                'label' => esc_html__('Speed', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0.1,
-                        'max' => 10,
-                        'step' => 0.1,
-                    ]
-                ],
-                'default' => [
-                    'size' => 1,
-                ],
-            ]
+                'lottie_speed', [
+            'label' => esc_html__('Speed', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => 0.1,
+                    'max' => 10,
+                    'step' => 0.1,
+                ]
+            ],
+            'default' => [
+                'size' => 1,
+            ],
+                ]
         );
 
         $this->add_control(
-            'lottie_render_type',
-            [
-                'label' => esc_html__('Render Type', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'default' => 'svg',
-                'toggle' => false,
-                'options' => [
-                    'svg' => [
-                        'title' => esc_html__('SVG', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-magic',
-                    ],
-                    'canvas' => [
-                        'title' => esc_html__('Canvas', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-chalkboard',
-                    ],
+                'lottie_render_type', [
+            'label' => esc_html__('Render Type', 'easy-elementor-addons'),
+            'type' => Controls_Manager::CHOOSE,
+            'default' => 'svg',
+            'toggle' => false,
+            'options' => [
+                'svg' => [
+                    'title' => esc_html__('SVG', 'easy-elementor-addons'),
+                    'icon' => 'fa fa-magic',
                 ],
-            ]
+                'canvas' => [
+                    'title' => esc_html__('Canvas', 'easy-elementor-addons'),
+                    'icon' => 'fa fa-chalkboard',
+                ],
+            ],
+                ]
         );
 
         $this->add_control(
-            'lottie_action',
-            [
-                'label' => esc_html__('On Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    '' => esc_html__('None', 'easy-elementor-addons'),
-                    'pause' => esc_html__('Pause', 'easy-elementor-addons'),
-                    'reverse' => esc_html__('Reverse', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'lottie_autoplay' => 'yes'
-                ],
-                'separator' => 'before'
-            ]
+                'lottie_action', [
+            'label' => esc_html__('On Hover', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SELECT,
+            'options' => [
+                '' => esc_html__('None', 'easy-elementor-addons'),
+                'pause' => esc_html__('Pause', 'easy-elementor-addons'),
+                'reverse' => esc_html__('Reverse', 'easy-elementor-addons'),
+            ],
+            'condition' => [
+                'lottie_autoplay' => 'yes'
+            ],
+            'separator' => 'before'
+                ]
         );
 
         $this->add_control(
-            'lottie_action_alt',
-            [
-                'label' => esc_html__('On Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    '' => esc_html__('None', 'easy-elementor-addons'),
-                    'play' => esc_html__('Play', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'lottie_autoplay!' => 'yes'
-                ],
-                'separator' => 'before'
-            ]
+                'lottie_action_alt', [
+            'label' => esc_html__('On Hover', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SELECT,
+            'options' => [
+                '' => esc_html__('None', 'easy-elementor-addons'),
+                'play' => esc_html__('Play', 'easy-elementor-addons'),
+            ],
+            'condition' => [
+                'lottie_autoplay!' => 'yes'
+            ],
+            'separator' => 'before'
+                ]
         );
 
         $this->end_controls_section();
 
         // Lottie Style Settings
         $this->start_controls_section(
-            'lottie_styles',
-            [
-                'label' => esc_html__('Lottie', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
+                'lottie_styles', [
+            'label' => esc_html__('Lottie', 'easy-elementor-addons'),
+            'tab' => Controls_Manager::TAB_STYLE,
+                ]
         );
 
         $this->start_controls_tabs(
-            'lottie_state'
+                'lottie_state'
         );
 
         $this->start_controls_tab(
-            'lottie_normal',
-            [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
-            ]
+                'lottie_normal', [
+            'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                ]
         );
 
         $this->add_control(
-            'lottie_opacity',
-            [
-                'label' => esc_html__('Opacity', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 1,
-                        'step' => 0.1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-lottie' => 'opacity: {{SIZE}};',
-                ],
-            ]
+                'lottie_opacity', [
+            'label' => esc_html__('Opacity', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 1,
+                    'step' => 0.1,
+                ]
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-lottie' => 'opacity: {{SIZE}};',
+            ],
+                ]
         );
 
         $this->add_group_control(
-            Group_Control_Css_Filter::get_type(),
-            [
-                'name' => 'lottie_filter',
-                'selector' => '{{WRAPPER}} .eead-lottie',
-            ]
+                Group_Control_Css_Filter::get_type(), [
+            'name' => 'lottie_filter',
+            'selector' => '{{WRAPPER}} .eead-lottie',
+                ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'lottie_hover',
-            [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
-            ]
+                'lottie_hover', [
+            'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                ]
         );
 
         $this->add_control(
-            'lottie_opacity_hover',
-            [
-                'label' => esc_html__('Opacity', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 1,
-                        'step' => 0.1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-lottie:hover' => 'opacity: {{SIZE}};',
-                ],
-            ]
+                'lottie_opacity_hover', [
+            'label' => esc_html__('Opacity', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 1,
+                    'step' => 0.1,
+                ]
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-lottie:hover' => 'opacity: {{SIZE}};',
+            ],
+                ]
         );
 
         $this->add_group_control(
-            Group_Control_Css_Filter::get_type(),
-            [
-                'name' => 'lottie_filter_hover',
-                'selector' => '{{WRAPPER}} .eead-lottie:hover',
-            ]
+                Group_Control_Css_Filter::get_type(), [
+            'name' => 'lottie_filter_hover',
+            'selector' => '{{WRAPPER}} .eead-lottie:hover',
+                ]
         );
 
         $this->add_control(
-            'lottie_transition',
-            [
-                'label' => esc_html__('Transition Duration(Seconds)', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 10,
-                        'step' => 0.1,
-                    ],
+                'lottie_transition', [
+            'label' => esc_html__('Transition Duration(Seconds)', 'easy-elementor-addons'),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'max' => 10,
+                    'step' => 0.1,
                 ],
-                'default' => [
-                    'size' => '0.3'
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-lottie' => 'transition: all {{SIZE}}s ease;',
-                ],
-            ]
+            ],
+            'default' => [
+                'size' => '0.3'
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .eead-lottie' => 'transition: all {{SIZE}}s ease;',
+            ],
+                ]
         );
 
         $this->end_controls_tab();
@@ -378,4 +353,5 @@ class Lottie extends Widget_Base {
         </div>
         <?php
     }
+
 }

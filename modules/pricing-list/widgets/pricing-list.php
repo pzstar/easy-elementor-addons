@@ -43,8 +43,7 @@ class PricingList extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
@@ -52,8 +51,7 @@ class PricingList extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -63,8 +61,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
@@ -73,8 +70,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Pricing Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -83,8 +79,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'currency',
-            [
+            'currency', [
                 'label' => esc_html__('Currency Symbol', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -93,8 +88,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'price',
-            [
+            'price', [
                 'label' => esc_html__('Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -103,8 +97,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'description',
-            [
+            'description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
@@ -114,8 +107,7 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'link',
-            [
+            'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'show_external' => true,
@@ -128,19 +120,14 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'is_featured',
-            [
+            'is_featured', [
                 'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'pricing_lists',
-            [
+            'pricing_lists', [
                 'label' => esc_html__('Pricing Lists', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -171,15 +158,13 @@ class PricingList extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_settings',
-            [
+            'section_settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'layout',
-            [
+            'layout', [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -192,8 +177,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'alignment',
-            [
+            'alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'left',
@@ -215,24 +199,16 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'title_link_enable',
-            [
+            'title_link_enable', [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'image_link_enable',
-            [
+            'image_link_enable', [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
@@ -240,16 +216,14 @@ class PricingList extends Widget_Base {
 
         // Style Settings
         $this->start_controls_section(
-            'title_style',
-            [
+            'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -259,8 +233,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'title_border_color',
-            [
+            'title_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -271,8 +244,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3',
@@ -280,8 +252,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'title_margin',
-            [
+            'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -294,16 +265,14 @@ class PricingList extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'content_style',
-            [
+            'content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'content_bg_color',
-            [
+            'content_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -315,8 +284,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'item_border_color',
-            [
+            'item_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -327,8 +295,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'content_padding',
-            [
+            'content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -339,8 +306,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'price_list_spacing',
-            [
+            'price_list_spacing', [
                 'label' => esc_html__('Price List Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -364,16 +330,14 @@ class PricingList extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'description_style',
-            [
+            'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'description_color',
-            [
+            'description_color', [
                 'label' => esc_html__('Description Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -383,8 +347,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'description_border_color',
-            [
+            'description_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -395,8 +358,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description',
@@ -404,8 +366,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'description_margin',
-            [
+            'description_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -418,16 +379,14 @@ class PricingList extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'price_style',
-            [
+            'price_style', [
                 'label' => esc_html__('Price', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'price_bg_color',
-            [
+            'price_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -439,8 +398,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'price_color',
-            [
+            'price_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -452,8 +410,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'price_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
@@ -463,8 +420,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'price_padding',
-            [
+            'price_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -477,8 +433,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'price_margin',
-            [
+            'price_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -491,8 +446,7 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'price_border_radius',
-            [
+            'price_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -583,4 +537,5 @@ class PricingList extends Widget_Base {
         </div>
         <?php
     }
+
 }

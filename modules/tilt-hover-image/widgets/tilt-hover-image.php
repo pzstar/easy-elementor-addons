@@ -43,16 +43,14 @@ class TiltHoverImage extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'tilt_hover_effect_section',
-            [
+            'tilt_hover_effect_section', [
                 'label' => esc_html__('Tilt Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -62,8 +60,7 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -72,8 +69,7 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'description',
-            [
+            'description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
@@ -82,8 +78,7 @@ class TiltHoverImage extends Widget_Base {
         );
 
         $this->add_control(
-            'hover_style',
-            [
+            'hover_style', [
                 'label' => esc_html__('Hover Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
@@ -139,4 +134,5 @@ class TiltHoverImage extends Widget_Base {
         </section>
         <?php
     }
+
 }

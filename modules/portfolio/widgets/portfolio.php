@@ -54,8 +54,7 @@ class Portfolio extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'items',
-            [
+            'items', [
                 'label' => esc_html__('Portfolio', 'easy-elementor-addons'),
             ]
         );
@@ -63,20 +62,15 @@ class Portfolio extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'enable',
-            [
+            'enable', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $repeater->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => array(
@@ -86,16 +80,14 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'item_image',
                 'default' => 'full',
             ]
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Title', 'easy-elementor-addons')
@@ -103,8 +95,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'category',
-            [
+            'category', [
                 'label' => esc_html__('Category', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Premium', 'easy-elementor-addons'),
@@ -112,8 +103,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'link_button',
-            [
+            'link_button', [
                 'label' => esc_html__('Link Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -121,8 +111,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'link_button_icon',
-            [
+            'link_button_icon', [
                 'label' => esc_html__('Link Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -133,8 +122,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'link_button_url',
-            [
+            'link_button_url', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'default' => [
@@ -146,8 +134,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'zoom_button',
-            [
+            'zoom_button', [
                 'label' => esc_html__('Zoom Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -155,8 +142,7 @@ class Portfolio extends Widget_Base {
         );
 
         $repeater->add_control(
-            'zoom_button_icon',
-            [
+            'zoom_button_icon', [
                 'label' => esc_html__('Zoom Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -167,8 +153,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'item_list',
-            [
+            'item_list', [
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -192,15 +177,13 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'settings',
-            [
+            'settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'style',
-            [
+            'style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -212,8 +195,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'layout_type',
-            [
+            'layout_type', [
                 'label' => esc_html__('Layout Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-portfolio-default',
@@ -225,8 +207,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'image_height',
-            [
+            'image_height', [
                 'label' => esc_html__('Image Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -247,8 +228,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'image_min_width',
-            [
+            'image_min_width', [
                 'label' => esc_html__('Image Min Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -268,8 +248,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'grid_space',
-            [
+            'grid_space', [
                 'label' => esc_html__('Grid Space', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -291,37 +270,25 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'show_zoom',
-            [
+            'show_zoom', [
                 'label' => esc_html__('Show Zoom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'show_link',
-            [
+            'show_link', [
                 'label' => esc_html__('Show Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'show_category',
-            [
+            'show_category', [
                 'label' => esc_html__('Show Category', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
@@ -329,8 +296,7 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'carousel_section',
-            [
+            'carousel_section', [
                 'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT,
                 'condition' => ['layout_type' => 'eead-portfolio-carousel']
@@ -338,32 +304,22 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'autoplay',
-            [
+            'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'infinite',
-            [
+            'infinite', [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'pause_duration',
-            [
+            'pause_duration', [
                 'label' => esc_html__('Pause Duration', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['s'],
@@ -385,8 +341,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'no_of_slides',
-            [
+            'no_of_slides', [
                 'label' => esc_html__('No of Slides', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -412,8 +367,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'slides_margin',
-            [
+            'slides_margin', [
                 'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -427,8 +381,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'slides_stagepadding',
-            [
+            'slides_stagepadding', [
                 'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -442,25 +395,21 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'nav',
-            [
+            'nav', [
                 'label' => esc_html__('Nav Arrow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                
                 'default' => 'yes'
             ]
         );
 
         $this->add_control(
-            'dots',
-            [
+            'dots', [
                 'label' => esc_html__('Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                
                 'default' => ''
             ]
         );
@@ -468,16 +417,14 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style',
-            [
+            'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -487,8 +434,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-portfolio-lists .eead-portfolio-card .eead-portfolio-details .eead-portfolio-title h2',
@@ -496,8 +442,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'title_margin',
-            [
+            'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -511,16 +456,14 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'button_style',
-            [
+            'button_style', [
                 'label' => esc_html__('Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'btn_margin',
-            [
+            'btn_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -531,8 +474,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_size',
-            [
+            'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -557,15 +499,13 @@ class Portfolio extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'link_btn_tab',
-            [
+            'link_btn_tab', [
                 'label' => esc_html__('Link Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link_btn_color_normal',
-            [
+            'link_btn_color_normal', [
                 'label' => esc_html__('Color (Normal)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -575,8 +515,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'link_btn_bg_color_normal',
-            [
+            'link_btn_bg_color_normal', [
                 'label' => esc_html__('Background Color (Normal)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -586,8 +525,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'link_btn_color_hover',
-            [
+            'link_btn_color_hover', [
                 'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -597,8 +535,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'link_btn_bg_color_hover',
-            [
+            'link_btn_bg_color_hover', [
                 'label' => esc_html__('Background Color (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -610,15 +547,13 @@ class Portfolio extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'zoom_btn_tab',
-            [
+            'zoom_btn_tab', [
                 'label' => esc_html__('Zoom Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'zoom_btn_color_normal',
-            [
+            'zoom_btn_color_normal', [
                 'label' => esc_html__('Color (Normal)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -628,8 +563,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'zoom_btn_bg_color_normal',
-            [
+            'zoom_btn_bg_color_normal', [
                 'label' => esc_html__('Background Color (Normal)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -639,8 +573,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'zoom_btn_color_hover',
-            [
+            'zoom_btn_color_hover', [
                 'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -650,8 +583,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'zoom_btn_bg_color_hover',
-            [
+            'zoom_btn_bg_color_hover', [
                 'label' => esc_html__('Background Color (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -667,16 +599,14 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'overlay_style',
-            [
+            'overlay_style', [
                 'label' => esc_html__('Overlay', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'overlay_bg_color',
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-portfolio-section.style1 .eead-portfolio-item .eead-portfolio-image:before,
@@ -687,16 +617,14 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'category_style',
-            [
+            'category_style', [
                 'label' => esc_html__('Category', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'category_color',
-            [
+            'category_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -706,8 +634,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'category_bg_color',
-            [
+            'category_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -719,8 +646,7 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'dot_style',
-            [
+            'dot_style', [
                 'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -731,15 +657,13 @@ class Portfolio extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'dot_style_normal_tab',
-            [
+            'dot_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color',
-            [
+            'dot_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
@@ -750,8 +674,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_normal',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -763,15 +686,13 @@ class Portfolio extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'dot_style_active_tab',
-            [
+            'dot_style_active_tab', [
                 'label' => esc_html__('Active', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color_active',
-            [
+            'dot_color_active', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
@@ -782,8 +703,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_active',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -795,15 +715,13 @@ class Portfolio extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'dot_style_hover_tab',
-            [
+            'dot_style_hover_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color_hover',
-            [
+            'dot_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
@@ -814,8 +732,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_hover',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -829,8 +746,7 @@ class Portfolio extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-            'dots_border_radius',
-            [
+            'dots_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -842,8 +758,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding',
-            [
+            'dots_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -862,8 +777,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_top_margin',
-            [
+            'dots_top_margin', [
                 'label' => esc_html__('Margin Top', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -885,8 +799,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_right_margin',
-            [
+            'dots_right_margin', [
                 'label' => esc_html__('Dots Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -910,16 +823,14 @@ class Portfolio extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'arrow_style',
-            [
+            'arrow_style', [
                 'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'arrow_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -929,8 +840,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_radius',
-            [
+            'arrow_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -941,8 +851,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding',
-            [
+            'arrow_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -957,15 +866,13 @@ class Portfolio extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'arrow_style_normal_tab',
-            [
+            'arrow_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'arrow_bg_color',
-            [
+            'arrow_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -975,8 +882,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color',
-            [
+            'arrow_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -986,8 +892,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_color_normal',
-            [
+            'arrow_border_color_normal', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -999,15 +904,13 @@ class Portfolio extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'arrow_style_hover_tab',
-            [
+            'arrow_style_hover_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'arrow_bg_color_hover',
-            [
+            'arrow_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1017,8 +920,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color_hover',
-            [
+            'arrow_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1028,8 +930,7 @@ class Portfolio extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_color_hover',
-            [
+            'arrow_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1102,7 +1003,8 @@ class Portfolio extends Widget_Base {
                                     echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                 }
 
-                                if ($settings['style'] == 'style1') { ?>
+                                if ($settings['style'] == 'style1') {
+                                    ?>
                                     <div class="eead-portfolio-button">
                                         <?php if ($settings['show_link'] == 'yes' && $item['link_button_url']['url']) { ?>
                                             <a href="<?php echo esc_url($item['link_button_url']['url']); ?>" class="eead-link-btn">
@@ -1153,4 +1055,5 @@ class Portfolio extends Widget_Base {
         </div>
         <?php
     }
+
 }

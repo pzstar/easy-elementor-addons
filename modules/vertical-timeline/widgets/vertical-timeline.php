@@ -45,8 +45,7 @@ class VerticalTimeline extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'items',
-            [
+            'items', [
                 'label' => esc_html__('Items', 'easy-elementor-addons'),
             ]
         );
@@ -54,20 +53,15 @@ class VerticalTimeline extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'enable',
-            [
+            'enable', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $repeater->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => array(
@@ -77,16 +71,14 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'item_image',
                 'default' => 'full',
             ]
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => array('active' => true),
@@ -94,24 +86,21 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'meta',
-            [
+            'meta', [
                 'label' => esc_html__('Meta', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
             ]
         );
 
         $repeater->add_control(
-            'description',
-            [
+            'description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
             ]
         );
 
         $repeater->add_control(
-            'point_heading',
-            [
+            'point_heading', [
                 'label' => esc_html__('Point', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -119,8 +108,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'icon',
-            [
+            'icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -131,8 +119,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button',
-            [
+            'button', [
                 'label' => esc_html__('Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -140,8 +127,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button_text',
-            [
+            'button_text', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Read More',
@@ -149,8 +135,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $repeater->add_control(
-            'button_url',
-            [
+            'button_url', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'default' => [
@@ -162,8 +147,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'item_list',
-            [
+            'item_list', [
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -195,15 +179,13 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'settings',
-            [
+            'settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'style',
-            [
+            'style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -216,8 +198,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'title_html_tag',
-            [
+            'title_html_tag', [
                 'label' => esc_html__('Title HTML Tag', 'square-plus'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
@@ -236,8 +217,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'layout_style',
-            [
+            'layout_style', [
                 'label' => esc_html__('Layout Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
@@ -260,8 +240,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'content_alignment',
-            [
+            'content_alignment', [
                 'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'left',
@@ -287,8 +266,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'content_width',
-            [
+            'content_width', [
                 'label' => esc_html__('Content Width (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -317,16 +295,14 @@ class VerticalTimeline extends Widget_Base {
 
         /* Style Tab */
         $this->start_controls_section(
-            'content_style',
-            [
+            'content_style', [
                 'label' => esc_html__('Content Box', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'frame_style',
-            [
+            'frame_style', [
                 'label' => esc_html__('Frame Style', 'plugin-domain'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
@@ -339,8 +315,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'frame_bg_color',
-            [
+            'frame_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -351,8 +326,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'frame_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-vtimeline-card',
                 'condition' => ['frame_style' => 'boxed']
@@ -360,8 +334,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'frame_border_color',
-            [
+            'frame_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -372,8 +345,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'frame_border_radius',
-            [
+            'frame_border_radius', [
                 'label' => esc_html__('Border Radius', 'elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -385,8 +357,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'frame_padding',
-            [
+            'frame_padding', [
                 'label' => esc_html__('Padding', 'elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -408,16 +379,14 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style',
-            [
+            'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -427,8 +396,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'heading_box_bg_color',
-            [
+            'heading_box_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -440,8 +408,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-title',
@@ -449,8 +416,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'title_margin',
-            [
+            'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -464,16 +430,14 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'description_style',
-            [
+            'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'description_color',
-            [
+            'description_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -483,8 +447,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-vtimeline-card .eead-vtimeline-description',
@@ -492,8 +455,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'description_margin',
-            [
+            'description_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -507,16 +469,14 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'readmore_style',
-            [
+            'readmore_style', [
                 'label' => esc_html__('Read More', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'readmore_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a',
@@ -524,8 +484,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_margin',
-            [
+            'readmore_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -541,15 +500,13 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'readmore_style_normal_tab',
-            [
+            'readmore_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'readmore_color',
-            [
+            'readmore_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -559,8 +516,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_bg_color',
-            [
+            'readmore_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -572,15 +528,13 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'readmore_style_active_tab',
-            [
+            'readmore_style_active_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'readmore_active_color',
-            [
+            'readmore_active_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -590,8 +544,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_active_bg_color',
-            [
+            'readmore_active_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -602,8 +555,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_active_border_color',
-            [
+            'readmore_active_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -617,8 +569,7 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'readmore_border',
                 'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a',
                 'separator' => 'before',
@@ -626,8 +577,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_border_radius',
-            [
+            'readmore_border_radius', [
                 'label' => esc_html__('Border Radius', 'elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -638,16 +588,14 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'readmore_button_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a',
             ]
         );
 
         $this->add_responsive_control(
-            'readmore_text_padding',
-            [
+            'readmore_text_padding', [
                 'label' => esc_html__('Padding', 'elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -660,16 +608,14 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'meta_style',
-            [
+            'meta_style', [
                 'label' => esc_html__('Meta', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'meta_color',
-            [
+            'meta_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -679,8 +625,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'meta_bg_color',
-            [
+            'meta_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -690,8 +635,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'meta_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-meta',
@@ -699,8 +643,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'meta_padding',
-            [
+            'meta_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -713,16 +656,14 @@ class VerticalTimeline extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'time_point_style',
-            [
+            'time_point_style', [
                 'label' => esc_html__('Time Point', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'time_point_color',
-            [
+            'time_point_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -733,8 +674,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'time_point_bg_color',
-            [
+            'time_point_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -744,8 +684,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'time_point_outline_color',
-            [
+            'time_point_outline_color', [
                 'label' => esc_html__('Outline Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -755,8 +694,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'timeline_color',
-            [
+            'timeline_color', [
                 'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -766,8 +704,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'point_size',
-            [
+            'point_size', [
                 'label' => esc_html__('Point Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -785,8 +722,7 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_size',
-            [
+            'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],

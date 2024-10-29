@@ -25,6 +25,7 @@ class Module extends Module_Base {
 }
 
 class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
+
     var $has_child = false;
 
     public function start_lvl(&$output, $depth = 0, $args = array()) {
@@ -57,7 +58,6 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
         }
         // set id
         // $data['data-id'] = $item->ID;
-
         // is current item ?
         if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
             $data['data-menu-active'] = 2;
@@ -104,7 +104,6 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
         // is separator ?
         if ($item->url == '#') {
             // $isline = preg_match("/^\s*\-+\s*$/", $item->title);
-
             // $type = "header";
             // if ($isline) {
             //     $type = 'separator-line';
@@ -140,4 +139,5 @@ class EEAD_Slinky_Vertical_Menu_Walker extends Walker_Nav_Menu {
         $element->hasChildren = isset($children_elements[$element->ID]) && !empty($children_elements[$element->ID]);
         return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
     }
+
 }

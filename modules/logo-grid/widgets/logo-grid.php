@@ -55,8 +55,7 @@ class LogoGrid extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_logo_grid',
-            [
+            'section_logo_grid', [
                 'label' => esc_html__('Logo Grid', 'easy-elementor-addons'),
             ]
         );
@@ -64,8 +63,7 @@ class LogoGrid extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'logo_image',
-            [
+            'logo_image', [
                 'label' => esc_html__('Upload Logo Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
@@ -78,16 +76,14 @@ class LogoGrid extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
             ]
         );
 
         $repeater->add_control(
-            'link',
-            [
+            'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -101,8 +97,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_logos',
-            [
+            'eead_logos', [
                 'label' => esc_html__('Add Logos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
@@ -128,8 +123,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'image',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'default' => 'full',
@@ -137,8 +131,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'title_html_tag',
-            [
+            'title_html_tag', [
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
@@ -159,15 +152,13 @@ class LogoGrid extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'logo_grid_settings',
-            [
+            'logo_grid_settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_responsive_control(
-            'columns',
-            [
+            'columns', [
                 'label' => esc_html__('Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '3',
@@ -190,8 +181,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logos_spacing',
-            [
+            'logos_spacing', [
                 'label' => esc_html__('Logos Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -209,8 +199,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'logos_vertical_align',
-            [
+            'logos_vertical_align', [
                 'label' => esc_html__('Vertical Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'toggle' => false,
@@ -236,8 +225,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'logos_horizontal_align',
-            [
+            'logos_horizontal_align', [
                 'label' => esc_html__('Horizontal Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'toggle' => false,
@@ -263,8 +251,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logos_width',
-            [
+            'logos_width', [
                 'label' => esc_html__('Image Max Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
@@ -286,16 +273,14 @@ class LogoGrid extends Widget_Base {
 
         /* Style */
         $this->start_controls_section(
-            'section_logos_style',
-            [
+            'section_logos_style', [
                 'label' => esc_html__('Logos', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'logo_container_border_radius',
-            [
+            'logo_container_border_radius', [
                 'label' => esc_html__('Container Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -306,8 +291,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'logo_border_radius',
-            [
+            'logo_border_radius', [
                 'label' => esc_html__('Image Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -318,8 +302,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'logo_padding',
-            [
+            'logo_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -330,8 +313,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'border_type',
-            [
+            'border_type', [
                 'label' => esc_html__('Border Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
@@ -345,8 +327,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'border_width',
-            [
+            'border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -369,8 +350,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'border_color',
-            [
+            'border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -386,15 +366,13 @@ class LogoGrid extends Widget_Base {
         $this->start_controls_tabs('tabs_logos_style');
 
         $this->start_controls_tab(
-            'tab_logos_normal',
-            [
+            'tab_logos_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'logo_bg',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
@@ -404,19 +382,16 @@ class LogoGrid extends Widget_Base {
 
 
         $this->add_control(
-            'grayscale_normal',
-            [
+            'grayscale_normal', [
                 'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                
                 'separator' => 'before'
             ]
         );
 
         $this->add_control(
-            'opacity_normal',
-            [
+            'opacity_normal', [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -436,8 +411,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'eead_logo_box_shadow_normal',
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item',
                 'separator' => 'before',
@@ -447,15 +421,13 @@ class LogoGrid extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_logos_hover',
-            [
+            'tab_logos_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'logos_bg_hover',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
@@ -464,18 +436,15 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'grayscale_hover',
-            [
+            'grayscale_hover', [
                 'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                
             ]
         );
 
         $this->add_control(
-            'opacity_hover',
-            [
+            'opacity_hover', [
                 'label' => esc_html__('Opacity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -495,8 +464,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'eead_logo_box_shadow_hover',
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover',
                 'separator' => 'before',
@@ -510,16 +478,14 @@ class LogoGrid extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_logo_title_style',
-            [
+            'section_logo_title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -529,8 +495,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-logo-grid-title',
@@ -538,8 +503,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'title_spacing',
-            [
+            'title_spacing', [
                 'label' => esc_html__('Top Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],

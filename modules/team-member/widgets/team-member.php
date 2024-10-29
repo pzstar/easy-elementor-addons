@@ -48,15 +48,13 @@ class TeamMember extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_image',
-            [
+            'section_image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
@@ -69,8 +67,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'image',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'default' => 'medium_large',
@@ -80,15 +77,13 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_details',
-            [
+            'section_details', [
                 'label' => esc_html__('Details', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'team_member_name',
-            [
+            'team_member_name', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
@@ -99,8 +94,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'team_member_position',
-            [
+            'team_member_position', [
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
@@ -111,20 +105,15 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'team_member_description_switch',
-            [
+            'team_member_description_switch', [
                 'label' => esc_html__('Show Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'team_member_description',
-            [
+            'team_member_description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'dynamic' => [
@@ -138,8 +127,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'link_type',
-            [
+            'link_type', [
                 'label' => esc_html__('Link Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
@@ -152,8 +140,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'link',
-            [
+            'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -174,8 +161,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'layout',
-            [
+            'layout', [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -189,29 +175,23 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_social_links',
-            [
+            'section_member_social_links', [
                 'label' => esc_html__('Social Links', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'member_social_links',
-            [
+            'member_social_links', [
                 'label' => esc_html__('Show Social Links', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                
-                
-                
             ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'social_icon_label',
-            array(
+            'social_icon_label', array(
                 'label' => esc_html__('Icon Label', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
@@ -222,8 +202,7 @@ class TeamMember extends Widget_Base {
         );
 
         $repeater->add_control(
-            'select_social_icon',
-            [
+            'select_social_icon', [
                 'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'label_block' => true,
@@ -235,8 +214,7 @@ class TeamMember extends Widget_Base {
         );
 
         $repeater->add_control(
-            'social_link',
-            [
+            'social_link', [
                 'label' => esc_html__('Social Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -248,8 +226,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'team_member_social',
-            [
+            'team_member_social', [
                 'label' => esc_html__('Add Social Links', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
@@ -295,16 +272,14 @@ class TeamMember extends Widget_Base {
 
         /* All Styles */
         $this->start_controls_section(
-            'section_content_style',
-            [
+            'section_content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'member_box_alignment',
-            [
+            'member_box_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -321,7 +296,6 @@ class TeamMember extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper' => 'text-align: {{VALUE}};',
                 ],
@@ -329,8 +303,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'content_background',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
@@ -340,16 +313,14 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'content_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-team-member-content',
             ]
         );
 
         $this->add_responsive_control(
-            'member_box_content_margin',
-            [
+            'member_box_content_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -361,8 +332,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_box_content_padding',
-            [
+            'member_box_content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -375,16 +345,14 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_image_style',
-            [
+            'section_member_image_style', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'member_image_border_radius',
-            [
+            'member_image_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -399,16 +367,14 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_name_style',
-            [
+            'section_member_name_style', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'member_name_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-team-member-name',
@@ -416,11 +382,9 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'member_name_text_color',
-            [
+            'member_name_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-name' => 'color: {{VALUE}}',
                 ],
@@ -428,8 +392,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_name_margin',
-            [
+            'member_name_margin', [
                 'label' => esc_html__('Margin Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 // 'default' => [
@@ -457,16 +420,14 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_position_style',
-            [
+            'section_member_position_style', [
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'member_position_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-team-member-position',
@@ -474,11 +435,9 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'member_position_text_color',
-            [
+            'member_position_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-position' => 'color: {{VALUE}}',
                 ],
@@ -486,8 +445,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_position_margin',
-            [
+            'member_position_margin', [
                 'label' => esc_html__('Margin Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 // 'default' => [
@@ -515,8 +473,7 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_description_style',
-            [
+            'section_member_description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -527,8 +484,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'member_description_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-team-member-description',
@@ -540,8 +496,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'member_description_text_color',
-            [
+            'member_description_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
@@ -556,8 +511,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_description_margin',
-            [
+            'member_description_margin', [
                 'label' => esc_html__('Margin Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 // 'default' => [
@@ -589,16 +543,14 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_member_social_links_style',
-            [
+            'section_member_social_links_style', [
                 'label' => esc_html__('Social Links', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'member_icons_gap',
-            [
+            'member_icons_gap', [
                 'label' => esc_html__('Icons Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['%', 'px'],
@@ -620,8 +572,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_icon_size',
-            [
+            'member_icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -649,18 +600,15 @@ class TeamMember extends Widget_Base {
         $this->start_controls_tabs('tabs_links_style');
 
         $this->start_controls_tab(
-            'tab_links_normal',
-            [
+            'tab_links_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'member_links_icons_color',
-            [
+            'member_links_icons_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li a' => 'color: {{VALUE}};',
@@ -670,11 +618,9 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'member_links_bg_color',
-            [
+            'member_links_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li a' => 'background-color: {{VALUE}};',
                 ],
@@ -683,8 +629,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'member_links_border_normal',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -696,18 +641,15 @@ class TeamMember extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_links_hover',
-            [
+            'tab_links_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'member_links_icons_color_hover',
-            [
+            'member_links_icons_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li:hover i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li:hover a' => 'color: {{VALUE}};',
@@ -717,11 +659,9 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_control(
-            'member_links_bg_color_hover',
-            [
+            'member_links_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li:hover a' => 'background-color: {{VALUE}};',
                 ],
@@ -730,8 +670,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'member_links_border_hover',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -745,8 +684,7 @@ class TeamMember extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-            'member_links_border_radius',
-            [
+            'member_links_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -758,8 +696,7 @@ class TeamMember extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'member_links_padding',
-            [
+            'member_links_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -795,7 +732,8 @@ class TeamMember extends Widget_Base {
             <ul class="eead-team-member-social-links">
                 <?php
                 if (isset($settings['team_member_social']) && !empty($settings['team_member_social'])) {
-                    foreach ($settings['team_member_social'] as $index => $item) { ?>
+                    foreach ($settings['team_member_social'] as $index => $item) {
+                        ?>
                         <?php
                         if (!empty($item['social_link']['url']) && !empty($item['select_social_icon'])) {
                             $this->add_link_attributes('social-link' . $count, $item['social_link']);
@@ -827,11 +765,13 @@ class TeamMember extends Widget_Base {
         $this->add_render_attribute('team_member_description', 'class', 'eead-team-member-description');
 
         if ($settings['team_member_description_switch'] == 'yes') {
-            if (!empty($settings['team_member_description'])) { ?>
+            if (!empty($settings['team_member_description'])) {
+                ?>
                 <div <?php echo $this->get_render_attribute_string('team_member_description'); ?>>
                     <?php echo parse_wisiwyg_content($settings['team_member_description']); ?>
                 </div>
-            <?php }
+                <?php
+            }
         }
     }
 

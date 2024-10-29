@@ -1,4 +1,5 @@
 <?php
+
 namespace EasyElementorAddons\Modules\TextMarquee\Widgets;
 
 use Elementor\Widget_Base;
@@ -33,15 +34,13 @@ class TextMarquee extends Widget_Base {
 
     protected function register_controls() {
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'text',
-            [
+            'text', [
                 'label' => esc_html__('Marquee Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -50,8 +49,7 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_speed',
-            [
+            'text_speed', [
                 'label' => esc_html__('Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -70,8 +68,7 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_direction',
-            [
+            'text_direction', [
                 'label' => esc_html__('Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
@@ -83,8 +80,7 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_gap',
-            [
+            'text_gap', [
                 'label' => esc_html__('Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -103,8 +99,7 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_before_start',
-            [
+            'text_before_start', [
                 'label' => esc_html__('Before Start', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -123,40 +118,30 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_duplicated',
-            [
+            'text_duplicated', [
                 'label' => esc_html__('Text Duplicated', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'text_pause_on_hover',
-            [
+            'text_pause_on_hover', [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'marquee_style',
-            [
+            'marquee_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'marquee_color',
-            [
+            'marquee_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -166,8 +151,7 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'marquee_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-text-marquee',
@@ -175,19 +159,14 @@ class TextMarquee extends Widget_Base {
         );
 
         $this->add_control(
-            'text_stroke_effect',
-            [
+            'text_stroke_effect', [
                 'label' => esc_html__('Text Stroke Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
             ]
         );
 
         $this->add_control(
-            'text_stroke_width',
-            [
+            'text_stroke_width', [
                 'label' => esc_html__('Text Stroke Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [

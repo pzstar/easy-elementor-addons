@@ -47,31 +47,24 @@ class AdvancedButton extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'section_button',
-            [
+            'section_button', [
                 'label' => esc_html__('Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'text',
-            [
+            'text', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                
-
                 'default' => esc_html__('Click me', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Click me', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'link',
-            [
+            'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                
-
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
@@ -80,8 +73,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button_size',
-            [
+            'button_size', [
                 'label' => esc_html__('Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'md',
@@ -97,8 +89,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button_animation',
-            [
+            'button_animation', [
                 'label' => esc_html__('Background Animation (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'b',
@@ -118,16 +109,14 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'add_custom_attributes',
-            [
+            'add_custom_attributes', [
                 'label' => esc_html__('Add Custom Attributes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $this->add_control(
-            'custom_attributes',
-            [
+            'custom_attributes', [
                 'label' => esc_html__('Custom Attributes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'dynamic' => [
@@ -143,8 +132,7 @@ class AdvancedButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_button_icon',
-            [
+            'section_button_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
             ]
         );
@@ -159,8 +147,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_align',
-            [
+            'icon_align', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'right',
@@ -178,8 +165,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_indent',
-            [
+            'icon_indent', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -202,27 +188,23 @@ class AdvancedButton extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_style',
-            [
+            'section_content_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'button_typography',
                 'selector' => '{{WRAPPER}} .eead-ab-button',
             ]
         );
 
         $this->add_responsive_control(
-            'align',
-            [
+            'align', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
@@ -246,8 +228,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_padding',
-            [
+            'button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -258,8 +239,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'button_radius',
-            [
+            'button_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -272,15 +252,13 @@ class AdvancedButton extends Widget_Base {
         $this->start_controls_tabs('tabs_button_style');
 
         $this->start_controls_tab(
-            'tab_button_normal',
-            [
+            'tab_button_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_text_color',
-            [
+            'button_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -290,8 +268,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'button_background',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
@@ -300,8 +277,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'button_border',
                 'fields_options' => [
                     'border' => [
@@ -325,8 +301,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow',
                 'selector' => '{{WRAPPER}} .eead-ab-button',
             ]
@@ -335,15 +310,13 @@ class AdvancedButton extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_button_hover',
-            [
+            'tab_button_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'button_text_color_hover',
-            [
+            'button_text_color_hover', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFF',
@@ -354,8 +327,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'button_background_hover',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
@@ -373,8 +345,7 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_control(
-            'button_border_color_hover',
-            [
+            'button_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -384,16 +355,14 @@ class AdvancedButton extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow_hover',
                 'selector' => '{{WRAPPER}} .eead-ab-button:hover',
             ]
         );
 
         $this->add_control(
-            'hover_animation',
-            [
+            'hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
@@ -423,7 +392,7 @@ class AdvancedButton extends Widget_Base {
             }
         }
 
-        if ($settings['add_custom_attributes'] and !empty($settings['custom_attributes'])) {
+        if ($settings['add_custom_attributes'] && !empty($settings['custom_attributes'])) {
             $attributes = explode("\n", $settings['custom_attributes']);
             $reserved_attr = ['href', 'target'];
 
@@ -446,7 +415,6 @@ class AdvancedButton extends Widget_Base {
         if ($settings['hover_animation']) {
             $this->add_render_attribute('button', 'class', 'elementor-animation-' . $settings['hover_animation']);
         }
-
         ?>
         <div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
             <a <?php echo $this->get_render_attribute_string('button'); ?>>
@@ -457,6 +425,7 @@ class AdvancedButton extends Widget_Base {
     }
 
     public function render_text() {
+
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute('content-wrapper', 'class', 'eead-ab-button-content-wrapper');
         $this->add_render_attribute('text', 'class', 'eead-ab-button-text');
@@ -483,4 +452,5 @@ class AdvancedButton extends Widget_Base {
         </div>
         <?php
     }
+
 }

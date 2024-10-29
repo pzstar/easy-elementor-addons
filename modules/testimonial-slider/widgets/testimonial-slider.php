@@ -1,4 +1,5 @@
 <?php
+
 namespace EasyElementorAddons\Modules\TestimonialSlider\Widgets;
 
 use Elementor\Widget_Base;
@@ -43,8 +44,7 @@ class TestimonialSlider extends Widget_Base {
 
     protected function register_controls() {
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
@@ -52,8 +52,7 @@ class TestimonialSlider extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -63,8 +62,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $repeater->add_control(
-            'name',
-            [
+            'name', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -73,8 +71,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $repeater->add_control(
-            'designation',
-            [
+            'designation', [
                 'label' => esc_html__('Designation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -83,8 +80,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $repeater->add_control(
-            'testimonial_title',
-            [
+            'testimonial_title', [
                 'label' => esc_html__('Testimonial Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -93,8 +89,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $repeater->add_control(
-            'testimonial_content',
-            [
+            'testimonial_content', [
                 'label' => esc_html__('Testimonial Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 8,
@@ -103,8 +98,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonials',
-            [
+            'testimonials', [
                 'label' => esc_html__('Testimonials', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -123,15 +117,13 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_settings',
-            [
+            'section_settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
@@ -140,8 +132,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'image_shape',
-            [
+            'image_shape', [
                 'label' => esc_html__('Image Shape', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-square',
@@ -153,8 +144,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'layout',
-            [
+            'layout', [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -169,32 +159,23 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'carousel_settings',
-            [
+            'carousel_settings', [
                 'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'autoplay',
-            [
+            'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'pause_on_hover',
-            [
+            'pause_on_hover', [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
@@ -203,20 +184,15 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'infinite',
-            [
+            'infinite', [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'autoplay_speed',
-            [
+            'autoplay_speed', [
                 'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['s'],
@@ -238,8 +214,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'speed',
-            [
+            'speed', [
                 'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 500,
@@ -247,44 +222,31 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots',
-            [
+            'dots', [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'arrows',
-            [
+            'arrows', [
                 'label' => esc_html__('Navigation Arrow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'auto_height',
-            [
+            'auto_height', [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_responsive_control(
-            'slides_to_show',
-            [
+            'slides_to_show', [
                 'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -310,8 +272,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'slides_margin',
-            [
+            'slides_margin', [
                 'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -339,16 +300,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'general_style',
-            [
+            'general_style', [
                 'label' => esc_html__('General Styles', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'content_bg_color',
-            [
+            'content_bg_color', [
                 'label' => esc_html__('Backgrond Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -358,8 +317,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'content_border_color',
-            [
+            'content_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -370,8 +328,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'each_slide_padding',
-            [
+            'each_slide_padding', [
                 'label' => esc_html__('Slide Item Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -382,8 +339,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-each-slider',
@@ -393,16 +349,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'name_style',
-            [
+            'name_style', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'name_color',
-            [
+            'name_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -412,8 +366,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'name_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-member-name',
@@ -421,8 +374,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'name_margin',
-            [
+            'name_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -436,16 +388,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'designation_style',
-            [
+            'designation_style', [
                 'label' => esc_html__('Designation', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'designation_color',
-            [
+            'designation_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -455,8 +405,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'designation_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-member-designation',
@@ -464,8 +413,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'designation_margin',
-            [
+            'designation_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -479,16 +427,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'testimonial_style',
-            [
+            'testimonial_style', [
                 'label' => esc_html__('Testimonial', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'testimonial_color',
-            [
+            'testimonial_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -498,8 +444,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt',
@@ -507,8 +452,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'backquote_color',
-            [
+            'backquote_color', [
                 'label' => esc_html__('Backquote Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -519,8 +463,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_margin',
-            [
+            'testimonial_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -532,8 +475,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_border_color',
-            [
+            'testimonial_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -545,8 +487,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_border_height',
-            [
+            'testimonial_border_height', [
                 'label' => esc_html__('Border Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -565,8 +506,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_border_width',
-            [
+            'testimonial_border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -585,8 +525,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_border_margin',
-            [
+            'testimonial_border_margin', [
                 'label' => esc_html__('Border Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -600,16 +539,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'testimonial_title_style',
-            [
+            'testimonial_title_style', [
                 'label' => esc_html__('Testimonial Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'testimonial_title_color',
-            [
+            'testimonial_title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -619,8 +556,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-content h3',
@@ -628,8 +564,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'testimonial_title_margin',
-            [
+            'testimonial_title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -643,16 +578,14 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'dot_style',
-            [
+            'dot_style', [
                 'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'dots_align',
-            [
+            'dots_align', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -677,8 +610,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'dots_spacing',
-            [
+            'dots_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -707,8 +639,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'dot_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -718,8 +649,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_border_radius',
-            [
+            'dots_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -730,8 +660,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_padding',
-            [
+            'dots_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -742,8 +671,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dots_margin',
-            [
+            'dots_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -758,15 +686,13 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'dot_style_normal_tab',
-            [
+            'dot_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color',
-            [
+            'dot_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -776,8 +702,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_border_color_normal',
-            [
+            'dot_border_color_normal', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -789,15 +714,13 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'dot_style_active_tab',
-            [
+            'dot_style_active_tab', [
                 'label' => esc_html__('Active', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color_active',
-            [
+            'dot_color_active', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -807,8 +730,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_border_color_active',
-            [
+            'dot_border_color_active', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -820,15 +742,13 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'dot_style_hover_tab',
-            [
+            'dot_style_hover_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'dot_color_hover',
-            [
+            'dot_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -838,8 +758,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'dot_border_color_hover',
-            [
+            'dot_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -854,18 +773,16 @@ class TestimonialSlider extends Widget_Base {
 
         $this->end_controls_section();
 
-        /*Arrow Style*/
+        /* Arrow Style */
         $this->start_controls_section(
-            'arrow_style',
-            [
+            'arrow_style', [
                 'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'arrow_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -875,8 +792,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_radius',
-            [
+            'arrow_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -887,8 +803,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_padding',
-            [
+            'arrow_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -903,15 +818,13 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'arrow_style_normal_tab',
-            [
+            'arrow_style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'arrow_bg_color',
-            [
+            'arrow_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -921,8 +834,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color',
-            [
+            'arrow_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -932,8 +844,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_color_normal',
-            [
+            'arrow_border_color_normal', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -945,15 +856,13 @@ class TestimonialSlider extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'arrow_style_hover_tab',
-            [
+            'arrow_style_hover_tab', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'arrow_bg_color_hover',
-            [
+            'arrow_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -963,8 +872,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_color_hover',
-            [
+            'arrow_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -974,8 +882,7 @@ class TestimonialSlider extends Widget_Base {
         );
 
         $this->add_control(
-            'arrow_border_color_hover',
-            [
+            'arrow_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1179,4 +1086,5 @@ class TestimonialSlider extends Widget_Base {
         <?php
         }
     }
+
 }

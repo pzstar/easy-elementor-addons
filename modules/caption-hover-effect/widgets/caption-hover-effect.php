@@ -44,15 +44,13 @@ class CaptionHoverEffect extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'content_section',
-            [
+            'content_section', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Caption Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -62,8 +60,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
+            Group_Control_Image_Size::get_type(), [
                 'name' => 'image',
                 'exclude' => ['custom'],
                 'include' => [],
@@ -72,8 +69,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -83,8 +79,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'content',
-            [
+            'content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
@@ -94,8 +89,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'effect_style',
-            [
+            'effect_style', [
                 'label' => esc_html__('Hover Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'cs-style-1',
@@ -112,8 +106,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'margin_heading',
-            [
+            'margin_heading', [
                 'label' => esc_html__('Margin Heading(%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
@@ -138,8 +131,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'button_text',
-            [
+            'button_text', [
                 'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -149,8 +141,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'button_link',
-            [
+            'button_link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -166,16 +157,14 @@ class CaptionHoverEffect extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'settings_section',
-            [
+            'settings_section', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'figcaption_color',
-            [
+            'figcaption_color', [
                 'label' => esc_html__('Figcaption Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ed4e6e',
@@ -186,8 +175,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'figcaption_bg_color',
-            [
+            'figcaption_bg_color', [
                 'label' => esc_html__('Figcaption Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2c3f52',
@@ -198,8 +186,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'figcaption_heading_color',
-            [
+            'figcaption_heading_color', [
                 'label' => esc_html__('Heading Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -210,8 +197,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'figcaption_button_text_color',
-            [
+            'figcaption_button_text_color', [
                 'label' => esc_html__('Button Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -222,8 +208,7 @@ class CaptionHoverEffect extends Widget_Base {
         );
 
         $this->add_control(
-            'figcaption_button_text_bg_color',
-            [
+            'figcaption_button_text_bg_color', [
                 'label' => esc_html__('Button Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ed4e6e',
@@ -272,4 +257,5 @@ class CaptionHoverEffect extends Widget_Base {
         </div>
         <?php
     }
+
 }

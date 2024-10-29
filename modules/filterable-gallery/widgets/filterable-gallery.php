@@ -56,15 +56,13 @@ class FilterableGallery extends Widget_Base {
          * Filter Gallery Control Settings
          */
         $this->start_controls_section(
-            'filter_controls',
-            [
+            'filter_controls', [
                 'label' => esc_html__('Filters', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'enable_filter',
-            [
+            'enable_filter', [
                 'label' => esc_html__('Enable Filter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -72,8 +70,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_all_label',
-            [
+            'filter_all_label', [
                 'label' => esc_html__('All Filter Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'All',
@@ -84,8 +81,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filters_tabs',
-            [
+            'filters_tabs', [
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
                     ['filter_title' => 'Filter Title'],
@@ -107,8 +103,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_type',
-            [
+            'filter_type', [
                 'label' => esc_html__('Filter Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
@@ -123,8 +118,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_placeholder',
-            [
+            'search_filter_placeholder', [
                 'label' => esc_html__('Search Placeholder Text', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
@@ -141,8 +135,7 @@ class FilterableGallery extends Widget_Base {
          * Filter Gallery Grid Settings
          */
         $this->start_controls_section(
-            'gallery_items_section',
-            [
+            'gallery_items_section', [
                 'label' => esc_html__('Gallery Items', 'easy-elementor-addons'),
             ]
         );
@@ -150,8 +143,7 @@ class FilterableGallery extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'gallery_image',
-            [
+            'gallery_image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
@@ -161,8 +153,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_item_name',
-            [
+            'gallery_item_name', [
                 'label' => esc_html__('Item Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -171,8 +162,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_item_content',
-            [
+            'gallery_item_content', [
                 'label' => esc_html__('Item Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 6,
@@ -182,27 +172,23 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_filter_name',
-            [
+            'gallery_filter_name', [
                 'label' => esc_html__('Enter Filter Titles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                
                 'description' => esc_html__('Enter the filter names from Filters Settings, separated with comma. | e.g. Filter 1, Filter 2', 'easy-elementor-addons'),
             ]
         );
 
         $repeater->add_control(
-            'gallery_show_price',
-            [
+            'gallery_show_price', [
                 'label' => esc_html__('Show Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $repeater->add_control(
-            'gallery_item_price',
-            [
+            'gallery_item_price', [
                 'label' => esc_html__('Item Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('$100', 'easy-elementor-addons'),
@@ -213,16 +199,14 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_show_rating',
-            [
+            'gallery_show_rating', [
                 'label' => esc_html__('Show Ratings', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $repeater->add_control(
-            'gallery_item_rating',
-            [
+            'gallery_item_rating', [
                 'label' => esc_html__('Item Ratings', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('5', 'easy-elementor-addons'),
@@ -233,16 +217,14 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_show_video',
-            [
+            'gallery_show_video', [
                 'label' => esc_html__('Enable Video PopUp', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $repeater->add_control(
-            'gallery_item_video_link',
-            [
+            'gallery_item_video_link', [
                 'label' => esc_html__('Video Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -254,8 +236,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_show_lighbox',
-            [
+            'gallery_show_lighbox', [
                 'label' => esc_html__('Lightbox Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -266,8 +247,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_show_link',
-            [
+            'gallery_show_link', [
                 'label' => esc_html__('Link Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -278,8 +258,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $repeater->add_control(
-            'gallery_image_link',
-            [
+            'gallery_image_link', [
                 'type' => Controls_Manager::URL,
                 'label_block' => true,
                 'default' => [
@@ -295,8 +274,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_items',
-            [
+            'gallery_items', [
                 'type' => Controls_Manager::REPEATER,
                 'seperator' => 'before',
                 'default' => [
@@ -318,15 +296,13 @@ class FilterableGallery extends Widget_Base {
          * Gallery Settings
          */
         $this->start_controls_section(
-            'gallery_settings_section',
-            [
+            'gallery_settings_section', [
                 'label' => esc_html__('Gallery Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_responsive_control(
-            'gallery_columns',
-            [
+            'gallery_columns', [
                 'label' => esc_html__('Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '3',
@@ -346,8 +322,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_grid_style',
-            [
+            'gallery_grid_style', [
                 'label' => esc_html__('Grid Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'grid',
@@ -361,8 +336,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_style',
-            [
+            'gallery_style', [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'overlay',
@@ -374,8 +348,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_hover_style',
-            [
+            'gallery_hover_style', [
                 'label' => esc_html__('Hover Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'eead-fade-in',
@@ -392,8 +365,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_link_to',
-            [
+            'gallery_link_to', [
                 'label' => esc_html__('Link to', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'buttons',
@@ -406,8 +378,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'enable_gallery',
-            [
+            'enable_gallery', [
                 'label' => esc_html__('Enable Prev/Next Lightbox Gallery', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -418,8 +389,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_zoom_icon',
-            [
+            'gallery_zoom_icon', [
                 'label' => esc_html__('Lightbox Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
@@ -435,8 +405,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'gallery_link_icon',
-            [
+            'gallery_link_icon', [
                 'label' => esc_html__('Link Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
@@ -452,8 +421,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'video_play_icon',
-            [
+            'video_play_icon', [
                 'label' => esc_html__('Play Video Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
@@ -469,8 +437,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'title_tag',
-            [
+            'title_tag', [
                 'label' => esc_html__('Title Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
@@ -489,8 +456,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_duration',
-            [
+            'filter_duration', [
                 'label' => esc_html__('Animation Duration (ms)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -501,15 +467,13 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'hr',
-            [
+            'hr', [
                 'type' => Controls_Manager::DIVIDER,
             ]
         );
 
         $this->add_responsive_control(
-            'gallery_image_spacing',
-            [
+            'gallery_image_spacing', [
                 'label' => esc_html__('Image Spacing(px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -531,11 +495,9 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'image_dynamic_height',
-            [
+            'image_dynamic_height', [
                 'label' => esc_html__('Dynamic Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-
                 'condition' => [
                     'gallery_grid_style' => 'grid',
                 ],
@@ -543,8 +505,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'gallery_image_height_px',
-            [
+            'gallery_image_height_px', [
                 'label' => esc_html__('Image Height(px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -569,8 +530,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'gallery_image_height_per',
-            [
+            'gallery_image_height_per', [
                 'label' => esc_html__('Image Height(%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -600,15 +560,13 @@ class FilterableGallery extends Widget_Base {
          * Content Tab: Gallery Load More Button
          */
         $this->start_controls_section(
-            'section_pagination',
-            [
+            'section_pagination', [
                 'label' => esc_html__('Load More Button', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'pagination',
-            [
+            'pagination', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => false,
@@ -616,8 +574,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'items_to_show',
-            [
+            'items_to_show', [
                 'label' => esc_html__('Items to Display Initially', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => false,
@@ -631,8 +588,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'images_per_page',
-            [
+            'images_per_page', [
                 'label' => esc_html__('Items to Display on Clicking Load More Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 6,
@@ -645,8 +601,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_text',
-            [
+            'load_more_text', [
                 'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Load More', 'easy-elementor-addons'),
@@ -657,8 +612,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'nomore_items_text',
-            [
+            'nomore_items_text', [
                 'label' => esc_html__('No More Items Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('No More Items!', 'easy-elementor-addons'),
@@ -669,8 +623,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'button_icon',
-            [
+            'button_icon', [
                 'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
@@ -682,8 +635,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'button_icon_position',
-            [
+            'button_icon_position', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'row-reverse',
@@ -704,24 +656,21 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'items_style_section',
-            [
+            'items_style_section', [
                 'label' => esc_html__('Item', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'item_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'item_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
@@ -729,8 +678,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'item_border_radius',
-            [
+            'item_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -746,8 +694,7 @@ class FilterableGallery extends Widget_Base {
          * Control Style
          */
         $this->start_controls_section(
-            'filter_style_section',
-            [
+            'filter_style_section', [
                 'label' => esc_html__('Filter Buttons', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -757,8 +704,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'filter_btn_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
@@ -766,8 +712,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'filter_btn_margin',
-            [
+            'filter_btn_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -778,8 +723,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'filter_btn_padding',
-            [
+            'filter_btn_padding', [
                 'label' => esc_html__('Buttton Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -796,8 +740,7 @@ class FilterableGallery extends Widget_Base {
         ]);
 
         $this->add_control(
-            'filter_btn_normal_text_color',
-            [
+            'filter_btn_normal_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
@@ -808,11 +751,9 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_btn_normal_bg_color',
-            [
+            'filter_btn_normal_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'background: {{VALUE}};',
                 ],
@@ -820,8 +761,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'filter_btn_normal_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
@@ -829,8 +769,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
                 'separator' => 'before',
@@ -844,8 +783,7 @@ class FilterableGallery extends Widget_Base {
         ]);
 
         $this->add_control(
-            'filter_btn_active_text_color',
-            [
+            'filter_btn_active_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
@@ -856,8 +794,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_btn_active_bg_color',
-            [
+            'filter_btn_active_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
@@ -868,8 +805,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_active_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active',
                 'separator' => 'before',
@@ -881,8 +817,7 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-            'filter_btn_border_radius',
-            [
+            'filter_btn_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -894,8 +829,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'filter_btn_spacing',
-            [
+            'filter_btn_spacing', [
                 'label' => esc_html__('Button Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -915,16 +849,14 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'filter_search_style_section',
-            [
+            'filter_search_style_section', [
                 'label' => esc_html__('Filter Search', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'search_filter_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown',
@@ -932,8 +864,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'search_filter_margin',
-            [
+            'search_filter_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -944,8 +875,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_padding',
-            [
+            'search_filter_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -959,8 +889,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_bg_color',
-            [
+            'search_filter_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f1f8ff',
@@ -974,8 +903,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_text_color',
-            [
+            'search_filter_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -988,8 +916,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'search_filter_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box',
@@ -1000,8 +927,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'search_filter_border_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box',
                 'condition' => [
@@ -1011,8 +937,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_radius',
-            [
+            'search_filter_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1026,8 +951,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_separator',
-            [
+            'search_filter_separator', [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1035,8 +959,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_sep_border_size',
-            [
+            'search_filter_sep_border_size', [
                 'label' => esc_html__('Separator Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -1054,8 +977,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_sep_border_color',
-            [
+            'search_filter_sep_border_color', [
                 'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#dcedfe',
@@ -1066,8 +988,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown',
-            [
+            'search_filter_dropdown', [
                 'label' => esc_html__('Dropdown', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1075,8 +996,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown_color',
-            [
+            'search_filter_dropdown_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1086,8 +1006,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown_color_hover',
-            [
+            'search_filter_dropdown_color_hover', [
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1097,8 +1016,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown_bg_color',
-            [
+            'search_filter_dropdown_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1111,8 +1029,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'search_filter_dropdown_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown'
@@ -1120,8 +1037,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'search_filter_dropdown_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
@@ -1130,8 +1046,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'search_filter_dropdown_border_radius',
-            [
+            'search_filter_dropdown_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1147,8 +1062,7 @@ class FilterableGallery extends Widget_Base {
          * Gallery Hoverer Style
          */
         $this->start_controls_section(
-            'overlay_caption_style_section',
-            [
+            'overlay_caption_style_section', [
                 'label' => esc_html__('Overlay Caption', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -1158,8 +1072,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_alignment',
-            [
+            'overlay_caption_alignment', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
@@ -1185,8 +1098,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_v_alignment',
-            [
+            'overlay_caption_v_alignment', [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
@@ -1212,8 +1124,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_bg_color',
-            [
+            'overlay_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.7)',
@@ -1224,8 +1135,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'overlay_caption_container_padding',
-            [
+            'overlay_caption_container_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1236,8 +1146,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_title_heading',
-            [
+            'overlay_caption_title_heading', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1245,8 +1154,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_title_color',
-            [
+            'overlay_caption_title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
@@ -1257,8 +1165,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'overlay_caption_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title',
@@ -1266,8 +1173,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_title_bottom_spacing',
-            [
+            'overlay_caption_title_bottom_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1285,8 +1191,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_content_typography_heading',
-            [
+            'overlay_caption_content_typography_heading', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1294,8 +1199,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_content_color',
-            [
+            'overlay_caption_content_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
@@ -1306,8 +1210,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'overlay_caption_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content,{{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head',
@@ -1315,8 +1218,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_caption_content_bottom_spacing',
-            [
+            'overlay_caption_content_bottom_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1339,8 +1241,7 @@ class FilterableGallery extends Widget_Base {
          * Card Gallery Item Style
          */
         $this->start_controls_section(
-            'card_caption_style_section',
-            [
+            'card_caption_style_section', [
                 'label' => esc_html__('Card Caption', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -1350,8 +1251,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'card_caption_alignment',
-            [
+            'card_caption_alignment', [
                 'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
@@ -1375,8 +1275,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'card_caption_content_bg_color',
-            [
+            'card_caption_content_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1386,8 +1285,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'card_caption_container_padding',
-            [
+            'card_caption_container_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1399,8 +1297,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'card_caption_title_heading',
-            [
+            'card_caption_title_heading', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1408,8 +1305,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'card_caption_title_color',
-            [
+            'card_caption_title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#F56A6A',
@@ -1420,8 +1316,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'card_caption_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title',
@@ -1429,8 +1324,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'card_caption_content_heading',
-            [
+            'card_caption_content_heading', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
@@ -1438,8 +1332,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'card_caption_content_color',
-            [
+            'card_caption_content_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444',
@@ -1450,8 +1343,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'card_caption_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content',
@@ -1464,16 +1356,14 @@ class FilterableGallery extends Widget_Base {
          * Hoverer Icon Style
          */
         $this->start_controls_section(
-            'overlay_button_style_section',
-            [
+            'overlay_button_style_section', [
                 'label' => esc_html__('Gallery/Link Buttons', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'overlay_button_size',
-            [
+            'overlay_button_size', [
                 'label' => esc_html__('Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -1494,8 +1384,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_button_icon_size',
-            [
+            'overlay_button_icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -1516,8 +1405,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_button_border_radius',
-            [
+            'overlay_button_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1530,15 +1418,13 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_tabs('overlay_button_tabs');
 
         $this->start_controls_tab(
-            'overlay_button_style_normal',
-            [
+            'overlay_button_style_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'overlay_button_bg_color',
-            [
+            'overlay_button_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1548,8 +1434,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_button_icon_color',
-            [
+            'overlay_button_icon_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1560,8 +1445,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'overlay_button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a',
@@ -1571,15 +1455,13 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'overlay_button_style_hover',
-            [
+            'overlay_button_style_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'overlay_button_bg_color_hover',
-            [
+            'overlay_button_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1589,8 +1471,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_button_icon_color_hover',
-            [
+            'overlay_button_icon_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1601,8 +1482,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'overlay_button_border_color_hover',
-            [
+            'overlay_button_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1622,16 +1502,14 @@ class FilterableGallery extends Widget_Base {
          * Video Gallery Item Style
          */
         $this->start_controls_section(
-            'video_button_style',
-            [
+            'video_button_style', [
                 'label' => esc_html__('Video Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'video_button_bg_color',
-            [
+            'video_button_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1641,8 +1519,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'video_button_icon_color',
-            [
+            'video_button_icon_color', [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1652,8 +1529,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'video_button_size',
-            [
+            'video_button_size', [
                 'label' => esc_html__('Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -1672,8 +1548,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'video_button_icon_size',
-            [
+            'video_button_icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -1698,8 +1573,7 @@ class FilterableGallery extends Widget_Base {
          * Load More Button Style
          */
         $this->start_controls_section(
-            'loadmore_button_style_section',
-            [
+            'loadmore_button_style_section', [
                 'label' => esc_html__('Load More Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -1710,8 +1584,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'load_more_button_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
@@ -1719,16 +1592,14 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'load_more_button_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
             ]
         );
 
         $this->add_responsive_control(
-            'load_more_button_margin_top',
-            [
+            'load_more_button_margin_top', [
                 'label' => esc_html__('Top Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1745,8 +1616,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'load_more_button_padding',
-            [
+            'load_more_button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1757,8 +1627,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_border_radius',
-            [
+            'load_more_button_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1769,8 +1638,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'load_more_button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
@@ -1778,8 +1646,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_icon_spacing',
-            [
+            'load_more_button_icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1800,8 +1667,7 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_tabs('tabs_load_more_button');
 
         $this->start_controls_tab(
-            'tab_load_more_button_normal',
-            [
+            'tab_load_more_button_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
                 'condition' => [
                     'pagination' => 'yes',
@@ -1811,8 +1677,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_bg_color_normal',
-            [
+            'load_more_button_bg_color_normal', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1822,8 +1687,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_text_color_normal',
-            [
+            'load_more_button_text_color_normal', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1836,18 +1700,15 @@ class FilterableGallery extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_button_hover',
-            [
+            'tab_button_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'load_more_button_bg_color_hover',
-            [
+            'load_more_button_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'background-color: {{VALUE}}',
                 ],
@@ -1855,11 +1716,9 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_text_color_hover',
-            [
+            'load_more_button_text_color_hover', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'color: {{VALUE}}',
                 ]
@@ -1867,8 +1726,7 @@ class FilterableGallery extends Widget_Base {
         );
 
         $this->add_control(
-            'load_more_button_border_color_hover',
-            [
+            'load_more_button_border_color_hover', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1887,9 +1745,9 @@ class FilterableGallery extends Widget_Base {
     protected function minifyHTML($html) {
         // Remove extra spaces, newlines, and tabs
         $search = [
-            '/\>[^\S ]+/s',     // Remove whitespaces after tags, except space
-            '/[^\S ]+\</s',     // Remove whitespaces before tags, except space
-            '/(\s)+/s',         // Shorten multiple whitespace sequences to a single space
+            '/\>[^\S ]+/s', // Remove whitespaces after tags, except space
+            '/[^\S ]+\</s', // Remove whitespaces before tags, except space
+            '/(\s)+/s', // Shorten multiple whitespace sequences to a single space
             '/<!--.*?-->|\t|(?:\r?\n[ \t]*)+/s' // Remove HTML comments, tabs, and newlines
         ];
 
@@ -1946,7 +1804,6 @@ class FilterableGallery extends Widget_Base {
                                 <?php
                                 if ($settings['filter_all_label']) {
                                     echo wp_kses_post($settings['filter_all_label']);
-
                                 } elseif (isset($settings['filters_tabs']) && !empty($settings['filters_tabs'])) {
                                     echo $settings['filters_tabs'][0]['filter_title'];
                                 }
@@ -2007,7 +1864,6 @@ class FilterableGallery extends Widget_Base {
 
         return $classes;
     }
-
 
     protected function get_gallery_items() {
         $settings = $this->get_settings_for_display();
@@ -2206,7 +2062,6 @@ class FilterableGallery extends Widget_Base {
         }
 
         return $gallery_markup;
-
     }
 
     protected function render() {
@@ -2314,4 +2169,5 @@ class FilterableGallery extends Widget_Base {
         </script>
         <?php
     }
+
 }

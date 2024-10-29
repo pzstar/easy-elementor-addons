@@ -43,8 +43,7 @@ class VerticalTab extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
@@ -52,8 +51,7 @@ class VerticalTab extends Widget_Base {
         $repeater = new Repeater();
 
         $repeater->add_control(
-            'icon',
-            [
+            'icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -64,8 +62,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'title',
-            [
+            'title', [
                 'label' => esc_html__('Tab Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -74,8 +71,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'content_type',
-            [
+            'content_type', [
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'wisiwyg',
@@ -88,8 +84,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'page',
-            [
+            'page', [
                 'label' => esc_html__('Select Page', 'hash-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
@@ -102,8 +97,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'wisiwyg_content',
-            [
+            'wisiwyg_content', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
@@ -114,8 +108,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'elementor_template',
-            [
+            'elementor_template', [
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
@@ -128,20 +121,17 @@ class VerticalTab extends Widget_Base {
         );
 
         $repeater->add_control(
-            'enable',
-            [
+            'enable', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                
                 'default' => 'yes',
             ]
         );
 
         $this->add_control(
-            'tabs',
-            [
+            'tabs', [
                 'label' => esc_html__('Plan Feature List', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
@@ -178,15 +168,13 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_settings',
-            [
+            'section_settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'tab_position',
-            [
+            'tab_position', [
                 'label' => esc_html__('Tab Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
@@ -198,8 +186,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'tab_layout',
-            [
+            'tab_layout', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
@@ -214,16 +201,14 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'tab_style',
-            [
+            'tab_style', [
                 'label' => esc_html__('Tab', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'tab_spacing',
-            [
+            'tab_spacing', [
                 'label' => esc_html__('Tab Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -243,8 +228,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'tab_width',
-            [
+            'tab_width', [
                 'label' => esc_html__('Tab Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['%'],
@@ -263,8 +247,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'each_tab_padding',
-            [
+            'each_tab_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -277,16 +260,14 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style',
-            [
+            'title_style', [
                 'label' => esc_html__('Tab Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab span',
@@ -294,8 +275,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_size',
-            [
+            'icon_size', [
                 'label' => esc_html__('Tab Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -313,8 +293,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_spacing',
-            [
+            'icon_spacing', [
                 'label' => esc_html__('Tab Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
@@ -336,15 +315,13 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->start_controls_tab(
-            'style_normal_tab',
-            [
+            'style_normal_tab', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'title_bg_color',
-            [
+            'title_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -356,8 +333,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -372,15 +348,13 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'style_active_tab',
-            [
+            'style_active_tab', [
                 'label' => esc_html__('Active', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'title_bg_color_active',
-            [
+            'title_bg_color_active', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -393,8 +367,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'title_color_active',
-            [
+            'title_color_active', [
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -406,8 +379,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'title_border_color_active',
-            [
+            'title_border_color_active', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -428,16 +400,14 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'tab_content_style',
-            [
+            'tab_content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'tab_content_color',
-            [
+            'tab_content_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -447,8 +417,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'content_border_color',
-            [
+            'content_border_color', [
                 'label' => esc_html__('Border Color', 'plugin-domain'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -459,8 +428,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'tab_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-tab-container .eead-tab-content',
@@ -468,8 +436,7 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'tab_content_padding',
-            [
+            'tab_content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
@@ -526,7 +493,6 @@ class VerticalTab extends Widget_Base {
                 ?>
                 <div class="eead-each-content eead-content-<?php echo $i; ?>" style="<?php echo $i > 1 ? 'display:none;' : NULL; ?>">
                     <?php
-
                     if ($tab['content_type'] == 'page') {
                         if ($tab['enable'] == 'yes' && !empty($tab['page'])) {
                             $args = array(

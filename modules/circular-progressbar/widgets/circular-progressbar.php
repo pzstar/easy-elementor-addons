@@ -44,15 +44,13 @@ class CircularProgressbar extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content',
-            [
+            'section_content', [
                 'label' => esc_html__('Circular Progressbar', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'progressbar_title',
-            [
+            'progressbar_title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
@@ -61,8 +59,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'progressbar_percentage',
-            [
+            'progressbar_percentage', [
                 'label' => esc_html__('Percentage', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -80,8 +77,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'circle_size',
-            [
+            'circle_size', [
                 'label' => esc_html__('Circle Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -103,8 +99,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'circle_stroke',
-            [
+            'circle_stroke', [
                 'label' => esc_html__('Circle Bar Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -126,8 +121,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'alignment',
-            [
+            'alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -153,16 +147,14 @@ class CircularProgressbar extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style',
-            [
+            'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -172,8 +164,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-title',
@@ -181,8 +172,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'title_margin',
-            [
+            'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => 'vertical',
@@ -196,16 +186,14 @@ class CircularProgressbar extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'percent_style',
-            [
+            'percent_style', [
                 'label' => esc_html__('Percent', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'percent_color',
-            [
+            'percent_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -215,8 +203,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'percent_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-number',
@@ -226,16 +213,14 @@ class CircularProgressbar extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'progressbar_style',
-            [
+            'progressbar_style', [
                 'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'progressbar_text_color',
-            [
+            'progressbar_text_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -245,8 +230,7 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->add_control(
-            'progress_indication_color',
-            [
+            'progress_indication_color', [
                 'label' => esc_html__('Progress Indication Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -256,7 +240,6 @@ class CircularProgressbar extends Widget_Base {
         );
 
         $this->end_controls_section();
-
     }
 
     /** Render Layout */
@@ -267,16 +250,19 @@ class CircularProgressbar extends Widget_Base {
         $circle_size = $radius + $stroke_width / 2;
         $dasharray = 2 * 3.14 * $radius;
         $svg_size = $radius * 2 + $stroke_width;
-
         ?>
         <div class="eead-circular-progressbar" data-number="<?php echo esc_attr($settings['progressbar_percentage']['size']); ?>" data-radius="<?php echo $radius; ?>">
             <div class="eead-circular-progressbar-box">
                 <div class="eead-cb-percent">
                     <svg style="height:<?php echo $svg_size; ?>px;width:<?php echo $svg_size; ?>px">
-                        <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php echo $radius;
-                              ; ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
-                        <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php echo $radius;
-                              ; ?>" stroke-dasharray="<?php echo $dasharray; ?>" stroke-dashoffset="<?php echo $dasharray; ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
+                        <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php
+                              echo $radius;
+                              ;
+                              ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
+                        <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php
+                              echo $radius;
+                              ;
+                              ?>" stroke-dasharray="<?php echo $dasharray; ?>" stroke-dashoffset="<?php echo $dasharray; ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
                     </svg>
 
                     <div class="eead-cb-number">
@@ -291,4 +277,5 @@ class CircularProgressbar extends Widget_Base {
         </div>
         <?php
     }
+
 }

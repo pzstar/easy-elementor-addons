@@ -37,15 +37,13 @@ class TwitterFeed extends Widget_Base {
     /** Controls */
     protected function register_controls() {
         $this->start_controls_section(
-            'section_main',
-            [
+            'section_main', [
                 'label' => esc_html__('Main Settings', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'embed_type',
-            [
+            'embed_type', [
                 'label' => esc_html__('Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'handle',
@@ -62,8 +60,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'url_collection',
-            [
+            'url_collection', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
@@ -71,13 +68,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'collection',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'url_profile',
-            [
+            'url_profile', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('https://twitter.com/TwitterDev', 'easy-elementor-addons'),
@@ -85,13 +80,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'profile',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'url_list',
-            [
+            'url_list', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
@@ -99,13 +92,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'list',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'url_moments',
-            [
+            'url_moments', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
@@ -113,13 +104,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'moments',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'url_likes',
-            [
+            'url_likes', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
@@ -127,13 +116,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'likes',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'username',
-            [
+            'username', [
                 'label' => esc_html__('Enter UserName', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'dynamic' => [
@@ -148,8 +135,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'hashtag',
-            [
+            'hashtag', [
                 'label' => esc_html__('Enter Hashtag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('#hashtag', 'easy-elementor-addons'),
@@ -160,8 +146,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'display_mode_collection',
-            [
+            'display_mode_collection', [
                 'label' => esc_html__('Display Mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'timeline',
@@ -172,13 +157,11 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'collection',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'no_of_tweets',
-            [
+            'no_of_tweets', [
                 'label' => esc_html__('Display No of Tweets', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 20,
@@ -193,8 +176,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'height_collection_timeline',
-            [
+            'height_collection_timeline', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -215,8 +197,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'theme_collection_timeline',
-            [
+            'theme_collection_timeline', [
                 'label' => esc_html__('Theme', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'light',
@@ -232,8 +213,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_collection',
-            [
+            'link_color_collection', [
                 'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -244,8 +224,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'display_mode_profile',
-            [
+            'display_mode_profile', [
                 'label' => esc_html__('Display Mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'timeline',
@@ -260,8 +239,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'height_profile_timeline',
-            [
+            'height_profile_timeline', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -282,8 +260,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'theme_profile_timeline',
-            [
+            'theme_profile_timeline', [
                 'label' => esc_html__('Theme', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'light',
@@ -299,8 +276,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_profile',
-            [
+            'link_color_profile', [
                 'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -311,8 +287,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'button_type',
-            [
+            'button_type', [
                 'label' => esc_html__('Button Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'follow-button',
@@ -328,14 +303,11 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_name',
-            [
+            'hide_name', [
                 'label' => esc_html__('Hide Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                
                 'condition' => [
                     'display_mode_profile' => 'button',
                     'button_type' => 'follow-button',
@@ -345,42 +317,35 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'show_count',
-            [
+            'show_count', [
                 'label' => esc_html__('Show Count', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
                     'button_type' => 'follow-button',
-
                 ],
             ]
         );
 
         $this->add_control(
-            'prefill_text',
-            [
+            'prefill_text', [
                 'label' => esc_html__('Tweet Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                
                 'description' => esc_html__('Do you want to prefill the Tweet text?', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
                     'button_type' => 'mention-button',
                 ],
-
             ]
         );
 
         $this->add_control(
-            'screen_name',
-            [
+            'screen_name', [
                 'label' => esc_html__('Screen Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'condition' => [
@@ -392,25 +357,18 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'large_button',
-            [
+            'large_button', [
                 'label' => esc_html__('Large Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
-                
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
-
                 ],
             ]
         );
 
         $this->add_control(
-            'height_list',
-            [
+            'height_list', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -430,8 +388,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'theme_list',
-            [
+            'theme_list', [
                 'label' => esc_html__('Theme', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'light',
@@ -446,8 +403,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_list',
-            [
+            'link_color_list', [
                 'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -466,8 +422,7 @@ class TwitterFeed extends Widget_Base {
 
         $prefill_options['custom'] = 'Custom';
         $this->add_control(
-            'prefill_text_hashtag',
-            [
+            'prefill_text_hashtag', [
                 'label' => esc_html__('Pre Fill Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'post_title',
@@ -480,8 +435,7 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'prefill_custom',
-            [
+            'prefill_custom', [
                 'label' => esc_html__('Custom Prefill Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'condition' => [
@@ -492,11 +446,9 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'hashtag_url',
-            [
+            'hashtag_url', [
                 'label' => esc_html__('Fix Url in Tweet', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                
                 'description' => esc_html__('Do you want to set a specific URL in the Tweet?', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => 'hashtag',
@@ -505,24 +457,17 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'language',
-            [
+            'language', [
                 'label' => esc_html__('Language', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $this->languages(),
-                
             ]
         );
 
         $this->add_control(
-            'hashtag_large_button',
-            [
+            'hashtag_large_button', [
                 'label' => esc_html__('Large Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                
-                
-                
-                
                 'condition' => [
                     'embed_type' => 'hashtag',
                 ],
@@ -689,7 +634,6 @@ class TwitterFeed extends Widget_Base {
             'data-lang' => $settings['language'],
             'data-partner' => 'twitter-deck'
         ]);
-
         ?>
         <a <?php $this->print_render_attribute_string('moments'); ?>></a>
         <?php
@@ -705,7 +649,6 @@ class TwitterFeed extends Widget_Base {
             'data-lang' => $settings['language'],
             'data-partner' => 'twitter-deck'
         ]);
-
         ?>
         <a <?php $this->print_render_attribute_string('likes'); ?>>Likes</a>
         <?php
@@ -752,7 +695,6 @@ class TwitterFeed extends Widget_Base {
                 'href' => 'https://www.twitter.com/intent/tweet ?screen_name=' . $settings['screen_name']
             ]);
         }
-
         ?>
         <a <?php $this->print_render_attribute_string('handle'); ?>> Handle <?php echo $settings['username']; ?></a>
         <?php
@@ -782,7 +724,6 @@ class TwitterFeed extends Widget_Base {
             $this->add_render_attribute('hashtag', 'data-size', 'large');
         }
         $this->add_render_attribute('hashtag', 'data-url', $settings['hashtag_url']);
-
         ?>
         <a <?php $this->print_render_attribute_string('hashtag'); ?>>Tweet<?php echo $settings['hashtag']; ?> </a>
         <?php
@@ -800,4 +741,5 @@ class TwitterFeed extends Widget_Base {
             return get_the_excerpt($post->ID);
         }
     }
+
 }

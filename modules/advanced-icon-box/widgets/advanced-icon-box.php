@@ -45,15 +45,13 @@ class AdvancedIconBox extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_content_icon_box',
-            [
+            'section_content_icon_box', [
                 'label' => esc_html__('Icon Box', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'icon_type',
-            [
+            'icon_type', [
                 'label' => esc_html__('Icon Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'toggle' => false,
@@ -74,8 +72,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'selected_icon',
-            [
+            'selected_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
@@ -90,8 +87,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'image',
-            [
+            'image', [
                 'label' => esc_html__('Image Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'render_type' => 'template',
@@ -105,8 +101,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_text',
-            [
+            'title_text', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Icon Box Heading', 'easy-elementor-addons'),
@@ -116,8 +111,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'description_text',
-            [
+            'description_text', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'default' => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
@@ -126,16 +120,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'show_separator',
-            [
+            'show_separator', [
                 'label' => esc_html__('Title Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
         );
 
         $this->add_control(
-            'title_separator_type',
-            [
+            'title_separator_type', [
                 'label' => esc_html__('Separator Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'line',
@@ -171,8 +163,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_inline',
-            [
+            'icon_inline', [
                 'label' => esc_html__('Icon Inline', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'separator' => 'before',
@@ -180,8 +171,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_position',
-            [
+            'icon_position', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'top',
@@ -211,8 +201,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'text_align',
-            [
+            'text_align', [
                 'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -240,8 +229,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore',
-            [
+            'readmore', [
                 'label' => esc_html__('Read More Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
@@ -250,8 +238,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'badge',
-            [
+            'badge', [
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
             ]
@@ -260,8 +247,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_readmore',
-            [
+            'section_content_readmore', [
                 'label' => esc_html__('Read More', 'easy-elementor-addons'),
                 'condition' => [
                     'readmore' => 'yes',
@@ -270,20 +256,16 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_text',
-            [
+            'readmore_text', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                
-
                 'default' => esc_html__('Read More', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Read More', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'readmore_link',
-            [
+            'readmore_link', [
                 'label' => esc_html__('Link to', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'dynamic' => [
@@ -312,8 +294,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_icon_align',
-            [
+            'readmore_icon_align', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'row',
@@ -331,8 +312,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_icon_spacing',
-            [
+            'readmore_icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -356,8 +336,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_badge',
-            [
+            'section_content_badge', [
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
                 'condition' => [
                     'badge' => 'yes',
@@ -366,8 +345,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'badge_text',
-            [
+            'badge_text', [
                 'label' => esc_html__('Badge Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('New', 'easy-elementor-addons'),
@@ -379,8 +357,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'badge_position',
-            [
+            'badge_position', [
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'top-right',
@@ -394,8 +371,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'badge_horizontal_offset',
-            [
+            'badge_horizontal_offset', [
                 'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -413,8 +389,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'badge_vertical_offset',
-            [
+            'badge_vertical_offset', [
                 'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -432,8 +407,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'badge_rotate',
-            [
+            'badge_rotate', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -455,8 +429,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_additional',
-            [
+            'section_content_additional', [
                 'label' => esc_html__('Additional Options', 'easy-elementor-addons'),
             ]
         );
@@ -464,8 +437,7 @@ class AdvancedIconBox extends Widget_Base {
 
 
         $this->add_control(
-            'title_size',
-            [
+            'title_size', [
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h3',
@@ -487,8 +459,7 @@ class AdvancedIconBox extends Widget_Base {
 
         //Style
         $this->start_controls_section(
-            'section_style_icon_box',
-            [
+            'section_style_icon_box', [
                 'label' => esc_html__('Icon/Image', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'conditions' => [
@@ -512,15 +483,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->start_controls_tabs('icon_colors');
 
         $this->start_controls_tab(
-            'icon_colors_normal',
-            [
+            'icon_colors_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'icon_color',
-            [
+            'icon_color', [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -534,8 +503,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'image_width',
-            [
+            'image_width', [
                 'label' => esc_html__('Image Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -556,16 +524,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'icon_background',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span',
             ]
         );
 
         $this->add_responsive_control(
-            'icon_padding',
-            [
+            'icon_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -577,8 +543,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'icon_border',
                 'placeholder' => '1px',
                 'default' => '1px',
@@ -587,8 +552,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_radius_advanced_show',
-            [
+            'icon_radius_advanced_show', [
                 'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'separator' => 'before',
@@ -596,12 +560,10 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_radius',
-            [
+            'icon_radius', [
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
-
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -612,8 +574,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_radius_advanced',
-            [
+            'icon_radius_advanced', [
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
                 'type' => Controls_Manager::TEXT,
@@ -629,16 +590,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'icon_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
             ]
         );
 
         $this->add_responsive_control(
-            'icon_space',
-            [
+            'icon_space', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'separator' => 'before',
@@ -657,8 +616,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_size',
-            [
+            'icon_size', [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
@@ -685,8 +643,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'rotate',
-            [
+            'rotate', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
@@ -706,8 +663,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_vertical_offset',
-            [
+            'icon_vertical_offset', [
                 'label' => esc_html__('Icon Vertical Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -724,8 +680,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_horizontal_offset',
-            [
+            'icon_horizontal_offset', [
                 'label' => esc_html__('Icon Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -742,8 +697,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_overflow',
-            [
+            'icon_overflow', [
                 'label' => esc_html__('Overflow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'visible',
@@ -761,15 +715,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'icon_hover',
-            [
+            'icon_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'icon_hover_color',
-            [
+            'icon_hover_color', [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -783,8 +735,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_hover_border_color',
-            [
+            'icon_hover_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'before',
@@ -795,16 +746,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'icon_hover_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon span'
             ]
         );
 
         $this->add_control(
-            'icon_hover_animation',
-            [
+            'icon_hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
@@ -817,8 +766,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_title',
-            [
+            'section_style_title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -827,15 +775,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->start_controls_tabs('tabs_title_style');
 
         $this->start_controls_tab(
-            'tab_title_style_normal',
-            [
+            'tab_title_style_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_responsive_control(
-            'title_bottom_space',
-            [
+            'title_bottom_space', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -852,8 +798,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_color',
-            [
+            'title_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -863,8 +808,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-title',
             ]
@@ -873,15 +817,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_title_style_hover',
-            [
+            'tab_title_style_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'title_color_hover',
-            [
+            'title_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -898,16 +840,14 @@ class AdvancedIconBox extends Widget_Base {
 
 
         $this->start_controls_section(
-            'section_style_description',
-            [
+            'section_style_description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_responsive_control(
-            'description_bottom_space',
-            [
+            'description_bottom_space', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -920,15 +860,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->start_controls_tabs('tabs_description_style');
 
         $this->start_controls_tab(
-            'tab_description_style_normal',
-            [
+            'tab_description_style_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'description_color',
-            [
+            'description_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -938,8 +876,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-desc',
             ]
@@ -948,15 +885,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_description_style_hover',
-            [
+            'tab_description_style_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'description_color_hover',
-            [
+            'description_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -972,8 +907,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_content_title_separator',
-            [
+            'section_content_title_separator', [
                 'label' => esc_html__('Title Separator', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -983,8 +917,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_separator_border_style',
-            [
+            'title_separator_border_style', [
                 'label' => esc_html__('Separator Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'solid',
@@ -1004,8 +937,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_separator_line_color',
-            [
+            'title_separator_line_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -1018,8 +950,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'title_separator_height',
-            [
+            'title_separator_height', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1038,8 +969,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'title_separator_width',
-            [
+            'title_separator_width', [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -1063,8 +993,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_separator_svg_color',
-            [
+            'title_separator_svg_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
@@ -1077,8 +1006,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'divider_svg_max_width',
-            [
+            'divider_svg_max_width', [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'size_units' => ['px', 'em', '%'],
                 'type' => Controls_Manager::SLIDER,
@@ -1098,8 +1026,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'divider_svg_max_height',
-            [
+            'divider_svg_max_height', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -1119,8 +1046,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'divider_svg_stroke_width',
-            [
+            'divider_svg_stroke_width', [
                 'label' => esc_html__('Stroke Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -1139,8 +1065,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'title_separator_spacing',
-            [
+            'title_separator_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
@@ -1158,8 +1083,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_readmore',
-            [
+            'section_style_readmore', [
                 'label' => esc_html__('Read More', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -1171,15 +1095,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->start_controls_tabs('tabs_readmore_style');
 
         $this->start_controls_tab(
-            'tab_readmore_normal',
-            [
+            'tab_readmore_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'readmore_text_color',
-            [
+            'readmore_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1190,8 +1112,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'readmore_background',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
                 'exclude' => ['image']
@@ -1199,8 +1120,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'readmore_border',
                 'placeholder' => '1px',
                 'separator' => 'before',
@@ -1210,8 +1130,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'readmore_radius',
-            [
+            'readmore_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -1223,16 +1142,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'readmore_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
             ]
         );
 
         $this->add_responsive_control(
-            'readmore_padding',
-            [
+            'readmore_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1243,8 +1160,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'readmore_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button',
             ]
@@ -1253,15 +1169,13 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'tab_readmore_hover',
-            [
+            'tab_readmore_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons'),
             ]
         );
 
         $this->add_control(
-            'readmore_hover_text_color',
-            [
+            'readmore_hover_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1272,8 +1186,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'readmore_hover_background',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover',
                 'exclude' => ['image']
@@ -1281,8 +1194,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'readmore_hover_border_color',
-            [
+            'readmore_hover_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1292,16 +1204,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'readmore_hover_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover',
             ]
         );
 
         $this->add_control(
-            'readmore_hover_animation',
-            [
+            'readmore_hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
@@ -1314,8 +1224,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_badge',
-            [
+            'section_style_badge', [
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -1325,8 +1234,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_control(
-            'badge_text_color',
-            [
+            'badge_text_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
@@ -1336,8 +1244,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
+            Group_Control_Background::get_type(), [
                 'name' => 'badge_background',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
                 'exclude' => ['image'],
@@ -1345,8 +1252,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
+            Group_Control_Border::get_type(), [
                 'name' => 'badge_border',
                 'placeholder' => '1px',
                 'separator' => 'before',
@@ -1356,8 +1262,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'badge_radius',
-            [
+            'badge_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
@@ -1369,16 +1274,14 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
+            Group_Control_Box_Shadow::get_type(), [
                 'name' => 'badge_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
             ]
         );
 
         $this->add_responsive_control(
-            'badge_padding',
-            [
+            'badge_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1389,8 +1292,7 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
+            Group_Control_Typography::get_type(), [
                 'name' => 'badge_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge',
             ]
@@ -1399,8 +1301,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'section_style_additional',
-            [
+            'section_style_additional', [
                 'label' => esc_html__('Additional', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
@@ -1409,8 +1310,7 @@ class AdvancedIconBox extends Widget_Base {
 
 
         $this->add_responsive_control(
-            'outer_box_padding',
-            [
+            'outer_box_padding', [
                 'label' => esc_html__('Content Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
@@ -1432,7 +1332,6 @@ class AdvancedIconBox extends Widget_Base {
         if ($has_icon && ('icon' == $settings['icon_type'])) {
             $this->add_render_attribute('font-icon', 'class', $settings['selected_icon']);
             $this->add_render_attribute('font-icon', 'aria-hidden', 'true');
-
         } elseif ($has_image && ('image' == $settings['icon_type'])) {
             $this->add_render_attribute('image-icon', 'src', $settings['image']['url']);
             $this->add_render_attribute('image-icon', 'alt', $settings['title_text']);
@@ -1444,7 +1343,8 @@ class AdvancedIconBox extends Widget_Base {
             $this->add_render_attribute('icon-class', 'class', 'elementor-animation-' . $settings['icon_hover_animation']);
         }
 
-        if ($has_icon or $has_image) { ?>
+        if ($has_icon or $has_image) {
+            ?>
             <div <?php $this->print_render_attribute_string('icon-class'); ?>>
                 <span>
                     <?php
@@ -1469,7 +1369,6 @@ class AdvancedIconBox extends Widget_Base {
         if ('yes' == $settings['icon_inline']) {
             $this->add_render_attribute('advanced-icon-box-icon-heading', 'class', 'eead-aib-inline-icon');
         }
-
         ?>
         <div <?php $this->print_render_attribute_string('advanced-icon-box-icon-heading'); ?>>
             <?php
@@ -1602,4 +1501,5 @@ class AdvancedIconBox extends Widget_Base {
         </div>
         <?php
     }
+
 }
