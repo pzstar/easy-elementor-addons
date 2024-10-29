@@ -41,138 +41,138 @@ class BusinessHour extends Widget_Base {
     protected function register_controls() {
         $time_24hr = false;
         $wp_time_format = get_option('time_format');
-        if ((strpos($wp_time_format, 'G') !== false) or ( strpos($wp_time_format, 'H') !== false)) {
+        if ((strpos($wp_time_format, 'G') !== false) or (strpos($wp_time_format, 'H') !== false)) {
             $time_24hr = true;
         }
 
         $this->start_controls_section(
-                'header_content', [
-            'label' => esc_html__('Header Contents', 'easy-elementor-addons'),
-                ]
+            'header_content', [
+                'label' => esc_html__('Header Contents', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'header_content_type', [
-            'label' => esc_html__('Content Type', 'easy-elementor-addons'),
-            'type' => Controls_Manager::CHOOSE,
-            'label_block' => true,
-            'toggle' => false,
-            'options' => [
-                'none' => [
-                    'title' => esc_html__('None', 'easy-elementor-addons'),
-                    'icon' => 'eicon-close',
+            'header_content_type', [
+                'label' => esc_html__('Content Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => true,
+                'toggle' => false,
+                'options' => [
+                    'none' => [
+                        'title' => esc_html__('None', 'easy-elementor-addons'),
+                        'icon' => 'eicon-close',
+                    ],
+                    'date' => [
+                        'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
+                        'icon' => 'eicon-calendar',
+                    ],
+                    'status' => [
+                        'title' => esc_html__('Open Status', 'easy-elementor-addons'),
+                        'icon' => 'eicon-info',
+                    ],
+                    'text' => [
+                        'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
+                        'icon' => 'eicon-animated-headline',
+                    ]
                 ],
-                'date' => [
-                    'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
-                    'icon' => 'eicon-calendar',
-                ],
-                'status' => [
-                    'title' => esc_html__('Open Status', 'easy-elementor-addons'),
-                    'icon' => 'eicon-info',
-                ],
-                'text' => [
-                    'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
-                    'icon' => 'eicon-animated-headline',
-                ]
-            ],
-            'default' => 'date',
-                ]
+                'default' => 'date',
+            ]
         );
 
         $this->add_control(
-                'header_open_msg', [
-            'label' => esc_html__('Open Message', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => esc_html__('We are open.', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
-            'condition' => [
-                'header_content_type' => 'status'
-            ],
-                ]
+            'header_open_msg', [
+                'label' => esc_html__('Open Message', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('We are open.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
+                'condition' => [
+                    'header_content_type' => 'status'
+                ],
+            ]
         );
 
         $this->add_control(
-                'header_closed_msg', [
-            'label' => esc_html__('Closed Message', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
-            'condition' => [
-                'header_content_type' => 'status'
-            ],
-                ]
+            'header_closed_msg', [
+                'label' => esc_html__('Closed Message', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
+                'condition' => [
+                    'header_content_type' => 'status'
+                ],
+            ]
         );
 
         // Custom Message
         $this->add_control(
-                'header_text', [
-            'label' => esc_html__('Custom Message', 'easy-elementor-addons'),
-            'label_block' => true,
-            'type' => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
-            'condition' => [
-                'header_content_type' => 'text'
-            ],
-                ]
+            'header_text', [
+                'label' => esc_html__('Custom Message', 'easy-elementor-addons'),
+                'label_block' => true,
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
+                'condition' => [
+                    'header_content_type' => 'text'
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'header_content_alignment', [
-            'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'left' => esc_html__('Left', 'easy-elementor-addons'),
-                'center' => esc_html__('Center', 'easy-elementor-addons'),
-                'right' => esc_html__('Right', 'easy-elementor-addons')
-            ],
-            'default' => 'left',
-            'condition' => [
-                'header_content_type!' => 'none'
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'text-align: {{VALUE}}'
-            ]
+            'header_content_alignment', [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'center' => esc_html__('Center', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons')
+                ],
+                'default' => 'left',
+                'condition' => [
+                    'header_content_type!' => 'none'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'text-align: {{VALUE}}'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'business_hours', [
-            'label' => esc_html__('Business Hours', 'easy-elementor-addons'),
-                ]
+            'business_hours', [
+                'label' => esc_html__('Business Hours', 'easy-elementor-addons'),
+            ]
         );
 
         $repeater = new Repeater();
 
         $repeater->add_control(
-                'start_time', [
-            'label' => esc_html__('Start Time', 'easy-elementor-addons'),
-            'label_block' => false,
-            'type' => Controls_Manager::DATE_TIME,
-            'default' => $this->format_time('9:00'), //'H:i'
-            'picker_options' => [
-                'enableTime' => true,
-                'noCalendar' => true,
-                'dateFormat' => $this->time_format_to_js($wp_time_format),
-                'time_24hr' => $time_24hr
-            ]
+            'start_time', [
+                'label' => esc_html__('Start Time', 'easy-elementor-addons'),
+                'label_block' => false,
+                'type' => Controls_Manager::DATE_TIME,
+                'default' => $this->format_time('9:00'), //'H:i'
+                'picker_options' => [
+                    'enableTime' => true,
+                    'noCalendar' => true,
+                    'dateFormat' => $this->time_format_to_js($wp_time_format),
+                    'time_24hr' => $time_24hr
                 ]
+            ]
         );
 
         $repeater->add_control(
-                'end_time', [
-            'label' => esc_html__('End Time', 'easy-elementor-addons'),
-            'label_block' => false,
-            'type' => Controls_Manager::DATE_TIME,
-            'default' => $this->format_time('18:00'), //'H:i'
-            'picker_options' => [
-                'enableTime' => true,
-                'noCalendar' => true,
-                'dateFormat' => $this->time_format_to_js($wp_time_format),
-                'time_24hr' => $time_24hr
-            ]
+            'end_time', [
+                'label' => esc_html__('End Time', 'easy-elementor-addons'),
+                'label_block' => false,
+                'type' => Controls_Manager::DATE_TIME,
+                'default' => $this->format_time('18:00'), //'H:i'
+                'picker_options' => [
+                    'enableTime' => true,
+                    'noCalendar' => true,
+                    'dateFormat' => $this->time_format_to_js($wp_time_format),
+                    'time_24hr' => $time_24hr
                 ]
+            ]
         );
 
         /** Days of week. */
@@ -196,20 +196,20 @@ class BusinessHour extends Widget_Base {
 
             /** Header. */
             $this->add_control(
-                    "{$key}_header", [
-                'type' => Controls_Manager::RAW_HTML,
-                'raw' => '<h4><strong>' . $day . '</strong></h4>',
-                    ]
+                "{$key}_header", [
+                    'type' => Controls_Manager::RAW_HTML,
+                    'raw' => '<h4><strong>' . $day . '</strong></h4>',
+                ]
             );
 
             /** Day Label. */
             $this->add_control(
-                    "{$key}day_label", [
-                'label' => esc_html__('Day Label:', 'easy-elementor-addons'),
-                'label_block' => false,
-                'type' => Controls_Manager::TEXT,
-                'default' => $day,
-                    ]
+                "{$key}day_label", [
+                    'label' => esc_html__('Day Label:', 'easy-elementor-addons'),
+                    'label_block' => false,
+                    'type' => Controls_Manager::TEXT,
+                    'default' => $day,
+                ]
             );
 
             /** Closed. */
@@ -218,44 +218,44 @@ class BusinessHour extends Widget_Base {
                 $default = 'yes';
             }
             $this->add_control(
-                    "{$key}_closed", [
-                'label' => esc_html__('Closed All Day:', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => $default,
-                    ]
+                "{$key}_closed", [
+                    'label' => esc_html__('Closed All Day:', 'easy-elementor-addons'),
+                    'type' => Controls_Manager::SWITCHER,
+                    'default' => $default,
+                ]
             );
 
             $this->add_control(
-                    "{$key}_closed_day_msg", [
-                'label' => esc_html__('Closed All Day Message:', 'easy-elementor-addons'),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Closed All Day', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Closed All Day', 'easy-elementor-addons'),
-                'condition' => [
-                    "{$key}_closed" => 'yes'
-                ]
+                "{$key}_closed_day_msg", [
+                    'label' => esc_html__('Closed All Day Message:', 'easy-elementor-addons'),
+                    'label_block' => true,
+                    'type' => Controls_Manager::TEXT,
+                    'default' => esc_html__('Closed All Day', 'easy-elementor-addons'),
+                    'placeholder' => esc_html__('Closed All Day', 'easy-elementor-addons'),
+                    'condition' => [
+                        "{$key}_closed" => 'yes'
                     ]
+                ]
             );
 
             /** Business Hours. */
             $this->add_control(
-                    "{$key}_business_hours", [
-                'label' => esc_html__('Business Hours:', 'easy-elementor-addons'),
-                'type' => Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'prevent_empty' => false,
-                'default' => [
-                    [
-                        'start_time' => $this->format_time('9:00'), //'H:i',
-                        'end_time' => $this->format_time('20:00'), //'H:i'
-                    ]
-                ],
-                'title_field' => '{{{start_time}}} - {{{end_time}}}',
-                'condition' => [
-                    "{$key}_closed" => '',
-                ],
-                    ]
+                "{$key}_business_hours", [
+                    'label' => esc_html__('Business Hours:', 'easy-elementor-addons'),
+                    'type' => Controls_Manager::REPEATER,
+                    'fields' => $repeater->get_controls(),
+                    'prevent_empty' => false,
+                    'default' => [
+                        [
+                            'start_time' => $this->format_time('9:00'), //'H:i',
+                            'end_time' => $this->format_time('20:00'), //'H:i'
+                        ]
+                    ],
+                    'title_field' => '{{{start_time}}} - {{{end_time}}}',
+                    'condition' => [
+                        "{$key}_closed" => '',
+                    ],
+                ]
             );
 
             /** Separator. */
@@ -265,566 +265,566 @@ class BusinessHour extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'footer_content', [
-            'label' => esc_html__('Footer Contents', 'easy-elementor-addons'),
-                ]
+            'footer_content', [
+                'label' => esc_html__('Footer Contents', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'footer_content_type', [
-            'label' => esc_html__('Content Type', 'easy-elementor-addons'),
-            'type' => Controls_Manager::CHOOSE,
-            'label_block' => true,
-            'toggle' => false,
-            'options' => [
-                'none' => [
-                    'title' => esc_html__('None', 'easy-elementor-addons'),
-                    'icon' => 'eicon-close',
+            'footer_content_type', [
+                'label' => esc_html__('Content Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => true,
+                'toggle' => false,
+                'options' => [
+                    'none' => [
+                        'title' => esc_html__('None', 'easy-elementor-addons'),
+                        'icon' => 'eicon-close',
+                    ],
+                    'date' => [
+                        'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
+                        'icon' => 'eicon-calendar',
+                    ],
+                    'status' => [
+                        'title' => esc_html__('Open Status', 'easy-elementor-addons'),
+                        'icon' => 'eicon-info',
+                    ],
+                    'text' => [
+                        'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
+                        'icon' => 'eicon-animated-headline',
+                    ]
                 ],
-                'date' => [
-                    'title' => esc_html__('Todays Date', 'easy-elementor-addons'),
-                    'icon' => 'eicon-calendar',
-                ],
-                'status' => [
-                    'title' => esc_html__('Open Status', 'easy-elementor-addons'),
-                    'icon' => 'eicon-info',
-                ],
-                'text' => [
-                    'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
-                    'icon' => 'eicon-animated-headline',
-                ]
-            ],
-            'default' => 'status',
-                ]
+                'default' => 'status',
+            ]
         );
 
         $this->add_control(
-                'footer_open_msg', [
-            'label' => esc_html__('Open Message', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => esc_html__('We are open.', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
-            'condition' => [
-                'footer_content_type' => 'status'
-            ],
-                ]
+            'footer_open_msg', [
+                'label' => esc_html__('Open Message', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('We are open.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
+                'condition' => [
+                    'footer_content_type' => 'status'
+                ],
+            ]
         );
 
         $this->add_control(
-                'footer_closed_msg', [
-            'label' => esc_html__('Closed Message', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
-            'condition' => [
-                'footer_content_type' => 'status'
-            ],
-                ]
+            'footer_closed_msg', [
+                'label' => esc_html__('Closed Message', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
+                'condition' => [
+                    'footer_content_type' => 'status'
+                ],
+            ]
         );
 
         // Custom Message
         $this->add_control(
-                'footer_text', [
-            'label' => esc_html__('Custom Message', 'easy-elementor-addons'),
-            'label_block' => true,
-            'type' => Controls_Manager::TEXTAREA,
-            'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
-            'condition' => [
-                'footer_content_type' => 'text'
-            ],
-                ]
+            'footer_text', [
+                'label' => esc_html__('Custom Message', 'easy-elementor-addons'),
+                'label_block' => true,
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
+                'condition' => [
+                    'footer_content_type' => 'text'
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'footer_content_alignment', [
-            'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'left' => esc_html__('Left', 'easy-elementor-addons'),
-                'center' => esc_html__('Center', 'easy-elementor-addons'),
-                'right' => esc_html__('Right', 'easy-elementor-addons')
-            ],
-            'default' => 'left',
-            'condition' => [
-                'footer_content_type!' => 'none'
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'text-align: {{VALUE}}'
-            ]
+            'footer_content_alignment', [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'left' => esc_html__('Left', 'easy-elementor-addons'),
+                    'center' => esc_html__('Center', 'easy-elementor-addons'),
+                    'right' => esc_html__('Right', 'easy-elementor-addons')
+                ],
+                'default' => 'left',
+                'condition' => [
+                    'footer_content_type!' => 'none'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'text-align: {{VALUE}}'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'time_zone', [
-            'label' => esc_html__('Time Zone', 'easy-elementor-addons'),
-            'conditions' => [
-                'relation' => 'or',
-                'terms' => [
-                    [
-                        'name' => 'header_content_type',
-                        'operator' => '==',
-                        'value' => 'date',
-                    ],
-                    [
-                        'name' => 'footer_content_type',
-                        'operator' => '==',
-                        'value' => 'date',
+            'time_zone', [
+                'label' => esc_html__('Time Zone', 'easy-elementor-addons'),
+                'conditions' => [
+                    'relation' => 'or',
+                    'terms' => [
+                        [
+                            'name' => 'header_content_type',
+                            'operator' => '==',
+                            'value' => 'date',
+                        ],
+                        [
+                            'name' => 'footer_content_type',
+                            'operator' => '==',
+                            'value' => 'date',
+                        ]
                     ]
-                ]
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'business_hour_style', [
-            'label' => esc_html__('Display Timer', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'default' => esc_html__('No', 'easy-elementor-addons'),
-                'dynamic' => esc_html__('Yes', 'easy-elementor-addons')
-            ],
-            'default' => 'default',
-                ]
-        );
-
-        $this->add_control(
-                'dynamic_timezone', [
-            'label' => esc_html__('Timezone', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'default',
-            'options' => [
-                'default' => 'Website Time',
-                '-0' => esc_html__('UT or UTC - GMT -0', 'easy-elementor-addons'),
-                '+1' => esc_html__('CET - GMT+1', 'easy-elementor-addons'),
-                '+2' => esc_html__('EET - GMT+2', 'easy-elementor-addons'),
-                '+3' => esc_html__('MSK - GMT+3', 'easy-elementor-addons'),
-                '+4' => esc_html__('SMT - GMT+4', 'easy-elementor-addons'),
-                '+5' => esc_html__('PKT - GMT+5', 'easy-elementor-addons'),
-                '+5.5' => esc_html__('IND - GMT+5.5', 'easy-elementor-addons'),
-                '+6' => esc_html__('OMSK / BD - GMT+6', 'easy-elementor-addons'),
-                '+7' => esc_html__('CXT - GMT+7', 'easy-elementor-addons'),
-                '+8' => esc_html__('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
-                '+9' => esc_html__('JST - GMT+9', 'easy-elementor-addons'),
-                '+10' => esc_html__('EAST - GMT+10', 'easy-elementor-addons'),
-                '+11' => esc_html__('SAKT - GMT+11', 'easy-elementor-addons'),
-                '+12' => esc_html__('IDLE  - GMT+12', 'easy-elementor-addons'),
-                '+13' => esc_html__('NZDT  - GMT+13', 'easy-elementor-addons'),
-                '-1' => esc_html__('WAT  - GMT-1', 'easy-elementor-addons'),
-                '-2' => esc_html__('AT  - GMT-2', 'easy-elementor-addons'),
-                '-3' => esc_html__('ART  - GMT-3', 'easy-elementor-addons'),
-                '-4' => esc_html__('AST  - GMT-4', 'easy-elementor-addons'),
-                '-5' => esc_html__('EST  - GMT-5', 'easy-elementor-addons'),
-                '-6' => esc_html__('CST  - GMT-6', 'easy-elementor-addons'),
-                '-7' => esc_html__('MST  - GMT-7', 'easy-elementor-addons'),
-                '-8' => esc_html__('PST  - GMT-8', 'easy-elementor-addons'),
-                '-9' => esc_html__('AKST  - GMT-9', 'easy-elementor-addons'),
-                '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
-                '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
-                '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
-                'custom' => "Custom"
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'custom_timezone_input', [
-            'label' => esc_html__('Custom Timezone', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => '+6',
-            'placeholder' => '+6',
-            'condition' => [
-                'dynamic_timezone' => 'custom'
+                ],
             ]
+        );
+
+        $this->add_control(
+            'business_hour_style', [
+                'label' => esc_html__('Display Timer', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'default' => esc_html__('No', 'easy-elementor-addons'),
+                    'dynamic' => esc_html__('Yes', 'easy-elementor-addons')
+                ],
+                'default' => 'default',
+            ]
+        );
+
+        $this->add_control(
+            'dynamic_timezone', [
+                'label' => esc_html__('Timezone', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'default',
+                'options' => [
+                    'default' => 'Website Time',
+                    '-0' => esc_html__('UT or UTC - GMT -0', 'easy-elementor-addons'),
+                    '+1' => esc_html__('CET - GMT+1', 'easy-elementor-addons'),
+                    '+2' => esc_html__('EET - GMT+2', 'easy-elementor-addons'),
+                    '+3' => esc_html__('MSK - GMT+3', 'easy-elementor-addons'),
+                    '+4' => esc_html__('SMT - GMT+4', 'easy-elementor-addons'),
+                    '+5' => esc_html__('PKT - GMT+5', 'easy-elementor-addons'),
+                    '+5.5' => esc_html__('IND - GMT+5.5', 'easy-elementor-addons'),
+                    '+6' => esc_html__('OMSK / BD - GMT+6', 'easy-elementor-addons'),
+                    '+7' => esc_html__('CXT - GMT+7', 'easy-elementor-addons'),
+                    '+8' => esc_html__('CST / AWST / WST - GMT+8', 'easy-elementor-addons'),
+                    '+9' => esc_html__('JST - GMT+9', 'easy-elementor-addons'),
+                    '+10' => esc_html__('EAST - GMT+10', 'easy-elementor-addons'),
+                    '+11' => esc_html__('SAKT - GMT+11', 'easy-elementor-addons'),
+                    '+12' => esc_html__('IDLE  - GMT+12', 'easy-elementor-addons'),
+                    '+13' => esc_html__('NZDT  - GMT+13', 'easy-elementor-addons'),
+                    '-1' => esc_html__('WAT  - GMT-1', 'easy-elementor-addons'),
+                    '-2' => esc_html__('AT  - GMT-2', 'easy-elementor-addons'),
+                    '-3' => esc_html__('ART  - GMT-3', 'easy-elementor-addons'),
+                    '-4' => esc_html__('AST  - GMT-4', 'easy-elementor-addons'),
+                    '-5' => esc_html__('EST  - GMT-5', 'easy-elementor-addons'),
+                    '-6' => esc_html__('CST  - GMT-6', 'easy-elementor-addons'),
+                    '-7' => esc_html__('MST  - GMT-7', 'easy-elementor-addons'),
+                    '-8' => esc_html__('PST  - GMT-8', 'easy-elementor-addons'),
+                    '-9' => esc_html__('AKST  - GMT-9', 'easy-elementor-addons'),
+                    '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
+                    '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
+                    '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
+                    'custom' => "Custom"
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'custom_timezone_input', [
+                'label' => esc_html__('Custom Timezone', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '+6',
+                'placeholder' => '+6',
+                'condition' => [
+                    'dynamic_timezone' => 'custom'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         /*  Style Tabs  */
         $this->start_controls_section(
-                'header_style', [
-            'label' => esc_html__('Header Section', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-            'condition' => [
-                'header_content_type!' => 'none'
-            ],
-                ]
+            'header_style', [
+                'label' => esc_html__('Header Section', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'header_content_type!' => 'none'
+                ],
+            ]
         );
 
         $this->add_control(
-                'header_bg_color', [
-            'label' => esc_html__('Header Background', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}'
-            ],
-                ]
+            'header_bg_color', [
+                'label' => esc_html__('Header Background', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->add_control(
-                'header_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'color: {{VALUE}}'
-            ],
-                ]
+            'header_text_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'header_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-header',
-                ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'header_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-header',
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'time_typography',
-            'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-current-time',
-            'condition' => [
-                'header_content_type' => 'date'
-            ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'time_typography',
+                'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-current-time',
+                'condition' => [
+                    'header_content_type' => 'date'
                 ]
+            ]
         );
 
         $this->add_control(
-                'header_padding', [
-            'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ]
+            'header_padding', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         /*  Style Tabs  */
         $this->start_controls_section(
-                'footer_style', [
-            'label' => esc_html__('Footer Section', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-            'condition' => [
-                'footer_content_type!' => 'none'
-            ],
-                ]
+            'footer_style', [
+                'label' => esc_html__('Footer Section', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'footer_content_type!' => 'none'
+                ],
+            ]
         );
 
         $this->add_control(
-                'footer_bg_color', [
-            'label' => esc_html__('Footer Background', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}'
-            ],
-                ]
+            'footer_bg_color', [
+                'label' => esc_html__('Footer Background', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->add_control(
-                'footer_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'color: {{VALUE}}'
-            ],
-                ]
+            'footer_text_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'footer_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-footer',
-                ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'footer_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-bh-footer',
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'footer_time_typography',
-            'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}}  .eead-business-hour .eead-bh-current-time',
-            'condition' => [
-                'footer_content_type' => 'date'
-            ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'footer_time_typography',
+                'label' => esc_html__('Time Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}}  .eead-business-hour .eead-bh-current-time',
+                'condition' => [
+                    'footer_content_type' => 'date'
                 ]
+            ]
         );
 
         $this->add_control(
-                'footer_padding', [
-            'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ]
+            'footer_padding', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         //Business Hour Styles
         $this->start_controls_section(
-                'work_hour_style', [
-            'label' => esc_html__('Business Hours', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE
-                ]
+            'work_hour_style', [
+                'label' => esc_html__('Business Hours', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'work_hour_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-business-hour .eead-business-hour-details',
-                ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'work_hour_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-business-hour .eead-business-hour-details',
+            ]
         );
 
         $this->add_control(
-                'work_day_bg_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#fff',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'background-color: {{VALUE}}'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'work_day_text_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'color: {{VALUE}}'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'current_day_bg_color', [
-            'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#ccc',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'current_day_text_color', [
-            'label' => esc_html__('Current Day Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'default' => '#333',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'color: {{VALUE}}'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'business_hours_day_align', [
-            'label' => esc_html__('Day Alignment', 'easy-elementor-addons'),
-            'type' => Controls_Manager::CHOOSE,
-            'options' => [
-                'left' => [
-                    'title' => esc_html__('Left', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-left',
+            'work_day_bg_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'background-color: {{VALUE}}'
                 ],
-                'center' => [
-                    'title' => esc_html__('Center', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-center',
-                ],
-                'right' => [
-                    'title' => esc_html__('Right', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-right',
-                ]
-            ],
-            'default' => 'left',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'text-align: {{VALUE}};'
-            ],
-                ]
+            ]
         );
 
         $this->add_control(
-                'business_hours_time_align', [
-            'label' => esc_html__('Time Alignment', 'easy-elementor-addons'),
-            'type' => Controls_Manager::CHOOSE,
-            'options' => [
-                'left' => [
-                    'title' => esc_html__('Left', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-left',
+            'work_day_text_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'color: {{VALUE}}'
                 ],
-                'center' => [
-                    'title' => esc_html__('Center', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-center',
+            ]
+        );
+
+        $this->add_control(
+            'current_day_bg_color', [
+                'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ccc',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}'
                 ],
-                'right' => [
-                    'title' => esc_html__('Right', 'easy-elementor-addons'),
-                    'icon' => 'eicon-text-align-right',
-                ]
-            ],
-            'default' => 'right',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'text-align: {{VALUE}};'
-            ],
-                ]
+            ]
+        );
+
+        $this->add_control(
+            'current_day_text_color', [
+                'label' => esc_html__('Current Day Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'business_hours_day_align', [
+                'label' => esc_html__('Day Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'default' => 'left',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'text-align: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'business_hours_time_align', [
+                'label' => esc_html__('Time Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'default' => 'right',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'text-align: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'day_width', [
-            'label' => esc_html__('Day Width', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => ['px', 'em', '%'],
-            'range' => [
-                'px' => [
-                    'min' => 10,
-                    'step' => 1,
-                    'max' => 600,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'flex-basis:{{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'flex-basis:calc(100% - {{SIZE}}{{UNIT}});'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'work_day_padding', [
-            'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', 'em'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            'day_width', [
+                'label' => esc_html__('Day Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'step' => 1,
+                        'max' => 600,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'flex-basis:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'flex-basis:calc(100% - {{SIZE}}{{UNIT}});'
+                ],
             ]
+        );
+
+        $this->add_control(
+            'work_day_padding', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'divider_style', [
-            'label' => esc_html__('Divider', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'divider_style', [
+                'label' => esc_html__('Divider', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'day_divider', [
-            'label' => esc_html__('Divider', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'default' => 'no',
-                ]
+            'day_divider', [
+                'label' => esc_html__('Divider', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'no',
+            ]
         );
 
         $this->add_control(
-                'day_divider_style', [
-            'label' => esc_html__('Style', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'solid' => esc_html__('Solid', 'easy-elementor-addons'),
-                'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
-                'dashed' => esc_html__('Dashed', 'easy-elementor-addons')
-            ],
-            'default' => 'solid',
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};'
-            ],
-            'condition' => [
-                'day_divider' => 'yes'
-            ],
-                ]
+            'day_divider_style', [
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'solid' => esc_html__('Solid', 'easy-elementor-addons'),
+                    'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
+                    'dashed' => esc_html__('Dashed', 'easy-elementor-addons')
+                ],
+                'default' => 'solid',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};'
+                ],
+                'condition' => [
+                    'day_divider' => 'yes'
+                ],
+            ]
         );
 
         $this->add_control(
-                'day_divider_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};'
-            ],
-            'condition' => [
-                'day_divider' => 'yes'
-            ],
-                ]
+            'day_divider_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};'
+                ],
+                'condition' => [
+                    'day_divider' => 'yes'
+                ],
+            ]
         );
 
         $this->add_control(
-                'day_divider_weight', [
-            'label' => esc_html__('Weight', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'default' => [
-                'size' => 1,
-                'unit' => 'px'
-            ],
-            'range' => [
-                'px' => [
-                    'min' => 1,
-                    'max' => 10,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};'
-            ],
-            'condition' => [
-                'day_divider' => 'yes'
-            ],
-                ]
+            'day_divider_weight', [
+                'label' => esc_html__('Weight', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 1,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};'
+                ],
+                'condition' => [
+                    'day_divider' => 'yes'
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'stripped_style', [
-            'label' => esc_html__('Striped Rows', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'stripped_style', [
+                'label' => esc_html__('Striped Rows', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'business_hours_striped', [
-            'label' => esc_html__('Enable Striped', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SWITCHER,
-            'default' => 'no',
-                ]
+            'business_hours_striped', [
+                'label' => esc_html__('Enable Striped', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'no',
+            ]
         );
 
         $this->add_control(
-                'business_hours_striped_odd_color', [
-            'label' => esc_html__('Striped Odd Rows Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};'
-            ],
-            'condition' => [
-                'business_hours_striped' => 'yes'
-            ],
-                ]
+            'business_hours_striped_odd_color', [
+                'label' => esc_html__('Striped Odd Rows Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};'
+                ],
+                'condition' => [
+                    'business_hours_striped' => 'yes'
+                ],
+            ]
         );
 
         $this->add_control(
-                'striped_effect_even', [
-            'label' => esc_html__('Striped Even Rows Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};'
-            ],
-            'condition' => [
-                'business_hours_striped' => 'yes'
-            ],
-                ]
+            'striped_effect_even', [
+                'label' => esc_html__('Striped Even Rows Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};'
+                ],
+                'condition' => [
+                    'business_hours_striped' => 'yes'
+                ],
+            ]
         );
 
         $this->end_controls_section();
@@ -873,13 +873,13 @@ class BusinessHour extends Widget_Base {
             'business-hours-data' => [
                 'data-settings' => [
                     wp_json_encode(
-                            array_filter([
-                        "id" => 'business-hours-' . $this->get_id(),
-                        'business_hour_style' => $settings['business_hour_style'] == 'default' ? 'static' : 'dynamic',
-                        "dynamic_timezone_default" => get_option('gmt_offset'),
-                        "dynamic_timezone" => $settings['dynamic_timezone'] == 'default' ? get_option('gmt_offset') : $ct_input,
-                        "timeNotation" => $timeNotation,
-                            ])
+                        array_filter([
+                            "id" => 'business-hours-' . $this->get_id(),
+                            'business_hour_style' => $settings['business_hour_style'] == 'default' ? 'static' : 'dynamic',
+                            "dynamic_timezone_default" => get_option('gmt_offset'),
+                            "dynamic_timezone" => $settings['dynamic_timezone'] == 'default' ? get_option('gmt_offset') : $ct_input,
+                            "timeNotation" => $timeNotation,
+                        ])
                     ),
                 ]
             ],
@@ -946,7 +946,7 @@ class BusinessHour extends Widget_Base {
                 $active_day = strtolower(current_time('D')); // sun
                 foreach ($week as $day) {
                     ?>
-                    <div class="eead-business-hour-row<?php echo($day == $active_day) ? ' active-day' : ''; ?>">
+                    <div class="eead-business-hour-row<?php echo ($day == $active_day) ? ' active-day' : ''; ?>">
                         <div class=" eead-business-day">
                             <?php echo wp_kses_post($settings["{$day}day_label"]); ?>
                         </div>
