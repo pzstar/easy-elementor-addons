@@ -30,7 +30,7 @@ class HorizontalScroll extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-featured-image';
+        return 'eead-element-icon eead-scroll-image';
     }
 
     /** Category */

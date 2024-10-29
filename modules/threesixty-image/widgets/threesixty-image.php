@@ -31,7 +31,7 @@ class ThreesixtyImage extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-image360';
+        return 'eead-element-icon eead-image360';
     }
 
     /** Category */
@@ -120,7 +120,7 @@ class ThreesixtyImage extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );

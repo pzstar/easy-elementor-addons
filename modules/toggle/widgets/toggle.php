@@ -33,7 +33,7 @@ class Toggle extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-toggle';
+        return 'eead-element-icon eead-toggle';
     }
 
     /** Category */
@@ -735,7 +735,7 @@ class Toggle extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-section' => 'color: {{VALUE}}',
                 ],
@@ -806,7 +806,7 @@ class Toggle extends Widget_Base {
         } else if ($settings[$content . '_content_type'] === 'template') {
             if (!empty($settings[$content . '_templates'])) {
                 $template_id = $settings[$content . '_templates'];
-                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($template_id);
+                echo Plugin::$instance->frontend->get_builder_content_for_display($template_id);
             }
         }
     }

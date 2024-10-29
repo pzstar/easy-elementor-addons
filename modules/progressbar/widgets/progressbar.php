@@ -32,7 +32,7 @@ class Progressbar extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-progressbar';
+        return 'eead-element-icon eead-progress-bar';
     }
 
     /** Category */
@@ -346,7 +346,7 @@ class Progressbar extends Widget_Base {
             'progressbar_bg_header',
             [
                 'label' => esc_html__('Bar Background Color', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::HEADING,
+                'type' => Controls_Manager::HEADING,
             ]
         );
 
@@ -363,7 +363,7 @@ class Progressbar extends Widget_Base {
             'progress_length_header',
             [
                 'label' => esc_html__('Active Progress Color', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::HEADING,
+                'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
         );

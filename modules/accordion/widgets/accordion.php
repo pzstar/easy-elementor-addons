@@ -33,7 +33,7 @@ class Accordion extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-accordion';
+        return 'eead-element-icon eead-accordion';
     }
 
     /** Category */
@@ -103,9 +103,9 @@ class Accordion extends Widget_Base {
             [
                 'label' => esc_html__('Show Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -182,7 +182,7 @@ class Accordion extends Widget_Base {
         $this->add_control(
             'hr1',
             [
-                'type' => \Elementor\Controls_Manager::DIVIDER,
+                'type' => Controls_Manager::DIVIDER,
             ]
         );
 
@@ -271,7 +271,7 @@ class Accordion extends Widget_Base {
             'accordion_gap',
             [
                 'label' => esc_html__('Gap Between Each Accordion', 'easy-elementor-addons'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
+                'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'range' => [
                     'px' => [

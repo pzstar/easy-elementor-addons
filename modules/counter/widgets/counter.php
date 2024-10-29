@@ -31,7 +31,7 @@ class Counter extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-counter';
+        return 'eead-element-icon eead-counter';
     }
 
     /** Category */
@@ -171,7 +171,7 @@ class Counter extends Widget_Base {
             [
                 'label' => esc_html__('Show Comma Notation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
             ]
         );
 

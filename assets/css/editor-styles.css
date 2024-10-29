@@ -204,3 +204,21 @@
 .eead-live-temp-label label {
     font-weight: 900;
 }
+
+.elementor-element-wrapper .elementor-element:has(.eead-element-icon):before{
+    content: "EEA";
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: 1px solid #EEE;
+    border-radius: 28px;
+    font-size: 8px;
+    height: 18px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: #e5e9ec;
+    color: #666;
+}

@@ -31,7 +31,7 @@ class Countdown extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-count-down';
+        return 'eead-element-icon eead-count-down';
     }
 
     /** Category */
@@ -178,7 +178,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Show Days', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
                 'separator' => 'before'
             ]
@@ -202,7 +202,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Show Hours', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -225,7 +225,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Show Minutes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -248,7 +248,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Show Seconds', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -555,7 +555,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'condition' => [
                     'countdown_separator' => 'yes',
                 ],
@@ -589,7 +589,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-days .eead-countdown-digits' => 'color: {{VALUE}};',
                 ],
@@ -601,7 +601,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Label Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-days .eead-countdown-label' => 'color: {{VALUE}};',
                 ],
@@ -613,7 +613,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-days' => 'border-color: {{VALUE}};',
                 ],
@@ -644,7 +644,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-hours .eead-countdown-digits' => 'color: {{VALUE}};',
                 ],
@@ -656,7 +656,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Label Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-hours .eead-countdown-label' => 'color: {{VALUE}};',
                 ],
@@ -668,7 +668,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours' => 'border-color: {{VALUE}};',
                 ],
@@ -699,7 +699,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-digits' => 'color: {{VALUE}};',
                 ],
@@ -711,7 +711,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Label Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-label' => 'color: {{VALUE}};',
                 ],
@@ -723,7 +723,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes' => 'border-color: {{VALUE}};',
                 ],
@@ -754,7 +754,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Digit Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-digits' => 'color: {{VALUE}};',
                 ],
@@ -766,7 +766,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Label Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-label' => 'color: {{VALUE}};',
                 ],
@@ -778,7 +778,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds' => 'border-color: {{VALUE}};',
                 ],
@@ -838,7 +838,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-finish-message .expiry-title' => 'color: {{VALUE}};',
                 ],
@@ -885,7 +885,7 @@ class Countdown extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-finish-text' => 'color: {{VALUE}};',
                 ],

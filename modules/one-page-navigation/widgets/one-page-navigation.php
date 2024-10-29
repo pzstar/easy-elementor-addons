@@ -25,7 +25,7 @@ class OnePageNavigation extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-one-page-nav';
+		return 'eead-element-icon eead-one-page-nav';
 	}
 
 	public function get_categories() {
@@ -70,7 +70,7 @@ class OnePageNavigation extends Widget_Base {
 			[
 				'label' => esc_html__('Section ID', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'default' => '',
+				
 			]
 		);
 
@@ -158,6 +158,26 @@ class OnePageNavigation extends Widget_Base {
 				'label' => esc_html__('Scrolling Speed', 'easy-elementor-addons'),
 				'type' => Controls_Manager::NUMBER,
 				'default' => '700',
+			]
+		);
+
+		$this->add_control(
+			'offset',
+			[
+				'label' => esc_html__('Offset', 'easy-elementor-addons'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => '0'
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 300,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px']
 			]
 		);
 
@@ -309,7 +329,7 @@ class OnePageNavigation extends Widget_Base {
 				'label' => esc_html__('Enable Tool Tip', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'return_value' => 'yes',
+				
 				'separator' => 'before'
 			]
 		);
@@ -632,7 +652,7 @@ class OnePageNavigation extends Widget_Base {
 				'default' => 'yes',
 				'label_on' => esc_html__('Show', 'easy-elementor-addons'),
 				'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
 				'condition' => [
 					'nav_tooltip' => 'yes',
 				],
@@ -733,7 +753,7 @@ class OnePageNavigation extends Widget_Base {
 				'class' => 'eead-one-page-nav',
 				'id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
 				'data-section-id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
-				'data-top-offset' => $settings['top_offset']['size'],
+				'data-top-offset' => $settings['offset']['size'],
 				'data-scroll-speed' => $settings['scrolling_speed'],
 				'data-scroll-wheel' => $settings['scroll_wheel'],
 				'data-scroll-touch' => $settings['scroll_touch'],
@@ -773,7 +793,7 @@ class OnePageNavigation extends Widget_Base {
 			</ul>
 		</div>
 
-		<?php if (\Elementor\Plugin::instance()->editor->is_edit_mode()) { ?>
+		<?php if (Plugin::instance()->editor->is_edit_mode()) { ?>
 			<div class="eead-editor-placeholder">
 				<h4 class="eead-editor-placeholder-title">
 					<?php _e('One Page Navigation', 'easy-elementor-addons'); ?>

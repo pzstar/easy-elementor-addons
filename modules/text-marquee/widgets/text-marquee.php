@@ -20,7 +20,7 @@ class TextMarquee extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-testimonial-carousel';
+        return 'eead-element-icon eicon-testimonial-carousel';
     }
 
     public function get_categories() {
@@ -127,9 +127,9 @@ class TextMarquee extends Widget_Base {
             [
                 'label' => esc_html__('Text Duplicated', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -138,9 +138,9 @@ class TextMarquee extends Widget_Base {
             [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -179,9 +179,9 @@ class TextMarquee extends Widget_Base {
             [
                 'label' => esc_html__('Text Stroke Effect', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 

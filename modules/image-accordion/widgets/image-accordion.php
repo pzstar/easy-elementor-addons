@@ -24,7 +24,7 @@ class ImageAccordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-image-accordion';
+        return 'eead-element-icon eead-image-accordion';
     }
 
     /** Category */
@@ -75,7 +75,8 @@ class ImageAccordion extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => esc_html__('Accordion item title', 'easy-elementor-addons'),
-                'dynamic' => ['active' => true],
+                
+
             ]
         );
 
@@ -103,7 +104,7 @@ class ImageAccordion extends Widget_Base {
             [
                 'label' => esc_html__('Link Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => '',
+                
             ]
         );
 
@@ -113,7 +114,8 @@ class ImageAccordion extends Widget_Base {
                 'name' => 'image_accordion_link',
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'dynamic' => ['active' => true],
+                
+
                 'label_block' => true,
                 'default' => [
                     'url' => '#',
@@ -204,9 +206,6 @@ class ImageAccordion extends Widget_Base {
             [
                 'label' => esc_html__('Content Text Align', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'toggle' => false,
-                'default' => 'center',
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
@@ -221,6 +220,8 @@ class ImageAccordion extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
+                'toggle' => false,
+                'default' => 'center',
                 'selectors_dictionary' => [
                     'left' => 'justify-content: flex-start; text-align: left;',
                     'center' => 'justify-content: center; text-align: center;',
@@ -237,9 +238,6 @@ class ImageAccordion extends Widget_Base {
             [
                 'label' => esc_html__('Content Vertical Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'label_block' => false,
-                'toggle' => false,
-                'default' => 'center',
                 'options' => [
                     'flex-start' => [
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
@@ -254,6 +252,8 @@ class ImageAccordion extends Widget_Base {
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
+                'toggle' => false,
+                'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-accordion-box' => 'align-items: {{VALUE}};',
                 ],
@@ -496,8 +496,8 @@ class ImageAccordion extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $vertical_align = 'eead-image-accordion-vertical-align-' . $settings['image_accordion_content_vertical_align'];
-        $horizontal_align = 'eead-image-accordion-horizontal-align-' . $settings['image_accordion_content_horizontal_align'];
+        $vertical_align = 'eead-image-accordion-vertical-align-' . (isset($settings['image_accordion_content_vertical_align']) ? $settings['image_accordion_content_vertical_align'] : 'center');
+        $horizontal_align = 'eead-image-accordion-horizontal-align-' . (isset($settings['image_accordion_content_horizontal_align']) ? $settings['image_accordion_content_horizontal_align'] : 'center');
 
         $this->add_render_attribute(
             'eead-image-accordion',

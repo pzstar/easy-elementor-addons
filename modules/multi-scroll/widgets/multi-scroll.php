@@ -30,7 +30,7 @@ class MultiScroll extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-scroll';
+        return 'eead-element-icon eicon-scroll';
     }
 
     /** Category */

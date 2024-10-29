@@ -3,15 +3,15 @@
 namespace EasyElementorAddons\Modules\FeatureList\Widgets;
 
 // Elementor Classes
-use \Elementor\Controls_Manager;
-use \Elementor\Group_Control_Background;
-use \Elementor\Group_Control_Typography;
-use \Elementor\Group_Control_Border;
-use \Elementor\Group_Control_Box_Shadow;
-use \Elementor\Icons_Manager;
-use \Elementor\Repeater;
-use \Elementor\Utils;
-use \Elementor\Widget_Base;
+use Controls_Manager;
+use Group_Control_Background;
+use Group_Control_Typography;
+use Group_Control_Border;
+use Group_Control_Box_Shadow;
+use Icons_Manager;
+use Repeater;
+use Utils;
+use Widget_Base;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -34,7 +34,7 @@ class FeatureList extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-listing';
+        return 'eead-element-icon eead-listing';
     }
 
     /** Category */
@@ -397,7 +397,7 @@ class FeatureList extends Widget_Base {
             [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'fill: {{VALUE}};',
@@ -617,7 +617,7 @@ class FeatureList extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle' => 'color: {{VALUE}};',
                 ],
@@ -667,7 +667,7 @@ class FeatureList extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-content' => 'color: {{VALUE}};',
                 ],

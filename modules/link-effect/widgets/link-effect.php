@@ -28,7 +28,7 @@ class LinkEffect extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-link';
+        return 'eead-element-icon eead-link';
     }
 
     /** Category */
@@ -181,7 +181,7 @@ class LinkEffect extends Widget_Base {
                         'icon' => 'eicon-text-align-justify',
                     ],
                 ],
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                 ],
@@ -351,7 +351,7 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Link Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-color-alt-hover: {{VALUE}};',
                 ],
@@ -366,7 +366,7 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-bg-color-hover: {{VALUE}};'
                 ],
@@ -381,7 +381,7 @@ class LinkEffect extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-link-effect-border-color-hover: {{VALUE}};'
                 ],

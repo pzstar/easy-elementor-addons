@@ -34,7 +34,7 @@ class Hotspot extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-hot-spot';
+        return 'eead-element-icon eead-hot-spot';
     }
 
     /** Category */
@@ -71,7 +71,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->start_controls_tabs(
             'points_tab'
@@ -287,7 +287,7 @@ class Hotspot extends Widget_Base {
             [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -349,7 +349,7 @@ class Hotspot extends Widget_Base {
             [
                 'label' => esc_html__('Pulse Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );

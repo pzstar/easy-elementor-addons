@@ -33,7 +33,7 @@ class DualButton extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-dual-button';
+        return 'eead-element-icon eead-dual-button';
     }
 
     /** Category */
@@ -380,7 +380,7 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button svg' => 'fill: {{VALUE}};',
@@ -499,7 +499,7 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button svg' => 'fill: {{VALUE}};',
@@ -672,7 +672,7 @@ class DualButton extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
 
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'color: {{VALUE}};',

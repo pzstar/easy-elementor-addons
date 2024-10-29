@@ -33,7 +33,7 @@ class Switcher extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-switcher';
+        return 'eead-element-icon eead-switcher';
     }
 
     /** Category */

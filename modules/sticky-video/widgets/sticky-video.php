@@ -3,10 +3,10 @@
 namespace EasyElementorAddons\Modules\StickyVideo\Widgets;
 
 // Elementor Classes
-use \Elementor\Modules\DynamicTags\Module as TagsModule;
-use \Elementor\Controls_Manager;
-use \Elementor\Group_Control_Image_Size;
-use \Elementor\Widget_Base;
+use Modules\DynamicTags\Module as TagsModule;
+use Controls_Manager;
+use Group_Control_Image_Size;
+use Widget_Base;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -29,7 +29,7 @@ class StickyVideo extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-sticky-video';
+        return 'eead-element-icon eead-sticky-video';
     }
 
     /** Category */
@@ -71,7 +71,7 @@ class StickyVideo extends Widget_Base {
                 'label_block' => false,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
                 'selectors' => [
                     '{{WRAPPER}} div.eead-sticky-player' => 'display: block',
@@ -116,7 +116,8 @@ class StickyVideo extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'placeholder' => esc_html__('Enter your URL (YouTube)', 'easy-elementor-addons'),
                 'label_block' => false,
                 'default' => 'https://www.youtube.com/watch?v=MLpWrANjFbI',
@@ -131,7 +132,8 @@ class StickyVideo extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'placeholder' => esc_html__('Enter your URL (Vimeo)', 'easy-elementor-addons'),
                 'label_block' => false,
                 'default' => 'https://vimeo.com/76979871',
@@ -146,7 +148,8 @@ class StickyVideo extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'placeholder' => esc_html__('Enter your URL (Dailymotion)', 'easy-elementor-addons'),
                 'label_block' => true,
                 'condition' => [
@@ -191,7 +194,8 @@ class StickyVideo extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'placeholder' => esc_html__('Enter your URL', 'easy-elementor-addons'),
                 'label_block' => false,
                 'show_label' => false,
@@ -223,7 +227,7 @@ class StickyVideo extends Widget_Base {
                 'min' => 0,
                 'max' => 10000,
                 'step' => 1,
-                'default' => '',
+                
                 'description' => 'Specify a start time (in seconds)',
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
@@ -239,7 +243,7 @@ class StickyVideo extends Widget_Base {
                 'min' => 0,
                 'max' => 10000,
                 'step' => 1,
-                'default' => '',
+                
                 'description' => 'Specify an end time (in seconds)',
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
@@ -253,8 +257,8 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
                 'separator' => 'before',
             ]
         );
@@ -265,8 +269,8 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Mute', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
             ]
         );
 
@@ -276,8 +280,8 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
             ]
         );
 
@@ -312,8 +316,8 @@ class StickyVideo extends Widget_Base {
                 'label_block' => false,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
             ]
         );
 
@@ -327,7 +331,7 @@ class StickyVideo extends Widget_Base {
                     'eead_overlay_options' => 'yes',
                 ],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -349,7 +353,7 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
                 'condition' => [
                     'eead_overlay_options' => 'yes',
@@ -449,7 +453,7 @@ class StickyVideo extends Widget_Base {
             'eead_sticky_close_button_color',
             [
                 'label' => esc_html__('Close Button Color', 'easy-elementor-addons'),
-                'type' => \Elementor\Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'eead_is_sticky' => 'yes',
                 ],
@@ -528,7 +532,7 @@ class StickyVideo extends Widget_Base {
             [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'border-color: {{VALUE}};',
                 ],

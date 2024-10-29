@@ -27,7 +27,7 @@ class TeamMemberCarousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-team-carousel';
+		return 'eead-element-icon eead-team-carousel';
 	}
 
 	public function get_categories() {
@@ -331,7 +331,7 @@ class TeamMemberCarousel extends Widget_Base {
 			'layout',
 			[
 				'label' => esc_html__('Layout', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::SELECT,
+				'type' => Controls_Manager::SELECT,
 				'default' => 'style1',
 				'options' => [
 					'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
@@ -355,9 +355,9 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Show Social Icons', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 				'separator' => 'before',
 			]
 		);
@@ -434,9 +434,9 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 				'separator' => 'before',
 			]
 		);
@@ -447,10 +447,10 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Pause on Interaction', 'easy-elementor-addons'),
 				'description' => esc_html__('Disables autoplay completely on first interaction with the carousel.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
+				
 				'condition' => array(
 					'autoplay' => 'yes',
 				),
@@ -483,9 +483,9 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 			]
 		);
 
@@ -495,10 +495,10 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Grab Cursor', 'easy-elementor-addons'),
 				'description' => esc_html__('Shows grab cursor when you hover over the slider', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
+				
 				'label_on' => esc_html__('Show', 'easy-elementor-addons'),
 				'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
 				'separator' => 'before',
 			]
 		);
@@ -518,9 +518,9 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Arrows', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 			]
 		);
 
@@ -530,9 +530,9 @@ class TeamMemberCarousel extends Widget_Base {
 				'label' => esc_html__('Pagination', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 			]
 		);
 
@@ -582,7 +582,7 @@ class TeamMemberCarousel extends Widget_Base {
 						'icon' => 'eicon-text-align-right',
 					),
 				),
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member' => 'text-align: {{VALUE}};',
 				),
@@ -594,7 +594,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-content-normal' => 'background-color: {{VALUE}};',
 				),
@@ -607,7 +607,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Overlay Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-content-normal' => 'background-color: {{VALUE}};',
 				),
@@ -686,7 +686,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-name' => 'color: {{VALUE}}',
 				),
@@ -730,7 +730,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-position' => 'color: {{VALUE}}',
 				),
@@ -774,7 +774,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-description' => 'color: {{VALUE}}',
 				),
@@ -869,7 +869,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Icons Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon' => 'color: {{VALUE}};',
 				),
@@ -881,7 +881,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member.style1 .eead-team-member-image .eead-team-member-social-links-wrap a,
 					 {{WRAPPER}} .eead-team-member.style2 .eead-team-member-social-links .eead-team-member-social-icon-wrap' => 'background-color: {{VALUE}};',
@@ -940,7 +940,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Icons Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap:hover .eead-team-member-social-icon' => 'color: {{VALUE}};',
 				),
@@ -952,7 +952,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member.style1 .eead-team-member-image .eead-team-member-social-links-wrap a:hover,
 					 {{WRAPPER}} .eead-team-member.style2 .eead-team-member-social-links .eead-team-member-social-icon-wrap:hover' => 'background-color: {{VALUE}};',
@@ -965,7 +965,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap:hover' => 'border-color: {{VALUE}};',
 				),
@@ -1098,7 +1098,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'background-color: {{VALUE}};',
 				),
@@ -1110,7 +1110,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev' => 'color: {{VALUE}};',
 				),
@@ -1155,7 +1155,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'background-color: {{VALUE}};',
 				),
@@ -1167,7 +1167,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'color: {{VALUE}};',
 				),
@@ -1179,7 +1179,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-button-next:hover, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev:hover' => 'border-color: {{VALUE}};',
 				),
@@ -1308,7 +1308,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet' => 'background: {{VALUE}};',
 				),
@@ -1324,7 +1324,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Active Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 				),
@@ -1407,7 +1407,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'background: {{VALUE}};',
 				),
@@ -1423,7 +1423,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet:hover' => 'border-color: {{VALUE}};',
 				),
@@ -1457,7 +1457,7 @@ class TeamMemberCarousel extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => array(
 					'{{WRAPPER}} .swiper-pagination-fraction' => 'color: {{VALUE}};',
 				),

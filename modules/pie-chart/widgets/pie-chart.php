@@ -23,7 +23,7 @@ class PieChart extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-pie-chart';
+		return 'eead-element-icon eead-pie-chart';
 	}
 
 	public function get_categories() {
@@ -172,7 +172,7 @@ class PieChart extends Widget_Base {
 				'label' => esc_html__('Reverse', 'easy-elementor-addons'),
 				'description' => esc_html__('Show datasets in reverse order.', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
+				
 				'return_value' => 'true',
 				'condition' => ['chart_legend_display' => 'true']
 			]
@@ -254,7 +254,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Scale From Center', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
+				
 				'return_value' => 'true',
 			]
 		);
@@ -466,7 +466,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => '',
+				
 				'options' => [
 					'' => esc_html__('Default', 'easy-elementor-addons'),
 					'300' => esc_html__('Thin', 'easy-elementor-addons'),
@@ -481,7 +481,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Font Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => '',
+				
 				'options' => array(
 					'' => esc_html__('Default', 'easy-elementor-addons'),
 					'normal' => esc_attr_x('Normal', 'Typography Control', 'easy-elementor-addons'),
@@ -534,7 +534,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Font Family', 'easy-elementor-addons'),
 				'type' => Controls_Manager::FONT,
-				'default' => '',
+				
 			]
 		);
 		*/
@@ -558,7 +558,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Font Weight', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => '',
+				
 				'options' => [
 					'' => esc_html__('Default', 'easy-elementor-addons'),
 					'normal' => esc_html__('Normal', 'easy-elementor-addons'),
@@ -572,7 +572,7 @@ class PieChart extends Widget_Base {
 			[
 				'label' => esc_html__('Font Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => '',
+				
 				'options' => array(
 					'' => esc_html__('Default', 'easy-elementor-addons'),
 					'normal' => esc_attr_x('Normal', 'Typography Control', 'easy-elementor-addons'),

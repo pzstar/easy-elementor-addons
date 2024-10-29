@@ -33,7 +33,7 @@ class VideoPlayer extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-video-player';
+        return 'eead-element-icon eead-video-player';
     }
 
     /** Category */
@@ -111,10 +111,10 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Modest Branding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
                 'condition' => [
                     'video_type' => 'youtube',
                     'controls' => 'yes',
@@ -128,10 +128,10 @@ class VideoPlayer extends Widget_Base {
                 'label' => esc_html__('Privacy Mode', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'description' => esc_html__('If switched off, YouTube will save visitors data on your website only when video is played.', 'easy-elementor-addons'),
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
                 'condition' => [
                     'video_type' => 'youtube',
                 ],
@@ -143,7 +143,7 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Suggested Videos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => '',
+                
                 'options' => [
                     '' => esc_html__('Current Video Channel', 'easy-elementor-addons'),
                     'yes' => esc_html__('Any Video', 'easy-elementor-addons'),
@@ -232,10 +232,10 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Download Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
                 'condition' => [
                     'video_type' => 'self_hosted',
                     'self_hosted_player' => 'html5',
@@ -268,9 +268,9 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => ''
             ]
         );
@@ -280,10 +280,10 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Player Controls', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
                 'condition' => [
                     'video_type!' => 'vimeo',
                 ],
@@ -295,9 +295,9 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Mute', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => ''
             ]
         );
@@ -328,9 +328,9 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Show Play Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -411,7 +411,7 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Show Custom Thumbnail', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => '',
+                
             ]
         );
 
@@ -420,7 +420,8 @@ class VideoPlayer extends Widget_Base {
             [
                 'label' => esc_html__('Thumbnail', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
-                'dynamic' => ['active' => true],
+                
+
                 'condition' => [
                     'show_thumbnail' => 'yes',
                 ],
@@ -510,9 +511,9 @@ class VideoPlayer extends Widget_Base {
 
         <div <?php $this->print_render_attribute_string('play_button'); ?>><?php
           if ($settings['play_button_type'] === 'icon') {
-              \Elementor\Icons_Manager::render_icon($settings['play_button_icon'], ['aria-hidden' => 'true']);
+              Icons_Manager::render_icon($settings['play_button_icon'], ['aria-hidden' => 'true']);
           } elseif ('image' === $settings['play_button_type']) {
-              echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'play_button_image');
+              echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumb', 'play_button_image');
           } ?>
         </div>
         <?php

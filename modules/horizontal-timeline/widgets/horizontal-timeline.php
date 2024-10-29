@@ -33,7 +33,7 @@ class HorizontalTimeline extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-vertical-timeline';
+        return 'eead-element-icon eead-vertical-timeline';
     }
 
     /** Category */
@@ -66,9 +66,9 @@ class HorizontalTimeline extends Widget_Base {
             [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -782,10 +782,10 @@ class HorizontalTimeline extends Widget_Base {
                                     <div class="eead-htimeline-post-image">
                                         <?php
                                         if (!$item['image']) {
-                                            $placeholder_img = \Elementor\Utils::get_placeholder_image_src();
+                                            $placeholder_img = Utils::get_placeholder_image_src();
                                             echo '<img src="' . esc_url($placeholder_img) . '" >';
                                         } else {
-                                            echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
+                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         }
                                         ?>
                                     </div>

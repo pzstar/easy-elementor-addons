@@ -26,7 +26,7 @@ class MorphingLayouts extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-call-to-action';
+        return 'eead-element-icon eicon-call-to-action';
     }
 
     /** Category */
@@ -410,8 +410,8 @@ class MorphingLayouts extends Widget_Base {
             [
                 'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                
+                
                 'default' => 'no',
                 'description' => esc_html__('If, Select "Fixed Scroll" Morphing type then use on Fill Color.', 'easy-elementor-addons'),
             ]
@@ -741,7 +741,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Masking Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
                     'morph_type' => ['image'],
@@ -800,8 +800,8 @@ class MorphingLayouts extends Widget_Base {
             [
                 'label' => esc_html__('Custom SVG from Blob Maker?', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                
+                
                 'default' => 'no',
                 'description' => 'If you are using custom SVG code from blob maker, Turn on this option.<a href="https://www.blobmaker.app/" target="_blank">Click</a>',
                 'separator' => 'before',
@@ -868,8 +868,8 @@ class MorphingLayouts extends Widget_Base {
             [
                 'label' => esc_html__('Morphing Change Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                
+                
                 'separator' => 'before',
                 'condition' => [
                     'morph_layout' => ['normal'],
@@ -1181,8 +1181,8 @@ class MorphingLayouts extends Widget_Base {
             [
                 'label' => esc_html__('Image Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                
+                
             ]
         );
 

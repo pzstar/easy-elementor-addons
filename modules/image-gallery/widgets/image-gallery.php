@@ -33,7 +33,7 @@ class ImageGallery extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-image-gallery';
+        return 'eead-element-icon eead-image-gallery';
     }
 
     /** Category */
@@ -265,7 +265,7 @@ class ImageGallery extends Widget_Base {
             [
                 'label' => esc_html__('Show Lightbox', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
                 'separator' => 'before'
             ]
@@ -300,7 +300,7 @@ class ImageGallery extends Widget_Base {
             [
                 'label' => esc_html__('Dynamic Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'condition' => [
                     'layout' => 'grid',
                 ],
@@ -452,7 +452,7 @@ class ImageGallery extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter' => 'background: {{VALUE}};',
                 ],
@@ -983,7 +983,7 @@ class ImageGallery extends Widget_Base {
         </div>
         <?php
 
-        if (\Elementor\Plugin::instance()->editor->is_edit_mode()) {
+        if (Plugin::instance()->editor->is_edit_mode()) {
             $this->render_editor_script();
         }
     }

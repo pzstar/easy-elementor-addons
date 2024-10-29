@@ -24,7 +24,7 @@ class StepFlow extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-step-flow';
+		return 'eead-element-icon eead-step-flow';
 	}
 
 	public function get_categories() {
@@ -137,7 +137,7 @@ class StepFlow extends Widget_Base {
 			'title_tag',
 			[
 				'label' => esc_html__('Title Tag', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::SELECT,
+				'type' => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'default' => 'h2',
 				'options' => [
@@ -187,9 +187,9 @@ class StepFlow extends Widget_Base {
 			[
 				'label' => esc_html__('Show Direction', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-				'label_off' => esc_html__('No', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
+				
+				
 				'default' => 'yes',
 				'style_transfer' => true,
 			]
@@ -630,7 +630,7 @@ class StepFlow extends Widget_Base {
 				'type' => Controls_Manager::POPOVER_TOGGLE,
 				'label_off' => esc_html__('None', 'easy-elementor-addons'),
 				'label_on' => esc_html__('Custom', 'easy-elementor-addons'),
-				'return_value' => 'yes',
+				
 			]
 		);
 

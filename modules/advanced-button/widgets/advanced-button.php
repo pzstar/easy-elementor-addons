@@ -32,7 +32,7 @@ class AdvancedButton extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-button';
+        return 'eead-element-icon eead-advanced-button';
     }
 
     /** Category */
@@ -58,7 +58,8 @@ class AdvancedButton extends Widget_Base {
             [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'default' => esc_html__('Click me', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Click me', 'easy-elementor-addons'),
             ]
@@ -69,7 +70,8 @@ class AdvancedButton extends Widget_Base {
             [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'dynamic' => ['active' => true],
+                
+
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
@@ -220,7 +222,7 @@ class AdvancedButton extends Widget_Base {
             [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
-                'default' => '',
+                
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),

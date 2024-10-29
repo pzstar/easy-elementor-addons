@@ -26,7 +26,7 @@ class PopupVideo extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-video-popup';
+        return 'eead-element-icon eead-video-popup';
     }
 
     public function get_categories() {
@@ -34,11 +34,11 @@ class PopupVideo extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['lightgallery1'];
+        return ['light-gallery'];
     }
 
     public function get_style_depends() {
-        return ['lightgallery1'];
+        return ['light-gallery'];
     }
 
     protected function register_controls() {
@@ -589,7 +589,7 @@ class PopupVideo extends Widget_Base {
             [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-vp-icon i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-vp-icon svg' => 'fill: {{VALUE}};',

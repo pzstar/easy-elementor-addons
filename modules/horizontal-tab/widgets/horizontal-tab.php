@@ -33,7 +33,7 @@ class HorizontalTab extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-horizontal-tab';
+        return 'eead-element-icon eead-horizontal-tab';
     }
 
     /** Category */
@@ -130,7 +130,7 @@ class HorizontalTab extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );

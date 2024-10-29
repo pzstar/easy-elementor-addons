@@ -33,7 +33,7 @@ class VerticalTimeline extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-vertical-timeline';
+        return 'eead-element-icon eead-vertical-timeline';
     }
 
     /** Category */
@@ -58,9 +58,9 @@ class VerticalTimeline extends Widget_Base {
             [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -205,7 +205,7 @@ class VerticalTimeline extends Widget_Base {
             'style',
             [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
@@ -219,7 +219,7 @@ class VerticalTimeline extends Widget_Base {
             'title_html_tag',
             [
                 'label' => esc_html__('Title HTML Tag', 'square-plus'),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
                 'options' => [
                     'h1' => esc_html__('H1', 'square-plus'),
@@ -328,7 +328,7 @@ class VerticalTimeline extends Widget_Base {
             'frame_style',
             [
                 'label' => esc_html__('Frame Style', 'plugin-domain'),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
                     'none' => esc_html__('None', 'easy-elementor-addons'),
@@ -829,7 +829,7 @@ class VerticalTimeline extends Widget_Base {
 
                                     <div class="eead-vtimeline-point">
                                         <?php
-                                        \Elementor\Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
+                                        Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
                                         ?>
                                     </div>
                                 </div>
@@ -839,7 +839,7 @@ class VerticalTimeline extends Widget_Base {
                                 <?php if ($settings['style'] == 'style1' || $settings['style'] == 'style2') { ?>
                                     <div class="eead-vtimeline-point">
                                         <?php
-                                        \Elementor\Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
+                                        Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
                                         if ($settings['style'] == 'style1') {
                                             ?>
                                             <div class="eead-vtimeline-meta">
@@ -857,10 +857,10 @@ class VerticalTimeline extends Widget_Base {
 
                                         <?php
                                         if (!$item['image']) {
-                                            $placeholder_img = \Elementor\Utils::get_placeholder_image_src();
+                                            $placeholder_img = Utils::get_placeholder_image_src();
                                             echo '<img src="' . esc_url($placeholder_img) . '" >';
                                         } else {
-                                            echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
+                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         }
                                         ?>
                                     </div>
@@ -896,10 +896,10 @@ class VerticalTimeline extends Widget_Base {
 
                                         <?php
                                         if (!$item['image']) {
-                                            $placeholder_img = \Elementor\Utils::get_placeholder_image_src();
+                                            $placeholder_img = Utils::get_placeholder_image_src();
                                             echo '<img src="' . esc_url($placeholder_img) . '" >';
                                         } else {
-                                            echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
+                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         }
                                         ?>
                                     </div>

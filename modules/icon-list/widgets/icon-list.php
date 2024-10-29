@@ -35,7 +35,7 @@ class IconList extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-listing';
+        return 'eead-element-icon eead-listing';
     }
 
     /** Category */
@@ -130,7 +130,7 @@ class IconList extends Widget_Base {
                 'label' => esc_html__('Number/Text', 'easy-elementor-addons'),
                 'label_block' => false,
                 'type' => Controls_Manager::TEXT,
-                'default' => '',
+                
                 'condition' => array(
                     'icon_type' => 'number',
                 ),

@@ -33,7 +33,7 @@ class PortfolioGrid extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-portfolio-grid';
+        return 'eead-element-icon eead-portfolio-grid';
     }
 
     /** Category */
@@ -272,9 +272,9 @@ class PortfolioGrid extends Widget_Base {
             [
                 'label' => esc_html__('Show Layout Switcher', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'show_label' => true,
             ]
@@ -323,10 +323,10 @@ class PortfolioGrid extends Widget_Base {
                 'label' => esc_html__('Default Filter', 'easy-elementor-addons'),
                 'description' => esc_html__('There must be a default filter in the menu.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
                 'show_label' => true,
             ]
         );
@@ -373,9 +373,9 @@ class PortfolioGrid extends Widget_Base {
             [
                 'label' => esc_html__('Show Menu', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'show_label' => true,
             ]
@@ -588,7 +588,7 @@ class PortfolioGrid extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-grid-view figcaption' => 'text-align: {{VALUE}};',
                 ],
@@ -884,7 +884,7 @@ class PortfolioGrid extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-fpg-list-view figcaption' => 'text-align: {{VALUE}};',
                 ],

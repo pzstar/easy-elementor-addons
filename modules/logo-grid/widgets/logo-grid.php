@@ -35,7 +35,7 @@ class LogoGrid extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-logo-grid';
+        return 'eead-element-icon eead-logo-grid';
     }
 
     public function get_keywords() {
@@ -409,7 +409,7 @@ class LogoGrid extends Widget_Base {
                 'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'return_value' => 'yes',
+                
                 'separator' => 'before'
             ]
         );
@@ -469,7 +469,7 @@ class LogoGrid extends Widget_Base {
                 'label' => esc_html__('Enable Grayscale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'return_value' => 'yes',
+                
             ]
         );
 

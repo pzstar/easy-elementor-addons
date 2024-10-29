@@ -34,7 +34,7 @@ class Portfolio extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-portfolio-grid';
+        return 'eead-element-icon eead-portfolio-grid';
     }
 
     /** Category */
@@ -67,9 +67,9 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -295,9 +295,9 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Show Zoom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -307,9 +307,9 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Show Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -319,9 +319,9 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Show Category', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -342,10 +342,10 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
             ]
         );
 
@@ -354,9 +354,9 @@ class Portfolio extends Widget_Base {
             [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -448,7 +448,7 @@ class Portfolio extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes'
             ]
         );
@@ -460,7 +460,7 @@ class Portfolio extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );

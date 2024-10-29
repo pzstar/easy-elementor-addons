@@ -25,7 +25,7 @@ class SlinkyVerticalMenu extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-nav-menu';
+		return 'eead-element-icon eicon-nav-menu';
 	}
 
 	public function get_categories() {
@@ -75,7 +75,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 			[
 				'label' => esc_html__('Menu Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => ['active' => true],
+				
+
 				'label_block' => true,
 				'condition' => [
 					'menu_type!' => 'child_end'
@@ -88,7 +89,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 			[
 				'label' => esc_html__('Select Item Type', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'dynamic' => ['active' => true],
+				
+
 				'label_block' => true,
 				'options' => [
 					'item' => 'Item',
@@ -104,7 +106,8 @@ class SlinkyVerticalMenu extends Widget_Base {
 			[
 				'label' => esc_html__('Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
-				'dynamic' => ['active' => true],
+				
+
 				'default' => [
 					'url' => '#',
 				],

@@ -3,14 +3,14 @@
 namespace EasyElementorAddons\Modules\FlipBoxAdvanced\Widgets;
 
 // Elementor Classes
-use \Elementor\Widget_Base;
-use \Elementor\Utils;
-use \Elementor\Controls_Manager;
-use \Elementor\Group_Control_Border;
-use \Elementor\Group_Control_Typography;
-use \Elementor\Group_Control_Image_Size;
-use \Elementor\Group_Control_Background;
-use \Elementor\Icons_Manager;
+use Widget_Base;
+use Utils;
+use Controls_Manager;
+use Group_Control_Border;
+use Group_Control_Typography;
+use Group_Control_Image_Size;
+use Group_Control_Background;
+use Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -30,7 +30,7 @@ class FlipBoxAdvanced extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-flip-box';
+        return 'eead-element-icon eead-flip-box';
     }
 
     /** Category */
@@ -475,7 +475,7 @@ class FlipBoxAdvanced extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front' => 'background-color: {{VALUE}};',
                 ],

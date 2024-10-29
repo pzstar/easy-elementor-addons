@@ -35,7 +35,7 @@ class Charts extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-form-horizontal';
+        return 'eead-element-icon eead-chart';
     }
 
     /** Category */
@@ -866,7 +866,7 @@ class Charts extends Widget_Base {
                 'label' => esc_html__('Data Format Locale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'description' => esc_html__('Use this to format strings into specific locale format. For example, use de to format numbers according to German formatting.', 'easy-elementor-addons'),
-                'default' => '',
+                
                 'options' => array(
                     '' => esc_html__('Default', 'easy-elementor-addons'),
                     'en' => esc_html__('English', 'easy-elementor-addons'),

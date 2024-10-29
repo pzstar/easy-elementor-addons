@@ -33,7 +33,7 @@ class Slider extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-slides';
+        return 'eead-element-icon eicon-slides';
     }
 
     /** Category */
@@ -182,9 +182,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -194,9 +194,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
@@ -209,9 +209,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -253,9 +253,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -265,9 +265,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -277,9 +277,9 @@ class Slider extends Widget_Base {
             [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );

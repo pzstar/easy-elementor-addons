@@ -26,7 +26,7 @@ class ScrollImage extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-scroll-image';
+		return 'eead-element-icon eead-scroll-image';
 	}
 
 	public function get_categories() {
@@ -308,7 +308,7 @@ class ScrollImage extends Widget_Base {
 			[
 				'label' => esc_html__('Show On Hover Only', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => '',
+				
 				'condition' => [
 					'link_to!' => '',
 				],
@@ -860,7 +860,7 @@ class ScrollImage extends Widget_Base {
 			'caption_margin',
 			[
 				'label' => esc_html__('Margin', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1094,7 +1094,7 @@ class ScrollImage extends Widget_Base {
 			'badge_padding',
 			[
 				'label' => esc_html__('Padding', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1109,7 +1109,7 @@ class ScrollImage extends Widget_Base {
 			'badge_border_radius',
 			[
 				'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',

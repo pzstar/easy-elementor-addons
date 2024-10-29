@@ -28,7 +28,7 @@ class TiltHoverImage extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-image-rollover';
+        return 'eead-element-icon eicon-image-rollover';
     }
 
     /** Category */

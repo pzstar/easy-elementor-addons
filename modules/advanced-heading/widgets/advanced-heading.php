@@ -29,7 +29,7 @@ class AdvancedHeading extends Widget_Base {
 
 	/** Icon */
 	public function get_icon() {
-		return 'eead-heading-text';
+		return 'eead-element-icon eead-advanced-heading';
 	}
 
 	public function get_keywords() {
@@ -89,7 +89,8 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Sub Heading', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => ['active' => true],
+
+
 				'placeholder' => esc_html__('Enter your prefix title', 'easy-elementor-addons'),
 				'default' => esc_html__('SUB HEADING', 'easy-elementor-addons'),
 				'label_block' => true
@@ -101,7 +102,8 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Main Heading', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
-				'dynamic' => ['active' => true],
+
+
 				'placeholder' => esc_html__('Enter your main heading here', 'easy-elementor-addons'),
 				'default' => esc_html__('Main Heading Text', 'easy-elementor-addons'),
 			]
@@ -121,7 +123,6 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Split Text', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
-				'dynamic' => ['active' => true],
 				'label_block' => true,
 				'placeholder' => esc_html__('Enter your split text', 'easy-elementor-addons'),
 				'default' => esc_html__('Split Text', 'easy-elementor-addons'),
@@ -137,7 +138,8 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
-				'dynamic' => ['active' => true],
+
+
 				'placeholder' => 'http://your-link.com',
 				'separator' => 'before'
 			]
@@ -177,7 +179,6 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label' => esc_html__('Advanced Heading', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXTAREA,
-				'dynamic' => ['active' => true],
 				'placeholder' => esc_html__('Enter your advanced heading', 'easy-elementor-addons'),
 				'description' => esc_html__('This heading will show in the background.', 'easy-elementor-addons'),
 				'default' => esc_html__('Background Text', 'easy-elementor-addons'),
@@ -344,7 +345,7 @@ class AdvancedHeading extends Widget_Base {
 			'advanced_heading_hide',
 			[
 				'label' => esc_html__('Hide On Devices', 'easy-elementor-addons'),
-				'type' => \Elementor\Controls_Manager::SELECT2,
+				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'multiple' => true,
 				'options' => [

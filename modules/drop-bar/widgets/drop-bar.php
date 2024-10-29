@@ -32,7 +32,7 @@ class DropBar extends Widget_Base {
 
 	/** Icon */
 	public function get_icon() {
-		return 'eead-drop-bar';
+		return 'eead-element-icon eead-drop-bar';
 	}
 
 	public function get_keywords() {
@@ -76,7 +76,8 @@ class DropBar extends Widget_Base {
 			[
 				'label' => esc_html__('Content', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
-				'dynamic' => ['active' => true],
+				
+
 				'placeholder' => esc_html__('Dropbar content goes here', 'easy-elementor-addons'),
 				'show_label' => false,
 				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam', 'easy-elementor-addons'),
@@ -110,7 +111,8 @@ class DropBar extends Widget_Base {
 			[
 				'label' => esc_html__('Text', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => ['active' => true],
+				
+
 				'default' => esc_html__('Open Dropbar', 'easy-elementor-addons'),
 			]
 		);
@@ -506,7 +508,7 @@ class DropBar extends Widget_Base {
 			[
 				'label' => esc_html__('Background', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-drop-content' => 'background-color: {{VALUE}};',
 				],

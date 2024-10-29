@@ -31,7 +31,7 @@ class PricingList extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-pricing-list';
+        return 'eead-element-icon eead-pricing-list';
     }
 
     /** Category */
@@ -132,9 +132,9 @@ class PricingList extends Widget_Base {
             [
                 'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -219,9 +219,9 @@ class PricingList extends Widget_Base {
             [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -230,9 +230,9 @@ class PricingList extends Widget_Base {
             [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 

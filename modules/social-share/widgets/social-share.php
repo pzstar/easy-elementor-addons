@@ -31,7 +31,7 @@ class SocialShare extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-social-share';
+        return 'eead-element-icon eead-social-share';
     }
 
     /** Category */
@@ -56,7 +56,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -68,7 +68,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -80,7 +80,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -92,7 +92,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'default' => 'yes',
             ]
         );
@@ -104,7 +104,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -115,7 +115,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -126,7 +126,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -137,7 +137,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -148,7 +148,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -159,7 +159,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -170,7 +170,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -181,7 +181,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -192,7 +192,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -203,7 +203,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -214,7 +214,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -225,7 +225,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -236,7 +236,7 @@ class SocialShare extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
             ]
         );
 
@@ -329,7 +329,7 @@ class SocialShare extends Widget_Base {
                 'label' => esc_html__('Show Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'return_value' => 'yes',
+                
                 'separator' => 'before'
             ]
         );
@@ -340,7 +340,7 @@ class SocialShare extends Widget_Base {
                 'label' => esc_html__('Show Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'return_value' => 'yes',
+                
             ]
         );
 

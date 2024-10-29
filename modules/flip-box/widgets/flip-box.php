@@ -34,7 +34,7 @@ class FlipBox extends Widget_Base {
 
 	/** Icon */
 	public function get_icon() {
-		return 'eead-flip-box';
+		return 'eead-element-icon eead-flip-box';
 	}
 
 	public function get_keywords() {
@@ -530,7 +530,7 @@ class FlipBox extends Widget_Base {
 			[
 				'label' => esc_html__('Primary Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-flip-box .elementor-view-stacked .elementor-icon' => 'background-color: {{VALUE}}',
 					'{{WRAPPER}} .eead-flip-box .elementor-view-framed .elementor-icon, {{WRAPPER}} .eead-flip-box .elementor-view-default .elementor-icon' => 'color: {{VALUE}}; border-color: {{VALUE}}',
@@ -547,7 +547,7 @@ class FlipBox extends Widget_Base {
 			[
 				'label' => esc_html__('Secondary Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'condition' => [
 					'graphic_element' => 'icon',
 					'icon_view' => 'stacked',
@@ -867,7 +867,7 @@ class FlipBox extends Widget_Base {
 			[
 				'label' => esc_html__('Background Overlay', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-fb-back .eead-fb-layer-overlay' => 'background-color: {{VALUE}};',
 				],

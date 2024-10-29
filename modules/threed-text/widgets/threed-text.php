@@ -27,7 +27,7 @@ class ThreedText extends Widget_Base {
 
     /* Icon */
     public function get_icon() {
-        return 'eicon-animation-text';
+        return 'eead-element-icon eicon-animation-text';
     }
 
     /* Category */
@@ -91,7 +91,8 @@ class ThreedText extends Widget_Base {
             [
                 'label' => esc_html__('3D Text Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'dynamic' => ['active' => true],
+                
+
                 'default' => esc_html__('3D Text', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_media_type' => 'text',
@@ -265,10 +266,10 @@ class ThreedText extends Widget_Base {
             [
                 'label' => esc_html__('Fade', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
             ]
         );
 

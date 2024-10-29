@@ -31,7 +31,7 @@ class PricingTable extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-pricing-table';
+        return 'eead-element-icon eead-pricing-table';
     }
 
     /** Category */
@@ -187,9 +187,9 @@ class PricingTable extends Widget_Base {
             [
                 'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 

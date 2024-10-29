@@ -26,7 +26,7 @@ class TwitterFeed extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-twitter1';
+        return 'eead-element-icon eead-twitter1';
     }
 
     /** Category */
@@ -332,10 +332,10 @@ class TwitterFeed extends Widget_Base {
             [
                 'label' => esc_html__('Hide Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => '',
+                
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'condition' => [
                     'display_mode_profile' => 'button',
                     'button_type' => 'follow-button',
@@ -352,7 +352,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'yes',
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
@@ -367,7 +367,7 @@ class TwitterFeed extends Widget_Base {
             [
                 'label' => esc_html__('Tweet Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => '',
+                
                 'description' => esc_html__('Do you want to prefill the Tweet text?', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
@@ -396,10 +396,10 @@ class TwitterFeed extends Widget_Base {
             [
                 'label' => esc_html__('Large Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => '',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
+                
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
@@ -496,7 +496,7 @@ class TwitterFeed extends Widget_Base {
             [
                 'label' => esc_html__('Fix Url in Tweet', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => '',
+                
                 'description' => esc_html__('Do you want to set a specific URL in the Tweet?', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => 'hashtag',
@@ -510,7 +510,7 @@ class TwitterFeed extends Widget_Base {
                 'label' => esc_html__('Language', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $this->languages(),
-                'default' => '',
+                
             ]
         );
 
@@ -519,10 +519,10 @@ class TwitterFeed extends Widget_Base {
             [
                 'label' => esc_html__('Large Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => '',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
+                
                 'condition' => [
                     'embed_type' => 'hashtag',
                 ],

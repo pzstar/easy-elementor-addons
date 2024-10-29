@@ -30,7 +30,7 @@ class BusinessHour extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-business-hours';
+        return 'eead-element-icon eead-business-hours';
     }
 
     /** Category */
@@ -63,7 +63,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => true,
-                'toggle' => 'false',
+                'toggle' => false,
                 'options' => [
                     'none' => [
                         'title' => esc_html__('None', 'easy-elementor-addons'),
@@ -239,9 +239,9 @@ class BusinessHour extends Widget_Base {
                     'label' => esc_html__('Closed All Day:', 'easy-elementor-addons'),
                     'type' => Controls_Manager::SWITCHER,
                     'default' => $default,
-                    'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                    'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                    'return_value' => 'yes',
+                    
+                    
+                    
                 ]
             );
 
@@ -300,7 +300,7 @@ class BusinessHour extends Widget_Base {
                 'label' => esc_html__('Content Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => true,
-                'toggle' => 'false',
+                'toggle' => false,
                 'options' => [
                     'none' => [
                         'title' => esc_html__('None', 'easy-elementor-addons'),
@@ -782,7 +782,7 @@ class BusinessHour extends Widget_Base {
             [
                 'label' => esc_html__('Divider', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'no',
             ]
         );
@@ -860,7 +860,7 @@ class BusinessHour extends Widget_Base {
             [
                 'label' => esc_html__('Enable Striped', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'no',
             ]
         );

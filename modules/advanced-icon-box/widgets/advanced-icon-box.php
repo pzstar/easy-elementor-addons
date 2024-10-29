@@ -33,7 +33,7 @@ class AdvancedIconBox extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-icon-box';
+        return 'eead-element-icon eead-icon-box';
     }
 
     /** Category */
@@ -274,7 +274,8 @@ class AdvancedIconBox extends Widget_Base {
             [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => ['active' => true],
+                
+
                 'default' => esc_html__('Read More', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Read More', 'easy-elementor-addons')
             ]

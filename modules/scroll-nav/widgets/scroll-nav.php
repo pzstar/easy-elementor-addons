@@ -25,7 +25,7 @@ class ScrollNav extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-scroll';
+		return 'eead-element-icon eicon-scroll';
 	}
 
 	public function get_categories() {
@@ -56,7 +56,8 @@ class ScrollNav extends Widget_Base {
 			[
 				'label' => esc_html__('Nav Title', 'easy-elementor-addons'),
 				'type' => Controls_Manager::TEXT,
-				'dynamic' => ['active' => true],
+				
+
 				'default' => esc_html__('Nav Title', 'easy-elementor-addons'),
 			]
 		);
@@ -66,7 +67,8 @@ class ScrollNav extends Widget_Base {
 			[
 				'label' => esc_html__('Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
-				'dynamic' => ['active' => true],
+				
+
 				'default' => ['url' => '#'],
 				'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
 			]
@@ -420,7 +422,7 @@ class ScrollNav extends Widget_Base {
 			[
 				'label' => esc_html__('Navbar Style', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
-				'default' => '',
+				
 				'options' => [
 					'' => esc_html__('Select Style', 'easy-elementor-addons'),
 					'1' => esc_html__('Style 1', 'easy-elementor-addons'),
@@ -1137,8 +1139,6 @@ class ScrollNav extends Widget_Base {
 					'data-tippy-content' => ('dot' == $settings['nav_style']) ? esc_html($list["nav_title"]) : '',
 				]
 			],
-			'',
-			'',
 			true
 		);
 

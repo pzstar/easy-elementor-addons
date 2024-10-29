@@ -29,7 +29,7 @@ class CaptionHoverEffect extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eicon-click';
+        return 'eead-element-icon eicon-click';
     }
 
     /** Category */

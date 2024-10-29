@@ -26,7 +26,7 @@ class PopupModal extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-popup';
+		return 'eead-element-icon eead-popup';
 	}
 
 	public function get_categories() {
@@ -526,7 +526,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal-trigger-icon i' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .eead-popup-modal-trigger-icon svg' => 'fill: {{VALUE}};',
@@ -981,7 +981,7 @@ class PopupModal extends Widget_Base {
 						'icon' => 'eicon-text-align-right',
 					],
 				],
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'justify-content: {{VALUE}};',
 				],
@@ -993,7 +993,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Background Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__header' => 'background-color: {{VALUE}}',
 				],
@@ -1005,7 +1005,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__title' => 'color: {{VALUE}}',
 				],
@@ -1092,7 +1092,7 @@ class PopupModal extends Widget_Base {
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__content' => 'text-align: {{VALUE}};',
 				],
@@ -1107,7 +1107,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Text Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__content' => 'color: {{VALUE}}',
 				],
@@ -1386,7 +1386,7 @@ class PopupModal extends Widget_Base {
 			[
 				'label' => esc_html__('Border Color', 'easy-elementor-addons'),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				
 				'selectors' => [
 					'{{WRAPPER}} .eead-popup-modal .modal__close:hover' => 'border-color: {{VALUE}}',
 				],
@@ -1571,7 +1571,7 @@ class PopupModal extends Widget_Base {
 
 							case 'template':
 								$template_id = $settings['templates'];
-								echo !empty($template_id) ? \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($template_id) : '';
+								echo !empty($template_id) ? Plugin::$instance->frontend->get_builder_content_for_display($template_id) : '';
 								break;
 
 							case 'custom-html':

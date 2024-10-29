@@ -36,7 +36,7 @@ class TeamMember extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-team';
+        return 'eead-element-icon eead-team';
     }
 
     /** Category */
@@ -116,9 +116,9 @@ class TeamMember extends Widget_Base {
                 'label' => esc_html__('Show Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -201,9 +201,9 @@ class TeamMember extends Widget_Base {
                 'label' => esc_html__('Show Social Links', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -321,7 +321,7 @@ class TeamMember extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper' => 'text-align: {{VALUE}};',
                 ],
@@ -420,7 +420,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-name' => 'color: {{VALUE}}',
                 ],
@@ -478,7 +478,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-position' => 'color: {{VALUE}}',
                 ],
@@ -660,7 +660,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li a' => 'color: {{VALUE}};',
@@ -674,7 +674,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li a' => 'background-color: {{VALUE}};',
                 ],
@@ -707,7 +707,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li:hover i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li:hover a' => 'color: {{VALUE}};',
@@ -721,7 +721,7 @@ class TeamMember extends Widget_Base {
             [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li:hover a' => 'background-color: {{VALUE}};',
                 ],

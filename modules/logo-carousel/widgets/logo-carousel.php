@@ -7,8 +7,8 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
-use \Elementor\Group_Control_Typography;
-use \Elementor\Icons_Manager;
+use Group_Control_Typography;
+use Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -31,7 +31,7 @@ class LogoCarousel extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-logo-carousel';
+        return 'eead-element-icon eead-logo-carousel';
     }
 
     /** Category */
@@ -57,7 +57,7 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
+        $repeater = new Repeater();
 
         $repeater->add_control(
             'title',
@@ -75,7 +75,7 @@ class LogoCarousel extends Widget_Base {
                 'label' => esc_html__('Choose Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -104,9 +104,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Open Link in New Tab', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -116,9 +116,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Show Logo Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -232,9 +232,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'separator' => 'before'
             ]
@@ -245,9 +245,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -257,9 +257,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
@@ -295,10 +295,10 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
-                'default' => '',
+                
+                
+                
+                
             ]
         );
 
@@ -307,9 +307,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
                 'separator' => 'before'
             ]
@@ -320,9 +320,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'default' => 'yes',
             ]
         );
@@ -332,9 +332,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Focus Center Logo', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
                 'separator' => 'before'
             ]
         );
@@ -344,8 +344,8 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Grayscale Side Logos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
+                
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-item:not(.center)' => 'filter: grayscale(100%);'
                 ],
@@ -698,9 +698,9 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Show on Hover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'easy-elementor-addons'),
-                'label_off' => esc_html__('No', 'easy-elementor-addons'),
-                'return_value' => 'yes',
+                
+                
+                
             ]
         );
 
@@ -953,7 +953,7 @@ class LogoCarousel extends Widget_Base {
             [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title' => 'color: {{VALUE}};',
                 ],
@@ -1042,9 +1042,9 @@ class LogoCarousel extends Widget_Base {
                 foreach ($settings['slides'] as $item) {
                     $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumb', $settings);
                     if (!$image_url) {
-                        $image_url = \Elementor\Utils::get_placeholder_image_src();
+                        $image_url = Utils::get_placeholder_image_src();
                     }
-                    $image_html = '<img src="' . esc_url($image_url) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item['image'])) . '" />';
+                    $image_html = '<img src="' . esc_url($image_url) . '" alt="' . esc_attr(Control_Media::get_image_alt($item['image'])) . '" />';
 
                     echo '<div class="eead-logo-slide">';
                     if (!empty($item['logo_link'])) {

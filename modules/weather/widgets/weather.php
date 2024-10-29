@@ -30,7 +30,7 @@ class Weather extends Widget_Base {
 
     /* Icon */
     public function get_icon() {
-        return 'eead-weather';
+        return 'eead-element-icon eead-weather';
     }
 
     /* Category */
@@ -119,7 +119,7 @@ class Weather extends Widget_Base {
             'cache_expiration',
             [
                 'label' => esc_html__('Cache Expiration(sec)', 'easy-elementor-addons'),
-                'type' => \Elementor\Controls_Manager::NUMBER,
+                'type' => Controls_Manager::NUMBER,
                 'description' => esc_html__('Please set the expiration time in seconds.', 'easy-elementor-addons'),
                 'min' => 10,
                 'max' => 86400,
@@ -134,7 +134,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Round', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => 'yes'
             ]
         );
@@ -144,7 +144,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Humidity', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -154,7 +154,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Preassure', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -164,7 +164,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Wind Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -174,7 +174,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Day', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -184,7 +184,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -194,7 +194,7 @@ class Weather extends Widget_Base {
             [
                 'label' => esc_html__('Hide Bottom', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
+                
                 'default' => ''
             ]
         );
@@ -203,7 +203,7 @@ class Weather extends Widget_Base {
             'layout',
             [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'type' => \Elementor\Controls_Manager::SELECT,
+                'type' => Controls_Manager::SELECT,
                 'default' => 'style1',
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),

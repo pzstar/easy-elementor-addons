@@ -28,7 +28,7 @@ class AnimatedHeading extends Widget_Base {
 
     /** Icon */
     public function get_icon() {
-        return 'eead-animated-heading';
+        return 'eead-element-icon eead-animated-heading';
     }
 
     /** Category */
@@ -182,7 +182,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('Animation Duration', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
-                'default' => '',
+                
                 'options' => [
                     '' => esc_html__('Normal', 'easy-elementor-addons'),
                     'slow' => esc_html__('Slow', 'easy-elementor-addons'),
