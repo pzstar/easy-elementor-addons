@@ -5557,17 +5557,18 @@ Toggle
 }
 
 /*style 5*/
-.eead-toggle-switch-style5:not(.eead-toggle-square-switch) .eead-toggle-switch-checkbox{
+.eead-toggle-switch-style5:not(.eead-toggle-square-switch) .eead-toggle-switch-checkbox {
     border-radius: var(--eead-toggle-height, 20px);
     overflow: hidden;
 }
+
 .eead-toggle-switch-style5 .eead-toggle-switch-checkbox:before {
     content: "";
     cursor: pointer;
     position: absolute;
     background-color: var(--eead-toggle-switch-bg-color, #EEE);
     left: 0;
-    right:0;
+    right: 0;
     top: 0;
     bottom: 0;
 }
@@ -5579,12 +5580,13 @@ Toggle
     position: absolute;
     top: 0;
     bottom: 0;
-    background-color: var(--eead-toggle-switch-handle-color, #EEE);;
+    background-color: var(--eead-toggle-switch-handle-color, #EEE);
+    ;
     transition: width 1s ease-in-out;
-    animation:  eead-expand 1s ease-in-out forwards;
+    animation: eead-expand 1s ease-in-out forwards;
 }
 
-.eead-toggle-switch-style5 .eead-toggle-switch-checkbox:checked:after{
+.eead-toggle-switch-style5 .eead-toggle-switch-checkbox:checked:after {
     animation: eead-contract 1s ease-in-out forwards;
     background: var(--eead-toggle-switch-handle-active-color, #FF0000);
 }
@@ -5618,43 +5620,46 @@ Toggle
 
 @keyframes eead-expand {
     0% {
-      right: 0;
-      width: 50%;
+        right: 0;
+        width: 50%;
     }
+
     25% {
-      right: 0;
-      width: 100%;
+        right: 0;
+        width: 100%;
     }
+
     50% {
-      right: auto;
-      width: 100%;
-      left: 0;
+        right: auto;
+        width: 100%;
+        left: 0;
     }
+
     100% {
-      left: 0;
-      width: 50%;
+        left: 0;
+        width: 50%;
     }
-  }
+}
 
 /*--------------------------------------------------------------
 Switcher
 --------------------------------------------------------------*/
-.eead-switcher-container{
+.eead-switcher-container {
     display: flex;
     flex-direction: column;
 }
 
-.eead-switcher-tabs{
+.eead-switcher-tabs {
     display: inline-flex;
 }
 
-.eead-switcher-tabs-inner{
+.eead-switcher-tabs-inner {
     display: flex;
     position: relative;
     align-items: center;
 }
 
-.eead-switcher-tab{
+.eead-switcher-tab {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -5664,15 +5669,15 @@ Switcher
     cursor: pointer;
 }
 
-.eead-switcher-content{
+.eead-switcher-content {
     display: none;
 }
 
-.eead-switcher-active-content{
+.eead-switcher-active-content {
     display: block;
 }
 
-.eead-switcher-slider{
+.eead-switcher-slider {
     position: absolute;
     height: 100%;
     background: #EEE;
@@ -5683,86 +5688,85 @@ Switcher
 /*--------------------------------------------------------------
 ProgressBar
 --------------------------------------------------------------*/
-.eead-progressbar-container{
+.eead-progressbar-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.eead-progressbar{
-    height: 30px;
-    background: #EEE;
-    position: relative;
-}
-
-.eead-progressbar-length{
-    position: absolute;
-    height: 100%;
-    left: 0;
-    background: #000;
-}
-
-.eead-progressbar-container .eead-progress h4{
-    margin: 0;
-}
-
-/* Style 1 */
-.eead-progressbar-style1 .eead-progress{
+.eead-progress {
     display: flex;
     flex-direction: column;
 }
 
-.eead-progressbar-style1 .eead-progressbar-header{
+.eead-progressbar {
+    background: #EEE;
+    position: relative;
+}
+
+.eead-progressbar-length {
+    height: 100%;
+    width: 0;
+    background: #000;
+}
+
+.eead-progressbar-container .eead-progress label {
+    margin: 0;
+}
+
+/* Style 1 */
+.eead-progressbar-style1 .eead-progressbar-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.eead-progressbar-label-below .eead-progressbar-style1 .eead-progressbar-header{
+.eead-progressbar-label-below .eead-progressbar-style1 .eead-progressbar-header {
     order: 2;
 }
 
-
-/* Style 2 */
-.eead-progressbar-style2 .eead-progress{
-    display: flex;
-    flex-direction: column;
+.eead-progressbar-label-below .eead-progressbar-style1 .eead-progressbar-header {
+    align-items: flex-start;
 }
 
-.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress .eead-progressbar-percentage{
+/* Style 2 */
+.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress .eead-progressbar-percentage {
     order: 1;
 }
 
-.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress .eead-progressbar{
+.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress .eead-progressbar {
     order: 2;
 }
 
-.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress h4{
+.eead-progressbar-alter-yes .eead-progressbar-style2 .eead-progress label {
     order: 3;
 }
 
 /* Style 3 */
-.eead-progressbar-style3 .eead-progress{
-    display: flex;
-    flex-direction: column;
-}
-
-.eead-progressbar-label-below .eead-progressbar-style3 .eead-progressbar-header{
+.eead-progressbar-label-below .eead-progressbar-style3 .eead-progress label {
     order: 2;
 }
 
-/* Style 4 */
-.eead-progressbar-style4 .eead-progress{
-    display: flex;
-    flex-direction: column;
+.eead-progressbar-style3 .eead-progressbar-percentage {
+    padding: 0 10px;
 }
 
-.eead-progressbar-style4 .eead-progressbar-percentage{
+/* Style 4 */
+.eead-progressbar-style4 .eead-progressbar-percentage {
     position: absolute;
     left: 100%;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 30px;
+    margin-left: 20px;
+}
+
+.eead-progressbar-style4 .eead-progressbar-length {
+    position: relative;
+    width: 10%;
+}
+
+.eead-progressbar-label-below .eead-progressbar-style4 .eead-progress label {
+    order: 2;
 }
 
 
