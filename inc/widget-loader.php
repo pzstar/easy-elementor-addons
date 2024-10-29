@@ -211,7 +211,6 @@ class EEAD_Widget_Loader {
         wp_enqueue_style('animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
         wp_enqueue_style('swiper', EEAD_URL . 'assets/lib/swiper/swiper.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
-        wp_enqueue_style('eead-responsive', EEAD_URL . 'assets/css/responsive.css', '', EEAD_VERSION);
     }
 
     /**
