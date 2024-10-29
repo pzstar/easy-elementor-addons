@@ -21,27 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class Switcher extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-switcher';
     }
 
-    
     public function get_title() {
         return esc_html__('Content Switcher', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-switcher';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

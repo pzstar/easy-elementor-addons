@@ -18,22 +18,18 @@ if (!defined('ABSPATH')) {
 
 class HorizontalScroll extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-horizontal-scroll';
     }
 
-    
     public function get_title() {
         return esc_html__('Horizontal Scroll', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-scroll-image';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +38,6 @@ class HorizontalScroll extends Widget_Base {
         return ['scrollmagic', 'tweenmax'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -1337,158 +1332,158 @@ class HorizontalScroll extends Widget_Base {
                             ?>
                         </div>
                     </div>
-            <?php
-        }
-        ?>
+                    <?php
+                }
+                ?>
                 <div class="eead-hscroll-slider">
                     <div <?php echo wp_kses_post($this->get_render_attribute_string('scroller_wrap')); ?>>
                         <div class="eead-hscroll-sections-wrap" data-scroll-opacity="<?php echo esc_attr($opacity); ?>">
-        <?php
-        foreach ($templates as $index => $section) {
-            $this->add_render_attribute(
-                    'section_' . $index, [
-                'id' => 'section_' . $widget_id . $index,
-                'class' => 'eead-hscroll-temp',
-                'data-hide' => $section['hide_section'],
-                    ]
-            );
+                            <?php
+                            foreach ($templates as $index => $section) {
+                                $this->add_render_attribute(
+                                        'section_' . $index, [
+                                    'id' => 'section_' . $widget_id . $index,
+                                    'class' => 'eead-hscroll-temp',
+                                    'data-hide' => $section['hide_section'],
+                                        ]
+                                );
 
-            if ('id' === $section['template_type']) {
-                $this->add_render_attribute(
-                        'section_' . $index, [
-                    'data-section' => $section['section_id'],
-                        ]
-                );
-            } else {
-                if (!empty($section['anchor_id'])) {
-                    $this->add_render_attribute(
-                            'section_' . $index, [
-                        'data-section' => $section['anchor_id'],
-                            ]
-                    );
-                }
-            }
-            if ($opacity) {
-                if (0 !== $index && !$settings['rtl_mode']) {
-                    $this->add_render_attribute('section_' . $index, 'class', 'eead-hscroll-hide');
-                } elseif ($count - 1 !== $index && $settings['rtl_mode']) {
-                    $this->add_render_attribute('section_' . $index, 'class', 'eead-hscroll-hide');
-                }
-            }
-            ?>
+                                if ('id' === $section['template_type']) {
+                                    $this->add_render_attribute(
+                                            'section_' . $index, [
+                                        'data-section' => $section['section_id'],
+                                            ]
+                                    );
+                                } else {
+                                    if (!empty($section['anchor_id'])) {
+                                        $this->add_render_attribute(
+                                                'section_' . $index, [
+                                            'data-section' => $section['anchor_id'],
+                                                ]
+                                        );
+                                    }
+                                }
+                                if ($opacity) {
+                                    if (0 !== $index && !$settings['rtl_mode']) {
+                                        $this->add_render_attribute('section_' . $index, 'class', 'eead-hscroll-hide');
+                                    } elseif ($count - 1 !== $index && $settings['rtl_mode']) {
+                                        $this->add_render_attribute('section_' . $index, 'class', 'eead-hscroll-hide');
+                                    }
+                                }
+                                ?>
                                 <div <?php $this->print_render_attribute_string('section_' . $index); ?>>
-                                <?php
-                                if ('template' === $section['template_type']) {
-                                    $template_title = empty($section['section_template']) ? $section['live_temp_content'] : $section ['section_template'];
-                                    echo wp_kses_post($this->get_template_content($template_title));
-                                }
-                                ?>
-                                </div>
                                     <?php
-                                }
-                                ?>
+                                    if ('template' === $section['template_type']) {
+                                        $template_title = empty($section['section_template']) ? $section['live_temp_content'] : $section ['section_template'];
+                                        echo wp_kses_post($this->get_template_content($template_title));
+                                    }
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <div <?php $this->print_render_attribute_string('progress_wrap'); ?>>
                             <div <?php $this->print_render_attribute_string('progress'); ?>></div>
                         </div>
                     </div>
                 </div>
-        <?php if (0 !== $count) { ?>
+                <?php if (0 !== $count) { ?>
                     <div class="eead-hscroll-arrow eead-hscroll-arrow-right">
                         <div class="eead-hscroll-wrap-icon">
-            <?php
-            Icons_Manager::render_icon(
-                    $settings['nav_arrow_right'], [
-                'class' => 'eead-hscroll-next',
-                'aria-hidden' => 'true',
-                    ]
-            );
-            ?>
+                            <?php
+                            Icons_Manager::render_icon(
+                                    $settings['nav_arrow_right'], [
+                                'class' => 'eead-hscroll-next',
+                                'aria-hidden' => 'true',
+                                    ]
+                            );
+                            ?>
                         </div>
                     </div>
 
                     <div <?php $this->print_render_attribute_string('nav'); ?>>
                         <ul class="eead-hscroll-nav-list dots">
-            <?php
-            foreach ($templates as $index => $section):
-                $this->add_render_attribute(
-                        'item_' . $index, [
-                    'class' => 'eead-hscroll-nav-item',
-                    'data-slide' => 'section_' . $widget_id . $index,
-                        ]
-                );
-                ?>
+                            <?php
+                            foreach ($templates as $index => $section):
+                                $this->add_render_attribute(
+                                        'item_' . $index, [
+                                    'class' => 'eead-hscroll-nav-item',
+                                    'data-slide' => 'section_' . $widget_id . $index,
+                                        ]
+                                );
+                                ?>
                                 <li <?php $this->print_render_attribute_string('item_' . $index); ?>>
                                     <span class="eead-hscroll-nav-dot"></span>
                                     <?p hp if ('true' === $settings['tooltips'] &&!empty($tooltips[$index])): ?>
                                     <span class="eead-hscroll-nav-tooltip"><?php echo esc_html($tooltips[$index]); ?></span>
-                                <?php endif; ?>
+                                    <?php endif; ?>
                                 </li>
-            <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
-                                <?php
-                            }
-                            if (0 !== $count && $settings['pagination_number']) {
-                                ?>
+                    <?php
+                }
+                if (0 !== $count && $settings['pagination_number']) {
+                    ?>
                     <div class="eead-hscroll-pagination">
                         <span class="eead-hscroll-page-item eead-hscroll-current-slide">01</span>
                         <span class="eead-hscroll-page-item eead-hscroll-total-slides">
-                    <?php echo wp_kses_post($count > 9 ? $count : sprintf('0%s', $count)); ?>
+                            <?php echo wp_kses_post($count > 9 ? $count : sprintf('0%s', $count)); ?>
                         </span>
                     </div>
-            <?php
-        }
-        ?>
+                    <?php
+                }
+                ?>
             </div>
         </div>
-                <?php
-            }
+        <?php
+    }
 
-            public function get_template_content($title) {
-                $frontend = Plugin::$instance->frontend;
-                $id = $this->get_id_by_title($title);
-                $id = apply_filters('wpml_object_id', $id, 'elementor_library', true);
-                $template_content = $frontend->get_builder_content_for_display($id, true);
-                return $template_content;
-            }
+    public function get_template_content($title) {
+        $frontend = Plugin::$instance->frontend;
+        $id = $this->get_id_by_title($title);
+        $id = apply_filters('wpml_object_id', $id, 'elementor_library', true);
+        $template_content = $frontend->get_builder_content_for_display($id, true);
+        return $template_content;
+    }
 
-            public function get_id_by_title($title) {
-                $query = new \WP_Query(
-                        array('post_type' => 'elementor_library',
-                    'title' => $title,
-                    'post_status' => 'all',
-                    'posts_per_page' => 1,
-                    'no_found_rows' => true,
-                    'ignore_sticky_posts' => true,
-                    'update_post_term_cache' => false,
-                    'update_post_meta_cache' => false,
-                    'orderby' => 'post_date ID',
-                    'order' => 'ASC',
-                        )
-                );
+    public function get_id_by_title($title) {
+        $query = new \WP_Query(
+                array(
+                    'post_type' => 'elementor_library',
+            'title' => $title,
+            'post_status' => 'all',
+            'posts_per_page' => 1,
+            'no_found_rows' => true,
+            'ignore_sticky_posts' => true,
+            'update_post_term_cache' => false,
+            'update_post_meta_cache' => false,
+            'orderby' => 'post_date ID',
+            'order' => 'ASC',
+                )
+        );
 
-                if (!empty($query->post)) {
-                    $template = $query->post;
-                } else {
-                    $template = NULL;
-                }
-                $template_id = isset($template->ID) ? $template->ID : $title;
-                return $template_id;
-            }
-
-            public function get_el_template_content($title, $id = false) {
-                $frontend = Plugin::$instance->frontend;
-                if (!$id) {
-                    $id = $this->get_id_by_title($title);
-
-                    $id = apply_filters('wpml_object_id', $id, 'elementor_library', true);
-                } else {
-                    $id = $title;
-                }
-                $template_content = $frontend->get_builder_content_for_display($id, true);
-                return $template_content;
-            }
-
+        if (!empty($query->post)) {
+            $template = $query->post;
+        } else {
+            $template = NULL;
         }
-        
+        $template_id = isset($template->ID) ? $template->ID : $title;
+        return $template_id;
+    }
+
+    public function get_el_template_content($title, $id = false) {
+        $frontend = Plugin::$instance->frontend;
+        if (!$id) {
+            $id = $this->get_id_by_title($title);
+
+            $id = apply_filters('wpml_object_id', $id, 'elementor_library', true);
+        } else {
+            $id = $title;
+        }
+        $template_content = $frontend->get_builder_content_for_display($id, true);
+        return $template_content;
+    }
+
+}

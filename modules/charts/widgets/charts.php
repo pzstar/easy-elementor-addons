@@ -22,22 +22,18 @@ if (!defined('ABSPATH')) {
  */
 class Charts extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-charts';
     }
 
-    
     public function get_title() {
         return esc_html__('Charts', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-chart';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -46,7 +42,6 @@ class Charts extends Widget_Base {
         return ['chart'];
     }
 
-    
     protected function register_controls() {// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
         $this->start_controls_section(
             'general_settings', [

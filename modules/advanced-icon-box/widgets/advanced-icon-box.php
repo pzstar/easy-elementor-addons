@@ -21,27 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedIconBox extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-advanced-icon-box';
     }
 
-    
     public function get_title() {
         return esc_html__('Advanced Icon Box', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-icon-box';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

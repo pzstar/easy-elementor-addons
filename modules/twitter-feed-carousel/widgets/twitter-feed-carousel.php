@@ -18,22 +18,18 @@ if (!defined('ABSPATH')) {
  */
 class TwitterFeedCarousel extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-twitter-feed-carousel';
     }
 
-    
     public function get_title() {
         return esc_html__('Twitter Feed Carousel', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-twitter1';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -46,7 +42,6 @@ class TwitterFeedCarousel extends Widget_Base {
         return ['owlcarousel'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'eead_section_twitter_feed_carousel_acc_settings', [
@@ -963,7 +958,7 @@ class TwitterFeedCarousel extends Widget_Base {
 
         if (empty($items['errors'])) {
             ?>
-            <div class="eead-twitter-feed eead-twitter-feed-carousel swiper-container eead-twitter-feed-<?php echo $this->get_id() ?>" <?php //echo $this->get_render_attribute_string('eead-twitter-feed-carousel-wrap');   ?>>
+            <div class="eead-twitter-feed eead-twitter-feed-carousel swiper-container eead-twitter-feed-<?php echo $this->get_id() ?>" <?php //echo $this->get_render_attribute_string('eead-twitter-feed-carousel-wrap');     ?>>
                 <div class="swiper-wrapper eead-twitter-feed-carousel-slides owl-carousel" data-params='<?php echo $params; ?>'>
                     <?php $this->twitter_feed_render_items($items, $settings, 'swiper-slide'); ?>
                 </div>

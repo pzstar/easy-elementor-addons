@@ -20,202 +20,197 @@ if (!defined('ABSPATH')) {
  */
 class DualButton extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-dual-button';
     }
 
-    
     public function get_title() {
         return esc_html__('Dual Button', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-dual-button';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(
-                'dual_btn_settings', [
-            'label' => esc_html__('Button', 'easy-elementor-addons'),
-                ]
+            'dual_btn_settings', [
+                'label' => esc_html__('Button', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'button_layout', [
-            'label' => esc_html__('Layout', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
-                'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
-            ],
-            'default' => 'horizontal',
-                ]
+            'button_layout', [
+                'label' => esc_html__('Layout', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
+                    'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
+                ],
+                'default' => 'horizontal',
+            ]
         );
 
         $this->add_responsive_control(
-                'button_align', [
-            'label' => esc_html__('Alignment', 'easy-elementor-addons'),
-            'type' => Controls_Manager::CHOOSE,
-            'options' => [
-                'flex-start' => [
-                    'title' => esc_html__('Left', 'easy-elementor-addons'),
-                    'icon' => 'eicon-h-align-left',
+            'button_align', [
+                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
                 ],
-                'center' => [
-                    'title' => esc_html__('Center', 'easy-elementor-addons'),
-                    'icon' => 'eicon-h-align-center',
-                ],
-                'flex-end' => [
-                    'title' => esc_html__('Right', 'easy-elementor-addons'),
-                    'icon' => 'eicon-h-align-right',
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons' => 'justify-content: {{VALUE}}'
                 ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons' => 'justify-content: {{VALUE}}'
             ]
-                ]
         );
 
         $this->add_control(
-                'button_spacing', [
-            'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'max' => 100,
-                ]
-            ],
-            'default' => [
-                'unit' => 'px',
-                'size' => 10
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container' => 'gap:{{SIZE}}px;',
-                '{{WRAPPER}} .eead-dual-buttons .eead-button-style-horizontal .eead-dual-button-separator' => 'margin-left:calc({{SIZE}}px/2);',
-                '{{WRAPPER}} .eead-dual-buttons .eead-button-style-vertical .eead-dual-button-separator' => 'margin-top:calc({{SIZE}}px/2);'
-            ],
-                ]
+            'button_spacing', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 100,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container' => 'gap:{{SIZE}}px;',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-button-style-horizontal .eead-dual-button-separator' => 'margin-left:calc({{SIZE}}px/2);',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-button-style-vertical .eead-dual-button-separator' => 'margin-top:calc({{SIZE}}px/2);'
+                ],
+            ]
         );
 
         $this->start_controls_tabs('tabs_dual_buttons_tabs');
 
         $this->start_controls_tab(
-                'tab_primary_btn_tab', [
-            'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
-                ]
+            'tab_primary_btn_tab', [
+                'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'pri_button_text', [
-            'label' => esc_html__('Text', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => 'true',
-            'default' => esc_html__('Primary Button', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('Primary Button', 'easy-elementor-addons'),
-                ]
+            'pri_button_text', [
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => 'true',
+                'default' => esc_html__('Primary Button', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Primary Button', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'pri_button_link', [
-            'label' => esc_html__('Link', 'easy-elementor-addons'),
-            'type' => Controls_Manager::URL,
-            'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
-            'default' => [
-                'url' => '#'
-            ],
-                ]
+            'pri_button_link', [
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::URL,
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'default' => [
+                    'url' => '#'
+                ],
+            ]
         );
 
         $this->add_control(
-                'pri_button_icon', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'type' => Controls_Manager::ICONS,
-            'skin' => 'inline',
-            'label_block' => false
-                ]
+            'pri_button_icon', [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false
+            ]
         );
 
         $this->add_control(
-                'pri_button_icon_align', [
-            'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'row',
-            'options' => [
-                'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
-                'row' => esc_html__('After', 'easy-elementor-addons')
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-pri-button .eead-dual-button' => 'flex-direction: {{VALUE}};'
-            ],
-                ]
+            'pri_button_icon_align', [
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'row',
+                'options' => [
+                    'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
+                    'row' => esc_html__('After', 'easy-elementor-addons')
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-pri-button .eead-dual-button' => 'flex-direction: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'tab_secondary_btn_tab', [
-            'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
-                ]
+            'tab_secondary_btn_tab', [
+                'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'sec_button_text', [
-            'label' => esc_html__('Text', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'label_block' => 'true',
-            'dynamic' => [
-                'active' => true
-            ],
-            'default' => esc_html__('Secondary Button', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('Secondary Button', 'easy-elementor-addons'),
-                ]
+            'sec_button_text', [
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => 'true',
+                'dynamic' => [
+                    'active' => true
+                ],
+                'default' => esc_html__('Secondary Button', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Secondary Button', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'sec_button_link', [
-            'label' => esc_html__('Link', 'easy-elementor-addons'),
-            'type' => Controls_Manager::URL,
-            'dynamic' => [
-                'active' => true
-            ],
-            'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
-            'default' => [
-                'url' => '#'
-            ],
-                ]
+            'sec_button_link', [
+                'label' => esc_html__('Link', 'easy-elementor-addons'),
+                'type' => Controls_Manager::URL,
+                'dynamic' => [
+                    'active' => true
+                ],
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'default' => [
+                    'url' => '#'
+                ],
+            ]
         );
 
         $this->add_control(
-                'sec_button_icon', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'type' => Controls_Manager::ICONS,
-            'skin' => 'inline',
-            'label_block' => false
-                ]
+            'sec_button_icon', [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false
+            ]
         );
 
         $this->add_control(
-                'sec_button_icon_align', [
-            'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'row',
-            'options' => [
-                'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
-                'row' => esc_html__('After', 'easy-elementor-addons')
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-sec-button .eead-dual-button' => 'flex-direction: {{VALUE}};'
-            ],
-                ]
+            'sec_button_icon_align', [
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'row',
+                'options' => [
+                    'row-reverse' => esc_html__('Before', 'easy-elementor-addons'),
+                    'row' => esc_html__('After', 'easy-elementor-addons')
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-sec-button .eead-dual-button' => 'flex-direction: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->end_controls_tab();
@@ -223,458 +218,458 @@ class DualButton extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
-                'button_icon_spacing', [
-            'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'max' => 50,
-                ]
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-button' => 'gap: {{SIZE}}px;'
-            ],
-            'separator' => 'before'
-                ]
+            'button_icon_spacing', [
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'max' => 50,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-button' => 'gap: {{SIZE}}px;'
+                ],
+                'separator' => 'before'
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_separator', [
-            'label' => esc_html__('Separator', 'easy-elementor-addons'),
-                ]
-        );
-
-        $this->add_control(
-                'separator_type', [
-            'label' => esc_html__('Separator Type', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'text',
-            'options' => [
-                'none' => esc_html__('None', 'easy-elementor-addons'),
-                'text' => esc_html__('Text', 'easy-elementor-addons'),
-                'icon' => esc_html__('Icon', 'easy-elementor-addons')
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'separator_text', [
-            'label' => esc_html__('Text', 'easy-elementor-addons'),
-            'type' => Controls_Manager::TEXT,
-            'default' => esc_html__('OR', 'easy-elementor-addons'),
-            'placeholder' => esc_html__('OR', 'easy-elementor-addons'),
-            'condition' => [
-                'separator_type' => 'text'
+            'section_separator', [
+                'label' => esc_html__('Separator', 'easy-elementor-addons'),
             ]
-                ]
         );
 
         $this->add_control(
-                'separator_icon', [
-            'label' => esc_html__('Icon', 'easy-elementor-addons'),
-            'type' => Controls_Manager::ICONS,
-            'skin' => 'inline',
-            'exclude_inline_options' => 'none',
-            'default' => [
-                'value' => 'fas fa-plus',
-                'library' => 'solid'
-            ],
-            'label_block' => false,
-            'condition' => [
-                'separator_type' => 'icon'
+            'separator_type', [
+                'label' => esc_html__('Separator Type', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'text',
+                'options' => [
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'text' => esc_html__('Text', 'easy-elementor-addons'),
+                    'icon' => esc_html__('Icon', 'easy-elementor-addons')
+                ],
             ]
+        );
+
+        $this->add_control(
+            'separator_text', [
+                'label' => esc_html__('Text', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'default' => esc_html__('OR', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('OR', 'easy-elementor-addons'),
+                'condition' => [
+                    'separator_type' => 'text'
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'separator_icon', [
+                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'exclude_inline_options' => 'none',
+                'default' => [
+                    'value' => 'fas fa-plus',
+                    'library' => 'solid'
+                ],
+                'label_block' => false,
+                'condition' => [
+                    'separator_type' => 'icon'
+                ]
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_title_style', [
-            'label' => esc_html__('General', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'section_title_style', [
+                'label' => esc_html__('General', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_control(
-                'button_animation', [
-            'label' => esc_html__('Animation', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SELECT,
-            'options' => [
-                'none' => esc_html__('None', 'easy-elementor-addons'),
-                'animation_1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                'animation_2' => esc_html__('Style 1 - Alt', 'easy-elementor-addons'),
-                'animation_3' => esc_html__('Style 2', 'easy-elementor-addons'),
-                'animation_4' => esc_html__('Style 2 - Alt', 'easy-elementor-addons'),
-                'animation_5' => esc_html__('Style 3', 'easy-elementor-addons'),
-                'animation_6' => esc_html__('Style 3 - Alt', 'easy-elementor-addons'),
-                'animation_7' => esc_html__('Style 4', 'easy-elementor-addons'),
-                'animation_8' => esc_html__('Style 4 - Alt', 'easy-elementor-addons')
-            ],
-            'prefix_class' => 'animation-',
-            'render_type' => 'template',
-            'default' => 'none',
-                ]
+            'button_animation', [
+                'label' => esc_html__('Animation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'animation_1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'animation_2' => esc_html__('Style 1 - Alt', 'easy-elementor-addons'),
+                    'animation_3' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'animation_4' => esc_html__('Style 2 - Alt', 'easy-elementor-addons'),
+                    'animation_5' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'animation_6' => esc_html__('Style 3 - Alt', 'easy-elementor-addons'),
+                    'animation_7' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'animation_8' => esc_html__('Style 4 - Alt', 'easy-elementor-addons')
+                ],
+                'prefix_class' => 'animation-',
+                'render_type' => 'template',
+                'default' => 'none',
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Box_Shadow::get_type(), [
-            'name' => 'box_shadow',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container',
-                ]
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'box_shadow',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container',
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_style_primary_button', [
-            'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'section_style_primary_button', [
+                'label' => esc_html__('Primary Button', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'primary_button_typography',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
-                ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'primary_button_typography',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
+            ]
         );
 
         $this->start_controls_tabs('tabs_button_style');
 
         $this->start_controls_tab(
-                'tab_button_normal', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'tab_button_normal', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'pri_button_color', [
-            'label' => esc_html__('Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button svg' => 'fill: {{VALUE}};'
-            ],
-                ]
+            'pri_button_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button svg' => 'fill: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->add_control(
-                'pri_button_background_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'background: {{VALUE}};'
-            ],
-                ]
+            'pri_button_background_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'background: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'tab_button_hover', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'tab_button_hover', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'pri_button_text_hover_color', [
-            'label' => esc_html__('Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};'
-            ],
-                ]
+            'pri_button_text_hover_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->add_control(
-                'pri_button_background_color_hover', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
-            ],
-                ]
+            'pri_button_background_color_hover', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->end_controls_tabs();
 
         $this->add_group_control(
-                Group_Control_Border::get_type(), [
-            'name' => 'pri_button_border',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button',
-            'separator' => 'before',
-                ]
+            Group_Control_Border::get_type(), [
+                'name' => 'pri_button_border',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button',
+                'separator' => 'before',
+            ]
         );
 
         $this->add_control(
-                'pri_button_border_radius', [
-            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ],
-                ]
+            'pri_button_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'pri_button_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', 'em', '%'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ],
-                ]
+            'pri_button_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_style_secondary_button', [
-            'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
+            'section_style_secondary_button', [
+                'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
         );
 
         $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'secondary_button_typography',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
-                ]
+            Group_Control_Typography::get_type(), [
+                'name' => 'secondary_button_typography',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
+            ]
         );
 
         $this->start_controls_tabs('tabs_sec_button_style');
 
         $this->start_controls_tab(
-                'tab_sec_button_normal', [
-            'label' => esc_html__('Normal', 'easy-elementor-addons'),
-                ]
+            'tab_sec_button_normal', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'sec_button_color', [
-            'label' => esc_html__('Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button svg' => 'fill: {{VALUE}};'
-            ],
-                ]
+            'sec_button_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button svg' => 'fill: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->add_control(
-                'sec_button_background_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'background: {{VALUE}};'
-            ],
-                ]
+            'sec_button_background_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'background: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-                'tab_sec_button_hover', [
-            'label' => esc_html__('Hover', 'easy-elementor-addons'),
-                ]
+            'tab_sec_button_hover', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+            ]
         );
 
         $this->add_control(
-                'sec_button_text_hover_color', [
-            'label' => esc_html__('Text Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};'
-            ],
-                ]
+            'sec_button_text_hover_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover svg, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus svg' => 'fill: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->add_control(
-                'sec_button_background_color_hover', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
-            ],
-                ]
+            'sec_button_background_color_hover', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:not(.eead-animate):focus' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => '--eead-dual-button-hover-bg-color: {{VALUE}}'
+                ],
+            ]
         );
 
         $this->add_control(
-                'sec_button_border_hover_color', [
-            'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'condition' => [
-                'sec_button_border_border!' => ''
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'border-color: {{VALUE}};'
-            ],
-                ]
+            'sec_button_border_hover_color', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'sec_button_border_border!' => ''
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button:focus' => 'border-color: {{VALUE}};'
+                ],
+            ]
         );
 
         $this->end_controls_tabs();
 
         $this->add_group_control(
-                Group_Control_Border::get_type(), [
-            'name' => 'sec_button_border',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button',
-            'separator' => 'before',
-                ]
+            Group_Control_Border::get_type(), [
+                'name' => 'sec_button_border',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button',
+                'separator' => 'before',
+            ]
         );
 
         $this->add_control(
-                'sec_button_border_radius', [
-            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ],
-                ]
+            'sec_button_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->add_responsive_control(
-                'sec_button_padding', [
-            'label' => esc_html__('Padding', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', 'em', '%'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ],
-                ]
+            'sec_button_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-                'section_style_separator', [
-            'label' => esc_html__('Separator', 'easy-elementor-addons'),
-            'tab' => Controls_Manager::TAB_STYLE,
-                ]
-        );
-
-        $this->add_control(
-                'separator_size', [
-            'label' => esc_html__('Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 6,
-                    'max' => 100,
-                ]
-            ],
-            'default' => [
-                'size' => '40'
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Typography::get_type(), [
-            'name' => 'separator_typography',
-            'label' => esc_html__('Typography', 'easy-elementor-addons'),
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
-            'condition' => [
-                'separator_type' => 'text'
+            'section_style_separator', [
+                'label' => esc_html__('Separator', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
             ]
-                ]
         );
 
         $this->add_control(
-                'separator_icon_size', [
-            'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 6,
-                    'max' => 100,
-                ]
-            ],
-            'default' => [
-                'size' => '14'
-            ],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator i' => 'font-size: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator svg' => 'height: {{SIZE}}{{UNIT}};width: auto;'
-            ],
-            'condition' => [
-                'separator_type' => 'icon'
-            ]
-                ]
-        );
-
-        $this->add_control(
-                'separator_icon_color', [
-            'label' => esc_html__('Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator svg' => 'fill : {{VALUE}};'
-            ],
-                ]
-        );
-
-        $this->add_control(
-                'separator_background_color', [
-            'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'background-color: {{VALUE}};'
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Border::get_type(), [
-            'name' => 'separator_border',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
-                ]
-        );
-
-        $this->add_control(
-                'separator_border_radius', [
-            'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-            'type' => Controls_Manager::DIMENSIONS,
-            'size_units' => ['px', '%'],
-            'selectors' => [
-                '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-            ],
-                ]
-        );
-
-        $this->add_group_control(
-                Group_Control_Box_Shadow::get_type(), [
-            'name' => 'separator_box_shadow',
-            'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
-            'fields_options' =>
-            [
-                'box_shadow_type' =>
-                [
-                    'default' => 'yes'
-                ],
-                'box_shadow' => [
-                    'default' =>
-                    [
-                        'horizontal' => 0,
-                        'vertical' => 0,
-                        'blur' => 0,
-                        'spread' => 6,
-                        'color' => 'rgba(255, 255, 255, 0.2)'
+            'separator_size', [
+                'label' => esc_html__('Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 6,
+                        'max' => 100,
                     ]
+                ],
+                'default' => [
+                    'size' => '40'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'separator_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
+                'condition' => [
+                    'separator_type' => 'text'
                 ]
             ]
+        );
+
+        $this->add_control(
+            'separator_icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 6,
+                        'max' => 100,
+                    ]
+                ],
+                'default' => [
+                    'size' => '14'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator svg' => 'height: {{SIZE}}{{UNIT}};width: auto;'
+                ],
+                'condition' => [
+                    'separator_type' => 'icon'
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'separator_icon_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator svg' => 'fill : {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'separator_background_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'background-color: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'separator_border',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
+            ]
+        );
+
+        $this->add_control(
+            'separator_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'separator_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
+                'fields_options' =>
+                    [
+                        'box_shadow_type' =>
+                            [
+                                'default' => 'yes'
+                            ],
+                        'box_shadow' => [
+                            'default' =>
+                                [
+                                    'horizontal' => 0,
+                                    'vertical' => 0,
+                                    'blur' => 0,
+                                    'spread' => 6,
+                                    'color' => 'rgba(255, 255, 255, 0.2)'
+                                ]
+                        ]
+                    ]
+            ]
         );
 
         $this->end_controls_section();

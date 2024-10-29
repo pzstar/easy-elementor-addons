@@ -19,22 +19,18 @@ if (!defined('ABSPATH')) {
  */
 class ThreesixtyImage extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-threesixty-image';
     }
 
-    
     public function get_title() {
         return esc_html__('360 Image', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-image360';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -43,7 +39,6 @@ class ThreesixtyImage extends Widget_Base {
         return ['circlr', 'simple-magnify'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'threesixty_rotation_section', [

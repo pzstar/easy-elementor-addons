@@ -18,22 +18,18 @@ if (!defined('ABSPATH')) {
  */
 class BusinessHour extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-business-hour';
     }
 
-    
     public function get_title() {
         return esc_html__('Business Hour', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-business-hours';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +38,6 @@ class BusinessHour extends Widget_Base {
         return ['jclock'];
     }
 
-    
     protected function register_controls() {
         $time_24hr = false;
         $wp_time_format = get_option('time_format');
@@ -936,13 +931,13 @@ class BusinessHour extends Widget_Base {
                     } elseif ($settings['header_content_type'] == 'text') {
                         ?>
                         <div class="eead-bh-custom-text">
-                        <?php echo do_shortcode($settings['header_text']); ?>
+                            <?php echo do_shortcode($settings['header_text']); ?>
                         </div>
                         <?php
                     }
                     ?>
                 </div>
-        <?php } ?>
+            <?php } ?>
 
             <div class="eead-business-hour-details">
                 <?php
@@ -953,21 +948,21 @@ class BusinessHour extends Widget_Base {
                     ?>
                     <div class="eead-business-hour-row<?php echo($day == $active_day) ? ' active-day' : ''; ?>">
                         <div class=" eead-business-day">
-            <?php echo wp_kses_post($settings["{$day}day_label"]); ?>
+                            <?php echo wp_kses_post($settings["{$day}day_label"]); ?>
                         </div>
                         <div class="eead-business-time">
                             <?php
                             if ($settings["{$day}_closed"] === 'yes') {
                                 ?>
                                 <div class="eead-closed-all-day">
-                                <?php echo wp_kses_post($settings["{$day}_closed_day_msg"]); ?>
+                                    <?php echo wp_kses_post($settings["{$day}_closed_day_msg"]); ?>
                                 </div>
                                 <?php
                             } else {
                                 foreach ($settings["{$day}_business_hours"] as $hours) {
                                     ?>
                                     <div class="eead-business-time-interval">
-                                    <?php echo esc_html($hours['start_time']); ?> - <?php echo esc_html($hours['end_time']); ?>
+                                        <?php echo esc_html($hours['start_time']); ?> - <?php echo esc_html($hours['end_time']); ?>
                                     </div>
                                     <?php
                                 }
@@ -975,10 +970,10 @@ class BusinessHour extends Widget_Base {
                             ?>
                         </div>
                     </div>
-        <?php } ?>
+                <?php } ?>
             </div>
 
-                <?php if ($settings['footer_content_type'] != 'none') { ?>
+            <?php if ($settings['footer_content_type'] != 'none') { ?>
                 <div class="eead-bh-footer">
                     <?php
                     if ($settings['footer_content_type'] == 'date') {
@@ -1020,13 +1015,13 @@ class BusinessHour extends Widget_Base {
                     } elseif ($settings['footer_content_type'] == 'text') {
                         ?>
                         <div class="eead-bh-custom-text">
-                        <?php echo do_shortcode($settings['footer_text']); ?>
+                            <?php echo do_shortcode($settings['footer_text']); ?>
                         </div>
                         <?php
                     }
                     ?>
                 </div>
-        <?php } ?>
+            <?php } ?>
 
         </div>
         <?php

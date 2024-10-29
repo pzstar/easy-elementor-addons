@@ -22,17 +22,14 @@ if (!defined('ABSPATH')) {
  */
 class FlipBox extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-flip-box';
     }
 
-    
     public function get_title() {
         return esc_html__('Flip Box', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-flip-box';
     }
@@ -41,7 +38,6 @@ class FlipBox extends Widget_Base {
         return ['3d', 'flip', 'box'];
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -50,7 +46,6 @@ class FlipBox extends Widget_Base {
         return [];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

@@ -19,22 +19,18 @@ if (!defined('ABSPATH')) {
  */
 class Countdown extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-countdown';
     }
 
-    
     public function get_title() {
         return esc_html__('Countdown', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-count-down';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -47,7 +43,6 @@ class Countdown extends Widget_Base {
         return [];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

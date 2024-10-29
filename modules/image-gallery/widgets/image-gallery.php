@@ -21,22 +21,18 @@ if (!defined('ABSPATH')) {
  */
 class ImageGallery extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-image-gallery';
     }
 
-    
     public function get_title() {
         return esc_html__('Image Gallery', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-image-gallery';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,7 +45,6 @@ class ImageGallery extends Widget_Base {
         return ['light-gallery', 'isotope'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

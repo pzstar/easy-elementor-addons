@@ -17,22 +17,18 @@ if (!defined('ABSPATH')) {
  */
 class CaptionHoverEffect extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-caption-hover-effect';
     }
 
-    
     public function get_title() {
         return esc_html__('Caption Hover Effect', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eicon-click';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -41,7 +37,6 @@ class CaptionHoverEffect extends Widget_Base {
         return ['modernizr-custom'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'content_section', [

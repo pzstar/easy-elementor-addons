@@ -14,22 +14,18 @@ if (!defined('ABSPATH')) {
 
 class MorphingLayouts extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-morphing-layouts';
     }
 
-    
     public function get_title() {
         return esc_html__('Morphing Layouts', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eicon-call-to-action';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +38,6 @@ class MorphingLayouts extends Widget_Base {
         return ['morph-anime', 'shape-morph', 'scrollmonitor'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'content_section', [

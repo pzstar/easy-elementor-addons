@@ -16,22 +16,18 @@ if (!defined('ABSPATH')) {
  */
 class TiltHoverImage extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-tilt-hover-image';
     }
 
-    
     public function get_title() {
         return esc_html__('Tilt Hover Image', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eicon-image-rollover';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -40,7 +36,6 @@ class TiltHoverImage extends Widget_Base {
         return ['tilt-anime', 'tilt'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'tilt_hover_effect_section', [

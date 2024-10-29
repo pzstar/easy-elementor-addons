@@ -16,17 +16,14 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedMap extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-advanced-map';
     }
 
-    
     public function get_title() {
         return esc_html__('Advanced Map', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-map';
     }
@@ -35,7 +32,6 @@ class AdvancedMap extends Widget_Base {
         return ['map', 'google map', 'google'];
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,7 +40,6 @@ class AdvancedMap extends Widget_Base {
         return ['gmap-api'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

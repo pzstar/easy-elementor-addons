@@ -18,22 +18,18 @@ if (!defined('ABSPATH')) {
  */
 class ImageComparison extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-image-comparison';
     }
 
-    
     public function get_title() {
         return esc_html__('Image Comparison', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-compare-image';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -46,7 +42,6 @@ class ImageComparison extends Widget_Base {
         return ['image-compare'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

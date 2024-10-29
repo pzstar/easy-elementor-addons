@@ -20,17 +20,14 @@ if (!defined('ABSPATH')) {
  */
 class DropBar extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-drop-bar';
     }
 
-    
     public function get_title() {
         return esc_html__('Drop Bar', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-drop-bar';
     }
@@ -39,7 +36,6 @@ class DropBar extends Widget_Base {
         return ['dropbar', 'dropdown', 'popup'];
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -48,7 +44,6 @@ class DropBar extends Widget_Base {
         return ['uikit'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

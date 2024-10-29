@@ -21,27 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class Accordion extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-accordion';
     }
 
-    
     public function get_title() {
         return esc_html__('Accordion', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-accordion';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

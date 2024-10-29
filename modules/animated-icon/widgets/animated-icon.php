@@ -15,22 +15,18 @@ if (!defined('ABSPATH')) {
  */
 class AnimatedIcon extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-animated-icon';
     }
 
-    
     public function get_title() {
         return esc_html__('Animated Icon', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-animated-icon';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -39,7 +35,6 @@ class AnimatedIcon extends Widget_Base {
         return ['lordicon'];
     }
 
-    
     protected function register_controls() {
         $this->start_controls_section(
             'eead_general', [

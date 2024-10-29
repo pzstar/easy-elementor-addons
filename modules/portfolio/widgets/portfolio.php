@@ -22,22 +22,18 @@ if (!defined('ABSPATH')) {
  */
 class Portfolio extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-portfolio';
     }
 
-    
     public function get_title() {
         return esc_html__('Portfolio', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-portfolio-grid';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -50,7 +46,6 @@ class Portfolio extends Widget_Base {
         return ['light-gallery', 'owlcarousel'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

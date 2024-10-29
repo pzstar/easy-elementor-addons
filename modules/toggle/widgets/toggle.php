@@ -21,27 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class Toggle extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-toggle';
     }
 
-    
     public function get_title() {
         return esc_html__('Toggle Content', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-toggle';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

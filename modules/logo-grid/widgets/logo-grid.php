@@ -23,17 +23,14 @@ if (!defined('ABSPATH')) {
  */
 class LogoGrid extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-logo-grid';
     }
 
-    
     public function get_title() {
         return esc_html__('Logo Grid', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-logo-grid';
     }
@@ -42,7 +39,6 @@ class LogoGrid extends Widget_Base {
         return [];
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -51,7 +47,6 @@ class LogoGrid extends Widget_Base {
         return [];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

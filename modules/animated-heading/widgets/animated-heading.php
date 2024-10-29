@@ -16,22 +16,18 @@ if (!defined('ABSPATH')) {
  */
 class AnimatedHeading extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-animated-heading';
     }
 
-    
     public function get_title() {
         return esc_html__('Animated Heading', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-animated-heading';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -40,7 +36,6 @@ class AnimatedHeading extends Widget_Base {
         return ['morphext', 'typed'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

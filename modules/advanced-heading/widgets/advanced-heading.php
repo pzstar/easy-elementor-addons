@@ -17,17 +17,14 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedHeading extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-advanced-heading';
     }
 
-    
     public function get_title() {
         return esc_html__('Advanced Heading', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-advanced-heading';
     }
@@ -36,7 +33,6 @@ class AdvancedHeading extends Widget_Base {
         return ['heading', 'title'];
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -45,7 +41,6 @@ class AdvancedHeading extends Widget_Base {
         return [];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

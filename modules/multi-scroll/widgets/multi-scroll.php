@@ -18,22 +18,18 @@ if (!defined('ABSPATH')) {
 
 class MultiScroll extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-multi-scroll';
     }
 
-    
     public function get_title() {
         return esc_html__('Multi Scroll', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eicon-scroll';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +38,6 @@ class MultiScroll extends Widget_Base {
         return ['multiscroll'];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

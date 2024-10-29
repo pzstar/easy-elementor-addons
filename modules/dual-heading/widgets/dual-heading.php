@@ -20,22 +20,18 @@ if (!defined('ABSPATH')) {
  */
 class DualHeading extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-dual-heading';
     }
 
-    
     public function get_title() {
         return esc_html__('Dual Heading', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-dual-heading';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,7 +40,6 @@ class DualHeading extends Widget_Base {
         return [];
     }
 
-    
     protected function register_controls() {
 
         $this->start_controls_section(

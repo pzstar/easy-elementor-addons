@@ -28,7 +28,6 @@ class ImageAccordion extends Widget_Base {
         return 'eead-element-icon eead-image-accordion';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -511,14 +510,14 @@ class ImageAccordion extends Widget_Base {
                 <<?php echo esc_attr($tag) . ' ' . $this->get_render_attribute_string('eead-image-accordion-' . $key); ?> >
                 <div class="eead-image-accordion-box">
                     <div class="eead-image-accordion-content">
-            <?php printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['image_accordion_title'])); ?>
+                        <?php printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['image_accordion_title'])); ?>
                         <div class="eead-image-accordion-text">
-                        <?php echo wp_kses_post(parse_wisiwyg_content($img_accordion['image_accordion_content'])); ?>
+                            <?php echo wp_kses_post(parse_wisiwyg_content($img_accordion['image_accordion_content'])); ?>
                         </div>
                     </div>
                 </div>
                 </<?php echo $tag; ?>>
-        <?php } ?>
+            <?php } ?>
         </div>
 
         <?php

@@ -21,22 +21,18 @@ if (!defined('ABSPATH')) {
  */
 class FilterableGallery extends Widget_Base {
 
-   
     public function get_name() {
         return 'eead-filterable-gallery';
     }
 
-    
     public function get_title() {
         return esc_html__('Filterable Gallery', 'easy-elementor-addons');
     }
 
-    
     public function get_icon() {
         return 'eead-element-icon eead-gallery-grid';
     }
 
-    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,7 +45,6 @@ class FilterableGallery extends Widget_Base {
         return ['light-gallery'];
     }
 
-    
     protected function register_controls() {
 
         /**
