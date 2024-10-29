@@ -9,7 +9,7 @@
 
         b: function (b, c) {
             var d = c,
-                e = c.model.get("elType"),
+                e = c.model.get('elType'),
                 f = b.elecode.elType,
                 g = b.elecode,
                 h = JSON.stringify(g);
@@ -25,37 +25,37 @@
                 };
 
             switch (f) {
-                case "section":
-                case "container":
+                case 'section':
+                case 'container':
                     j.elements = a(g.elements), k = elementor.getPreviewContainer();
                     break;
-                case "column":
+                case 'column':
                     j.elements = a(g.elements);
-                    ("section" === e || "container" === e) ? k = d.getContainer() : "column" === e ? (k = d.getContainer().parent, l.index = d.getOption("_index") + 1) : "widget" === e ? (k = d.getContainer().parent.parent, l.index = d.getContainer().parent.view.getOption("_index") + 1) : void 0;
+                    ('section' === e || 'container' === e) ? k = d.getContainer() : 'column' === e ? (k = d.getContainer().parent, l.index = d.getOption('_index') + 1) : 'widget' === e ? (k = d.getContainer().parent.parent, l.index = d.getContainer().parent.view.getOption('_index') + 1) : void 0;
                     break;
-                case "widget":
+                case 'widget':
                     j.widgetType = b.eletype, k = d.getContainer();
-                    ("section" === e) ? k = d.children.findByIndex(0).getContainer() : "column" === e ? k = d.getContainer() : "widget" === e ? (k = d.getContainer().parent, e.index = d.getOption("_index") + 1, l.index = d.getOption("_index") + 1) : void 0;
+                    ('section' === e) ? k = d.children.findByIndex(0).getContainer() : 'column' === e ? k = d.getContainer() : 'widget' === e ? (k = d.getContainer().parent, e.index = d.getOption('_index') + 1, l.index = d.getOption('_index') + 1) : void 0;
             }
-            var m = $e.run("document/elements/create", {
+            var m = $e.run('document/elements/create', {
                 model: j,
                 container: k,
                 options: l
             });
             i && jQuery.ajax({
                 url: eead_cross_cp.ajax_url,
-                method: "POST",
+                method: 'POST',
                 data: {
                     nonce: eead_cross_cp.nonce,
-                    action: "eead_cross_cp_import",
+                    action: 'eead_cross_cp_import',
                     copy_content: h
                 }
             }).done(function (a) {
                 if (a.success) {
                     var b = a.data[0];
-                    j.elType = b.elType, j.settings = b.settings, "widget" === j.elType ? j.widgetType = b.widgetType : j.elements = b.elements, $e.run("document/elements/delete", {
+                    j.elType = b.elType, j.settings = b.settings, 'widget' === j.elType ? j.widgetType = b.widgetType : j.elements = b.elements, $e.run('document/elements/delete', {
                         container: m
-                    }), $e.run("document/elements/create", {
+                    }), $e.run('document/elements/create', {
                         model: j,
                         container: k,
                         options: l
@@ -66,10 +66,10 @@
         pasteAll: function (allSections) {
             jQuery.ajax({
                 url: eead_cross_cp.ajax_url,
-                method: "POST",
+                method: 'POST',
                 data: {
                     nonce: eead_cross_cp.nonce,
-                    action: "eead_cross_cp_import",
+                    action: 'eead_cross_cp_import',
                     copy_content: allSections
                 },
             }).done(function (e) {
@@ -95,39 +95,39 @@
     }
 
     xdLocalStorage.init({
-        iframeUrl: "https://themearrow.com/cdcp/",
+        iframeUrl: 'https://themearrow.com/cdcp/',
         initCallback: function () { }
     });
 
-    var c = ["section", "column", "widget", "container"],
+    var c = ['section', 'column', 'widget', 'container'],
         d = [];
 
     c.forEach(function (a, e) {
-        elementor.hooks.addFilter("elements/" + c[e] + "/contextMenuGroups", function (a, f) {
+        elementor.hooks.addFilter('elements/' + c[e] + '/contextMenuGroups', function (a, f) {
             return d.push(f), a.push({
-                name: "eead_" + c[e],
+                name: 'eead_' + c[e],
                 actions: [{
-                    name: "eead_copy",
-                    title: "EEAD | Copy Element",
-                    icon: "eead-dash-icon",
+                    name: 'eead_copy',
+                    title: 'EEAD | Copy Element',
+                    icon: 'eead-dash-icon',
                     callback: function () {
                         var a = {};
-                        a.eletype = "widget" == c[e] ? f.model.get("widgetType") : null, a.elecode = f.model.toJSON(), xdLocalStorage.setItem("eead-c-p-element", JSON.stringify(a)), console.log(a)
+                        a.eletype = 'widget' == c[e] ? f.model.get('widgetType') : null, a.elecode = f.model.toJSON(), xdLocalStorage.setItem('eead-c-p-element', JSON.stringify(a)), console.log(a)
                     }
                 }, {
-                    name: "eead_paste",
-                    title: "EEAD | Paste Element",
-                    icon: "eead-dash-icon",
+                    name: 'eead_paste',
+                    title: 'EEAD | Paste Element',
+                    icon: 'eead-dash-icon',
                     callback: function () {
-                        xdLocalStorage.getItem("eead-c-p-element", function (a) {
+                        xdLocalStorage.getItem('eead-c-p-element', function (a) {
                             EEADCopyPasteHandler.b(JSON.parse(a.value), f)
                         })
                     }
                 },
                 {
-                    name: "eead_copy_all",
-                    title: "EEAD | Copy All Content",
-                    icon: "eead-dash-icon",
+                    name: 'eead_copy_all',
+                    title: 'EEAD | Copy All Content',
+                    icon: 'eead-dash-icon',
                     callback: function () {
                         var copiedSections = Object.values(elementor.getPreviewView().children._views).map(function (e) {
                             return e.getContainer();
@@ -143,9 +143,9 @@
                     }
                 },
                 {
-                    name: "eead_paste_all",
-                    title: "EEAD | Paste All Content",
-                    icon: "eead-dash-icon",
+                    name: 'eead_paste_all',
+                    title: 'EEAD | Paste All Content',
+                    icon: 'eead-dash-icon',
                     callback: function () {
                         var allSections = '';
                         xdLocalStorage.getItem('eead-c-p-all', function (a) {

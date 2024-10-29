@@ -22,7 +22,7 @@
         });
 
         $(document).on('click', '.eead-live-editor-iframe-modal', function (e) {
-            if ($(e.target).closest(".dialog-lightbox-widget-content").length < 1) {
+            if ($(e.target).closest('.dialog-lightbox-widget-content').length < 1) {
                 closeModal();
             }
         });
@@ -31,9 +31,9 @@
 
             var widgetId = getTemplateKey(e),
                 $modalContainer = $('.eead-live-editor-iframe-modal'),
-                paIframe = $modalContainer.find("#eead-live-editor-control-iframe"),
-                $lightboxLoading = $modalContainer.find(".dialog-lightbox-loading"),
-                lightboxType = $modalContainer.find(".dialog-type-lightbox"),
+                paIframe = $modalContainer.find('#eead-live-editor-control-iframe'),
+                $lightboxLoading = $modalContainer.find('.dialog-lightbox-loading'),
+                lightboxType = $modalContainer.find('.dialog-type-lightbox'),
                 tempSelectorId = e.model.attributes.name.split('_live')[0],
                 liveTempId = ['eead_content_toggle_second_content_templates', 'fixed_template', 'right_side_template'].includes(tempSelectorId) ? 'live_temp_content_extra' : 'live_temp_content',
                 settingsToChange = {};
@@ -47,8 +47,8 @@
             lightboxType.show();
             $modalContainer.show();
             $lightboxLoading.show();
-            paIframe.contents().find("#elementor-loading").show();
-            paIframe.css("z-index", "-1");
+            paIframe.contents().find('#elementor-loading').show();
+            paIframe.css('z-index', '-1');
 
             $.ajax({
                 type: 'POST',
@@ -61,16 +61,16 @@
                 },
                 success: function (res) {
 
-                    paIframe.attr("src", res.data.url);
-                    paIframe.attr("data-eead-temp-id", res.data.id);
+                    paIframe.attr('src', res.data.url);
+                    paIframe.attr('data-eead-temp-id', res.data.id);
                     $('#eead-live-temp-title').val(res.data.title);
 
-                    paIframe.on("load", function () {
+                    paIframe.on('load', function () {
                         $lightboxLoading.hide();
                         paIframe.show();
                         $modalContainer.find('.eead-live-editor-title').css('display', 'flex');
-                        paIframe.contents().find("#elementor-loading").hide();
-                        paIframe.css("z-index", "1");
+                        paIframe.contents().find('#elementor-loading').hide();
+                        paIframe.css('z-index', '1');
                     });
 
                     clearInterval(window.paLiveEditorInterval);
@@ -85,7 +85,7 @@
                             settingsToChange[tempSelectorId] = '';
                             settingsToChange[liveTempId] = $('#eead-live-temp-title').val();
 
-                            $(".eead-live-temp-title").removeClass("control-hidden");
+                            $('.eead-live-temp-title').removeClass('control-hidden');
                             $e.run('document/elements/settings', {container: e.container, settings: settingsToChange, options: {external: !0}});
 
                             var tempTitle = $('#eead-live-temp-title').val();
@@ -169,12 +169,12 @@
 
         $('.eead-live-editor-iframe-modal').css('display', 'none');
 
-        $(".eead-live-temp-title input").attr('disabled', 'true');
+        $('.eead-live-temp-title input').attr('disabled', 'true');
 
         minimizeModal($('.eead-live-editor-iframe-modal .eead-expand'));
 
         if (!inserted) {
-            var tempId = $(".eead-live-editor-iframe-modal #eead-live-editor-control-iframe").attr('data-eead-temp-id');
+            var tempId = $('.eead-live-editor-iframe-modal #eead-live-editor-control-iframe').attr('data-eead-temp-id');
 
             if (undefined !== tempId && '' !== tempId) {
                 checkTempValidity(tempId);
@@ -182,7 +182,7 @@
         }
 
         // reset temp id/src attribute.
-        $(".eead-live-editor-iframe-modal #eead-live-editor-control-iframe").attr({
+        $('.eead-live-editor-iframe-modal #eead-live-editor-control-iframe').attr({
             'data-eead-temp-id': '',
             'src': ''
         });
@@ -192,10 +192,10 @@
 
         setTimeout(function () {
 
-            $(".eead-live-temp-title input").each(function (index, input) {
+            $('.eead-live-temp-title input').each(function (index, input) {
                 $(input).attr('disabled', 'true');
                 if ('' != $(input).val()) {
-                    $(input).closest(".eead-live-temp-title").removeClass("control-hidden");
+                    $(input).closest('.eead-live-temp-title').removeClass('control-hidden');
                 }
             });
 

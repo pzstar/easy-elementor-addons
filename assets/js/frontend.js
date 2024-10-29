@@ -1,7 +1,7 @@
 odometerOptions = {auto: false};
 
 (function ($, elementor) {
-    "use strict";
+    'use strict';
     var EEA = {
 
         init: function () {
@@ -29,6 +29,7 @@ odometerOptions = {auto: false};
                 'eead-progressbar.default': EEA.progressBar,
                 'eead-toggle.default': EEA.toggleBlock,
                 'eead-switcher.default': EEA.switcherBlock,
+                'eead-popup-video.default': EEA.popupVideo,
 
 
 
@@ -40,14 +41,11 @@ odometerOptions = {auto: false};
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
-                'eead-popup-video.default': EEA.popupVideo,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
-
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
                 'eead-text-marquee.default': EEA.textMarquee,
-
                 'eead-threesixty-image.default': EEA.threesixtyImage,
                 'eead-threed-text.default': EEA.threedTextBlock,
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
@@ -65,20 +63,20 @@ odometerOptions = {auto: false};
             elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
 
             if (elementorFrontend.isEditMode() == true) {
-                elementor.hooks.addAction("panel/open_editor/widget/eead-sticky-video-block", function (panel, model, view) {
+                elementor.hooks.addAction('panel/open_editor/widget/eead-sticky-video-block', function (panel, model, view) {
                     var interval;
-                    model.attributes.settings.on("change:eead_sticky_width", function () {
+                    model.attributes.settings.on('change:eead_sticky_width', function () {
                         clearTimeout(interval);
                         interval = setTimeout(function () {
-                            var height = Math.ceil(model.getSetting("eead_sticky_width") / 1.78);
+                            var height = Math.ceil(model.getSetting('eead_sticky_width') / 1.78);
                             model.attributes.settings.attributes.eead_sticky_height = height;
                             panel.el.querySelector('[data-setting="eead_sticky_height"]').value = height;
                         }, 250);
                     });
-                    model.attributes.settings.on("change:eead_sticky_height", function () {
+                    model.attributes.settings.on('change:eead_sticky_height', function () {
                         clearTimeout(interval);
                         interval = setTimeout(function () {
-                            var width = Math.ceil(model.getSetting("eead_sticky_height") * 1.78);
+                            var width = Math.ceil(model.getSetting('eead_sticky_height') * 1.78);
                             model.attributes.settings.attributes.eead_sticky_width = width;
                             panel.el.querySelector('[data-setting="eead_sticky_width"]').value = width;
                         }, 250);
@@ -243,7 +241,7 @@ odometerOptions = {auto: false};
                 $($animatedHeading).Morphext($settings);
             } else if ($settings.layout === 'typed') {
                 var animateSelector = $($animatedHeading).attr('id');
-                var typed = new Typed('#' + animateSelector, $settings);
+                new Typed('#' + animateSelector, $settings);
             }
 
             $($heading).animate({
@@ -298,8 +296,8 @@ odometerOptions = {auto: false};
 
         circularProgressBar: function ($scope) {
             var container = $scope.find('.eead-circular-progressbar');
-            var percentage = container.attr("data-number");
-            var radius = container.attr("data-radius");
+            var percentage = container.attr('data-number');
+            var radius = container.attr('data-radius');
             const circumference = 2 * Math.PI * radius;
             const dashOffset = circumference - (percentage / 100) * circumference;
             if ((container.length > 0)) {
@@ -317,17 +315,17 @@ odometerOptions = {auto: false};
         },
 
         countdown: function ($scope) {
-            var $coundDown = $scope.find(".eead-countdown"),
-                $expire_type = $coundDown.data("expire-type") !== "" ? $coundDown.data("expire-type") : "",
-                $expiry_text = $coundDown.data("expiry-text") !== "" ? $coundDown.data("expiry-text") : "",
-                $expiry_title = $coundDown.data("expiry-title") !== "" ? $coundDown.data("expiry-title") : "",
-                $redirect_url = $coundDown.data("redirect-url") !== "" ? $coundDown.data("redirect-url") : "";
+            var $coundDown = $scope.find('.eead-countdown'),
+                $expire_type = $coundDown.data('expire-type') !== '' ? $coundDown.data('expire-type') : '',
+                $expiry_text = $coundDown.data('expiry-text') !== '' ? $coundDown.data('expiry-text') : '',
+                $expiry_title = $coundDown.data('expiry-title') !== '' ? $coundDown.data('expiry-title') : '',
+                $redirect_url = $coundDown.data('redirect-url') !== '' ? $coundDown.data('redirect-url') : '';
 
             $coundDown.find('.eead-countdown-items').countdown({
                 end: function end() {
-                    if ($expire_type == "text") {
-                        countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + "</h4>" + '<div class="eead-countdown-finish-text">' + $expiry_text + "</div></div>");
-                    } else if ($expire_type === "url") {
+                    if ($expire_type == 'text') {
+                        countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + '</h4>' + '<div class="eead-countdown-finish-text">' + $expiry_text + '</div></div>');
+                    } else if ($expire_type === 'url') {
                         window.location.href = $redirect_url;
                     }
                 }
@@ -355,54 +353,54 @@ odometerOptions = {auto: false};
         },
 
         filterableGallery: function ($scope) {
-            var filterControls = $scope.find(".eead-fg-filter-dropdown").eq(0),
-                filterTrigger = $scope.find("#eead-fg-filter-trigger"),
-                form = $scope.find(".eead-fg-search-box"),
-                input = $scope.find("#eead-fg-search-input"),
+            var filterControls = $scope.find('.eead-fg-filter-dropdown').eq(0),
+                filterTrigger = $scope.find('#eead-fg-filter-trigger'),
+                form = $scope.find('.eead-fg-search-box'),
+                input = $scope.find('#eead-fg-search-input'),
                 searchRegex,
                 buttonFilter,
                 timer;
 
             if (form.length) {
-                form.on("submit", function (e) {
+                form.on('submit', function (e) {
                     e.preventDefault();
                 });
             }
 
-            filterTrigger.on("click", function () {
-                filterControls.toggleClass("open-filters");
+            filterTrigger.on('click', function () {
+                filterControls.toggleClass('open-filters');
             });
 
-            /*filterTrigger.on("blur", function () {
-                filterControls.removeClass("open-filters");
+            /*filterTrigger.on('blur', function () {
+                filterControls.removeClass('open-filters');
             });*/
 
             if (elementorFrontend.isEditMode() == false) {
-                var $gallery = $(".eead-filter-gallery-container", $scope),
+                var $gallery = $('.eead-filter-gallery-container', $scope),
                     $gallery_items = $scope.find('.eead-filter-gallery'),
-                    $settings = $gallery.data("settings"),
-                    fg_items = $gallery.data("gallery-items"),
-                    $layout_mode = $settings.grid_style === "masonry" ? "masonry" : "fitRows",
-                    $gallery_enabled = $settings.gallery_enabled === "yes" ? true : false,
-                    $init_show_setting = $gallery.data("init-show"),
+                    $settings = $gallery.data('settings'),
+                    fg_items = $gallery.data('gallery-items'),
+                    $layout_mode = $settings.grid_style === 'masonry' ? 'masonry' : 'fitRows',
+                    $gallery_enabled = $settings.gallery_enabled === 'yes' ? true : false,
+                    $init_show_setting = $gallery.data('init-show'),
                     filterType = $settings.filter_type;
                 fg_items.splice(0, $init_show_setting);
 
                 // setup isotope
                 var $isotope_gallery = $gallery.isotope({
-                    itemSelector: ".eead-fg-item-list",
+                    itemSelector: '.eead-fg-item-list',
                     layoutMode: $layout_mode,
                     percentPosition: true,
                     stagger: 30,
-                    transitionDuration: $settings.duration + "ms",
+                    transitionDuration: $settings.duration + 'ms',
                     filter: function filter() {
                         var $this = $(this);
                         var $result = searchRegex ? $this.text().match(searchRegex) : true;
                         if (buttonFilter === undefined) {
-                            if (filterType == "normal") {
-                                buttonFilter = $scope.find(".eead-fg-filter ul li").first().data("filter");
+                            if (filterType == 'normal') {
+                                buttonFilter = $scope.find('.eead-fg-filter ul li').first().data('filter');
                             } else {
-                                buttonFilter = $scope.find("ul.eead-fg-filter-dropdown li").first().data("filter");
+                                buttonFilter = $scope.find('ul.eead-fg-filter-dropdown li').first().data('filter');
                             }
                         }
                         var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
@@ -430,16 +428,16 @@ odometerOptions = {auto: false};
                 }
 
                 // filter
-                $scope.on("click", ".eead-fg-filter-control", function () {
+                $scope.on('click', '.eead-fg-filter-control', function () {
                     var $this = $(this);
-                    buttonFilter = $(this).attr("data-filter");
-                    var $spanText = $scope.find("#eead-fg-filter-trigger > span");
+                    buttonFilter = $(this).attr('data-filter');
+                    var $spanText = $scope.find('#eead-fg-filter-trigger > span');
                     if ($spanText.length) {
                         $spanText.text($this.text());
                     }
 
-                    var LoadMoreShow = $(this).attr("data-load-more-status"),
-                        loadMore = $(".eead-fg-loadmore-btn", $scope);
+                    var LoadMoreShow = $(this).attr('data-load-more-status'),
+                        loadMore = $('.eead-fg-loadmore-btn', $scope);
 
                     //hide load more button if no item to show
                     if (LoadMoreShow == '1' || fg_items.length < 1) {
@@ -447,48 +445,48 @@ odometerOptions = {auto: false};
                     } else {
                         loadMore.show();
                     }
-                    $this.siblings().removeClass("eead-fg-active");
-                    $this.addClass("eead-fg-active");
+                    $this.siblings().removeClass('eead-fg-active');
+                    $this.addClass('eead-fg-active');
                     $isotope_gallery.isotope();
                 });
 
                 //quick search
-                input.on("input", function () {
+                input.on('input', function () {
                     var $this = $(this);
                     clearTimeout(timer);
                     timer = setTimeout(function () {
-                        searchRegex = new RegExp($this.val(), "gi");
+                        searchRegex = new RegExp($this.val(), 'gi');
                         $isotope_gallery.isotope();
                     }, 600);
                 });
 
                 // layout gal, while images are loading
                 $isotope_gallery.imagesLoaded().progress(function () {
-                    $isotope_gallery.isotope("layout");
+                    $isotope_gallery.isotope('layout');
                 });
 
                 // layout gal, on click tabs
-                $isotope_gallery.on("arrangeComplete", function () {
-                    $isotope_gallery.isotope("layout");
+                $isotope_gallery.on('arrangeComplete', function () {
+                    $isotope_gallery.isotope('layout');
                 });
 
                 // layout gal, after window loaded
-                $(window).on("load", function () {
-                    $isotope_gallery.isotope("layout");
+                $(window).on('load', function () {
+                    $isotope_gallery.isotope('layout');
                 });
 
                 // Load more button
-                $scope.on("click", ".eead-fg-loadmore-btn", function (e) {
+                $scope.on('click', '.eead-fg-loadmore-btn', function (e) {
                     e.preventDefault();
                     var $this = $(this),
-                        $images_per_page = $gallery.data("images-per-page"),
-                        $nomore_text = $gallery.data("nomore-item-text"),
-                        enable_filter = $(".eead-fg-filter", $scope).length,
+                        $images_per_page = $gallery.data('images-per-page'),
+                        $nomore_text = $gallery.data('nomore-item-text'),
+                        enable_filter = $('.eead-fg-filter', $scope).length,
                         $items = [];
-                    var filter_name = $(".eead-fg-filter li.eead-fg-active", $scope).data('filter');
+                    var filter_name = $('.eead-fg-filter li.eead-fg-active', $scope).data('filter');
 
                     if (filterControls.length > 0) {
-                        filter_name = $(".eead-fg-filter-dropdown li.eead-fg-active", $scope).data('filter');
+                        filter_name = $('.eead-fg-filter-dropdown li.eead-fg-active', $scope).data('filter');
                     }
 
                     let item_found = 0;
@@ -503,7 +501,7 @@ odometerOptions = {auto: false};
                             }
 
                             if ((fg_items.length - 1) === index) {
-                                $(".eead-fg-filter li.eead-fg-active", $scope).attr('data-load-more-status', 1)
+                                $('.eead-fg-filter li.eead-fg-active', $scope).attr('data-load-more-status', 1)
                                 $this.hide()
                             }
                         } else {
@@ -532,16 +530,16 @@ odometerOptions = {auto: false};
 
                     // append items
                     $gallery.append($items);
-                    $isotope_gallery.isotope("insert", $items);
+                    $isotope_gallery.isotope('insert', $items);
                     $isotope_gallery.imagesLoaded().progress(function () {
-                        $isotope_gallery.isotope("layout");
+                        $isotope_gallery.isotope('layout');
                     });
                 });
 
                 // Safari: hide filter menu
                 $(document).on('mouseup', function (e) {
                     if (!filterTrigger.is(e.target) && filterTrigger.has(e.target).length === 0) {
-                        filterControls.removeClass("open-filters");
+                        filterControls.removeClass('open-filters');
                     }
                 });
             }
@@ -561,10 +559,10 @@ odometerOptions = {auto: false};
         },
 
         horizontalTimelineCarousel: function ($scope) {
-            $scope.find(".eead-horizontal-timeline-scrollbar").mCustomScrollbar({
-                theme: "dark",
+            $scope.find('.eead-horizontal-timeline-scrollbar').mCustomScrollbar({
+                theme: 'dark',
                 scrollInertia: 500,
-                axis: "x",
+                axis: 'x',
                 advanced: {autoExpandHorizontalScroll: true}
             });
         },
@@ -609,26 +607,26 @@ odometerOptions = {auto: false};
         },
 
         imageAccordion: function ($scope) {
-            var $accordionContainer = $scope.find(".eead-image-accordion-on-click");
+            var $accordionContainer = $scope.find('.eead-image-accordion-on-click');
 
             if ($accordionContainer.length > 0) {
-                var $accordion = $scope.find(".eead-image-accordion-item");
-                $accordion.on("click", function (e) {
+                var $accordion = $scope.find('.eead-image-accordion-item');
+                $accordion.on('click', function (e) {
                     e.preventDefault();
                     var $this = $(this);
-                    if ($this.hasClass("eead-tab-active")) {
+                    if ($this.hasClass('eead-tab-active')) {
                         return;
                     }
 
-                    $accordion.removeClass("eead-tab-active");
-                    $this.addClass("eead-tab-active");
+                    $accordion.removeClass('eead-tab-active');
+                    $this.addClass('eead-tab-active');
                 });
             } else {
-                $scope.find(".eead-image-accordion-on-hover").mouseenter(function () {
+                $scope.find('.eead-image-accordion-on-hover').mouseenter(function () {
                     $(this).find('.eead-image-accordion-item.eead-tab-active').removeClass('eead-tab-active').addClass('eead-trigger');
                 });
 
-                $scope.find(".eead-image-accordion-on-hover").mouseleave(function () {
+                $scope.find('.eead-image-accordion-on-hover').mouseleave(function () {
                     $(this).find('.eead-image-accordion-item.eead-trigger').addClass('eead-tab-active').removeClass('eead-trigger');
                 });
             }
@@ -642,14 +640,14 @@ odometerOptions = {auto: false};
 
                 if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                     var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
-                    var filterValue = $gallery_container.find(".eead-ig-filter-list .eead-ig-filter").first().data("filter");
+                    var filterValue = $gallery_container.find('.eead-ig-filter-list .eead-ig-filter').first().data('filter');
 
                     var $isotope_gallery = $gallery.isotope({
                         itemSelector: '.eead-ig-item-box',
                         layoutMode: layout,
                         percentPosition: true,
                         stagger: 30,
-                        transitionDuration: $settings.duration + "ms",
+                        transitionDuration: $settings.duration + 'ms',
                         filter: filterValue
                     });
 
@@ -679,7 +677,7 @@ odometerOptions = {auto: false};
                 data = $container.data('chart') || {},
                 options = $container.data('options') || {};
             console.log(options);
-            var chartInstance = new Chart($canvas, {
+            new Chart($canvas, {
                 type: 'pie',
                 data: data,
                 options: {
@@ -855,7 +853,7 @@ odometerOptions = {auto: false};
             animation.setSpeed(settings.speed);
 
             switch (action) {
-                case "play":
+                case 'play':
                     $container.on('mouseenter', function () {
                         animation.play();
                     });
@@ -863,7 +861,7 @@ odometerOptions = {auto: false};
                         animation.pause();
                     });
                     break;
-                case "pause":
+                case 'pause':
                     $container.on('mouseenter', function () {
                         animation.pause();
                     });
@@ -871,7 +869,7 @@ odometerOptions = {auto: false};
                         animation.play();
                     });
                     break;
-                case "reverse":
+                case 'reverse':
                     var direction = settings.reverse == '1' ? '-1' : '1';
                     $container.on('mouseenter', function () {
                         animation.pause();
@@ -1001,9 +999,9 @@ odometerOptions = {auto: false};
                     $this.waypoint(function () {
                         setTimeout(function () {
                             $this.find('.eead-progressbar-length').animate({
-                                width: $this.attr("data-width") + '%'
+                                width: $this.attr('data-width') + '%'
                             }, 1000, function () {
-                                $this.find("span").animate({
+                                $this.find('span').animate({
                                     opacity: 1
                                 }, 500);
                             });
@@ -1081,10 +1079,10 @@ odometerOptions = {auto: false};
 
 
         offcanvasHeader: function ($scope) {
-            var t = $scope.find(".ekit-sidebar-group");
-            $scope.find(".ekit_offcanvas-sidebar, .ekit_close-side-widget, .ekit-overlay").on("click", function (e) {
+            var t = $scope.find('.ekit-sidebar-group');
+            $scope.find('.ekit_offcanvas-sidebar, .ekit_close-side-widget, .ekit-overlay').on('click', function (e) {
                 e.preventDefault();
-                t.toggleClass("ekit_isActive");
+                t.toggleClass('ekit_isActive');
             });
         },
 
@@ -1127,7 +1125,7 @@ odometerOptions = {auto: false};
                 var img_block = $scope.find('img');
                 img_block.each(function () {
                     var style = $(this).attr('style');
-                    if (style.indexOf("block") !== -1) {
+                    if (style.indexOf('block') !== -1) {
                         SimpleMagnify(jQuery(this)[0], zoom);
                         magnify_glass.css('display', 'none');
                         image.remove();
@@ -1154,58 +1152,58 @@ odometerOptions = {auto: false};
         },
 
         stickyVideo: function ($scope) {
-            $(".eead-sticky-player-close", $scope).hide();
-            var element = $scope.find(".eead-sticky-video-player2");
+            $('.eead-sticky-player-close', $scope).hide();
+            var element = $scope.find('.eead-sticky-video-player2');
             var eeadDomHeight = 0;
-            var videoIsActive = "off";
-            var sticky = element.data("sticky") ? element.data("sticky") : '';
-            var autoplay = element.data("autoplay") ? element.data("autoplay") : '';
-            var overlay = element.data("overlay") ? element.data("overlay") : '';
-            var eeadPosition = element.data("position") ? element.data("position") : '';
-            var eeadHeight = element.data("sheight") ? element.data("sheight") : 0;
-            var eeadWidth = element.data("swidth") ? element.data("swidth") : 0;
-            var scrollHeight = element.data("scroll_height") ? element.data("scroll_height") : 0;
+            var videoIsActive = 'off';
+            var sticky = element.data('sticky') ? element.data('sticky') : '';
+            var autoplay = element.data('autoplay') ? element.data('autoplay') : '';
+            var overlay = element.data('overlay') ? element.data('overlay') : '';
+            var eeadPosition = element.data('position') ? element.data('position') : '';
+            var eeadHeight = element.data('sheight') ? element.data('sheight') : 0;
+            var eeadWidth = element.data('swidth') ? element.data('swidth') : 0;
+            var scrollHeight = element.data('scroll_height') ? element.data('scroll_height') : 0;
             PositionStickyPlayer(eeadPosition, eeadHeight, eeadWidth);
-            var playerAbc = new Plyr("#eead-player-" + $scope.data("id"));
+            var playerAbc = new Plyr('#eead-player-' + $scope.data('id'));
 
-            if (overlay === "no") {
-                if (sticky === "yes") {
+            if (overlay === 'no') {
+                if (sticky === 'yes') {
                     eeadDomHeight = GetDomElementHeight(element);
-                    element.attr("id", "videobox");
-                    videoIsActive = "on"; // When play event is cliked
+                    element.attr('id', 'videobox');
+                    videoIsActive = 'on'; // When play event is cliked
 
                     // Do the sticky video
                     PlayerPlay(playerAbc, element);
                 }
             }
 
-            if (overlay === "yes" && autoplay === "yes") {
+            if (overlay === 'yes' && autoplay === 'yes') {
                 var overlayElm = element.prev();
-                videoIsActive = "off";
-                $(".eead-sticky-video-wrapper > i").hide();
-                overlayElm.css("display", "none");
+                videoIsActive = 'off';
+                $('.eead-sticky-video-wrapper > i').hide();
+                overlayElm.css('display', 'none');
                 playerAbc.play();
 
-                if (sticky === "yes") {
+                if (sticky === 'yes') {
                     eeadDomHeight = GetDomElementHeight(element);
-                    element.attr("id", "videobox");
-                    videoIsActive = "on"; // When play event is cliked
+                    element.attr('id', 'videobox');
+                    videoIsActive = 'on'; // When play event is cliked
 
                     // Do the sticky video
                     PlayerPlay(playerAbc, element);
                 }
-            } else if (overlay === "yes") {
+            } else if (overlay === 'yes') {
                 var overlayElm = element.prev();
-                videoIsActive = "off";
-                $(overlayElm).on("click", function () {
-                    $(".eead-sticky-video-wrapper > i").hide();
-                    $(this).css("display", "none");
+                videoIsActive = 'off';
+                $(overlayElm).on('click', function () {
+                    $('.eead-sticky-video-wrapper > i').hide();
+                    $(this).css('display', 'none');
                     playerAbc.play();
 
-                    if (sticky === "yes") {
+                    if (sticky === 'yes') {
                         eeadDomHeight = GetDomElementHeight(element);
-                        element.attr("id", "videobox");
-                        videoIsActive = "on"; // When play event is cliked
+                        element.attr('id', 'videobox');
+                        videoIsActive = 'on'; // When play event is cliked
 
                         // Do the sticky video
                         PlayerPlay(playerAbc, element);
@@ -1213,21 +1211,21 @@ odometerOptions = {auto: false};
                 });
             }
 
-            playerAbc.on("pause", function (event) {
-                videoIsActive = "off";
+            playerAbc.on('pause', function (event) {
+                videoIsActive = 'off';
             });
-            playerAbc.on("play", function (event) {
-                element.closest(".eead-sticky-video-player2").find(".plyr__poster").hide();
-                videoIsActive = "on";
+            playerAbc.on('play', function (event) {
+                element.closest('.eead-sticky-video-player2').find('.plyr__poster').hide();
+                videoIsActive = 'on';
             });
-            $(".eead-sticky-player-close").on("click", function () {
-                element.removeClass("out").addClass("in");
-                $(".eead-sticky-video-player2").removeAttr("style");
-                videoIsActive = "off";
+            $('.eead-sticky-player-close').on('click', function () {
+                element.removeClass('out').addClass('in');
+                $('.eead-sticky-video-player2').removeAttr('style');
+                videoIsActive = 'off';
             });
-            element.parent().css("height", element.height() + "px");
+            element.parent().css('height', element.height() + 'px');
             $(window).resize(function () {
-                element.parent().css("height", element.height() + "px");
+                element.parent().css('height', element.height() + 'px');
             });
 
 
@@ -1236,15 +1234,15 @@ odometerOptions = {auto: false};
                 var scrollBottom = jQuery(document).height() - scrollTop;
                 if (scrollBottom > jQuery(window).height() + 400) {
                     if (scrollTop >= eeadDomHeight) {
-                        if (videoIsActive == "on") {
-                            jQuery("#videobox").find(".eead-sticky-player-close").css("display", "block");
-                            jQuery("#videobox").removeClass("in").addClass("out");
+                        if (videoIsActive == 'on') {
+                            jQuery('#videobox').find('.eead-sticky-player-close').css('display', 'block');
+                            jQuery('#videobox').removeClass('in').addClass('out');
                             PositionStickyPlayer(eeadPosition, eeadHeight, eeadWidth);
                         }
                     } else {
-                        jQuery(".eead-sticky-player-close").hide();
-                        jQuery("#videobox").removeClass("out").addClass("in");
-                        jQuery(".eead-sticky-video-player2").removeAttr("style");
+                        jQuery('.eead-sticky-player-close').hide();
+                        jQuery('#videobox').removeClass('out').addClass('in');
+                        jQuery('.eead-sticky-video-player2').removeAttr('style');
                     }
                 }
             });
@@ -1257,31 +1255,31 @@ odometerOptions = {auto: false};
             }
 
             function PositionStickyPlayer(p, h, w) {
-                if (p == "top-left") {
-                    jQuery(".eead-sticky-video-player2.out").css({"top": "40px", "left": "40px"});
+                if (p == 'top-left') {
+                    jQuery('.eead-sticky-video-player2.out').css({'top': '40px', 'left': '40px'});
                 }
-                if (p == "top-right") {
-                    jQuery(".eead-sticky-video-player2.out").css({"top": "40px", "right": "40px"});
+                if (p == 'top-right') {
+                    jQuery('.eead-sticky-video-player2.out').css({'top': '40px', 'right': '40px'});
                 }
-                if (p == "bottom-right") {
-                    jQuery(".eead-sticky-video-player2.out").css({"bottom": "40px", "right": "40px"});
+                if (p == 'bottom-right') {
+                    jQuery('.eead-sticky-video-player2.out').css({'bottom': '40px', 'right': '40px'});
                 }
-                if (p == "bottom-left") {
-                    jQuery(".eead-sticky-video-player2.out").css({"bottom": "40px", "left": "40px"});
+                if (p == 'bottom-left') {
+                    jQuery('.eead-sticky-video-player2.out').css({'bottom': '40px', 'left': '40px'});
                 }
-                jQuery(".eead-sticky-video-player2.out").css({"width": w + "px", "height": h + "px"});
+                jQuery('.eead-sticky-video-player2.out').css({'width': w + 'px', 'height': h + 'px'});
             }
 
             function PlayerPlay(a, b) {
-                a.on("play", function (event) {
+                a.on('play', function (event) {
                     eeadDomHeight = GetDomElementHeight(b);
-                    jQuery(".eead-sticky-video-player2").removeAttr("id");
-                    jQuery(".eead-sticky-video-player2").removeClass("out");
-                    b.attr("id", "videobox");
-                    videoIsActive = "on";
-                    eeadPosition = b.data("position");
-                    eeadHeight = b.data("sheight");
-                    eeadWidth = b.data("swidth");
+                    jQuery('.eead-sticky-video-player2').removeAttr('id');
+                    jQuery('.eead-sticky-video-player2').removeClass('out');
+                    b.attr('id', 'videobox');
+                    videoIsActive = 'on';
+                    eeadPosition = b.data('position');
+                    eeadHeight = b.data('sheight');
+                    eeadWidth = b.data('swidth');
                 });
             }
         },
@@ -1625,21 +1623,21 @@ odometerOptions = {auto: false};
         },
 
         multiScrollBlock: function (e, n) {
-            var t = e.find(".eead-multiscroll-wrap"),
-                a = t.data("settings"),
+            var t = e.find('.eead-multiscroll-wrap'),
+                a = t.data('settings'),
                 i = a.id;
             function o() {
-                n("#eead-scroll-nav-menu-" + i).removeClass("eead-scroll-responsive"),
-                    n("#eead-multiscroll-" + i).multiscroll({
+                n('#eead-scroll-nav-menu-' + i).removeClass('eead-scroll-responsive'),
+                    n('#eead-multiscroll-' + i).multiscroll({
                         verticalCentered: !0,
-                        menu: "#eead-scroll-nav-menu-" + i,
+                        menu: '#eead-scroll-nav-menu-' + i,
                         sectionsColor: [],
                         keyboardScrolling: a.keyboard,
                         navigation: a.dots,
                         navigationPosition: a.dotsPos,
                         navigationVPosition: a.dotsVPos,
                         navigationTooltips: a.dotsText,
-                        navigationColor: "#000",
+                        navigationColor: '#000',
                         loopBottom: a.btmLoop,
                         loopTop: a.topLoop,
                         css3: !0,
@@ -1647,9 +1645,9 @@ odometerOptions = {auto: false};
                         paddingBottom: 0,
                         normalScrollElements: null,
                         touchSensitivity: 5,
-                        leftSelector: ".eead-multiscroll-left-" + i,
-                        rightSelector: ".eead-multiscroll-right-" + i,
-                        sectionSelector: ".eead-multiscroll-temp-" + i,
+                        leftSelector: '.eead-multiscroll-left-' + i,
+                        rightSelector: '.eead-multiscroll-right-' + i,
+                        sectionSelector: '.eead-multiscroll-temp-' + i,
                         anchors: a.anchors,
                         fit: a.fit,
                         cellHeight: a.cellHeight,
@@ -1658,33 +1656,33 @@ odometerOptions = {auto: false};
                         rightWidth: a.rightWidth,
                     });
             }
-            var r = n(t).find(".eead-multiscroll-left-temp"),
-                s = n(t).find(".eead-multiscroll-right-temp"),
+            var r = n(t).find('.eead-multiscroll-left-temp'),
+                s = n(t).find('.eead-multiscroll-right-temp'),
                 l = a.hideTabs,
                 d = a.hideMobs,
-                c = n("body").data("elementor-device-mode");
+                c = n('body').data('elementor-device-mode');
             function m() {
-                n(t).parents(".elementor-top-section").removeClass("elementor-section-height-full"),
+                n(t).parents('.elementor-top-section').removeClass('elementor-section-height-full'),
                     n.each(s, function (e) {
                         var t, i;
                         (t = r[e]),
                             (i = s[e]),
-                            "mobile" === c
-                                ? (n(t).data("hide-mobs") && n(t).addClass("eead-multiscroll-hide"), n(i).data("hide-mobs") && n(i).addClass("eead-multiscroll-hide"))
-                                : (n(t).data("hide-tabs") && n(t).addClass("eead-multiscroll-hide"), n(i).data("hide-tabs") && n(i).addClass("eead-multiscroll-hide")),
+                            'mobile' === c
+                                ? (n(t).data('hide-mobs') && n(t).addClass('eead-multiscroll-hide'), n(i).data('hide-mobs') && n(i).addClass('eead-multiscroll-hide'))
+                                : (n(t).data('hide-tabs') && n(t).addClass('eead-multiscroll-hide'), n(i).data('hide-tabs') && n(i).addClass('eead-multiscroll-hide')),
                             a.rtl ? n(r[e]).insertAfter(s[e]) : n(s[e]).insertAfter(r[e]);
                     }),
-                    n(t).find(".eead-multiscroll-inner").removeClass("eead-scroll-fit").css("min-height", a.cellHeight + "px");
+                    n(t).find('.eead-multiscroll-inner').removeClass('eead-scroll-fit').css('min-height', a.cellHeight + 'px');
             }
             switch (!0) {
                 case l && d:
-                    ("desktop" === c ? o : m)();
+                    ('desktop' === c ? o : m)();
                     break;
                 case l && !d:
-                    ("mobile" === c || "desktop" === c ? o : m)();
+                    ('mobile' === c || 'desktop' === c ? o : m)();
                     break;
                 case !l && d:
-                    ("tablet" === c || "desktop" === c ? o : m)();
+                    ('tablet' === c || 'desktop' === c ? o : m)();
                     break;
                 case !l && !d:
                     o();
@@ -1692,8 +1690,8 @@ odometerOptions = {auto: false};
         },
 
         horizontalScrollBlock: function ($scope, $) {
-            var $hScrollElem = $scope.find(".eead-hscroll-wrap"),
-                hScrollSettings = $hScrollElem.data("settings"),
+            var $hScrollElem = $scope.find('.eead-hscroll-wrap'),
+                hScrollSettings = $hScrollElem.data('settings'),
                 instance = null,
                 disableOn = hScrollSettings.disableOn;
             var templates = hScrollSettings.templates;
@@ -1701,13 +1699,13 @@ odometerOptions = {auto: false};
             if (!templates.length) return;
 
             templates.forEach(function (template) {
-                if ("id" === template.template_type && "" !== template.section_id) {
-                    if (!$("#" + template.section_id)
+                if ('id' === template.template_type && '' !== template.section_id) {
+                    if (!$('#' + template.section_id)
                         .length) {
                         $hScrollElem.html(
                             '<div class="eead-error-notice"><span>Section with ID <b>' +
                             template.section_id +
-                            "</b> does not exist on this page. Please make sure that section ID is properly set from section settings -> Advanced tab -> CSS ID.<span></div>"
+                            '</b> does not exist on this page. Please make sure that section ID is properly set from section settings -> Advanced tab -> CSS ID.<span></div>'
                         );
                         return;
                     }
@@ -1716,7 +1714,7 @@ odometerOptions = {auto: false};
 
             if (disableOn.includes(elementorFrontend.getCurrentDeviceMode())) {
                 $hScrollElem.find('.eead-hscroll-arrow, .eead-hscroll-progress, .eead-hscroll-nav, .eead-hscroll-pagination, .eead-hscroll-fixed-content').remove();
-                $hScrollElem.find(".eead-hscroll-temp").each(function (index, slide) {
+                $hScrollElem.find('.eead-hscroll-temp').each(function (index, slide) {
                     $(slide).removeClass('eead-hscroll-temp');
                 });
                 $hScrollElem.find('.eead-hscroll-sections-wrap').removeClass('eead-hscroll-sections-wrap');
@@ -1728,28 +1726,28 @@ odometerOptions = {auto: false};
         },
 
         chartsBlock: function ($scope, $) {
-            var $chartElem = $scope.find(".eead-chart-container"),
-                settings = $chartElem.data("settings"),
+            var $chartElem = $scope.find('.eead-chart-container'),
+                settings = $chartElem.data('settings'),
                 currentDevice = elementorFrontend.getCurrentDeviceMode(),
-                dataSource = $chartElem.data("source"),
+                dataSource = $chartElem.data('source'),
                 type = settings.type,
                 eventsArray = [
-                    "mousemove",
-                    "mouseout",
-                    "click",
-                    "touchstart",
-                    "touchmove"
+                    'mousemove',
+                    'mouseout',
+                    'click',
+                    'touchstart',
+                    'touchmove'
                 ],
                 printVal = settings.printVal,
                 event =
-                    ("pie" === type || "doughnut" === type) && printVal ? false : eventsArray,
-                premiumChartData = $chartElem.data("chart"),
+                    ('pie' === type || 'doughnut' === type) && printVal ? false : eventsArray,
+                premiumChartData = $chartElem.data('chart'),
                 data = {
                     labels: settings.xlabels,
                     datasets: []
                 },
                 chartInstance = null;
-            if ("desktop" !== currentDevice) {
+            if ('desktop' !== currentDevice) {
                 if (settings.legRes)
                     settings.legDis = false;
                 settings.legPos = settings['legPos_' + currentDevice];
@@ -1758,13 +1756,13 @@ odometerOptions = {auto: false};
             function renderChart() {
                 var ctx = document
                     .getElementById(settings.chartId)
-                    .getContext("2d");
+                    .getContext('2d');
 
                 var globalOptions = {
                     maintainAspectRatio: false,
                     layout: {
                         padding: {
-                            top: "polarArea" === type ? 6 : 0
+                            top: 'polarArea' === type ? 6 : 0
                         }
                     },
                     events: event,
@@ -1776,8 +1774,8 @@ odometerOptions = {auto: false};
                                 this.defaultFontSize = 16;
                                 ctx.font =
                                     '15px "Helvetica Neue", "Helvetica", "Arial", sans-serif';
-                                ctx.textAlign = "center";
-                                ctx.textBaseline = "bottom";
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
 
                                 this.data.datasets.forEach(function (dataset) {
                                     for (var i = 0; i < dataset.data.length; i++) {
@@ -1796,7 +1794,7 @@ odometerOptions = {auto: false};
                                         var y = mid_radius * Math.sin(mid_angle);
                                         ctx.fillStyle = settings.yTicksCol;
                                         var percent =
-                                            String(Math.round((dataset.data[i] / total) * 100)) + "%";
+                                            String(Math.round((dataset.data[i] / total) * 100)) + '%';
                                         ctx.fillText(percent, model.x + x, model.y + y + 15);
                                     }
                                 });
@@ -1808,9 +1806,9 @@ odometerOptions = {auto: false};
                         mode: settings.modTooltips,
                         callbacks: {
                             label: function (tooltipItem, data) {
-                                var prefixString = "";
-                                if ("pie" == type || "doughnut" == type || "polarArea" == type) {
-                                    prefixString = data.labels[tooltipItem.index] + ": ";
+                                var prefixString = '';
+                                if ('pie' == type || 'doughnut' == type || 'polarArea' == type) {
+                                    prefixString = data.labels[tooltipItem.index] + ': ';
                                 }
                                 var dataset = data.datasets[tooltipItem.datasetIndex];
                                 var total = dataset.data.reduce(function (previousValue, currentValue) {
@@ -1821,7 +1819,7 @@ odometerOptions = {auto: false};
                                 return (
                                     prefixString +
                                     (settings.percentage ?
-                                        percentage + "%" :
+                                        percentage + '%' :
                                         currentValue)
                                 );
                             }
@@ -1844,7 +1842,7 @@ odometerOptions = {auto: false};
                     scales: {
                         xAxes: [{
                             barPercentage: settings.xwidth,
-                            display: ("pie" === type || "doughnut" === type) ? false : true,
+                            display: ('pie' === type || 'doughnut' === type) ? false : true,
                             gridLines: {
                                 display: settings.xGrid,
                                 color: settings.xGridCol,
@@ -1871,7 +1869,7 @@ odometerOptions = {auto: false};
                             }
                         }],
                         yAxes: [{
-                            display: ("pie" === type || "doughnut" === type) ? false : true,
+                            display: ('pie' === type || 'doughnut' === type) ? false : true,
                             type: settings.yAxis,
                             gridLines: {
                                 display: settings.yGrid,
@@ -1917,16 +1915,16 @@ odometerOptions = {auto: false};
                 chartInstance = new Chart(ctx, {
                     type: type,
                     data: data,
-                    options: Object.assign(globalOptions, ("radar" !== type && "polarArea" !== type) ? multiScaleOptions : singleScaleOptions)
+                    options: Object.assign(globalOptions, ('radar' !== type && 'polarArea' !== type) ? multiScaleOptions : singleScaleOptions)
                 });
 
                 if ('custom' === dataSource) {
                     premiumChartData.forEach(function (element) {
-                        if ("pie" !== type && "doughnut" !== type && "polarArea" !== type) {
-                            if ("object" === typeof element.backgroundColor) {
+                        if ('pie' !== type && 'doughnut' !== type && 'polarArea' !== type) {
+                            if ('object' === typeof element.backgroundColor) {
 
                                 //We need to make sure add gradient colors or not.
-                                if ("empty" !== element.backgroundColor[element.backgroundColor.length - 1]) {
+                                if ('empty' !== element.backgroundColor[element.backgroundColor.length - 1]) {
                                     var gradient = ctx.createLinearGradient(0, 0, 0, 600),
                                         secondColor = element.backgroundColor[1] ?
                                             element.backgroundColor[1] :
@@ -1942,14 +1940,14 @@ odometerOptions = {auto: false};
                         chartInstance.update();
                     });
 
-                    $("#" + settings.chartId).on("click", function (evt) {
+                    $('#' + settings.chartId).on('click', function (evt) {
                         var activePoint = chartInstance.getElementAtEvent(evt);
                         if (activePoint[0]) {
                             var URL =
                                 chartInstance.data.datasets[activePoint[0]._datasetIndex].links[
                                 activePoint[0]._index
                                 ];
-                            if (URL != null && URL != "") {
+                            if (URL != null && URL != '') {
                                 window.open(URL, settings.target);
                             }
                         }
@@ -1981,12 +1979,12 @@ odometerOptions = {auto: false};
                     }
                 });
             }
-            var $checkModal = $chartElem.closest(".eead-modal-box-modal");
-            if ($checkModal.length || "load" === settings.event) {
+            var $checkModal = $chartElem.closest('.eead-modal-box-modal');
+            if ($checkModal.length || 'load' === settings.event) {
                 getChartData();
             } else {
                 new Waypoint({
-                    element: $("#" + settings.chartId),
+                    element: $('#' + settings.chartId),
                     offset: Waypoint.viewportHeight() - 250,
                     triggerOnce: true,
                     handler: function () {
@@ -2003,10 +2001,10 @@ odometerOptions = {auto: false};
                     if (premiumChartData.url) {
                         $.ajax({
                             url: premiumChartData.url,
-                            type: "GET",
+                            type: 'GET',
                             success: function (res) {
                                 console.log(res);
-                                $chartElem.find(".eead-loading-feed").remove();
+                                $chartElem.find('.eead-loading-feed').remove();
                                 renderChart();
                                 handleChartData(res);
                             },
@@ -2189,49 +2187,49 @@ odometerOptions = {auto: false};
         },
 
         portfolioGrid: function ($scope) {
-            $scope.find("form.eead-fpg-toolbar").each(function () {
-                var i = $(this).attr("id");
+            $scope.find('form.eead-fpg-toolbar').each(function () {
+                var i = $(this).attr('id');
                 document.getElementById(i).reset();
             });
-            var n = $scope.find("input[name='filter']:checked").val();
-            n && "all" != n && i.find(".eead-fpg-container li").each(function () {
+            var n = $scope.find('input[name="filter"]:checked').val();
+            n && 'all' != n && i.find('.eead-fpg-container li').each(function () {
                 var i = $(this);
-                i.filter("[data-filter~=" + n + "]").length ? i.show() : i.hide();
+                i.filter('[data-filter~=' + n + ']').length ? i.show() : i.hide();
             }),
-                $scope.find(".eead-fpg-container").fadeIn(200);
-            $scope.find("li.eead-fpg-mobile-icon").on("click", function (e) {
-                i.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").toggle();
+                $scope.find('.eead-fpg-container').fadeIn(200);
+            $scope.find('li.eead-fpg-mobile-icon').on('click', function (e) {
+                i.find('.eead-fpg-search-wrapper').find('li:not(.eead-fpg-mobile-icon)').toggle();
             }),
-                $(window).on("resize", function () {
-                    $(window).width() > 767 ? $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").show() : $scope.find(".eead-fpg-search-wrapper").find("li:not(.eead-fpg-mobile-icon)").hide();
+                $(window).on('resize', function () {
+                    $(window).width() > 767 ? $scope.find('.eead-fpg-search-wrapper').find('li:not(.eead-fpg-mobile-icon)').show() : $scope.find('.eead-fpg-search-wrapper').find('li:not(.eead-fpg-mobile-icon)').hide();
                 }),
-                $scope.find("input[name='view']").change(function () {
-                    $scope.find(".eead-fpg-view-options label").removeClass("active"),
-                        $scope.find("input[name='view']:checked").parent().find("label").addClass("active"),
-                        "show-grid" == $(this).val() ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-list-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-grid-view"))
-                            : "show-list" == $(this).val() && ($scope.find(".eead-fpg-container").removeClass("eead-fpg-grid-view"), $scope.find(".eead-fpg-container").addClass("eead-fpg-list-view"));
+                $scope.find('input[name="view"]').change(function () {
+                    $scope.find('.eead-fpg-view-options label').removeClass('active'),
+                        $scope.find('input[name="view"]:checked').parent().find('label').addClass('active'),
+                        'show-grid' == $(this).val() ? ($scope.find('.eead-fpg-container').removeClass('eead-fpg-list-view'), $scope.find('.eead-fpg-container').addClass('eead-fpg-grid-view'))
+                            : 'show-list' == $(this).val() && ($scope.find('.eead-fpg-container').removeClass('eead-fpg-grid-view'), $scope.find('.eead-fpg-container').addClass('eead-fpg-list-view'));
                 }),
-                $scope.find("input[name='filter']").change(function () {
+                $scope.find('input[name="filter"]').change(function () {
                     var n = $(this).val();
-                    $scope.find(".eead-fpg-search-wrapper li label").removeClass("active"),
-                        $scope.find("input[name='filter']:checked").parent().find("label").addClass("active"),
-                        "all" === n ? ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
-                            $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
-                            $scope.find(".eead-fpg-container").fadeOut(200, function () {
-                                $scope.find(".eead-fpg-container li").show(),
+                    $scope.find('.eead-fpg-search-wrapper li label').removeClass('active'),
+                        $scope.find('input[name="filter"]:checked').parent().find('label').addClass('active'),
+                        'all' === n ? ($scope.find('.eead-fpg-container').removeClass('eead-fpg-zoom-in'),
+                            $scope.find('.eead-fpg-container').addClass('eead-fpg-zoom-out'),
+                            $scope.find('.eead-fpg-container').fadeOut(200, function () {
+                                $scope.find('.eead-fpg-container li').show(),
                                     $(this).fadeIn(200, function () {
-                                        $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                                        $(this).removeClass('eead-fpg-zoom-out'), $(this).addClass('eead-fpg-zoom-in'), $(this).css('display', 'grid');
                                     });
                             }))
-                            : ($scope.find(".eead-fpg-container").removeClass("eead-fpg-zoom-in"),
-                                $scope.find(".eead-fpg-container").addClass("eead-fpg-zoom-out"),
-                                $scope.find(".eead-fpg-container").fadeOut(200, function () {
-                                    $scope.find(".eead-fpg-container li").each(function () {
+                            : ($scope.find('.eead-fpg-container').removeClass('eead-fpg-zoom-in'),
+                                $scope.find('.eead-fpg-container').addClass('eead-fpg-zoom-out'),
+                                $scope.find('.eead-fpg-container').fadeOut(200, function () {
+                                    $scope.find('.eead-fpg-container li').each(function () {
                                         var e = $(this);
-                                        e.filter("[data-filter~=" + n + "]").length ? e.show() : e.hide();
+                                        e.filter('[data-filter~=' + n + ']').length ? e.show() : e.hide();
                                     }),
                                         $(this).fadeIn(200, function () {
-                                            $(this).removeClass("eead-fpg-zoom-out"), $(this).addClass("eead-fpg-zoom-in"), $(this).css("display", "grid");
+                                            $(this).removeClass('eead-fpg-zoom-out'), $(this).addClass('eead-fpg-zoom-in'), $(this).css('display', 'grid');
                                         });
                                 }));
                 });
@@ -2240,7 +2238,7 @@ odometerOptions = {auto: false};
         captionHoverEffect: function ($scope) {
             if (Modernizr.touch) {
                 function classReg(className) {
-                    return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+                    return new RegExp('(^|\\s+)' + className + '(\\s+|$)');
                 }
 
                 // classList support for class management
@@ -2380,7 +2378,7 @@ odometerOptions = {auto: false};
             scrollEvent = null,
             dimensions = null;
 
-        $elem.find(".eead-hscroll-temp").each(function (index, template) {
+        $elem.find('.eead-hscroll-temp').each(function (index, template) {
             var hideOn = $(template).data('hide');
             if (-1 < hideOn.indexOf(currentDevice)) {
                 hideSection(template, index);
@@ -2400,12 +2398,12 @@ odometerOptions = {auto: false};
             }
 
             if (settings.opacity) {
-                $elem.find(".eead-hscroll-temp:first").removeClass("eead-hscroll-hide");
+                $elem.find('.eead-hscroll-temp:first').removeClass('eead-hscroll-hide');
             }
 
         }
 
-        var $slides = $elem.find(".eead-hscroll-temp");
+        var $slides = $elem.find('.eead-hscroll-temp');
 
         if (settings.opacity)
             var targetIndex = 0;
@@ -2414,22 +2412,22 @@ odometerOptions = {auto: false};
             targetIndex = count - 1;
 
 
-        if ("desktop" !== currentDevice) {
+        if ('desktop' !== currentDevice) {
             if (snapScroll && settings.disableSnap) {
                 snapScroll = false;
                 settings.enternace = false;
             }
-            if ("tablet" === currentDevice) {
+            if ('tablet' === currentDevice) {
                 progressOffset = 100;
-            } else if ("mobile" === currentDevice) {
+            } else if ('mobile' === currentDevice) {
                 progressOffset = 50;
             }
         } else if (snapScroll) {
             progressOffset = 30;
         }
 
-        var $nav = $(".eead-hscroll-nav-item", $elem),
-            $arrows = $(".eead-hscroll-wrap-icon", $elem);
+        var $nav = $('.eead-hscroll-nav-item', $elem),
+            $arrows = $('.eead-hscroll-wrap-icon', $elem);
 
         self.init = function () {
 
@@ -2442,9 +2440,9 @@ odometerOptions = {auto: false};
 
             if (!loop) self.checkActive();
 
-            scene.on("progress", self.onProgress);
-            $nav.on("click.eeadHorizontalScroll", self.onNavDotClick);
-            $arrows.on("click.eeadHorizontalScroll", self.onNavArrowClick);
+            scene.on('progress', self.onProgress);
+            $nav.on('click.eeadHorizontalScroll', self.onNavDotClick);
+            $arrows.on('click.eeadHorizontalScroll', self.onNavArrowClick);
             self.checkRemoteAnchors();
             self.checkLocalAnchors();
 
@@ -2453,16 +2451,16 @@ odometerOptions = {auto: false};
             });
 
             $(window)
-                .on("resize", self.refresh);
+                .on('resize', self.refresh);
 
             if (snapScroll)
-                document.addEventListener ? document.addEventListener("wheel", self.onScroll, {passive: false}) : document.attachEvent("onmousewheel", self.onScroll);
+                document.addEventListener ? document.addEventListener('wheel', self.onScroll, {passive: false}) : document.attachEvent('onmousewheel', self.onScroll);
 
             if (settings.keyboard)
-                document.addEventListener ? document.addEventListener("keydown", self.onKeyboardPress) : document.attachEvent("keydown", self.onKeyboardPress);
+                document.addEventListener ? document.addEventListener('keydown', self.onKeyboardPress) : document.attachEvent('keydown', self.onKeyboardPress);
 
             if (snapScroll) {
-                $(window).on("load", function () {
+                $(window).on('load', function () {
                     var windowOuterHeight = $(window).outerHeight();
 
                     if (offset - windowOuterHeight < 150)
@@ -2472,7 +2470,7 @@ odometerOptions = {auto: false};
                         elementorFrontend.waypoint(
                             $elem,
                             function (direction) {
-                                if ("down" === direction) {
+                                if ('down' === direction) {
                                     self.scrollToSlide(0);
                                 }
                             }, {
@@ -2486,8 +2484,8 @@ odometerOptions = {auto: false};
         };
 
         self.checkLocalAnchors = function () {
-            $("a").on("click", function (event) {
-                var href = $(this).attr("href");
+            $('a').on('click', function (event) {
+                var href = $(this).attr('href');
                 if (href) {
                     href = href.replace('#/', '');
                     self.checkAnchors(href);
@@ -2499,26 +2497,26 @@ odometerOptions = {auto: false};
             var url = new URL(window.location.href);
             if (!url) return;
 
-            var slideID = url.searchParams.get("slide");
+            var slideID = url.searchParams.get('slide');
             if (slideID) self.checkAnchors(slideID);
         };
 
         self.checkAnchors = function (href) {
-            var $slide = $elem.find(".eead-hscroll-temp[data-section='" + href + "']");
+            var $slide = $elem.find('.eead-hscroll-temp[data-section="' + href + '"]');
             if (!$slide.length) return;
 
             var slideIndex = $slide.index();
-            self.scrollToSlide(slideIndex, "anchors");
+            self.scrollToSlide(slideIndex, 'anchors');
         };
 
         self.onKeyboardPress = function (e) {
-            if ("BEFORE" === scene.state()) {
+            if ('BEFORE' === scene.state()) {
                 return;
             } else {
                 var downKeyCodes = [40, 34],
                     upKeyCodes = [38, 33];
 
-                if ("AFTER" === scene.state()) {
+                if ('AFTER' === scene.state()) {
                     if (-1 !== $.inArray(e.keyCode, upKeyCodes)) {
                         var lastScrollOffset = self.getScrollOffset(
                             $slides.eq(count - 1)
@@ -2548,7 +2546,7 @@ odometerOptions = {auto: false};
                             self.preventDefault(event);
                             return;
                         }
-                        self.goToPrev("keyboard");
+                        self.goToPrev('keyboard');
                     }
                 }
             }
@@ -2556,8 +2554,8 @@ odometerOptions = {auto: false};
 
         self.getResponsiveControlValue = function (ID) {
             var value = settings[ID];
-            if ("desktop" !== currentDevice) {
-                value = settings[ID + "_" + currentDevice];
+            if ('desktop' !== currentDevice) {
+                value = settings[ID + '_' + currentDevice];
             }
             return value;
         };
@@ -2568,17 +2566,17 @@ odometerOptions = {auto: false};
             self.setHorizontalSlider();
             var scrollSpeed = self.getResponsiveControlValue('speed');
 
-            if ("desktop" === currentDevice) {
-                scrollSpeed = scrollSpeed * 100 + "%";
+            if ('desktop' === currentDevice) {
+                scrollSpeed = scrollSpeed * 100 + '%';
             } else {
                 scrollSpeed = scrollSpeed * $elem.outerHeight();
             }
 
             scene = new ScrollMagic.Scene({
-                triggerElement: "#eead-hscroll-spacer-" + id,
-                triggerHook: "onLeave",
+                triggerElement: '#eead-hscroll-spacer-' + id,
+                triggerHook: 'onLeave',
                 duration: scrollSpeed
-            }).setPin("#eead-hscroll-wrap-" + id, {pushFollowers: true}).setTween(horizontalSlide).addTo(controller);
+            }).setPin('#eead-hscroll-wrap-' + id, {pushFollowers: true}).setTween(horizontalSlide).addTo(controller);
         };
 
         self.getDimensions = function () {
@@ -2593,7 +2591,7 @@ odometerOptions = {auto: false};
             distance = distanceBeyond + distance;
 
             if (rtlMode)
-                $("#eead-hscroll-scroller-wrap-" + id).css("transform", "translateX(" + -distance + "px)");
+                $('#eead-hscroll-scroller-wrap-' + id).css('transform', 'translateX(' + -distance + 'px)');
 
             var ease = Power2.easeOut;
             ease = Power0.easeNone;
@@ -2611,8 +2609,8 @@ odometerOptions = {auto: false};
             dimensions = self.getDimensions();
 
             horizontalSlide
-                .to("#eead-hscroll-scroller-wrap-" + id, 1, {x: rtlMode ? "0px" : -dimensions.distance, ease: dimensions.ease}, 0)
-                .to("#eead-hscroll-progress-line-" + id, 1, {width: dimensions.progressBar + "px", ease: dimensions.ease}, 0);
+                .to('#eead-hscroll-scroller-wrap-' + id, 1, {x: rtlMode ? '0px' : -dimensions.distance, ease: dimensions.ease}, 0)
+                .to('#eead-hscroll-progress-line-' + id, 1, {width: dimensions.progressBar + 'px', ease: dimensions.ease}, 0);
 
             if ('undefined' !== typeof progress) {
                 scene.progress(0);
@@ -2621,36 +2619,36 @@ odometerOptions = {auto: false};
         }
 
         self.setLayout = function () {
-            $elem.closest("section.elementor-section-height-full").removeClass("elementor-section-height-full");
+            $elem.closest('section.elementor-section-height-full').removeClass('elementor-section-height-full');
         };
 
         self.setSectionsData = function () {
             var slidesInViewPort = self.getResponsiveControlValue('slides');
             var slideWidth = 100 / slidesInViewPort;
-            $elem.find(".eead-hscroll-slider").css("width", count * slideWidth + "%");
+            $elem.find('.eead-hscroll-slider').css('width', count * slideWidth + '%');
 
-            $elem.find(".eead-hscroll-temp").css("width", 100 / count + "%");
+            $elem.find('.eead-hscroll-temp').css('width', 100 / count + '%');
 
             var scrollSpeed = self.getResponsiveControlValue('speed');
 
-            var width = parseFloat($elem.find(".eead-hscroll-sections-wrap").width() / count),
+            var width = parseFloat($elem.find('.eead-hscroll-sections-wrap').width() / count),
                 winHeight = $(window).height() * scrollSpeed;
 
             $slides.each(function (index, template) {
                 if ($(template)
-                    .data("section")) {
+                    .data('section')) {
                     var id = $(template)
-                        .data("section");
+                        .data('section');
                     self.getSectionContent(id);
                 }
                 var position = index * width;
-                $(template).attr("data-position", position);
+                $(template).attr('data-position', position);
             });
 
             offset = $elem.offset().top;
             $slides.each(function (index, template) {
                 var scrollOffset = (index * winHeight) / (count - 1);
-                $(template).attr("data-scroll-offset", offset + scrollOffset);
+                $(template).attr('data-scroll-offset', offset + scrollOffset);
             });
         };
 
@@ -2658,9 +2656,9 @@ odometerOptions = {auto: false};
             if (isScrolling && null !== event) self.preventDefault(event);
             var delta = self.getDirection(event),
                 state = scene.state(),
-                direction = 0 > delta ? "down" : "up";
+                direction = 0 > delta ? 'down' : 'up';
 
-            if ("up" === direction && "AFTER" === scene.state()) {
+            if ('up' === direction && 'AFTER' === scene.state()) {
                 var lastScrollOffset = self.getScrollOffset(
                     $slides.eq(count - 1)
                 );
@@ -2669,16 +2667,16 @@ odometerOptions = {auto: false};
                     self.scrollToSlide(count - 1);
             }
 
-            if ("DURING" === state) {
-                if ("down" === direction) {
+            if ('DURING' === state) {
+                if ('down' === direction) {
                     if (!isScrolling && count - 1 !== currentActive) {
                         self.goToNext();
                     }
-                } else if ("up" === direction) {
+                } else if ('up' === direction) {
                     if (!isScrolling && 0 !== currentActive) self.goToPrev();
                 }
 
-                if ((0 !== currentActive && "up" === direction) || ("down" === direction && count - 1 !== currentActive)) {
+                if ((0 !== currentActive && 'up' === direction) || ('down' === direction && count - 1 !== currentActive)) {
                     self.preventDefault(event);
                 }
             }
@@ -2692,26 +2690,26 @@ odometerOptions = {auto: false};
 
         self.setSnapScroll = function (event) {
             var direction = event.scrollDirection;
-            if ((0 !== currentActive && "REVERSE" === direction) || "FORWARD" === direction) {
+            if ((0 !== currentActive && 'REVERSE' === direction) || 'FORWARD' === direction) {
                 if (null !== scrollEvent) self.preventDefault(scrollEvent);
             }
 
-            var $nextArrow = $(".eead-hscroll-next", $elem),
-                $prevArrow = $(".eead-hscroll-prev", $elem);
+            var $nextArrow = $('.eead-hscroll-next', $elem),
+                $prevArrow = $('.eead-hscroll-prev', $elem);
 
-            if ("FORWARD" === direction) {
+            if ('FORWARD' === direction) {
                 if (!isScrolling && count - 1 !== currentActive) {
-                    $nextArrow.trigger("click.eeadHorizontalScroll");
+                    $nextArrow.trigger('click.eeadHorizontalScroll');
                 }
             } else {
                 if (!isScrolling && 0 !== currentActive)
-                    $prevArrow.trigger("click.eeadHorizontalScroll");
+                    $prevArrow.trigger('click.eeadHorizontalScroll');
             }
         };
 
         self.refresh = function () {
             // dimensions = self.getDimensions();
-            // horizontalSlide.to("#eead-hscroll-scroller-wrap-" + id, 1, { x: "-980", ease: Power0.easeNone }, 0);
+            // horizontalSlide.to('#eead-hscroll-scroller-wrap-' + id, 1, { x: '-980', ease: Power0.easeNone }, 0);
             setTimeout(function () {
                 var sceneProgress = scene.progress();
                 self.setHorizontalSlider(sceneProgress);
@@ -2720,18 +2718,18 @@ odometerOptions = {auto: false};
         };
 
         self.onProgress = function () {
-            var progressFillWidth = $elem.find(".eead-hscroll-progress-line").outerWidth(),
+            var progressFillWidth = $elem.find('.eead-hscroll-progress-line').outerWidth(),
                 elemWidth = $elem.outerWidth();
 
             $slides.each(function (index) {
-                var scrollOffset = $slides.eq(index - 1).data("scroll-offset"),
-                    scrollPosition = $(this).data("position");
+                var scrollOffset = $slides.eq(index - 1).data('scroll-offset'),
+                    scrollPosition = $(this).data('position');
 
                 if (settings.opacity && targetIndex !== index) {
                     if (window.pageYOffset >= scrollOffset + elemWidth / 8) {
-                        $(this).removeClass("eead-hscroll-hide");
+                        $(this).removeClass('eead-hscroll-hide');
                     } else {
-                        $(this).addClass("eead-hscroll-hide");
+                        $(this).addClass('eead-hscroll-hide');
                     }
 
                 }
@@ -2761,12 +2759,12 @@ odometerOptions = {auto: false};
             prevActive = currentActive;
             self.addBackgroundLayer();
             if (settings.pagination && !snapScroll) {
-                var text = currentActive + 1 > 9 ? "" : "0";
-                $elem.find(".eead-hscroll-current-slide").text(text + (currentActive + 1));
+                var text = currentActive + 1 > 9 ? '' : '0';
+                $elem.find('.eead-hscroll-current-slide').text(text + (currentActive + 1));
             }
 
-            $nav.removeClass("active");
-            $elem.find(".eead-hscroll-nav-item").eq(currentActive).addClass("active");
+            $nav.removeClass('active');
+            $elem.find('.eead-hscroll-nav-item').eq(currentActive).addClass('active');
             self.checkActive();
 
             if (settings.enternace && !isScrolling)
@@ -2774,26 +2772,26 @@ odometerOptions = {auto: false};
         };
 
         self.addBackgroundLayer = function () {
-            if ($elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").length) {
-                $elem.find(".eead-hscroll-layer-active").removeClass("eead-hscroll-layer-active");
-                $elem.find(".eead-hscroll-bg-layer[data-layer='" + currentActive + "']").addClass("eead-hscroll-layer-active");
+            if ($elem.find('.eead-hscroll-bg-layer[data-layer="' + currentActive + '"]').length) {
+                $elem.find('.eead-hscroll-layer-active').removeClass('eead-hscroll-layer-active');
+                $elem.find('.eead-hscroll-bg-layer[data-layer="' + currentActive + '"]').addClass('eead-hscroll-layer-active');
             }
 
         };
 
         self.getSectionContent = function (sectionID) {
-            if (!$("#" + sectionID)
+            if (!$('#' + sectionID)
                 .length) return;
 
-            var htmlContent = $("#" + sectionID);
+            var htmlContent = $('#' + sectionID);
             if (!editMode) {
-                $("#eead-hscroll-scroller-wrap-" + id)
+                $('#eead-hscroll-scroller-wrap-' + id)
                     .find('div[data-section="' + sectionID + '"]')
                     .append(htmlContent);
             } else {
-                $slides.find(".elementor-element-overlay")
+                $slides.find('.elementor-element-overlay')
                     .remove();
-                $("#eead-hscroll-scroller-wrap-" + id)
+                $('#eead-hscroll-scroller-wrap-' + id)
                     .find('div[data-section="' + sectionID + '"]')
                     .append(htmlContent.clone(true));
             }
@@ -2811,22 +2809,22 @@ odometerOptions = {auto: false};
             } else {
                 if (0 === currentActive) {
                     $elem
-                        .find(".eead-hscroll-arrow-left")
-                        .addClass("eead-hscroll-arrow-hidden");
+                        .find('.eead-hscroll-arrow-left')
+                        .addClass('eead-hscroll-arrow-hidden');
                 } else {
                     $elem
-                        .find(".eead-hscroll-arrow-left")
-                        .removeClass("eead-hscroll-arrow-hidden");
+                        .find('.eead-hscroll-arrow-left')
+                        .removeClass('eead-hscroll-arrow-hidden');
                 }
 
                 if (count - 1 === currentActive) {
                     $elem
-                        .find(".eead-hscroll-arrow-right")
-                        .addClass("eead-hscroll-arrow-hidden");
+                        .find('.eead-hscroll-arrow-right')
+                        .addClass('eead-hscroll-arrow-hidden');
                 } else {
                     $elem
-                        .find(".eead-hscroll-arrow-right")
-                        .removeClass("eead-hscroll-arrow-hidden");
+                        .find('.eead-hscroll-arrow-right')
+                        .removeClass('eead-hscroll-arrow-hidden');
                 }
             }
 
@@ -2836,16 +2834,16 @@ odometerOptions = {auto: false};
             if (isScrolling) return;
             var $item = $(this),
                 index = $item.index();
-            if (index === prevActive && "DURING" === scene.state()) return;
+            if (index === prevActive && 'DURING' === scene.state()) return;
             currentActive = index;
             self.scrollToSlide(index);
         };
 
         self.onNavArrowClick = function (e) {
             if (isScrolling) return;
-            if ($(e.target).hasClass("eead-hscroll-prev") || $(e.target).find(".eead-hscroll-prev").length) {
+            if ($(e.target).hasClass('eead-hscroll-prev') || $(e.target).find('.eead-hscroll-prev').length) {
                 self.goToPrev();
-            } else if ($(e.target).hasClass("eead-hscroll-next") || $(e.target).find(".eead-hscroll-next").length) {
+            } else if ($(e.target).hasClass('eead-hscroll-next') || $(e.target).find('.eead-hscroll-next').length) {
                 self.goToNext();
             }
         };
@@ -2864,7 +2862,7 @@ odometerOptions = {auto: false};
         };
 
         self.goToPrev = function (trigger) {
-            if (isScrolling || ("keyboard" === trigger && currentActive === 0)) return;
+            if (isScrolling || ('keyboard' === trigger && currentActive === 0)) return;
 
             currentActive--;
             if (loop) {
@@ -2890,7 +2888,7 @@ odometerOptions = {auto: false};
             isScrolling = true;
             prevActive = slideIndex;
 
-            var spacerHeight = $("#eead-hscroll-spacer-" + id).outerHeight();
+            var spacerHeight = $('#eead-hscroll-spacer-' + id).outerHeight();
 
             TweenMax.to(window, 1.5, {
                 scrollTo: {
@@ -2901,14 +2899,14 @@ odometerOptions = {auto: false};
             });
 
             if (settings.pagination && snapScroll)
-                $elem.find(".eead-hscroll-current-slide").removeClass("zoomIn animated");
+                $elem.find('.eead-hscroll-current-slide').removeClass('zoomIn animated');
 
             if (settings.pagination && snapScroll) {
                 setTimeout(function () {
-                    if (currentActive + 1 != $elem.find(".eead-hscroll-current-slide").text()) {
+                    if (currentActive + 1 != $elem.find('.eead-hscroll-current-slide').text()) {
                         //Lead zero
-                        var text = currentActive + 1 > 9 ? "" : "0";
-                        $elem.find(".eead-hscroll-current-slide").text(text + (currentActive + 1)).addClass("zoomIn animated");
+                        var text = currentActive + 1 > 9 ? '' : '0';
+                        $elem.find('.eead-hscroll-current-slide').text(text + (currentActive + 1)).addClass('zoomIn animated');
                     }
                 }, 1000);
             }
@@ -2942,12 +2940,12 @@ odometerOptions = {auto: false};
         };
 
         self.hideAnimations = function () {
-            $slides.find(".elementor-invisible").addClass("eead-hscroll-elem-hidden");
+            $slides.find('.elementor-invisible').addClass('eead-hscroll-elem-hidden');
         };
 
         self.unsetAnimations = function () {
-            $slides.find(".elementor-invisible").each(function (index, elem) {
-                $(elem).removeClass("elementor-invisible");
+            $slides.find('.elementor-invisible').each(function (index, elem) {
+                $(elem).removeClass('elementor-invisible');
             });
         };
 
@@ -2961,19 +2959,19 @@ odometerOptions = {auto: false};
                 return index !== slideIndex;
             });
 
-            $unactiveSlides.find(".animated").each(function (index, elem) {
-                var settings = $(elem).data("settings");
+            $unactiveSlides.find('.animated').each(function (index, elem) {
+                var settings = $(elem).data('settings');
                 if (undefined === settings) return;
 
                 var animation = settings._animation || settings.animation;
-                $(elem).removeClass("animated " + animation).addClass("elementor-invisible");
+                $(elem).removeClass('animated ' + animation).addClass('elementor-invisible');
             });
         };
 
         self.triggerAnimations = function () {
-            $slides.eq(currentActive).find(".elementor-invisible").each(function (index, elem) {
+            $slides.eq(currentActive).find('.elementor-invisible').each(function (index, elem) {
                 var settings = $(elem)
-                    .data("settings");
+                    .data('settings');
 
                 if (undefined === settings) return;
 
@@ -2986,15 +2984,15 @@ odometerOptions = {auto: false};
 
                 setTimeout(function () {
                     $(elem)
-                        .removeClass("elementor-invisible eead-hscroll-elem-hidden")
-                        .addClass(animation + " animated");
+                        .removeClass('elementor-invisible eead-hscroll-elem-hidden')
+                        .addClass(animation + ' animated');
                 }, delay);
             });
         };
 
         self.getScrollOffset = function (item) {
             if (!$(item).length) return;
-            return $(item).data("scroll-offset");
+            return $(item).data('scroll-offset');
         };
 
         self.preventDefault = function (event) {

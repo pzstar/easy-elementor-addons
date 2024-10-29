@@ -14,7 +14,7 @@
             url: ajaxURL,
             type: 'post',
             data: {
-                action: "admin_settings_save",
+                action: 'admin_settings_save',
                 data: data,
                 wp_nonce: adminNonce
             },
@@ -57,7 +57,7 @@
         e.preventDefault();
 
         var widgets_arr = [];
-        $.each($(".eead-widget-wrap input[name='widgets']:checked"), function () {
+        $.each($('.eead-widget-wrap input[name="widgets"]:checked'), function () {
             widgets_arr.push($(this).val());
         });
 
@@ -65,7 +65,7 @@
             url: ajaxURL,
             type: 'post',
             data: {
-                action: "eead_widgets_save",
+                action: 'eead_widgets_save',
                 data: widgets_arr,
                 wp_nonce: adminNonce
             },
@@ -95,7 +95,7 @@
         e.preventDefault();
 
         var extenders_arr = [];
-        $.each($(".eead-extender-wrap input[name='extenders']:checked"), function () {
+        $.each($('.eead-extender-wrap input[name="extenders"]:checked'), function () {
             extenders_arr.push($(this).val());
         });
 
@@ -103,7 +103,7 @@
             url: ajaxURL,
             type: 'post',
             data: {
-                action: "eead_extenders_save",
+                action: 'eead_extenders_save',
                 data: extenders_arr,
                 wp_nonce: adminNonce
             },
