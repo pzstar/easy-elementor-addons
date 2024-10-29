@@ -75,7 +75,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             //require EEAD_PATH . 'inc/cross-domain-cp/cross-domain-cp-integration.php';
 
             /** Includes the autoloader for libraries installed with Composer. */
-            require EEAD_PATH . 'vendor/autoload.php';
+            //require EEAD_PATH . 'vendor/autoload.php';
         }
 
         public function required_plugins_notice() {
@@ -92,7 +92,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 }
 
                 $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
-                $admin_message = '<p>' . esc_html__('Ops! Easy Elementor Addons is not working because you need to activate the Elementor plugin first.', 'easy-elementor-addons') . '</p>';
+                $admin_message = '<p>' . esc_html__('Oops! Easy Elementor Addons is not working because you need to activate the Elementor plugin first.', 'easy-elementor-addons') . '</p>';
                 $admin_message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__('Activate Elementor Now', 'easy-elementor-addons')) . '</p>';
             } else {
                 if (!current_user_can('install_plugins')) {
@@ -100,7 +100,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 }
 
                 $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
-                $admin_message = '<p>' . esc_html__('Ops! Easy Elementor Addons is not working because you need to install the Elementor plugin', 'easy-elementor-addons') . '</p>';
+                $admin_message = '<p>' . esc_html__('Oops! Easy Elementor Addons is not working because you need to install the Elementor plugin', 'easy-elementor-addons') . '</p>';
                 $admin_message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__('Install Elementor Now', 'easy-elementor-addons')) . '</p>';
             }
 
