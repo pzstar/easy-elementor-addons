@@ -37,7 +37,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             'step_flow_settings_section', [
                 'label' => esc_html__('Step Flow', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -122,7 +122,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             'additional_settings', [
                 'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -139,7 +139,7 @@ class StepFlow extends Widget_Base {
                     'h4' => esc_html__('H4', 'easy-elementor-addons'),
                     'h5' => esc_html__('H5', 'easy-elementor-addons'),
                     'h6' => esc_html__('H6', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -163,7 +163,7 @@ class StepFlow extends Widget_Base {
                     'justify' => [
                         'title' => esc_html__('Justify', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'toggle' => true,
@@ -178,7 +178,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Show Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'style_transfer' => true,
+                'style_transfer' => true
             ]
         );
 
@@ -187,7 +187,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             '_section_icon_style', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -209,7 +209,7 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}}' => '--eead-stepflow-icon-size: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -227,7 +227,7 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'padding: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}}' => '--eead-stepflow-icon-padding: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -244,7 +244,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -252,7 +252,7 @@ class StepFlow extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'icon_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-steps-icon',
+                'selector' => '{{WRAPPER}} .eead-steps-icon'
             ]
         );
 
@@ -263,14 +263,14 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'icon_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-steps-icon',
+                'selector' => '{{WRAPPER}} .eead-steps-icon'
             ]
         );
 
@@ -280,7 +280,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -290,7 +290,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -302,7 +302,7 @@ class StepFlow extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'badge!' => '',
-                ],
+                ]
             ]
         );
 
@@ -316,7 +316,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -327,7 +327,7 @@ class StepFlow extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-steps-label',
                 'condition' => [
                     'badge!' => '',
-                ],
+                ]
             ]
         );
 
@@ -341,7 +341,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -354,7 +354,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -367,7 +367,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-label' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -377,7 +377,7 @@ class StepFlow extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-steps-label',
                 'condition' => [
                     'badge!' => '',
-                ],
+                ]
             ]
         );
 
@@ -386,7 +386,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             '_section_title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -397,7 +397,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -407,7 +407,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -420,7 +420,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title a' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -433,21 +433,21 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title a:hover' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'title_shadow',
-                'selector' => '{{WRAPPER}} .eead-steps-title',
+                'selector' => '{{WRAPPER}} .eead-steps-title'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .eead-steps-title',
+                'selector' => '{{WRAPPER}} .eead-steps-title'
             ]
         );
 
@@ -459,7 +459,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -468,7 +468,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -478,21 +478,21 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-description' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'description_shadow',
-                'selector' => '{{WRAPPER}} .eead-step-description',
+                'selector' => '{{WRAPPER}} .eead-step-description'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .eead-step-description',
+                'selector' => '{{WRAPPER}} .eead-step-description'
             ]
         );
 
@@ -504,7 +504,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -513,7 +513,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             '_section_direction_style', [
                 'label' => esc_html__('Direction', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -530,7 +530,7 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-arrow, {{WRAPPER}} .eead-step-arrow:after' => 'border-top-style: {{VALUE}};',
                     '{{WRAPPER}} .eead-step-arrow:after' => 'border-right-style: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -543,11 +543,11 @@ class StepFlow extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-arrow' => 'width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -569,11 +569,11 @@ class StepFlow extends Widget_Base {
                     'deg' => [
                         'min' => 0,
                         'max' => 360,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-stepflow-direction-angle: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -582,7 +582,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'label_off' => esc_html__('None', 'easy-elementor-addons'),
-                'label_on' => esc_html__('Custom', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Custom', 'easy-elementor-addons')
             ]
         );
 
@@ -608,7 +608,7 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-arrow' => 'top: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -633,7 +633,7 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-arrow' => 'left: calc( 100% + {{SIZE}}{{UNIT}} );',
                     '{{WRAPPER}}' => '--eead-stepflow-direction-offset-x: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -646,7 +646,7 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-arrow' => 'border-color: {{VALUE}};',
                     '{{WRAPPER}} .eead-step-arrow:after' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -655,7 +655,7 @@ class StepFlow extends Widget_Base {
         $this->start_controls_section(
             'readmore_style', [
                 'label' => esc_html__('Read More', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -665,7 +665,7 @@ class StepFlow extends Widget_Base {
 
         $this->start_controls_tab(
             'readmore_tab_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -675,7 +675,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -685,7 +685,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -695,7 +695,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'border: 1px solid {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -703,7 +703,7 @@ class StepFlow extends Widget_Base {
 
         $this->start_controls_tab(
             'readmore_tab_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -713,7 +713,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -723,7 +723,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -733,7 +733,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'border: 1px solid {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -746,7 +746,7 @@ class StepFlow extends Widget_Base {
                 'name' => 'readmore_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-step-flow-readmore',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -757,7 +757,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -768,7 +768,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -780,7 +780,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow-readmore' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 

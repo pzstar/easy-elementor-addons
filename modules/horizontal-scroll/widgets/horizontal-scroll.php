@@ -18,22 +18,22 @@ if (!defined('ABSPATH')) {
 
 class HorizontalScroll extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-horizontal-scroll';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Horizontal Scroll', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-scroll-image';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +42,7 @@ class HorizontalScroll extends Widget_Base {
         return ['scrollmagic', 'tweenmax'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(

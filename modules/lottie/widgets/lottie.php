@@ -20,27 +20,27 @@ class Lottie extends Widget_Base {
         return ['lottie'];
     }
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-lottie';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Lottie', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-lottie';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -63,7 +63,7 @@ class Lottie extends Widget_Base {
                 'url' => [
                     'title' => esc_html__('JSON URL', 'easy-elementor-addons'),
                     'icon' => 'eicon-link',
-                ],
+                ]
             ]
                 ]
         );
@@ -77,7 +77,7 @@ class Lottie extends Widget_Base {
             'type' => Controls_Manager::MEDIA,
             'media_type' => 'application/json',
             'condition' => [
-                'lottie_type' => 'file',
+                'lottie_type' => 'file'
             ],
                 ]
         );
@@ -153,7 +153,7 @@ class Lottie extends Widget_Base {
                 ]
             ],
             'default' => [
-                'size' => 1,
+                'size' => 1
             ],
                 ]
         );
@@ -172,7 +172,7 @@ class Lottie extends Widget_Base {
                 'canvas' => [
                     'title' => esc_html__('Canvas', 'easy-elementor-addons'),
                     'icon' => 'fa fa-chalkboard',
-                ],
+                ]
             ],
                 ]
         );
@@ -184,7 +184,7 @@ class Lottie extends Widget_Base {
             'options' => [
                 '' => esc_html__('None', 'easy-elementor-addons'),
                 'pause' => esc_html__('Pause', 'easy-elementor-addons'),
-                'reverse' => esc_html__('Reverse', 'easy-elementor-addons'),
+                'reverse' => esc_html__('Reverse', 'easy-elementor-addons')
             ],
             'condition' => [
                 'lottie_autoplay' => 'yes'
@@ -199,7 +199,7 @@ class Lottie extends Widget_Base {
             'type' => Controls_Manager::SELECT,
             'options' => [
                 '' => esc_html__('None', 'easy-elementor-addons'),
-                'play' => esc_html__('Play', 'easy-elementor-addons'),
+                'play' => esc_html__('Play', 'easy-elementor-addons')
             ],
             'condition' => [
                 'lottie_autoplay!' => 'yes'
@@ -240,7 +240,7 @@ class Lottie extends Widget_Base {
                 ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-lottie' => 'opacity: {{SIZE}};',
+                '{{WRAPPER}} .eead-lottie' => 'opacity: {{SIZE}};'
             ],
                 ]
         );
@@ -272,7 +272,7 @@ class Lottie extends Widget_Base {
                 ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-lottie:hover' => 'opacity: {{SIZE}};',
+                '{{WRAPPER}} .eead-lottie:hover' => 'opacity: {{SIZE}};'
             ],
                 ]
         );
@@ -292,13 +292,13 @@ class Lottie extends Widget_Base {
                 'px' => [
                     'max' => 10,
                     'step' => 0.1,
-                ],
+                ]
             ],
             'default' => [
                 'size' => '0.3'
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-lottie' => 'transition: all {{SIZE}}s ease;',
+                '{{WRAPPER}} .eead-lottie' => 'transition: all {{SIZE}}s ease;'
             ],
                 ]
         );

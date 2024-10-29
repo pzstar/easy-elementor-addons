@@ -18,22 +18,22 @@ if (!defined('ABSPATH')) {
  */
 class ImageComparison extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-image-comparison';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Image Comparison', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-compare-image';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -46,12 +46,12 @@ class ImageComparison extends Widget_Base {
         return ['image-compare'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content_layout', [
-                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons')
             ]
         );
 
@@ -62,7 +62,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -72,7 +72,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('Before Label', 'easy-elementor-addons'),
                 'default' => esc_html__('Before', 'easy-elementor-addons'),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -83,7 +83,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -93,7 +93,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('After Label', 'easy-elementor-addons'),
                 'default' => esc_html__('After', 'easy-elementor-addons'),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -102,7 +102,7 @@ class ImageComparison extends Widget_Base {
                 'name' => 'thumbnail_size',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'exclude' => ['custom'],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -111,7 +111,7 @@ class ImageComparison extends Widget_Base {
         $this->start_controls_section(
             'section_content_additional_settings', [
                 'label' => esc_html__('Additional', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -140,7 +140,7 @@ class ImageComparison extends Widget_Base {
                         'max' => 100,
                         'min' => 1,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -152,7 +152,7 @@ class ImageComparison extends Widget_Base {
                 'options' => [
                     'drag' => esc_html__('Drag', 'easy-elementor-addons'),
                     'hover' => esc_html__('Hover', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -177,11 +177,11 @@ class ImageComparison extends Widget_Base {
                         'max' => 1000,
                         'min' => 100,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'smoothing' => 'yes'
-                ],
+                ]
             ]
         );
 
@@ -203,7 +203,7 @@ class ImageComparison extends Widget_Base {
             'show_overlay', [
                 'label' => esc_html__('Show Overlay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -221,7 +221,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'add_circle' => 'yes'
-                ],
+                ]
             ]
         );
 
@@ -231,7 +231,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'add_circle' => 'yes'
-                ],
+                ]
             ]
         );
 
@@ -240,7 +240,7 @@ class ImageComparison extends Widget_Base {
         $this->start_controls_section(
             'general_style', [
                 'label' => esc_html__('General Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -261,7 +261,7 @@ class ImageComparison extends Widget_Base {
             'bar_color', [
                 'label' => esc_html__('Bar Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#ffff',
+                'default' => '#ffff'
             ]
         );
 
@@ -270,7 +270,7 @@ class ImageComparison extends Widget_Base {
         $this->start_controls_section(
             'before_after_style', [
                 'label' => esc_html__('Before & After Text', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -278,7 +278,7 @@ class ImageComparison extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'after_before_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-image-compare .icv__label',
+                'selector' => '{{WRAPPER}} .eead-image-compare .icv__label'
             ]
         );
 
@@ -289,7 +289,7 @@ class ImageComparison extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -300,7 +300,7 @@ class ImageComparison extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -308,7 +308,7 @@ class ImageComparison extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_image_compare_before_style', [
-                'label' => esc_html__('Before', 'easy-elementor-addons'),
+                'label' => esc_html__('Before', 'easy-elementor-addons')
             ]
         );
 
@@ -318,7 +318,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label.icv__label-before' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -328,7 +328,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label.icv__label-before' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -336,7 +336,7 @@ class ImageComparison extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_image_compare_after_style', [
-                'label' => esc_html__('After', 'easy-elementor-addons'),
+                'label' => esc_html__('After', 'easy-elementor-addons')
             ]
         );
 
@@ -346,7 +346,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label.icv__label-after' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -356,7 +356,7 @@ class ImageComparison extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-image-compare .icv__label.icv__label-after' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -397,7 +397,7 @@ class ImageComparison extends Widget_Base {
                 'class' => ['eead-image-compare'],
                 'data-settings' => [
                     wp_json_encode($compare_settings),
-                ],
+                ]
             ],
         ]);
 

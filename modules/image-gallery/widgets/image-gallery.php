@@ -21,22 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class ImageGallery extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-image-gallery';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Image Gallery', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-image-gallery';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,12 +49,12 @@ class ImageGallery extends Widget_Base {
         return ['light-gallery', 'isotope'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_gallery', [
-                'label' => esc_html__('Gallery', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery', 'easy-elementor-addons')
             ]
         );
 
@@ -66,7 +66,7 @@ class ImageGallery extends Widget_Base {
                 'options' => [
                     'default' => esc_html__('Default', 'easy-elementor-addons'),
                     'filterable' => esc_html__('Filterable', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -75,14 +75,14 @@ class ImageGallery extends Widget_Base {
         $repeater->add_control(
             'filter_label', [
                 'label' => esc_html__('Filter Label', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
+                'type' => Controls_Manager::TEXT
             ]
         );
 
         $repeater->add_control(
             'image_group', [
                 'label' => esc_html__('Add Images', 'easy-elementor-addons'),
-                'type' => Controls_Manager::GALLERY,
+                'type' => Controls_Manager::GALLERY
             ]
         );
 
@@ -94,7 +94,7 @@ class ImageGallery extends Widget_Base {
                 'title_field' => '{{filter_label}}',
                 'condition' => [
                     'gallery_type' => 'filterable',
-                ],
+                ]
             ]
         );
 
@@ -104,7 +104,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::GALLERY,
                 'condition' => [
                     'gallery_type' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -115,7 +115,7 @@ class ImageGallery extends Widget_Base {
                 'label' => esc_html__('Filter', 'easy-elementor-addons'),
                 'condition' => [
                     'gallery_type' => 'filterable',
-                ],
+                ]
             ]
         );
 
@@ -126,7 +126,7 @@ class ImageGallery extends Widget_Base {
                 'default' => esc_html__('All', 'easy-elementor-addons'),
                 'condition' => [
                     'gallery_type' => 'filterable',
-                ],
+                ]
             ]
         );
 
@@ -148,14 +148,14 @@ class ImageGallery extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list' => 'justify-content: {{VALUE}};',
                 ],
                 'condition' => [
                     'gallery_type' => 'filterable',
-                ],
+                ]
             ]
         );
 
@@ -166,7 +166,7 @@ class ImageGallery extends Widget_Base {
                 'label_block' => false,
                 'default' => 500,
                 'min' => 100,
-                'max' => 8000,
+                'max' => 8000
             ]
         );
 
@@ -174,7 +174,7 @@ class ImageGallery extends Widget_Base {
 
         $this->start_controls_section(
             'settings_section', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -188,7 +188,7 @@ class ImageGallery extends Widget_Base {
                     'masonry' => esc_html__('Masonry', 'easy-elementor-addons')
                 ],
                 'prefix_class' => 'eead-ig-style-',
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -208,7 +208,7 @@ class ImageGallery extends Widget_Base {
                     '6' => '6',
                 ],
                 'prefix_class' => 'eead-ig-col%s-',
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -241,7 +241,7 @@ class ImageGallery extends Widget_Base {
                     'eead-slide-top' => esc_html__('Slide Top', 'easy-elementor-addons'),
                     'eead-slide-bottom' => esc_html__('Slide Bottom', 'easy-elementor-addons'),
                     'eead-zoom-in' => esc_html__('Zoom In ', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -272,7 +272,7 @@ class ImageGallery extends Widget_Base {
 
         $this->add_control(
             'hr', [
-                'type' => Controls_Manager::DIVIDER,
+                'type' => Controls_Manager::DIVIDER
             ]
         );
 
@@ -282,7 +282,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'layout' => 'grid',
-                ],
+                ]
             ]
         );
 
@@ -295,7 +295,7 @@ class ImageGallery extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 300,
@@ -320,7 +320,7 @@ class ImageGallery extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 100,
@@ -345,7 +345,7 @@ class ImageGallery extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -367,7 +367,7 @@ class ImageGallery extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'gallery_type' => 'filterable',
-                ],
+                ]
             ]
         );
 
@@ -375,7 +375,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'filter_btn_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter',
+                'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter'
             ]
         );
 
@@ -386,7 +386,7 @@ class ImageGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -397,7 +397,7 @@ class ImageGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -414,7 +414,7 @@ class ImageGallery extends Widget_Base {
                 'default' => '#444',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -424,7 +424,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -432,7 +432,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'filter_btn_normal_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter',
+                'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter'
             ]
         );
 
@@ -440,7 +440,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_shadow',
                 'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -457,7 +457,7 @@ class ImageGallery extends Widget_Base {
                 'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter.eead-ig-active' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -468,7 +468,7 @@ class ImageGallery extends Widget_Base {
                 'default' => '#444',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter.eead-ig-active' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -478,7 +478,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter.eead-ig-active' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -486,7 +486,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_active_shadow',
                 'selector' => '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter.eead-ig-active',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -502,7 +502,7 @@ class ImageGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list .eead-ig-filter' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -516,11 +516,11 @@ class ImageGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-filter-list' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -529,14 +529,14 @@ class ImageGallery extends Widget_Base {
         $this->start_controls_section(
             'items_style_section', [
                 'label' => esc_html__('Images', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'item_shadow',
-                'selector' => '{{WRAPPER}} .eead-ig-wrap .eead-ig-item',
+                'selector' => '{{WRAPPER}} .eead-ig-wrap .eead-ig-item'
             ]
         );
 
@@ -544,7 +544,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'item_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ig-wrap .eead-ig-item',
+                'selector' => '{{WRAPPER}} .eead-ig-wrap .eead-ig-item'
             ]
         );
 
@@ -555,7 +555,7 @@ class ImageGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-wrap .eead-ig-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -564,7 +564,7 @@ class ImageGallery extends Widget_Base {
         $this->start_controls_section(
             'caption_style_section', [
                 'label' => esc_html__('Overlay Caption', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -585,7 +585,7 @@ class ImageGallery extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'selectors' => [
@@ -611,7 +611,7 @@ class ImageGallery extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'selectors' => [
@@ -625,7 +625,7 @@ class ImageGallery extends Widget_Base {
                 'name' => 'overlay_bg_color',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption',
+                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption'
             ]
         );
 
@@ -636,7 +636,7 @@ class ImageGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -644,7 +644,7 @@ class ImageGallery extends Widget_Base {
             'overlay_caption_title_heading', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -655,7 +655,7 @@ class ImageGallery extends Widget_Base {
                 'default' => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption h4' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -663,7 +663,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'overlay_caption_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption h4',
+                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption h4'
             ]
         );
 
@@ -674,14 +674,14 @@ class ImageGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption h4' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -689,7 +689,7 @@ class ImageGallery extends Widget_Base {
             'overlay_caption_content_typography_heading', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -700,7 +700,7 @@ class ImageGallery extends Widget_Base {
                 'default' => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption .eead-ig-item-caption-text' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -717,7 +717,7 @@ class ImageGallery extends Widget_Base {
         $this->start_controls_section(
             'overlay_button_style_section', [
                 'label' => esc_html__('Light Box Button', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -730,7 +730,7 @@ class ImageGallery extends Widget_Base {
                     'px' => [
                         'min' => 20,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -738,7 +738,7 @@ class ImageGallery extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption .eead-ig-lightbox' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -750,7 +750,7 @@ class ImageGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -759,7 +759,7 @@ class ImageGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox i' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -770,7 +770,7 @@ class ImageGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -788,7 +788,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -799,7 +799,7 @@ class ImageGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -807,7 +807,7 @@ class ImageGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'overlay_button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox',
+                'selector' => '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox'
             ]
         );
 
@@ -825,7 +825,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox:hover' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -836,7 +836,7 @@ class ImageGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox:hover i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox:hover svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -846,7 +846,7 @@ class ImageGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ig-item .eead-ig-item-caption a.eead-ig-lightbox:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 

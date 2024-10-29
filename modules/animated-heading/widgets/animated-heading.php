@@ -16,22 +16,22 @@ if (!defined('ABSPATH')) {
  */
 class AnimatedHeading extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-animated-heading';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Animated Heading', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-animated-heading';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -40,12 +40,12 @@ class AnimatedHeading extends Widget_Base {
         return ['morphext', 'typed'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'header_content', [
-                'label' => esc_html__('Header Contents', 'easy-elementor-addons'),
+                'label' => esc_html__('Header Contents', 'easy-elementor-addons')
             ]
         );
 
@@ -55,7 +55,7 @@ class AnimatedHeading extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__('Hello I am', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Type your pre heading here.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your pre heading here.', 'easy-elementor-addons')
             ]
         );
 
@@ -66,7 +66,7 @@ class AnimatedHeading extends Widget_Base {
                 'rows' => 4,
                 'default' => esc_html__('Animated,Morphing,Awesome.', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Type your text here.', 'easy-elementor-addons'),
-                'description' => esc_html__('Write animated heading here with comma separated. Such as Animated, Morphing, Awesome', 'easy-elementor-addons'),
+                'description' => esc_html__('Write animated heading here with comma separated. Such as Animated, Morphing, Awesome', 'easy-elementor-addons')
             ]
         );
 
@@ -76,7 +76,7 @@ class AnimatedHeading extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 4,
                 'default' => esc_html__('Heading', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Please type the post heading here.', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Please type the post heading here.', 'easy-elementor-addons')
             ]
         );
 
@@ -90,7 +90,7 @@ class AnimatedHeading extends Widget_Base {
                     'url' => '',
                     'is_external' => true,
                     'nofollow' => true,
-                ],
+                ]
             ]
         );
 
@@ -102,7 +102,7 @@ class AnimatedHeading extends Widget_Base {
                     'typed' => esc_html__('Typed', 'easy-elementor-addons'),
                     'animated' => esc_html__('Animated', 'easy-elementor-addons')
                 ],
-                'default' => 'animated',
+                'default' => 'animated'
             ]
         );
 
@@ -127,7 +127,7 @@ class AnimatedHeading extends Widget_Base {
                 ),
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-heading' => 'text-align: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -136,7 +136,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h1',
+                'default' => 'h1'
             ]
         );
 
@@ -148,7 +148,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'condition' => [
                     'layout' => ['animated'],
-                ],
+                ]
             ]
         );
 
@@ -162,7 +162,7 @@ class AnimatedHeading extends Widget_Base {
                     'heading_animation!' => '',
                     'layout' => 'animated',
                 ],
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -179,7 +179,7 @@ class AnimatedHeading extends Widget_Base {
                 'condition' => [
                     'heading_animation!' => '',
                     'layout' => 'animated',
-                ],
+                ]
             ]
         );
 
@@ -194,7 +194,7 @@ class AnimatedHeading extends Widget_Base {
                 'condition' => [
                     'heading_animation!' => '',
                     'layout' => 'animated',
-                ],
+                ]
             ]
         );
 
@@ -206,7 +206,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('Animation', 'easy-elementor-addons'),
                 'condition' => [
                     'layout' => ['typed'],
-                ],
+                ]
             ]
         );
 
@@ -217,7 +217,7 @@ class AnimatedHeading extends Widget_Base {
                 'default' => 60,
                 'min' => 10,
                 'max' => 100,
-                'step' => 5,
+                'step' => 5
             ]
         );
 
@@ -228,7 +228,7 @@ class AnimatedHeading extends Widget_Base {
                 'default' => 1,
                 'min' => 1,
                 'max' => 100,
-                'step' => 1,
+                'step' => 1
             ]
         );
 
@@ -239,7 +239,7 @@ class AnimatedHeading extends Widget_Base {
                 'default' => 30,
                 'min' => 0,
                 'max' => 100,
-                'step' => 2,
+                'step' => 2
             ]
         );
 
@@ -250,7 +250,7 @@ class AnimatedHeading extends Widget_Base {
                 'default' => 500,
                 'min' => 0,
                 'max' => 3000,
-                'step' => 50,
+                'step' => 50
             ]
         );
 
@@ -258,7 +258,7 @@ class AnimatedHeading extends Widget_Base {
             'loop', [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -267,7 +267,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('Loop Count', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 0,
-                'min' => 0,
+                'min' => 0
             ]
         );
 
@@ -276,7 +276,7 @@ class AnimatedHeading extends Widget_Base {
         $this->start_controls_section(
             'text_style', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -288,7 +288,7 @@ class AnimatedHeading extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-heading .eead-ah-pre-heading,
                  {{WRAPPER}} .eead-ah-heading .eead-ah-post-heading' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -299,7 +299,7 @@ class AnimatedHeading extends Widget_Base {
                 'default' => '#333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-heading .eead-animated-heading' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -307,7 +307,7 @@ class AnimatedHeading extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ah-heading',
+                'selector' => '{{WRAPPER}} .eead-ah-heading'
             ]
         );
 

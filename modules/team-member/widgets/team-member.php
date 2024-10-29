@@ -24,32 +24,32 @@ if (!defined('ABSPATH')) {
  */
 class TeamMember extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-team-member';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Team Member', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-team';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_image', [
-                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons')
             ]
         );
 
@@ -62,7 +62,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -70,7 +70,7 @@ class TeamMember extends Widget_Base {
             Group_Control_Image_Size::get_type(), [
                 'name' => 'image',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
-                'default' => 'medium_large',
+                'default' => 'medium_large'
             ]
         );
 
@@ -78,7 +78,7 @@ class TeamMember extends Widget_Base {
 
         $this->start_controls_section(
             'section_details', [
-                'label' => esc_html__('Details', 'easy-elementor-addons'),
+                'label' => esc_html__('Details', 'easy-elementor-addons')
             ]
         );
 
@@ -89,7 +89,7 @@ class TeamMember extends Widget_Base {
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__('John Doe', 'easy-elementor-addons'),
+                'default' => esc_html__('John Doe', 'easy-elementor-addons')
             ]
         );
 
@@ -100,7 +100,7 @@ class TeamMember extends Widget_Base {
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__('WordPress Developer', 'easy-elementor-addons'),
+                'default' => esc_html__('WordPress Developer', 'easy-elementor-addons')
             ]
         );
 
@@ -108,7 +108,7 @@ class TeamMember extends Widget_Base {
             'team_member_description_switch', [
                 'label' => esc_html__('Show Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -122,7 +122,7 @@ class TeamMember extends Widget_Base {
                 'default' => esc_html__('Type your member description here', 'easy-elementor-addons'),
                 'condition' => [
                     'team_member_description_switch' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -135,7 +135,7 @@ class TeamMember extends Widget_Base {
                     'none' => esc_html__('None', 'easy-elementor-addons'),
                     'image' => esc_html__('Image', 'easy-elementor-addons'),
                     'title' => esc_html__('Title', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -148,7 +148,7 @@ class TeamMember extends Widget_Base {
                     'categories' => [
                         TagsModule::POST_META_CATEGORY,
                         TagsModule::URL_CATEGORY
-                    ],
+                    ]
                 ],
                 'placeholder' => 'https://www.your-link.com',
                 'default' => [
@@ -156,7 +156,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'condition' => [
                     'link_type!' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -168,7 +168,7 @@ class TeamMember extends Widget_Base {
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -176,7 +176,7 @@ class TeamMember extends Widget_Base {
 
         $this->start_controls_section(
             'section_member_social_links', [
-                'label' => esc_html__('Social Links', 'easy-elementor-addons'),
+                'label' => esc_html__('Social Links', 'easy-elementor-addons')
             ]
         );
 
@@ -184,7 +184,7 @@ class TeamMember extends Widget_Base {
             'member_social_links', [
                 'label' => esc_html__('Show Social Links', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -209,7 +209,7 @@ class TeamMember extends Widget_Base {
                 'default' => array(
                     'value' => 'fas fa-hashtag',
                     'library' => 'fa-solid',
-                ),
+                )
             ]
         );
 
@@ -221,7 +221,7 @@ class TeamMember extends Widget_Base {
                     'active' => true,
                 ],
                 'label_block' => true,
-                'placeholder' => esc_html__('Enter URL', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter URL', 'easy-elementor-addons')
             ]
         );
 
@@ -259,12 +259,12 @@ class TeamMember extends Widget_Base {
                         'social_link' => [
                             'url' => '#',
                         ],
-                    ],
+                    ]
                 ],
                 'fields' => $repeater->get_controls(),
                 'condition' => [
                     'member_social_links' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -274,7 +274,7 @@ class TeamMember extends Widget_Base {
         $this->start_controls_section(
             'section_content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -294,11 +294,11 @@ class TeamMember extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -308,14 +308,14 @@ class TeamMember extends Widget_Base {
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'separator' => 'before',
-                'selector' => '{{WRAPPER}} .eead-team-member-content-normal',
+                'selector' => '{{WRAPPER}} .eead-team-member-content-normal'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'content_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-team-member-content',
+                'selector' => '{{WRAPPER}} .eead-team-member-content'
             ]
         );
 
@@ -327,7 +327,7 @@ class TeamMember extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-content-normal' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -338,7 +338,7 @@ class TeamMember extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -347,7 +347,7 @@ class TeamMember extends Widget_Base {
         $this->start_controls_section(
             'section_member_image_style', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -360,7 +360,7 @@ class TeamMember extends Widget_Base {
                     '{{WRAPPER}} .eead-team-member-image img, 
                      {{WRAPPER}} .eead-team-member-overlay-content-wrap:before,
                      {{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -369,7 +369,7 @@ class TeamMember extends Widget_Base {
         $this->start_controls_section(
             'section_member_name_style', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -377,7 +377,7 @@ class TeamMember extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'member_name_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-team-member-name',
+                'selector' => '{{WRAPPER}} .eead-team-member-name'
             ]
         );
 
@@ -387,7 +387,7 @@ class TeamMember extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-name' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -403,7 +403,7 @@ class TeamMember extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'tablet_default' => [
                     'unit' => 'px',
@@ -413,7 +413,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-name' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -422,7 +422,7 @@ class TeamMember extends Widget_Base {
         $this->start_controls_section(
             'section_member_position_style', [
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -430,7 +430,7 @@ class TeamMember extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'member_position_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-team-member-position',
+                'selector' => '{{WRAPPER}} .eead-team-member-position'
             ]
         );
 
@@ -440,7 +440,7 @@ class TeamMember extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-position' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -456,7 +456,7 @@ class TeamMember extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'tablet_default' => [
                     'unit' => 'px',
@@ -466,7 +466,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-position' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -479,7 +479,7 @@ class TeamMember extends Widget_Base {
                 'condition' => [
                     'team_member_description_switch' => 'yes',
                     'team_member_description!' => '',
-                ],
+                ]
             ]
         );
 
@@ -491,7 +491,7 @@ class TeamMember extends Widget_Base {
                 'condition' => [
                     'team_member_description_switch' => 'yes',
                     'team_member_description!' => '',
-                ],
+                ]
             ]
         );
 
@@ -506,7 +506,7 @@ class TeamMember extends Widget_Base {
                 'condition' => [
                     'team_member_description_switch' => 'yes',
                     'team_member_description!' => '',
-                ],
+                ]
             ]
         );
 
@@ -522,7 +522,7 @@ class TeamMember extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'tablet_default' => [
                     'unit' => 'px',
@@ -536,7 +536,7 @@ class TeamMember extends Widget_Base {
                 'condition' => [
                     'team_member_description_switch' => 'yes',
                     'team_member_description!' => '',
-                ],
+                ]
             ]
         );
 
@@ -545,7 +545,7 @@ class TeamMember extends Widget_Base {
         $this->start_controls_section(
             'section_member_social_links_style', [
                 'label' => esc_html__('Social Links', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -557,7 +557,7 @@ class TeamMember extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 60,
-                    ],
+                    ]
                 ],
                 'tablet_default' => [
                     'unit' => 'px',
@@ -567,7 +567,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-social-links li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -579,7 +579,7 @@ class TeamMember extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 30,
-                    ],
+                    ]
                 ],
                 // 'default'    => [
                 //     'size' => '14',
@@ -593,7 +593,7 @@ class TeamMember extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-wrapper .eead-team-member-social-links li i' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -601,7 +601,7 @@ class TeamMember extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_links_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -613,7 +613,7 @@ class TeamMember extends Widget_Base {
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -634,7 +634,7 @@ class TeamMember extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap',
+                'selector' => '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap'
             ]
         );
 
@@ -642,7 +642,7 @@ class TeamMember extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_links_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -654,7 +654,7 @@ class TeamMember extends Widget_Base {
                     '{{WRAPPER}} .eead-team-member-wrapper.style1 .eead-team-member-social-links li:hover i,
                      {{WRAPPER}} .eead-team-member-wrapper.style2 ul.eead-team-member-social-links li:hover a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap:hover svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -675,7 +675,7 @@ class TeamMember extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-team-member-social-links li:hover .eead-team-member-social-icon-wrap',
+                'selector' => '{{WRAPPER}} .eead-team-member-social-links li:hover .eead-team-member-social-icon-wrap'
             ]
         );
 
@@ -691,7 +691,7 @@ class TeamMember extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -703,7 +703,7 @@ class TeamMember extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

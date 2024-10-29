@@ -45,7 +45,7 @@ class ScrollImage extends Widget_Base {
     protected function register_controls() {
         $this->start_controls_section(
             'section_image', [
-                'label' => esc_html__('Image', 'easy-elementor-addons'),
+                'label' => esc_html__('Image', 'easy-elementor-addons')
             ]
         );
 
@@ -55,7 +55,7 @@ class ScrollImage extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -63,7 +63,7 @@ class ScrollImage extends Widget_Base {
             Group_Control_Image_Size::get_type(), [
                 'name' => 'image_size',
                 'default' => 'full',
-                'separator' => 'none',
+                'separator' => 'none'
             ]
         );
 
@@ -127,7 +127,7 @@ class ScrollImage extends Widget_Base {
                 'label' => esc_html__('Caption', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => esc_html__('Enter your image caption', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter your image caption', 'easy-elementor-addons')
             ]
         );
 
@@ -140,7 +140,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 1200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-wrapper' => 'flex-basis: {{SIZE}}{{UNIT}};',
@@ -158,7 +158,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 1200,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 320,
@@ -188,11 +188,11 @@ class ScrollImage extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container' => 'justify-content: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -200,7 +200,7 @@ class ScrollImage extends Widget_Base {
 
         $this->start_controls_section(
             'section_link_image', [
-                'label' => esc_html__('Link', 'easy-elementor-addons'),
+                'label' => esc_html__('Link', 'easy-elementor-addons')
             ]
         );
 
@@ -215,7 +215,7 @@ class ScrollImage extends Widget_Base {
                     'modal' => esc_html__('Iframe Modal', 'easy-elementor-addons'),
                     'video' => esc_html__('Video', 'easy-elementor-addons'),
                     'external' => esc_html__('External', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -227,7 +227,7 @@ class ScrollImage extends Widget_Base {
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'condition' => [
                     'link_to' => ['external', 'modal'],
-                ],
+                ]
             ]
         );
 
@@ -239,7 +239,7 @@ class ScrollImage extends Widget_Base {
                 'placeholder' => esc_html__('https://www.youtube.com/watch?v=FSDFEWFRW12', 'easy-elementor-addons'),
                 'condition' => [
                     'link_to' => 'video',
-                ],
+                ]
             ]
         );
 
@@ -263,13 +263,13 @@ class ScrollImage extends Widget_Base {
                     'custom' => [
                         'title' => esc_html__('Custom', 'easy-elementor-addons'),
                         'icon' => 'eicon-circle',
-                    ],
+                    ]
                 ],
                 'default' => 'fas fa-search',
                 'toggle' => false,
                 'condition' => [
                     'link_to!' => '',
-                ],
+                ]
             ]
         );
 
@@ -284,7 +284,7 @@ class ScrollImage extends Widget_Base {
                 ),
                 'condition' => array(
                     'link_icon' => 'custom',
-                ),
+                )
             ]
         );
 
@@ -315,7 +315,7 @@ class ScrollImage extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'toggle' => false,
@@ -344,7 +344,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'left:{{SIZE}}{{UNIT}}',
@@ -369,7 +369,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'right:{{SIZE}}{{UNIT}}',
@@ -397,7 +397,7 @@ class ScrollImage extends Widget_Base {
                     'bottom' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'default' => 'middle',
                 'toggle' => false,
@@ -426,7 +426,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'top:{{SIZE}}{{UNIT}}',
@@ -451,7 +451,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'bottom:{{SIZE}}{{UNIT}}',
@@ -467,14 +467,14 @@ class ScrollImage extends Widget_Base {
 
         $this->start_controls_section(
             'section_content_badge', [
-                'label' => esc_html__('Badge', 'easy-elementor-addons'),
+                'label' => esc_html__('Badge', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'badge', [
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -543,7 +543,7 @@ class ScrollImage extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'left',
                 'toggle' => false,
@@ -569,7 +569,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'left:{{SIZE}}{{UNIT}}',
@@ -594,7 +594,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'right:{{SIZE}}{{UNIT}}',
@@ -618,7 +618,7 @@ class ScrollImage extends Widget_Base {
                     'bottom' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'default' => 'top',
                 'toggle' => false,
@@ -644,7 +644,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'top:{{SIZE}}{{UNIT}}',
@@ -669,7 +669,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'bottom:{{SIZE}}{{UNIT}}',
@@ -693,7 +693,7 @@ class ScrollImage extends Widget_Base {
                         'min' => -180,
                         'max' => 180,
                         'step' => 5,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'transform:rotate({{SIZE}}deg)',
@@ -735,7 +735,7 @@ class ScrollImage extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'image_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-frame',
+                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-frame'
             ]
         );
 
@@ -743,7 +743,7 @@ class ScrollImage extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'image_box_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-frame',
+                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-frame'
             ]
         );
 
@@ -754,7 +754,7 @@ class ScrollImage extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-frame' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -763,7 +763,7 @@ class ScrollImage extends Widget_Base {
         $this->start_controls_section(
             'caption_style', [
                 'label' => esc_html__('Caption', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -788,7 +788,7 @@ class ScrollImage extends Widget_Base {
                 ),
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption' => 'text-align: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -796,7 +796,7 @@ class ScrollImage extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'caption_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption',
+                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption'
             ]
         );
 
@@ -807,7 +807,7 @@ class ScrollImage extends Widget_Base {
                 'default' => '#333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -818,7 +818,7 @@ class ScrollImage extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-caption' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -830,7 +830,7 @@ class ScrollImage extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'link_to!' => ''
-                ],
+                ]
             ]
         );
 
@@ -847,11 +847,11 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 20,
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'height:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 
@@ -868,12 +868,12 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'font-size:{{SIZE}}{{UNIT}}',
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link svg' => 'height:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 
@@ -884,7 +884,7 @@ class ScrollImage extends Widget_Base {
                 'default' => '#FFFFFF',
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -896,7 +896,7 @@ class ScrollImage extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link svg' => 'fill: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -904,14 +904,14 @@ class ScrollImage extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'link_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link',
+                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'link_shadow',
-                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link',
+                'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link'
             ]
         );
 
@@ -922,7 +922,7 @@ class ScrollImage extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-image-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -935,7 +935,7 @@ class ScrollImage extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'badge!' => ''
-                ],
+                ]
             ]
         );
 
@@ -948,7 +948,7 @@ class ScrollImage extends Widget_Base {
                     ],
                     'color' => [
                         'default' => '#FF0000',
-                    ],
+                    ]
                 ],
                 'exclude' => ['image'],
                 'selector' => '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge',
@@ -995,7 +995,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge i' => 'font-size:{{SIZE}}{{UNIT}};',
@@ -1019,7 +1019,7 @@ class ScrollImage extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'width:{{SIZE}}{{UNIT}};',
@@ -1123,7 +1123,7 @@ class ScrollImage extends Widget_Base {
 
         $this->add_render_attribute('link', [
             'class' => [
-                'eead-scroll-image-link',
+                'eead-scroll-image-link'
             ]
         ]);
 
@@ -1131,7 +1131,7 @@ class ScrollImage extends Widget_Base {
             $this->add_render_attribute('link', [
                 'href' => esc_url($settings['image']['url']),
                 'data-elementor-open-lightbox' => 'no',
-                'class' => 'eead-scroll-image-modal',
+                'class' => 'eead-scroll-image-modal'
             ]);
         } elseif ($settings['link_to'] === 'modal') {
             $this->add_render_attribute('link', [

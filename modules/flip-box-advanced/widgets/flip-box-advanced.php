@@ -18,22 +18,22 @@ if (!defined('ABSPATH')) {
 
 class FlipBoxAdvanced extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-flip-box-advanced';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('FlipBox Advanced', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-flip-box';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +42,7 @@ class FlipBoxAdvanced extends Widget_Base {
         return [];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -61,7 +61,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'three' => esc_html__('Diagnonal', 'easy-elementor-addons'),
                     'four' => esc_html__('Front Icon', 'easy-elementor-addons')
                 ],
-                'default' => 'one',
+                'default' => 'one'
             ]
         );
 
@@ -115,7 +115,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
                     'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                 ],
-                'default' => 'default',
+                'default' => 'default'
             ]
         );
 
@@ -130,7 +130,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => 'circle',
                 'condition' => [
                     'front_icon_view!' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -156,7 +156,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'active' => true,
                 ],
                 'placeholder' => esc_html__('Enter text', 'easy-elementor-addons'),
-                'default' => esc_html__('Front Title Here', 'easy-elementor-addons'),
+                'default' => esc_html__('Front Title Here', 'easy-elementor-addons')
             ]
         );
 
@@ -168,7 +168,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'active' => true,
                 ],
                 'placeholder' => esc_html__('Enter text', 'easy-elementor-addons'),
-                'default' => esc_html__('Add some nice text here.', 'easy-elementor-addons'),
+                'default' => esc_html__('Add some nice text here.', 'easy-elementor-addons')
             ]
         );
 
@@ -189,12 +189,12 @@ class FlipBoxAdvanced extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'fa fa-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'left',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -203,7 +203,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h3',
+                'default' => 'h3'
             ]
         );
 
@@ -224,7 +224,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
                     'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                 ],
-                'default' => 'default',
+                'default' => 'default'
             ]
         );
 
@@ -239,7 +239,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => 'circle',
                 'condition' => [
                     'back_icon_view!' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -265,7 +265,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'active' => true,
                 ],
                 'placeholder' => esc_html__('Enter text', 'easy-elementor-addons'),
-                'default' => esc_html__('Text Title', 'easy-elementor-addons'),
+                'default' => esc_html__('Text Title', 'easy-elementor-addons')
             ]
         );
 
@@ -277,7 +277,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'active' => true,
                 ],
                 'placeholder' => esc_html__('Enter text', 'easy-elementor-addons'),
-                'default' => esc_html__('Add some nice text here.', 'easy-elementor-addons'),
+                'default' => esc_html__('Add some nice text here.', 'easy-elementor-addons')
             ]
         );
 
@@ -298,12 +298,12 @@ class FlipBoxAdvanced extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'fa fa-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'left',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-back' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -312,7 +312,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h3',
+                'default' => 'h3'
             ]
         );
 
@@ -320,7 +320,7 @@ class FlipBoxAdvanced extends Widget_Base {
 
         $this->start_controls_section(
             'section-action-button', [
-                'label' => esc_html__('Action Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Action Button', 'easy-elementor-addons')
             ]
         );
 
@@ -329,7 +329,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('Buy', 'easy-elementor-addons'),
-                'default' => esc_html__('Buy Now', 'easy-elementor-addons'),
+                'default' => esc_html__('Buy Now', 'easy-elementor-addons')
             ]
         );
 
@@ -341,7 +341,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'active' => true,
                 ],
                 'placeholder' => esc_html__('http://your-link.com', 'easy-elementor-addons'),
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -375,7 +375,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'flip_box_border',
                 'label' => esc_html__('Box Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-flip-box-inner > div',
+                'selector' => '{{WRAPPER}} .eead-flip-box-inner > div'
             ]
         );
 
@@ -387,7 +387,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .eead-flip-box-back' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -401,7 +401,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     '{{WRAPPER}} .eead-flip-box-inner' => 'height: {{VALUE}}px;',
                     '{{WRAPPER}}.eead-fb-animate-flipcard .eead-flip-box-front' => 'transform-origin: center center calc(-{{VALUE}}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);',
                     '{{WRAPPER}}.eead-fb-animate-flipcard .eead-flip-box-back' => 'transform-origin: center center calc(-{{VALUE }}px/2);-webkit-transform-origin:center center calc(-{{VALUE}}px/2);'
-                ],
+                ]
             ]
         );
 
@@ -436,7 +436,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'eead_flipbox_layout_style' => 'two',
-                ],
+                ]
             ]
         );
 
@@ -446,7 +446,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -460,7 +460,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'front_title!' => ''
-                ],
+                ]
             ]
         );
 
@@ -468,7 +468,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'front_box_title_typography',
                 'label' => esc_html__('Title Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .front-icon-title',
+                'selector' => '{{WRAPPER}} .front-icon-title'
             ]
         );
 
@@ -479,7 +479,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#78909c',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front p' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -487,7 +487,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'front_box_text_typography',
                 'label' => esc_html__('Description Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-flip-box-front p',
+                'selector' => '{{WRAPPER}} .eead-flip-box-front p'
             ]
         );
 
@@ -501,7 +501,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'front_icon!' => ''
-                ],
+                ]
             ]
         );
 
@@ -515,7 +515,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'front_icon_view' => 'stacked'
-                ],
+                ]
             ]
         );
 
@@ -529,7 +529,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label_block' => true,
                 'condition' => [
                     'front_icon_view!' => 'default'
-                ],
+                ]
             ]
         );
 
@@ -541,11 +541,11 @@ class FlipBoxAdvanced extends Widget_Base {
                     'px' => [
                         'min' => 6,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-front .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -563,11 +563,11 @@ class FlipBoxAdvanced extends Widget_Base {
                 'range' => [
                     'em' => [
                         'min' => 0,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'front_icon_view!' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -585,7 +585,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'name' => 'back_box_background',
                 'label' => esc_html__('Back Box Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-flip-box-back',
+                'selector' => '{{WRAPPER}} .eead-flip-box-back'
             ]
         );
 
@@ -596,7 +596,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#FFF',
                 'selectors' => [
                     '{{WRAPPER}} .back-icon-title' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -604,7 +604,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'back_box_title_typography',
                 'label' => esc_html__('Title Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .back-icon-title',
+                'selector' => '{{WRAPPER}} .back-icon-title'
             ]
         );
 
@@ -615,7 +615,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#FFF',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-back p' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -623,7 +623,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'back_box_text_typography',
                 'label' => esc_html__('Description Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-flip-box-back p',
+                'selector' => '{{WRAPPER}} .eead-flip-box-back p'
             ]
         );
 
@@ -637,7 +637,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'back_icon!' => ''
-                ],
+                ]
             ]
         );
 
@@ -651,7 +651,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 ],
                 'condition' => [
                     'front_icon_view' => 'stacked'
-                ],
+                ]
             ]
         );
 
@@ -665,7 +665,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label_block' => true,
                 'condition' => [
                     'back_icon_view!' => 'default'
-                ],
+                ]
             ]
         );
 
@@ -677,11 +677,11 @@ class FlipBoxAdvanced extends Widget_Base {
                     'px' => [
                         'min' => 6,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-back .icon-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -699,11 +699,11 @@ class FlipBoxAdvanced extends Widget_Base {
                 'range' => [
                     'em' => [
                         'min' => 0,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'back_icon_view!' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -712,7 +712,7 @@ class FlipBoxAdvanced extends Widget_Base {
         $this->start_controls_section(
             'section_action_button_style', [
                 'label' => esc_html__('Action Button', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -731,7 +731,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -739,7 +739,7 @@ class FlipBoxAdvanced extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button',
+                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button'
             ]
         );
 
@@ -750,7 +750,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#4b00e7',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -760,7 +760,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button',
+                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button'
             ]
         );
 
@@ -771,7 +771,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -782,7 +782,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -801,7 +801,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -812,7 +812,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#4b00e7',
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -822,7 +822,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover',
+                'selector' => '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover'
             ]
         );
 
@@ -833,7 +833,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -844,7 +844,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box-wrapper .eead-flip-box-back .flipbox-content .eead-fb-button:hover' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

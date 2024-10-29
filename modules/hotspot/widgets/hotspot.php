@@ -22,27 +22,27 @@ if (!defined('ABSPATH')) {
  */
 class Hotspot extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-hotspot';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Hotspot', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-hot-spot';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -111,7 +111,7 @@ class Hotspot extends Widget_Base {
                 'top-right' => esc_html__('Top Right', 'easy-elementor-addons'),
                 'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                 'bottom-middle' => esc_html__('Bottom Middle', 'easy-elementor-addons'),
-                'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
+                'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -149,7 +149,7 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'eicon-plus',
-                'library' => 'solid',
+                'library' => 'solid'
             ],
             'condition' => ['hotspot_type' => 'icon']
                 ]
@@ -160,7 +160,7 @@ class Hotspot extends Widget_Base {
             'label' => esc_html__('Hotspot Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src()
             ],
             'condition' => ['hotspot_type' => 'image']
                 ]
@@ -191,11 +191,11 @@ class Hotspot extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'default' => 'left',
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}} .eead-hotspot-content' => 'text-align: {{VALUE}}',
+                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}} .eead-hotspot-content' => 'text-align: {{VALUE}}'
             ],
             'separator' => 'before',
                 ]
@@ -207,16 +207,16 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 50,
-                'unit' => '%',
+                'unit' => '%'
             ],
             'range' => [
                 '%' => [
                     'min' => 0,
                     'max' => 100,
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}}' => 'left: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}}' => 'left: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -227,16 +227,16 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 50,
-                'unit' => '%',
+                'unit' => '%'
             ],
             'range' => [
                 '%' => [
                     'min' => 0,
                     'max' => 100,
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}}' => 'top: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}}' => 'top: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -247,17 +247,17 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 300,
-                'unit' => 'px',
+                'unit' => 'px'
             ],
             'range' => [
                 'px' => [
                     'min' => 0,
                     'max' => 800,
                     'step' => 1
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}} .eead-hotspot-content' => 'width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot-item{{CURRENT_ITEM}} .eead-hotspot-content' => 'width: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -298,7 +298,7 @@ class Hotspot extends Widget_Base {
             'default' => 'open-onhover',
             'options' => [
                 'open-onclick' => esc_html__('On Click', 'easy-elementor-addons'),
-                'open-onhover' => esc_html__('On Hover', 'easy-elementor-addons'),
+                'open-onhover' => esc_html__('On Hover', 'easy-elementor-addons')
             ],
             'label_block' => true,
                 ]
@@ -317,7 +317,7 @@ class Hotspot extends Widget_Base {
                 'top-right' => esc_html__('Top Right', 'easy-elementor-addons'),
                 'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                 'bottom-middle' => esc_html__('Bottom Middle', 'easy-elementor-addons'),
-                'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons'),
+                'bottom-right' => esc_html__('Bottom Right', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -339,14 +339,14 @@ class Hotspot extends Widget_Base {
                     'min' => 600,
                     'max' => 6000,
                     'step' => 100
-                ],
+                ]
             ],
             'default' => [
                 'size' => 2000,
                 'unit' => 'px'
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'animation-duration: {{SIZE}}ms;',
+                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'animation-duration: {{SIZE}}ms;'
             ],
             'condition' => ['enable_pulse_animation' => 'yes']
                 ]
@@ -380,7 +380,7 @@ class Hotspot extends Widget_Base {
             'default' => '#fff',
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a i' => 'color: {{VALUE}}',
-                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'fill: {{VALUE}}',
+                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'fill: {{VALUE}}'
             ],
                 ]
         );
@@ -399,7 +399,7 @@ class Hotspot extends Widget_Base {
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a i' => 'font-size: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -437,7 +437,7 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#FFFFFF',
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-content,  {{WRAPPER}} .eead-hotspot .eead-hotspot-content:after' => 'background: {{VALUE}}',
+                '{{WRAPPER}} .eead-hotspot-content,  {{WRAPPER}} .eead-hotspot .eead-hotspot-content:after' => 'background: {{VALUE}}'
             ],
                 ]
         );
@@ -463,7 +463,7 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -474,7 +474,7 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-hotspot-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -494,7 +494,7 @@ class Hotspot extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333',
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-content h4' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-hotspot-content h4' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -539,7 +539,7 @@ class Hotspot extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-hotspot-content .eead-hotspot-desc' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-hotspot-content .eead-hotspot-desc' => 'color: {{VALUE}}'
             ],
                 ]
         );

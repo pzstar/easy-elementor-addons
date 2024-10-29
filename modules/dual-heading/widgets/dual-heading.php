@@ -20,22 +20,22 @@ if (!defined('ABSPATH')) {
  */
 class DualHeading extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-dual-heading';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Dual Heading', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-dual-heading';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,12 +44,12 @@ class DualHeading extends Widget_Base {
         return [];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_dual_heading', [
-                'label' => esc_html__('Dual Heading', 'easy-elementor-addons'),
+                'label' => esc_html__('Dual Heading', 'easy-elementor-addons')
             ]
         );
 
@@ -59,7 +59,7 @@ class DualHeading extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'rows' => 3,
-                'default' => esc_html__('Dual', 'easy-elementor-addons'),
+                'default' => esc_html__('Dual', 'easy-elementor-addons')
             ]
         );
 
@@ -69,7 +69,7 @@ class DualHeading extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'rows' => 3,
-                'default' => esc_html__('Heading', 'easy-elementor-addons'),
+                'default' => esc_html__('Heading', 'easy-elementor-addons')
             ]
         );
 
@@ -78,7 +78,7 @@ class DualHeading extends Widget_Base {
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'label_block' => true,
-                'placeholder' => 'https://www.your-link.com',
+                'placeholder' => 'https://www.your-link.com'
             ]
         );
 
@@ -88,7 +88,7 @@ class DualHeading extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
                 'default' => 'h2',
-                'options' => eead_html_tags(),
+                'options' => eead_html_tags()
             ]
         );
 
@@ -109,12 +109,12 @@ class DualHeading extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'flex-start',
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-heading' => 'justify-content: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -135,12 +135,12 @@ class DualHeading extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-heading' => 'align-items: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -152,7 +152,7 @@ class DualHeading extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-heading' => 'column-gap: calc({{SIZE}}{{UNIT}}/2);',
@@ -166,7 +166,7 @@ class DualHeading extends Widget_Base {
         $this->start_controls_section(
             'first_section_style', [
                 'label' => esc_html__('First Part', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -175,7 +175,7 @@ class DualHeading extends Widget_Base {
                 'name' => 'first_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-first-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -202,7 +202,7 @@ class DualHeading extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -252,7 +252,7 @@ class DualHeading extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -286,7 +286,7 @@ class DualHeading extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-first-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -297,7 +297,7 @@ class DualHeading extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -308,7 +308,7 @@ class DualHeading extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-first-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -316,7 +316,7 @@ class DualHeading extends Widget_Base {
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'first_text_shadow',
                 'selector' => '{{WRAPPER}} .eead-first-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -324,7 +324,7 @@ class DualHeading extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'first_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-first-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -334,7 +334,7 @@ class DualHeading extends Widget_Base {
         $this->start_controls_section(
             'second_section_style', [
                 'label' => esc_html__('Second Part', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -343,7 +343,7 @@ class DualHeading extends Widget_Base {
                 'name' => 'second_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-second-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -370,7 +370,7 @@ class DualHeading extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -420,7 +420,7 @@ class DualHeading extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -454,7 +454,7 @@ class DualHeading extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-second-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -465,7 +465,7 @@ class DualHeading extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -476,7 +476,7 @@ class DualHeading extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-second-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -484,7 +484,7 @@ class DualHeading extends Widget_Base {
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'second_text_shadow',
                 'selector' => '{{WRAPPER}} .eead-second-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -492,7 +492,7 @@ class DualHeading extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'second_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-second-text',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 

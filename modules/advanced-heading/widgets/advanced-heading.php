@@ -17,17 +17,17 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedHeading extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-advanced-heading';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Advanced Heading', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-advanced-heading';
     }
@@ -36,7 +36,7 @@ class AdvancedHeading extends Widget_Base {
         return ['heading', 'title'];
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -45,12 +45,12 @@ class AdvancedHeading extends Widget_Base {
         return [];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content_heading', [
-                'label' => esc_html__('Heading', 'easy-elementor-addons'),
+                'label' => esc_html__('Heading', 'easy-elementor-addons')
             ]
         );
 
@@ -70,14 +70,14 @@ class AdvancedHeading extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'toggle' => false,
                 'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => 'text-align: {{VALUE}};',
                 ],
-                'prefix_class' => 'eead-ah-align-',
+                'prefix_class' => 'eead-ah-align-'
             ]
         );
 
@@ -96,7 +96,7 @@ class AdvancedHeading extends Widget_Base {
                 'label' => esc_html__('Main Heading', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'placeholder' => esc_html__('Enter your main heading here', 'easy-elementor-addons'),
-                'default' => esc_html__('Main Heading Text', 'easy-elementor-addons'),
+                'default' => esc_html__('Main Heading Text', 'easy-elementor-addons')
             ]
         );
 
@@ -104,7 +104,7 @@ class AdvancedHeading extends Widget_Base {
             'split_main_heading', [
                 'label' => esc_html__('Split Main Heading', 'easy-elementor-addons'),
                 'separator' => 'before',
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -117,7 +117,7 @@ class AdvancedHeading extends Widget_Base {
                 'default' => esc_html__('Split Text', 'easy-elementor-addons'),
                 'condition' => [
                     'split_main_heading' => 'yes'
-                ],
+                ]
             ]
         );
 
@@ -136,7 +136,7 @@ class AdvancedHeading extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
                 'default' => 'h2',
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -185,7 +185,7 @@ class AdvancedHeading extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-adv-heading' => 'justify-content: {{VALUE}};',
@@ -212,7 +212,7 @@ class AdvancedHeading extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-adv-heading' => 'align-items: {{VALUE}};',
@@ -232,7 +232,7 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-offset-x:{{SIZE}}{{UNIT}}',
@@ -252,7 +252,7 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => -800,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-offset-y:{{SIZE}}{{UNIT}}',
@@ -286,7 +286,7 @@ class AdvancedHeading extends Widget_Base {
                         'min' => -180,
                         'max' => 180,
                         'step' => 5,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-rotate:{{SIZE}}deg',
@@ -350,21 +350,21 @@ class AdvancedHeading extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'sub_heading_typography',
-                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading',
+                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'sub_heading_text_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading',
+                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-sub-heading'
             ]
         );
 
@@ -376,7 +376,7 @@ class AdvancedHeading extends Widget_Base {
                     '' => esc_html__('None', 'easy-elementor-addons'),
                     'line' => esc_html__('Line', 'easy-elementor-addons'),
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -393,7 +393,7 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'sub_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -406,7 +406,7 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'sub_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -418,14 +418,14 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-sh-line-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'sub_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -437,14 +437,14 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 48,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-sh-line-height: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'sub_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -455,14 +455,14 @@ class AdvancedHeading extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'sub_heading_style' => 'line',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ah-sub-heading' => '--eead-ah-sh-line-gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -474,7 +474,7 @@ class AdvancedHeading extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'main_heading!' => '',
-                ],
+                ]
             ]
         );
 
@@ -517,7 +517,7 @@ class AdvancedHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'main_heading_typography',
-                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text',
+                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text'
             ]
         );
 
@@ -557,7 +557,7 @@ class AdvancedHeading extends Widget_Base {
                 'condition' => [
                     'split_main_heading' => 'yes'
                 ],
-                'separator' => 'after',
+                'separator' => 'after'
             ]
         );
 
@@ -584,7 +584,7 @@ class AdvancedHeading extends Widget_Base {
                     '' => esc_html__('None', 'easy-elementor-addons'),
                     'line' => esc_html__('Line', 'easy-elementor-addons'),
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -601,7 +601,7 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'main_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -614,7 +614,7 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'main_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -626,14 +626,14 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'main_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -645,14 +645,14 @@ class AdvancedHeading extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 48,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-height: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'main_heading_style' => 'line',
-                ],
+                ]
             ]
         );
 
@@ -666,14 +666,14 @@ class AdvancedHeading extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'main_heading_style' => 'line',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-mh-line-gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -686,7 +686,7 @@ class AdvancedHeading extends Widget_Base {
                 'condition' => [
                     'advanced_heading!' => '',
                     'advanced_heading_visibility' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -696,7 +696,7 @@ class AdvancedHeading extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -704,14 +704,14 @@ class AdvancedHeading extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'advanced_heading_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'advanced_heading_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading',
+                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading'
             ]
         );
 
@@ -724,11 +724,11 @@ class AdvancedHeading extends Widget_Base {
                         'min' => 0.05,
                         'max' => 1,
                         'step' => 0.05,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading' => 'opacity: {{SIZE}};',
-                ],
+                ]
             ]
         );
 

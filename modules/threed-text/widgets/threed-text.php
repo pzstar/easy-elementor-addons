@@ -50,7 +50,7 @@ class ThreedText extends Widget_Base {
 
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -93,7 +93,7 @@ class ThreedText extends Widget_Base {
                 'default' => esc_html__('3D Text', 'easy-elementor-addons'),
                 'condition' => array(
                     'eead_media_type' => 'text',
-                ),
+                )
             ]
         );
 
@@ -118,7 +118,7 @@ class ThreedText extends Widget_Base {
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 10,
@@ -145,7 +145,7 @@ class ThreedText extends Widget_Base {
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ),
-                ),
+                )
             ]
         );
 
@@ -154,7 +154,7 @@ class ThreedText extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h1',
+                'default' => 'h1'
             ]
         );
 
@@ -166,7 +166,7 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 3,
@@ -196,7 +196,7 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 1000,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 500,
@@ -240,7 +240,7 @@ class ThreedText extends Widget_Base {
                     'deg' => [
                         'min' => -360,
                         'max' => 360,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 10,
@@ -252,7 +252,7 @@ class ThreedText extends Widget_Base {
         $this->add_control(
             'fade', [
                 'label' => esc_html__('Fade', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -264,7 +264,7 @@ class ThreedText extends Widget_Base {
                 'return_value' => $transform_return_value,
                 'condition' => [
                     'event' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -278,14 +278,14 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => -360,
                         'max' => 360,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateZ: {{SIZE}}deg',
                 ],
                 'condition' => [
                     'event' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -297,7 +297,7 @@ class ThreedText extends Widget_Base {
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
                 'condition' => [
                     'event' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -309,14 +309,14 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => -360,
                         'max' => 360,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'event' => 'none',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateX: {{SIZE}}deg;',
-                ],
+                ]
             ]
         );
 
@@ -328,14 +328,14 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => -360,
                         'max' => 360,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'event' => 'none',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-rotateY: {{SIZE}}deg;',
-                ],
+                ]
             ]
         );
 
@@ -347,7 +347,7 @@ class ThreedText extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 1000,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 500,
@@ -358,7 +358,7 @@ class ThreedText extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-perspective: {{SIZE}}px',
-                ],
+                ]
             ]
         );
 
@@ -372,7 +372,7 @@ class ThreedText extends Widget_Base {
                 'return_value' => $transform_return_value,
                 'condition' => [
                     'event' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -412,13 +412,13 @@ class ThreedText extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'conditions' => $transform_origin_conditions,
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-origin-x: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -438,12 +438,12 @@ class ThreedText extends Widget_Base {
                     'bottom' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'conditions' => $transform_origin_conditions,
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => '--eead-ztext-transform-origin-y: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -452,14 +452,14 @@ class ThreedText extends Widget_Base {
         $this->start_controls_section(
             'style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
             'depth_color', [
                 'label' => esc_html__('Depth Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
@@ -470,7 +470,7 @@ class ThreedText extends Widget_Base {
                 'default' => '#FFFFFF',
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -481,7 +481,7 @@ class ThreedText extends Widget_Base {
                 'default' => '#333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-z-text' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -489,7 +489,7 @@ class ThreedText extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-z-text',
+                'selector' => '{{WRAPPER}} .eead-z-text'
             ]
         );
 

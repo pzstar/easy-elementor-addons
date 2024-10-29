@@ -21,22 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class FilterableGallery extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-filterable-gallery';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Filterable Gallery', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-gallery-grid';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,7 +49,7 @@ class FilterableGallery extends Widget_Base {
         return ['light-gallery'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         /**
@@ -57,7 +57,7 @@ class FilterableGallery extends Widget_Base {
          */
         $this->start_controls_section(
             'filter_controls', [
-                'label' => esc_html__('Filters', 'easy-elementor-addons'),
+                'label' => esc_html__('Filters', 'easy-elementor-addons')
             ]
         );
 
@@ -65,7 +65,7 @@ class FilterableGallery extends Widget_Base {
             'enable_filter', [
                 'label' => esc_html__('Enable Filter', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -76,7 +76,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'All',
                 'condition' => [
                     'enable_filter' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -84,7 +84,7 @@ class FilterableGallery extends Widget_Base {
             'filters_tabs', [
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
-                    ['filter_title' => 'Filter Title'],
+                    ['filter_title' => 'Filter Title']
                 ],
                 'fields' => [
                     [
@@ -93,12 +93,12 @@ class FilterableGallery extends Widget_Base {
                         'type' => Controls_Manager::TEXT,
                         'label_block' => true,
                         'default' => esc_html__('Filter Title', 'easy-elementor-addons'),
-                    ],
+                    ]
                 ],
                 'title_field' => '{{filter_title}}',
                 'condition' => [
                     'enable_filter' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -113,7 +113,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'condition' => [
                     'enable_filter' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -125,7 +125,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => esc_html__('Search Items', 'easy-elementor-addons'),
                 'condition' => [
                     'filter_type' => 'with-search',
-                ],
+                ]
             ]
         );
 
@@ -136,7 +136,7 @@ class FilterableGallery extends Widget_Base {
          */
         $this->start_controls_section(
             'gallery_items_section', [
-                'label' => esc_html__('Gallery Items', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery Items', 'easy-elementor-addons')
             ]
         );
 
@@ -148,7 +148,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -157,7 +157,7 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Item Name', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => esc_html__('Item Name', 'easy-elementor-addons'),
+                'default' => esc_html__('Item Name', 'easy-elementor-addons')
             ]
         );
 
@@ -176,14 +176,14 @@ class FilterableGallery extends Widget_Base {
                 'label' => esc_html__('Enter Filter Titles', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'description' => esc_html__('Enter the filter names from Filters Settings, separated with comma. | e.g. Filter 1, Filter 2', 'easy-elementor-addons'),
+                'description' => esc_html__('Enter the filter names from Filters Settings, separated with comma. | e.g. Filter 1, Filter 2', 'easy-elementor-addons')
             ]
         );
 
         $repeater->add_control(
             'gallery_show_price', [
                 'label' => esc_html__('Show Price', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -201,7 +201,7 @@ class FilterableGallery extends Widget_Base {
         $repeater->add_control(
             'gallery_show_rating', [
                 'label' => esc_html__('Show Ratings', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -219,7 +219,7 @@ class FilterableGallery extends Widget_Base {
         $repeater->add_control(
             'gallery_show_video', [
                 'label' => esc_html__('Enable Video PopUp', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -231,7 +231,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'https://www.youtube.com/watch?v=kB4U67tiQLA',
                 'condition' => [
                     'gallery_show_video' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -242,7 +242,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'gallery_show_video!' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -253,7 +253,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'gallery_show_video!' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -269,7 +269,7 @@ class FilterableGallery extends Widget_Base {
                 'condition' => [
                     'gallery_show_video!' => 'yes',
                     'gallery_show_link' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -283,10 +283,10 @@ class FilterableGallery extends Widget_Base {
                     ['gallery_item_name' => 'Item 3'],
                     ['gallery_item_name' => 'Item 4'],
                     ['gallery_item_name' => 'Item 5'],
-                    ['gallery_item_name' => 'Item 6'],
+                    ['gallery_item_name' => 'Item 6']
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{gallery_item_name}}',
+                'title_field' => '{{gallery_item_name}}'
             ]
         );
 
@@ -297,7 +297,7 @@ class FilterableGallery extends Widget_Base {
          */
         $this->start_controls_section(
             'gallery_settings_section', [
-                'label' => esc_html__('Gallery Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Gallery Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -317,7 +317,7 @@ class FilterableGallery extends Widget_Base {
                     '6' => '6',
                 ],
                 'prefix_class' => 'eead-fg-grid%s-',
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -331,7 +331,7 @@ class FilterableGallery extends Widget_Base {
                     'masonry' => esc_html__('Masonry', 'easy-elementor-addons'),
                 ],
                 'prefix_class' => 'eead-fg-style-',
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -343,7 +343,7 @@ class FilterableGallery extends Widget_Base {
                 'options' => [
                     'overlay' => esc_html__('Overlay', 'easy-elementor-addons'),
                     'card' => esc_html__('Card', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -360,7 +360,7 @@ class FilterableGallery extends Widget_Base {
                     'eead-slide-top' => esc_html__('Slide Top', 'easy-elementor-addons'),
                     'eead-slide-bottom' => esc_html__('Slide Bottom', 'easy-elementor-addons'),
                     'eead-zoom-in' => esc_html__('Zoom In ', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -373,7 +373,7 @@ class FilterableGallery extends Widget_Base {
                     'none' => esc_html__('None', 'easy-elementor-addons'),
                     'media' => esc_html__('Image Pop Up', 'easy-elementor-addons'),
                     'buttons' => esc_html__('Buttons', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -384,7 +384,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'gallery_link_to!' => 'none',
-                ],
+                ]
             ]
         );
 
@@ -400,7 +400,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'condition' => [
                     'gallery_link_to' => 'buttons',
-                ],
+                ]
             ]
         );
 
@@ -416,7 +416,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'condition' => [
                     'gallery_link_to' => 'buttons',
-                ],
+                ]
             ]
         );
 
@@ -432,7 +432,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'condition' => [
                     'gallery_link_to' => 'buttons',
-                ],
+                ]
             ]
         );
 
@@ -451,7 +451,7 @@ class FilterableGallery extends Widget_Base {
                     'span' => esc_html__('Span', 'easy-elementor-addons'),
                     'p' => esc_html__('P', 'easy-elementor-addons'),
                     'div' => esc_html__('Div', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -462,13 +462,13 @@ class FilterableGallery extends Widget_Base {
                 'label_block' => false,
                 'default' => 500,
                 'min' => 100,
-                'max' => 8000,
+                'max' => 8000
             ]
         );
 
         $this->add_control(
             'hr', [
-                'type' => Controls_Manager::DIVIDER,
+                'type' => Controls_Manager::DIVIDER
             ]
         );
 
@@ -481,7 +481,7 @@ class FilterableGallery extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -500,7 +500,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'gallery_grid_style' => 'grid',
-                ],
+                ]
             ]
         );
 
@@ -513,7 +513,7 @@ class FilterableGallery extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 800,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 300,
@@ -538,7 +538,7 @@ class FilterableGallery extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 100,
@@ -561,7 +561,7 @@ class FilterableGallery extends Widget_Base {
          */
         $this->start_controls_section(
             'section_pagination', [
-                'label' => esc_html__('Load More Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Load More Button', 'easy-elementor-addons')
             ]
         );
 
@@ -569,7 +569,7 @@ class FilterableGallery extends Widget_Base {
             'pagination', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => false,
+                'default' => false
             ]
         );
 
@@ -583,7 +583,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 6,
                 'condition' => [
                     'pagination' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -596,7 +596,7 @@ class FilterableGallery extends Widget_Base {
                 'max' => 200,
                 'condition' => [
                     'pagination' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -607,7 +607,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => esc_html__('Load More', 'easy-elementor-addons'),
                 'condition' => [
                     'pagination' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -618,7 +618,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => esc_html__('No More Items!', 'easy-elementor-addons'),
                 'condition' => [
                     'pagination' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -630,7 +630,7 @@ class FilterableGallery extends Widget_Base {
                 'label_block' => false,
                 'condition' => [
                     'pagination' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -649,7 +649,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-loadmore a.eead-fg-loadmore-btn' => 'flex-direction: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -658,14 +658,14 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_section(
             'items_style_section', [
                 'label' => esc_html__('Item', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'item_shadow',
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item'
             ]
         );
 
@@ -673,7 +673,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'item_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item'
             ]
         );
 
@@ -684,7 +684,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -707,7 +707,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'filter_btn_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li'
             ]
         );
 
@@ -718,7 +718,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -729,7 +729,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -746,7 +746,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#444',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -756,7 +756,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -764,7 +764,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'filter_btn_normal_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li'
             ]
         );
 
@@ -772,7 +772,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -789,7 +789,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -800,7 +800,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#444',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -808,7 +808,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'filter_btn_active_shadow',
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li.eead-fg-active',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -824,7 +824,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -838,11 +838,11 @@ class FilterableGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -851,7 +851,7 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_section(
             'filter_search_style_section', [
                 'label' => esc_html__('Filter Search', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -859,7 +859,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'search_filter_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery button.eead-fg-filter-trigger, {{WRAPPER}} .eead-fg-search-box input, {{WRAPPER}} .eead-fg-filter-dropdown'
             ]
         );
 
@@ -870,7 +870,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -954,7 +954,7 @@ class FilterableGallery extends Widget_Base {
             'search_filter_separator', [
                 'label' => esc_html__('Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -968,7 +968,7 @@ class FilterableGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-select-filter' => 'border-right: {{SIZE}}px solid;',
@@ -991,7 +991,7 @@ class FilterableGallery extends Widget_Base {
             'search_filter_dropdown', [
                 'label' => esc_html__('Dropdown', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -1001,7 +1001,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown li' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1067,7 +1067,7 @@ class FilterableGallery extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'gallery_style' => 'overlay'
-                ],
+                ]
             ]
         );
 
@@ -1088,7 +1088,7 @@ class FilterableGallery extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'selectors' => [
@@ -1114,7 +1114,7 @@ class FilterableGallery extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'selectors' => [
@@ -1130,7 +1130,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => 'rgba(0,0,0,0.7)',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-caption-overlay' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1141,7 +1141,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1149,7 +1149,7 @@ class FilterableGallery extends Widget_Base {
             'overlay_caption_title_heading', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -1160,7 +1160,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1168,7 +1168,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'overlay_caption_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title'
             ]
         );
 
@@ -1179,14 +1179,14 @@ class FilterableGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1194,7 +1194,7 @@ class FilterableGallery extends Widget_Base {
             'overlay_caption_content_typography_heading', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -1205,7 +1205,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content, {{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1213,7 +1213,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'overlay_caption_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content,{{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content,{{WRAPPER}} .eead-filter-gallery .eead-fg-caption-head'
             ]
         );
 
@@ -1224,14 +1224,14 @@ class FilterableGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-content' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1246,7 +1246,7 @@ class FilterableGallery extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'gallery_style' => 'card'
-                ],
+                ]
             ]
         );
 
@@ -1267,10 +1267,10 @@ class FilterableGallery extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
-                'prefix_class' => 'eead-fg-card-caption-align-',
+                'prefix_class' => 'eead-fg-card-caption-align-'
             ]
         );
 
@@ -1292,7 +1292,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -1300,7 +1300,7 @@ class FilterableGallery extends Widget_Base {
             'card_caption_title_heading', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -1311,7 +1311,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#F56A6A',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title' => 'color: {{VALUE}};'
-                ],
+                ]
             ]
         );
 
@@ -1319,7 +1319,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'card_caption_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-caption .eead-fg-item-title'
             ]
         );
 
@@ -1327,7 +1327,7 @@ class FilterableGallery extends Widget_Base {
             'card_caption_content_heading', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -1338,7 +1338,7 @@ class FilterableGallery extends Widget_Base {
                 'default' => '#444',
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1346,7 +1346,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'card_caption_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-caption-head, {{WRAPPER}} .eead-filter-gallery .eead-fg-style-card .eead-fg-item-content'
             ]
         );
 
@@ -1358,7 +1358,7 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_section(
             'overlay_button_style_section', [
                 'label' => esc_html__('Gallery/Link Buttons', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -1371,7 +1371,7 @@ class FilterableGallery extends Widget_Base {
                     'px' => [
                         'min' => 20,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -1379,7 +1379,7 @@ class FilterableGallery extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1391,7 +1391,7 @@ class FilterableGallery extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -1400,7 +1400,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a i' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1411,7 +1411,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1429,7 +1429,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1440,7 +1440,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1448,7 +1448,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'overlay_button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a',
+                'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a'
             ]
         );
 
@@ -1466,7 +1466,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1477,7 +1477,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1487,7 +1487,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1504,7 +1504,7 @@ class FilterableGallery extends Widget_Base {
         $this->start_controls_section(
             'video_button_style', [
                 'label' => esc_html__('Video Button', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -1514,7 +1514,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-video-popup' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1524,7 +1524,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-video-popup' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -1539,11 +1539,11 @@ class FilterableGallery extends Widget_Base {
                     ],
                     'em' => [
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     ' .eead-filter-gallery .eead-fg-video-popup' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1558,12 +1558,12 @@ class FilterableGallery extends Widget_Base {
                     ],
                     'em' => [
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     ' .eead-filter-gallery .eead-fg-video-popup i' => 'font-size: {{SIZE}}{{UNIT}};',
                     ' .eead-filter-gallery .eead-fg-video-popup svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1579,7 +1579,7 @@ class FilterableGallery extends Widget_Base {
                 'condition' => [
                     'pagination' => 'yes',
                     'load_more_text!' => '',
-                ],
+                ]
             ]
         );
 
@@ -1587,14 +1587,14 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'load_more_button_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'load_more_button_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn'
             ]
         );
 
@@ -1607,7 +1607,7 @@ class FilterableGallery extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'margin-top: {{SIZE}}{{UNIT}};'
@@ -1622,7 +1622,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1633,7 +1633,7 @@ class FilterableGallery extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -1641,7 +1641,7 @@ class FilterableGallery extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'load_more_button_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn',
+                'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn'
             ]
         );
 
@@ -1672,7 +1672,7 @@ class FilterableGallery extends Widget_Base {
                 'condition' => [
                     'pagination' => 'yes',
                     'load_more_text!' => '',
-                ],
+                ]
             ]
         );
 
@@ -1693,7 +1693,7 @@ class FilterableGallery extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-filter-gallery .eead-fg-loadmore a.eead-fg-loadmore-btn svg' => 'fill: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -1711,7 +1711,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -1731,7 +1731,7 @@ class FilterableGallery extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 

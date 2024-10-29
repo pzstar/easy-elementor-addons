@@ -34,7 +34,7 @@ class Testimonial extends Widget_Base {
     protected function register_controls() {
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -44,7 +44,7 @@ class Testimonial extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -88,7 +88,7 @@ class Testimonial extends Widget_Base {
 
         $this->start_controls_section(
             'section_settings', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -97,7 +97,7 @@ class Testimonial extends Widget_Base {
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -109,7 +109,7 @@ class Testimonial extends Widget_Base {
                 'options' => [
                     'eead-square' => esc_html__('Square', 'easy-elementor-addons'),
                     'eead-round' => esc_html__('Round', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -122,7 +122,7 @@ class Testimonial extends Widget_Base {
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'style3' => esc_html__('Style 3', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -131,7 +131,7 @@ class Testimonial extends Widget_Base {
         $this->start_controls_section(
             'general_style', [
                 'label' => esc_html__('General Styles', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -143,7 +143,7 @@ class Testimonial extends Widget_Base {
                     '{{WRAPPER}} .eead-testimonial-block.style1, 
                  {{WRAPPER}} .eead-testimonial-block.style2,
                  {{WRAPPER}} .eead-testimonial-block.style3' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -165,7 +165,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-block' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -173,7 +173,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-block',
+                'selector' => '{{WRAPPER}} .eead-testimonial-block'
             ]
         );
 
@@ -182,7 +182,7 @@ class Testimonial extends Widget_Base {
         $this->start_controls_section(
             'name_style', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -192,7 +192,7 @@ class Testimonial extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-name' => 'color: {{VALUE}}'
-                ],
+                ]
             ]
         );
 
@@ -200,7 +200,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'name_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-member-name',
+                'selector' => '{{WRAPPER}} .eead-testimonial-member-name'
             ]
         );
 
@@ -212,7 +212,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-name' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -221,7 +221,7 @@ class Testimonial extends Widget_Base {
         $this->start_controls_section(
             'designation_style', [
                 'label' => esc_html__('Designation', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -231,7 +231,7 @@ class Testimonial extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-designation' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -239,7 +239,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'designation_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-member-designation',
+                'selector' => '{{WRAPPER}} .eead-testimonial-member-designation'
             ]
         );
 
@@ -251,7 +251,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-designation' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -260,7 +260,7 @@ class Testimonial extends Widget_Base {
         $this->start_controls_section(
             'testimonial_style', [
                 'label' => esc_html__('Testimonial', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -270,7 +270,7 @@ class Testimonial extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -278,7 +278,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt',
+                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt'
             ]
         );
 
@@ -301,7 +301,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -330,7 +330,7 @@ class Testimonial extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content:before' => 'height: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -348,7 +348,7 @@ class Testimonial extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content:before' => 'width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -359,7 +359,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content:before' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -368,7 +368,7 @@ class Testimonial extends Widget_Base {
         $this->start_controls_section(
             'testimonial_title_style', [
                 'label' => esc_html__('Testimonial Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -378,7 +378,7 @@ class Testimonial extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content h3' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -386,7 +386,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content h3',
+                'selector' => '{{WRAPPER}} .eead-testimonial-content h3'
             ]
         );
 
@@ -398,7 +398,7 @@ class Testimonial extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content h3' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 

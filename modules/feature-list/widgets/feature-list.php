@@ -22,32 +22,32 @@ if (!defined('ABSPATH')) {
  */
 class FeatureList extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-feature-list';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Feature List', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-listing';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'eead_section_feature_list_content_settings', [
-                'label' => esc_html__('Content Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Content Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -65,10 +65,10 @@ class FeatureList extends Widget_Base {
                     'image' => [
                         'title' => esc_html__('Image', 'easy-elementor-addons'),
                         'icon' => 'eicon-image',
-                    ],
+                    ]
                 ],
                 'default' => 'icon',
-                'label_block' => false,
+                'label_block' => false
             ]
         );
 
@@ -80,7 +80,7 @@ class FeatureList extends Widget_Base {
                 'label_block' => false,
                 'condition' => [
                     'icon_type' => 'icon',
-                ],
+                ]
             ]
         );
 
@@ -93,7 +93,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -102,7 +102,7 @@ class FeatureList extends Widget_Base {
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Title', 'easy-elementor-addons'),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -110,7 +110,7 @@ class FeatureList extends Widget_Base {
             'subtitle', [
                 'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -118,7 +118,7 @@ class FeatureList extends Widget_Base {
             'content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons')
             ]
         );
 
@@ -126,7 +126,7 @@ class FeatureList extends Widget_Base {
             'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons')
             ]
         );
 
@@ -150,7 +150,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_enable_each_style' => 'on',
-                ],
+                ]
             ]
         );
 
@@ -163,7 +163,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_enable_each_style' => 'on'
-                ],
+                ]
             ]
         );
 
@@ -200,10 +200,10 @@ class FeatureList extends Widget_Base {
                         'title' => esc_html__('Feature List Item 3', 'easy-elementor-addons'),
                         'subtitle' => 'Seo eiusmod tempor incididunt ut',
                         'content' => 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna',
-                    ],
+                    ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '<i class="{{icon.value}}" aria-hidden="true"></i> {{{title}}}',
+                'title_field' => '<i class="{{icon.value}}" aria-hidden="true"></i> {{{title}}}'
             ]
         );
 
@@ -211,7 +211,7 @@ class FeatureList extends Widget_Base {
 
         $this->start_controls_section(
             'additional_settings', [
-                'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Additional Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -231,7 +231,7 @@ class FeatureList extends Widget_Base {
                     'p' => 'p',
                 ],
                 'default' => 'h4',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -245,7 +245,7 @@ class FeatureList extends Widget_Base {
                     'default' => esc_html__('Default', 'easy-elementor-addons'),
                     'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                     'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -265,7 +265,7 @@ class FeatureList extends Widget_Base {
                     'row-reverse' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'row',
                 'toggle' => false,
@@ -291,11 +291,11 @@ class FeatureList extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-feature-list-items' => 'gap: {{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 
@@ -305,7 +305,7 @@ class FeatureList extends Widget_Base {
         $this->start_controls_section(
             'style_feature_listing', [
                 'label' => esc_html__('Feature Lists', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -315,7 +315,7 @@ class FeatureList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-item' => 'background: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -342,7 +342,7 @@ class FeatureList extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -364,7 +364,7 @@ class FeatureList extends Widget_Base {
         $this->start_controls_section(
             'style_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -393,7 +393,7 @@ class FeatureList extends Widget_Base {
                 'condition' => [
                     'icon_style' => 'stacked',
                 ],
-                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-style-stacked .eead-fl-icon-box',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-style-stacked .eead-fl-icon-box'
             ]
         );
 
@@ -408,11 +408,11 @@ class FeatureList extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-item' => 'gap: {{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 
@@ -427,13 +427,13 @@ class FeatureList extends Widget_Base {
                     'px' => [
                         'min' => 6,
                         'max' => 250,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box img' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
-                ],
+                ]
             ]
         );
 
@@ -448,11 +448,11 @@ class FeatureList extends Widget_Base {
                     'px' => [
                         'min' => 6,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; flex: 0 0 {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -467,14 +467,14 @@ class FeatureList extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'border-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'icon_style' => 'framed',
-                ],
+                ]
             ]
         );
 
@@ -482,7 +482,7 @@ class FeatureList extends Widget_Base {
             'icon_radius_advanced_show', [
                 'label' => esc_html__('Advanced Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -496,7 +496,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_radius_advanced_show!' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -512,7 +512,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_radius_advanced_show' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -521,7 +521,7 @@ class FeatureList extends Widget_Base {
         $this->start_controls_section(
             'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -536,11 +536,11 @@ class FeatureList extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -551,14 +551,14 @@ class FeatureList extends Widget_Base {
                 'default' => '#414247',
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-title' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-title',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-title'
             ]
         );
 
@@ -567,7 +567,7 @@ class FeatureList extends Widget_Base {
         $this->start_controls_section(
             'subtitle_style', [
                 'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -577,7 +577,7 @@ class FeatureList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -592,18 +592,18 @@ class FeatureList extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'subtitle_typography',
-                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle',
+                'selector' => '{{WRAPPER}} .eead-feature-list .eead-fl-subtitle'
             ]
         );
 
@@ -612,7 +612,7 @@ class FeatureList extends Widget_Base {
         $this->start_controls_section(
             'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -622,7 +622,7 @@ class FeatureList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-feature-list .eead-fl-content' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 

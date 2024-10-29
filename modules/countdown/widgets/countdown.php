@@ -19,22 +19,22 @@ if (!defined('ABSPATH')) {
  */
 class Countdown extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-countdown';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Countdown', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-count-down';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -47,12 +47,12 @@ class Countdown extends Widget_Base {
         return [];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_countdown_general_settings', [
-                'label' => esc_html__('Timer', 'easy-elementor-addons'),
+                'label' => esc_html__('Timer', 'easy-elementor-addons')
             ]
         );
 
@@ -60,7 +60,7 @@ class Countdown extends Widget_Base {
             'countdown_due_time', [
                 'label' => esc_html__('Countdown Date & Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DATE_TIME,
-                'default' => date("Y-m-d", strtotime("+ 2 day")),
+                'default' => date("Y-m-d", strtotime("+ 2 day"))
             ]
         );
 
@@ -75,7 +75,7 @@ class Countdown extends Widget_Base {
                     'text' => esc_html__('Message', 'easy-elementor-addons'),
                     'url' => esc_html__('Redirection Link', 'easy-elementor-addons'),
                 ],
-                'default' => 'none',
+                'default' => 'none'
             ]
         );
 
@@ -87,7 +87,7 @@ class Countdown extends Widget_Base {
                 'default' => esc_html__('Finished Countdown!', 'easy-elementor-addons'),
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -99,7 +99,7 @@ class Countdown extends Widget_Base {
                 'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -110,7 +110,7 @@ class Countdown extends Widget_Base {
                 'condition' => [
                     'countdown_expire_type' => 'url',
                 ],
-                'default' => '#',
+                'default' => '#'
             ]
         );
 
@@ -118,7 +118,7 @@ class Countdown extends Widget_Base {
 
         $this->start_controls_section(
             'section_countdown_content_settings', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -134,7 +134,7 @@ class Countdown extends Widget_Base {
                 'render_type' => 'template',
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-items' => 'flex-direction:{{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -154,7 +154,7 @@ class Countdown extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'flex-start',
                 'selectors' => [
@@ -181,7 +181,7 @@ class Countdown extends Widget_Base {
                 'default' => esc_html__('Days', 'easy-elementor-addons'),
                 'condition' => [
                     'countdown_days' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -189,7 +189,7 @@ class Countdown extends Widget_Base {
             'countdown_hours', [
                 'label' => esc_html__('Show Hours', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -201,7 +201,7 @@ class Countdown extends Widget_Base {
                 'default' => esc_html__('Hours', 'easy-elementor-addons'),
                 'condition' => [
                     'countdown_hours' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -209,7 +209,7 @@ class Countdown extends Widget_Base {
             'countdown_minutes', [
                 'label' => esc_html__('Show Minutes', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -221,7 +221,7 @@ class Countdown extends Widget_Base {
                 'default' => esc_html__('Minutes', 'easy-elementor-addons'),
                 'condition' => [
                     'countdown_minutes' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -229,7 +229,7 @@ class Countdown extends Widget_Base {
             'countdown_seconds', [
                 'label' => esc_html__('Show Seconds', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -241,7 +241,7 @@ class Countdown extends Widget_Base {
                 'default' => esc_html__('Seconds', 'easy-elementor-addons'),
                 'condition' => [
                     'countdown_seconds' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -250,7 +250,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'section_countdown_styles_general', [
                 'label' => esc_html__('Countdown Styles', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -258,7 +258,7 @@ class Countdown extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_background',
                 'label' => esc_html__('Counter Background Color', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item',
+                'selector' => '{{WRAPPER}} .eead-countdown-item'
             ]
         );
 
@@ -272,7 +272,7 @@ class Countdown extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -301,7 +301,7 @@ class Countdown extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'countdown_box_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item',
+                'selector' => '{{WRAPPER}} .eead-countdown-item'
             ]
         );
 
@@ -311,14 +311,14 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'countdown_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-countdown-item',
+                'selector' => '{{WRAPPER}} .eead-countdown-item'
             ]
         );
 
@@ -340,14 +340,14 @@ class Countdown extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 500,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item' => 'width:{{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'countdown_fixed_size' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -360,14 +360,14 @@ class Countdown extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 500,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item' => 'height:{{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'countdown_fixed_size' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -376,7 +376,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'countdown_digits_style_settings', [
                 'label' => esc_html__('Countdown Digits', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -387,14 +387,14 @@ class Countdown extends Widget_Base {
                 'default' => '#333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'countdown_digit_typography',
-                'selector' => '{{WRAPPER}} .eead-countdown-digits',
+                'selector' => '{{WRAPPER}} .eead-countdown-digits'
             ]
         );
 
@@ -403,7 +403,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'countdown_label_style_settings', [
                 'label' => esc_html__('Countdown Label', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -414,14 +414,14 @@ class Countdown extends Widget_Base {
                 'default' => '#333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'countdown_label_typography',
-                'selector' => '{{WRAPPER}} .eead-countdown-label',
+                'selector' => '{{WRAPPER}} .eead-countdown-label'
             ]
         );
 
@@ -435,7 +435,7 @@ class Countdown extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -443,7 +443,7 @@ class Countdown extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item' => 'gap:{{SIZE}}px;',
-                ],
+                ]
             ]
         );
 
@@ -455,14 +455,14 @@ class Countdown extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'section_countdown_layout' => 'row',
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'countdown_separator', [
                 'label' => esc_html__('Show Separator', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -476,14 +476,14 @@ class Countdown extends Widget_Base {
                         'min' => -200,
                         'max' => 200,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'countdown_separator' => 'yes',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'transform: translateY({{SIZE}}{{UNIT}});',
-                ],
+                ]
             ]
         );
 
@@ -497,14 +497,14 @@ class Countdown extends Widget_Base {
                         'min' => 1,
                         'max' => 100,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'countdown_separator' => 'yes',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -517,7 +517,7 @@ class Countdown extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown .eead-countdown-separator' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -526,7 +526,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'days_style_settings', [
                 'label' => esc_html__('Days', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -534,7 +534,7 @@ class Countdown extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_days_background_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-days',
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-days'
             ]
         );
 
@@ -544,7 +544,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-days .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -554,7 +554,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-days .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -564,7 +564,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-days' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -573,7 +573,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'hour_style_settings', [
                 'label' => esc_html__('Hour', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -581,7 +581,7 @@ class Countdown extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_hours_background_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours',
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours'
             ]
         );
 
@@ -591,7 +591,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-hours .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -601,7 +601,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-hours .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -611,7 +611,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -620,7 +620,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'minute_style_settings', [
                 'label' => esc_html__('Minute', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -628,7 +628,7 @@ class Countdown extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_minutes_background_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes',
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes'
             ]
         );
 
@@ -638,7 +638,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -648,7 +648,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-minutes .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -658,7 +658,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -667,7 +667,7 @@ class Countdown extends Widget_Base {
         $this->start_controls_section(
             'seconds_style_settings', [
                 'label' => esc_html__('Seconds', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -675,7 +675,7 @@ class Countdown extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_seconds_background_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds',
+                'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds'
             ]
         );
 
@@ -685,7 +685,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-digits' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -695,7 +695,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-seconds .eead-countdown-label' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -705,7 +705,7 @@ class Countdown extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -717,7 +717,7 @@ class Countdown extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -737,12 +737,12 @@ class Countdown extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'left',
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-finish-message' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -750,7 +750,7 @@ class Countdown extends Widget_Base {
             'heading_countdown_expire_title', [
                 'label' => esc_html__('Title Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -763,7 +763,7 @@ class Countdown extends Widget_Base {
                 ],
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -773,7 +773,7 @@ class Countdown extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-countdown-finish-message .expiry-title',
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -784,7 +784,7 @@ class Countdown extends Widget_Base {
                 'size_units' => ['px', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-countdown-finish-message .expiry-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -792,7 +792,7 @@ class Countdown extends Widget_Base {
             'heading_countdown_expire_message', [
                 'label' => esc_html__('Content Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -805,7 +805,7 @@ class Countdown extends Widget_Base {
                 ],
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -815,7 +815,7 @@ class Countdown extends Widget_Base {
                 'selector' => '.eead-countdown-finish-text',
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 
@@ -830,7 +830,7 @@ class Countdown extends Widget_Base {
                 ],
                 'condition' => [
                     'countdown_expire_type' => 'text',
-                ],
+                ]
             ]
         );
 

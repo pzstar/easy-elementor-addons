@@ -14,31 +14,31 @@ if (!defined('ABSPATH')) {
  */
 class TwitterFeed extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-twitter-feed';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Twitter Feed', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-twitter1';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'section_main', [
-                'label' => esc_html__('Main Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Main Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -55,7 +55,7 @@ class TwitterFeed extends Widget_Base {
                     'list' => esc_html__('List', 'easy-elementor-addons'),
                     'moments' => esc_html__('Moments', 'easy-elementor-addons'),
                     'likes' => esc_html__('Likes', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -67,7 +67,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'https://twitter.com/TwitterDev/timelines/539487832448843776',
                 'condition' => [
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -79,7 +79,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'https://twitter.com/TwitterDev',
                 'condition' => [
                     'embed_type' => 'profile',
-                ],
+                ]
             ]
         );
 
@@ -91,7 +91,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'https://twitter.com/TwitterDev/lists/national-parks',
                 'condition' => [
                     'embed_type' => 'list',
-                ],
+                ]
             ]
         );
 
@@ -103,7 +103,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'https://twitter.com/i/moments/625792726546558977',
                 'condition' => [
                     'embed_type' => 'moments',
-                ],
+                ]
             ]
         );
 
@@ -115,7 +115,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => 'https://twitter.com/TwitterDev/likes',
                 'condition' => [
                     'embed_type' => 'likes',
-                ],
+                ]
             ]
         );
 
@@ -130,7 +130,7 @@ class TwitterFeed extends Widget_Base {
                 'default' => '@x',
                 'condition' => [
                     'embed_type' => 'handle',
-                ],
+                ]
             ]
         );
 
@@ -141,7 +141,7 @@ class TwitterFeed extends Widget_Base {
                 'placeholder' => esc_html__('#hashtag', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => 'hashtag',
-                ],
+                ]
             ]
         );
 
@@ -156,7 +156,7 @@ class TwitterFeed extends Widget_Base {
                 ],
                 'condition' => [
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -171,7 +171,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_collection' => 'grid',
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -187,12 +187,12 @@ class TwitterFeed extends Widget_Base {
                         'min' => 250,
                         'max' => 1300,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'display_mode_collection' => 'timeline',
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -208,7 +208,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_collection' => 'timeline',
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -219,7 +219,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_collection' => 'timeline',
                     'embed_type' => 'collection',
-                ],
+                ]
             ]
         );
 
@@ -234,7 +234,7 @@ class TwitterFeed extends Widget_Base {
                 ],
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -250,12 +250,12 @@ class TwitterFeed extends Widget_Base {
                         'min' => 250,
                         'max' => 1300,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'display_mode_profile' => 'timeline',
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -271,7 +271,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_profile' => 'timeline',
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -282,7 +282,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_profile' => 'timeline',
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -298,7 +298,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'display_mode_profile' => 'button',
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -312,7 +312,7 @@ class TwitterFeed extends Widget_Base {
                     'display_mode_profile' => 'button',
                     'button_type' => 'follow-button',
                     'embed_type' => ['profile', 'handle'],
-                ],
+                ]
             ]
         );
 
@@ -327,7 +327,7 @@ class TwitterFeed extends Widget_Base {
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
                     'button_type' => 'follow-button',
-                ],
+                ]
             ]
         );
 
@@ -340,7 +340,7 @@ class TwitterFeed extends Widget_Base {
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
                     'button_type' => 'mention-button',
-                ],
+                ]
             ]
         );
 
@@ -352,7 +352,7 @@ class TwitterFeed extends Widget_Base {
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
                     'button_type' => 'mention-button',
-                ],
+                ]
             ]
         );
 
@@ -363,7 +363,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => ['profile', 'handle'],
                     'display_mode_profile' => 'button',
-                ],
+                ]
             ]
         );
 
@@ -379,11 +379,11 @@ class TwitterFeed extends Widget_Base {
                         'min' => 250,
                         'max' => 1300,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'embed_type' => ['list', 'likes'],
-                ],
+                ]
             ]
         );
 
@@ -398,7 +398,7 @@ class TwitterFeed extends Widget_Base {
                 ],
                 'condition' => [
                     'embed_type' => ['list', 'likes'],
-                ],
+                ]
             ]
         );
 
@@ -408,7 +408,7 @@ class TwitterFeed extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'embed_type' => ['list', 'likes'],
-                ],
+                ]
             ]
         );
 
@@ -416,7 +416,7 @@ class TwitterFeed extends Widget_Base {
         if (is_single()) {
             $prefill_options = [
                 'post_title' => esc_html__('Post Title', 'easy-elementor-addons'),
-                'excerpt' => esc_html__('Post Excerpt', 'easy-elementor-addons'),
+                'excerpt' => esc_html__('Post Excerpt', 'easy-elementor-addons')
             ];
         }
 
@@ -430,7 +430,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'embed_type' => 'hashtag',
                 ],
-                'description' => esc_html__('Do you want to prefill the Tweet text?', 'easy-elementor-addons'),
+                'description' => esc_html__('Do you want to prefill the Tweet text?', 'easy-elementor-addons')
             ]
         );
 
@@ -441,7 +441,7 @@ class TwitterFeed extends Widget_Base {
                 'condition' => [
                     'prefill_text_hashtag' => 'custom',
                     'embed_type' => 'hashtag',
-                ],
+                ]
             ]
         );
 
@@ -452,7 +452,7 @@ class TwitterFeed extends Widget_Base {
                 'description' => esc_html__('Do you want to set a specific URL in the Tweet?', 'easy-elementor-addons'),
                 'condition' => [
                     'embed_type' => 'hashtag',
-                ],
+                ]
             ]
         );
 
@@ -460,7 +460,7 @@ class TwitterFeed extends Widget_Base {
             'language', [
                 'label' => esc_html__('Language', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'options' => $this->languages(),
+                'options' => $this->languages()
             ]
         );
 
@@ -470,7 +470,7 @@ class TwitterFeed extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'embed_type' => 'hashtag',
-                ],
+                ]
             ]
         );
 

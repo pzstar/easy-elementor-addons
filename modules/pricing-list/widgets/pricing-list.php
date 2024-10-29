@@ -19,32 +19,32 @@ if (!defined('ABSPATH')) {
  */
 class PricingList extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-pricing-list';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Pricing List', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-pricing-list';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -56,7 +56,7 @@ class PricingList extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -65,7 +65,7 @@ class PricingList extends Widget_Base {
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -102,7 +102,7 @@ class PricingList extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
                 'default' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Type your item description here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your item description here', 'easy-elementor-addons')
             ]
         );
 
@@ -115,14 +115,14 @@ class PricingList extends Widget_Base {
                     'url' => '#',
                     'is_external' => false,
                     'nofollow' => false,
-                ],
+                ]
             ]
         );
 
         $repeater->add_control(
             'is_featured', [
                 'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -149,9 +149,9 @@ class PricingList extends Widget_Base {
                         'currency' => '$',
                         'price' => '30',
                         'description' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons')
-                    ],
+                    ]
                 ],
-                'title_field' => '{{{ title }}}',
+                'title_field' => '{{{ title }}}'
             ]
         );
 
@@ -159,7 +159,7 @@ class PricingList extends Widget_Base {
 
         $this->start_controls_section(
             'section_settings', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -172,7 +172,7 @@ class PricingList extends Widget_Base {
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'style3' => esc_html__('Style 3', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -194,21 +194,21 @@ class PricingList extends Widget_Base {
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ]
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'title_link_enable', [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
         $this->add_control(
             'image_link_enable', [
                 'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -218,7 +218,7 @@ class PricingList extends Widget_Base {
         $this->start_controls_section(
             'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -228,7 +228,7 @@ class PricingList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -247,7 +247,7 @@ class PricingList extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3',
+                'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-item-title-section h3'
             ]
         );
 
@@ -267,7 +267,7 @@ class PricingList extends Widget_Base {
         $this->start_controls_section(
             'content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -279,7 +279,7 @@ class PricingList extends Widget_Base {
                     '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-each-pricing-item,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item,
                  {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -301,7 +301,7 @@ class PricingList extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -323,7 +323,7 @@ class PricingList extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section .eead-each-pricing-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -332,7 +332,7 @@ class PricingList extends Widget_Base {
         $this->start_controls_section(
             'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -342,7 +342,7 @@ class PricingList extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -361,7 +361,7 @@ class PricingList extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description',
+                'selector' => '{{WRAPPER}} .eead-pricing-list-section .eead-item-details-box .eead-pricing-item-description'
             ]
         );
 
@@ -381,7 +381,7 @@ class PricingList extends Widget_Base {
         $this->start_controls_section(
             'price_style', [
                 'label' => esc_html__('Price', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -393,7 +393,7 @@ class PricingList extends Widget_Base {
                     '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
                  {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small' => 'background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -405,7 +405,7 @@ class PricingList extends Widget_Base {
                     '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
                  {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
                  {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -415,7 +415,7 @@ class PricingList extends Widget_Base {
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
              {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
-             {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small',
+             {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small'
             ]
         );
 
@@ -428,7 +428,7 @@ class PricingList extends Widget_Base {
                     '{{WRAPPER}} .eead-pricing-list-section.style1 .eead-item-details-box .eead-item-price,
                      {{WRAPPER}} .eead-pricing-list-section.style2 .eead-each-pricing-item .eead-item-image small,
                      {{WRAPPER}} .eead-pricing-list-section.style3 .eead-each-pricing-item .eead-item-image small' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

@@ -19,22 +19,22 @@ if (!defined('ABSPATH')) {
  */
 class LogoCarousel extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-logo-carousel';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Logo Carousel', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-logo-carousel';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -47,12 +47,12 @@ class LogoCarousel extends Widget_Base {
         return ['owlcarousel'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -73,7 +73,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -81,7 +81,7 @@ class LogoCarousel extends Widget_Base {
             'logo_link', [
                 'label' => esc_html__('Logo Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -90,7 +90,7 @@ class LogoCarousel extends Widget_Base {
                 'label' => esc_html__('Slides', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ title }}}',
+                'title_field' => '{{{ title }}}'
             ]
         );
 
@@ -98,14 +98,14 @@ class LogoCarousel extends Widget_Base {
             'link_new_tab', [
                 'label' => esc_html__('Open Link in New Tab', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
         $this->add_control(
             'show_title', [
                 'label' => esc_html__('Show Logo Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -133,7 +133,7 @@ class LogoCarousel extends Widget_Base {
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -141,7 +141,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_section(
             'carousel_settings', [
-                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -153,7 +153,7 @@ class LogoCarousel extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -167,7 +167,7 @@ class LogoCarousel extends Widget_Base {
                 'mobile_default' => [
                     'size' => 1,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -179,7 +179,7 @@ class LogoCarousel extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -198,7 +198,7 @@ class LogoCarousel extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 300,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -221,7 +221,7 @@ class LogoCarousel extends Widget_Base {
             'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -232,7 +232,7 @@ class LogoCarousel extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -246,7 +246,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 1,
                         'max' => 15,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 5,
@@ -254,14 +254,14 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'auto_height', [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -278,7 +278,7 @@ class LogoCarousel extends Widget_Base {
             'arrows', [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -316,7 +316,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 0.6,
                         'max' => 0.95,
                         'step' => .05
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'selectors' => [
@@ -333,7 +333,7 @@ class LogoCarousel extends Widget_Base {
         $this->start_controls_section(
             'logo_style', [
                 'label' => esc_html__('Logo', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -343,7 +343,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -351,7 +351,7 @@ class LogoCarousel extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'logo_border',
                 'label' => esc_html__('Logo Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide',
+                'selector' => '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide'
             ]
         );
 
@@ -362,7 +362,7 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -373,7 +373,7 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -384,7 +384,7 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .eead-logo-slide' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -409,7 +409,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 5,
                         'max' => 40,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -417,7 +417,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots span' => 'width: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -430,7 +430,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 5,
                         'max' => 40,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -438,7 +438,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots span' => 'height: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -451,7 +451,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 5,
                         'max' => 40,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -459,7 +459,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots' => 'gap: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -472,7 +472,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 0,
                         'max' => 150,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 40,
@@ -480,7 +480,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots' => 'margin-top: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -488,7 +488,7 @@ class LogoCarousel extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'dots_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span',
+                'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span'
             ]
         );
 
@@ -499,7 +499,7 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -509,7 +509,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -519,7 +519,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -527,7 +527,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_active_tab', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -537,7 +537,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -547,7 +547,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -564,11 +564,11 @@ class LogoCarousel extends Widget_Base {
                         'min' => 1,
                         'max' => 1.5,
                         'step' => .05
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot.active span' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
-                ],
+                ]
             ]
         );
 
@@ -576,7 +576,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -586,7 +586,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -596,7 +596,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -620,7 +620,7 @@ class LogoCarousel extends Widget_Base {
         $this->add_control(
             'show_on_hover', [
                 'label' => esc_html__('Show on Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -633,7 +633,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 20,
                         'max' => 100,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 40,
@@ -641,7 +641,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'width: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -654,7 +654,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 20,
                         'max' => 100,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 40,
@@ -662,7 +662,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'height: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -675,7 +675,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => 10,
                         'max' => 100,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 20,
@@ -683,7 +683,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button i' => 'font-size: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -696,7 +696,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => -200,
                         'max' => 200,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 0,
@@ -704,7 +704,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel' => '--eead-logo-carousel-offset-x:{{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -717,7 +717,7 @@ class LogoCarousel extends Widget_Base {
                         'min' => -200,
                         'max' => 200,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 0,
@@ -725,7 +725,7 @@ class LogoCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel' => '--eead-logo-carousel-offset-y:{{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -733,7 +733,7 @@ class LogoCarousel extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'arrow_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-nav button',
+                'selector' => '{{WRAPPER}} .eead-logo-carousel .owl-nav button'
             ]
         );
 
@@ -744,7 +744,7 @@ class LogoCarousel extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -754,7 +754,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -764,7 +764,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -774,7 +774,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -782,7 +782,7 @@ class LogoCarousel extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -792,7 +792,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -802,7 +802,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -812,7 +812,7 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -859,14 +859,14 @@ class LogoCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title',
+                'selector' => '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title'
             ]
         );
 
@@ -881,11 +881,11 @@ class LogoCarousel extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-logo-carousel.owl-carousel .eead-logo-title' => 'margin-top: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

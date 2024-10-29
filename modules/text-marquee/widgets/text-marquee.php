@@ -35,7 +35,7 @@ class TextMarquee extends Widget_Base {
     protected function register_controls() {
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -58,12 +58,12 @@ class TextMarquee extends Widget_Base {
                         'min' => 100,
                         'max' => 10000,
                         'step' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 500,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -75,7 +75,7 @@ class TextMarquee extends Widget_Base {
                 'options' => [
                     'left' => esc_html__('Left', 'easy-elementor-addons'),
                     'right' => esc_html__('Right', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -89,12 +89,12 @@ class TextMarquee extends Widget_Base {
                         'min' => 1,
                         'max' => 1000,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 0,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -108,26 +108,26 @@ class TextMarquee extends Widget_Base {
                         'min' => 1,
                         'max' => 1000,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 0,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'text_duplicated', [
                 'label' => esc_html__('Text Duplicated', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
         $this->add_control(
             'text_pause_on_hover', [
                 'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -136,7 +136,7 @@ class TextMarquee extends Widget_Base {
         $this->start_controls_section(
             'marquee_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -146,7 +146,7 @@ class TextMarquee extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-text-marquee' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -154,14 +154,14 @@ class TextMarquee extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'marquee_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-text-marquee',
+                'selector' => '{{WRAPPER}} .eead-text-marquee'
             ]
         );
 
         $this->add_control(
             'text_stroke_effect', [
                 'label' => esc_html__('Text Stroke Effect', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -173,7 +173,7 @@ class TextMarquee extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 1,
@@ -181,7 +181,7 @@ class TextMarquee extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-text-marquee.eead-text-stroke-effect' => '-webkit-text-stroke-width: {{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 

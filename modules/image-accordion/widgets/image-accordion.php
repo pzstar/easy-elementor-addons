@@ -28,7 +28,7 @@ class ImageAccordion extends Widget_Base {
         return 'eead-element-icon eead-image-accordion';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -62,7 +62,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::MEDIA,
             'label_block' => true,
             'default' => [
-                'url' => Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src()
             ],
                 ]
         );
@@ -108,11 +108,11 @@ class ImageAccordion extends Widget_Base {
             'label_block' => true,
             'default' => [
                 'url' => '#',
-                'is_external' => '',
+                'is_external' => ''
             ],
             'show_external' => true,
             'condition' => [
-                'image_accordion_link_image' => 'yes',
+                'image_accordion_link_image' => 'yes'
             ],
                 ]
         );
@@ -142,7 +142,7 @@ class ImageAccordion extends Widget_Base {
                     'image_accordion_bg' => [
                         'url' => Utils::get_placeholder_image_src(),
                     ]
-                ],
+                ]
             ],
             'fields' => $repeater->get_controls(),
             'title_field' => '{{image_accordion_title}}',
@@ -168,7 +168,7 @@ class ImageAccordion extends Widget_Base {
             'label_block' => false,
             'options' => [
                 'on-hover' => esc_html__('On Hover', 'easy-elementor-addons'),
-                'on-click' => esc_html__('On Click', 'easy-elementor-addons'),
+                'on-click' => esc_html__('On Click', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -180,7 +180,7 @@ class ImageAccordion extends Widget_Base {
             'label_block' => false,
             'options' => [
                 'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
-                'vertical' => esc_html__('Vertical', 'easy-elementor-addons'),
+                'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
             ],
             'default' => 'horizontal',
                 ]
@@ -202,17 +202,17 @@ class ImageAccordion extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'toggle' => false,
             'default' => 'center',
             'selectors_dictionary' => [
                 'left' => 'justify-content: flex-start; text-align: left;',
                 'center' => 'justify-content: center; text-align: center;',
-                'right' => 'justify-content: flex-end; text-align: right;',
+                'right' => 'justify-content: flex-end; text-align: right;'
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion-box' => '{{VALUE}}',
+                '{{WRAPPER}} .eead-image-accordion-box' => '{{VALUE}}'
             ],
                 ]
         );
@@ -233,12 +233,12 @@ class ImageAccordion extends Widget_Base {
                 'flex-end' => [
                     'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-bottom',
-                ],
+                ]
             ],
             'toggle' => false,
             'default' => 'center',
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion-box' => 'align-items: {{VALUE}};',
+                '{{WRAPPER}} .eead-image-accordion-box' => 'align-items: {{VALUE}};'
             ],
                 ]
         );
@@ -258,7 +258,7 @@ class ImageAccordion extends Widget_Base {
                 'h6' => esc_html__('H6', 'easy-elementor-addons'),
                 'span' => esc_html__('Span', 'easy-elementor-addons'),
                 'p' => esc_html__('P', 'easy-elementor-addons'),
-                'div' => esc_html__('Div', 'easy-elementor-addons'),
+                'div' => esc_html__('Div', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -289,7 +289,7 @@ class ImageAccordion extends Widget_Base {
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 500,
+                'size' => 500
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-image-accordion' => 'height: {{SIZE}}px;'
@@ -303,7 +303,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => 'rgba(0, 0, 0, .2)',
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item::before' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item::before' => 'background-color: {{VALUE}};'
             ],
                 ]
         );
@@ -315,7 +315,7 @@ class ImageAccordion extends Widget_Base {
             'default' => 'rgba(0, 0, 0, .5)',
             'selectors' => [
                 '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item:hover::before' => 'background-color: {{VALUE}};',
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item.overlay-active::before' => 'background-color: {{VALUE}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item.overlay-active::before' => 'background-color: {{VALUE}};'
             ],
                 ]
         );
@@ -343,7 +343,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -354,7 +354,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -365,7 +365,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}!important;',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}!important;'
             ],
                 ]
         );
@@ -403,7 +403,7 @@ class ImageAccordion extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-title' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-title' => 'color: {{VALUE}};'
             ],
                 ]
         );
@@ -421,7 +421,7 @@ class ImageAccordion extends Widget_Base {
                 ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-title' => 'margin-bottom: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -451,7 +451,7 @@ class ImageAccordion extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-text' => 'color: {{VALUE}};',
+                '{{WRAPPER}} .eead-image-accordion .eead-image-accordion-text' => 'color: {{VALUE}};'
             ],
                 ]
         );
@@ -471,7 +471,7 @@ class ImageAccordion extends Widget_Base {
                 'eead-image-accordion-direction-' . $settings['image_accordion_orientation'],
                 'eead-image-accordion-' . $settings['image_accordion_action_type'],
                 $horizontal_align,
-                $vertical_align,
+                $vertical_align
             ],
                 ]
         );

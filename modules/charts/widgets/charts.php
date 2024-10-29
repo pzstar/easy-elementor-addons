@@ -22,22 +22,22 @@ if (!defined('ABSPATH')) {
  */
 class Charts extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-charts';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Charts', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-chart';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -46,11 +46,11 @@ class Charts extends Widget_Base {
         return ['chart'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
         $this->start_controls_section(
             'general_settings', [
-                'label' => esc_html__('Charts', 'easy-elementor-addons'),
+                'label' => esc_html__('Charts', 'easy-elementor-addons')
             ]
         );
 
@@ -62,7 +62,7 @@ class Charts extends Widget_Base {
                 'options' => array(
                     'custom' => esc_html__('Custom', 'easy-elementor-addons'),
                     'csv' => esc_html__('CSV File', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -80,7 +80,7 @@ class Charts extends Widget_Base {
                     'polarArea' => esc_html__('Polar Area', 'easy-elementor-addons'),
                 ),
                 'default' => 'bar',
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -95,7 +95,7 @@ class Charts extends Widget_Base {
                 'condition' => array(
                     'data_source' => 'csv',
                 ),
-                'default' => 'file',
+                'default' => 'file'
             ]
         );
 
@@ -108,7 +108,7 @@ class Charts extends Widget_Base {
                 'default' => ',',
                 'condition' => array(
                     'data_source' => 'csv',
-                ),
+                )
             ]
         );
 
@@ -121,7 +121,7 @@ class Charts extends Widget_Base {
                 'condition' => array(
                     'data_source' => 'csv',
                     'csv_type' => 'file',
-                ),
+                )
             ]
         );
 
@@ -134,7 +134,7 @@ class Charts extends Widget_Base {
                 'condition' => array(
                     'data_source' => 'csv',
                     'csv_type' => 'url',
-                ),
+                )
             ]
         );
 
@@ -142,7 +142,7 @@ class Charts extends Widget_Base {
 
         $this->start_controls_section(
             'x_axis', [
-                'label' => esc_html__('X-Axis', 'easy-elementor-addons'),
+                'label' => esc_html__('X-Axis', 'easy-elementor-addons')
             ]
         );
 
@@ -153,7 +153,7 @@ class Charts extends Widget_Base {
                 'label_on' => 'Show',
                 'label_off' => 'Hide',
                 'return_value' => 'true',
-                'description' => esc_html__('Show or Hide X-Axis Label', 'easy-elementor-addons'),
+                'description' => esc_html__('Show or Hide X-Axis Label', 'easy-elementor-addons')
             ]
         );
 
@@ -166,7 +166,7 @@ class Charts extends Widget_Base {
                 'label_block' => true,
                 'condition' => array(
                     'x_axis_label_switch' => 'true',
-                ),
+                )
             ]
         );
 
@@ -180,7 +180,7 @@ class Charts extends Widget_Base {
                 'label_block' => true,
                 'condition' => array(
                     'data_source' => 'custom',
-                ),
+                )
             ]
         );
 
@@ -192,7 +192,7 @@ class Charts extends Widget_Base {
                 'label_off' => 'Hide',
                 'return_value' => 'true',
                 'default' => 'true',
-                'description' => esc_html__('Show or Hide X-Axis Grid Lines', 'easy-elementor-addons'),
+                'description' => esc_html__('Show or Hide X-Axis Grid Lines', 'easy-elementor-addons')
             ]
         );
 
@@ -201,7 +201,7 @@ class Charts extends Widget_Base {
                 'label' => esc_html__('Begin at Zero', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'true',
-                'description' => esc_html__('Start X-Axis Labels at zero', 'easy-elementor-addons'),
+                'description' => esc_html__('Start X-Axis Labels at zero', 'easy-elementor-addons')
             ]
         );
 
@@ -211,7 +211,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 360,
-                'default' => 0,
+                'default' => 0
             ]
         );
 
@@ -228,7 +228,7 @@ class Charts extends Widget_Base {
                 ),
                 'condition' => array(
                     'type' => 'bar',
-                ),
+                )
             ]
         );
 
@@ -236,7 +236,7 @@ class Charts extends Widget_Base {
 
         $this->start_controls_section(
             'y_axis', [
-                'label' => esc_html__('Y-Axis', 'easy-elementor-addons'),
+                'label' => esc_html__('Y-Axis', 'easy-elementor-addons')
             ]
         );
 
@@ -247,7 +247,7 @@ class Charts extends Widget_Base {
                 'label_on' => 'Show',
                 'label_off' => 'Hide',
                 'return_value' => 'true',
-                'description' => esc_html__('Show or Hide Y-Axis Label', 'easy-elementor-addons'),
+                'description' => esc_html__('Show or Hide Y-Axis Label', 'easy-elementor-addons')
             ]
         );
 
@@ -260,7 +260,7 @@ class Charts extends Widget_Base {
                 'label_block' => true,
                 'condition' => array(
                     'y_axis_label_switch' => 'true',
-                ),
+                )
             ]
         );
 
@@ -270,7 +270,7 @@ class Charts extends Widget_Base {
             'y_axis_column_title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => array('active' => true),
+                'dynamic' => array('active' => true)
             ]
         );
 
@@ -279,7 +279,7 @@ class Charts extends Widget_Base {
                 'label' => esc_html__('Data', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('Enter Data Numbers for Y-Axis separated with \' , \' ', 'easy-elementor-addons'),
-                'dynamic' => array('active' => true),
+                'dynamic' => array('active' => true)
             ]
         );
 
@@ -288,7 +288,7 @@ class Charts extends Widget_Base {
                 'label' => esc_html__('URLs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('Enter URLs for each Dataset separated with \' , \' ', 'easy-elementor-addons'),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -296,21 +296,21 @@ class Charts extends Widget_Base {
             'fill_colors_notice', [
                 'raw' => '<strong>' . esc_html__('Please note!', 'easy-elementor-addons') . '</strong> ' . esc_html__('First/Second Fill Color options used together to add a gradient for all charts except Pie, Dounut and Polar Area, Fill Colors option used to add multiple colors, but please make sure First/Second Color options are cleared.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::RAW_HTML,
-                'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
+                'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning'
             ]
         );
 
         $data_repeater->add_control(
             'y_axis_column_color', [
                 'label' => esc_html__('First Fill Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
         $data_repeater->add_control(
             'y_axis_column_second_color', [
                 'label' => esc_html__('Second Fill Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
@@ -321,7 +321,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'default' => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
                 'dynamic' => array('active' => true),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -329,7 +329,7 @@ class Charts extends Widget_Base {
             'y_axis_column_border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'default' => 1,
-                'type' => Controls_Manager::NUMBER,
+                'type' => Controls_Manager::NUMBER
             ]
         );
 
@@ -337,7 +337,7 @@ class Charts extends Widget_Base {
             'y_axis_column_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
+                'default' => '#fff'
             ]
         );
 
@@ -360,7 +360,7 @@ class Charts extends Widget_Base {
                 'fields' => $data_repeater->get_controls(),
                 'condition' => array(
                     'data_source' => 'custom',
-                ),
+                )
             ]
         );
 
@@ -370,14 +370,14 @@ class Charts extends Widget_Base {
             'dataset_title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => array('active' => true),
+                'dynamic' => array('active' => true)
             ]
         );
 
         $csv_repeater->add_control(
             'dataset_color', [
                 'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
@@ -388,7 +388,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'default' => '#ff6384,#4bc0c0,#ffcd56,#c9cbcf,#36a2eb',
                 'dynamic' => array('active' => true),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -396,7 +396,7 @@ class Charts extends Widget_Base {
             'border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'default' => 1,
-                'type' => Controls_Manager::NUMBER,
+                'type' => Controls_Manager::NUMBER
             ]
         );
 
@@ -404,7 +404,7 @@ class Charts extends Widget_Base {
             'dataset_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
+                'default' => '#fff'
             ]
         );
 
@@ -425,7 +425,7 @@ class Charts extends Widget_Base {
                 'fields' => $csv_repeater->get_controls(),
                 'condition' => array(
                     'data_source' => 'csv',
-                ),
+                )
             ]
         );
 
@@ -440,7 +440,7 @@ class Charts extends Widget_Base {
                 'default' => 'linear',
                 'condition' => array(
                     'type!' => 'horizontalBar',
-                ),
+                )
             ]
         );
 
@@ -452,7 +452,7 @@ class Charts extends Widget_Base {
                 'label_off' => 'Hide',
                 'return_value' => 'true',
                 'default' => 'true',
-                'description' => esc_html__('Show or Hide Y-Axis Grid Lines', 'easy-elementor-addons'),
+                'description' => esc_html__('Show or Hide Y-Axis Grid Lines', 'easy-elementor-addons')
             ]
         );
 
@@ -462,7 +462,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'true',
                 'return_value' => 'true',
-                'description' => esc_html__('Start Y-Axis Data at zero', 'easy-elementor-addons'),
+                'description' => esc_html__('Start Y-Axis Data at zero', 'easy-elementor-addons')
             ]
         );
 
@@ -476,7 +476,7 @@ class Charts extends Widget_Base {
                 'default' => 'true',
                 'condition' => array(
                     'data_source' => 'custom',
-                ),
+                )
             ]
         );
 
@@ -484,7 +484,7 @@ class Charts extends Widget_Base {
 
         $this->start_controls_section(
             'title_content', [
-                'label' => esc_html__('Title', 'easy-elementor-addons'),
+                'label' => esc_html__('Title', 'easy-elementor-addons')
             ]
         );
 
@@ -492,7 +492,7 @@ class Charts extends Widget_Base {
             'title_switcher', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'return_value' => 'true',
+                'return_value' => 'true'
             ]
         );
 
@@ -505,7 +505,7 @@ class Charts extends Widget_Base {
                 'dynamic' => array('active' => true),
                 'condition' => array(
                     'title_switcher' => 'true',
-                ),
+                )
             ]
         );
 
@@ -525,7 +525,7 @@ class Charts extends Widget_Base {
                 'label_block' => true,
                 'condition' => array(
                     'title_switcher' => 'true',
-                ),
+                )
             ]
         );
 
@@ -540,7 +540,7 @@ class Charts extends Widget_Base {
                 'default' => 'top',
                 'condition' => array(
                     'title_switcher' => 'true',
-                ),
+                )
             ]
         );
 
@@ -568,7 +568,7 @@ class Charts extends Widget_Base {
                 'default' => 'center',
                 'condition' => array(
                     'title_switcher' => 'true',
-                ),
+                )
             ]
         );
 
@@ -576,7 +576,7 @@ class Charts extends Widget_Base {
 
         $this->start_controls_section(
             'advanced', [
-                'label' => esc_html__('Advanced Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Advanced Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -587,7 +587,7 @@ class Charts extends Widget_Base {
                 'description' => esc_html__('Set Y-axis minimum value, this will be overriden if data has a smaller value or Begin At Zero option is enabled', 'easy-elementor-addons'),
                 'condition' => array(
                     'type!' => array('pie', 'doughnut', 'radar', 'polarArea'),
-                ),
+                )
             ]
         );
 
@@ -600,7 +600,7 @@ class Charts extends Widget_Base {
                 'default' => 1,
                 'condition' => array(
                     'type!' => array('pie', 'doughnut'),
-                ),
+                )
             ]
         );
 
@@ -610,7 +610,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'condition' => array(
                     'type!' => array('pie', 'doughnut'),
-                ),
+                )
             ]
         );
 
@@ -621,7 +621,7 @@ class Charts extends Widget_Base {
                 'description' => esc_html__('Show or Hide chart legend', 'easy-elementor-addons'),
                 'label_on' => 'Show',
                 'label_off' => 'Hide',
-                'return_value' => 'true',
+                'return_value' => 'true'
             ]
         );
 
@@ -632,7 +632,7 @@ class Charts extends Widget_Base {
                 'return_value' => 'true',
                 'condition' => array(
                     'legend_display' => 'true',
-                ),
+                )
             ]
         );
 
@@ -646,7 +646,7 @@ class Charts extends Widget_Base {
                 'return_value' => 'true',
                 'condition' => array(
                     'legend_display' => 'true',
-                ),
+                )
             ]
         );
 
@@ -665,7 +665,7 @@ class Charts extends Widget_Base {
                 'mobile_default' => 'top',
                 'condition' => array(
                     'legend_display' => 'true',
-                ),
+                )
             ]
         );
 
@@ -677,7 +677,7 @@ class Charts extends Widget_Base {
                 'return_value' => 'true',
                 'condition' => array(
                     'legend_display' => 'true',
-                ),
+                )
             ]
         );
 
@@ -687,7 +687,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => 'Show',
                 'label_off' => 'Hide',
-                'return_value' => 'true',
+                'return_value' => 'true'
             ]
         );
 
@@ -698,7 +698,7 @@ class Charts extends Widget_Base {
                 'return_value' => 'true',
                 'condition' => array(
                     'tool_tips' => 'true',
-                ),
+                )
             ]
         );
 
@@ -716,7 +716,7 @@ class Charts extends Widget_Base {
                 'default' => 'nearest',
                 'condition' => array(
                     'tool_tips' => 'true',
-                ),
+                )
             ]
         );
 
@@ -731,7 +731,7 @@ class Charts extends Widget_Base {
                 'condition' => array(
                     'type' => array('pie', 'doughnut'),
                     'tool_tips!' => 'true',
-                ),
+                )
             ]
         );
 
@@ -739,7 +739,7 @@ class Charts extends Widget_Base {
             'duration', [
                 'label' => esc_html__('Animation Duration (msec)', 'easy-elementor-addons'),
                 'description' => esc_html__('Set the animation duration in milliseconds', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
+                'type' => Controls_Manager::NUMBER
             ]
         );
 
@@ -780,7 +780,7 @@ class Charts extends Widget_Base {
                     'easeOutBounce' => esc_html__('Ease out Bounce', 'easy-elementor-addons'),
                     'easeInOutBounce' => esc_html__('Ease in out Bounce', 'easy-elementor-addons'),
                 ),
-                'default' => 'easeInQuad',
+                'default' => 'easeInQuad'
             ]
         );
 
@@ -792,7 +792,7 @@ class Charts extends Widget_Base {
                     'scroll' => esc_html__('Scroll', 'easy-elementor-addons'),
                     'load' => esc_html__('Page Load', 'easy-elementor-addons'),
                 ),
-                'default' => 'scroll',
+                'default' => 'scroll'
             ]
         );
 
@@ -809,7 +809,7 @@ class Charts extends Widget_Base {
                     'de' => esc_html__('German', 'easy-elementor-addons'),
                     'ar' => esc_html__('Arabic', 'easy-elementor-addons'),
                 ),
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -818,7 +818,7 @@ class Charts extends Widget_Base {
         $this->start_controls_section(
             'general_style', [
                 'label' => esc_html__('General', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -829,7 +829,7 @@ class Charts extends Widget_Base {
                 'description' => esc_html__('Set the height of the graph in pixels', 'easy-elementor-addons'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-canvas-container' => 'height: {{VALUE}}px',
-                ),
+                )
             ]
         );
 
@@ -837,14 +837,14 @@ class Charts extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'general_background',
                 'types' => array('classic', 'gradient'),
-                'selector' => '{{WRAPPER}} .eead-chart-container',
+                'selector' => '{{WRAPPER}} .eead-chart-container'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'general_border',
-                'selector' => '{{WRAPPER}} .eead-chart-container',
+                'selector' => '{{WRAPPER}} .eead-chart-container'
             ]
         );
 
@@ -855,14 +855,14 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', '%', 'em'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ),
+                )
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'general_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-chart-container',
+                'selector' => '{{WRAPPER}} .eead-chart-container'
             ]
         );
 
@@ -873,7 +873,7 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                ),
+                )
             ]
         );
 
@@ -884,7 +884,7 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                ),
+                )
             ]
         );
 
@@ -896,7 +896,7 @@ class Charts extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'title_switcher' => 'true',
-                ),
+                )
             ]
         );
 
@@ -906,14 +906,14 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title' => 'color: {{VALUE}};',
-                ),
+                )
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typo',
-                'selector' => '{{WRAPPER}} .eead-chart-title',
+                'selector' => '{{WRAPPER}} .eead-chart-title'
             ]
         );
 
@@ -921,14 +921,14 @@ class Charts extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'title_background',
                 'types' => array('classic', 'gradient'),
-                'selector' => '{{WRAPPER}} .eead-chart-title-container',
+                'selector' => '{{WRAPPER}} .eead-chart-title-container'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'title_border',
-                'selector' => '{{WRAPPER}} .eead-chart-title-container',
+                'selector' => '{{WRAPPER}} .eead-chart-title-container'
             ]
         );
 
@@ -939,14 +939,14 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', '%', 'em'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container' => 'border-radius: {{SIZE}}{{UNIT}};',
-                ),
+                )
             ]
         );
 
         $this->add_group_control(
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'title_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-chart-title',
+                'selector' => '{{WRAPPER}} .eead-chart-title'
             ]
         );
 
@@ -957,7 +957,7 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container .eead-chart-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                ),
+                )
             ]
         );
 
@@ -968,7 +968,7 @@ class Charts extends Widget_Base {
                 'size_units' => array('px', 'em', '%'),
                 'selectors' => array(
                     '{{WRAPPER}} .eead-chart-title-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                ),
+                )
             ]
         );
 
@@ -977,7 +977,7 @@ class Charts extends Widget_Base {
         $this->start_controls_section(
             'x_axis_style', [
                 'label' => esc_html__('X-Axis', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -987,7 +987,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => array(
                     'x_axis_label_switch' => 'true',
-                ),
+                )
             ]
         );
 
@@ -1043,7 +1043,7 @@ class Charts extends Widget_Base {
         $this->add_control(
             'x_axis_grid_pop', [
                 'label' => esc_html__('Grid', 'easy-elementor-addons'),
-                'type' => Controls_Manager::POPOVER_TOGGLE,
+                'type' => Controls_Manager::POPOVER_TOGGLE
             ]
         );
 
@@ -1053,7 +1053,7 @@ class Charts extends Widget_Base {
             'x_axis_grid_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#6ec1e4',
+                'default' => '#6ec1e4'
             ]
         );
 
@@ -1071,7 +1071,7 @@ class Charts extends Widget_Base {
                 'default' => array(
                     'unit' => 'px',
                     'size' => 1,
-                ),
+                )
             ]
         );
 
@@ -1082,7 +1082,7 @@ class Charts extends Widget_Base {
         $this->start_controls_section(
             'y_axis_style', [
                 'label' => esc_html__('Y-Axis', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -1092,7 +1092,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'condition' => array(
                     'y_axis_label_switch' => 'true',
-                ),
+                )
             ]
         );
 
@@ -1111,7 +1111,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 50,
-                'default' => 12,
+                'default' => 12
             ]
         );
 
@@ -1120,7 +1120,7 @@ class Charts extends Widget_Base {
         $this->add_control(
             'y_axis_data_pop', [
                 'label' => esc_html__('Data', 'easy-elementor-addons'),
-                'type' => Controls_Manager::POPOVER_TOGGLE,
+                'type' => Controls_Manager::POPOVER_TOGGLE
             ]
         );
 
@@ -1129,7 +1129,7 @@ class Charts extends Widget_Base {
         $this->add_control(
             'y_axis_labels_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
@@ -1139,7 +1139,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 50,
-                'default' => 12,
+                'default' => 12
             ]
         );
 
@@ -1148,7 +1148,7 @@ class Charts extends Widget_Base {
         $this->add_control(
             'y_axis_grid_pop', [
                 'label' => esc_html__('Grid', 'easy-elementor-addons'),
-                'type' => Controls_Manager::POPOVER_TOGGLE,
+                'type' => Controls_Manager::POPOVER_TOGGLE
             ]
         );
 
@@ -1158,7 +1158,7 @@ class Charts extends Widget_Base {
             'y_axis_grid_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#54595f',
+                'default' => '#54595f'
             ]
         );
 
@@ -1176,7 +1176,7 @@ class Charts extends Widget_Base {
                 'default' => array(
                     'unit' => 'px',
                     'size' => 1,
-                ),
+                )
             ]
         );
 
@@ -1190,14 +1190,14 @@ class Charts extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'legend_display' => 'true',
-                ),
+                )
             ]
         );
 
         $this->add_control(
             'legend_text_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+                'type' => Controls_Manager::COLOR
             ]
         );
 
@@ -1207,7 +1207,7 @@ class Charts extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 50,
-                'default' => 12,
+                'default' => 12
             ]
         );
 
@@ -1216,7 +1216,7 @@ class Charts extends Widget_Base {
                 'label' => esc_html__('Item Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 1,
-                'default' => 40,
+                'default' => 40
             ]
         );
 
@@ -1354,7 +1354,7 @@ class Charts extends Widget_Base {
                 'class' => 'eead-chart-container',
                 'data-chart' => wp_json_encode($columns_array),
                 'data-settings' => wp_json_encode($chart_settings),
-                'data-source' => $data_source,
+                'data-source' => $data_source
             ]
         );
 
@@ -1363,7 +1363,7 @@ class Charts extends Widget_Base {
                 'id' => 'eead-chart-canvas-' . $id,
                 'class' => 'eead-chart-canvas',
                 'width' => 400,
-                'height' => 400,
+                'height' => 400
             ]
         );
         ?>

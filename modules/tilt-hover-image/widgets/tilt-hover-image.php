@@ -16,22 +16,22 @@ if (!defined('ABSPATH')) {
  */
 class TiltHoverImage extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-tilt-hover-image';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Tilt Hover Image', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eicon-image-rollover';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -40,12 +40,12 @@ class TiltHoverImage extends Widget_Base {
         return ['tilt-anime', 'tilt'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'tilt_hover_effect_section', [
                 'label' => esc_html__('Tilt Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -55,7 +55,7 @@ class TiltHoverImage extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -91,7 +91,7 @@ class TiltHoverImage extends Widget_Base {
                     '6' => esc_html__('Style 6', 'easy-elementor-addons'),
                     '7' => esc_html__('Style 7', 'easy-elementor-addons'),
                     '8' => esc_html__('Style 8', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 

@@ -37,7 +37,7 @@ class OnePageNavigation extends Widget_Base {
 
         $this->start_controls_section(
             'section_nav_dots', [
-                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons')
             ]
         );
 
@@ -51,7 +51,7 @@ class OnePageNavigation extends Widget_Base {
                 'default' => [
                     'value' => 'fa fa-circle',
                     'library' => 'fa-solid',
-                ],
+                ]
             ]
         );
 
@@ -59,14 +59,14 @@ class OnePageNavigation extends Widget_Base {
             'section_title', [
                 'label' => esc_html__('Section Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Section Title', 'easy-elementor-addons'),
+                'default' => esc_html__('Section Title', 'easy-elementor-addons')
             ]
         );
 
         $repeater->add_control(
             'section_id', [
                 'label' => esc_html__('Section ID', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
+                'type' => Controls_Manager::TEXT
             ]
         );
 
@@ -89,10 +89,10 @@ class OnePageNavigation extends Widget_Base {
                         'section_title' => esc_html__('Section 3', 'easy-elementor-addons'),
                         'section_id' => 'section-3',
                         'select_dot_icon' => 'fa fa-circle',
-                    ],
+                    ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ section_title }}}',
+                'title_field' => '{{{ section_title }}}'
             ]
         );
 
@@ -100,7 +100,7 @@ class OnePageNavigation extends Widget_Base {
 
         $this->start_controls_section(
             'section_onepage_nav_settings', [
-                'label' => esc_html__('Additional Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Additional Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -112,7 +112,7 @@ class OnePageNavigation extends Widget_Base {
                 'default' => 'off',
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'on',
+                'return_value' => 'on'
             ]
         );
 
@@ -127,7 +127,7 @@ class OnePageNavigation extends Widget_Base {
                 'return_value' => 'on',
                 'condition' => [
                     'scroll_wheel' => 'on',
-                ],
+                ]
             ]
         );
 
@@ -139,7 +139,7 @@ class OnePageNavigation extends Widget_Base {
                 'default' => 'off',
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
                 'label_off' => esc_html__('Off', 'easy-elementor-addons'),
-                'return_value' => 'on',
+                'return_value' => 'on'
             ]
         );
 
@@ -147,7 +147,7 @@ class OnePageNavigation extends Widget_Base {
             'scrolling_speed', [
                 'label' => esc_html__('Scrolling Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => '700',
+                'default' => '700'
             ]
         );
 
@@ -164,7 +164,7 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 300,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px']
             ]
@@ -202,7 +202,7 @@ class OnePageNavigation extends Widget_Base {
                 'default' => 'vertical',
                 'condition' => [
                     'position!' => ['left-middle', 'right-middle', 'center-top', 'center-bottom'],
-                ],
+                ]
             ]
         );
 
@@ -219,7 +219,7 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 300,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px', 'em', '%', 'vh'],
                 'selectors' => [
@@ -227,7 +227,7 @@ class OnePageNavigation extends Widget_Base {
                 ],
                 'condition' => [
                     'position' => ['left-top', 'right-top', 'center-top'],
-                ],
+                ]
             ]
         );
 
@@ -244,7 +244,7 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 300,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px', 'em', '%', 'vh'],
                 'selectors' => [
@@ -252,7 +252,7 @@ class OnePageNavigation extends Widget_Base {
                 ],
                 'condition' => [
                     'position' => ['left-bottom', 'right-bottom', 'center-bottom'],
-                ],
+                ]
             ]
         );
 
@@ -269,7 +269,7 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 300,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px', 'em', '%', 'vh'],
                 'selectors' => [
@@ -277,7 +277,7 @@ class OnePageNavigation extends Widget_Base {
                 ],
                 'condition' => [
                     'position' => ['left-top', 'left-middle', 'left-bottom'],
-                ],
+                ]
             ]
         );
 
@@ -294,7 +294,7 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 300,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px', 'em', '%', 'vh'],
                 'selectors' => [
@@ -302,7 +302,7 @@ class OnePageNavigation extends Widget_Base {
                 ],
                 'condition' => [
                     'position' => ['right-top', 'right-middle', 'right-bottom'],
-                ],
+                ]
             ]
         );
 
@@ -321,7 +321,7 @@ class OnePageNavigation extends Widget_Base {
         $this->start_controls_section(
             'section_nav_box_style', [
                 'label' => esc_html__('Navigation Box', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -330,7 +330,7 @@ class OnePageNavigation extends Widget_Base {
                 'name' => 'nav_container_background',
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .eead-one-page-nav',
+                'selector' => '{{WRAPPER}} .eead-one-page-nav'
             ]
         );
 
@@ -340,7 +340,7 @@ class OnePageNavigation extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-one-page-nav',
+                'selector' => '{{WRAPPER}} .eead-one-page-nav'
             ]
         );
 
@@ -351,7 +351,7 @@ class OnePageNavigation extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -362,7 +362,7 @@ class OnePageNavigation extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -370,7 +370,7 @@ class OnePageNavigation extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'nav_container_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-one-page-nav',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -379,7 +379,7 @@ class OnePageNavigation extends Widget_Base {
         $this->start_controls_section(
             'section_dots_style', [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -395,13 +395,13 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 5,
                         'max' => 60,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot i' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-nav-dot svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -417,12 +417,12 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 5,
                         'max' => 60,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -439,12 +439,12 @@ class OnePageNavigation extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px', 'em', 'vh', 'vw'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -455,7 +455,7 @@ class OnePageNavigation extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -463,7 +463,7 @@ class OnePageNavigation extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'dots_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-nav-dot',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -471,7 +471,7 @@ class OnePageNavigation extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dots_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -482,7 +482,7 @@ class OnePageNavigation extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-nav-dot svg' => 'fill: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -492,7 +492,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -502,7 +502,7 @@ class OnePageNavigation extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-nav-dot',
+                'selector' => '{{WRAPPER}} .eead-nav-dot'
             ]
         );
 
@@ -510,7 +510,7 @@ class OnePageNavigation extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dots_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -521,7 +521,7 @@ class OnePageNavigation extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot:hover i' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-nav-dot:hover svg' => 'fill: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -531,7 +531,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -541,7 +541,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -549,7 +549,7 @@ class OnePageNavigation extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dots_active', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -560,7 +560,7 @@ class OnePageNavigation extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot i' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot svg' => 'fill: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -570,7 +570,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -580,7 +580,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav-item.active .eead-nav-dot' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -596,7 +596,7 @@ class OnePageNavigation extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'nav_tooltip' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -609,7 +609,7 @@ class OnePageNavigation extends Widget_Base {
                 'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
                 'condition' => [
                     'nav_tooltip' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -625,14 +625,14 @@ class OnePageNavigation extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-one-page-nav-container' => '--eead-opn-tooltip-offset: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'nav_tooltip' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -642,7 +642,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot-tooltip, {{WRAPPER}} .eead-nav-dot-tooltip.eead-tooltip-arrow:after' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -655,7 +655,7 @@ class OnePageNavigation extends Widget_Base {
                 ],
                 'condition' => [
                     'nav_tooltip' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -666,7 +666,7 @@ class OnePageNavigation extends Widget_Base {
                 'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip',
                 'condition' => [
                     'nav_tooltip' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -674,7 +674,7 @@ class OnePageNavigation extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'tooltip_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip',
+                'selector' => '{{WRAPPER}} .eead-nav-dot-tooltip'
             ]
         );
 
@@ -685,7 +685,7 @@ class OnePageNavigation extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-nav-dot-tooltip' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -704,7 +704,7 @@ class OnePageNavigation extends Widget_Base {
                 'data-scroll-speed' => $settings['scrolling_speed'],
                 'data-scroll-wheel' => $settings['scroll_wheel'],
                 'data-scroll-touch' => $settings['scroll_touch'],
-                'data-scroll-keys' => $settings['scroll_keys'],
+                'data-scroll-keys' => $settings['scroll_keys']
             ]
         );
 

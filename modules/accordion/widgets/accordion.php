@@ -21,27 +21,27 @@ if (!defined('ABSPATH')) {
  */
 class Accordion extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-accordion';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Accordion', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-accordion';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -68,7 +68,7 @@ class Accordion extends Widget_Base {
                 'options' => [
                     'elementor_template' => esc_html__('Elementor Template', 'easy-elementor-addons'),
                     'wisiwyg' => esc_html__('WISIWYG', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -96,7 +96,7 @@ class Accordion extends Widget_Base {
         $repeater->add_control(
             'keep_open', [
                 'label' => esc_html__('Show Content', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -108,9 +108,9 @@ class Accordion extends Widget_Base {
                 'default' => [
                     [
                         'title' => esc_html__('Accordion #1', 'easy-elementor-addons'),
-                    ],
+                    ]
                 ],
-                'title_field' => '{{{ title }}}',
+                'title_field' => '{{{ title }}}'
             ]
         );
 
@@ -131,7 +131,7 @@ class Accordion extends Widget_Base {
                     'library' => 'mdi ',
                 ],
                 'skin' => 'inline',
-                'label_block' => false,
+                'label_block' => false
             ]
         );
 
@@ -148,7 +148,7 @@ class Accordion extends Widget_Base {
                 'label_block' => false,
                 'condition' => [
                     'accordion_open_icon[value]!' => '',
-                ],
+                ]
             ]
         );
 
@@ -167,7 +167,7 @@ class Accordion extends Widget_Base {
 
         $this->add_control(
             'hr1', [
-                'type' => Controls_Manager::DIVIDER,
+                'type' => Controls_Manager::DIVIDER
             ]
         );
 
@@ -185,7 +185,7 @@ class Accordion extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-content-height: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -194,21 +194,21 @@ class Accordion extends Widget_Base {
         $this->start_controls_section(
             'accordion_section_style', [
                 'label' => esc_html__('Accordion', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'accordion_border',
-                'selector' => '{{WRAPPER}} .eead-each-accordion',
+                'selector' => '{{WRAPPER}} .eead-each-accordion'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'accordion_boxshadow',
-                'selector' => '{{WRAPPER}} .eead-each-accordion',
+                'selector' => '{{WRAPPER}} .eead-each-accordion'
             ]
         );
 
@@ -218,7 +218,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -229,7 +229,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -240,7 +240,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -254,11 +254,11 @@ class Accordion extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 5,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -267,7 +267,7 @@ class Accordion extends Widget_Base {
         $this->start_controls_section(
             'header_section_style', [
                 'label' => esc_html__('Header', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -275,7 +275,7 @@ class Accordion extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-accordion-title h3',
+                'selector' => '{{WRAPPER}} .eead-accordion-title h3'
             ]
         );
 
@@ -286,7 +286,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -297,7 +297,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -316,7 +316,7 @@ class Accordion extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-icon-size: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -327,7 +327,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-icon-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -338,7 +338,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-icon-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -348,7 +348,7 @@ class Accordion extends Widget_Base {
 
         $this->start_controls_tab(
             'title_normal_tab', [
-                'label' => esc_html__('Normal', 'textdomain'),
+                'label' => esc_html__('Normal', 'textdomain')
             ]
         );
 
@@ -358,7 +358,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-background: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -368,7 +368,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-title-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -378,7 +378,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-icon-bg-color: {{VALUE}}'
-                ],
+                ]
             ]
         );
 
@@ -388,7 +388,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-icon-color: {{VALUE}}'
-                ],
+                ]
             ]
         );
 
@@ -396,7 +396,7 @@ class Accordion extends Widget_Base {
 
         $this->start_controls_tab(
             'title_active_tab', [
-                'label' => esc_html__('Active', 'textdomain'),
+                'label' => esc_html__('Active', 'textdomain')
             ]
         );
 
@@ -406,7 +406,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-header-background-active: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -416,7 +416,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-title-color-active: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -426,7 +426,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-active-icon-bg-color: {{VALUE}}'
-                ],
+                ]
             ]
         );
 
@@ -436,7 +436,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-active-icon-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -449,7 +449,7 @@ class Accordion extends Widget_Base {
         $this->start_controls_section(
             'content_section_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -457,7 +457,7 @@ class Accordion extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-accordion-content',
+                'selector' => '{{WRAPPER}} .eead-accordion-content'
             ]
         );
 
@@ -467,7 +467,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-content-bg-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -477,7 +477,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-content-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -488,7 +488,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-content-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -499,7 +499,7 @@ class Accordion extends Widget_Base {
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eed-accordion-content-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

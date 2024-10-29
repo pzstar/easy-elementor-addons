@@ -20,22 +20,22 @@ if (!defined('ABSPATH')) {
  */
 class Progressbar extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-progressbar';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Progress Bar', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-progress-bar';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,12 +44,12 @@ class Progressbar extends Widget_Base {
         return ['waypoint'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'progressbar', [
-                'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
+                'label' => esc_html__('Progress Bar', 'easy-elementor-addons')
             ]
         );
 
@@ -59,7 +59,7 @@ class Progressbar extends Widget_Base {
             'progressbar_label', [
                 'label' => esc_html__('Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -78,7 +78,7 @@ class Progressbar extends Widget_Base {
                 'default' => [
                     'size' => '90',
                     'unit' => 'px'
-                ],
+                ]
             ]
         );
 
@@ -92,7 +92,7 @@ class Progressbar extends Widget_Base {
                         'progressbar_label' => esc_html__('Progress Bar #1', 'easy-elementor-addons'),
                     ]
                 ],
-                'title_field' => '{{{ progressbar_label }}}',
+                'title_field' => '{{{ progressbar_label }}}'
             ]
         );
 
@@ -100,7 +100,7 @@ class Progressbar extends Widget_Base {
 
         $this->start_controls_section(
             'progressbar_settings', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -114,7 +114,7 @@ class Progressbar extends Widget_Base {
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
                     'style4' => esc_html__('Style 4', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -209,7 +209,7 @@ class Progressbar extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-progress' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -230,7 +230,7 @@ class Progressbar extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-progressbar-container' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -250,7 +250,7 @@ class Progressbar extends Widget_Base {
         $this->start_controls_section(
             'label_style', [
                 'label' => esc_html__('Label', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -260,7 +260,7 @@ class Progressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-progress label' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -268,7 +268,7 @@ class Progressbar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'label_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-progress label',
+                'selector' => '{{WRAPPER}} .eead-progress label'
             ]
         );
 
@@ -277,7 +277,7 @@ class Progressbar extends Widget_Base {
         $this->start_controls_section(
             'percent_style', [
                 'label' => esc_html__('Percent', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -287,7 +287,7 @@ class Progressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-progress .eead-progressbar-percentage' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -309,7 +309,7 @@ class Progressbar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'percent_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-progress .eead-progressbar-percentage',
+                'selector' => '{{WRAPPER}} .eead-progress .eead-progressbar-percentage'
             ]
         );
 
@@ -318,14 +318,14 @@ class Progressbar extends Widget_Base {
         $this->start_controls_section(
             'progressbar_style_section', [
                 'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
             'progressbar_bg_header', [
                 'label' => esc_html__('Bar Background Color', 'textdomain'),
-                'type' => Controls_Manager::HEADING,
+                'type' => Controls_Manager::HEADING
             ]
         );
 
@@ -333,7 +333,7 @@ class Progressbar extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'progressbar_bg_color',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-progressbar',
+                'selector' => '{{WRAPPER}} .eead-progressbar'
             ]
         );
 
@@ -341,7 +341,7 @@ class Progressbar extends Widget_Base {
             'progress_length_header', [
                 'label' => esc_html__('Active Progress Color', 'textdomain'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -349,7 +349,7 @@ class Progressbar extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'progress_length_bg_color',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-progressbar-length',
+                'selector' => '{{WRAPPER}} .eead-progressbar-length'
             ]
         );
 
@@ -371,16 +371,16 @@ class Progressbar extends Widget_Base {
                     ],
                     'color' => [
                         'default' => '#444444',
-                    ],
+                    ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-progressbar',
+                'selector' => '{{WRAPPER}} .eead-progressbar'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'progressbar_shadow',
-                'selector' => '{{WRAPPER}} .eead-progressbar',
+                'selector' => '{{WRAPPER}} .eead-progressbar'
             ]
         );
 

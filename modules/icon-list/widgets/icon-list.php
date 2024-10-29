@@ -23,27 +23,27 @@ if (!defined('ABSPATH')) {
  */
 class IconList extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-icon-list';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Icon List', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-listing';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -178,7 +178,7 @@ class IconList extends Widget_Base {
             'options' => [
                 'default' => esc_html__('Default', 'easy-elementor-addons'),
                 'inline' => esc_html__('Inline', 'easy-elementor-addons'),
-                'grid' => esc_html__('Grid', 'easy-elementor-addons'),
+                'grid' => esc_html__('Grid', 'easy-elementor-addons')
             ],
             'prefix_class' => 'eead-icon-list-',
                 ]
@@ -200,7 +200,7 @@ class IconList extends Widget_Base {
                 '8' => esc_html__('8', 'easy-elementor-addons')
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);',
+                '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
             ],
             'condition' => ['list_view' => 'grid']
                 ]
@@ -218,12 +218,12 @@ class IconList extends Widget_Base {
                 'flex-end' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'default' => 'flex-start',
             'selectors_dictionary' => [
                 'flex-start' => 'text-align:left; justify-content:flex-start;',
-                'flex-end' => 'text-align:right; justify-content:flex-end;',
+                'flex-end' => 'text-align:right; justify-content:flex-end;'
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => '{{VALUE}};'
@@ -248,7 +248,7 @@ class IconList extends Widget_Base {
                 'flex-end' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'default' => 'flex-start',
             'selectors' => [
@@ -266,7 +266,7 @@ class IconList extends Widget_Base {
             'range' => [
                 'px' => [
                     'max' => 100,
-                ],
+                ]
             ],
             'default' => [
                 'size' => 15,
@@ -274,7 +274,7 @@ class IconList extends Widget_Base {
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items' => 'row-gap: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after' => 'margin-top: calc({{SIZE}}{{UNIT}}/2);',
+                '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after' => 'margin-top: calc({{SIZE}}{{UNIT}}/2);'
             ],
                 ]
         );
@@ -287,7 +287,7 @@ class IconList extends Widget_Base {
             'range' => [
                 'px' => [
                     'max' => 100,
-                ],
+                ]
             ],
             'default' => [
                 'size' => 15,
@@ -295,7 +295,7 @@ class IconList extends Widget_Base {
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items' => 'column-gap: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:after' => 'margin-left: calc({{SIZE}}{{UNIT}}/2);',
+                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:after' => 'margin-left: calc({{SIZE}}{{UNIT}}/2);'
             ],
             'condition' => ['list_view!' => 'default']
                 ]
@@ -339,7 +339,7 @@ class IconList extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%'],
             'selectors' => [
-                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -350,7 +350,7 @@ class IconList extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em', 'rem', 'custom'],
             'selectors' => [
-                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -375,15 +375,15 @@ class IconList extends Widget_Base {
                 'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
                 'dashed' => esc_html__('Dashed', 'easy-elementor-addons'),
                 'groove' => esc_html__('Groove', 'easy-elementor-addons'),
-                'ridge' => esc_html__('Ridge', 'easy-elementor-addons'),
+                'ridge' => esc_html__('Ridge', 'easy-elementor-addons')
             ],
             'default' => 'solid',
             'condition' => [
-                'item_divider' => 'yes',
+                'item_divider' => 'yes'
             ],
             'selectors' => [
                 '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-style: {{VALUE}};',
-                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-style: {{VALUE}};',
+                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-style: {{VALUE}};'
             ],
                 ]
         );
@@ -393,20 +393,20 @@ class IconList extends Widget_Base {
             'label' => esc_html__('Weight', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 1,
+                'size' => 1
             ],
             'range' => [
                 'px' => [
                     'min' => 1,
                     'max' => 10,
-                ],
+                ]
             ],
             'condition' => [
-                'item_divider' => 'yes',
+                'item_divider' => 'yes'
             ],
             'selectors' => [
                 '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-width: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -417,11 +417,11 @@ class IconList extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ddd',
             'condition' => [
-                'item_divider' => 'yes',
+                'item_divider' => 'yes'
             ],
             'selectors' => [
                 '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-color: {{VALUE}};',
-                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-color: {{VALUE}};',
+                '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-color: {{VALUE}};'
             ],
                 ]
         );
@@ -452,12 +452,12 @@ class IconList extends Widget_Base {
                 'px' => [
                     'min' => 6,
                     'max' => 100,
-                ],
+                ]
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items .eead-il-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
                 '{{WRAPPER}} .eead-icon-list-items .eead-il-icon img' => 'min-width: {{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .eead-icon-list-items .eead-il-icon svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-icon-list-items .eead-il-icon svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -477,7 +477,7 @@ class IconList extends Widget_Base {
                 '2' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-h-align-right',
-                ],
+                ]
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items li .eead-il-block .eead-il-icon' => 'order:{{VALUE}}'
@@ -503,10 +503,10 @@ class IconList extends Widget_Base {
                 'flex-end' => [
                     'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-bottom',
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'align-items: {{VALUE}};',
+                '{{WRAPPER}} .eead-icon-list-items li .eead-il-block' => 'align-items: {{VALUE}};'
             ],
                 ]
         );
@@ -516,15 +516,15 @@ class IconList extends Widget_Base {
             'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
             'type' => Controls_Manager::SLIDER,
             'default' => [
-                'size' => 8,
+                'size' => 8
             ],
             'range' => [
                 'px' => [
                     'max' => 50,
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-icon-list-items .eead-il-block' => 'gap: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-icon-list-items .eead-il-block' => 'gap: {{SIZE}}{{UNIT}};'
             ],
                 ]
         );
@@ -543,7 +543,7 @@ class IconList extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-items .eead-il-block' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-icon-list-items .eead-il-block .eead-il-icon svg' => 'fill: {{VALUE}};',
+                '{{WRAPPER}} .eead-icon-list-items .eead-il-block .eead-il-icon svg' => 'fill: {{VALUE}};'
             ],
                 ]
         );
@@ -562,7 +562,7 @@ class IconList extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover' => 'color: {{VALUE}};',
-                '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover .eead-il-icon svg' => 'fill: {{VALUE}};',
+                '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover .eead-il-icon svg' => 'fill: {{VALUE}};'
             ],
                 ]
         );

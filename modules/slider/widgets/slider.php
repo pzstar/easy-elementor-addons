@@ -21,22 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class Slider extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-slider';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Slider', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eicon-slides';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,12 +49,12 @@ class Slider extends Widget_Base {
         return ['owlcarousel'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'content_section', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -66,7 +66,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -74,7 +74,7 @@ class Slider extends Widget_Base {
             'slider_title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'label_block' => true,
+                'label_block' => true
             ]
         );
 
@@ -83,7 +83,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Subtitle', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
-                'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons')
             ]
         );
 
@@ -92,7 +92,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Button Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => esc_html__('Details', 'easy-elementor-addons'),
+                'default' => esc_html__('Details', 'easy-elementor-addons')
             ]
         );
 
@@ -106,7 +106,7 @@ class Slider extends Widget_Base {
                     'url' => '',
                     'is_external' => true,
                     'nofollow' => true,
-                ],
+                ]
             ]
         );
 
@@ -119,7 +119,7 @@ class Slider extends Widget_Base {
                     'center' => esc_html__('Center', 'easy-elementor-addons'),
                     'left' => esc_html__('Left', 'easy-elementor-addons'),
                     'right' => esc_html__('Right', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -133,7 +133,7 @@ class Slider extends Widget_Base {
                         'slider_title' => esc_html__('Slider #1', 'easy-elementor-addons'),
                     ]
                 ],
-                'title_field' => '{{{ slider_title }}}',
+                'title_field' => '{{{ slider_title }}}'
             ]
         );
 
@@ -142,7 +142,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'normal_slider_settings', [
                 'label' => esc_html__('Slider Settings', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -150,7 +150,7 @@ class Slider extends Widget_Base {
             Group_Control_Image_Size::get_type(), [
                 'name' => 'thumbnail',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -162,7 +162,7 @@ class Slider extends Widget_Base {
                 'options' => [
                     'slide' => esc_html__('Slide', 'easy-elementor-addons'),
                     'fade' => esc_html__('Fade', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -170,7 +170,7 @@ class Slider extends Widget_Base {
             'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -181,7 +181,7 @@ class Slider extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -189,7 +189,7 @@ class Slider extends Widget_Base {
             'infinite', [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -203,7 +203,7 @@ class Slider extends Widget_Base {
                         'min' => 1,
                         'max' => 15,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 5,
@@ -211,7 +211,7 @@ class Slider extends Widget_Base {
                 ],
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -219,7 +219,7 @@ class Slider extends Widget_Base {
             'speed', [
                 'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => 500,
+                'default' => 500
             ]
         );
 
@@ -227,7 +227,7 @@ class Slider extends Widget_Base {
             'dots', [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -235,7 +235,7 @@ class Slider extends Widget_Base {
             'arrows', [
                 'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -243,7 +243,7 @@ class Slider extends Widget_Base {
             'auto_height', [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -252,7 +252,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'box_style', [
                 'label' => esc_html__('Box', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -261,7 +261,7 @@ class Slider extends Widget_Base {
                 'name' => 'box_bg_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-slide-caption',
+                'selector' => '{{WRAPPER}} .eead-slide-caption'
             ]
         );
 
@@ -271,7 +271,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-slide-caption',
+                'selector' => '{{WRAPPER}} .eead-slide-caption'
             ]
         );
 
@@ -282,7 +282,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -293,7 +293,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -302,7 +302,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -322,7 +322,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-title span' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -330,7 +330,7 @@ class Slider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-slide-cap-title',
+                'selector' => '{{WRAPPER}} .eead-slide-cap-title'
             ]
         );
 
@@ -341,7 +341,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-title span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -352,7 +352,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-title span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -361,7 +361,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'caption_style', [
                 'label' => esc_html__('Caption', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -379,7 +379,7 @@ class Slider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'caption_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-slide-cap-desc',
+                'selector' => '{{WRAPPER}} .eead-slide-cap-desc'
             ]
         );
 
@@ -390,7 +390,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-cap-desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -399,7 +399,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'button_style', [
                 'label' => esc_html__('Button', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -407,7 +407,7 @@ class Slider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'button_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-slide-button a',
+                'selector' => '{{WRAPPER}} .eead-slide-button a'
             ]
         );
 
@@ -417,7 +417,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'normal_button_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -447,7 +447,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-slide-button a',
+                'selector' => '{{WRAPPER}} .eead-slide-button a'
             ]
         );
 
@@ -455,7 +455,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'hover_button_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -485,7 +485,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-slide-button a:hover',
+                'selector' => '{{WRAPPER}} .eead-slide-button a:hover'
             ]
         );
 
@@ -512,7 +512,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -521,7 +521,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'dot_style', [
                 'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -532,7 +532,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -543,7 +543,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -554,7 +554,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -564,7 +564,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -574,7 +574,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -584,7 +584,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -592,7 +592,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_active_tab', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -602,7 +602,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -612,7 +612,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot.active' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -620,7 +620,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -630,7 +630,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -640,7 +640,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -654,7 +654,7 @@ class Slider extends Widget_Base {
         $this->start_controls_section(
             'arrow_style', [
                 'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -666,7 +666,7 @@ class Slider extends Widget_Base {
                 'options' => [
                     'eead-arrow-inside' => esc_html__('Inside', 'easy-elementor-addons'),
                     'eead-arrow-outside' => esc_html__('Outside', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -676,7 +676,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .owl-nav button',
+                'selector' => '{{WRAPPER}} .owl-nav button'
             ]
         );
 
@@ -687,7 +687,7 @@ class Slider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
-                ],
+                ]
             ]
         );
 
@@ -697,7 +697,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -707,7 +707,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -717,7 +717,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -727,7 +727,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -735,7 +735,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -745,7 +745,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -755,7 +755,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -765,7 +765,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 

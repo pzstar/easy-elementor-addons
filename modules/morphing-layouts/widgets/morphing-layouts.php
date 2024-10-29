@@ -14,22 +14,22 @@ if (!defined('ABSPATH')) {
 
 class MorphingLayouts extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-morphing-layouts';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Morphing Layouts', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eicon-call-to-action';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,12 +42,12 @@ class MorphingLayouts extends Widget_Base {
         return ['morph-anime', 'shape-morph', 'scrollmonitor'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'content_section', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -61,7 +61,7 @@ class MorphingLayouts extends Widget_Base {
                     'sec_bg' => esc_html__('Section Background', 'easy-elementor-addons'),
                     'column_bg' => esc_html__('Column Background', 'easy-elementor-addons'),
                     'fixed_scroll' => esc_html__('Fixed Scroll', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -69,7 +69,7 @@ class MorphingLayouts extends Widget_Base {
 
         $this->start_controls_tab(
             'morph_mw_mh', [
-                'label' => esc_html__('Max-Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Max-Size', 'easy-elementor-addons')
             ]
         );
 
@@ -82,11 +82,11 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 50,
                         'max' => 2000,
                         'step' => 2,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '.morph-{{ID}}.plus-morphing-svg-wrapper' => 'max-width: {{SIZE}}{{UNIT}};margin: 0 auto;',
-                ],
+                ]
             ]
         );
 
@@ -99,11 +99,11 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 20,
                         'max' => 1000,
                         'step' => 2,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '.morph-{{ID}}.plus-morphing-svg-wrapper' => 'max-height: {{SIZE}}{{UNIT}}',
-                ],
+                ]
             ]
         );
 
@@ -111,7 +111,7 @@ class MorphingLayouts extends Widget_Base {
 
         $this->start_controls_tab(
             'viebox_mw_mh', [
-                'label' => esc_html__('ViewBox Size', 'easy-elementor-addons'),
+                'label' => esc_html__('ViewBox Size', 'easy-elementor-addons')
             ]
         );
 
@@ -125,7 +125,7 @@ class MorphingLayouts extends Widget_Base {
                         'max' => 2000,
                         'step' => 2,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -139,7 +139,7 @@ class MorphingLayouts extends Widget_Base {
                         'max' => 1000,
                         'step' => 2,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -163,14 +163,14 @@ class MorphingLayouts extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'fa fa-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'center',
                 'toggle' => false,
                 'separator' => 'before',
                 'condition' => [
                     'morph_layout' => ['sec_bg', 'column_bg', 'fixed_scroll'],
-                ],
+                ]
             ]
         );
 
@@ -198,7 +198,7 @@ class MorphingLayouts extends Widget_Base {
                     'style-4-c' => esc_html__('Style 4-C', 'easy-elementor-addons'),
                     'style-4-d' => esc_html__('Style 4-D', 'easy-elementor-addons'),
                     'custom' => esc_html__('Custom Morphing', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -210,7 +210,7 @@ class MorphingLayouts extends Widget_Base {
                 'placeholder' => esc_html__('Morphing Custom Code', 'easy-elementor-addons'),
                 'condition' => [
                     'layouts' => ['custom'],
-                ],
+                ]
             ]
         );
 
@@ -239,7 +239,7 @@ class MorphingLayouts extends Widget_Base {
                     'custom' => esc_html__('Custom Morphing', 'easy-elementor-addons'),
                 ],
                 'description' => esc_html__('Note: If, enable (Fixed Scroll) scrolling option used for styles.', 'easy-elementor-addons'),
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -251,7 +251,7 @@ class MorphingLayouts extends Widget_Base {
                 'placeholder' => esc_html__('Morphing Custom Code', 'easy-elementor-addons'),
                 'condition' => [
                     'fixed_scroll_alt' => ['custom'],
-                ],
+                ]
             ]
         );
 
@@ -259,7 +259,7 @@ class MorphingLayouts extends Widget_Base {
 
         $repeater->start_controls_tab(
             'tab_path_option', [
-                'label' => esc_html__('Path', 'easy-elementor-addons'),
+                'label' => esc_html__('Path', 'easy-elementor-addons')
             ]
         );
 
@@ -272,12 +272,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 300,
                         'max' => 10000,
                         'step' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 3000,
-                ],
+                ]
             ]
         );
 
@@ -290,12 +290,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 10,
                         'max' => 5000,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 600,
-                ],
+                ]
             ]
         );
 
@@ -304,7 +304,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Path Easing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'easeOutElastic',
-                'options' => eead_anime_animation_easing(),
+                'options' => eead_anime_animation_easing()
             ]
         );
 
@@ -312,7 +312,7 @@ class MorphingLayouts extends Widget_Base {
 
         $repeater->start_controls_tab(
             'tab_svg_option', [
-                'label' => esc_html__('SVG', 'easy-elementor-addons'),
+                'label' => esc_html__('SVG', 'easy-elementor-addons')
             ]
         );
 
@@ -325,12 +325,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 300,
                         'max' => 10000,
                         'step' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 2000,
-                ],
+                ]
             ]
         );
 
@@ -339,7 +339,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('SVG Easing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'easeOutElastic',
-                'options' => eead_anime_animation_easing(),
+                'options' => eead_anime_animation_easing()
             ]
         );
 
@@ -347,7 +347,7 @@ class MorphingLayouts extends Widget_Base {
 
         $repeater->start_controls_tab(
             'tab_fill_option', [
-                'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
+                'label' => esc_html__('Fill Color', 'easy-elementor-addons')
             ]
         );
 
@@ -360,12 +360,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 10,
                         'max' => 5000,
                         'step' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 500,
-                ],
+                ]
             ]
         );
 
@@ -374,7 +374,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Fill Easing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'linear',
-                'options' => eead_anime_animation_easing(),
+                'options' => eead_anime_animation_easing()
             ]
         );
 
@@ -383,7 +383,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Fill Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'description' => esc_html__('If, Select "Fixed Scroll" Morphing type then use on Fill Color.', 'easy-elementor-addons'),
+                'description' => esc_html__('If, Select "Fixed Scroll" Morphing type then use on Fill Color.', 'easy-elementor-addons')
             ]
         );
 
@@ -393,7 +393,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'fill_color_loop' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -405,7 +405,7 @@ class MorphingLayouts extends Widget_Base {
             'extra_options', [
                 'label' => esc_html__('Additional Options', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -418,12 +418,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -436,12 +436,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -454,12 +454,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -360,
                         'max' => 360,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -472,12 +472,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -490,12 +490,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -512,9 +512,9 @@ class MorphingLayouts extends Widget_Base {
                     [
                         'layouts' => 'style-2-a',
                         'fixed_scroll_alt' => 'none',
-                    ],
+                    ]
                 ],
-                'title_field' => '{{{ layouts }}}',
+                'title_field' => '{{{ layouts }}}'
             ]
         );
 
@@ -528,7 +528,7 @@ class MorphingLayouts extends Widget_Base {
                     'gradient' => esc_html__('Gradient', 'easy-elementor-addons'),
                     'image' => esc_html__('Image', 'easy-elementor-addons'),
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -538,7 +538,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'morph_type' => ['color'],
-                ],
+                ]
             ]
         );
 
@@ -552,7 +552,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 0,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -566,7 +566,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 100,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -580,7 +580,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 70.5,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -594,7 +594,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 100,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -605,7 +605,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Color 1', 'easy-elementor-addons'),
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -615,7 +615,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -628,7 +628,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 0.5,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '%',
@@ -636,7 +636,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -647,7 +647,7 @@ class MorphingLayouts extends Widget_Base {
                 'label' => esc_html__('Color 2', 'easy-elementor-addons'),
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
         $this->add_control(
@@ -656,7 +656,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -669,7 +669,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 0.5,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '%',
@@ -677,7 +677,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'morph_type' => ['gradient'],
-                ],
+                ]
             ]
         );
 
@@ -694,7 +694,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'morph_type' => ['image'],
-                ],
+                ]
             ]
         );
 
@@ -708,7 +708,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 0,
                 'condition' => [
                     'morph_type' => ['image'],
-                ],
+                ]
             ]
         );
 
@@ -722,7 +722,7 @@ class MorphingLayouts extends Widget_Base {
                 'default' => 0,
                 'condition' => [
                     'morph_type' => ['image'],
-                ],
+                ]
             ]
         );
 
@@ -737,7 +737,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'morph_type' => ['image'],
-                ],
+                ]
             ]
         );
 
@@ -747,7 +747,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
                 'description' => 'If you are using custom SVG code from blob maker, Turn on this option.<a href="https://www.blobmaker.app/" target="_blank">Click</a>',
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -762,7 +762,7 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
                 'selectors' => [
                     '.plus-morphing-svg-wrapper.morph-{{ID}}' => 'overflow: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -776,7 +776,7 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
                 'condition' => [
                     'morph_layout' => ['fixed_scroll'],
-                ],
+                ]
             ]
         );
 
@@ -789,7 +789,7 @@ class MorphingLayouts extends Widget_Base {
                 'condition' => [
                     'morph_layout' => ['fixed_scroll'],
                     'morph_fixed_scroll_bg' => ['yes'],
-                ],
+                ]
             ]
         );
 
@@ -798,7 +798,7 @@ class MorphingLayouts extends Widget_Base {
         $this->start_controls_section(
             'morph_path_style', [
                 'label' => esc_html__('Morphing Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -809,7 +809,7 @@ class MorphingLayouts extends Widget_Base {
                 'separator' => 'before',
                 'condition' => [
                     'morph_layout' => ['normal'],
-                ],
+                ]
             ]
         );
 
@@ -822,12 +822,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 300,
                         'max' => 10000,
                         'step' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 3500,
-                ],
+                ]
             ]
         );
 
@@ -837,7 +837,7 @@ class MorphingLayouts extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'linear',
                 'options' => eead_anime_animation_easing(),
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -845,7 +845,7 @@ class MorphingLayouts extends Widget_Base {
             'adv_options', [
                 'label' => esc_html__('Additional Options', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -858,12 +858,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -876,12 +876,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -894,12 +894,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -360,
                         'max' => 360,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -912,12 +912,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -930,12 +930,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -947,7 +947,7 @@ class MorphingLayouts extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'morph_type' => ['image'],
-                ],
+                ]
             ]
         );
 
@@ -960,12 +960,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 300,
                         'max' => 10000,
                         'step' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 800,
-                ],
+                ]
             ]
         );
 
@@ -978,12 +978,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0,
                         'max' => 2000,
                         'step' => 10,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 300,
-                ],
+                ]
             ]
         );
 
@@ -991,7 +991,7 @@ class MorphingLayouts extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_image_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -1004,12 +1004,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -1022,12 +1022,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 1,
-                ],
+                ]
             ]
         );
 
@@ -1040,12 +1040,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -360,
                         'max' => 360,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -1058,12 +1058,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -1076,12 +1076,12 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -1089,14 +1089,14 @@ class MorphingLayouts extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_image_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'image_on_hover', [
                 'label' => esc_html__('Image Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -1109,7 +1109,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
@@ -1117,7 +1117,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'image_on_hover' => ['yes'],
-                ],
+                ]
             ]
         );
 
@@ -1130,7 +1130,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0.6,
                         'max' => 3,
                         'step' => 0.02,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
@@ -1138,7 +1138,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'image_on_hover' => ['yes'],
-                ],
+                ]
             ]
         );
 
@@ -1151,7 +1151,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => 0,
                         'max' => 360,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
@@ -1159,7 +1159,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'image_on_hover' => ['yes'],
-                ],
+                ]
             ]
         );
 
@@ -1172,7 +1172,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
@@ -1180,7 +1180,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'image_on_hover' => ['yes'],
-                ],
+                ]
             ]
         );
 
@@ -1193,7 +1193,7 @@ class MorphingLayouts extends Widget_Base {
                         'min' => -500,
                         'max' => 500,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '',
@@ -1201,7 +1201,7 @@ class MorphingLayouts extends Widget_Base {
                 ],
                 'condition' => [
                     'image_on_hover' => ['yes'],
-                ],
+                ]
             ]
         );
 

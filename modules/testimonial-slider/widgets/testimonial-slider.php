@@ -45,7 +45,7 @@ class TestimonialSlider extends Widget_Base {
     protected function register_controls() {
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -57,7 +57,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -110,7 +110,7 @@ class TestimonialSlider extends Widget_Base {
                         'testimonial_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Quisque maximus ex eros, at tincidunt arcu placerat tempus. Quisque at lacinia mauris, a auctor urna. Donec laoreet tincidunt nisi ac sodales.',
                     ),
                 ),
-                'title_field' => '{{{ name }}}',
+                'title_field' => '{{{ name }}}'
             ]
         );
 
@@ -118,7 +118,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_section(
             'section_settings', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -127,7 +127,7 @@ class TestimonialSlider extends Widget_Base {
                 'name' => 'thumb',
                 'exclude' => ['custom'],
                 'include' => [],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -139,7 +139,7 @@ class TestimonialSlider extends Widget_Base {
                 'options' => [
                     'eead-square' => esc_html__('Square', 'easy-elementor-addons'),
                     'eead-round' => esc_html__('Round', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -152,7 +152,7 @@ class TestimonialSlider extends Widget_Base {
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     'style3' => esc_html__('Style 3', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -160,7 +160,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_section(
             'carousel_settings', [
-                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -168,7 +168,7 @@ class TestimonialSlider extends Widget_Base {
             'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -179,7 +179,7 @@ class TestimonialSlider extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -187,7 +187,7 @@ class TestimonialSlider extends Widget_Base {
             'infinite', [
                 'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -201,7 +201,7 @@ class TestimonialSlider extends Widget_Base {
                         'min' => 1,
                         'max' => 15,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 5,
@@ -209,7 +209,7 @@ class TestimonialSlider extends Widget_Base {
                 ],
                 'condition' => [
                     'autoplay' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -217,7 +217,7 @@ class TestimonialSlider extends Widget_Base {
             'speed', [
                 'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
-                'default' => 500,
+                'default' => 500
             ]
         );
 
@@ -225,7 +225,7 @@ class TestimonialSlider extends Widget_Base {
             'dots', [
                 'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -233,7 +233,7 @@ class TestimonialSlider extends Widget_Base {
             'arrows', [
                 'label' => esc_html__('Navigation Arrow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -241,7 +241,7 @@ class TestimonialSlider extends Widget_Base {
             'auto_height', [
                 'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -253,7 +253,7 @@ class TestimonialSlider extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -267,7 +267,7 @@ class TestimonialSlider extends Widget_Base {
                 'mobile_default' => [
                     'size' => 1,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -279,7 +279,7 @@ class TestimonialSlider extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -293,7 +293,7 @@ class TestimonialSlider extends Widget_Base {
                 'mobile_default' => [
                     'size' => 20,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -302,7 +302,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'general_style', [
                 'label' => esc_html__('General Styles', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -312,7 +312,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-each-slider' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -334,7 +334,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-each-slider' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -342,7 +342,7 @@ class TestimonialSlider extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'testimonial_box_shadow',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-each-slider',
+                'selector' => '{{WRAPPER}} .eead-testimonial-each-slider'
             ]
         );
 
@@ -351,7 +351,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'name_style', [
                 'label' => esc_html__('Name', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -361,7 +361,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-name' => 'color: {{VALUE}}'
-                ],
+                ]
             ]
         );
 
@@ -369,7 +369,7 @@ class TestimonialSlider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'name_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-member-name',
+                'selector' => '{{WRAPPER}} .eead-testimonial-member-name'
             ]
         );
 
@@ -381,7 +381,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-name' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -390,7 +390,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'designation_style', [
                 'label' => esc_html__('Designation', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -400,7 +400,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-designation' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -408,7 +408,7 @@ class TestimonialSlider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'designation_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-member-designation',
+                'selector' => '{{WRAPPER}} .eead-testimonial-member-designation'
             ]
         );
 
@@ -420,7 +420,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-member-designation' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -429,7 +429,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'testimonial_style', [
                 'label' => esc_html__('Testimonial', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -439,7 +439,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -447,7 +447,7 @@ class TestimonialSlider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt',
+                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt'
             ]
         );
 
@@ -470,7 +470,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -541,7 +541,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'testimonial_title_style', [
                 'label' => esc_html__('Testimonial Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -551,7 +551,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content h3' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -559,7 +559,7 @@ class TestimonialSlider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content h3',
+                'selector' => '{{WRAPPER}} .eead-testimonial-content h3'
             ]
         );
 
@@ -571,7 +571,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content h3' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -580,7 +580,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'dot_style', [
                 'label' => esc_html__('Naviagation Dot Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -605,7 +605,7 @@ class TestimonialSlider extends Widget_Base {
                 'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots' => 'display:flex; justify-content: {{VALUE}}; align-items: center;',
-                ],
+                ]
             ]
         );
 
@@ -617,7 +617,7 @@ class TestimonialSlider extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'devices' => ['desktop', 'tablet', 'mobile'],
                 'default' => [
@@ -644,7 +644,7 @@ class TestimonialSlider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .owl-dots .owl-dot',
+                'selector' => '{{WRAPPER}} .owl-dots .owl-dot'
             ]
         );
 
@@ -655,7 +655,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -666,7 +666,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -677,7 +677,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -687,7 +687,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -697,7 +697,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -707,7 +707,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -715,7 +715,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_active_tab', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -725,7 +725,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -735,7 +735,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot.active' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -743,7 +743,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_tab(
             'dot_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -753,7 +753,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -763,7 +763,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-dots .owl-dot:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -777,7 +777,7 @@ class TestimonialSlider extends Widget_Base {
         $this->start_controls_section(
             'arrow_style', [
                 'label' => esc_html__('Naviagation Arrow Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -787,7 +787,7 @@ class TestimonialSlider extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .owl-nav button',
+                'selector' => '{{WRAPPER}} .owl-nav button'
             ]
         );
 
@@ -798,7 +798,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -809,7 +809,7 @@ class TestimonialSlider extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;display: flex; align-items: center; justify-content: center;',
-                ],
+                ]
             ]
         );
 
@@ -819,7 +819,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -829,7 +829,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -839,7 +839,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -849,7 +849,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -857,7 +857,7 @@ class TestimonialSlider extends Widget_Base {
 
         $this->start_controls_tab(
             'arrow_style_hover_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -867,7 +867,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'background-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -877,7 +877,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -887,7 +887,7 @@ class TestimonialSlider extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .owl-nav button:hover' => 'border-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 

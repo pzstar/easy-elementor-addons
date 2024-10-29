@@ -45,7 +45,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_section(
             'section_content_scrollnav', [
-                'label' => esc_html__('Scroll Nav', 'easy-elementor-addons'),
+                'label' => esc_html__('Scroll Nav', 'easy-elementor-addons')
             ]
         );
 
@@ -55,7 +55,7 @@ class ScrollNav extends Widget_Base {
             'nav_title', [
                 'label' => esc_html__('Nav Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Nav Title', 'easy-elementor-addons'),
+                'default' => esc_html__('Nav Title', 'easy-elementor-addons')
             ]
         );
 
@@ -64,7 +64,7 @@ class ScrollNav extends Widget_Base {
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'default' => ['url' => '#'],
-                'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
+                'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL'
             ]
         );
 
@@ -72,7 +72,7 @@ class ScrollNav extends Widget_Base {
             'scroll_nav_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'nav_icon',
+                'fa4compatibility' => 'nav_icon'
             ]
         );
 
@@ -111,9 +111,9 @@ class ScrollNav extends Widget_Base {
                         'nav_link' => [
                             'url' => '#section-5',
                         ]
-                    ],
+                    ]
                 ],
-                'title_field' => '{{{ nav_title }}}',
+                'title_field' => '{{{ nav_title }}}'
             ]
         );
 
@@ -133,7 +133,7 @@ class ScrollNav extends Widget_Base {
         $this->add_control(
             'vertical_nav', [
                 'label' => esc_html__('Vertical Nav', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -142,7 +142,7 @@ class ScrollNav extends Widget_Base {
                 'label' => esc_html__('Fixed Nav', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'prefix_class' => 'eead-scrollnav-fixed-',
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -150,7 +150,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_section(
             'section_content_additional', [
-                'label' => esc_html__('Additional', 'easy-elementor-addons'),
+                'label' => esc_html__('Additional', 'easy-elementor-addons')
             ]
         );
 
@@ -171,7 +171,7 @@ class ScrollNav extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'default' => 'left',
                 'condition' => [
@@ -188,7 +188,7 @@ class ScrollNav extends Widget_Base {
                 'options' => eead_get_item_position(),
                 'condition' => [
                     'fixed_nav' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -201,14 +201,14 @@ class ScrollNav extends Widget_Base {
                         'min' => 0,
                         'max' => 250,
                         'step' => 5,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'fixed_nav' => 'yes',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav div[class*="eead-navbar"]' => 'margin: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -219,7 +219,7 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -231,7 +231,7 @@ class ScrollNav extends Widget_Base {
                     'px' => [
                         'min' => 20,
                         'max' => 150,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px'],
                 'selectors' => [
@@ -255,7 +255,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'condition' => [
                     'nav_style' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -269,7 +269,7 @@ class ScrollNav extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
@@ -277,7 +277,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'condition' => [
                     'nav_style' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -323,7 +323,7 @@ class ScrollNav extends Widget_Base {
                     'scale' => esc_html__('Scale', 'easy-elementor-addons'),
                     'perspective' => esc_html__('Perspective', 'easy-elementor-addons'),
                 ],
-                'render_type' => 'template',
+                'render_type' => 'template'
             ]
         );
 
@@ -338,7 +338,7 @@ class ScrollNav extends Widget_Base {
                     'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
                     'left' => esc_html__('Left', 'easy-elementor-addons'),
                     'right' => esc_html__('Right', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -348,7 +348,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
@@ -358,14 +358,14 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'dotnav_tooltip_arrow', [
                 'label' => esc_html__('Arrow', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -373,7 +373,7 @@ class ScrollNav extends Widget_Base {
             'dotnav_tooltip_trigger', [
                 'label' => esc_html__('Trigger on Click', 'easy-elementor-addons'),
                 'description' => esc_html__('Don\'t set yes when you set lightbox image with marker.', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -385,7 +385,7 @@ class ScrollNav extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'nav_style' => 'default',
-                ],
+                ]
             ]
         );
 
@@ -399,7 +399,7 @@ class ScrollNav extends Widget_Base {
                     '2' => esc_html__('Style 2', 'easy-elementor-addons'),
                     '3' => esc_html__('Style 3', 'easy-elementor-addons'),
                 ],
-                'prefix_class' => 'eead-navbar-style-',
+                'prefix_class' => 'eead-navbar-style-'
             ]
         );
 
@@ -407,7 +407,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_nav_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -418,7 +418,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-scrollnav ul li > a svg *' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -428,7 +428,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -438,7 +438,7 @@ class ScrollNav extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a',
+                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a'
             ]
         );
 
@@ -449,14 +449,14 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'nav_shadow',
-                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a',
+                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a'
             ]
         );
 
@@ -467,7 +467,7 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -478,7 +478,7 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -486,7 +486,7 @@ class ScrollNav extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'nav_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a',
+                'selector' => '{{WRAPPER}} .eead-scrollnav ul li > a'
             ]
         );
 
@@ -505,7 +505,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a i' => 'color: {{VALUE}} !important;',
                     '{{WRAPPER}} .eead-scrollnav ul li > a svg *' => 'fill: {{VALUE}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -516,7 +516,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a i' => 'font-size: {{SIZE}}px;',
                     '{{WRAPPER}} .eead-scrollnav .eead-navbar-nav>li>a svg' => 'width: {{SIZE}}px;',
-                ],
+                ]
             ]
         );
 
@@ -524,7 +524,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_nav_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -538,7 +538,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'condition' => [
                     'navbar_style!' => '',
-                ],
+                ]
             ]
         );
 
@@ -549,7 +549,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -559,7 +559,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -572,7 +572,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -591,7 +591,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover i' => 'color: {{VALUE}} !important;',
                     '{{WRAPPER}} .eead-scrollnav ul li > a:hover svg *' => 'fill: {{VALUE}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -599,7 +599,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_nav_active', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -613,7 +613,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'condition' => [
                     'navbar_style!' => '',
-                ],
+                ]
             ]
         );
 
@@ -624,7 +624,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -634,7 +634,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -647,7 +647,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -666,7 +666,7 @@ class ScrollNav extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a i' => 'color: {{VALUE}} !important;',
                     '{{WRAPPER}} .eead-scrollnav ul li.eead-active > a svg *' => 'fill: {{VALUE}} !important;',
-                ],
+                ]
             ]
         );
 
@@ -682,7 +682,7 @@ class ScrollNav extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'nav_style' => 'dot',
-                ],
+                ]
             ]
         );
 
@@ -690,7 +690,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dot_nav_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -702,11 +702,11 @@ class ScrollNav extends Widget_Base {
                     'px' => [
                         'min' => 5,
                         'max' => 20,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav>*>*' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -716,7 +716,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -726,7 +726,7 @@ class ScrollNav extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a',
+                'selector' => '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a'
             ]
         );
 
@@ -737,14 +737,14 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'dot_nav_shadow',
-                'selector' => '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a',
+                'selector' => '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a'
             ]
         );
 
@@ -755,7 +755,7 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -763,7 +763,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dot_nav_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -773,7 +773,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a:hover' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -786,7 +786,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li > a:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -794,7 +794,7 @@ class ScrollNav extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_dot_nav_active', [
-                'label' => esc_html__('Active', 'easy-elementor-addons'),
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 
@@ -804,7 +804,7 @@ class ScrollNav extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li.eead-active > a' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -817,7 +817,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-scrollnav .eead-dotnav > li.eead-active > a' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -833,7 +833,7 @@ class ScrollNav extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'nav_style' => 'dot',
-                ],
+                ]
             ]
         );
 
@@ -849,18 +849,18 @@ class ScrollNav extends Widget_Base {
                     'px' => [
                         'min' => 50,
                         'max' => 500,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '.tippy-box[data-theme="eead-tippy-{{ID}}"]' => 'width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'dotnav_tooltip_typography',
-                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]',
+                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]'
             ]
         );
 
@@ -891,18 +891,18 @@ class ScrollNav extends Widget_Base {
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '.tippy-box[data-theme="eead-tippy-{{ID}}"]' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'dotnav_tooltip_background',
-                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"], .tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-backdrop',
+                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"], .tippy-box[data-theme="eead-tippy-{{ID}}"] .tippy-backdrop'
             ]
         );
 
@@ -919,7 +919,7 @@ class ScrollNav extends Widget_Base {
                 ],
                 'condition' => [
                     'dotnav_tooltip_arrow' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -930,7 +930,7 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '.tippy-box[data-theme="eead-tippy-{{ID}}"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -940,7 +940,7 @@ class ScrollNav extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]',
+                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]'
             ]
         );
 
@@ -951,14 +951,14 @@ class ScrollNav extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '.tippy-box[data-theme="eead-tippy-{{ID}}"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'dotnav_tooltip_shadow',
-                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]',
+                'selector' => '.tippy-box[data-theme="eead-tippy-{{ID}}"]'
             ]
         );
 

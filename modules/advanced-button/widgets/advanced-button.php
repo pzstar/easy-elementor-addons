@@ -20,22 +20,22 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedButton extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-advanced-button';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Advanced Button', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-advanced-button';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,11 +44,11 @@ class AdvancedButton extends Widget_Base {
         return [];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'section_button', [
-                'label' => esc_html__('Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Button', 'easy-elementor-addons')
             ]
         );
 
@@ -57,7 +57,7 @@ class AdvancedButton extends Widget_Base {
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'default' => esc_html__('Click me', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Click me', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Click me', 'easy-elementor-addons')
             ]
         );
 
@@ -68,7 +68,7 @@ class AdvancedButton extends Widget_Base {
                 'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
                 'default' => [
                     'url' => '#',
-                ],
+                ]
             ]
         );
 
@@ -111,7 +111,7 @@ class AdvancedButton extends Widget_Base {
         $this->add_control(
             'add_custom_attributes', [
                 'label' => esc_html__('Add Custom Attributes', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -133,7 +133,7 @@ class AdvancedButton extends Widget_Base {
 
         $this->start_controls_section(
             'section_button_icon', [
-                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon', 'easy-elementor-addons')
             ]
         );
 
@@ -171,7 +171,7 @@ class AdvancedButton extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 8,
@@ -181,7 +181,7 @@ class AdvancedButton extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-ab-button-icon-spacing: {{SIZE}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -190,14 +190,14 @@ class AdvancedButton extends Widget_Base {
         $this->start_controls_section(
             'section_content_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'button_typography',
-                'selector' => '{{WRAPPER}} .eead-ab-button',
+                'selector' => '{{WRAPPER}} .eead-ab-button'
             ]
         );
 
@@ -221,9 +221,9 @@ class AdvancedButton extends Widget_Base {
                     'stretch' => [
                         'title' => esc_html__('Stretch', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
-                    ],
+                    ]
                 ],
-                'prefix_class' => 'eead-ab-button-align-',
+                'prefix_class' => 'eead-ab-button-align-'
             ]
         );
 
@@ -234,7 +234,7 @@ class AdvancedButton extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ab-button' => '--eead-ab-button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -253,7 +253,7 @@ class AdvancedButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -263,7 +263,7 @@ class AdvancedButton extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-ab-button-text-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -294,16 +294,16 @@ class AdvancedButton extends Widget_Base {
                     ],
                     'color' => [
                         'default' => '#444444',
-                    ],
+                    ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-ab-button',
+                'selector' => '{{WRAPPER}} .eead-ab-button'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow',
-                'selector' => '{{WRAPPER}} .eead-ab-button',
+                'selector' => '{{WRAPPER}} .eead-ab-button'
             ]
         );
 
@@ -311,7 +311,7 @@ class AdvancedButton extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -322,7 +322,7 @@ class AdvancedButton extends Widget_Base {
                 'default' => '#FFF',
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-ab-button-text-color-hover: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -337,10 +337,10 @@ class AdvancedButton extends Widget_Base {
                     ],
                     'color' => [
                         'default' => '#444444',
-                    ],
+                    ]
                 ],
                 'selector' => '{{WRAPPER}} .eead-ab-button:after,
-                {{WRAPPER}} .eead-ab-button::before',
+                {{WRAPPER}} .eead-ab-button::before'
             ]
         );
 
@@ -350,21 +350,21 @@ class AdvancedButton extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ab-button:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_shadow_hover',
-                'selector' => '{{WRAPPER}} .eead-ab-button:hover',
+                'selector' => '{{WRAPPER}} .eead-ab-button:hover'
             ]
         );
 
         $this->add_control(
             'hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HOVER_ANIMATION,
+                'type' => Controls_Manager::HOVER_ANIMATION
             ]
         );
 

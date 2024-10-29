@@ -16,32 +16,32 @@ if (!defined('ABSPATH')) {
  */
 class LinkEffect extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-link-effect';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Link Effect', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-link';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_link_effects', [
-                'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
+                'label' => esc_html__('Link Effects', 'easy-elementor-addons')
             ]
         );
 
@@ -53,7 +53,7 @@ class LinkEffect extends Widget_Base {
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__('Click Here', 'easy-elementor-addons'),
+                'default' => esc_html__('Click Here', 'easy-elementor-addons')
             ]
         );
 
@@ -67,7 +67,7 @@ class LinkEffect extends Widget_Base {
                 'default' => esc_html__('Click Here', 'easy-elementor-addons'),
                 'condition' => [
                     'effect' => 'effect-9',
-                ],
+                ]
             ]
         );
 
@@ -81,7 +81,7 @@ class LinkEffect extends Widget_Base {
                 'placeholder' => 'https://www.your-link.com',
                 'default' => [
                     'url' => '#',
-                ],
+                ]
             ]
         );
 
@@ -113,7 +113,7 @@ class LinkEffect extends Widget_Base {
                     'effect-20' => esc_html__('Flip Unfold', 'easy-elementor-addons'),
                     'effect-21' => esc_html__('Dual Borders Translate', 'easy-elementor-addons'),
                 ],
-                'default' => 'effect-1',
+                'default' => 'effect-1'
             ]
         );
 
@@ -129,7 +129,7 @@ class LinkEffect extends Widget_Base {
                         'min' => 1,
                         'max' => 1000,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'size_units' => ['px'],
                 'selectors' => [
@@ -138,7 +138,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => 'effect-19',
-                ],
+                ]
             ]
         );
 
@@ -147,7 +147,7 @@ class LinkEffect extends Widget_Base {
         $this->start_controls_section(
             'section_style', [
                 'label' => esc_html__('Link Effects', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -171,11 +171,11 @@ class LinkEffect extends Widget_Base {
                     'justify' => [
                         'title' => esc_html__('Justified', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -188,7 +188,7 @@ class LinkEffect extends Widget_Base {
                     'px' => [
                         'min' => 1,
                         'max' => 10,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -199,7 +199,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-13', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
-                ],
+                ]
             ]
         );
 
@@ -214,7 +214,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-1', 'effect-2', 'effect-11', 'effect-13', 'effect-17', 'effect-18', 'effect-21'],
-                ],
+                ]
             ]
         );
 
@@ -228,7 +228,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-4', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-10', 'effect-14', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -236,7 +236,7 @@ class LinkEffect extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} a.eead-link',
+                'selector' => '{{WRAPPER}} a.eead-link'
             ]
         );
 
@@ -244,7 +244,7 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_link_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -258,7 +258,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect!' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -272,7 +272,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -286,7 +286,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -300,7 +300,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
-                ],
+                ]
             ]
         );
 
@@ -308,7 +308,7 @@ class LinkEffect extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_link_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -322,7 +322,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect!' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -335,7 +335,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -348,7 +348,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-4', 'effect-10', 'effect-19', 'effect-20'],
-                ],
+                ]
             ]
         );
 
@@ -361,7 +361,7 @@ class LinkEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect' => ['effect-1', 'effect-2', 'effect-6', 'effect-7', 'effect-8', 'effect-9', 'effect-11', 'effect-12', 'effect-14', 'effect-17', 'effect-18', 'effect-21'],
-                ],
+                ]
             ]
         );
 

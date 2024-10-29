@@ -110,7 +110,7 @@ class Weather extends Widget_Base {
                     'metric' => esc_html__('Celsius', 'easy-elementor-addons'),
                     'imperial' => esc_html__('Fahrenheit', 'easy-elementor-addons'),
                 ],
-                'default' => 'metric',
+                'default' => 'metric'
             ]
         );
 
@@ -122,7 +122,7 @@ class Weather extends Widget_Base {
                 'min' => 10,
                 'max' => 86400,
                 'step' => 1,
-                'default' => 3600,
+                'default' => 3600
             ]
         );
 
@@ -191,7 +191,7 @@ class Weather extends Widget_Base {
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -200,7 +200,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'temperature_style', [
                 'label' => esc_html__('Temperature', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -210,7 +210,7 @@ class Weather extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-temperature' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -218,7 +218,7 @@ class Weather extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'temp_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-weather-temperature',
+                'selector' => '{{WRAPPER}} .eead-weather-temperature'
             ]
         );
 
@@ -258,7 +258,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'description_style', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -268,7 +268,7 @@ class Weather extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-description' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -276,7 +276,7 @@ class Weather extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'description_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-weather-description',
+                'selector' => '{{WRAPPER}} .eead-weather-description'
             ]
         );
 
@@ -296,7 +296,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'day_style', [
                 'label' => esc_html__('Day', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -306,7 +306,7 @@ class Weather extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-current-day' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -314,7 +314,7 @@ class Weather extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'day_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-weather-current-day',
+                'selector' => '{{WRAPPER}} .eead-weather-current-day'
             ]
         );
 
@@ -334,7 +334,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'city_style', [
                 'label' => esc_html__('City', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -345,7 +345,7 @@ class Weather extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -354,7 +354,7 @@ class Weather extends Widget_Base {
                 'name' => 'city_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-city span,
-                           {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span',
+                           {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-city span'
             ]
         );
 
@@ -375,7 +375,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'country_style', [
                 'label' => esc_html__('Country', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -386,7 +386,7 @@ class Weather extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
                  {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4' => 'color: {{VALUE}} !important',
-                ],
+                ]
             ]
         );
 
@@ -395,7 +395,7 @@ class Weather extends Widget_Base {
                 'name' => 'country_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-top-section .eead-location-info .eead-weather-country h4,
-                           {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4',
+                           {{WRAPPER}} .eead-weather-container.style1 .eead-weather-top-section .eead-location-info .eead-weather-country h4'
             ]
         );
 
@@ -416,7 +416,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'top_box_style', [
                 'label' => esc_html__('Top Box', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -426,7 +426,7 @@ class Weather extends Widget_Base {
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-weather-container.style1,
-                               {{WRAPPER}} .eead-weather-container.style2 .eead-weather-temperature',
+                               {{WRAPPER}} .eead-weather-container.style2 .eead-weather-temperature'
             ]
         );
 
@@ -447,7 +447,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'middle_box_style', [
                 'label' => esc_html__('Middle Box', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -456,7 +456,7 @@ class Weather extends Widget_Base {
                 'name' => 'middle_box_bg_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-weather-container.style2',
+                'selector' => '{{WRAPPER}} .eead-weather-container.style2'
             ]
         );
 
@@ -476,7 +476,7 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'bottom_box_style', [
                 'label' => esc_html__('Bottom Box', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -485,7 +485,7 @@ class Weather extends Widget_Base {
                 'name' => 'bottom_box_bg_color',
                 'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-weather-bottom-section',
+                'selector' => '{{WRAPPER}} .eead-weather-bottom-section'
             ]
         );
 
@@ -495,7 +495,7 @@ class Weather extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-bottom-section' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -503,7 +503,7 @@ class Weather extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'bottom_box_text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-weather-bottom-section',
+                'selector' => '{{WRAPPER}} .eead-weather-bottom-section'
             ]
         );
 
@@ -673,7 +673,7 @@ class Weather extends Widget_Base {
                 'query' => urlencode($location),
                 'forecast_days' => 6,
                 'hourly' => 1,
-                'units' => 'm',
+                'units' => 'm'
             ];
 
             $request_url = add_query_arg(

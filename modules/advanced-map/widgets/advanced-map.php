@@ -16,17 +16,17 @@ if (!defined('ABSPATH')) {
  */
 class AdvancedMap extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-advanced-map';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Advanced Map', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-map';
     }
@@ -35,7 +35,7 @@ class AdvancedMap extends Widget_Base {
         return ['map', 'google map', 'google'];
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -44,12 +44,12 @@ class AdvancedMap extends Widget_Base {
         return ['gmap-api'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'marker_controls_section', [
-                'label' => esc_html__('Markers', 'easy-elementor-addons'),
+                'label' => esc_html__('Markers', 'easy-elementor-addons')
             ]
         );
 
@@ -57,7 +57,7 @@ class AdvancedMap extends Widget_Base {
             'api-notice', [
                 'type' => Controls_Manager::NOTICE,
                 'heading' => esc_html__('Notice', 'easy-elementor-addons'),
-                'content' => esc_html__('Google Map API key is required. To add Google Map API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>',
+                'content' => esc_html__('Google Map API key is required. To add Google Map API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>'
             ]
         );
 
@@ -67,7 +67,7 @@ class AdvancedMap extends Widget_Base {
             'lat', [
                 'label' => esc_html__('Latitude', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons')
             ]
         );
 
@@ -75,7 +75,7 @@ class AdvancedMap extends Widget_Base {
             'long', [
                 'label' => esc_html__('Longitude', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons')
             ]
         );
 
@@ -84,14 +84,14 @@ class AdvancedMap extends Widget_Base {
                 'label' => esc_html__('Address', 'easy-elementor-addons'),
                 'description' => esc_html__('Use line break to move to next line.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'placeholder' => esc_html__('Enter address here..', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Enter address here..', 'easy-elementor-addons')
             ]
         );
 
         $repeater->add_control(
             'icon', [
                 'label' => esc_html__('Upload Pin Icon', 'easy-elementor-addons'),
-                'type' => Controls_Manager::MEDIA,
+                'type' => Controls_Manager::MEDIA
             ]
         );
 
@@ -103,12 +103,12 @@ class AdvancedMap extends Widget_Base {
                     'px' => [
                         'min' => 20,
                         'max' => 200,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 50,
                     'unit' => 'px',
-                ],
+                ]
             ]
         );
 
@@ -118,7 +118,7 @@ class AdvancedMap extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
                 'label_on' => esc_html__('Open', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Close', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Close', 'easy-elementor-addons')
             ]
         );
 
@@ -133,7 +133,7 @@ class AdvancedMap extends Widget_Base {
                         'long' => '-118.1418337',
                         'address' => esc_html__('Enter Address Here', 'easy-elementor-addons'),
                     ],
-                ],
+                ]
             ]
         );
 
@@ -141,7 +141,7 @@ class AdvancedMap extends Widget_Base {
 
         $this->start_controls_section(
             'general', [
-                'label' => esc_html__('General Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('General Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -152,7 +152,7 @@ class AdvancedMap extends Widget_Base {
                 'default' => 300,
                 'selectors' => [
                     '{{WRAPPER}} .eead-gmap-markers' => 'height:{{VALUE}}px',
-                ],
+                ]
             ]
         );
 
@@ -164,19 +164,19 @@ class AdvancedMap extends Widget_Base {
                     'px' => [
                         'min' => 6,
                         'max' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
                     'size' => 13,
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'animate', [
                 'label' => esc_html__('Animate Marker', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -189,7 +189,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'enable' => esc_html__('Enabled', 'easy-elementor-addons'),
                     'disable' => esc_html__('Disabled', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -201,7 +201,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'show' => esc_html__('Show', 'easy-elementor-addons'),
                     'hide' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -213,7 +213,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'show' => esc_html__('Show', 'easy-elementor-addons'),
                     'hide' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -225,7 +225,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'show' => esc_html__('Show', 'easy-elementor-addons'),
                     'hide' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -238,7 +238,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'show' => esc_html__('Show', 'easy-elementor-addons'),
                     'hide' => esc_html__('Hide', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -250,7 +250,7 @@ class AdvancedMap extends Widget_Base {
                 'options' => array(
                     'yes' => esc_html__('Yes', 'easy-elementor-addons'),
                     'noe' => esc_html__('No', 'easy-elementor-addons'),
-                ),
+                )
             ]
         );
 
@@ -259,7 +259,7 @@ class AdvancedMap extends Widget_Base {
                 'label' => esc_html__('Snazzy Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'separator' => 'before',
-                'description' => esc_html__('Choose any map styles by visiting <a href="https://snazzymaps.com/explore" target="_blank">Snazzy Maps</a>. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons'),
+                'description' => esc_html__('Choose any map styles by visiting <a href="https://snazzymaps.com/explore" target="_blank">Snazzy Maps</a>. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons')
             ]
         );
 

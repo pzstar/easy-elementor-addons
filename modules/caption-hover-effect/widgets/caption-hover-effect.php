@@ -17,22 +17,22 @@ if (!defined('ABSPATH')) {
  */
 class CaptionHoverEffect extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-caption-hover-effect';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Caption Hover Effect', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eicon-click';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -41,11 +41,11 @@ class CaptionHoverEffect extends Widget_Base {
         return ['modernizr-custom'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'content_section', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -64,7 +64,7 @@ class CaptionHoverEffect extends Widget_Base {
                 'name' => 'image',
                 'exclude' => ['custom'],
                 'include' => [],
-                'default' => 'full',
+                'default' => 'full'
             ]
         );
 
@@ -115,7 +115,7 @@ class CaptionHoverEffect extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                         'step' => 1
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => '%',
@@ -126,7 +126,7 @@ class CaptionHoverEffect extends Widget_Base {
                 ],
                 'condition' => [
                     'effect_style' => array('cs-style-6', 'cs-style-7'),
-                ],
+                ]
             ]
         );
 
@@ -150,7 +150,7 @@ class CaptionHoverEffect extends Widget_Base {
                 'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
-                ],
+                ]
             ]
         );
 
@@ -159,7 +159,7 @@ class CaptionHoverEffect extends Widget_Base {
         $this->start_controls_section(
             'settings_section', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 

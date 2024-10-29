@@ -15,22 +15,22 @@ if (!defined('ABSPATH')) {
  */
 class AnimatedIcon extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-animated-icon';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Animated Icon', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-animated-icon';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -39,12 +39,12 @@ class AnimatedIcon extends Widget_Base {
         return ['lordicon'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $this->start_controls_section(
             'eead_general', [
                 'label' => esc_html__('General', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -76,7 +76,7 @@ class AnimatedIcon extends Widget_Base {
                 ),
                 'condition' => [
                     'eead_type' => 'file',
-                ],
+                ]
             ]
         );
 
@@ -91,7 +91,7 @@ class AnimatedIcon extends Widget_Base {
                 'show_external' => false,
                 'condition' => [
                     'eead_type' => 'url'
-                ],
+                ]
             ]
         );
 
@@ -108,7 +108,7 @@ class AnimatedIcon extends Widget_Base {
                     'loop-on-hover' => esc_html__('Loop on Hover', 'easy-elementor-addons'),
                     'morph' => esc_html__('Morph', 'easy-elementor-addons'),
                     'morph-two-way' => esc_html__('Morph Two Way', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -124,7 +124,7 @@ class AnimatedIcon extends Widget_Base {
                     'column' => esc_html__('On Column', 'easy-elementor-addons'),
                     'section' => esc_html__('On Section', 'easy-elementor-addons'),
                     'custom' => esc_html__('Custom', 'easy-elementor-addons')
-                ],
+                ]
             ]
         );
 
@@ -139,7 +139,7 @@ class AnimatedIcon extends Widget_Base {
                 'default' => '.example',
                 'condition' => [
                     'eead_animation_target' => 'custom'
-                ],
+                ]
             ]
         );
 
@@ -153,7 +153,7 @@ class AnimatedIcon extends Widget_Base {
                 'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
-                ],
+                ]
             ]
         );
 
@@ -162,7 +162,7 @@ class AnimatedIcon extends Widget_Base {
         $this->start_controls_section(
             'eead_icon_styles', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -177,7 +177,7 @@ class AnimatedIcon extends Widget_Base {
                     'px' => [
                         'min' => 0,
                         'max' => 500,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} lord-icon' => 'height:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}}'

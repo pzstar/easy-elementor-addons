@@ -20,17 +20,17 @@ if (!defined('ABSPATH')) {
  */
 class DropBar extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-drop-bar';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Drop Bar', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-drop-bar';
     }
@@ -39,7 +39,7 @@ class DropBar extends Widget_Base {
         return ['dropbar', 'dropdown', 'popup'];
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -48,12 +48,12 @@ class DropBar extends Widget_Base {
         return ['uikit'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content_dropbar', [
-                'label' => esc_html__('Content', 'easy-elementor-addons'),
+                'label' => esc_html__('Content', 'easy-elementor-addons')
             ]
         );
 
@@ -65,7 +65,7 @@ class DropBar extends Widget_Base {
                 'options' => [
                     'custom' => esc_html__('Custom Content', 'easy-elementor-addons'),
                     "elementor" => esc_html__('Elementor Template', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -76,7 +76,7 @@ class DropBar extends Widget_Base {
                 'placeholder' => esc_html__('Dropbar content goes here', 'easy-elementor-addons'),
                 'show_label' => false,
                 'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam', 'easy-elementor-addons'),
-                'condition' => ['source' => 'custom'],
+                'condition' => ['source' => 'custom']
             ]
         );
 
@@ -87,7 +87,7 @@ class DropBar extends Widget_Base {
                 'default' => '0',
                 'options' => get_elementor_templates(),
                 'label_block' => 'true',
-                'condition' => ['source' => "elementor"],
+                'condition' => ['source' => "elementor"]
             ]
         );
 
@@ -95,7 +95,7 @@ class DropBar extends Widget_Base {
 
         $this->start_controls_section(
             'section_content_button', [
-                'label' => esc_html__('Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Button', 'easy-elementor-addons')
             ]
         );
 
@@ -103,7 +103,7 @@ class DropBar extends Widget_Base {
             'button_text', [
                 'label' => esc_html__('Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Open Dropbar', 'easy-elementor-addons'),
+                'default' => esc_html__('Open Dropbar', 'easy-elementor-addons')
             ]
         );
 
@@ -130,7 +130,7 @@ class DropBar extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'flex-direction: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -142,7 +142,7 @@ class DropBar extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -153,7 +153,7 @@ class DropBar extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -178,9 +178,9 @@ class DropBar extends Widget_Base {
                     'justify' => [
                         'title' => esc_html__('Stretch', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-justify',
-                    ],
+                    ]
                 ],
-                'prefix_class' => 'elementor%s-align-',
+                'prefix_class' => 'elementor%s-align-'
             ]
         );
 
@@ -188,7 +188,7 @@ class DropBar extends Widget_Base {
 
         $this->start_controls_section(
             'section_additional_option', [
-                'label' => esc_html__('Dropbar', 'easy-elementor-addons'),
+                'label' => esc_html__('Dropbar', 'easy-elementor-addons')
             ]
         );
 
@@ -197,7 +197,7 @@ class DropBar extends Widget_Base {
                 'label' => esc_html__('Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'bottom-left',
-                'options' => eead_drop_position(),
+                'options' => eead_drop_position()
             ]
         );
 
@@ -209,7 +209,7 @@ class DropBar extends Widget_Base {
                 'options' => [
                     'click' => esc_html__('Click', 'easy-elementor-addons'),
                     'hover' => esc_html__('Hover', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -221,11 +221,11 @@ class DropBar extends Widget_Base {
                     'px' => [
                         'min' => 100,
                         'max' => 1000,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop' => 'width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -238,7 +238,7 @@ class DropBar extends Widget_Base {
                         'max' => 100,
                         'step' => 5,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -246,7 +246,7 @@ class DropBar extends Widget_Base {
 
         $this->start_controls_section(
             'animation_option', [
-                'label' => esc_html__('Animation', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation', 'easy-elementor-addons')
             ]
         );
 
@@ -270,11 +270,11 @@ class DropBar extends Widget_Base {
                     'px' => [
                         'max' => 4000,
                         'step' => 50,
-                    ],
+                    ]
                 ],
                 'condition' => [
                     'drop_animation!' => '',
-                ],
+                ]
             ]
         );
 
@@ -290,7 +290,7 @@ class DropBar extends Widget_Base {
                         'max' => 1000,
                         'step' => 100,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -306,7 +306,7 @@ class DropBar extends Widget_Base {
                         'max' => 10000,
                         'step' => 100,
                     ],
-                ],
+                ]
             ]
         );
 
@@ -323,7 +323,7 @@ class DropBar extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons'),
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -334,7 +334,7 @@ class DropBar extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button svg' => 'fill: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -344,7 +344,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -354,7 +354,7 @@ class DropBar extends Widget_Base {
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
                 'default' => '1px',
-                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button',
+                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button'
             ]
         );
 
@@ -365,7 +365,7 @@ class DropBar extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -376,14 +376,14 @@ class DropBar extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'button_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button',
+                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button'
             ]
         );
 
@@ -391,7 +391,7 @@ class DropBar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'button_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button',
+                'selector' => '{{WRAPPER}} .eead-dropbar .eead-dropbar-button'
             ]
         );
 
@@ -399,7 +399,7 @@ class DropBar extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_button_hover', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
@@ -409,7 +409,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button:hover' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -419,7 +419,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button:hover' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -429,14 +429,14 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-dropbar .eead-dropbar-button:hover' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'hover_animation', [
                 'label' => esc_html__('Hover Animation', 'easy-elementor-addons'),
-                'type' => Controls_Manager::HOVER_ANIMATION,
+                'type' => Controls_Manager::HOVER_ANIMATION
             ]
         );
 
@@ -449,7 +449,7 @@ class DropBar extends Widget_Base {
         $this->start_controls_section(
             'section_style_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -459,7 +459,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop-content' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -469,7 +469,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop-content' => 'background-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -480,7 +480,7 @@ class DropBar extends Widget_Base {
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -491,14 +491,14 @@ class DropBar extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'content_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-drop-content',
+                'selector' => '{{WRAPPER}} .eead-drop-content'
             ]
         );
 
@@ -506,7 +506,7 @@ class DropBar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'content_box_text_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-drop-content',
+                'selector' => '{{WRAPPER}} .eead-drop-content'
             ]
         );
 
@@ -533,7 +533,7 @@ class DropBar extends Widget_Base {
                     'id' => $id,
                     'class' => 'eead-drop uk-drop',
                     'uk-drop' => [$btn_settings],
-                ],
+                ]
             ]
         );
         ?>

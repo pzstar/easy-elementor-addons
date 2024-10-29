@@ -4,9 +4,9 @@ namespace EasyElementorAddons\Modules\StickyVideo\Widgets;
 
 // Elementor Classes
 use Modules\DynamicTags\Module as TagsModule;
-use Controls_Manager;
-use Group_Control_Image_Size;
-use Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Widget_Base;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -17,22 +17,22 @@ if (!defined('ABSPATH')) {
  */
 class StickyVideo extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-sticky-video';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Sticky Video', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-sticky-video';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -52,13 +52,13 @@ class StickyVideo extends Widget_Base {
         ];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'eead_section_video_settings', [
                 'label' => esc_html__('Video', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -72,7 +72,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'yes',
                 'selectors' => [
                     '{{WRAPPER}} div.eead-sticky-player' => 'display: block',
-                ],
+                ]
             ]
         );
 
@@ -89,7 +89,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'bottom-right',
                 'condition' => [
                     'eead_is_sticky' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -102,7 +102,7 @@ class StickyVideo extends Widget_Base {
                     'youtube' => esc_html__('YouTube', 'easy-elementor-addons'),
                     'self_hosted' => esc_html__('Self Hosted', 'easy-elementor-addons'),
                     'vimeo' => esc_html__('Vimeo', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -115,7 +115,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'https://www.youtube.com/watch?v=MLpWrANjFbI',
                 'condition' => [
                     'eead_video_source' => 'youtube',
-                ],
+                ]
             ]
         );
 
@@ -128,7 +128,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'https://vimeo.com/76979871',
                 'condition' => [
                     'eead_video_source' => 'vimeo',
-                ],
+                ]
             ]
         );
 
@@ -140,7 +140,7 @@ class StickyVideo extends Widget_Base {
                 'label_block' => true,
                 'condition' => [
                     'eead_video_source' => 'dailymotion',
-                ],
+                ]
             ]
         );
 
@@ -151,7 +151,7 @@ class StickyVideo extends Widget_Base {
                 'label_block' => false,
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
@@ -163,13 +163,13 @@ class StickyVideo extends Widget_Base {
                     'active' => true,
                     'categories' => [
                         TagsModule::MEDIA_CATEGORY,
-                    ],
+                    ]
                 ],
                 'media_type' => 'video',
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
                     'eead_link_external' => '',
-                ],
+                ]
             ]
         );
 
@@ -183,7 +183,7 @@ class StickyVideo extends Widget_Base {
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
                     'eead_link_external' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -195,7 +195,7 @@ class StickyVideo extends Widget_Base {
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
                     'eead_video_source_external' => '',
-                ],
+                ]
             ]
         );
 
@@ -209,7 +209,7 @@ class StickyVideo extends Widget_Base {
                 'description' => 'Specify a start time (in seconds)',
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
@@ -223,7 +223,7 @@ class StickyVideo extends Widget_Base {
                 'description' => 'Specify an end time (in seconds)',
                 'condition' => [
                     'eead_video_source' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
@@ -232,7 +232,7 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -240,7 +240,7 @@ class StickyVideo extends Widget_Base {
             'eead_mute', [
                 'label' => esc_html__('Mute', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_block' => false,
+                'label_block' => false
             ]
         );
 
@@ -248,7 +248,7 @@ class StickyVideo extends Widget_Base {
             'eead_loop', [
                 'label' => esc_html__('Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_block' => false,
+                'label_block' => false
             ]
         );
 
@@ -260,7 +260,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'yes',
                 'selectors' => [
                     '{{WRAPPER}} .plyr__controls' => 'display: flex!important;',
-                ],
+                ]
             ]
         );
 
@@ -269,7 +269,7 @@ class StickyVideo extends Widget_Base {
         $this->start_controls_section(
             'eead_video_image_overlay_section', [
                 'label' => esc_html__('Image Overlay', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT
             ]
         );
 
@@ -279,7 +279,7 @@ class StickyVideo extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
                 'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Hide', 'easy-elementor-addons')
             ]
         );
 
@@ -293,7 +293,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
-                ],
+                ]
             ]
         );
 
@@ -303,7 +303,7 @@ class StickyVideo extends Widget_Base {
                 'name' => 'eead_overlay_image_size',
                 'condition' => [
                     'eead_overlay_options' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -315,7 +315,7 @@ class StickyVideo extends Widget_Base {
                 'default' => 'yes',
                 'condition' => [
                     'eead_overlay_options' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -331,7 +331,7 @@ class StickyVideo extends Widget_Base {
                 'condition' => [
                     'eead_overlay_options' => 'yes',
                     'eead_overlay_play_icon' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -343,7 +343,7 @@ class StickyVideo extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'eead_is_sticky' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -360,7 +360,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-player2.out' => 'width: {{VALUE}}px!important;',
-                ],
+                ]
             ]
         );
 
@@ -377,7 +377,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-player2.out' => 'height: {{VALUE}}px!important;',
-                ],
+                ]
             ]
         );
 
@@ -390,7 +390,7 @@ class StickyVideo extends Widget_Base {
                         'min' => 50,
                         'max' => 200,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'unit' => 'px',
@@ -398,7 +398,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'condition' => [
                     'eead_is_sticky' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -411,7 +411,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-player-close' => 'color: {{VALUE}}!important',
-                ],
+                ]
             ]
         );
 
@@ -420,7 +420,7 @@ class StickyVideo extends Widget_Base {
         $this->start_controls_section(
             'eead_sh_player_section', [
                 'label' => esc_html__('Player', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -438,11 +438,11 @@ class StickyVideo extends Widget_Base {
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'width: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -460,7 +460,7 @@ class StickyVideo extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'border-style: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -471,7 +471,7 @@ class StickyVideo extends Widget_Base {
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -481,7 +481,7 @@ class StickyVideo extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'border-color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -494,7 +494,7 @@ class StickyVideo extends Widget_Base {
                     '{{WRAPPER}} .eead-sticky-video-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .eead-overlay' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .eead-sticky-video-player2' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -503,7 +503,7 @@ class StickyVideo extends Widget_Base {
         $this->start_controls_section(
             'eead_sh_player_interface_section', [
                 'label' => esc_html__('Interface', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -518,7 +518,7 @@ class StickyVideo extends Widget_Base {
                     '{{WRAPPER}} .plyr--video .plyr__control.plyr__tab-focus' => 'background: {{VALUE}}!important',
                     '{{WRAPPER}} .plyr__control--overlaid' => 'background: {{VALUE}}!important',
                     '{{WRAPPER}} .plyr--video .plyr__control:hover' => 'background: {{VALUE}}!important',
-                ],
+                ]
             ]
         );
 
@@ -536,11 +536,11 @@ class StickyVideo extends Widget_Base {
                         'min' => 15,
                         'max' => 55,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .plyr__control--overlaid' => 'padding: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -549,7 +549,7 @@ class StickyVideo extends Widget_Base {
         $this->start_controls_section(
             'eead_sh_player_bar_section', [
                 'label' => esc_html__('Bar', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -567,11 +567,11 @@ class StickyVideo extends Widget_Base {
                         'min' => 10,
                         'max' => 50,
                         'step' => 1,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .plyr--video .plyr__controls' => 'padding: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -582,7 +582,7 @@ class StickyVideo extends Widget_Base {
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .plyr--video .plyr__controls' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

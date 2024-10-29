@@ -16,22 +16,22 @@ if (!defined('ABSPATH')) {
  */
 class CircularProgressbar extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-circular-progressbar';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Circular Progressbar', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-circular-progressbar';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -40,12 +40,12 @@ class CircularProgressbar extends Widget_Base {
         return ['waypoint'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_content', [
-                'label' => esc_html__('Circular Progressbar', 'easy-elementor-addons'),
+                'label' => esc_html__('Circular Progressbar', 'easy-elementor-addons')
             ]
         );
 
@@ -72,7 +72,7 @@ class CircularProgressbar extends Widget_Base {
                         'max' => 100,
                         'step' => 1,
                     ]
-                ],
+                ]
             ]
         );
 
@@ -94,7 +94,7 @@ class CircularProgressbar extends Widget_Base {
                 'render_type' => 'template',
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar' => '--eead-cb-circle-size: {{SIZE}}px;',
-                ],
+                ]
             ]
         );
 
@@ -116,7 +116,7 @@ class CircularProgressbar extends Widget_Base {
                 'render_type' => 'template',
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar' => '--eead-cb-circle-stroke: {{SIZE}}px;',
-                ],
+                ]
             ]
         );
 
@@ -136,11 +136,11 @@ class CircularProgressbar extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar' => 'justify-content: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -149,7 +149,7 @@ class CircularProgressbar extends Widget_Base {
         $this->start_controls_section(
             'title_style', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -159,7 +159,7 @@ class CircularProgressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-title' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -167,7 +167,7 @@ class CircularProgressbar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-title',
+                'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-title'
             ]
         );
 
@@ -179,7 +179,7 @@ class CircularProgressbar extends Widget_Base {
                 'size_units' => ['px', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ],
+                ]
             ]
         );
 
@@ -188,7 +188,7 @@ class CircularProgressbar extends Widget_Base {
         $this->start_controls_section(
             'percent_style', [
                 'label' => esc_html__('Percent', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -198,7 +198,7 @@ class CircularProgressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-number' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -206,7 +206,7 @@ class CircularProgressbar extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'percent_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-number',
+                'selector' => '{{WRAPPER}} .eead-circular-progressbar-box .eead-cb-number'
             ]
         );
 
@@ -215,7 +215,7 @@ class CircularProgressbar extends Widget_Base {
         $this->start_controls_section(
             'progressbar_style', [
                 'label' => esc_html__('Progress Bar', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -225,7 +225,7 @@ class CircularProgressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar-box svg circle:nth-child(1)' => 'stroke: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -235,7 +235,7 @@ class CircularProgressbar extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-circular-progressbar-box svg circle:nth-child(2)' => 'stroke: {{VALUE}}',
-                ],
+                ]
             ]
         );
 

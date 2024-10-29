@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
  */
 class VideoPlayer extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-video-player';
     }
@@ -26,27 +26,27 @@ class VideoPlayer extends Widget_Base {
         return array();
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Video Player', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-video-player';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_video', [
-                'label' => esc_html__('Video', 'easy-elementor-addons'),
+                'label' => esc_html__('Video', 'easy-elementor-addons')
             ]
         );
 
@@ -59,7 +59,7 @@ class VideoPlayer extends Widget_Base {
                     'youtube' => esc_html__('YouTube', 'easy-elementor-addons'),
                     'vimeo' => esc_html__('Vimeo', 'easy-elementor-addons'),
                     'self_hosted' => esc_html__('Self Hosted', 'easy-elementor-addons'),
-                ],
+                ]
             ]
         );
 
@@ -72,7 +72,7 @@ class VideoPlayer extends Widget_Base {
                 'default' => 'https://www.youtube.com/watch?v=nZYqLR_DBqw',
                 'condition' => [
                     'video_type' => 'youtube',
-                ],
+                ]
             ]
         );
 
@@ -85,7 +85,7 @@ class VideoPlayer extends Widget_Base {
                 'default' => 'https://vimeo.com/456168511',
                 'condition' => [
                     'video_type' => 'vimeo',
-                ],
+                ]
             ]
         );
 
@@ -97,7 +97,7 @@ class VideoPlayer extends Widget_Base {
                 'condition' => [
                     'video_type' => 'youtube',
                     'controls' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -108,7 +108,7 @@ class VideoPlayer extends Widget_Base {
                 'condition' => [
                     'video_type' => 'youtube',
                     'controls' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -119,7 +119,7 @@ class VideoPlayer extends Widget_Base {
                 'description' => esc_html__('If switched off, YouTube will save visitors data on your website only when video is played.', 'easy-elementor-addons'),
                 'condition' => [
                     'video_type' => 'youtube',
-                ],
+                ]
             ]
         );
 
@@ -134,7 +134,7 @@ class VideoPlayer extends Widget_Base {
                 'separator' => 'after',
                 'condition' => [
                     'video_type' => 'youtube',
-                ],
+                ]
             ]
         );
 
@@ -148,7 +148,7 @@ class VideoPlayer extends Widget_Base {
                 ],
                 'condition' => [
                     'video_type' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
@@ -159,7 +159,7 @@ class VideoPlayer extends Widget_Base {
                 'media_type' => 'video',
                 'condition' => [
                     'video_type' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
@@ -180,7 +180,7 @@ class VideoPlayer extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'condition' => [
                     'loop' => '',
-                    'video_type' => ['youtube', 'self_hosted'],
+                    'video_type' => ['youtube', 'self_hosted']
                 ],
                 'separator' => 'after'
             ]
@@ -201,7 +201,7 @@ class VideoPlayer extends Widget_Base {
                 ],
                 'condition' => [
                     'video_type' => ['youtube', 'vimeo'],
-                ],
+                ]
             ]
         );
 
@@ -213,7 +213,7 @@ class VideoPlayer extends Widget_Base {
                     'video_type' => 'self_hosted',
                     'self_hosted_player' => 'html5',
                     'controls' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -223,14 +223,14 @@ class VideoPlayer extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'condition' => [
                     'video_type' => 'self_hosted',
-                ],
+                ]
             ]
         );
 
         $this->add_control(
             'autoplay', [
                 'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -248,7 +248,7 @@ class VideoPlayer extends Widget_Base {
                 'type' => Controls_Manager::SWITCHER,
                 'condition' => [
                     'video_type!' => 'vimeo',
-                ],
+                ]
             ]
         );
 
@@ -267,7 +267,7 @@ class VideoPlayer extends Widget_Base {
                 'alpha' => false,
                 'condition' => [
                     'video_type' => 'vimeo',
-                ],
+                ]
             ]
         );
 
@@ -275,7 +275,7 @@ class VideoPlayer extends Widget_Base {
 
         $this->start_controls_section(
             'play_button_section', [
-                'label' => esc_html__('Play Button', 'easy-elementor-addons'),
+                'label' => esc_html__('Play Button', 'easy-elementor-addons')
             ]
         );
 
@@ -283,7 +283,7 @@ class VideoPlayer extends Widget_Base {
             'show_play_button', [
                 'label' => esc_html__('Show Play Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'yes'
             ]
         );
 
@@ -305,7 +305,7 @@ class VideoPlayer extends Widget_Base {
                 ],
                 'condition' => [
                     'show_play_button' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -320,7 +320,7 @@ class VideoPlayer extends Widget_Base {
                 'condition' => [
                     'show_play_button' => 'yes',
                     'play_button_type' => 'icon',
-                ],
+                ]
             ]
         );
 
@@ -331,7 +331,7 @@ class VideoPlayer extends Widget_Base {
                 'condition' => [
                     'show_play_button' => 'yes',
                     'play_button_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -341,7 +341,7 @@ class VideoPlayer extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-video-play-button i' => 'color: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -349,14 +349,14 @@ class VideoPlayer extends Widget_Base {
 
         $this->start_controls_section(
             'thumb_overlay_section', [
-                'label' => esc_html__('Thumbnail Overlay', 'easy-elementor-addons'),
+                'label' => esc_html__('Thumbnail Overlay', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
             'show_thumbnail', [
                 'label' => esc_html__('Show Custom Thumbnail', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
+                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -366,7 +366,7 @@ class VideoPlayer extends Widget_Base {
                 'type' => Controls_Manager::MEDIA,
                 'condition' => [
                     'show_thumbnail' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -376,7 +376,7 @@ class VideoPlayer extends Widget_Base {
                 'default' => 'full',
                 'condition' => [
                     'show_thumbnail' => 'yes',
-                ],
+                ]
             ]
         );
 
@@ -387,7 +387,7 @@ class VideoPlayer extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-video-overlay:before' => 'background-color: {{VALUE}};',
                 ],
-                'separator' => 'before',
+                'separator' => 'before'
             ]
         );
 
@@ -484,7 +484,7 @@ class VideoPlayer extends Widget_Base {
 
             $embed_attr = [
                 'class' => 'eead-video-iframe',
-                'allow' => 'autoplay;encrypted-media',
+                'allow' => 'autoplay;encrypted-media'
             ];
 
             $video_html = Embed::get_embed_html($video_url, $embed_params, $embed_options, $embed_attr);
@@ -504,7 +504,7 @@ class VideoPlayer extends Widget_Base {
                 'controls' => 'controls',
                 'mute' => 'mute',
                 'yt_suggested_videos' => 'rel',
-                'yt_modestbranding' => 'modestbranding',
+                'yt_modestbranding' => 'modestbranding'
             ];
 
             if ($settings['loop']) {
@@ -519,7 +519,7 @@ class VideoPlayer extends Widget_Base {
             $params_dictionary = [
                 'autoplay' => 'autoplay',
                 'loop' => 'loop',
-                'mute' => 'muted',
+                'mute' => 'muted'
             ];
 
             if (!empty($settings['vimeo_controls_color'])) {

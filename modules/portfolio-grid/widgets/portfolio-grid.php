@@ -21,22 +21,22 @@ if (!defined('ABSPATH')) {
  */
 class PortfolioGrid extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-portfolio-grid';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Portfolio Grid', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-portfolio-grid';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -49,7 +49,7 @@ class PortfolioGrid extends Widget_Base {
         return ['eead-portfolio-grid'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -66,7 +66,7 @@ class PortfolioGrid extends Widget_Base {
             'label' => esc_html__('Image', 'easy-elementor-addons'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
-                'url' => Utils::get_placeholder_image_src(),
+                'url' => Utils::get_placeholder_image_src()
             ],
                 ]
         );
@@ -77,7 +77,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ],
                 ]
         );
@@ -88,7 +88,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::TEXTAREA,
             'label_block' => true,
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ],
                 ]
         );
@@ -102,10 +102,10 @@ class PortfolioGrid extends Widget_Base {
             'default' => [
                 'url' => '',
                 'is_external' => true,
-                'nofollow' => true,
+                'nofollow' => true
             ],
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ]
                 ]
         );
@@ -116,7 +116,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ],
                 ]
         );
@@ -201,7 +201,7 @@ class PortfolioGrid extends Widget_Base {
                 'h5' => 'H5',
                 'h6' => 'H6',
                 'div' => 'div',
-                'p' => 'p',
+                'p' => 'p'
             ],
             'default' => 'h5',
                 ]
@@ -219,7 +219,7 @@ class PortfolioGrid extends Widget_Base {
                 'h5' => 'H5',
                 'h6' => 'H6',
                 'div' => 'div',
-                'p' => 'p',
+                'p' => 'p'
             ],
             'default' => 'p',
                 ]
@@ -246,7 +246,7 @@ class PortfolioGrid extends Widget_Base {
                 'eead-fpg-list-view' => [
                     'title' => esc_html__('List', 'easy-elementor-addons'),
                     'icon' => 'fas fa-th-list',
-                ],
+                ]
             ],
             'default' => 'eead-fpg-grid-view',
             'toggle' => false
@@ -279,7 +279,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ],
                 ]
         );
@@ -291,7 +291,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::TEXT,
             'label_block' => true,
             'dynamic' => [
-                'active' => true,
+                'active' => true
             ],
                 ]
         );
@@ -430,11 +430,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 100,
                     'max' => 1400,
                     'step' => 5,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 300,
+                'size' => 300
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-grid-view' => 'grid-template-columns:repeat(auto-fit, minmax({{SIZE}}{{UNIT}}, 1fr));'
@@ -452,11 +452,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 30,
+                'size' => 30
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-grid-view' => 'grid-gap: {{SIZE}}{{UNIT}};'
@@ -477,7 +477,7 @@ class PortfolioGrid extends Widget_Base {
             'default' => 'below-img',
             'options' => [
                 'in-img' => esc_html__('On the image', 'easy-elementor-addons'),
-                'below-img' => esc_html__('Below the image', 'easy-elementor-addons'),
+                'below-img' => esc_html__('Below the image', 'easy-elementor-addons')
             ]
                 ]
         );
@@ -512,7 +512,7 @@ class PortfolioGrid extends Widget_Base {
                 'flex-end' => [
                     'title' => esc_html__('End', 'easy-elementor-addons'),
                     'icon' => 'eicon-v-align-bottom',
-                ],
+                ]
             ],
             'default' => 'flex-start',
             'selectors' => [
@@ -539,10 +539,10 @@ class PortfolioGrid extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-fpg-grid-view figcaption' => 'text-align: {{VALUE}};',
+                '{{WRAPPER}} .eead-fpg-grid-view figcaption' => 'text-align: {{VALUE}};'
             ],
                 ]
         );
@@ -562,7 +562,7 @@ class PortfolioGrid extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'rem'],
             'selectors' => [
-                '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption' => 'border-top-left-radius: {{TOP}}{{UNIT}};border-top-right-radius: {{RIGHT}}{{UNIT}};border-bottom-right-radius: {{BOTTOM}}{{UNIT}};border-bottom-left-radius: {{LEFT}}{{UNIT}};'
             ],
             'condition' => ['grid_txt_placement' => 'in-img']
                 ]
@@ -753,11 +753,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 0,
                     'max' => 1000,
                     'step' => 5,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 200,
+                'size' => 200
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li figure' => 'grid-template-columns: {{SIZE}}{{UNIT}} 1fr;'
@@ -775,11 +775,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 20,
+                'size' => 20
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-container.eead-fpg-list-view li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
@@ -810,10 +810,10 @@ class PortfolioGrid extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-fpg-list-view figcaption' => 'text-align: {{VALUE}};',
+                '{{WRAPPER}} .eead-fpg-list-view figcaption' => 'text-align: {{VALUE}};'
             ],
                 ]
         );
@@ -1151,11 +1151,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 100,
                     'max' => 900,
                     'step' => 5,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 200,
+                'size' => 200
             ],
             'selectors' => [
                 '{{WRAPPER}} {{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label' => 'max-width:{{SIZE}}{{UNIT}};'
@@ -1206,11 +1206,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 20,
+                'size' => 20
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label .dashicons:before' => 'font-size:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}};height:{{SIZE}}{{UNIT}};line-height:{{SIZE}}{{UNIT}};',
@@ -1386,11 +1386,11 @@ class PortfolioGrid extends Widget_Base {
                     'min' => 0,
                     'max' => 100,
                     'step' => 1,
-                ],
+                ]
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 20,
+                'size' => 20
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label .dashicons:before' => 'font-size:{{SIZE}}{{UNIT}};width:{{SIZE}}{{UNIT}};height:{{SIZE}}{{UNIT}};line-height:{{SIZE}}{{UNIT}};',

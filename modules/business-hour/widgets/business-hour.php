@@ -18,22 +18,22 @@ if (!defined('ABSPATH')) {
  */
 class BusinessHour extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-business-hour';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Business Hour', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-business-hours';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -42,7 +42,7 @@ class BusinessHour extends Widget_Base {
         return ['jclock'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
         $time_24hr = false;
         $wp_time_format = get_option('time_format');
@@ -78,7 +78,7 @@ class BusinessHour extends Widget_Base {
                 'text' => [
                     'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
                     'icon' => 'eicon-animated-headline',
-                ],
+                ]
             ],
             'default' => 'date',
                 ]
@@ -91,7 +91,7 @@ class BusinessHour extends Widget_Base {
             'default' => esc_html__('We are open.', 'easy-elementor-addons'),
             'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
             'condition' => [
-                'header_content_type' => 'status',
+                'header_content_type' => 'status'
             ],
                 ]
         );
@@ -103,7 +103,7 @@ class BusinessHour extends Widget_Base {
             'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
             'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
             'condition' => [
-                'header_content_type' => 'status',
+                'header_content_type' => 'status'
             ],
                 ]
         );
@@ -116,7 +116,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::TEXTAREA,
             'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
             'condition' => [
-                'header_content_type' => 'text',
+                'header_content_type' => 'text'
             ],
                 ]
         );
@@ -128,14 +128,14 @@ class BusinessHour extends Widget_Base {
             'options' => [
                 'left' => esc_html__('Left', 'easy-elementor-addons'),
                 'center' => esc_html__('Center', 'easy-elementor-addons'),
-                'right' => esc_html__('Right', 'easy-elementor-addons'),
+                'right' => esc_html__('Right', 'easy-elementor-addons')
             ],
             'default' => 'left',
             'condition' => [
-                'header_content_type!' => 'none',
+                'header_content_type!' => 'none'
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'text-align: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'text-align: {{VALUE}}'
             ]
                 ]
         );
@@ -297,7 +297,7 @@ class BusinessHour extends Widget_Base {
                 'text' => [
                     'title' => esc_html__('Custom Message', 'easy-elementor-addons'),
                     'icon' => 'eicon-animated-headline',
-                ],
+                ]
             ],
             'default' => 'status',
                 ]
@@ -310,7 +310,7 @@ class BusinessHour extends Widget_Base {
             'default' => esc_html__('We are open.', 'easy-elementor-addons'),
             'placeholder' => esc_html__('We are open.', 'easy-elementor-addons'),
             'condition' => [
-                'footer_content_type' => 'status',
+                'footer_content_type' => 'status'
             ],
                 ]
         );
@@ -322,7 +322,7 @@ class BusinessHour extends Widget_Base {
             'default' => esc_html__('Sorry, We are currently closed.', 'easy-elementor-addons'),
             'placeholder' => esc_html__('Sorry, We are closed.', 'easy-elementor-addons'),
             'condition' => [
-                'footer_content_type' => 'status',
+                'footer_content_type' => 'status'
             ],
                 ]
         );
@@ -335,7 +335,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::TEXTAREA,
             'default' => esc_html__('Your Custom Message', 'easy-elementor-addons'),
             'condition' => [
-                'footer_content_type' => 'text',
+                'footer_content_type' => 'text'
             ],
                 ]
         );
@@ -347,14 +347,14 @@ class BusinessHour extends Widget_Base {
             'options' => [
                 'left' => esc_html__('Left', 'easy-elementor-addons'),
                 'center' => esc_html__('Center', 'easy-elementor-addons'),
-                'right' => esc_html__('Right', 'easy-elementor-addons'),
+                'right' => esc_html__('Right', 'easy-elementor-addons')
             ],
             'default' => 'left',
             'condition' => [
-                'footer_content_type!' => 'none',
+                'footer_content_type!' => 'none'
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'text-align: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'text-align: {{VALUE}}'
             ]
                 ]
         );
@@ -388,7 +388,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::SELECT,
             'options' => [
                 'default' => esc_html__('No', 'easy-elementor-addons'),
-                'dynamic' => esc_html__('Yes', 'easy-elementor-addons'),
+                'dynamic' => esc_html__('Yes', 'easy-elementor-addons')
             ],
             'default' => 'default',
                 ]
@@ -428,7 +428,7 @@ class BusinessHour extends Widget_Base {
                 '-10' => esc_html__('HST  - GMT-10', 'easy-elementor-addons'),
                 '-11' => esc_html__('NT  - GMT-11', 'easy-elementor-addons'),
                 '-12' => esc_html__('IDLW  - GMT-12', 'easy-elementor-addons'),
-                'custom' => "Custom",
+                'custom' => "Custom"
             ],
                 ]
         );
@@ -440,7 +440,7 @@ class BusinessHour extends Widget_Base {
             'default' => '+6',
             'placeholder' => '+6',
             'condition' => [
-                'dynamic_timezone' => 'custom',
+                'dynamic_timezone' => 'custom'
             ]
                 ]
         );
@@ -453,7 +453,7 @@ class BusinessHour extends Widget_Base {
             'label' => esc_html__('Header Section', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
-                'header_content_type!' => 'none',
+                'header_content_type!' => 'none'
             ],
                 ]
         );
@@ -464,7 +464,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}'
             ],
                 ]
         );
@@ -475,7 +475,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -505,7 +505,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ]
                 ]
         );
@@ -518,7 +518,7 @@ class BusinessHour extends Widget_Base {
             'label' => esc_html__('Footer Section', 'easy-elementor-addons'),
             'tab' => Controls_Manager::TAB_STYLE,
             'condition' => [
-                'footer_content_type!' => 'none',
+                'footer_content_type!' => 'none'
             ],
                 ]
         );
@@ -529,7 +529,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333333',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}'
             ],
                 ]
         );
@@ -540,7 +540,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -570,7 +570,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ]
                 ]
         );
@@ -599,7 +599,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#fff',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'background-color: {{VALUE}}'
             ],
                 ]
         );
@@ -610,7 +610,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -621,7 +621,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#ccc',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}'
             ],
                 ]
         );
@@ -632,7 +632,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'default' => '#333',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -653,11 +653,11 @@ class BusinessHour extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'default' => 'left',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'text-align: {{VALUE}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'text-align: {{VALUE}};'
             ],
                 ]
         );
@@ -678,7 +678,7 @@ class BusinessHour extends Widget_Base {
                 'right' => [
                     'title' => esc_html__('Right', 'easy-elementor-addons'),
                     'icon' => 'eicon-text-align-right',
-                ],
+                ]
             ],
             'default' => 'right',
             'selectors' => [
@@ -697,11 +697,11 @@ class BusinessHour extends Widget_Base {
                     'min' => 10,
                     'step' => 1,
                     'max' => 600,
-                ],
+                ]
             ],
             'selectors' => [
                 '{{WRAPPER}} .eead-business-hour .eead-business-day' => 'flex-basis:{{SIZE}}{{UNIT}};',
-                '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'flex-basis:calc(100% - {{SIZE}}{{UNIT}});',
+                '{{WRAPPER}} .eead-business-hour .eead-business-time' => 'flex-basis:calc(100% - {{SIZE}}{{UNIT}});'
             ],
                 ]
         );
@@ -712,7 +712,7 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ]
                 ]
         );
@@ -741,14 +741,14 @@ class BusinessHour extends Widget_Base {
             'options' => [
                 'solid' => esc_html__('Solid', 'easy-elementor-addons'),
                 'dotted' => esc_html__('Dotted', 'easy-elementor-addons'),
-                'dashed' => esc_html__('Dashed', 'easy-elementor-addons'),
+                'dashed' => esc_html__('Dashed', 'easy-elementor-addons')
             ],
             'default' => 'solid',
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-style: {{VALUE}};'
             ],
             'condition' => [
-                'day_divider' => 'yes',
+                'day_divider' => 'yes'
             ],
                 ]
         );
@@ -758,10 +758,10 @@ class BusinessHour extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-color: {{VALUE}};'
             ],
             'condition' => [
-                'day_divider' => 'yes',
+                'day_divider' => 'yes'
             ],
                 ]
         );
@@ -772,19 +772,19 @@ class BusinessHour extends Widget_Base {
             'type' => Controls_Manager::SLIDER,
             'default' => [
                 'size' => 1,
-                'unit' => 'px',
+                'unit' => 'px'
             ],
             'range' => [
                 'px' => [
                     'min' => 1,
                     'max' => 10,
-                ],
+                ]
             ],
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};'
             ],
             'condition' => [
-                'day_divider' => 'yes',
+                'day_divider' => 'yes'
             ],
                 ]
         );
@@ -811,10 +811,10 @@ class BusinessHour extends Widget_Base {
             'label' => esc_html__('Striped Odd Rows Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(odd)' => 'background: {{VALUE}};'
             ],
             'condition' => [
-                'business_hours_striped' => 'yes',
+                'business_hours_striped' => 'yes'
             ],
                 ]
         );
@@ -824,10 +824,10 @@ class BusinessHour extends Widget_Base {
             'label' => esc_html__('Striped Even Rows Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};',
+                '{{WRAPPER}} .eead-business-hour .eead-business-hour-row:nth-child(even)' => 'background: {{VALUE}};'
             ],
             'condition' => [
-                'business_hours_striped' => 'yes',
+                'business_hours_striped' => 'yes'
             ],
                 ]
         );
@@ -886,7 +886,7 @@ class BusinessHour extends Widget_Base {
                         "timeNotation" => $timeNotation,
                             ])
                     ),
-                ],
+                ]
             ],
         ]);
         ?>

@@ -21,32 +21,32 @@ if (!defined('ABSPATH')) {
  */
 class Toggle extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-toggle';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Toggle Content', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-toggle';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
             'section_primary', [
-                'label' => esc_html__('Primary', 'easy-elementor-addons'),
+                'label' => esc_html__('Primary', 'easy-elementor-addons')
             ]
         );
 
@@ -54,7 +54,7 @@ class Toggle extends Widget_Base {
             'primary_label', [
                 'label' => esc_html__('Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Annual', 'easy-elementor-addons'),
+                'default' => esc_html__('Annual', 'easy-elementor-addons')
             ]
         );
 
@@ -67,7 +67,7 @@ class Toggle extends Widget_Base {
                     'content' => esc_html__('Content', 'easy-elementor-addons'),
                     'template' => esc_html__('Saved Templates', 'easy-elementor-addons'),
                 ],
-                'default' => 'content',
+                'default' => 'content'
             ]
         );
 
@@ -79,7 +79,7 @@ class Toggle extends Widget_Base {
                 'options' => get_elementor_templates(),
                 'condition' => [
                     'primary_content_type' => 'template',
-                ],
+                ]
             ]
         );
 
@@ -90,7 +90,7 @@ class Toggle extends Widget_Base {
                 'default' => esc_html__('Primary Content', 'easy-elementor-addons'),
                 'condition' => [
                     'primary_content_type' => 'content',
-                ],
+                ]
             ]
         );
 
@@ -103,7 +103,7 @@ class Toggle extends Widget_Base {
                 ],
                 'condition' => [
                     'primary_content_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -114,7 +114,7 @@ class Toggle extends Widget_Base {
                 'separator' => 'none',
                 'condition' => [
                     'primary_content_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -122,7 +122,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_section(
             'section_secondary', [
-                'label' => esc_html__('Secondary', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary', 'easy-elementor-addons')
             ]
         );
 
@@ -130,7 +130,7 @@ class Toggle extends Widget_Base {
             'secondary_label', [
                 'label' => esc_html__('Label', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Lifetime', 'easy-elementor-addons'),
+                'default' => esc_html__('Lifetime', 'easy-elementor-addons')
             ]
         );
 
@@ -143,7 +143,7 @@ class Toggle extends Widget_Base {
                     'content' => esc_html__('Content', 'easy-elementor-addons'),
                     'template' => esc_html__('Saved Templates', 'easy-elementor-addons'),
                 ],
-                'default' => 'content',
+                'default' => 'content'
             ]
         );
 
@@ -155,7 +155,7 @@ class Toggle extends Widget_Base {
                 'options' => get_elementor_templates(),
                 'condition' => [
                     'secondary_content_type' => 'template',
-                ],
+                ]
             ]
         );
 
@@ -166,7 +166,7 @@ class Toggle extends Widget_Base {
                 'default' => esc_html__('Secondary Content', 'easy-elementor-addons'),
                 'condition' => [
                     'secondary_content_type' => 'content',
-                ],
+                ]
             ]
         );
 
@@ -179,7 +179,7 @@ class Toggle extends Widget_Base {
                 ],
                 'condition' => [
                     'secondary_content_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -190,7 +190,7 @@ class Toggle extends Widget_Base {
                 'separator' => 'none',
                 'condition' => [
                     'secondary_content_type' => 'image',
-                ],
+                ]
             ]
         );
 
@@ -198,7 +198,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_section(
             'section_settings', [
-                'label' => esc_html__('Settings', 'easy-elementor-addons'),
+                'label' => esc_html__('Settings', 'easy-elementor-addons')
             ]
         );
 
@@ -210,7 +210,7 @@ class Toggle extends Widget_Base {
                     'primary' => esc_html__('Primary', 'easy-elementor-addons'),
                     'secondary' => esc_html__('Secondary', 'easy-elementor-addons'),
                 ],
-                'default' => 'primary',
+                'default' => 'primary'
             ]
         );
 
@@ -225,7 +225,7 @@ class Toggle extends Widget_Base {
                     'style4' => esc_html__('Style 4', 'easy-elementor-addons'),
                     'style5' => esc_html__('Style 5', 'easy-elementor-addons')
                 ],
-                'default' => 'style1',
+                'default' => 'style1'
             ]
         );
 
@@ -238,7 +238,7 @@ class Toggle extends Widget_Base {
                     'after' => esc_html__('After', 'easy-elementor-addons'),
                     'before-after' => esc_html__('Before', 'easy-elementor-addons') . ' + ' . esc_html__('After', 'easy-elementor-addons'),
                 ],
-                'default' => 'before',
+                'default' => 'before'
             ]
         );
 
@@ -248,7 +248,7 @@ class Toggle extends Widget_Base {
         $this->start_controls_section(
             'section_toggle_switch_style', [
                 'label' => esc_html__('Switch', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -269,11 +269,11 @@ class Toggle extends Widget_Base {
                     'flex-end' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-container' => 'justify-content: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
@@ -297,7 +297,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 30,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 60,
@@ -321,7 +321,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 60,
                         'max' => 100,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 80,
@@ -345,7 +345,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 30,
                         'max' => 60,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 30,
@@ -370,7 +370,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 2,
                         'max' => 30,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 10,
@@ -394,7 +394,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 20,
-                    ],
+                    ]
                 ],
                 'default' => [
                     'size' => 15,
@@ -418,7 +418,7 @@ class Toggle extends Widget_Base {
                     'px' => [
                         'min' => 10,
                         'max' => 50,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-container' => '--eead-handle-size: {{SIZE}}{{UNIT}};',
@@ -441,11 +441,11 @@ class Toggle extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 80,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-inner' => 'gap: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -457,12 +457,12 @@ class Toggle extends Widget_Base {
                 'range' => [
                     'px' => [
                         'max' => 80,
-                    ],
+                    ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-switch-before' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-toggle-switch-after' => 'margin-top: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -493,7 +493,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_switch_primary', [
-                'label' => esc_html__('Primary', 'easy-elementor-addons'),
+                'label' => esc_html__('Primary', 'easy-elementor-addons')
             ]
         );
 
@@ -504,7 +504,7 @@ class Toggle extends Widget_Base {
                 'default' => '#EEEEEE',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-bg-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -540,7 +540,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_switch_secondary', [
-                'label' => esc_html__('Secondary', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary', 'easy-elementor-addons')
             ]
         );
 
@@ -551,7 +551,7 @@ class Toggle extends Widget_Base {
                 'default' => '#DDD',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-bg-active-color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -592,7 +592,7 @@ class Toggle extends Widget_Base {
         $this->start_controls_section(
             'section_label_style', [
                 'label' => esc_html__('Labels', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -600,7 +600,7 @@ class Toggle extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'label_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-toggle-label',
+                'selector' => '{{WRAPPER}} .eead-toggle-label'
             ]
         );
 
@@ -608,7 +608,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_label_primary', [
-                'label' => esc_html__('Primary', 'easy-elementor-addons'),
+                'label' => esc_html__('Primary', 'easy-elementor-addons')
             ]
         );
 
@@ -618,7 +618,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-label-primary' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -628,7 +628,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container:not(.eead-switch-on) .eead-toggle-label-primary' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -636,7 +636,7 @@ class Toggle extends Widget_Base {
 
         $this->start_controls_tab(
             'tab_label_secondary', [
-                'label' => esc_html__('Secondary', 'easy-elementor-addons'),
+                'label' => esc_html__('Secondary', 'easy-elementor-addons')
             ]
         );
 
@@ -646,7 +646,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-label-secondary' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -656,7 +656,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container.eead-switch-on .eead-toggle-label-secondary' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -669,7 +669,7 @@ class Toggle extends Widget_Base {
         $this->start_controls_section(
             'section_content_style', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
@@ -677,7 +677,7 @@ class Toggle extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-toggle-section',
+                'selector' => '{{WRAPPER}} .eead-toggle-section'
             ]
         );
 
@@ -687,7 +687,7 @@ class Toggle extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-section' => 'color: {{VALUE}}',
-                ],
+                ]
             ]
         );
 
@@ -695,7 +695,7 @@ class Toggle extends Widget_Base {
             Group_Control_Background::get_type(), [
                 'name' => 'content_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-toggle-content',
+                'selector' => '{{WRAPPER}} .eead-toggle-content'
             ]
         );
 
@@ -704,14 +704,14 @@ class Toggle extends Widget_Base {
                 'name' => 'content_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'placeholder' => '1px',
-                'selector' => '{{WRAPPER}} .eead-toggle-content',
+                'selector' => '{{WRAPPER}} .eead-toggle-content'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'content_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-toggle-content',
+                'selector' => '{{WRAPPER}} .eead-toggle-content'
             ]
         );
 
@@ -722,7 +722,7 @@ class Toggle extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -733,7 +733,7 @@ class Toggle extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 

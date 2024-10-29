@@ -19,27 +19,27 @@ if (!defined('ABSPATH')) {
  */
 class PricingTable extends Widget_Base {
 
-    /** Widget Name */
+   
     public function get_name() {
         return 'eead-pricing-table';
     }
 
-    /** Widget Title */
+    
     public function get_title() {
         return esc_html__('Pricing Table', 'easy-elementor-addons');
     }
 
-    /** Icon */
+    
     public function get_icon() {
         return 'eead-element-icon eead-pricing-table';
     }
 
-    /** Category */
+    
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
 
-    /** Controls */
+    
     protected function register_controls() {
 
         $this->start_controls_section(
@@ -100,7 +100,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fa fa-check',
-                'library' => 'solid',
+                'library' => 'solid'
             ],
                 ]
         );
@@ -119,7 +119,7 @@ class PricingTable extends Widget_Base {
                 ],
                 [
                     'list' => 'Enter Features List'
-                ],
+                ]
             ],
             'title_field' => '{{{ list }}}',
                 ]
@@ -142,7 +142,7 @@ class PricingTable extends Widget_Base {
             'default' => [
                 'url' => '#',
                 'is_external' => false,
-                'nofollow' => false,
+                'nofollow' => false
             ],
                 ]
         );
@@ -153,7 +153,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-long-arrow-alt-right',
-                'library' => 'solid',
+                'library' => 'solid'
             ],
                 ]
         );
@@ -164,7 +164,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-home',
-                'library' => 'solid',
+                'library' => 'solid'
             ],
             'condition' => ['layout' => 'style2']
                 ]
@@ -193,7 +193,7 @@ class PricingTable extends Widget_Base {
             'options' => [
                 'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                 'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                'style3' => esc_html__('Style 3', 'easy-elementor-addons')
             ],
                 ]
         );
@@ -221,7 +221,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-pricing-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -240,7 +240,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-header .eead-pricing-title' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-header .eead-pricing-title' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -270,7 +270,7 @@ class PricingTable extends Widget_Base {
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header .eead-pricing-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                '{{WRAPPER}} .eead-pricing-table.style1 .eead-pricing-header .eead-pricing-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;'
             ],
             'condition' => ['layout' => 'style1']
                 ]
@@ -283,7 +283,7 @@ class PricingTable extends Widget_Base {
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header .eead-pricing-title' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-header .eead-pricing-title' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;'
             ],
             'condition' => ['layout' => 'style3']
                 ]
@@ -304,7 +304,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-header-icon i' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-header-icon i' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -331,7 +331,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-price .eead-price' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-price .eead-price' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -368,7 +368,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} .eead-pricing-price .eead-currency,
-                 {{WRAPPER}} .eead-pricing-price .eead-price-per' => 'color: {{VALUE}}',
+                 {{WRAPPER}} .eead-pricing-price .eead-price-per' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -396,7 +396,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -406,7 +406,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li:not(:first-child)' => 'border-top: 1px dashed {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li:not(:first-child)' => 'border-top: 1px dashed {{VALUE}}'
             ],
                 ]
         );
@@ -416,7 +416,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li i' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li i' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -436,7 +436,7 @@ class PricingTable extends Widget_Base {
             'allowed_dimensions' => 'vertical',
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main ul li' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;'
             ],
                 ]
         );
@@ -464,7 +464,7 @@ class PricingTable extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ],
                 ]
         );
@@ -493,7 +493,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a' => 'color: {{VALUE}}'
             ],
                 ]
         );
@@ -520,7 +520,7 @@ class PricingTable extends Widget_Base {
             'label' => esc_html__('Color', 'easy-elementor-addons'),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .eead-pricing-table .eead-pricing-main .eead-pricing-button a:hover' => 'color: {{VALUE}}'
             ],
                 ]
         );
