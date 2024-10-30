@@ -75,7 +75,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             //require EEAD_PATH . 'inc/cross-domain-cp/cross-domain-cp-integration.php';
 
             /** Includes the autoloader for libraries installed with Composer. */
-            //require EEAD_PATH . 'vendor/autoload.php';
+            require EEAD_PATH . 'vendor/autoload.php';
         }
 
         public function required_plugins_notice() {
