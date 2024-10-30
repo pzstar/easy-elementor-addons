@@ -11,6 +11,7 @@ use Elementor\Icons_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
+use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

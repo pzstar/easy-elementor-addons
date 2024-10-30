@@ -3,15 +3,15 @@
 namespace EasyElementorAddons\Modules\FeatureList\Widgets;
 
 // Elementor Classes
-use Controls_Manager;
-use Group_Control_Background;
-use Group_Control_Typography;
-use Group_Control_Border;
-use Group_Control_Box_Shadow;
-use Icons_Manager;
-use Repeater;
-use Utils;
-use Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Icons_Manager;
+use Elementor\Repeater;
+use Elementor\Utils;
+use Elementor\Widget_Base;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

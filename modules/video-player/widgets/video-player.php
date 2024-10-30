@@ -7,6 +7,7 @@ use Elementor\Embed;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

@@ -7,6 +7,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use Elementor\Repeater;
+use Elementor\Utils;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

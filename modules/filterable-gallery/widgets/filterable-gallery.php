@@ -11,6 +11,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
+use Elementor\Plugin;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

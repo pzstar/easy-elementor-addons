@@ -12,6 +12,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Control_Media;
+use Elementor\Repeater;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

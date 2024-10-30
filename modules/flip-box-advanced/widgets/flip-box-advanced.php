@@ -3,14 +3,14 @@
 namespace EasyElementorAddons\Modules\FlipBoxAdvanced\Widgets;
 
 // Elementor Classes
-use Widget_Base;
-use Utils;
-use Controls_Manager;
-use Group_Control_Border;
-use Group_Control_Typography;
-use Group_Control_Image_Size;
-use Group_Control_Background;
-use Icons_Manager;
+use Elementor\Widget_Base;
+use Elementor\Utils;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Background;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
