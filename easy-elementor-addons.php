@@ -193,7 +193,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'vertical-tab',
                 'vertical-timeline',
                 'video-player',
-                'weather',
+                'weather'
             ];
 
             return $modules_list;

@@ -66,7 +66,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php //$this->get_widget_field('Charts', 'charts'); //premium?>
                     <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
                     <?php $this->get_widget_field('Countdown', 'countdown'); ?>
-                    <?php $this->get_widget_field('Counter Block', 'counter'); ?>
+                    <?php $this->get_widget_field('Counter', 'counter'); ?>
                     <?php $this->get_widget_field('Drop Bar', 'drop-bar'); ?>
                     <?php $this->get_widget_field('Dual Button', 'dual-button'); ?>
                     <?php $this->get_widget_field('Dual Heading', 'dual-heading'); ?>
