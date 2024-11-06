@@ -115,8 +115,6 @@ class HorizontalTab extends Widget_Base {
             'enable', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
                 'default' => 'yes'
             ]
         );
@@ -234,7 +232,7 @@ class HorizontalTab extends Widget_Base {
 
         $this->start_controls_section(
             'tab_style', [
-                'label' => esc_html__('Tab', 'easy-elementor-addons'),
+                'label' => esc_html__('Tab Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -489,7 +487,7 @@ class HorizontalTab extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'none' => 'none',
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
                     'Trapezoid' => esc_html__('Trapezoid', 'easy-elementor-addons'),
                     'Right Angled Trapezoid' => esc_html__('Right Angled Trapezoid', 'easy-elementor-addons'),
                     'Left Angled Trapezoid' => esc_html__('Left Angled Trapezoid', 'easy-elementor-addons'),
@@ -632,6 +630,9 @@ class HorizontalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab:hover' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
                 ]
             ]
         );
@@ -670,6 +671,9 @@ class HorizontalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab.eead-ht-active-tab' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
                 ]
             ]
         );

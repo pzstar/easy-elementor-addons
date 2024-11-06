@@ -7,8 +7,10 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Plugin;
-use Elementor\Icons_Manager;
 use Elementor\Repeater;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Border;
+use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -80,14 +82,12 @@ class VerticalTab extends Widget_Base {
 
         $repeater->add_control(
             'page', [
-                'label' => esc_html__('Select Page', 'hash-elementor'),
+                'label' => esc_html__('Select Page', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'multiple' => false,
                 'options' => $this->get_pages(),
-                'condition' => [
-                    'content_type' => 'page'
-                ]
+                'condition' => ['content_type' => 'page']
             ]
         );
 
@@ -96,9 +96,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => esc_html__('Type your description here', 'easy-elementor-addons'),
-                'condition' => [
-                    'content_type' => 'wisiwyg'
-                ]
+                'condition' => ['content_type' => 'wisiwyg']
             ]
         );
 
@@ -109,9 +107,7 @@ class VerticalTab extends Widget_Base {
                 'default' => '0',
                 'options' => $this->get_elementor_templates(),
                 'label_block' => 'true',
-                'condition' => [
-                    'content_type' => 'elementor_template'
-                ]
+                'condition' => ['content_type' => 'elementor_template']
             ]
         );
 
@@ -119,15 +115,13 @@ class VerticalTab extends Widget_Base {
             'enable', [
                 'label' => esc_html__('Enable', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Hide', 'easy-elementor-addons'),
                 'default' => 'yes'
             ]
         );
 
         $this->add_control(
             'tabs', [
-                'label' => esc_html__('Plan Feature List', 'easy-elementor-addons'),
+                'label' => esc_html__('Add Tabs', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -156,7 +150,7 @@ class VerticalTab extends Widget_Base {
                         'wisiwyg_content' => 'Donec justo eros, luctus quis scelerisque id, ultricies sit amet odio. Vestibulum aliquam efficitur eleifend. Praesent dignissim faucibus ex vel sodales. Morbi aliquet libero at augue pharetra vehicula. Cras dapibus lorem efficitur nunc euismod convallis. Nunc molestie risus id lacinia consequat. Integer iaculis orci in ipsum vestibulum, non mattis justo ornare. Cras et lorem tempor ligula suscipit mollis. Nulla vitae augue non leo tempus finibus.'
                     ]
                 ],
-                'title_field' => '{{{ title }}}'
+                'title_field' => '{{{title}}}'
             ]
         );
 
@@ -169,26 +163,133 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'tab_position', [
-                'label' => esc_html__('Tab Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
+            'tabs_buttons_position', [
+                'label' => esc_html__('Tabs Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
                 'default' => 'left',
                 'options' => [
-                    'left' => esc_html__('Left', 'easy-elementor-addons'),
-                    'right' => esc_html__('Right', 'easy-elementor-addons')
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
+                ],
+                'selectors_dictionary' => [
+                    'left' => 'order: 0',
+                    'right' => 'order: 2'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => '{{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'tab_layout', [
-                'label' => esc_html__('Style', 'easy-elementor-addons'),
+            'tab_width', [
+                'label' => esc_html__('Tabs Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1000,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 200
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'min-width: {{SIZE}}{{UNIT}};flex-basis: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_side_spacing', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'gap: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_content_animation', [
+                'label' => esc_html__('Content Display Animation', 'easy-elementor-addons'),
+                'label_block' => true,
                 'type' => Controls_Manager::SELECT,
-                'default' => 'style1',
-                'options' => [
-                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                'default' => 'none',
+                'options' => eead_show_animations()
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'tab_container_style', [
+                'label' => esc_html__('Tab Container', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'tab_container_background', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'background: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'tab_container_border',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-container'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'tab_container_shadow',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-container'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'tab_container_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'tab_container_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -197,57 +298,54 @@ class VerticalTab extends Widget_Base {
 
         $this->start_controls_section(
             'tab_style', [
-                'label' => esc_html__('Tab', 'easy-elementor-addons'),
+                'label' => esc_html__('Tab Bar', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
-            'tab_spacing', [
-                'label' => esc_html__('Tab Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 80,
-                        'step' => 1,
-                    ]
-                ],
+            'tab_background', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-tab-container.top .eead-tabs .eead-tab:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-tab-container.left .eead-tabs .eead-tab:not(:last-child),
-                 {{WRAPPER}} .eead-tab-container.right .eead-tabs .eead-tab:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'background: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'tab_border',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'tab_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs'
+            ]
+        );
+
+        $this->add_control(
+            'tab_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->add_control(
-            'tab_width', [
-                'label' => esc_html__('Tab Width', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['%'],
-                'range' => [
-                    '%' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section .eead-tab-container .eead-tabs' => 'width: {{SIZE}}%;',
-                    '{{WRAPPER}} .eead-vertical-tab-section .eead-tab-container .eead-tab-content' => 'width: calc(100% - {{SIZE}}%);'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'each_tab_padding', [
+            'tab_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -255,23 +353,61 @@ class VerticalTab extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style', [
-                'label' => esc_html__('Tab Title', 'easy-elementor-addons'),
+            'tab_button_style', [
+                'label' => esc_html__('Tab Buttons', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
-                'name' => 'title_typography',
+                'name' => 'tab_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab span'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab'
             ]
         );
 
         $this->add_control(
-            'icon_size', [
-                'label' => esc_html__('Tab Icon Size', 'easy-elementor-addons'),
+            'tab_icon_heading', [
+                'label' => esc_html__('Tab Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'tab_icon_position', [
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'top' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
+                ],
+                'selectors_dictionary' => [
+                    'top' => 'flex-direction: column',
+                    'left' => 'flex-direction: row',
+                    'right' => 'flex-direction: row-reverse',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => '{{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -282,25 +418,136 @@ class VerticalTab extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->add_control(
-            'icon_spacing', [
-                'label' => esc_html__('Tab Icon Spacing', 'easy-elementor-addons'),
+            'tab_icon_spacing', [
+                'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
-                        'min' => 2,
-                        'max' => 80,
+                        'min' => 0,
+                        'max' => 100,
                         'step' => 1,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-tab-container .eead-tabs .eead-tab i' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'gap: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_button_heading', [
+                'label' => esc_html__('Tab Buttons', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'tab_buttons_spacing', [
+                'label' => esc_html__('Button Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 20
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'gap: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_buttons_shape', [
+                'label' => esc_html__('Pre Defined Button Shape', 'easy-elementor-addons'),
+                'label_block' => true,
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'Left Angled Trapezoid' => esc_html__('Left Angled Trapezoid', 'easy-elementor-addons'),
+                    'Right Angled Trapezoid' => esc_html__('Right Angled Trapezoid', 'easy-elementor-addons'),
+                    'Left Point' => esc_html__('Left Point', 'easy-elementor-addons'),
+                    'Right Point' => esc_html__('Right Point', 'easy-elementor-addons'),
+                    'Left Chevron' => esc_html__('Left Chevron', 'easy-elementor-addons'),
+                    'Right Chevron' => esc_html__('Right Chevron', 'easy-elementor-addons'),
+                    'Left Tool Tip' => esc_html__('Left Tool Tip', 'easy-elementor-addons'),
+                    'Right Tool Tip' => esc_html__('Right Tool Tip', 'easy-elementor-addons'),
+                    'Message' => esc_html__('Message Box', 'easy-elementor-addons'),
+                ],
+                'selectors_dictionary' => [
+                    'none' => 'none',
+                    'Left Angled Trapezoid' => 'clip-path: polygon(20px 0%, 100% 0, 100% 100%, 0% 100%);--eead-vertical-tab-padding-left-extra: 20px;',
+                    'Right Angled Trapezoid' => 'clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0% 100%);--eead-vertical-tab-padding-right-extra: 20px;',
+                    'Left Point' => 'clip-path:polygon(20px 0%, 100% 0%, 100% 100%, 20px 100%, 0% 50%);--eead-vertical-tab-padding-left-extra: 20px;',
+                    'Right Point' => 'clip-path:polygon(0% 0%, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0% 100%);--eead-vertical-tab-padding-right-extra: 20px;',
+                    'Left Chevron' => 'clip-path:polygon(100% 0%, calc(100% - 20px) 50%, 100% 100%, 20px 100%, 0% 50%, 20px 0%);--eead-vertical-tab-padding-left-extra: 20px;--eead-vertical-tab-padding-right-extra: 20px;',
+                    'Right Chevron' => 'clip-path:polygon(calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0% 100%, 20px 50%, 0% 0%);--eead-vertical-tab-padding-left-extra: 20px;--eead-vertical-tab-padding-right-extra: 20px;',
+                    'Left Tool Tip' => 'clip-path:polygon(15px 100%, 15px calc(50% + 10px), 0 50%, 15px calc(50% - 10px), 15px 0, 100% 0, 100% 100%);;--eead-vertical-tab-padding-left-extra: 15px;',
+                    'Right Tool Tip' => 'clip-path:polygon(0% 0%, calc(100% - 15px) 0, calc(100% - 15px) calc(50% - 10px), 100% 50%, calc(100% - 15px) calc(50% + 10px), calc(100% - 15px) 100%, 0 100%);--eead-vertical-tab-padding-right-extra: 15px;',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => '{{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'tab_buttons_border',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab',
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'tab_buttons_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab',
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_buttons_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_button_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab' => '--eead-vertical-tab-padding-top: {{TOP}}{{UNIT}};--eead-vertical-tab-padding-right: {{RIGHT}}{{UNIT}}; --eead-vertical-tab-padding-bottom: {{BOTTOM}}{{UNIT}}; --eead-vertical-tab-padding-left: {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -316,29 +563,65 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'title_bg_color', [
+            'tab_button_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab,
-                {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab,
-                {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'title_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'tab_button_text_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab,
-                 {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab,
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'style_hover_tab', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'tab_button_bg_color_hover', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_button_text_color_hover', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'tab_button_border_color_hover', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
+                ]
+            ]
+        );
 
         $this->end_controls_tab();
 
@@ -349,44 +632,39 @@ class VerticalTab extends Widget_Base {
         );
 
         $this->add_control(
-            'title_bg_color_active', [
+            'tab_button_bg_color_active', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active,
-                 {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active,
-                 {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active:before,
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'title_color_active', [
-                'label' => esc_html__('Title Color', 'easy-elementor-addons'),
+            'tab_button_text_color_active', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active,
-                 {{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active,
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'title_border_color_active', [
+            'tab_button_border_color_active', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active:before,
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active:after, 
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab:hover:after' => 'background: {{VALUE}}',
-                    '{{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active:before, 
-                 {{WRAPPER}} .eead-vertical-tab-section.style3 .eead-tabs .eead-tab:hover:before' => 'border-color: transparent transparent transparent {{VALUE}}',
-                    '{{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tabs .eead-tab' => 'border: 1px solid {{VALUE}}'
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'tab_buttons_shape' => 'none'
                 ]
             ]
         );
+
+        $this->end_controls_tab();
 
         $this->end_controls_tab();
 
@@ -401,32 +679,57 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'tab_content_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-content'
+            ]
+        );
+
         $this->add_control(
             'tab_content_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-tab-container .eead-tab-content' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-content' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'content_border_color', [
-                'label' => esc_html__('Border Color', 'plugin-domain'),
+            'tab_content_bg_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content' => 'border: 1px solid {{VALUE}}',
-                ],
-                'condition' => ['tab_layout' => 'style2']
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'background-color: {{VALUE}}',
+                ]
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'tab_content_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-tab-container .eead-tab-content'
+            Group_Control_Border::get_type(), [
+                'name' => 'tab_content_border',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'tab_content_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents'
+            ]
+        );
+
+        $this->add_control(
+            'tab_content_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
             ]
         );
 
@@ -434,9 +737,82 @@ class VerticalTab extends Widget_Base {
             'tab_content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-tab-container .eead-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'additional_style', [
+                'label' => esc_html__('Additional', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'tab_offset', [
+                'label' => esc_html__('Tab Horizontal Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'transform: translateX({{SIZE}}{{UNIT}});',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_offset', [
+                'label' => esc_html__('Content Horizontal Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'transform: translateX({{SIZE}}{{UNIT}});',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'overlap_position', [
+                'label' => esc_html__('Overlapping Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'content',
+                'label_block' => true,
+                'options' => [
+                    'tab' => esc_html__('Tab Bar Above Content', 'easy-elementor-addons'),
+                    'content' => esc_html__('Content Above Tab Bar', 'easy-elementor-addons')
+                ],
+                'selectors_dictionary' => [
+                    'tab' => 'z-index:10',
+                    'content' => 'z-index:8'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => '{{VALUE}}',
                 ]
             ]
         );
@@ -446,81 +822,76 @@ class VerticalTab extends Widget_Base {
 
     /** Render Layout */
     protected function render() {
-        $settings = $this->get_settings_for_display();
-        $tab_position = $settings['tab_position'];
         ?>
-        <section class="eead-vertical-tab-section eead-tab-section <?php echo esc_attr($settings['tab_layout']); ?>">
-            <div class="eead-tab-container <?php echo esc_attr($tab_position); ?>">
-                <div class="eead-tabs">
-                    <?php
-                    if (!empty($settings['tabs'])) {
-                        $i = 0;
-                        foreach ($settings['tabs'] as $tab) {
-                            if ($tab['enable'] == 'yes') {
-                                $i++;
-                                ?>
-                                <div class="eead-tab <?php echo $i == 1 ? 'active' : NULL; ?>" data-tabid="<?php echo $i; ?>">
-                                    <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
-                                    <span><?php echo esc_html($tab['title']); ?></span>
-                                </div>
-                                <?php
-                            }
-                        }
-                    }
-                    ?>
+        <div class="eead-vertical-tab">
+            <div class="eead-ht-container">
+                <div class="eead-ht-tabs">
+                    <?php $this->get_tabs(); ?>
                 </div>
 
-                <div class="eead-tab-content">
-                    <?php echo $this->get_tab_content(); ?>
+                <div class="eead-ht-contents">
+                    <?php $this->get_tab_content(); ?>
                 </div>
             </div>
-        </section>
+        </div>
         <?php
     }
 
-    private function get_tab_content() {
-        $settings = $this->get_settings_for_display();
-        $i = 0;
-
-        foreach ($settings['tabs'] as $tab) {
-            if ($tab['enable'] == 'yes') {
-                $i++;
-                ?>
-                <div class="eead-each-content eead-content-<?php echo $i; ?>" style="<?php echo $i > 1 ? 'display:none;' : NULL; ?>">
-                    <?php
-                    if ($tab['content_type'] == 'page') {
-                        if ($tab['enable'] == 'yes' && !empty($tab['page'])) {
-                            $args = array(
-                                'page_id' => absint($tab['page'])
-                            );
-                            $query = new \WP_Query($args);
-                            if ($query->have_posts()):
-                                while ($query->have_posts()):
-                                    $query->the_post();
-                                    ?>
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="eead-clearfix">
-                                        <?php the_content(); ?>
-                                    </div>
-                                    <?php
-                                endwhile;
-                            endif;
-                            wp_reset_postdata();
-                        }
-                    } else if ($tab['content_type'] == 'elementor_template') {
-                        echo $this->elementor()->frontend->get_builder_content_for_display($tab['elementor_template']);
-                        echo $this->eead_template_edit_link($item['template_id']);
-                    } else if ($tab['content_type'] == 'wisiwyg' and $tab['wisiwyg_content']) {
-                        echo parse_wisiwyg_content($tab['wisiwyg_content']);
-                    }
+    private function get_tabs() {
+        $settings = $this->
+            get_settings_for_display();
+        if (!empty($settings['tabs'])) {
+            $i = 0;
+            foreach ($settings['tabs'] as $tab) {
+                if ($tab['enable'] == 'yes') {
+                    $i++;
                     ?>
-                </div>
-                <?php
+                    <div class="eead-ht-tab <?php echo ($i == 1 ? 'eead-ht-active-tab' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
+                        <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
+                        <span><?php echo esc_html($tab['title']); ?></span>
+                    </div>
+                    <?php
+                }
             }
         }
     }
 
-    // Elementor Saved Template 
+    private function get_tab_content() {
+        $settings = $this->get_settings_for_display();
+
+        if (!empty($settings['tabs'])) {
+            $i = 0;
+            foreach ($settings['tabs'] as $tab) {
+                if ($tab['enable'] == 'yes') {
+                    $i++;
+                    ?>
+                    <div class="animated <?php echo $settings['tab_content_animation']; ?> eead-ht-content eead-ht-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-ht-active-content' : ''); ?>">
+                        <?php
+                        if ($tab[
+                            'content_type'] == 'page' && !empty($tab['page'])) {
+                            $page_id = $tab['page'];
+                            $elementor = get_post_meta($page_id, '_elementor_edit_mode', true);
+                            if ($elementor) {
+                                echo $this->elementor()->frontend->get_builder_content_for_display($page_id);
+                            } else {
+                                if (!is_wp_error($page_id)) {
+                                    $content = $page_id->post_content;
+                                }
+                                echo apply_filters('the_content', $content);
+                            }
+                        } elseif ($tab['content_type'] == 'elementor_template') {
+                            echo $this->elementor()->frontend->get_builder_content_for_display($tab['elementor_template']);
+                        } elseif ($tab['content_type'] == 'wisiwyg' and $tab['wisiwyg_content']) {
+                            echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+            }
+        }
+    }
+
     protected function get_elementor_templates() {
         $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
         $types = [];
@@ -529,6 +900,7 @@ class VerticalTab extends Widget_Base {
             $template_options = ['0' => esc_html__('Template Not Found!', 'easy-elementor-addons')];
         } else {
             $template_options = ['0' => esc_html__('Select Template', 'easy-elementor-addons')];
+
             foreach ($templates as $template) {
                 $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
                 $types[$template['template_id']] = $template['type'];
@@ -543,26 +915,14 @@ class VerticalTab extends Widget_Base {
     }
 
     protected function get_pages() {
-        $pages = get_pages(
-            array(
-                'order' => 'ASC'
-            )
-        );
+        $pages = get_pages();
 
         $_pages = [];
-
         foreach ($pages as $key => $object) {
             $_pages[$object->ID] = ucfirst($object->post_title);
         }
-        return $_pages;
-    }
 
-    private function eead_template_edit_link($template_id) {
-        if ($this->elementor()->editor->is_edit_mode()) {
-            $url = add_query_arg(['elementor' => ''], get_permalink($template_id));
-            $output = '<a class="eead-template-edit-link" href="' . esc_url($url) . '" title="' . esc_html__('Edit Template', 'easy-elementor-addons') . '" target="_blank"><i class="eicon-edit"></i></a>';
-            return $output;
-        }
+        return $_pages;
     }
 
 }

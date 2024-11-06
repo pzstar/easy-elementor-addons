@@ -2437,6 +2437,50 @@ Horizontal Tabs
     display: block;
 }
 
+/*--------------------------------------------------------------
+Vertical Tabs
+--------------------------------------------------------------*/
+.eead-vertical-tab .eead-ht-container{
+    display: flex;
+}
+
+.eead-vertical-tab .eead-ht-tabs{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.eead-vertical-tab .eead-ht-tabs .eead-ht-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 15px 20px;
+    padding-top: calc(var(--eead-vertical-tab-padding-top, 15px) + var(--eead-vertical-tab-padding-top-extra, 0px));
+    padding-bottom: calc(var(--eead-vertical-tab-padding-bottom, 15px) + var(--eead-vertical-tab-padding-bottom-extra, 0px));
+    padding-left: calc(var(--eead-vertical-tab-padding-left, 20px) + var(--eead-vertical-tab-padding-left-extra, 0px));
+    padding-right: calc(var(--eead-vertical-tab-padding-right, 20px) + var(--eead-vertical-tab-padding-right-extra, 0px));
+}
+
+.eead-vertical-tab .eead-ht-tabs .eead-ht-tab.eead-ht-active-tab {
+    background: #EEF2F6;
+}
+
+.eead-vertical-tab .eead-ht-contents {
+    background: #EEF2F6;
+    padding: 30px;
+    position: relative;
+    z-index: 9;
+}
+
+.eead-vertical-tab .eead-ht-content {
+    display: none;
+}
+
+.eead-vertical-tab .eead-ht-content.eead-ht-active-content {
+    display: block;
+}
+
 
 /*--------------------------------------------------------------
 Image Comparison
@@ -6201,207 +6245,6 @@ ProgressBar
 .eead-vtimeline-wrap.style3 .eead-card-right .eead-vtimeline-each-wrap .eead-vtimeline-heading-box:before {
     right: 100%;
     margin-right: -8px;
-}
-
-
-/*====================================================
-vertical css
-====================================================*/
-.eead-vertical-tab-section .eead-tab-container {
-    display: block;
-    overflow: hidden;
-}
-
-.eead-vertical-tab-section .eead-tab-container .eead-tabs,
-.eead-vertical-tab-section .eead-tab-container .eead-tab-content {
-    float: left;
-}
-
-.eead-vertical-tab-section .eead-tab-container .eead-tabs {
-    width: 25%;
-}
-
-.eead-vertical-tab-section .eead-tab-container .eead-tab-content {
-    width: 75%;
-    float: right;
-}
-
-.eead-vertical-tab-section .eead-tab-container.right .eead-tabs {
-    float: right;
-}
-
-.eead-vertical-tab-section.style1 .eead-tabs .eead-tab {
-    width: 100%;
-    height: 120px;
-    text-align: center;
-    padding: 50px;
-    background: #f3f3f3;
-    color: #a7a7a7;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    position: relative;
-}
-
-.eead-vertical-tab-section.style1 .eead-tab-container .eead-tab-content {
-    padding: 15px;
-}
-
-.eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active {
-    background: #fff;
-}
-
-.eead-vertical-tab-section.style1 .eead-tabs .eead-tab.active:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background: #bf5103;
-    top: 0;
-}
-
-.eead-vertical-tab-section .eead-tab-container.right .eead-tabs .eead-tab.active:before {
-    left: auto;
-    right: 0;
-}
-
-
-/*style 2 tab*/
-.eead-vertical-tab-section.style2 .eead-tab-container .eead-tabs {
-    width: 30%;
-    padding-right: 30px;
-}
-
-.eead-vertical-tab-section.style2 .eead-tab-container.right .eead-tabs {
-    width: 30%;
-    padding-left: 30px;
-}
-
-.eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content {
-    width: 70%;
-}
-
-.eead-vertical-tab-section.style2 .eead-tab-container .eead-tab-content {
-    border: 1px solid #3598db;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    padding: 20px;
-}
-
-.eead-vertical-tab-section.style2 .eead-tabs .eead-tab {
-    border: 1px solid #3598db;
-    padding: 15px 20px;
-    width: 100%;
-    color: #3598db;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    position: relative;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active {
-    background: #3598db;
-    color: #fff;
-}
-
-.eead-vertical-tab-section.style2 .eead-tabs .eead-tab.active:before {
-    content: '';
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    background: #3598db;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    -webkit-transform: translateY(-50%) rotate(45deg);
-}
-
-.eead-vertical-tab-section.style2 .eead-tab-container.right .eead-tabs .eead-tab.active:before {
-    right: auto;
-    left: -7px;
-}
-
-.eead-vertical-tab-section.style2 .eead-tabs .eead-tab:last-child {
-    margin-bottom: 0;
-}
-
-/*style 3 tab*/
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab {
-    background-color: transparent;
-    color: #1a1919;
-    font-size: 14px;
-    border: 1px solid #ebebeb;
-    font-weight: 400;
-    padding: 25px 25px;
-    line-height: 1;
-    position: relative;
-    width: 100%;
-    border-bottom: 0;
-    cursor: pointer;
-}
-
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab:last-child {
-    border-bottom: 1px solid #ebebeb;
-}
-
-.eead-vertical-tab-section.style3 .eead-tabs {
-    width: 30%;
-    padding-right: 30px;
-}
-
-.eead-vertical-tab-section.style3 .eead-tab-container .eead-tab-content {
-    width: 70%;
-}
-
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active:before,
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab:hover:before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #2ecfa1;
-    right: -9px;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-}
-
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab.active:after,
-.eead-vertical-tab-section.style3 .eead-tabs .eead-tab:hover:after {
-    background: #2ecfa1;
-    width: 3px;
-    height: 100%;
-    top: 0;
-    right: -1px;
-    position: absolute;
-    content: '';
-}
-
-.eead-vertical-tab-section.style3 .eead-tab-container.right .eead-tabs {
-    width: 30%;
-    padding-left: 30px;
-}
-
-.eead-vertical-tab-section.style3 .eead-tab-container.right .eead-tabs .eead-tab.active:before,
-.eead-vertical-tab-section.style3 .eead-tab-container.right .eead-tabs .eead-tab:hover:before {
-    right: auto;
-    left: -10px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #2ecfa1 transparent transparent;
-}
-
-.eead-vertical-tab-section.style3 .eead-tab-container.right .eead-tabs .eead-tab.active:after,
-.eead-vertical-tab-section.style3 .eead-tab-container.right .eead-tabs .eead-tab:hover:after {
-    right: auto;
-    left: -1px;
 }
 
 
