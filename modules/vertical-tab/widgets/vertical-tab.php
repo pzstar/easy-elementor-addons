@@ -234,7 +234,7 @@ class VerticalTab extends Widget_Base {
                 'label_block' => true,
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
-                'options' => eead_show_animations()
+                'options' => eead_show_animations_alt()
             ]
         );
 
@@ -487,7 +487,6 @@ class VerticalTab extends Widget_Base {
                     'Right Chevron' => esc_html__('Right Chevron', 'easy-elementor-addons'),
                     'Left Tool Tip' => esc_html__('Left Tool Tip', 'easy-elementor-addons'),
                     'Right Tool Tip' => esc_html__('Right Tool Tip', 'easy-elementor-addons'),
-                    'Message' => esc_html__('Message Box', 'easy-elementor-addons'),
                 ],
                 'selectors_dictionary' => [
                     'none' => 'none',

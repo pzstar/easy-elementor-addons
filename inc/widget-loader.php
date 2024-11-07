@@ -208,7 +208,7 @@ class EEAD_Widget_Loader {
     public function enqueue_frontend_styles() {
         wp_enqueue_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
         wp_enqueue_style('icofont', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
-        wp_enqueue_style('animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
+        wp_enqueue_style('eead-animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
         wp_enqueue_style('swiper', EEAD_URL . 'assets/lib/swiper/swiper.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
     }

@@ -168,7 +168,7 @@ class HorizontalTab extends Widget_Base {
                 'label_block' => true,
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
-                'options' => eead_show_animations()
+                'options' => eead_show_animations_alt()
             ]
         );
 

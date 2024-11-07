@@ -177,7 +177,7 @@ class Switcher extends Widget_Base {
                 'label_block' => true,
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
-                'options' => eead_show_animations()
+                'options' => eead_show_animations_alt()
             ]
         );
 
@@ -526,7 +526,7 @@ class Switcher extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <div class="eead-switcher-container <?php echo esc_attr($settings['switch_style']); ?>">
+        <div class="eead-switcher-container>
             <div class="eead-switcher-tabs">
                 <div class="eead-switcher-tabs-inner">
                     <?php $this->get_tabs(); ?>

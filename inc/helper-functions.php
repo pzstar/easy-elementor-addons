@@ -166,6 +166,37 @@ if (!function_exists('eead_show_animations')) {
     }
 }
 
+if (!function_exists('eead_show_animations_alt')) {
+    function eead_show_animations_alt() {
+        $animations = [
+            'none' => 'No Animation',
+            'fadeIn' => 'fadeIn',
+            'fadeInLeftSmall' => 'fadeInLeft',
+            'fadeInRightSmall' => 'fadeInRight',
+            'fadeInUpSmall' => 'fadeInUp',
+            'fadeInDownSmall' => 'fadeInDown',
+            'zoomIn' => 'zoomIn',
+            'zoomInDown' => 'zoomInDown',
+            'zoomInLeft' => 'zoomInLeft',
+            'zoomInRight' => 'zoomInRight',
+            'zoomInUp' => 'zoomInUp',
+            'bounceIn' => 'bounceIn',
+            'bounceInDownSmall' => 'bounceInDown',
+            'bounceInLeftSmall' => 'bounceInLeft',
+            'bounceInRightSmall' => 'bounceInRight',
+            'bounceInUpSmall' => 'bounceInUp',
+            'flipInX' => 'flipInX',
+            'flipInY' => 'flipInY',
+            'rotateIn' => 'rotateIn',
+            'rotateInDownLeft' => 'rotateInDownLeft',
+            'rotateInDownRight' => 'rotateInDownRight',
+            'rotateInUpLeft' => 'rotateInUpLeft',
+            'rotateInUpRight' => 'rotateInUpRight',
+        ];
+        return $animations;
+    }
+}
+
 if (!function_exists('eead_svg_icon')) {
 
     function eead_svg_icon($icon) {

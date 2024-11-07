@@ -2440,11 +2440,11 @@ Horizontal Tabs
 /*--------------------------------------------------------------
 Vertical Tabs
 --------------------------------------------------------------*/
-.eead-vertical-tab .eead-ht-container{
+.eead-vertical-tab .eead-ht-container {
     display: flex;
 }
 
-.eead-vertical-tab .eead-ht-tabs{
+.eead-vertical-tab .eead-ht-tabs {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -5814,6 +5814,113 @@ ProgressBar
 }
 
 
+/*--------------------------------------------------------------
+Sticky Video
+--------------------------------------------------------------*/
+.eead-sticky-video-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.eead-sticky-video {
+    min-height: 50px;
+}
+
+.eead-sticky-video.out {
+    width: var(--eead-sticky-video-width, 300px);
+    position: fixed;
+    z-index: 999;
+}
+
+.eead-sticky-video.out[data-position="top-left"] {
+    left: 40px;
+    top: 40px;
+}
+
+.eead-sticky-video.out[data-position="top-right"] {
+    right: 40px;
+    top: 40px;
+}
+
+.eead-sticky-video.out[data-position="bottom-left"] {
+    left: 40px;
+    bottom: 40px;
+}
+
+.eead-sticky-video.out[data-position="bottom-right"] {
+    right: 40px;
+    bottom: 40px;
+}
+
+.eead-overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.eead-sticky-video[data-overlay="yes"] + .eead-overlay {
+    display: block;
+}
+
+.eead-overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 90px;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+.eead-sticky-video .plyr__controls{
+    display: none;
+}
+
+/* Close Icon */
+.eead-sticky-player-close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    display: none;
+    font-size: 24px;
+    z-index: 9999;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.eead-sticky-video.out .eead-sticky-player-close {
+    display: flex;
+}
+
+.eead-sticky-player-close:before,
+.eead-sticky-player-close:after {
+    content: "";
+    height: 1px;
+    width: 14px;
+    position: absolute;
+    background-color: #FFF;
+}
+
+.eead-sticky-player-close:before {
+    transform: rotate(45deg);
+}
+
+.eead-sticky-player-close:after {
+    transform: rotate(-45deg);
+}
+
 
 
 
@@ -8060,170 +8167,6 @@ q. slider css
     display: none;
 }
 
-
-/* Sticky Video */
-.eead-overlay {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 4;
-    cursor: pointer;
-    background-size: cover;
-    background-position: 50%;
-    text-align: center;
-    overflow: hidden;
-}
-
-.eead-overlay-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 90px;
-    color: white;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
-
-/* Plyr CSS Started  */
-
-.plyr__controls button {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
-
-.plyr__controls button:hover {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
-
-.plyr__controls {
-    display: none !important;
-}
-
-/* Plyr CSS Ended */
-
-.eead-sticky-video-wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 200px;
-    margin: 0px;
-    padding: 0px;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
-    text-align: left;
-    overflow: hidden;
-}
-
-.eead-sticky-video-player2 {
-    min-height: 20px;
-    overflow: visible;
-}
-
-.eead-sticky-video-player2.out {
-    position: fixed;
-    z-index: 999;
-    border: 0 !important;
-    border-radius: 0px !important;
-    height: 200px;
-    width: 300px;
-}
-
-.eead-sticky-video-wrapper.out .eead-sticky-video-player2,
-.eead-sticky-video-wrapper.out .eead-sticky-video-player {
-    border-radius: 0px !important;
-}
-
-.eead-sticky-video-player2.in {
-    position: relative;
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    border: 0;
-    line-height: 1;
-}
-
-.owp-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.owp-play i {
-    font-size: 100px;
-    color: #fff;
-    opacity: 0.8;
-    text-shadow: 1px 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
-.eead-sticky-video-player:hover .owp-play i {
-    opacity: 1;
-}
-
-/* === Close Icon === */
-
-.eead-sticky-player-close {
-    position: absolute;
-    right: -25px;
-    top: -36px;
-    display: none;
-    padding: 7px;
-    font-size: 24px;
-    z-index: 9999;
-    cursor: pointer;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    overflow: visible;
-}
-
-.eead-sticky-player-close:hover {
-    color: #009900;
-}
-
-.eead-sticky-player-close:before,
-.eead-sticky-player-close:after {
-    position: absolute;
-    left: 15px;
-    background-color: #333;
-}
-
-.eead-sticky-player-close:before {
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.eead-sticky-player-close:after {
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-/* For Box Shadow issue in astra bar */
-
-.plyr__progress input[type=range]::-webkit-slider-runnable-track,
-.plyr__volume input[type=range]::-webkit-slider-runnable-track {
-    -webkit-box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-
-.plyr__progress input[type=range]::-moz-range-track,
-.plyr__volume input[type=range]::-moz-range-track {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
 
 
 /* Step Flow Styles CSS */

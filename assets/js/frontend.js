@@ -32,6 +32,8 @@ odometerOptions = {auto: false};
                 'eead-popup-video.default': EEA.popupVideo,
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
                 'eead-vertical-tab.default': EEA.verticalTabsBlock,
+                'eead-sticky-video.default': EEA.stickyVideo,
+
 
 
 
@@ -44,7 +46,6 @@ odometerOptions = {auto: false};
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
                 'eead-slider.default': EEA.sliderBlock,
-                'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
                 'eead-text-marquee.default': EEA.textMarquee,
                 'eead-threesixty-image.default': EEA.threesixtyImage,
@@ -1078,6 +1079,78 @@ odometerOptions = {auto: false};
             });
         },
 
+        stickyVideo: function ($scope) {
+            var stickyVideo = $scope.find('.eead-sticky-video');
+            var videoContainer = $scope.find('.eead-sticky-video-container');
+            var overlayContainer = $scope.find('.eead-overlay');
+            var sticky = stickyVideo.data('sticky') ? stickyVideo.data('sticky') : '';
+            var autoplay = stickyVideo.data('autoplay') ? stickyVideo.data('autoplay') : '';
+            var overlay = stickyVideo.data('overlay') ? stickyVideo.data('overlay') : '';
+            var videoIsActive = 'off';
+
+            var player = new Plyr('#eead-player-' + $scope.data('id'));
+
+            player.on('pause', function (event) {
+                videoIsActive = 'off';
+            });
+
+            player.on('play', function (event) {
+                videoIsActive = 'on';
+            });
+
+            $('.eead-sticky-player-close').on('click', function () {
+                stickyVideo.removeClass('out').addClass('in');
+                player.pause();
+                videoIsActive = 'off';
+            });
+
+            if (overlay === 'yes' && autoplay === 'yes') {
+                player.play();
+                overlayContainer.hide();
+                videoIsActive = 'on';
+            } else if (overlay === 'yes') {
+                overlayContainer.on('click', function () {
+                    player.play();
+                    overlayContainer.hide();
+                    videoIsActive = 'on';
+                });
+            }
+
+            if (sticky == 'yes') {
+                setTimeout(function(){
+                    videoContainer.css('height', stickyVideo.height() + 'px');
+                    var stickyPoint = videoContainer.offset().top + videoContainer.height();
+                    stickyVideo.attr('data-sticky-point', stickyPoint);
+                }, 1000);
+
+                $(window).resize(function () {
+                    videoContainer.css('height', stickyVideo.height() + 'px');
+                    var stickyPoint = videoContainer.offset().top + videoContainer.height();
+                    stickyVideo.attr('data-sticky-point', stickyPoint);
+                });
+
+                $(window).scroll(function () {
+                    var scrollTop = $(window).scrollTop();
+                    var stickyPoint = stickyVideo.attr('data-sticky-point');
+
+                    var scrollBottom = $(document).height() - scrollTop;
+
+                    if (scrollBottom > jQuery(window).height() + 400) {
+                        if (scrollTop > stickyPoint) {
+                            if (videoIsActive == 'on') {
+                                stickyVideo.removeClass('in').addClass('out');
+                            }
+                        } else {
+                            stickyVideo.removeClass('out').addClass('in');
+                        }
+                    }
+                });
+            }
+        },
+
+
+
+
 
 
 
@@ -1162,139 +1235,6 @@ odometerOptions = {auto: false};
             circlr_el.on('mouseup mousedown', function (e) {
                 image.remove();
             });
-        },
-
-        stickyVideo: function ($scope) {
-            $('.eead-sticky-player-close', $scope).hide();
-            var element = $scope.find('.eead-sticky-video-player2');
-            var eeadDomHeight = 0;
-            var videoIsActive = 'off';
-            var sticky = element.data('sticky') ? element.data('sticky') : '';
-            var autoplay = element.data('autoplay') ? element.data('autoplay') : '';
-            var overlay = element.data('overlay') ? element.data('overlay') : '';
-            var eeadPosition = element.data('position') ? element.data('position') : '';
-            var eeadHeight = element.data('sheight') ? element.data('sheight') : 0;
-            var eeadWidth = element.data('swidth') ? element.data('swidth') : 0;
-            var scrollHeight = element.data('scroll_height') ? element.data('scroll_height') : 0;
-            PositionStickyPlayer(eeadPosition, eeadHeight, eeadWidth);
-            var playerAbc = new Plyr('#eead-player-' + $scope.data('id'));
-
-            if (overlay === 'no') {
-                if (sticky === 'yes') {
-                    eeadDomHeight = GetDomElementHeight(element);
-                    element.attr('id', 'videobox');
-                    videoIsActive = 'on'; // When play event is cliked
-
-                    // Do the sticky video
-                    PlayerPlay(playerAbc, element);
-                }
-            }
-
-            if (overlay === 'yes' && autoplay === 'yes') {
-                var overlayElm = element.prev();
-                videoIsActive = 'off';
-                $('.eead-sticky-video-wrapper > i').hide();
-                overlayElm.css('display', 'none');
-                playerAbc.play();
-
-                if (sticky === 'yes') {
-                    eeadDomHeight = GetDomElementHeight(element);
-                    element.attr('id', 'videobox');
-                    videoIsActive = 'on'; // When play event is cliked
-
-                    // Do the sticky video
-                    PlayerPlay(playerAbc, element);
-                }
-            } else if (overlay === 'yes') {
-                var overlayElm = element.prev();
-                videoIsActive = 'off';
-                $(overlayElm).on('click', function () {
-                    $('.eead-sticky-video-wrapper > i').hide();
-                    $(this).css('display', 'none');
-                    playerAbc.play();
-
-                    if (sticky === 'yes') {
-                        eeadDomHeight = GetDomElementHeight(element);
-                        element.attr('id', 'videobox');
-                        videoIsActive = 'on'; // When play event is cliked
-
-                        // Do the sticky video
-                        PlayerPlay(playerAbc, element);
-                    }
-                });
-            }
-
-            playerAbc.on('pause', function (event) {
-                videoIsActive = 'off';
-            });
-            playerAbc.on('play', function (event) {
-                element.closest('.eead-sticky-video-player2').find('.plyr__poster').hide();
-                videoIsActive = 'on';
-            });
-            $('.eead-sticky-player-close').on('click', function () {
-                element.removeClass('out').addClass('in');
-                $('.eead-sticky-video-player2').removeAttr('style');
-                videoIsActive = 'off';
-            });
-            element.parent().css('height', element.height() + 'px');
-            $(window).resize(function () {
-                element.parent().css('height', element.height() + 'px');
-            });
-
-
-            jQuery(window).scroll(function () {
-                var scrollTop = jQuery(window).scrollTop();
-                var scrollBottom = jQuery(document).height() - scrollTop;
-                if (scrollBottom > jQuery(window).height() + 400) {
-                    if (scrollTop >= eeadDomHeight) {
-                        if (videoIsActive == 'on') {
-                            jQuery('#videobox').find('.eead-sticky-player-close').css('display', 'block');
-                            jQuery('#videobox').removeClass('in').addClass('out');
-                            PositionStickyPlayer(eeadPosition, eeadHeight, eeadWidth);
-                        }
-                    } else {
-                        jQuery('.eead-sticky-player-close').hide();
-                        jQuery('#videobox').removeClass('out').addClass('in');
-                        jQuery('.eead-sticky-video-player2').removeAttr('style');
-                    }
-                }
-            });
-
-            function GetDomElementHeight(elemt) {
-                var contentHeight = jQuery(elemt).parent().height();
-                var expHeight = scrollHeight * contentHeight / 100;
-                var height = jQuery(elemt).parent().offset().top + expHeight;
-                return height;
-            }
-
-            function PositionStickyPlayer(p, h, w) {
-                if (p == 'top-left') {
-                    jQuery('.eead-sticky-video-player2.out').css({'top': '40px', 'left': '40px'});
-                }
-                if (p == 'top-right') {
-                    jQuery('.eead-sticky-video-player2.out').css({'top': '40px', 'right': '40px'});
-                }
-                if (p == 'bottom-right') {
-                    jQuery('.eead-sticky-video-player2.out').css({'bottom': '40px', 'right': '40px'});
-                }
-                if (p == 'bottom-left') {
-                    jQuery('.eead-sticky-video-player2.out').css({'bottom': '40px', 'left': '40px'});
-                }
-                jQuery('.eead-sticky-video-player2.out').css({'width': w + 'px', 'height': h + 'px'});
-            }
-
-            function PlayerPlay(a, b) {
-                a.on('play', function (event) {
-                    eeadDomHeight = GetDomElementHeight(b);
-                    jQuery('.eead-sticky-video-player2').removeAttr('id');
-                    jQuery('.eead-sticky-video-player2').removeClass('out');
-                    b.attr('id', 'videobox');
-                    videoIsActive = 'on';
-                    eeadPosition = b.data('position');
-                    eeadHeight = b.data('sheight');
-                    eeadWidth = b.data('swidth');
-                });
-            }
         },
 
         twitterFeedCarousel: function ($scope, $) {
@@ -1445,7 +1385,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        
+
 
         videoPlayer: function ($scope) {
             var video = $scope.find('.eead-video-block'),
