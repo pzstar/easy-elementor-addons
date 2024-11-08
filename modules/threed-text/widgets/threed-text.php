@@ -55,7 +55,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_media_type', array(
+            'media_type', array(
                 'label' => esc_html__('Media Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => array(
@@ -71,17 +71,17 @@ class ThreedText extends Widget_Base {
                 'name' => 'thumbnail',
                 'default' => 'full',
                 'condition' => array(
-                    'eead_media_type' => 'image',
+                    'media_type' => 'image',
                 ),
             )
         );
 
         $this->add_control(
-            'eead_image', array(
+            'image', array(
                 'label' => esc_html__('Upload Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'condition' => array(
-                    'eead_media_type' => 'image',
+                    'media_type' => 'image',
                 ),
             )
         );
@@ -92,7 +92,7 @@ class ThreedText extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__('3D Text', 'easy-elementor-addons'),
                 'condition' => array(
-                    'eead_media_type' => 'text',
+                    'media_type' => 'text',
                 )
             ]
         );
@@ -153,7 +153,7 @@ class ThreedText extends Widget_Base {
             'html_tag', [
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'options' => eead_html_tags(),
+                'options' => html_tags(),
                 'default' => 'h1'
             ]
         );
@@ -257,7 +257,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_threed_text_rotate_popover', [
+            'threed_text_rotate_popover', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'prefix_class' => $transform_prefix_class,
@@ -271,7 +271,7 @@ class ThreedText extends Widget_Base {
         $this->start_popover();
 
         $this->add_responsive_control(
-            'eead_threed_text_rotateZ_effect', [
+            'threed_text_rotateZ_effect', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -290,7 +290,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_threed_text_rotate_3d', [
+            'threed_text_rotate_3d', [
                 'label' => esc_html__('3D Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => esc_html__('On', 'easy-elementor-addons'),
@@ -302,7 +302,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_threed_text_rotateX_effect', [
+            'threed_text_rotateX_effect', [
                 'label' => esc_html__('Rotate X', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -321,7 +321,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_threed_text_rotateY_effect', [
+            'threed_text_rotateY_effect', [
                 'label' => esc_html__('Rotate Y', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -340,7 +340,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_threed_text_perspective_effect', [
+            'threed_text_perspective_effect', [
                 'label' => esc_html__('Perspective', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
@@ -365,7 +365,7 @@ class ThreedText extends Widget_Base {
         $this->end_popover();
 
         $this->add_control(
-            'eead_threed_text_scale_popover', [
+            'threed_text_scale_popover', [
                 'label' => esc_html__('Scale', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
                 'prefix_class' => $transform_prefix_class,
@@ -382,12 +382,12 @@ class ThreedText extends Widget_Base {
                     'relation' => 'or',
                     'terms' => array(
                         array(
-                            'name' => 'eead_threed_text_rotate_popover',
+                            'name' => 'threed_text_rotate_popover',
                             'operator' => '!=',
                             'value' => '',
                         ),
                         array(
-                            'name' => 'eead_threed_text_scale_popover',
+                            'name' => 'threed_text_scale_popover',
                             'operator' => '!=',
                             'value' => '',
                         ),
@@ -397,7 +397,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_threed_text_x_anchor_point', [
+            'threed_text_x_anchor_point', [
                 'label' => esc_html__('X Anchor Point', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -423,7 +423,7 @@ class ThreedText extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'eead_threed_text_y_anchor_point', [
+            'threed_text_y_anchor_point', [
                 'label' => esc_html__('Y Anchor Point', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
@@ -518,14 +518,14 @@ class ThreedText extends Widget_Base {
             <<?php echo esc_attr($html_tag); ?>         <?php echo $this->get_render_attribute_string('ztext'); ?>>
 
                 <?php
-                if ('image' === $settings['eead_media_type']) {
-                    $image_src = $settings['eead_image'];
+                if ('image' === $settings['media_type']) {
+                    $image_src = $settings['image'];
                     $image_src_size = Group_Control_Image_Size::get_attachment_image_src($image_src['id'], 'thumbnail', $settings);
-                    $alt = Control_Media::get_image_alt($settings['eead_image']);
+                    $alt = Control_Media::get_image_alt($settings['image']);
                     ?>
                     <img src="<?php echo esc_url($image_src_size); ?>" class="ht--al-image" alt="<?php echo esc_attr($alt); ?>">
                     <?php
-                } elseif ('text' === $settings['eead_media_type']) {
+                } elseif ('text' === $settings['media_type']) {
                     echo esc_html($settings['text']);
                 }
                 ?>

@@ -95,7 +95,7 @@ class Charts extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_chart_separator', [
+            'chart_separator', [
                 'label' => esc_html__('Data Separator', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'description' => esc_html__('Separator between cells data', 'easy-elementor-addons'),
@@ -1252,7 +1252,7 @@ class Charts extends Widget_Base {
             }
 
             $col_settings = array(
-                'separator' => $settings['eead_chart_separator'],
+                'separator' => $settings['chart_separator'],
                 'url' => ('file' === $settings['csv_type']) ? $settings['csv_file']['url'] : $settings['csv_url'],
                 'props' => $props,
             );

@@ -92,7 +92,7 @@ class LogoGrid extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_logos', [
+            'logos', [
                 'label' => esc_html__('Add Logos', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'default' => [
@@ -407,7 +407,7 @@ class LogoGrid extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'eead_logo_box_shadow_normal',
+                'name' => 'logo_box_shadow_normal',
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item',
                 'separator' => 'before'
             ]
@@ -460,7 +460,7 @@ class LogoGrid extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'eead_logo_box_shadow_hover',
+                'name' => 'logo_box_shadow_hover',
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover',
                 'separator' => 'before'
             ]
@@ -540,12 +540,12 @@ class LogoGrid extends Widget_Base {
         <div <?php echo $this->get_render_attribute_string('logo-grid'); ?>>
             <?php
             $count = 1;
-            $logo_count = count($settings['eead_logos']);
+            $logo_count = count($settings['logos']);
             $last_row_items = $logo_count % $settings['columns'] == 0 ? $settings['columns'] : $logo_count % $settings['columns'];
             $tablet_last_row_items = $logo_count % $settings['columns_tablet'] == 0 ? $settings['columns_tablet'] : $logo_count % $settings['columns_tablet'];
             $mobile_last_row_items = $logo_count % $settings['columns_mobile'] == 0 ? $settings['columns_mobile'] : $logo_count % $settings['columns_mobile'];
 
-            foreach ($settings['eead_logos'] as $item) {
+            foreach ($settings['logos'] as $item) {
                 if (!empty($item['logo_image']['url'])) {
                     $classes = [
                         'eead-grid-item',

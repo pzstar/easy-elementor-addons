@@ -41,7 +41,7 @@ class FeatureList extends Widget_Base {
     protected function register_controls() {
 
         $this->start_controls_section(
-            'eead_section_feature_list_content_settings', [
+            'section_feature_list_content_settings', [
                 'label' => esc_html__('Content Settings', 'easy-elementor-addons')
             ]
         );
@@ -163,7 +163,7 @@ class FeatureList extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_feature_list', [
+            'feature_list', [
                 'label' => esc_html__('Feature Item', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'seperator' => 'before',
@@ -635,7 +635,7 @@ class FeatureList extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute('eead_feature_list', [
+        $this->add_render_attribute('feature_list', [
             'class' => [
                 'eead-feature-list-items',
                 'eead-fl-style-' . $settings['icon_style']
@@ -643,9 +643,9 @@ class FeatureList extends Widget_Base {
         ]);
         ?>
         <div class="eead-feature-list">
-            <ul <?php $this->print_render_attribute_string('eead_feature_list'); ?>>
+            <ul <?php $this->print_render_attribute_string('feature_list'); ?>>
                 <?php
-                foreach ($settings['eead_feature_list'] as $index => $item) {
+                foreach ($settings['feature_list'] as $index => $item) {
                     $feature_title_tag = $settings['title_size'];
                     $feature_icon_tag = $item['link']['url'] ? 'a' : 'span';
 

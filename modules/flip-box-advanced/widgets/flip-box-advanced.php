@@ -47,7 +47,7 @@ class FlipBoxAdvanced extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_flipbox_layout_style', [
+            'flipbox_layout_style', [
                 'label' => esc_html__('Design Variation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -350,7 +350,7 @@ class FlipBoxAdvanced extends Widget_Base {
         );
 
         $this->add_control(
-            'eead_el_flip_3d', [
+            'el_flip_3d', [
                 'label' => esc_html__('3d Flip Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
@@ -417,7 +417,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'default' => '#fff',
                 'selector' => '{{WRAPPER}} .eead-flip-box-front',
                 'condition' => [
-                    'eead_flipbox_layout_style' => ['one', 'three', 'four']
+                    'flipbox_layout_style' => ['one', 'three', 'four']
                 ]
             ]
         );
@@ -430,7 +430,7 @@ class FlipBoxAdvanced extends Widget_Base {
                     'url' => Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'eead_flipbox_layout_style' => 'two',
+                    'flipbox_layout_style' => 'two',
                 ]
             ]
         );
@@ -711,10 +711,10 @@ class FlipBoxAdvanced extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs('jlteead_flipbox_action_btn_style');
+        $this->start_controls_tabs('jltflipbox_action_btn_style');
 
         $this->start_controls_tab(
-            'jlteead_flipbox_action_btn_style_normal', [
+            'jltflipbox_action_btn_style_normal', [
                 'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
@@ -784,7 +784,7 @@ class FlipBoxAdvanced extends Widget_Base {
         $this->end_controls_tab();
 
         $this->start_controls_tab(
-            'jlteead_flipbox_action_btn_style_hover', [
+            'jltflipbox_action_btn_style_hover', [
                 'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
@@ -855,7 +855,7 @@ class FlipBoxAdvanced extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute(
-            'eead_el_flipbox', 'class', [
+            'el_flipbox', 'class', [
                 'eead-flip-box'
             ]
         );
@@ -893,9 +893,9 @@ class FlipBoxAdvanced extends Widget_Base {
         }
         ?>
 
-        <div class="eead-flip-box-wrapper <?php echo $settings['eead_flipbox_layout_style'] ?> <?php
-            if ($settings['eead_el_flip_3d']) {
-                echo $settings['eead_el_flip_3d'];
+        <div class="eead-flip-box-wrapper <?php echo $settings['flipbox_layout_style'] ?> <?php
+            if ($settings['el_flip_3d']) {
+                echo $settings['el_flip_3d'];
             }
             ;
             ?>">
@@ -904,17 +904,17 @@ class FlipBoxAdvanced extends Widget_Base {
                     <div class="flipbox-content">
 
                         <?php
-                        if ($settings['eead_flipbox_layout_style'] == "two") {
+                        if ($settings['flipbox_layout_style'] == "two") {
                             if (isset($flip_box_url) && $flip_box_url != "") {
                                 ?>
                                 <img src="<?php echo esc_url($flip_box_url); ?>" alt="<?php echo get_post_meta($flip_box['id'], '_wp_attachment_image_alt', true); ?>">
                                 <?php
                             }
-                        } else if (($settings['eead_flipbox_layout_style'] == "one") || ($settings['eead_flipbox_layout_style'] == "three")) {
+                        } else if (($settings['flipbox_layout_style'] == "one") || ($settings['flipbox_layout_style'] == "three")) {
                             if ((!empty($settings['icon']) || !empty($settings['front_icon']['value']))) {
                                 ?>
                                     <div <?php echo $this->get_render_attribute_string('front-icon-wrapper'); ?>>
-                                    <?php $this->eead_fa_icon_picker('fab fa-elementor', 'icon', $settings['front_icon'], 'front-icon'); ?>
+                                    <?php $this->fa_icon_picker('fab fa-elementor', 'icon', $settings['front_icon'], 'front-icon'); ?>
                                     </div>
                                 <?php
                             }
@@ -933,11 +933,11 @@ class FlipBoxAdvanced extends Widget_Base {
 
                             <?php
                         }
-                        if ($settings['eead_flipbox_layout_style'] == "four") {
+                        if ($settings['flipbox_layout_style'] == "four") {
                             if (!empty($settings['front_icon'])) {
                                 ?>
                                 <div <?php echo $this->get_render_attribute_string('front-icon-wrapper'); ?>>
-                                    <?php $this->eead_fa_icon_picker('fab fa-elementor', 'icon', $settings['front_icon'], 'front-icon'); ?>
+                                    <?php $this->fa_icon_picker('fab fa-elementor', 'icon', $settings['front_icon'], 'front-icon'); ?>
                                 </div>
                                 <?php
                             }
@@ -953,7 +953,7 @@ class FlipBoxAdvanced extends Widget_Base {
                         if (!empty($settings['back_icon'])) {
                             ?>
                             <div <?php echo $this->get_render_attribute_string('back-icon-wrapper'); ?>>
-                                <?php $this->eead_fa_icon_picker('fab fa-elementor', 'icon', $settings['back_icon'], 'back-icon'); ?>
+                                <?php $this->fa_icon_picker('fab fa-elementor', 'icon', $settings['back_icon'], 'back-icon'); ?>
                             </div>
                             <?php
                         }
@@ -993,7 +993,7 @@ class FlipBoxAdvanced extends Widget_Base {
         <?php
     }
 
-    public function eead_fa_icon_picker($font_name = 'fab fa-elementor', $fa4_name = "", $control_name = "", $attr_name = "", $extra_class = "", $settings = '') {
+    public function fa_icon_picker($font_name = 'fab fa-elementor', $fa4_name = "", $control_name = "", $attr_name = "", $extra_class = "", $settings = '') {
 
         if (!isset($settings[$fa4_name]) && !Icons_Manager::is_migration_allowed()) {
             $settings[$fa4_name] = 'fab fa-elementor';
