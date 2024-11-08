@@ -33,6 +33,7 @@ odometerOptions = {auto: false};
                 'eead-horizontal-tab.default': EEA.horizontalTabsBlock,
                 'eead-vertical-tab.default': EEA.verticalTabsBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
+                'eead-video-player.default': EEA.videoPlayer,
 
 
 
@@ -53,7 +54,7 @@ odometerOptions = {auto: false};
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
                 'eead-team-member-carousel.default': EEA.teamMemberCarouselBlock,
-                'eead-video-player.default': EEA.videoPlayer,
+                
                 'eead-twitter-feed-carousel.default': EEA.twitterFeedCarousel,
             };
 
@@ -1152,6 +1153,69 @@ odometerOptions = {auto: false};
             }
         },
 
+        videoPlayer: function ($scope) {
+            var video = $scope.find('.eead-video-player'),
+                videoPlayer = $scope.find('.eead-html-video-player'),
+                overlay = $scope.find('.eead-video-overlay'),
+                iframe = $scope.find('.eead-video-iframe'),
+                hasOverlay = overlay.length > 0,
+                settings = video.data('settings') || {},
+                autoplay = settings.autoplay || false;
+
+            if (overlay[0]) {
+                overlay.on('click.eead-video-player', function (event) {
+                    if (videoPlayer[0]) {
+                        videoPlayer[0].play();
+                        overlay.remove();
+                        hasOverlay = false;
+                        return;
+                    }
+
+                    if (iframe[0]) {
+                        playIframeVideo();
+                    }
+                });
+            }
+
+            if (autoplay && iframe[0] && overlay[0]) {
+                playIframeVideo();
+            }
+
+            if (videoPlayer[0]) {
+                videoPlayer.on('play.eead-video-player', function (event) {
+                    if (hasOverlay) {
+                        overlay.remove();
+                        hasOverlay = false;
+                    }
+                });
+            }
+
+            function playIframeVideo() {
+                var lazyLoad = iframe.data('lazy-load');
+                if (lazyLoad) {
+                    iframe.attr('src', lazyLoad);
+                }
+                if (!autoplay) {
+                    iframe[0].src = iframe[0].src.replace('&autoplay=0', '&autoplay=1');
+                }
+                overlay.remove();
+                hasOverlay = false;
+            }
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1388,59 +1452,6 @@ odometerOptions = {auto: false};
                 $('.eead-portfolio-lists').data('lightGallery').destroy(true);
             }
         },
-
-
-
-        videoPlayer: function ($scope) {
-            var video = $scope.find('.eead-video-block'),
-                videoPlayer = $scope.find('.eead-video-player'),
-                overlay = $scope.find('.eead-video-overlay'),
-                iframe = $scope.find('.eead-video-iframe'),
-                hasOverlay = overlay.length > 0,
-                settings = video.data('settings') || {},
-                autoplay = settings.autoplay || false;
-
-            if (overlay[0]) {
-                overlay.on('click.eead-video-block', function (event) {
-                    if (videoPlayer[0]) {
-                        videoPlayer[0].play();
-                        overlay.remove();
-                        hasOverlay = false;
-                        return;
-                    }
-
-                    if (iframe[0]) {
-                        playIframeVideo();
-                    }
-                });
-            }
-
-            if (autoplay && iframe[0] && overlay[0]) {
-                playIframeVideo();
-            }
-
-            if (videoPlayer[0]) {
-                videoPlayer.on('play.eead-video-block', function (event) {
-                    if (hasOverlay) {
-                        overlay.remove();
-                        hasOverlay = false;
-                    }
-                });
-            }
-
-            function playIframeVideo() {
-                var lazyLoad = iframe.data('lazy-load');
-                if (lazyLoad) {
-                    iframe.attr('src', lazyLoad);
-                }
-                if (!autoplay) {
-                    iframe[0].src = iframe[0].src.replace('&autoplay=0', '&autoplay=1');
-                }
-                overlay.remove();
-                hasOverlay = false;
-            }
-        },
-
 
 
         elementorColumn: function ($scope) {

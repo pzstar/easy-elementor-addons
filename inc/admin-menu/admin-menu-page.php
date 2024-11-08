@@ -93,14 +93,14 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
                     <?php $this->get_widget_field('Popup Video', 'popup-video'); ?>
                     <?php $this->get_widget_field('Portfolio', 'portfolio'); ?>
-                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid'); ?>
+                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid'); //?>
                     <?php $this->get_widget_field('Pricing List', 'pricing-list'); ?>
                     <?php $this->get_widget_field('Pricing Table', 'pricing-table'); ?>
                     <?php $this->get_widget_field('Progressbar', 'progressbar'); ?>
                     <?php $this->get_widget_field('Scroll Image', 'scroll-image'); ?>
-                    <?php $this->get_widget_field('Scroll Nav', 'scroll-nav'); ?>
+                    <?php //$this->get_widget_field('Scroll Nav', 'scroll-nav');  //premium ?>
                     <?php $this->get_widget_field('Slider', 'slider'); ?>
-                    <?php //$this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu'); //premium?>
+                    <?php //$this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu'); //premium ?>
                     <?php $this->get_widget_field('Social Share', 'social-share'); ?>
                     <?php $this->get_widget_field('Step Flow', 'step-flow'); ?>
                     <?php $this->get_widget_field('Sticky Video', 'sticky-video'); ?>

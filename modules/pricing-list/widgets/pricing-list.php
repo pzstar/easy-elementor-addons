@@ -74,15 +74,6 @@ class PricingList extends Widget_Base {
         );
 
         $repeater->add_control(
-            'currency', [
-                'label' => esc_html__('Currency Symbol', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'default' => '$'
-            ]
-        );
-
-        $repeater->add_control(
             'price', [
                 'label' => esc_html__('Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
@@ -114,35 +105,25 @@ class PricingList extends Widget_Base {
             ]
         );
 
-        $repeater->add_control(
-            'is_featured', [
-                'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER
-            ]
-        );
-
         $this->add_control(
             'pricing_lists', [
-                'label' => esc_html__('Pricing Lists', 'easy-elementor-addons'),
+                'label' => esc_html__('Lists', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
                         'title' => 'Item 1',
-                        'currency' => '$',
-                        'price' => '10',
+                        'price' => '$10',
                         'description' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons')
                     ],
                     [
                         'title' => 'Item 2',
-                        'currency' => '$',
-                        'price' => '20',
+                        'price' => '$20',
                         'description' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons')
                     ],
                     [
                         'title' => 'Item 3',
-                        'currency' => '$',
-                        'price' => '30',
+                        'price' => '$30',
                         'description' => esc_html__('Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.', 'easy-elementor-addons')
                     ]
                 ],
@@ -171,6 +152,41 @@ class PricingList extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'title_tag', [
+                'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'span' => 'span',
+                    'p' => 'p',
+                ],
+                'default' => 'h4',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'pricing_column', [
+                'label' => esc_html__('Grid Columns', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 1,
+                'options' => [
+                    '1' => esc_html__('1', 'easy-elementor-addons'),
+                    '2' => esc_html__('2', 'easy-elementor-addons'),
+                    '3' => esc_html__('3', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
+                ],
+            ]
+        );
+
         $this->add_responsive_control(
             'alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
@@ -190,20 +206,6 @@ class PricingList extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ]
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'title_link_enable', [
-                'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER
-            ]
-        );
-
-        $this->add_control(
-            'image_link_enable', [
-                'label' => esc_html__('Link On Title', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER
             ]
         );
 
@@ -459,75 +461,87 @@ class PricingList extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $this->add_render_attribute('pricing-list',
+            'class', [
+                'eead-pricing-list-container',
+                'eead-pl-' . $settings['layout']
+            ]
+        );
+
         if ($settings['layout'] != 'style3') {
-            $alignment_class = 'eead-align-' . $settings['alignment'];
+            $this->add_render_attribute('pricing-list', 'class', 'eead-pl-align-' . $settings['alignment']);
         }
         ?>
-        <div class="eead-pricing-list-section <?php echo esc_attr($settings['layout']); ?>">
-            <div class="eead-pricing-list-wrap <?php echo isset($alignment_class) ? esc_attr($alignment_class) : ''; ?>">
+        <div <?php $this->print_render_attribute_string('pricing-list'); ?>>
+            <div class="eead-pricing-list">
+                <?php
+                if ($settings['pricing_lists']) {
+                    foreach ($settings['pricing_lists'] as $lists) { ?>
+                        <div class="eead-pl-item">
+                            <?php
+                            $has_link = false;
+                            if (isset($lists['link']['url']) && !empty($lists['link']['url'])) {
+                                $has_link = true;
+                                $link = $lists['link']['url'];
+                            }
+                            ?>
+                            <?php if ($lists['image']) { ?>
+                                <div class="eead-pl-item-image">
+                                    <?php
+                                    if ($has_link) {
+                                        $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
+                                        printf('<a href=%1$s>%2$s</a>', $link, $image);
+                                    } else {
+                                        echo Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
+                                    }
 
-                <?php foreach ($settings['pricing_lists'] as $lists) { ?>
-                    <div class="eead-each-pricing-item">
-                        <?php if ($lists['image']) { ?>
-                            <div class="eead-item-image">
-                                <?php
-                                $link = $lists['link']['url'] ? esc_url($lists['link']['url']) : '#';
-                                if ($settings['image_link_enable'] == 'yes') {
-                                    $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
-                                    printf('<a href=%1$s>%2$s</a>', $link, $image);
-                                } else {
-                                    echo Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
-                                }
-
-                                if ($settings['layout'] == 'style2' || $settings['layout'] == 'style3') {
-                                    if ($lists['price']) {
+                                    if (($settings['layout'] == 'style2' || $settings['layout'] == 'style3') && $lists['price']) {
                                         ?>
-                                        <small class="eead-item-price">
-                                            <?php echo esc_html($lists['currency']) . esc_html($lists['price']); ?>
-                                        </small>
+                                        <div class="eead-pl-item-price">
+                                            <?php echo esc_html($lists['price']); ?>
+                                        </div>
                                         <?php
                                     }
-                                }
-                                ?>
-                            </div>
-                        <?php } ?>
-
-                        <div class="eead-item-details-box">
-                            <div class="eead-item-title-section">
-
-                                <?php if ($lists['title']) { ?>
-                                    <h3>
-                                        <?php
-                                        if ($settings['title_link_enable'] == 'yes') {
-                                            printf('<a href=%1$s>%2$s</a>', $link, $lists['title']);
-                                        } else {
-                                            echo esc_html($lists['title']);
-                                        }
-                                        ?>
-                                    </h3>
-                                <?php } ?>
-
-                                <?php
-                                if ($settings['layout'] == 'style1') {
-                                    if ($lists['price']) {
-                                        ?>
-                                        <small class="eead-item-price">
-                                            <?php echo esc_html($lists['currency']) . esc_html($lists['price']); ?>
-                                        </small>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                            </div>
-
-                            <?php if ($lists['description']) { ?>
-                                <div class="eead-pricing-item-description">
-                                    <?php echo esc_html($lists['description']); ?>
+                                    ?>
                                 </div>
                             <?php } ?>
+
+                            <div class="eead-pl-item-content">
+                                <div class="eead-pl-item-header">
+
+                                    <?php if ($lists['title']) { ?>
+                                        <<?php echo $settings['title_tag']; ?> class="eead-pl-item-title">
+                                            <?php
+                                            if ($has_link) {
+                                                printf('<a href=%1$s>%2$s</a>', $link, $lists['title']);
+                                            } else {
+                                                echo esc_html($lists['title']);
+                                            }
+                                            ?>
+                                        </<?php echo $settings['title_tag']; ?>>
+                                    <?php } ?>
+
+                                    <?php
+                                    if ($settings['layout'] == 'style1' && $lists['price']) {
+                                        ?>
+                                        <div class="eead-pl-item-price">
+                                            <?php echo esc_html($lists['price']); ?>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+
+                                <?php if ($lists['description']) { ?>
+                                    <div class="eead-pl-item-description">
+                                        <?php echo esc_html($lists['description']); ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                        <?php
+                    }
+                } ?>
             </div>
         </div>
         <?php
