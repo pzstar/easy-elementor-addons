@@ -1083,12 +1083,16 @@ odometerOptions = {auto: false};
             var stickyVideo = $scope.find('.eead-sticky-video');
             var videoContainer = $scope.find('.eead-sticky-video-container');
             var overlayContainer = $scope.find('.eead-overlay');
-            var sticky = stickyVideo.data('sticky') ? stickyVideo.data('sticky') : '';
-            var autoplay = stickyVideo.data('autoplay') ? stickyVideo.data('autoplay') : '';
+            var sticky = stickyVideo.data('sticky');
             var overlay = stickyVideo.data('overlay') ? stickyVideo.data('overlay') : '';
+            var autoplay = JSON.parse(stickyVideo.data('autoplay'));
             var videoIsActive = 'off';
 
-            var player = new Plyr('#eead-player-' + $scope.data('id'));
+            var player = new Plyr('#eead-player-' + $scope.data('id'), {
+                autoplay: JSON.parse(stickyVideo.data('autoplay')),
+                muted: JSON.parse(stickyVideo.data('mute')),
+                loop: {active: JSON.parse(stickyVideo.data('loop'))}
+            });
 
             player.on('pause', function (event) {
                 videoIsActive = 'off';
@@ -1104,7 +1108,7 @@ odometerOptions = {auto: false};
                 videoIsActive = 'off';
             });
 
-            if (overlay === 'yes' && autoplay === 'yes') {
+            if (overlay === 'yes' && autoplay) {
                 player.play();
                 overlayContainer.hide();
                 videoIsActive = 'on';
@@ -1117,7 +1121,7 @@ odometerOptions = {auto: false};
             }
 
             if (sticky == 'yes') {
-                setTimeout(function(){
+                setTimeout(function () {
                     videoContainer.css('height', stickyVideo.height() + 'px');
                     var stickyPoint = videoContainer.offset().top + videoContainer.height();
                     stickyVideo.attr('data-sticky-point', stickyPoint);

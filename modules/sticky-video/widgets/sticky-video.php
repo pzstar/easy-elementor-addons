@@ -9,6 +9,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
+use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -247,7 +248,7 @@ class StickyVideo extends Widget_Base {
 
         $this->add_control(
             'overlay_play_icon', [
-                'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
+                'label' => esc_html__('Show Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_block' => false,
                 'default' => 'yes',
@@ -255,21 +256,6 @@ class StickyVideo extends Widget_Base {
                     'overlay_options' => 'yes',
                 ],
                 'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'play_icon', [
-                'label' => esc_html__('Choose Icon', 'easy-elementor-addons'),
-                'type' => Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fa fa-play-circle',
-                    'library' => 'fa-solid',
-                ],
-                'condition' => [
-                    'overlay_options' => 'yes',
-                    'overlay_play_icon' => 'yes',
-                ]
             ]
         );
 
@@ -310,7 +296,8 @@ class StickyVideo extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .plyr__control--overlaid' => 'padding: {{SIZE}}{{UNIT}}; height: auto',
+                    '{{WRAPPER}} .plyr__control--overlaid, {{WRAPPER}} .eead-overlay-icon' => 'padding: {{SIZE}}{{UNIT}}; height: auto',
+                    '{{WRAPPER}} .plyr__control--overlaid svg, {{WRAPPER}} .eead-overlay-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -364,6 +351,10 @@ class StickyVideo extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                     ]
+                ],
+                'default' => [
+                    'size' => 400,
+                    'unit' => 'px'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-sticky-video' => '--eead-sticky-video-width: {{SIZE}}{{UNIT}};',
@@ -462,6 +453,13 @@ class StickyVideo extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'video_shadow',
+                'selector' => '{{WRAPPER}} .eead-sticky-video-container'
+            ]
+        );
+
         $this->add_responsive_control(
             'video_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
@@ -479,7 +477,9 @@ class StickyVideo extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $sticky = isset($settings['is_sticky']) && $settings['is_sticky'] == 'yes' ? $settings['is_sticky'] : 'no';
-        $autoplay = isset($settings['autoplay']) && $settings['autoplay'] == 'yes' ? $settings['autoplay'] : 'no';
+        $autoplay = isset($settings['autoplay']) && $settings['autoplay'] == 'yes' ? 'true' : 'false';
+        $muted = isset($settings['mute']) && $settings['mute'] == 'yes' ? 'true' : 'false';
+        $loop = isset($settings['loop']) && $settings['loop'] == 'yes' ? 'true' : 'false';
         $overlay = isset($settings['overlay_options']) && $settings['overlay_options'] == 'yes' ? $settings['overlay_options'] : 'no';
         ?>
         <div class="eead-sticky-video-container">
@@ -491,7 +491,9 @@ class StickyVideo extends Widget_Base {
                     'data-sticky' => $sticky,
                     'data-position' => $settings['sticky_position'],
                     'data-autoplay' => $autoplay,
-                    'data-overlay' => $overlay
+                    'data-overlay' => $overlay,
+                    'data-mute' => $muted,
+                    'data-loop' => $loop
                 ]
             );
             ?>
@@ -523,7 +525,9 @@ class StickyVideo extends Widget_Base {
 
                 <div <?php $this->print_render_attribute_string('overlay_wrapper'); ?>>
                     <div class="eead-overlay-icon">
-                        <?php Icons_Manager::render_icon($settings['play_icon'], ['aria-hidden' => 'true']); ?>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" viewBox="2 0 14 18">
+                            <path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z" />
+                        </svg>
                     </div>
                 </div>
                 <?php
@@ -534,47 +538,21 @@ class StickyVideo extends Widget_Base {
     }
 
     protected function get_youtube_player() {
-        $settings = $this->get_settings_for_display();
         $id = $this->get_url_id();
-
-        $am = '';
-        $am .= (isset($settings['autoplay']) && $settings['autoplay'] == 'yes' ? '"autoplay":1' : '"autoplay":0');
-        $am .= (isset($settings['mute']) && $settings['autoplay'] == 'yes' ? ', "muted":1' : ', "muted":0');
-
-        if (isset($settings['loop']) && $settings['loop'] == 'yes') {
-            $lp = '"loop": {"active": true}';
-        } else {
-            $lp = '"loop": {"active": false}';
-        }
 
         return '<div id="eead-player-' . $this->get_id() . '"
             data-plyr-provider="youtube"
-            data-plyr-embed-id="' . esc_attr($id) . '"
-            data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}">
+            data-plyr-embed-id="' . esc_attr($id) . '">
             </div>';
     }
 
     protected function get_vimeo_player() {
-        $settings = $this->get_settings_for_display();
         $id = $this->get_url_id();
 
-        $am = '';
-        $am .= (isset($settings['autoplay']) && $settings['autoplay'] == 'yes' ? '"autoplay":1' : '"autoplay":0');
-        $am .= (isset($settings['mute']) && $settings['autoplay'] == 'yes' ? ', "muted":1' : ', "muted":0');
-
-        if (isset($settings['loop']) && $settings['loop'] == 'yes') {
-            $lp = '"loop": {"active": true}';
-        } else {
-            $lp = '"loop": {"active": false}';
-        }
-
-        ob_start();
-        ?>
-        <div id="eead-player-<?php echo $this->get_id(); ?>" data-plyr-provider="vimeo" data-plyr-embed-id="<?php echo esc_attr($id); ?>" data-plyr-config="{<?php echo esc_attr($am); ?>, <?php echo esc_attr($lp); ?>}">
-        </div>
-        <?php
-        $html = ob_get_clean();
-        return $html;
+        return '<div id="eead-player-' . $this->get_id() . '"
+            data-plyr-provider="vimeo"
+            data-plyr-embed-id="' . esc_attr($id) . '">
+            </div>';
     }
 
     protected function get_self_hosted_player() {
@@ -582,19 +560,9 @@ class StickyVideo extends Widget_Base {
         $id = $this->get_id();
         $video = ($settings['link_external'] == 'yes') ? $settings['external_url'] : $settings['hosted_url']['url'];
 
-        $am = '';
-        $am .= (isset($settings['autoplay']) && $settings['autoplay'] == 'yes' ? '"autoplay":1' : '"autoplay":0');
-        $am .= (isset($settings['mute']) && $settings['autoplay'] == 'yes' ? ', "muted":1' : ', "muted":0');
-
-        if (isset($settings['loop']) && $settings['loop'] == 'yes') {
-            $lp = '"loop": {"active": true}';
-        } else {
-            $lp = '"loop": {"active": false}';
-        }
-
         ob_start();
         ?>
-        <video src="<?php echo esc_url($video); ?>" id="eead-player-<?php echo $id; ?>" playsinline controls data-plyr-config="{<?php echo esc_attr($am); ?>, <?php echo esc_attr($lp); ?>}" controls>
+        <video src="<?php echo esc_url($video); ?>" id="eead-player-<?php echo $id; ?>" playsinline controls>
             <source src="<?php echo esc_url($video); ?>" type="video/mp4">
             <?php echo esc_html__('Your browser does not support the video tag.', 'easy-elementor-addons'); ?>
         </video>
