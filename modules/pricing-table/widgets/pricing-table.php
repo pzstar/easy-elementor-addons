@@ -79,6 +79,15 @@ class PricingTable extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'tag', [
+                'label' => esc_html__('Tag', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default' => 'Popular'
+            ]
+        );
+
         $repeater = new Repeater();
 
         $repeater->add_control(
@@ -162,13 +171,6 @@ class PricingTable extends Widget_Base {
                     'library' => 'solid'
                 ],
                 'condition' => ['layout' => 'style2']
-            ]
-        );
-
-        $this->add_control(
-            'is_featured', [
-                'label' => esc_html__('Is Featured', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
             ]
         );
 
@@ -530,11 +532,9 @@ class PricingTable extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $featured_class = $settings['is_featured'] == 'yes' ? 'eead-featured' : '';
 
         $pricing_class = array(
             'eead-pricing-table',
-            $featured_class,
             $settings['layout']
         );
         ?>
