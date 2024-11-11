@@ -1044,7 +1044,7 @@ class TwitterFeedCarousel extends Widget_Base {
             foreach ($items as $key => $item) {
                 $match = false;
 
-                if ($item['entities']['hashtags']) {
+                if (isset($item['entities']['hashtags']) && $item['entities']['hashtags']) {
                     foreach ($item['entities']['hashtags'] as $tag) {
                         if (strcasecmp($tag['text'], $settings['eead_twitter_feed_hashtag_name']) == 0) {
                             $match = true;
