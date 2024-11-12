@@ -1,3 +1,8 @@
+:root{
+    --eead-pri-color: #00b3ff;
+    --eead-light-bg-color: #EEF7FF;
+}
+
 /*--------------------------------------------------------------
 Accordion
 --------------------------------------------------------------*/
@@ -6037,7 +6042,7 @@ Pricing List
     overflow: hidden;
 }
 
-.eead-pricing-list .eead-pl-item-image img{
+.eead-pricing-list .eead-pl-item-image img {
     width: 100%;
 }
 
@@ -6049,11 +6054,11 @@ Pricing List
     margin-bottom: 20px;
 }
 
-.eead-pricing-list .eead-pl-item-header:last-child{
+.eead-pricing-list .eead-pl-item-header:last-child {
     margin-bottom: 0;
 }
 
-.eead-pl-item-header::before{
+.eead-pl-item-header::before {
     content: "";
     flex-grow: 1;
     order: 2;
@@ -6097,32 +6102,48 @@ Pricing List
 /*--------------------------------------------------------------
 Pricing Table
 --------------------------------------------------------------*/
-.eead-pricing-table ul.eead-pricing-listing{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
+.eead-pricing-table {
+    overflow: hidden;
 }
 
-.eead-pricing-button a{
+.eead-pricing-button a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 20px;
-    background: #00b3ff;
+    padding: 12px 20px;
+    background: var(--eead-pri-color);
     color: #FFF;
     transition: all 0.3s ease;
+    border-radius: 3px;;
 }
 
-.eead-pricing-button a svg{
+.eead-pricing-button a svg {
     height: 1em;
     width: 1em;
     transition: all 0.3s ease;
 }
 
-.eead-pricing-table ul.eead-pricing-listing li{
+.eead-pricing-table ul.eead-pricing-listing {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--eead-pt-list-gap, 20);
+}
+
+.eead-pricing-table .eead-pricing-title{
+    margin-bottom: 30px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+.eead-pricing-table .eead-pricing-price{
+    line-height: 1;
+}
+
+.eead-pricing-table ul.eead-pricing-listing li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -6130,44 +6151,247 @@ Pricing Table
     display: flex;
     gap: 10px;
     align-items: center;
+    position: relative;
+    justify-content: center;
+    text-align: left;
 }
 
-.eead-pricing-table ul.eead-pricing-listing li svg{
+.eead-pricing-table ul.eead-pricing-listing li svg {
     height: 1em;
     width: 1em;
     fill: inherit;
 }
 
-.eead-pricing-table.style1{
-    text-align: center;
-    background: #EAEAEA;
-    border: 1px solid #CCC;
-    padding: 40px;
-    border-radius: 3px;
+.eead-pricing-table ul.eead-pricing-listing li:after {
+    content: "";
+    height: var(--eead-pt-list-sep-size, 0);
+    width: 100%;
+    background: var(--eead-pt-list-sep-color, #EEE);
+    position: absolute;
+    top: calc(100% + var(--eead-pt-list-gap, 20)/2 - var(--eead-pt-list-sep-size, 0)/2);
 }
 
-.eead-pricing-table.style1 .eead-pricing-header{
-    margin-bottom: 40px;
+.eead-pricing-table ul.eead-pricing-listing li:last-child:after {
+    display: none;
 }
 
-.eead-pricing-table.style1 ul.eead-pricing-listing{
+.eead-pricing-table .eead-header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--eead-pt-header-icon-size, 76px);
+    width: var(--eead-pt-header-icon-size, 76px);
+    background: #FFF;
+    border-radius: 50%;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.eead-pricing-table .eead-header-icon i {
+    font-size: inherit;
+}
+
+.eead-pricing-table .eead-header-icon svg {
+    height: 1em;
+    width: 1em;
+}
+
+.eead-pricing-table ul.eead-pricing-listing {
     margin-bottom: 50px;
 }
 
-.eead-pricing-table.style1 ul.eead-pricing-listing li{
-    justify-content: center;
+.eead-pricing-table .eead-price {
+    font-size: 50px;
+}
+
+/* Style 1 */
+.eead-pricing-table.style1 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+    padding: var(--eead-pt-box-padding, 30px);
+    border-radius: 3px;
 }
 
 .eead-pricing-table.style1 .eead-pricing-price {
-    font-size: 50px;
     margin-bottom: 40px;
 }
 
+/* Style 2 */
+.eead-pricing-table.style2 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style2 .eead-pricing-header {
+    position: relative;
+    background: var(--eead-pri-color);
+    padding: var(--eead-pt-header-padding, 30px);
+}
+
+.eead-pricing-table.style2 .eead-pricing-price {
+    padding-bottom: calc(var(--eead-pt-header-icon-size, 76px)/2);
+}
+
+.eead-pricing-table.style2  ul.eead-pricing-listing{
+    padding-top: calc(var(--eead-pt-header-icon-size, 76px)/2);
+}
+
+.eead-pricing-table.style2 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
+
+.eead-pricing-table.style2 .eead-header-icon {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style 3 */
+.eead-pricing-table.style3 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style3 .eead-pricing-header {
+    position: relative;
+    background: var(--eead-pri-color);
+    padding: var(--eead-pt-header-padding, 30px);
+    clip-path: polygon(0 0, 100% 0%, 100% calc(100% - 30px), 0% 100%);
+}
+
+.eead-pricing-table.style3 .eead-pricing-price {
+    padding-bottom: 30px;
+}
+
+.eead-pricing-table.style3 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
+
+/* Style 4 */
+.eead-pricing-table.style4 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style4 .eead-pricing-header {
+    position: relative;
+    background: var(--eead-pri-color);
+    padding: var(--eead-pt-header-padding, 30px);
+    clip-path: polygon(100% 0, 100% calc(100% - 40px), 50% 100%, 0 calc(100% - 40px), 0 0);
+}
+
+.eead-pricing-table.style4 .eead-pricing-price{
+    padding-bottom: 40px;
+}
+
+.eead-pricing-table.style4 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
+
+/* Style 5 */
+.eead-pricing-table.style5 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style5 .eead-pricing-header {
+    position: relative;
+    padding: var(--eead-pt-header-padding, 30px);
+}
+
+.eead-pricing-table.style5 .eead-pricing-header:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 150%;
+    padding-bottom: 150%;
+    background: var(--eead-pri-color);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.eead-pricing-table.style5 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
+
+.eead-pricing-table.style5 .eead-header-icon {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.eead-pricing-table.style5 .eead-pricing-title,
+.eead-pricing-table.style5 .eead-pricing-price {
+    position: relative;
+}
+
+.eead-pricing-table.style5 .eead-pricing-price {
+    padding-bottom: calc(var(--eead-pt-header-icon-size, 76px)/2);
+}
+
+.eead-pricing-table.style5  ul.eead-pricing-listing{
+    padding-top: calc(var(--eead-pt-header-icon-size, 76px)/2);
+}
+
+/* Style 6 */
+.eead-pricing-table.style6 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style6 .eead-pricing-header {
+    position: relative;
+    background: var(--eead-pri-color);
+    padding: var(--eead-pt-header-padding, 30px);
+    border-radius: 0 0 50px 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.eead-pricing-table.style6 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
+
+/* Style 7 */
+.eead-pricing-table.style7 {
+    text-align: center;
+    background: var(--eead-light-bg-color);
+}
+
+.eead-pricing-table.style7 .eead-pricing-header {
+    padding: var(--eead-pt-header-padding, 30px);
+}
+
+.eead-pricing-table.style7 .eead-pricing-body {
+    padding: var(--eead-pt-box-padding, 30px);
+}
 
 
-
-
-
+.eead-pricing-tag {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 99;
+  }
+  .eead-pricing-tag {
+    --f: .5em; /* control the folded part */
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.8;
+    padding-inline: 1lh;
+    padding-bottom: var(--f);
+    border-image: conic-gradient(#0008 0 0) 51%/var(--f);
+    clip-path: polygon(
+      100% calc(100% - var(--f)),100% 100%,calc(100% - var(--f)) calc(100% - var(--f)),var(--f) calc(100% - var(--f)), 0 100%,0 calc(100% - var(--f)),999px calc(100% - var(--f) - 999px),calc(100% - 999px) calc(100% - var(--f) - 999px));
+    transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
+    transform-origin: 0% 100%;
+    background-color: #BD1550; /* the main color  */
+  }
 
 
 

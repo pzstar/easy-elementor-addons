@@ -55,6 +55,14 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_control(
+            'sub_title', [
+                'label' => esc_html__('Sub Title', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
             'price', [
                 'label' => esc_html__('Price', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
@@ -167,7 +175,6 @@ class PricingTable extends Widget_Base {
                     'value' => 'fas fa-home',
                     'library' => 'solid'
                 ],
-                'condition' => ['layout' => 'style2']
             ]
         );
 
@@ -187,7 +194,11 @@ class PricingTable extends Widget_Base {
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
                     'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons')
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'style4' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'style5' => esc_html__('Style 5', 'easy-elementor-addons'),
+                    'style6' => esc_html__('Style 6', 'easy-elementor-addons'),
+                    'style7' => esc_html__('Style 7', 'easy-elementor-addons'),
                 ],
             ]
         );
@@ -244,8 +255,152 @@ class PricingTable extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-box-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'header_style', [
+                'label' => esc_html__('Header', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'layout!' => 'style1'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'header_background',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-pricing-table:not(.style5) .eead-pricing-header, {{WRAPPER}} .eead-pricing-table.style5 .eead-pricing-header:before',
+                'condition' => [
+                    'layout!' => 'style7'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'header_background7',
+                'exclude' => ['gradient', 'classic'],
+                'exclude' => ['color'],
+                'selector' => '{{WRAPPER}} .eead-pricing-table.style7 .eead-pricing-header',
+                'condition' => [
+                    'layout' => 'style7'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'header_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-header-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'header_icon_style', [
+                'label' => esc_html__('Header Icon', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'header_icon_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-header-icon i' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-pricing-table .eead-header-icon svg' => 'fill: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name' => 'header_icon_bg_color',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-header-icon'
+            ]
+        );
+
+        $this->add_control(
+            'header_icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-header-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'header_icon_bg_size', [
+                'label' => esc_html__('Icon Background Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-header-icon-size: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'header_icon_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-header-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'header_icon_margin', [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-header-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'header_shadow',
+                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-header-icon'
             ]
         );
 
@@ -276,17 +431,7 @@ class PricingTable extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(), [
-                'name' => 'title_background_color',
-                'types' => ['classic', 'gradient'],
-                'exclude' => ['image'],
-                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-title',
-                'condition' => ['layout' => 'style13']
-            ]
-        );
-
-        $this->add_control(
+        $this->add_responsive_control(
             'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -295,48 +440,45 @@ class PricingTable extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-table .eead-pricing-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition' => ['layout' => 'style1']
-            ]
-        );
-
-        $this->add_control(
-            'title_padding', [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ],
-                'condition' => ['layout' => 'style13']
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'icon_style', [
-                'label' => esc_html__('Icon', 'easy-elementor-addons'),
+            'sub_title_style', [
+                'label' => esc_html__('Sub Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => ['layout' => 'style2']
-            ]
-        );
-
-        $this->add_control(
-            'icon_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-header-icon i' => 'color: {{VALUE}}'
-                ],
             ]
         );
 
         $this->add_group_control(
-            Group_Control_Background::get_type(), [
-                'name' => 'icon_bg_color',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-header-icon'
+            Group_Control_Typography::get_type(), [
+                'name' => 'sub_title_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle',
+            ]
+        );
+
+        $this->add_control(
+            'sub_title_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle' => 'color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'sub_title_margin', [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
             ]
         );
 
@@ -367,17 +509,7 @@ class PricingTable extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(), [
-                'name' => 'price_bg_color',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-pricing-table.style3 .eead-pricing-price,
-                    {{WRAPPER}} .eead-pricing-table.style2 .eead-pricing-header',
-                'condition' => ['layout' => 'style21']
-            ]
-        );
-
-        $this->add_control(
+        $this->add_responsive_control(
             'price_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -386,7 +518,6 @@ class PricingTable extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-table .eead-pricing-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition' => ['layout' => 'style1']
             ]
         );
 
@@ -438,16 +569,6 @@ class PricingTable extends Widget_Base {
         );
 
         $this->add_control(
-            'feature_list_separator_color', [
-                'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table ul.eead-pricing-listing li:after' => 'border-top: 1px dashed {{VALUE}}'
-                ],
-            ]
-        );
-
-        $this->add_control(
             'feature_list_icon_color', [
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -482,8 +603,62 @@ class PricingTable extends Widget_Base {
                     'size' => 20,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table ul.eead-pricing-listing' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-list-gap: {{SIZE}}{{UNIT}};',
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'enable_listing_separator', [
+                'label' => esc_html__('Enable Separator', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'feature_list_sep_size', [
+                'label' => esc_html__('Separator Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-list-sep-size: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => ['enable_listing_separator' => 'yes']
+            ]
+        );
+
+        $this->add_control(
+            'feature_list_sep_color', [
+                'label' => esc_html__('Separator Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-list-sep-color: {{VALUE}}'
+                ],
+                'condition' => ['enable_listing_separator' => 'yes']
+            ]
+        );
+
+        $this->add_responsive_control(
+            'feature_list_margin', [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => 'vertical',
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table ul.eead-pricing-listing' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
             ]
         );
 
@@ -504,7 +679,7 @@ class PricingTable extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -676,38 +851,26 @@ class PricingTable extends Widget_Base {
         ?>
 
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
-            <div class="eead-pricing-header">
-
-                <?php if ($settings['layout'] == 'style2') { ?>
-                    <span class="eead-header-icon">
+        <?php 
+        if($settings['tag']){
+            echo '<span class="eead-pricing-tag">'. $settings['tag'] . '</span>';
+        }
+        ?>    
+        
+        <div class="eead-pricing-header">
+                <?php if ($settings['header_icon']['value']) { ?>
+                    <div class="eead-header-icon">
                         <?php Icons_Manager::render_icon($settings['header_icon'], ['aria-hidden' => 'true']); ?>
-                    </span>
-                <?php } ?>
-
-                <?php if ($settings['layout'] == 'style1' || $settings['layout'] == 'style3') { ?>
-                    <h2 class="eead-pricing-title"><?php echo esc_html($settings['title']); ?></h2>
-                <?php } ?>
-
-                <?php if ($settings['layout'] == 'style2' || $settings['layout'] == 'style3') { ?>
-                    <div class="eead-pricing-price">
-                        <span class="eead-price"><?php echo esc_html($settings['price']); ?></span>
-                        <span class="eead-price-per"><?php echo esc_html($settings['price_per']); ?></span>
                     </div>
-                <?php } ?>
+                    <?php
+                }
+                $this->get_pricing_header();
 
-                <?php if ($settings['layout'] == 'style2') { ?>
-                    <h2 class="eead-pricing-title"><?php echo esc_html($settings['title']); ?></h2>
-                <?php } ?>
+                $this->get_pricing_price();
+                ?>
             </div>
 
-            <div class="eead-pricing-main">
-                <?php if ($settings['layout'] == 'style1') { ?>
-                    <div class="eead-pricing-price">
-                        <span class="eead-price"><?php echo esc_html($settings['price']); ?></span>
-                        <span class="eead-price-per"><?php echo esc_html($settings['price_per']); ?></span>
-                    </div>
-                <?php } ?>
-
+            <div class="eead-pricing-body">
                 <?php $this->get_pricing_list(); ?>
 
                 <?php if (!empty($settings['link']['url'])) { ?>
@@ -719,6 +882,31 @@ class PricingTable extends Widget_Base {
                     </div>
                 <?php } ?>
             </div>
+        </div>
+        <?php
+    }
+
+    protected function get_pricing_header() {
+        $settings = $this->get_settings_for_display();
+        if ($settings['title']) {
+            ?>
+            <h2 class="eead-pricing-title"><?php echo esc_html($settings['title']); ?></h2>
+            <?php
+        }
+
+        if ($settings['sub_title']) {
+            ?>
+            <p class="eead-pricing-sub-title"><?php echo esc_html($settings['sub_title']); ?></p>
+            <?php
+        }
+    }
+
+    protected function get_pricing_price() {
+        $settings = $this->get_settings_for_display();
+        ?>
+        <div class="eead-pricing-price">
+            <span class="eead-price"><?php echo esc_html($settings['price']); ?></span>
+            <span class="eead-price-per"><?php echo esc_html($settings['price_per']); ?></span>
         </div>
         <?php
     }
