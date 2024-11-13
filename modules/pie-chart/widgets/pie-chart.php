@@ -404,16 +404,6 @@ class PieChart extends Widget_Base {
 			]
 		);
 
-		/*
-							$this->add_control(
-							'chart_legend_font_family',
-							[
-							'label' => esc_html__('Font Family', 'easy-elementor-addons'),
-							'type' => Controls_Manager::FONT,
-							]
-							);
-						   */
-
 		$this->add_control(
 			'chart_legend_font_size', [
 				'label' => esc_html__('Font Size', 'easy-elementor-addons'),
@@ -485,17 +475,6 @@ class PieChart extends Widget_Base {
 				'type' => Controls_Manager::COLOR
 			]
 		);
-
-		/*
-							$this->add_control(
-							'chart_tooltip_font_family',
-							[
-							'label' => esc_html__('Font Family', 'easy-elementor-addons'),
-							'type' => Controls_Manager::FONT,
-
-							]
-							);
-						   */
 
 		$this->add_control(
 			'chart_tooltip_font_size', [
