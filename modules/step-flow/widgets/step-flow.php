@@ -58,11 +58,8 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__('Badge', 'easy-elementor-addons'),
-                'description' => esc_html__('Leave it blank to hide the Badge', 'easy-elementor-addons'),
+                'description' => esc_html__('Leave blank to hide the Badge', 'easy-elementor-addons'),
                 'default' => esc_html__('Step 1', 'easy-elementor-addons'),
-                'dynamic' => [
-                    'active' => true,
-                ]
             ]
         );
 
@@ -74,9 +71,6 @@ class StepFlow extends Widget_Base {
                 'placeholder' => esc_html__('Title', 'easy-elementor-addons'),
                 'default' => esc_html__('Title', 'easy-elementor-addons'),
                 'separator' => 'before',
-                'dynamic' => [
-                    'active' => true,
-                ]
             ]
         );
 
@@ -86,34 +80,25 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'placeholder' => esc_html__('Description', 'easy-elementor-addons'),
                 'default' => 'Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Description repellendus dignissimos dolorum sint temporibus corporis!',
-                'dynamic' => [
-                    'active' => true,
-                ]
             ]
         );
 
         $this->add_control(
-            'link', [
-                'label' => esc_html__('Link', 'easy-elementor-addons'),
+            'readmore_link', [
+                'label' => esc_html__('Read More Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'placeholder' => 'https://example.com',
-                'dynamic' => [
-                    'active' => true,
-                ]
             ]
         );
 
         $this->add_control(
-            'readmore_link_text', [
-                'label' => esc_html__('Readmore Link Text', 'easy-elementor-addons'),
+            'readmore_text', [
+                'label' => esc_html__('Read More Text', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'description' => esc_html__('Leave empty to hide Readmore Link', 'easy-elementor-addons'),
-                'placeholder' => esc_html__('Readmore', 'easy-elementor-addons'),
-                'default' => esc_html__('Readmore', 'easy-elementor-addons'),
-                'dynamic' => [
-                    'active' => true,
-                ]
+                'description' => esc_html__('Leave empty to hide Readmore', 'easy-elementor-addons'),
+                'placeholder' => esc_html__('Read More', 'easy-elementor-addons'),
+                'default' => esc_html__('Read More', 'easy-elementor-addons'),
             ]
         );
 
@@ -131,15 +116,8 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Title Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'separator' => 'before',
-                'default' => 'h2',
-                'options' => [
-                    'h1' => esc_html__('H1', 'easy-elementor-addons'),
-                    'h2' => esc_html__('H2', 'easy-elementor-addons'),
-                    'h3' => esc_html__('H3', 'easy-elementor-addons'),
-                    'h4' => esc_html__('H4', 'easy-elementor-addons'),
-                    'h5' => esc_html__('H5', 'easy-elementor-addons'),
-                    'h6' => esc_html__('H6', 'easy-elementor-addons'),
-                ]
+                'default' => 'h4',
+                'options' => eead_html_tags(),
             ]
         );
 
@@ -160,10 +138,6 @@ class StepFlow extends Widget_Base {
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-text-align-right',
                     ],
-                    'justify' => [
-                        'title' => esc_html__('Justify', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-justify',
-                    ]
                 ],
                 'default' => 'center',
                 'toggle' => true,
@@ -174,18 +148,36 @@ class StepFlow extends Widget_Base {
         );
 
         $this->add_control(
-            'show_indicator', [
+            'show_direction', [
                 'label' => esc_html__('Show Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'style_transfer' => true
+            ]
+        );
+
+        $this->add_control(
+            'arrow_style', [
+                'label' => esc_html__('Direction Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'style1',
+                'options' => [
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'style4' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'style5' => esc_html__('Style 5', 'easy-elementor-addons'),
+                    'style6' => esc_html__('Style 6', 'easy-elementor-addons'),
+                ],
+                'condition' => [
+                    'show_direction' => 'yes',
+                ]
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            '_section_icon_style', [
+            'icon_style_section', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
@@ -207,8 +199,7 @@ class StepFlow extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-steps-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}' => '--eead-stepflow-icon-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-steps-icon' => 'font-size: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -226,24 +217,26 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-icon' => 'padding: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}' => '--eead-stepflow-icon-padding: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
-        $this->add_responsive_control(
-            'icon_spacing', [
-                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ]
-                ],
+        $this->add_control(
+            'icon_color', [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-steps-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-steps-icon' => 'color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'icon_background_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-icon' => 'background: {{VALUE}};',
                 ]
             ]
         );
@@ -274,22 +267,19 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'icon_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+        $this->add_responsive_control(
+            'icon_spacing', [
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ]
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-steps-icon' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'icon_background_color', [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-steps-icon' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-steps-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -297,7 +287,7 @@ class StepFlow extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            '_section_badge_style', [
+            'badge_style_section', [
                 'label' => esc_html__('Badge', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
@@ -305,6 +295,172 @@ class StepFlow extends Widget_Base {
                 ]
             ]
         );
+
+        $this->add_responsive_control(
+            'badge_h_position', [
+                'label' => esc_html__('Horizontal Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
+                ],
+                'default' => 'right',
+                'toggle' => false,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_offset_left', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'left:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'badge_h_position' => 'left',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_offset_right', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'right:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'badge_h_position' => 'right',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_v_position', [
+                'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'top' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'bottom' => [
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-bottom',
+                    ]
+                ],
+                'default' => 'top',
+                'toggle' => false,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_offset_top', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'top:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'badge_v_position' => 'top',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_offset_bottom', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'bottom:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'badge_v_position' => 'bottom',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'badge_typography',
+                'selector' => '{{WRAPPER}} .eead-steps-label',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'badge_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'badge_background_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'badge!' => '',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-steps-label' => 'background: {{VALUE}};',
+                ]
+            ]
+        );
+
 
         $this->add_responsive_control(
             'badge_padding', [
@@ -325,9 +481,6 @@ class StepFlow extends Widget_Base {
                 'name' => 'badge_border',
                 'label' => esc_html__('Border', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-steps-label',
-                'condition' => [
-                    'badge!' => '',
-                ]
             ]
         );
 
@@ -336,47 +489,8 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
-                'condition' => [
-                    'badge!' => '',
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'badge_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'badge!' => '',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-steps-label' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'badge_background_color', [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'badge!' => '',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-steps-label' => 'background: {{VALUE}};',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'badge_typography',
-                'selector' => '{{WRAPPER}} .eead-steps-label',
-                'condition' => [
-                    'badge!' => '',
                 ]
             ]
         );
@@ -384,20 +498,16 @@ class StepFlow extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            '_section_title_style', [
+            'title_style_section', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
-        $this->add_responsive_control(
-            'title_spacing', [
-                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-steps-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ]
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .eead-steps-title'
             ]
         );
 
@@ -412,19 +522,6 @@ class StepFlow extends Widget_Base {
         );
 
         $this->add_control(
-            'title_link_color', [
-                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'link[url]!' => ''
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-steps-title a' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
             'title_hover_color', [
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -434,20 +531,6 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title a:hover' => 'color: {{VALUE}};',
                 ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Text_Shadow::get_type(), [
-                'name' => 'title_shadow',
-                'selector' => '{{WRAPPER}} .eead-steps-title'
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .eead-steps-title'
             ]
         );
 
@@ -472,6 +555,13 @@ class StepFlow extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'description_typography',
+                'selector' => '{{WRAPPER}} .eead-step-description'
+            ]
+        );
+
         $this->add_control(
             'description_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
@@ -479,20 +569,6 @@ class StepFlow extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-description' => 'color: {{VALUE}};',
                 ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Text_Shadow::get_type(), [
-                'name' => 'description_shadow',
-                'selector' => '{{WRAPPER}} .eead-step-description'
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .eead-step-description'
             ]
         );
 
@@ -511,9 +587,12 @@ class StepFlow extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            '_section_direction_style', [
+            'section_direction_style', [
                 'label' => esc_html__('Direction', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'show_direction' => 'yes',
+                ]
             ]
         );
 
@@ -659,6 +738,37 @@ class StepFlow extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'readmore_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-step-flow-readmore',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'readmore_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-step-flow-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'readmore_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-step-flow-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
         $this->start_controls_tabs(
             'readmore_tabs'
         );
@@ -741,49 +851,6 @@ class StepFlow extends Widget_Base {
 
         $this->end_controls_tabs();
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'readmore_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-step-flow-readmore',
-                'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'readmore_border_radius', [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'readmore_padding', [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'readmore_margin', [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                ]
-            ]
-        );
-
         $this->end_controls_section();
     }
 
@@ -798,8 +865,8 @@ class StepFlow extends Widget_Base {
         $this->add_render_attribute('badge', 'class', 'eead-steps-label');
         $this->add_inline_editing_attributes('badge', 'none');
 
-        if (!empty($settings['link']['url'])) {
-            $this->add_link_attributes('link', $settings['link']);
+        if (!empty($settings['readmore_link']['url'])) {
+            $this->add_link_attributes('link', $settings['readmore_link']);
             $this->add_inline_editing_attributes('link', 'basic', 'title');
 
             $title = sprintf(
@@ -810,22 +877,15 @@ class StepFlow extends Widget_Base {
             $title = esc_html($settings['title']);
         }
         ?>
-        <div class="eead-setp-flow-wrapper" style="height: auto;">
+        <div class="eead-setp-flow">
 
             <div class="eead-steps-icon">
                 <?php
-                if ($settings['show_indicator'] === 'yes') {
-                    echo '<span class="eead-step-arrow"></span>';
-                }
-                ?>
+                $this->render_arrow();
 
-                <?php
-                if (!empty($settings['icon']) || !empty($settings['selected_icon']['value'])) {
-                    Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']);
-                }
-                ?>
+                Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']);
 
-                <?php if ($settings['badge']) { ?>
+                if ($settings['badge']) { ?>
                     <span <?php $this->print_render_attribute_string('badge'); ?>>
                         <?php echo esc_html($settings['badge']); ?>
                     </span>
@@ -838,12 +898,30 @@ class StepFlow extends Widget_Base {
                 <p <?php $this->print_render_attribute_string('description'); ?>><?php echo wp_kses_post($settings['description']); ?></p>
             <?php } ?>
 
-            <?php if (!empty($settings['readmore']) && !empty($settings['link']['url'])) { ?>
-                <a href="<?php echo esc_url($settings['link']['url']); ?>" class="eead-step-flow-readmore"><?php echo esc_html($settings['readmore']); ?></a>
+            <?php if (!empty($settings['readmore_text']) && !empty($settings['readmore_link']['url'])) { ?>
+                <a href="<?php echo esc_url($settings['readmore_link']['url']); ?>" class="eead-step-readmore"><?php echo esc_html($settings['readmore_text']); ?></a>
             <?php } ?>
 
         </div>
         <?php
+    }
+
+    protected function render_arrow() {
+        $settings = $this->get_settings_for_display();
+        if ($settings['show_direction'] === 'yes') {
+            echo '<span class="eead-step-direction">';
+            switch ($settings['arrow_style']) {
+                case 'style1':
+                    echo '<span class="eead-step-arrow"></span>';
+                    break;
+
+                case 'style2':
+                    echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><path d="M250 250q293 100 300 300" marker-end="url(#a)" stroke-width="10" stroke="hsl(227, 71%, 57%)" fill="none" stroke-linecap="round" stroke-linejoin="round"/><defs><marker markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" viewBox="0 0 5 5" orient="auto" id="a"><path fill="hsl(227, 71%, 57%)" d="m0 5 1.667-2.5L0 0l5 2.5z"/></marker></defs></svg>';
+                    break;
+            }
+            echo '</span>';
+
+        }
     }
 
 }

@@ -131,7 +131,7 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h1'
+                'default' => 'h3'
             ]
         );
 

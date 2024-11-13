@@ -10,14 +10,14 @@ Accordion
 .eead-accordion-container {
     display: flex;
     flex-direction: column;
-    gap: var(--eed-accordion-gap, 0.5em);
+    gap: var(--eead-accordion-gap, 0.5em);
 }
 
 .eead-accordion-container .eead-each-accordion {
     overflow: hidden;
-    border-radius: var(--eed-accordion-border-radius, 0);
-    padding: var(--eed-accordion-padding, 0);
-    background-color: var(--eed-accordion-background, transparent);
+    border-radius: var(--eead-accordion-border-radius, 0);
+    padding: var(--eead-accordion-padding, 0);
+    background-color: var(--eead-accordion-background, transparent);
 }
 
 .eead-accordion-container .eead-accordion-title {
@@ -25,23 +25,23 @@ Accordion
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: var(--eed-accordion-header-padding, 1em);
-    background-color: var(--eed-accordion-header-background, var(--eead-light-bg-color));
-    border-radius: var(--eed-accordion-header-border-radius, 0);
+    padding: var(--eead-accordion-header-padding, 1em);
+    background-color: var(--eead-accordion-header-background, var(--eead-light-bg-color));
+    border-radius: var(--eead-accordion-header-border-radius, 0);
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-title {
-    background-color: var(--eed-accordion-header-background-active, var(--eed-accordion-header-background, var(--eead-light-bg-color)));
+    background-color: var(--eead-accordion-header-background-active, var(--eead-accordion-header-background, var(--eead-light-bg-color)));
 }
 
 .eead-accordion-container .eead-accordion-title h3 {
     font-size: 1em;
     margin: 0;
-    color: var(--eed-accordion-title-color, #333)
+    color: var(--eead-accordion-title-color, #333)
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-title h3 {
-    color: var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333));
+    color: var(--eead-accordion-title-color-active, var(--eead-accordion-title-color, #333));
 }
 
 .eead-accordion-container .eead-each-accordion .eead-accordion-open-icon,
@@ -56,12 +56,12 @@ Accordion
 
 .eead-accordion-container .eead-accordion-content {
     display: none;
-    height: var(--eed-accordion-content-height, auto);
+    height: var(--eead-accordion-content-height, auto);
     overflow-y: auto;
-    color: var(--eed-accordion-content-color, inherit);
-    padding: var(--eed-accordion-content-padding, 1em);
-    background: var(--eed-accordion-content-bg-color, trasparent);
-    border-radius: var(--eed-accordion-content-border-radius, 0);
+    color: var(--eead-accordion-content-color, inherit);
+    padding: var(--eead-accordion-content-padding, 1em);
+    background: var(--eead-accordion-content-bg-color, trasparent);
+    border-radius: var(--eead-accordion-content-border-radius, 0);
 }
 
 .eead-accordion-container .eead-accordion-content *:last-child {
@@ -78,34 +78,34 @@ Accordion
 }
 
 .eead-accordion-container .eead-each-accordion .eead-accordion-icon {
-    padding: var(--eed-accordion-icon-padding, 0);
-    background-color: var(--eed-accordion-icon-bg-color, transparent);
-    border-radius: var(--eed-accordion-icon-border-radius, 0);
+    padding: var(--eead-accordion-icon-padding, 0);
+    background-color: var(--eead-accordion-icon-bg-color, transparent);
+    border-radius: var(--eead-accordion-icon-border-radius, 0);
     line-height: 1;
 }
 
 .eead-accordion-container .eead-each-accordion .eead-accordion-icon i {
-    font-size: var(--eed-accordion-icon-size, 1em);
-    color: var(--eed-accordion-icon-color, var(--eed-accordion-title-color, #333));
+    font-size: var(--eead-accordion-icon-size, 1em);
+    color: var(--eead-accordion-icon-color, var(--eead-accordion-title-color, #333));
     line-height: 1;
 }
 
 .eead-accordion-container .eead-each-accordion .eead-accordion-icon svg {
-    width: var(--eed-accordion-icon-size, 1em);
+    width: var(--eead-accordion-icon-size, 1em);
     height: auto;
-    fill: var(--eed-accordion-icon-color, var(--eed-accordion-title-color, #333));
+    fill: var(--eead-accordion-icon-color, var(--eead-accordion-title-color, #333));
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon {
-    background-color: var(--eed-accordion-active-icon-bg-color, var(--eed-accordion-icon-bg-color, transparent));
+    background-color: var(--eead-accordion-active-icon-bg-color, var(--eead-accordion-icon-bg-color, transparent));
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon i {
-    color: var(--eed-accordion-active-icon-color, var(--eed-accordion-icon-color, var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333))));
+    color: var(--eead-accordion-active-icon-color, var(--eead-accordion-icon-color, var(--eead-accordion-title-color-active, var(--eead-accordion-title-color, #333))));
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-icon svg {
-    fill: var(--eed-accordion-active-icon-color, var(--eed-accordion-icon-color, var(--eed-accordion-title-color-active, var(--eed-accordion-title-color, #333))));
+    fill: var(--eead-accordion-active-icon-color, var(--eead-accordion-icon-color, var(--eead-accordion-title-color-active, var(--eead-accordion-title-color, #333))));
 }
 
 
@@ -6495,6 +6495,144 @@ Pricing Table
 }
 
 
+/*--------------------------------------------------------------
+Step Flow
+--------------------------------------------------------------*/
+.eead-step-direction{
+    position: absolute;
+    left: calc(100% + 20px);
+    transform: rotate(var(--eead-stepflow-direction-angle, 0));
+    transform-origin: var(--eead-stepflow-direction-origin-x) center;
+    top: 49%;
+    width: 100px
+}
+
+.eead-step-arrow{
+    display: block;
+    border-top: 1px solid #ddd
+}
+
+.eead-step-arrow:after {
+    content: "";
+    position: absolute;
+    border-top: 1px solid #ddd;
+    top: -1px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    border-right: 1px solid #ddd;
+    transform: rotate(45deg) translateY(-50%)
+}
+
+.eead-setp-flow .eead-steps-icon {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 2rem;
+    padding: 1em;
+    border-radius: 50%;
+    background-color: var(--eead-light-bg-color);
+    color: var(--eead-pri-color);
+    font-size: 46px
+}
+
+.eead-setp-flow .eead-steps-icon > i,
+.eead-setp-flow .eead-steps-icon > svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eead-setp-flow .eead-steps-icon .eead-steps-label {
+    position: absolute;
+    padding: 8px 10px;
+    border-radius: 20px;
+    background-color: var(--eead-pri-color);
+    color: #fff;
+    max-width: 200%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1
+}
+
+.eead-setp-flow .eead-steps-title {
+    margin: 0 0 20px;
+}
+
+.eead-setp-flow .eead-steps-title a {
+    display: block;
+    color: inherit
+}
+
+.eead-setp-flow .eead-step-description {
+    margin: 0 0 20px;
+}
+
+.eead-setp-flow .eead-step-description:last-child{
+    margin: 0;
+}
+
+.eead-setp-flow .eead-step-readmore{
+    display: inline-flex;
+    padding: 10px 20px;
+    background: var(--eead-pri-color);
+    color: #FFF;
+    border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7934,28 +8072,6 @@ q. slider css
     width: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Animated Heading*/
 .morphext > .animated {
     display: inline-block;
@@ -8057,122 +8173,6 @@ q. slider css
 }
 
 
-
-/* Step Flow Styles CSS */
-.eead-step-flow {
-    --eead-stepflow-direction-origin-x: calc(-1*((var(--eead-stepflow-icon-size, 46px)/2) + var(--eead-stepflow-icon-padding, 40px) + var(--eead-stepflow-direction-offset-x, 20px)))
-}
-
-.eead-step-flow > .elementor-widget-container {
-    padding: 25px;
-    text-align: center
-}
-
-.eead-step-arrow,
-.eead-step-arrow:after {
-    position: absolute;
-    display: inline-block;
-    border-top: 1px solid #ddd
-}
-
-.eead-step-arrow {
-    left: calc(100% + 20px);
-    -webkit-transform: rotate(var(--eead-stepflow-direction-angle, 0));
-    -ms-transform: rotate(var(--eead-stepflow-direction-angle, 0));
-    transform: rotate(var(--eead-stepflow-direction-angle, 0));
-    -webkit-transform-origin: var(--eead-stepflow-direction-origin-x) center;
-    -ms-transform-origin: var(--eead-stepflow-direction-origin-x) center;
-    transform-origin: var(--eead-stepflow-direction-origin-x) center;
-    top: 49%;
-    width: 100px
-}
-
-.eead-step-arrow:after {
-    top: -2px;
-    right: 5px;
-    width: 12px;
-    height: 12px;
-    border-right: 1px solid #ddd;
-    color: #ddd;
-    content: "";
-    -webkit-transform: rotate(45deg) translateY(-50%);
-    -ms-transform: rotate(45deg) translateY(-50%);
-    transform: rotate(45deg) translateY(-50%)
-}
-
-.eead-steps-icon {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 2rem;
-    padding: 40px;
-    border-radius: 50%;
-    background-color: #e9ecf0;
-    color: #8056ee;
-    text-align: center;
-    font-size: 46px
-}
-
-.eead-steps-icon i,
-.eead-steps-icon svg {
-    position: relative;
-    display: block;
-    width: 1em;
-    height: 1em;
-    fill: currentColor
-}
-
-.eead-steps-icon i:before {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%)
-}
-
-.eead-steps-icon .eead-steps-label {
-    position: absolute;
-    top: 5px;
-    right: 0;
-    overflow: hidden;
-    padding: 8px 10px;
-    max-width: 200%;
-    border: 3px solid #fff;
-    border-radius: 20px;
-    background-color: #8056ee;
-    color: #fff;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 12px;
-    line-height: 1
-}
-
-.eead-steps-title {
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-weight: 700;
-    font-size: 16px
-}
-
-.eead-steps-title a {
-    display: block;
-    color: #562dd4
-}
-
-.eead-steps-title a:hover {
-    color: #242424
-}
-
-.eead-step-description {
-    margin: 0;
-    color: #616161;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5
-}
-
-.eead-step-flow-readmore {
-    display: inline-block;
-}
 
 /* Threesixty Image CSS */
 .eead-threesixty-rotation-inner {

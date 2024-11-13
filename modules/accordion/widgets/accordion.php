@@ -179,7 +179,7 @@ class Accordion extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-content-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-content-height: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -212,7 +212,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-background: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-background: {{VALUE}}',
                 ]
             ]
         );
@@ -223,7 +223,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -234,7 +234,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -252,7 +252,7 @@ class Accordion extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -280,7 +280,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-header-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-header-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -291,7 +291,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-header-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-header-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -310,7 +310,7 @@ class Accordion extends Widget_Base {
                 ],
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-size: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}}' => '--eead-accordion-icon-size: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -321,7 +321,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-icon-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -332,7 +332,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-icon-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -352,7 +352,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-header-background: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-header-background: {{VALUE}}',
                 ]
             ]
         );
@@ -362,7 +362,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-title-color: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-title-color: {{VALUE}}',
                 ]
             ]
         );
@@ -372,7 +372,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Icon Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-bg-color: {{VALUE}}'
+                    '{{WRAPPER}}' => '--eead-accordion-icon-bg-color: {{VALUE}}'
                 ]
             ]
         );
@@ -382,7 +382,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-icon-color: {{VALUE}}'
+                    '{{WRAPPER}}' => '--eead-accordion-icon-color: {{VALUE}}'
                 ]
             ]
         );
@@ -400,7 +400,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-header-background-active: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-header-background-active: {{VALUE}}',
                 ]
             ]
         );
@@ -410,7 +410,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-title-color-active: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-title-color-active: {{VALUE}}',
                 ]
             ]
         );
@@ -420,7 +420,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Icon Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-active-icon-bg-color: {{VALUE}}'
+                    '{{WRAPPER}}' => '--eead-accordion-active-icon-bg-color: {{VALUE}}'
                 ]
             ]
         );
@@ -430,7 +430,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-active-icon-color: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-active-icon-color: {{VALUE}}',
                 ]
             ]
         );
@@ -461,7 +461,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-content-bg-color: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-content-bg-color: {{VALUE}}',
                 ]
             ]
         );
@@ -471,7 +471,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-content-color: {{VALUE}}',
+                    '{{WRAPPER}}' => '--eead-accordion-content-color: {{VALUE}}',
                 ]
             ]
         );
@@ -482,7 +482,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-content-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-content-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -493,7 +493,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}}' => '--eed-accordion-content-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}' => '--eead-accordion-content-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );

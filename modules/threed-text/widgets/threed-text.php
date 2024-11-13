@@ -153,8 +153,8 @@ class ThreedText extends Widget_Base {
             'html_tag', [
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'options' => html_tags(),
-                'default' => 'h1'
+                'options' => eead_html_tags(),
+                'default' => 'h2'
             ]
         );
 

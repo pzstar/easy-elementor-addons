@@ -130,17 +130,7 @@ class LogoGrid extends Widget_Base {
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
-                'options' => [
-                    'h1' => esc_html__('H1', 'easy-elementor-addons'),
-                    'h2' => esc_html__('H2', 'easy-elementor-addons'),
-                    'h3' => esc_html__('H3', 'easy-elementor-addons'),
-                    'h4' => esc_html__('H4', 'easy-elementor-addons'),
-                    'h5' => esc_html__('H5', 'easy-elementor-addons'),
-                    'h6' => esc_html__('H6', 'easy-elementor-addons'),
-                    'div' => esc_html__('div', 'easy-elementor-addons'),
-                    'span' => esc_html__('span', 'easy-elementor-addons'),
-                    'p' => esc_html__('p', 'easy-elementor-addons'),
-                ]
+                'options' => eead_html_tags(),
             ]
         );
 

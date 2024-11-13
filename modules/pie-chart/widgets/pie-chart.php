@@ -106,7 +106,7 @@ class PieChart extends Widget_Base {
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h5'
+                'default' => 'h4'
             ]
         );
 

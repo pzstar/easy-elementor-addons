@@ -198,17 +198,7 @@ class VerticalTimeline extends Widget_Base {
                 'label' => esc_html__('Title HTML Tag', 'square-plus'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h4',
-                'options' => [
-                    'h1' => esc_html__('H1', 'square-plus'),
-                    'h2' => esc_html__('H2', 'square-plus'),
-                    'h3' => esc_html__('H3', 'square-plus'),
-                    'h4' => esc_html__('H4', 'square-plus'),
-                    'h5' => esc_html__('H5', 'square-plus'),
-                    'h6' => esc_html__('H6', 'square-plus'),
-                    'div' => esc_html__('div', 'square-plus'),
-                    'span' => esc_html__('span', 'square-plus'),
-                    'p' => esc_html__('p', 'square-plus')
-                ]
+                'options' => eead_html_tags(),
             ]
         );
 

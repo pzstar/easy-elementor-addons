@@ -307,7 +307,7 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => eead_html_tags(),
-                'default' => 'h3'
+                'default' => 'h4'
             ]
         );
 

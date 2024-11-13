@@ -188,16 +188,7 @@ class PortfolioGrid extends Widget_Base {
             'title_html_tag', [
                 'label' => esc_html__('Title HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'p' => 'p'
-                ],
+                'options' => eead_html_tags(),
                 'default' => 'h5',
             ]
         );
@@ -206,16 +197,7 @@ class PortfolioGrid extends Widget_Base {
             'info_html_tag', [
                 'label' => esc_html__('Info HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'p' => 'p'
-                ],
+                'options' => eead_html_tags(),
                 'default' => 'p',
             ]
         );

@@ -54,7 +54,6 @@ odometerOptions = {auto: false};
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
                 'eead-team-member-carousel.default': EEA.teamMemberCarouselBlock,
-                
                 'eead-twitter-feed-carousel.default': EEA.twitterFeedCarousel,
             };
 

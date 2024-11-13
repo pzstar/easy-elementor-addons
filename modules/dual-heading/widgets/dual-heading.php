@@ -82,7 +82,7 @@ class DualHeading extends Widget_Base {
                 'label' => esc_html__('HTML Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'label_block' => false,
-                'default' => 'h2',
+                'default' => 'h3',
                 'options' => eead_html_tags()
             ]
         );
