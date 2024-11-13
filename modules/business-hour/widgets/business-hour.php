@@ -457,7 +457,6 @@ class BusinessHour extends Widget_Base {
             'header_bg_color', [
                 'label' => esc_html__('Header Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#333333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-business-hour .eead-bh-header' => 'background-color: {{VALUE}}'
                 ],
@@ -522,7 +521,6 @@ class BusinessHour extends Widget_Base {
             'footer_bg_color', [
                 'label' => esc_html__('Footer Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#333333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-business-hour .eead-bh-footer' => 'background-color: {{VALUE}}'
                 ],
@@ -614,7 +612,6 @@ class BusinessHour extends Widget_Base {
             'current_day_bg_color', [
                 'label' => esc_html__('Current Day Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#ccc',
                 'selectors' => [
                     '{{WRAPPER}} .eead-business-hour .eead-business-hour-details .eead-business-hour-row.active-day' => 'background-color: {{VALUE}}'
                 ],

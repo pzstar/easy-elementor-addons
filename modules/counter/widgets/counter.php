@@ -179,7 +179,6 @@ class Counter extends Widget_Base {
             'box_border_color', [
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#4ec5ef',
                 'selectors' => [
                     '{{WRAPPER}} .eead-counter-box' => '--eead-counter-border-color: {{VALUE}}'
                 ]

@@ -1,5 +1,6 @@
-:root{
+:root {
     --eead-pri-color: #00b3ff;
+    --eead-sec-color: #FF6D00;
     --eead-light-bg-color: #EEF7FF;
 }
 
@@ -25,12 +26,12 @@ Accordion
     align-items: center;
     cursor: pointer;
     padding: var(--eed-accordion-header-padding, 1em);
-    background-color: var(--eed-accordion-header-background, #EEE);
+    background-color: var(--eed-accordion-header-background, var(--eead-light-bg-color));
     border-radius: var(--eed-accordion-header-border-radius, 0);
 }
 
 .eead-accordion-container .eead-each-accordion.eead-open .eead-accordion-title {
-    background-color: var(--eed-accordion-header-background-active, var(--eed-accordion-header-background, #EEE));
+    background-color: var(--eed-accordion-header-background-active, var(--eed-accordion-header-background, var(--eead-light-bg-color)));
 }
 
 .eead-accordion-container .eead-accordion-title h3 {
@@ -610,6 +611,10 @@ Advanced Icon Box
     text-align: center;
 }
 
+.eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon {
+    margin-bottom: 10px;
+}
+
 .eead-advanced-icon-box .eead-aib-icon > span {
     display: inline-block;
     line-height: 1;
@@ -691,7 +696,7 @@ Advanced Icon Box
 .eead-advanced-icon-box .eead-aib-button {
     display: inline-flex;
     padding: 10px 20px;
-    background: #444;
+    background: var(--eead-pri-color);
     color: #FFF;
     align-items: center;
 }
@@ -704,6 +709,11 @@ Advanced Icon Box
 
 .eead-advanced-icon-box .eead-aib-badge {
     position: absolute;
+    padding: 5px 10px;
+    color: #FFF;
+    background: var(--eead-pri-color);
+    line-height: 1;
+    border-radius: 20px;
     transform: translateX(var(--eead-aib-badge-h-offset, 0)) translateY(var(--eead-aib-badge-v-offset, 0)) rotate(var(--eead-aib-badge-rotate, 0deg));
 }
 
@@ -753,7 +763,7 @@ Business Hours
 --------------------------------------------------------------*/
 .eead-business-hour .eead-bh-header,
 .eead-business-hour .eead-bh-footer {
-    background-color: #333;
+    background-color: var(--eead-pri-color);
     color: #fff;
     padding: 15px;
 }
@@ -781,6 +791,10 @@ Business Hours
     text-transform: uppercase;
 }
 
+.eead-business-hour .eead-business-hour-row.active-day{
+    background: var(--eead-light-bg-color);
+}
+
 
 /*--------------------------------------------------------------
 Circular Progressbar
@@ -799,11 +813,11 @@ Circular Progressbar
 
 .eead-circular-progressbar-box svg circle:nth-child(1) {
     stroke-dashoffset: 0;
-    stroke: #f3f3f3;
+    stroke: var(--eead-light-bg-color);
 }
 
 .eead-circular-progressbar-box svg circle:nth-child(2) {
-    stroke: #03a9f4;
+    stroke: var(--eead-pri-color);
 }
 
 .eead-circular-progressbar-box .eead-cb-percent {
@@ -914,7 +928,7 @@ Counter
 .eead-counter-box.eead-counter-style1 .eead-counter {
     position: relative;
     text-align: center;
-    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
+    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color, var(--eead-pri-color));
     border-top: 0;
     padding: 25px;
 }
@@ -926,7 +940,7 @@ Counter
     left: 0;
     top: 0;
     height: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
 }
 
 .eead-counter-box.eead-counter-style1 .eead-counter:before {
@@ -936,7 +950,7 @@ Counter
     right: 0;
     top: 0;
     height: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
 }
 
 /*Style 2*/
@@ -955,7 +969,7 @@ Counter
     left: 50%;
     width: calc(10 * var(--eead-counter-border-width));
     height: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
     transform: translateX(-50%);
     margin-top: 25px;
 }
@@ -967,7 +981,7 @@ Counter
     top: 0;
     width: calc(10 * var(--eead-counter-border-width));
     height: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
     transition: all 0.3s ease;
     z-index: 9;
 }
@@ -979,7 +993,7 @@ Counter
     top: 0;
     height: calc(10 * var(--eead-counter-border-width));
     width: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
     transition: all 0.3s ease;
     z-index: 9;
 }
@@ -991,7 +1005,7 @@ Counter
     bottom: 0;
     width: calc(10 * var(--eead-counter-border-width));
     height: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
     transition: all 0.3s ease;
     z-index: 9;
 }
@@ -1003,7 +1017,7 @@ Counter
     bottom: 0;
     height: calc(10 * var(--eead-counter-border-width));
     width: var(--eead-counter-border-width);
-    background: var(--eead-counter-border-color);
+    background: var(--eead-counter-border-color, var(--eead-pri-color));
     transition: all 0.3s ease;
     z-index: 9;
 }
@@ -1032,7 +1046,7 @@ Counter
     right: 10px;
     top: 10px;
     bottom: 10px;
-    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
+    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color, var(--eead-pri-color));
 }
 
 /*Style 4*/
@@ -1041,14 +1055,15 @@ Counter
     align-items: center;
     gap: 2em;
     text-align: left;
-    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color);
+    padding: 30px;
+    border: var(--eead-counter-border-width) solid var(--eead-counter-border-color, var(--eead-pri-color));
 }
 
 
 /*--------------------------------------------------------------
 Drop Bar
 --------------------------------------------------------------*/
-.eead-dropbar-button {
+.eead-dropbar .eead-dropbar-button {
     background: #111;
     display: inline-flex;
     align-items: center;
@@ -1057,16 +1072,16 @@ Drop Bar
     color: #FFF;
 }
 
-.eead-dropbar-button span {
+.eead-dropbar .eead-dropbar-button span {
     line-height: 1;
 }
 
-.eead-dropbar-button i {
+.eead-dropbar .eead-dropbar-button i {
     font-size: 1em;
     color: inherit;
 }
 
-.eead-dropbar-button svg {
+.eead-dropbar .eead-dropbar-button svg {
     height: 1em;
     width: auto;
     fill: #FFF;
@@ -1095,11 +1110,11 @@ Dual Button
     position: relative;
 }
 
-.eead-dual-button {
+.eead-dual-buttons .eead-dual-button {
     display: block;
 }
 
-.eead-dual-button {
+.eead-dual-buttons .eead-dual-button {
     position: relative;
     padding: 15px 30px;
     gap: 0.4em;
@@ -1110,16 +1125,16 @@ Dual Button
     font-size: 1.2em;
 }
 
-.eead-dual-button span {
+.eead-dual-buttons .eead-dual-button span {
     line-height: 1;
 }
 
-.eead-dual-button i {
+.eead-dual-buttons .eead-dual-button i {
     font-size: 1em;
     color: inherit;
 }
 
-.eead-dual-button svg {
+.eead-dual-buttons .eead-dual-button svg {
     height: 1em;
     width: auto;
     fill: #FFF;
@@ -6115,7 +6130,8 @@ Pricing Table
     background: var(--eead-pri-color);
     color: #FFF;
     transition: all 0.3s ease;
-    border-radius: 3px;;
+    border-radius: 3px;
+    ;
 }
 
 .eead-pricing-button a svg {
@@ -6133,13 +6149,13 @@ Pricing Table
     gap: var(--eead-pt-list-gap, 20);
 }
 
-.eead-pricing-table .eead-pricing-title{
+.eead-pricing-table .eead-pricing-title {
     margin-bottom: 30px;
     font-size: 1.3em;
     text-transform: uppercase;
 }
 
-.eead-pricing-table .eead-pricing-price{
+.eead-pricing-table .eead-pricing-price {
     line-height: 1;
 }
 
@@ -6232,7 +6248,7 @@ Pricing Table
     padding-bottom: calc(var(--eead-pt-header-icon-size, 76px)/2);
 }
 
-.eead-pricing-table.style2  ul.eead-pricing-listing{
+.eead-pricing-table.style2 ul.eead-pricing-listing {
     padding-top: calc(var(--eead-pt-header-icon-size, 76px)/2);
 }
 
@@ -6281,7 +6297,7 @@ Pricing Table
     clip-path: polygon(100% 0, 100% calc(100% - 40px), 50% 100%, 0 calc(100% - 40px), 0 0);
 }
 
-.eead-pricing-table.style4 .eead-pricing-price{
+.eead-pricing-table.style4 .eead-pricing-price {
     padding-bottom: 40px;
 }
 
@@ -6332,7 +6348,7 @@ Pricing Table
     padding-bottom: calc(var(--eead-pt-header-icon-size, 76px)/2);
 }
 
-.eead-pricing-table.style5  ul.eead-pricing-listing{
+.eead-pricing-table.style5 ul.eead-pricing-listing {
     padding-top: calc(var(--eead-pt-header-icon-size, 76px)/2);
 }
 
@@ -6369,16 +6385,21 @@ Pricing Table
     padding: var(--eead-pt-box-padding, 30px);
 }
 
+/* Pricing Tag */
+.eead-pricing-tag {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--eead-pt-tag-color, #fff);
+    z-index: 99;
+    text-transform: uppercase;
+}
 
 .eead-pricing-tag {
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    z-index: 99;
-  }
-  .eead-pricing-tag {
-    --f: .5em; /* control the folded part */
-    
+    background-color: var(--eead-pt-tag-bg-color, var(--eead-sec-color));
+}
+
+.eead-pricing-tag.eead-pt-tag-style1 {
+    --f: .5em;
     position: absolute;
     top: 0;
     right: 0;
@@ -6386,19 +6407,92 @@ Pricing Table
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51%/var(--f);
-    clip-path: polygon(
-      100% calc(100% - var(--f)),100% 100%,calc(100% - var(--f)) calc(100% - var(--f)),var(--f) calc(100% - var(--f)), 0 100%,0 calc(100% - var(--f)),999px calc(100% - var(--f) - 999px),calc(100% - 999px) calc(100% - var(--f) - 999px));
+    clip-path: polygon(100% calc(100% - var(--f)), 100% 100%, calc(100% - var(--f)) calc(100% - var(--f)), var(--f) calc(100% - var(--f)), 0 100%, 0 calc(100% - var(--f)), 999px calc(100% - var(--f) - 999px), calc(100% - 999px) calc(100% - var(--f) - 999px));
     transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
-    background-color: #BD1550; /* the main color  */
-  }
+}
+
+.eead-pricing-tag.eead-pt-tag-style2 {
+    --f: .5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 1.8;
+    padding-inline: 1lh;
+    padding-bottom: var(--f);
+    border-image: conic-gradient(#0008 0 0) 51%/var(--f);
+    clip-path: polygon(100% calc(100% - var(--f)), 100% 100%, calc(100% - var(--f)) calc(100% - var(--f)), var(--f) calc(100% - var(--f)), 0 100%, 0 calc(100% - var(--f)), 999px calc(100% - var(--f) - 999px), calc(100% - 999px) calc(100% - var(--f) - 999px));
+    transform: translate(calc((cos(45deg) - 1)*100%), -100%) rotate(-45deg);
+    transform-origin: 100% 100%;
+}
 
 
+.eead-pricing-tag.eead-pt-tag-style3 {
+    --f: .5em;
+    --r: .8em;
+    position: absolute;
+    top: 20px;
+    right: calc(-1*var(--f));
+    padding-inline: 1em;
+    line-height: 1.8;
+    border-bottom: var(--f) solid #0005;
+    border-left: var(--r) solid #0000;
+    clip-path:
+        polygon(0 0, 100% 0, 100% calc(100% - var(--f)), calc(100% - var(--f)) 100%,
+            calc(100% - var(--f)) calc(100% - var(--f)), 0 calc(100% - var(--f)),
+            var(--r) calc(50% - var(--f)/2));
+}
 
 
+.eead-pricing-tag.eead-pt-tag-style4 {
+    --f: .5em;
+    --r: .8em;
+    position: absolute;
+    top: 20px;
+    left: calc(-1*var(--f));
+    padding-inline: 1em;
+    line-height: 1.8;
+    border-bottom: var(--f) solid #0005;
+    border-right: var(--r) solid #0000;
+    clip-path:
+        polygon(0 0, 0 calc(100% - var(--f)), var(--f) 100%,
+            var(--f) calc(100% - var(--f)), 100% calc(100% - var(--f)),
+            calc(100% - var(--r)) calc(50% - var(--f)/2), 100% 0);
+}
 
 
+.eead-pricing-tag.eead-pt-tag-style5 {
+    --r: .4em;
+    --c: var(--eead-pt-tag-bg-color, var(--eead-sec-color));
+    position: absolute;
+    top: 20px;
+    right: calc(-1*var(--r));
+    line-height: 1.8;
+    padding: 0 1em calc(2*var(--r));
+    border-radius: 0 var(--r) var(--r) 0;
+    background:
+        radial-gradient(100% 50% at right, var(--c) 98%, #0000 101%) 0 0/.5lh calc(100% - 2*var(--r)),
+        radial-gradient(100% 50% at left, #0005 98%, #0000 101%) 100% 100%/var(--r) calc(2*var(--r)),
+        conic-gradient(from 180deg at calc(100% - var(--r)) calc(100% - 2*var(--r)), #0000 25%, var(--c) 0) 100% 0/calc(101% - .5lh) 100%;
+    background-repeat: no-repeat;
+}
 
+
+.eead-pricing-tag.eead-pt-tag-style6 {
+    --r: .4em;
+    --c: var(--eead-pt-tag-bg-color, var(--eead-sec-color));
+    position: absolute;
+    top: 20px;
+    left: calc(-1*var(--r));
+    line-height: 1.8;
+    padding: 0 1em calc(2*var(--r));
+    border-radius: var(--r) 0 0 var(--r);
+    background:
+        radial-gradient(100% 50% at left, var(--c) 98%, #0000 101%) 100% 0/.5lh calc(100% - 2*var(--r)),
+        radial-gradient(100% 50% at right, #0005 98%, #0000 101%) 0 100%/var(--r) calc(2*var(--r)),
+        conic-gradient(from 90deg at var(--r) calc(100% - 2*var(--r)), #0000 25%, var(--c) 0) 0 0/calc(101% - .5lh) 100%;
+    background-repeat: no-repeat;
+}
 
 
 

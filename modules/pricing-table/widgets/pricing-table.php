@@ -838,6 +838,59 @@ class PricingTable extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+            'tag_style_section', [
+                'label' => esc_html__('Tag', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'tag_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-tag',
+            ]
+        );
+
+        $this->add_control(
+            'tag_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-tag-color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'tag_bg_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-tag-bg-color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'tag_style', [
+                'label' => esc_html__('Style', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'style1',
+                'options' => [
+                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'style4' => esc_html__('Style 4', 'easy-elementor-addons'),
+                    'style5' => esc_html__('Style 5', 'easy-elementor-addons'),
+                    'style6' => esc_html__('Style 6', 'easy-elementor-addons'),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
     }
 
     /** Render Layout */
@@ -853,7 +906,7 @@ class PricingTable extends Widget_Base {
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
         <?php 
         if($settings['tag']){
-            echo '<span class="eead-pricing-tag">'. $settings['tag'] . '</span>';
+            echo '<span class="eead-pricing-tag eead-pt-tag-'.$settings['tag_style'].'">'. $settings['tag'] . '</span>';
         }
         ?>    
         
