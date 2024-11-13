@@ -278,8 +278,23 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'first_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-first-text',
                 'separator' => 'before'
             ]
@@ -446,8 +461,23 @@ class DualHeading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'second_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-second-text',
                 'separator' => 'before'
             ]

@@ -671,9 +671,23 @@ class Portfolio extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_normal',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .owl-dots .owl-dot'
             ]
         );
@@ -700,9 +714,23 @@ class Portfolio extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_active',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .owl-dots .owl-dot.active'
             ]
         );
@@ -729,9 +757,23 @@ class Portfolio extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'dot_border_color_hover',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .owl-dots .owl-dot:hover'
             ]
         );
@@ -827,9 +869,23 @@ class Portfolio extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'arrow_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .owl-nav button'
             ]
         );

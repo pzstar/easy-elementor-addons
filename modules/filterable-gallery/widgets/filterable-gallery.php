@@ -668,7 +668,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'item_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item'
             ]
         );
@@ -759,7 +775,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'filter_btn_normal_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-normal-filter ul li'
             ]
         );
@@ -914,7 +946,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'search_filter_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-filter-box',
                 'condition' => [
                     'filter_type!' => 'normal',
@@ -1035,8 +1083,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'search_filter_dropdown_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-filter-gallery ul.eead-fg-filter-dropdown'
             ]
         );
@@ -1443,7 +1506,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'overlay_button_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-filter-gallery .eead-fg-item-buttons a'
             ]
         );
@@ -1636,7 +1715,23 @@ class FilterableGallery extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'load_more_button_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fg-loadmore .eead-fg-loadmore-btn'
             ]
         );

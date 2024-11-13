@@ -530,8 +530,23 @@ class AdvancedIconBox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'icon_border',
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
             ]
         );
@@ -1107,9 +1122,24 @@ class AdvancedIconBox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'readmore_border',
-                'placeholder' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'separator' => 'before',
-                'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button'
             ]
         );
@@ -1239,9 +1269,24 @@ class AdvancedIconBox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'badge_border',
-                'placeholder' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'separator' => 'before',
-                'default' => '1px',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge'
             ]
         );

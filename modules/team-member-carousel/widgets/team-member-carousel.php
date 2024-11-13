@@ -802,9 +802,23 @@ class TeamMemberCarousel extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'member_links_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'separator' => 'before',
                 'selector' => '{{WRAPPER}} .eead-team-member-social-links .eead-team-member-social-icon-wrap'
             ]
@@ -1010,9 +1024,23 @@ class TeamMemberCarousel extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'arrows_border_normal',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .swiper-container-wrap .swiper-button-next, {{WRAPPER}} .swiper-container-wrap .swiper-button-prev',
                 'separator' => 'before'
             ]
@@ -1209,9 +1237,23 @@ class TeamMemberCarousel extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'dots_border_normal',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .swiper-container-wrap .swiper-pagination-bullet',
                 'condition' => array(
                     'dots' => 'yes',

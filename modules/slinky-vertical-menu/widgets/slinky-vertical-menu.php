@@ -279,6 +279,23 @@ class SlinkyVerticalMenu extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'menu_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu li > a',
                 'separator' => 'before'
             ]
@@ -436,7 +453,23 @@ class SlinkyVerticalMenu extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'indicator_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-slinky-vertical-menu .header a.back:before, {{WRAPPER}} .eead-slinky-vertical-menu .next::after',
                 'separator' => 'before'
             ]

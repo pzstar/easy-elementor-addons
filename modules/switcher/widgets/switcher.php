@@ -271,6 +271,23 @@ class Switcher extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'switch_bar_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-switcher-tabs'
             ]
         );
@@ -489,6 +506,23 @@ class Switcher extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'switch_content_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-switcher-contents'
             ]
         );
@@ -527,16 +561,16 @@ class Switcher extends Widget_Base {
         $settings = $this->get_settings_for_display();
         ?>
         <div class="eead-switcher-container>
-            <div class="eead-switcher-tabs">
-                <div class="eead-switcher-tabs-inner">
-                    <?php $this->get_tabs(); ?>
-                    <span class="eead-switcher-slider"></span>
-                </div>
+            <div class=" eead-switcher-tabs">
+            <div class="eead-switcher-tabs-inner">
+                <?php $this->get_tabs(); ?>
+                <span class="eead-switcher-slider"></span>
             </div>
+        </div>
 
-            <div class="eead-switcher-contents">
-                <?php $this->get_tab_content(); ?>
-            </div>
+        <div class="eead-switcher-contents">
+            <?php $this->get_tab_content(); ?>
+        </div>
         </div>
         <?php
     }

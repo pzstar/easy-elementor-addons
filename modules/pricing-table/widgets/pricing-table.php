@@ -225,8 +225,23 @@ class PricingTable extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'pricing_box_border',
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-pricing-table'
             ]
         );
@@ -775,8 +790,23 @@ class PricingTable extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'button_border',
-                'placeholder' => '1px',
-                'default' => '1px',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-button a'
             ]
         );
@@ -904,13 +934,13 @@ class PricingTable extends Widget_Base {
         ?>
 
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
-        <?php 
-        if($settings['tag']){
-            echo '<span class="eead-pricing-tag eead-pt-tag-'.$settings['tag_style'].'">'. $settings['tag'] . '</span>';
-        }
-        ?>    
-        
-        <div class="eead-pricing-header">
+            <?php
+            if ($settings['tag']) {
+                echo '<span class="eead-pricing-tag eead-pt-tag-' . $settings['tag_style'] . '">' . $settings['tag'] . '</span>';
+            }
+            ?>
+
+            <div class="eead-pricing-header">
                 <?php if ($settings['header_icon']['value']) { ?>
                     <div class="eead-header-icon">
                         <?php Icons_Manager::render_icon($settings['header_icon'], ['aria-hidden' => 'true']); ?>

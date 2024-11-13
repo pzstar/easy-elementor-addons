@@ -349,8 +349,23 @@ class PortfolioGrid extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name' => 'grid_item_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-container li .eead-fpg-inner'
             ]
         );
@@ -527,7 +542,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'grid_view_txt_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption',
                 'condition' => ['grid_txt_placement' => 'in-img']
             ]
@@ -921,7 +952,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'toolbar_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar'
             ]
         );
@@ -1024,7 +1071,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'filters_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label'
             ]
         );
@@ -1083,7 +1146,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'filters_border_hover',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li:not(.eead-fpg-mobile-icon) label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li label.active'
             ]
         );
@@ -1229,7 +1308,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'mobile_menu_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label'
             ]
         );
@@ -1286,7 +1381,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'mobile_menu_border_hover',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-search-wrapper li.eead-fpg-mobile-icon label:hover'
             ]
         );
@@ -1409,7 +1520,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'layout_border',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label'
             ]
         );
@@ -1468,7 +1595,23 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'layout_border_hover',
-                'label' => esc_html__('Border', 'easy-elementor-addons'),
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label:hover,{{WRAPPER}} .eead-fpg-toolbar .eead-fpg-view-options li label.active'
             ]
         );

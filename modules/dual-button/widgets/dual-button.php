@@ -401,6 +401,23 @@ class DualButton extends Widget_Base {
                 'name' => 'pri_button_border',
                 'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button',
                 'separator' => 'before',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
             ]
         );
 
@@ -521,6 +538,23 @@ class DualButton extends Widget_Base {
                 'name' => 'sec_button_border',
                 'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-sec-button .eead-dual-button',
                 'separator' => 'before',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
             ]
         );
 
@@ -633,6 +667,23 @@ class DualButton extends Widget_Base {
             Group_Control_Border::get_type(), [
                 'name' => 'separator_border',
                 'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-separator',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
             ]
         );
 
