@@ -471,7 +471,7 @@ class PricingTable extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'sub_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle',
+                'selector' => '{{WRAPPER}} .eead-pricing-table .eead-pricing-sub-title',
             ]
         );
 
@@ -480,7 +480,7 @@ class PricingTable extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle' => 'color: {{VALUE}}'
+                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-sub-title' => 'color: {{VALUE}}'
                 ],
             ]
         );
@@ -492,7 +492,7 @@ class PricingTable extends Widget_Base {
                 'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-pricing-table .eead-pricing-sub-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
             ]
         );

@@ -92,7 +92,7 @@ Accordion
 
 .eead-accordion-container .eead-each-accordion .eead-accordion-icon svg {
     width: var(--eead-accordion-icon-size, 1em);
-    height: auto;
+    height: var(--eead-accordion-icon-size, 1em);
     fill: var(--eead-accordion-icon-color, var(--eead-accordion-title-color, #333));
 }
 
@@ -141,6 +141,7 @@ Advanced Button
 
 .eead-ab-button .eead-ab-button-icon i,
 .eead-ab-button .eead-ab-button-icon svg {
+    font-size: inherit;
     width: 1em;
     color: var(--eead-ab-button-text-color, inherit);
     fill: var(--eead-ab-button-text-color, inherit);
@@ -625,7 +626,7 @@ Advanced Icon Box
 .eead-advanced-icon-box .eead-aib-icon svg {
     display: inline-block;
     height: 1em;
-    width: auto;
+    width: 1em;
     line-height: 1;
     transform: translateX(var(--eead-aib-icon-h-offset, 0)) translateY(var(--eead-aib-icon-v-offset, 0)) rotate(var(--eead-aib-icon-rotate, 0deg));
 }
@@ -1083,8 +1084,7 @@ Drop Bar
 
 .eead-dropbar .eead-dropbar-button svg {
     height: 1em;
-    width: auto;
-    fill: #FFF;
+    width: 1em;
 }
 
 .elementor-align-justify a.eead-dropbar-button {
@@ -1136,7 +1136,7 @@ Dual Button
 
 .eead-dual-buttons .eead-dual-button svg {
     height: 1em;
-    width: auto;
+    width: 1em;
     fill: #FFF;
 }
 
@@ -6175,7 +6175,7 @@ Pricing Table
 .eead-pricing-table ul.eead-pricing-listing li svg {
     height: 1em;
     width: 1em;
-    fill: inherit;
+    min-width: 1em;
 }
 
 .eead-pricing-table ul.eead-pricing-listing li:after {
@@ -6501,43 +6501,38 @@ Step Flow
 .eead-step-direction{
     position: absolute;
     left: calc(100% + 20px);
-    transform: rotate(var(--eead-stepflow-direction-angle, 0));
-    transform-origin: var(--eead-stepflow-direction-origin-x) center;
-    top: 49%;
-    width: 100px
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px
 }
 
-.eead-step-arrow{
-    display: block;
-    border-top: 1px solid #ddd
+.eead-step-direction svg{
+    transform: translate(var(--eead-stepflow-offset-x, 0), var(--eead-stepflow-offset-y, 0)) rotate(var(--eead-stepflow-direction-angle, 0deg)) ;
+    transform-origin: center center;
 }
 
-.eead-step-arrow:after {
-    content: "";
-    position: absolute;
-    border-top: 1px solid #ddd;
-    top: -1px;
-    right: 5px;
-    width: 12px;
-    height: 12px;
-    border-right: 1px solid #ddd;
-    transform: rotate(45deg) translateY(-50%)
+.eead-step-direction svg > path{
+    stroke-dasharray: var(--eead-stepflow-dash-length, 0) var(--eead-stepflow-dash-gap, 0);
 }
 
-.eead-setp-flow .eead-steps-icon {
+.eead-step-flow .eead-steps-icon-box{
     position: relative;
     display: inline-flex;
     margin-bottom: 2rem;
+}
+
+.eead-step-flow .eead-steps-icon {
+    position: relative;
     padding: 1em;
     border-radius: 50%;
     background-color: var(--eead-light-bg-color);
     color: var(--eead-pri-color);
-    font-size: 46px
+    font-size: 46px;
+    line-height: 1;
 }
 
-.eead-setp-flow .eead-steps-icon > i,
-.eead-setp-flow .eead-steps-icon > svg {
-    display: block;
+.eead-step-flow .eead-steps-icon > i,
+.eead-step-flow .eead-steps-icon > svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
@@ -6546,7 +6541,7 @@ Step Flow
     align-items: center;
 }
 
-.eead-setp-flow .eead-steps-icon .eead-steps-label {
+.eead-step-flow .eead-steps-label {
     position: absolute;
     padding: 8px 10px;
     border-radius: 20px;
@@ -6559,24 +6554,24 @@ Step Flow
     line-height: 1
 }
 
-.eead-setp-flow .eead-steps-title {
+.eead-step-flow .eead-steps-title {
     margin: 0 0 20px;
 }
 
-.eead-setp-flow .eead-steps-title a {
+.eead-step-flow .eead-steps-title a {
     display: block;
     color: inherit
 }
 
-.eead-setp-flow .eead-step-description {
+.eead-step-flow .eead-step-description {
     margin: 0 0 20px;
 }
 
-.eead-setp-flow .eead-step-description:last-child{
+.eead-step-flow .eead-step-description:last-child{
     margin: 0;
 }
 
-.eead-setp-flow .eead-step-readmore{
+.eead-step-flow .eead-step-readmore{
     display: inline-flex;
     padding: 10px 20px;
     background: var(--eead-pri-color);
