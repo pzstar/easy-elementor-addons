@@ -22,13 +22,8 @@
                 if (saveFlag == 'yes') {
                     $('#eead-general-settings-form').data('serialize', $('#eead-general-settings-form').serialize());
                 }
-                if ($('#eead-general-settings-form').serialize() != $('#eead-general-settings-form').data('serialize')) {
-
-                } else {
-                    $('body').find('.eead-admin-notificn').html('This input is previously saved.');
-                    $('body').find('.eead-admin-notificn').addClass('eead-previously-saved');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'green'});
-
+                if ($('#eead-general-settings-form').serialize() == $('#eead-general-settings-form').data('serialize')) {
+                    $('body').find('.eead-admin-notificn').html('No Changes Made!').addClass('eead-previously-saved').show();
                     hideNotification();
                     return false;
                 }
@@ -37,15 +32,11 @@
 
                 if (res == 'yes') {
                     saveFlag = 'yes';
-                    $('body').find('.eead-admin-notificn').html('Saved Successfully');
-                    $('body').find('.eead-admin-notificn').addClass('eead-successfull-saved');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'green'});
+                    $('body').find('.eead-admin-notificn').html('Saved Successfully!').addClass('eead-saved').show();
                 } else {
-                    $('body').find('.eead-admin-notificn').html('Save Failed');
-                    $('body').find('.eead-admin-notificn').addClass('eead-failed-save');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'red'});
+                    $('body').find('.eead-admin-notificn').html('Save Failed!').addClass('eead-failed').show();
                 }
-
+                $('.eead-save-button').removeClass('eead-btn-loading');
                 hideNotification();
             }
         });
@@ -70,21 +61,16 @@
                 wp_nonce: adminNonce
             },
             beforeSend: function () {
+                $('.eead-save-button').addClass('eead-btn-loading');
                 // if( Array.isArray(widgets_arr) && widgets_arr.length == 0 ) { }
             },
             success: function (res) {
-                console.log(res);
-
                 if (res == 'yes') {
-                    $('body').find('.eead-admin-notificn').html('Saved Successfully');
-                    $('body').find('.eead-admin-notificn').addClass('eead-successfull-saved');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'green'});
+                    $('body').find('.eead-admin-notificn').html('Saved Successfully!').addClass('eead-saved').show();
                 } else {
-                    $('body').find('.eead-admin-notificn').html('Save Failed');
-                    $('body').find('.eead-admin-notificn').addClass('eead-failed-save');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'red'});
+                    $('body').find('.eead-admin-notificn').html('Save Failed!').addClass('eead-failed').show();
                 }
-
+                $('.eead-save-button').removeClass('eead-btn-loading');
                 hideNotification();
             }
         });
@@ -108,21 +94,16 @@
                 wp_nonce: adminNonce
             },
             beforeSend: function () {
+                $('.eead-save-button').addClass('eead-btn-loading');
                 // if( Array.isArray(extenders_arr) && widgets_arr.length == 0 ) { }
             },
             success: function (res) {
-                console.log(res);
-
                 if (res == 'yes') {
-                    $('body').find('.eead-admin-notificn').html('Saved Successfully');
-                    $('body').find('.eead-admin-notificn').addClass('eead-successfull-saved');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'green'});
+                    $('body').find('.eead-admin-notificn').html('Saved Successfully!').addClass('eead-saved').show();
                 } else {
-                    $('body').find('.eead-admin-notificn').html('Save Failed');
-                    $('body').find('.eead-admin-notificn').addClass('eead-failed-save');
-                    $('body').find('.eead-admin-notificn').css({'display': 'block', 'color': 'red'});
+                    $('body').find('.eead-admin-notificn').html('Save Failed!').addClass('eead-failed').show();
                 }
-
+                $('.eead-save-button').removeClass('eead-btn-loading');
                 hideNotification();
             }
         });
@@ -131,9 +112,7 @@
     /* Hide Notification Div After Time Delay */
     var hideNotification = () => {
         setTimeout(function () {
-            $('body').find('.eead-admin-notificn').removeClass('eead-failed-save eead-successfull-saved eead-previously-saved');
-            $('body').find('.eead-admin-notificn').hide();
-            $('body').find('.eead-admin-notificn').html('');
+            $('body').find('.eead-admin-notificn').removeClass('eead-failed eead-saved eead-previously-saved').hide().html('');
         }, 3000);
     };
 

@@ -3,6 +3,7 @@ $eead_general_settings = get_option('eead_general_settings');
 $eead_widgets = get_option('eead_widgets');
 $eead_extenders = get_option('eead_extenders');
 $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
+$weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
 ?>
 
 <div class="eead-wrap">
@@ -35,13 +36,26 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <div class="eead-settings-field">
                         <label><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons') ?></label>
                         <div class="eead-settings-input-field">
-                            <input type="text" name="gmap_access_token" id="eead_gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo esc_attr($gmap_access_token); ?>">
+                            <input type="text" name="gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo esc_attr($gmap_access_token); ?>">
+                        </div>
+                    </div>
+
+                    <div class="eead-settings-field">
+                        <label><?php esc_html_e('Weather API Key', 'easy-elementor-addons') ?></label>
+                        <div class="eead-settings-input-field">
+                            <input type="text" name="weather_api_key" placeholder="Enter Your API Key" value="<?php echo esc_attr($weather_api_key); ?>">
+                        </div>
+                        <div class="eead-desc">
+                        <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a target="_blank" href="https://weatherstack.com/quickstart" target="_blank">here</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="eaad-save-button-wrap">
-                    <button class="eead-save-button" id="eead-general-settings-save"><i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?></button>
+                    <button class="eead-save-button" id="eead-general-settings-save">
+                        <i class="mdi mdi-content-save"></i>
+                        <?php esc_html_e('Save', 'easy-elementor-addons'); ?>
+                        <span class="eead-loader"></span></button>
                 </div>
             </form>
         </div>
@@ -60,10 +74,10 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box'); ?>
                     <?php $this->get_widget_field('Advanced Map', 'advanced-map'); ?>
                     <?php $this->get_widget_field('Animated Heading', 'animated-heading'); ?>
-                    <?php //$this->get_widget_field('Animated Icon', 'animated-icon'); //premium?>
+                    <?php //$this->get_widget_field('Animated Icon', 'animated-icon'); //premium ?>
                     <?php $this->get_widget_field('Business Hour', 'business-hour'); ?>
-                    <?php //$this->get_widget_field('Caption Hover Effect', 'caption-hover-effect'); //premium?>
-                    <?php //$this->get_widget_field('Charts', 'charts'); //premium?>
+                    <?php //$this->get_widget_field('Caption Hover Effect', 'caption-hover-effect'); //premium ?>
+                    <?php //$this->get_widget_field('Charts', 'charts'); //premium ?>
                     <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar'); ?>
                     <?php $this->get_widget_field('Countdown', 'countdown'); ?>
                     <?php $this->get_widget_field('Counter', 'counter'); ?>
@@ -71,10 +85,10 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Dual Button', 'dual-button'); ?>
                     <?php $this->get_widget_field('Dual Heading', 'dual-heading'); ?>
                     <?php $this->get_widget_field('Feature List', 'feature-list'); ?>
-                    <?php //$this->get_widget_field('Filterable Gallery', 'filterable-gallery'); //premium?>
+                    <?php //$this->get_widget_field('Filterable Gallery', 'filterable-gallery'); //premium ?>
                     <?php $this->get_widget_field('Flip Box', 'flip-box'); ?>
                     <?php //$this->get_widget_field('Flip Box Advanced', 'flip-box-advanced');//premium ?>
-                    <?php //$this->get_widget_field('Horizontal Scroll', 'horizontal-scroll'); //premium?>
+                    <?php //$this->get_widget_field('Horizontal Scroll', 'horizontal-scroll'); //premium ?>
                     <?php $this->get_widget_field('Horizontal Tab', 'horizontal-tab'); ?>
                     <?php $this->get_widget_field('Horizontal Timeline', 'horizontal-timeline'); ?>
                     <?php $this->get_widget_field('Hotspot', 'hotspot'); ?>
@@ -86,14 +100,14 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Logo Carousel', 'logo-carousel'); ?>
                     <?php $this->get_widget_field('Logo Grid', 'logo-grid'); ?>
                     <?php $this->get_widget_field('Lottie', 'lottie'); ?>
-                    <?php //$this->get_widget_field('Morphing Layouts', 'morphing-layouts'); //premium?>
-                    <?php //$this->get_widget_field('Multi Scroll', 'multi-scroll'); //premium?>
+                    <?php //$this->get_widget_field('Morphing Layouts', 'morphing-layouts'); //premium ?>
+                    <?php //$this->get_widget_field('Multi Scroll', 'multi-scroll'); //premium ?>
                     <?php $this->get_widget_field('One Page Navigation', 'one-page-navigation'); ?>
                     <?php $this->get_widget_field('Pie Chart', 'pie-chart'); ?>
                     <?php $this->get_widget_field('Popup Modal', 'popup-modal'); ?>
                     <?php $this->get_widget_field('Popup Video', 'popup-video'); ?>
                     <?php $this->get_widget_field('Portfolio', 'portfolio'); ?>
-                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid'); //?>
+                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid'); // ?>
                     <?php $this->get_widget_field('Pricing List', 'pricing-list'); ?>
                     <?php $this->get_widget_field('Pricing Table', 'pricing-table'); ?>
                     <?php $this->get_widget_field('Progressbar', 'progressbar'); ?>
@@ -111,7 +125,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                     <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider'); ?>
                     <?php //$this->get_widget_field('Text Marquee', 'text-marquee');//premium ?>
                     <?php //$this->get_widget_field('3D Text', 'threed-text');//premium ?>
-                    <?php //$this->get_widget_field('360 Image', 'threesixty-image'); //premium?>
+                    <?php //$this->get_widget_field('360 Image', 'threesixty-image'); //premium ?>
                     <?php //$this->get_widget_field('Tilt Hover Image', 'tilt-hover-image'); //premium ?>
                     <?php $this->get_widget_field('Toggle', 'toggle'); ?>
                     <?php $this->get_widget_field('Twitter Feed', 'twitter-feed'); ?>
@@ -125,6 +139,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                 <div class="eaad-save-button-wrap">
                     <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">
                         <i class="mdi mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?>
+                        <span class="eead-loader"></span>
                     </button>
                 </div>
             </form>
@@ -239,6 +254,7 @@ $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead
                 <li>Search for "Easy Elementor Addons" and install the plugin.</li>
                 <li>Activate Plugin from "Plugins" menu in WordPress.</li>
             </ol>
+            <p> </p>
         </div>
 
         <div class="eead-admin-notificn" style="display: none;"></div>

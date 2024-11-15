@@ -15,8 +15,6 @@ if (!defined('ABSPATH')) {
 
 class Weather extends Widget_Base {
 
-    public $weather_data = [];
-
     /* Widget Name */
 
     public function get_name() {
@@ -51,15 +49,11 @@ class Weather extends Widget_Base {
             ]
         );
 
-        /* API */
         $this->add_control(
-            'api_key', [
-                'label' => esc_html__('API Key', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => esc_html__('Please Enter your API Key here', 'easy-elementor-addons'),
-                'description' => esc_html__('To get the api key click ', 'easy-elementor-addons') . '<a target="_blank" href="https://weatherstack.com/quickstart">here</a>',
-                'separator' => 'after'
+            'api-notice', [
+                'type' => Controls_Manager::NOTICE,
+                'heading' => esc_html__('Notice', 'easy-elementor-addons'),
+                'content' => esc_html__('API key is required. To add API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead-settings') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>'
             ]
         );
 
@@ -84,18 +78,6 @@ class Weather extends Widget_Base {
                 'default' => esc_html__('Sydney', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('City', 'easy-elementor-addons'),
                 'separator' => 'after'
-            ]
-        );
-
-        /* Language */
-        $this->add_control(
-            'country_language', [
-                'label' => esc_html__('Language', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT2,
-                'multiple' => false,
-                'options' => $this->get_language_options(),
-                'default' => 'en',
-                'label_block' => true
             ]
         );
 
@@ -522,97 +504,116 @@ class Weather extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $eead_general_settings = get_option('eead_general_settings', true);
+        $weatherstackApiKey = isset($eead_general_settings['weather_api_key']) ? $eead_general_settings['weather_api_key'] : NULL;
 
-        if (empty($settings['api_key'])) {
+        if (empty($weatherstackApiKey)) {
             echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
-            return false;
+            return;
         }
 
-        $this->weather_data = $this->get_weather_data();
-        $data = $this->weather_data;
-        $layout = esc_attr($settings['layout']);
+        $data = $this->get_weather_data($weatherstackApiKey);
+        if (!$data) {
+            return;
+        }
 
-        $code = $data['current']['weather_code'];
+        $layout = esc_attr($settings['layout']);
         $temp = $data['current']['temperature'];
-        $wind_speed = $data['current']['wind_speed'];
-        $wind_degree = $data['current']['wind_degree'];
-        $wind_dir = $data['current']['wind_dir'];
-        $humidity = $data['current']['humidity'];
-        $pressure = $data['current']['pressure'];
+
         $weather_icon = $data['current']['weather_icons'][0];
         $weather_description = $data['current']['weather_descriptions'][0];
         $localtime = $data['location']['localtime'];
+        $observation_time = $data['current']['observation_time'];
+        $feelslike = $data['current']['feelslike'];
+        $is_day = $data['current']['is_day'];
+
+
+        $temp_param = [
+            'wind' => [
+                'label' => esc_html__('Wind', 'easy-elementor-addons'),
+                'value' => $data['current']['wind_speed'] . 'Km/hr ' . $data['current']['wind_dir']
+            ],
+            'humidity' => [
+                'label' => esc_html__('Humidity', 'easy-elementor-addons'),
+                'value' => $data['current']['humidity'] . ' %'
+            ],
+            'pressure' => [
+                'label' => esc_html__('Pressure', 'easy-elementor-addons'),
+                'value' => $data['current']['pressure'] . ' hPa'
+            ],
+            'cloudcover' => [
+                'label' => esc_html__('Clouds', 'easy-elementor-addons'),
+                'value' => $data['current']['cloudcover'] . ' %'
+            ],
+            'visibility' => [
+                'label' => esc_html__('Visibility', 'easy-elementor-addons'),
+                'value' => $data['current']['visibility'] . ' km'
+            ],
+            'precip' => [
+                'label' => esc_html__('Precipitation', 'easy-elementor-addons'),
+                'value' => $data['current']['precip'] . ' mm'
+            ],
+            'uv_index' => [
+                'label' => esc_html__('UV Index', 'easy-elementor-addons'),
+                'value' => $data['current']['uv_index']
+            ]
+        ];
         ?>
         <div class="eead-weather-container <?php echo $layout; ?>">
 
             <div class="eead-weather-top-section">
-                <div class="eead-weather-info">
-                    <?php if ($layout == 'style2') { ?>
-                        <div class="eead-weather-temperature">
-                            <?php echo $this->get_temp($temp); ?>
-                        </div>
-                    <?php } ?>
+                <div class="eead-weather-location">
+                    <i class="icofont icofont-location-pin"></i>
+                    <span class="eead-weather-city"><?php echo esc_html($data['location']['name']); ?></span>
+                    <span class="eead-weather-country"><?php echo esc_html($data['location']['country']); ?></s>
+                </div>
 
-                    <div class="eead-weather-desc-section">
-                        <?php if ($settings['hide_weather_description'] != 'yes') { ?>
-                            <img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">
-                            <span class="eead-weather-description"><?php echo esc_html($weather_description); ?></span>
-                        <?php } ?>
+                <div class="eead-weather-time">
+                    <?php echo esc_html($this->get_time($localtime, 'l, d  M Y')); ?>
+                </div>
+
+                <div class="">
+                    <img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">
+                    <div class="eead-weather-temperature">
+                        <?php echo $this->get_temp($temp); ?>
                     </div>
                 </div>
 
-                <div class="eead-location-info">
-                    <?php if ($layout == 'style1') { ?>
-                        <div class="eead-weather-temperature">
-                            <?php echo $this->get_temp($temp); ?>
-                        </div>
-                    <?php } ?>
-
-                    <?php if ($settings['hide_day'] != 'yes') { ?>
-                        <div class="eead-weather-current-day">
-                            <?php echo esc_html($this->get_current_day($localtime)); ?>
-                        </div>
-                    <?php } ?>
-
-                    <div class="eead-weather-location">
-                        <div class="eead-weather-city">
-                            <span><?php echo esc_html($data['location']['name']); ?></span>
-                        </div>
-
-                        <div class="eead-weather-country">
-                            <h4><?php echo esc_html($data['location']['country']); ?></h4>
-                        </div>
+                <?php if ($settings['hide_weather_description'] != 'yes') { ?>
+                    <div class="eead-weather-description">
+                        <?php echo esc_html($weather_description); ?>
                     </div>
+                <?php } ?>
+
+                <div class="eead-weather-description">
+                    <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
                 </div>
             </div>
 
+
             <?php if ($settings['hide_bottom_box'] != 'yes') { ?>
                 <div class="eead-weather-bottom-section">
-                    <?php if ($settings['hide_humidity'] != 'yes') { ?>
-                        <div class="eead-weather-humidity">
-                            <?php echo 'Humidity: ' . esc_html($humidity) . '%'; ?>
-                        </div>
-                    <?php } ?>
-                    <?php if ($settings['hide_preassure'] != 'yes') { ?>
-                        <div class="eead-weather-pressure">
-                            <?php echo 'Pressure: ' . esc_html($pressure) . ' Pa'; ?>
-                        </div>
-                    <?php } ?>
-                    <?php if ($settings['hide_wind_speed'] != 'yes') { ?>
-                        <div class="eead-weather-wind">
-                            <?php echo 'Wind Speed: ' . esc_html($wind_speed) . ' km/hr'; ?>
-                        </div>
-                    <?php } ?>
+                    <?php
+                    $show_params = array('wind', 'humidity', 'pressure', 'cloudcover', 'visibility', 'precip', 'uv_index');
+                    foreach ($show_params as $param) {
+                        echo '<div class="eead-weather-' . $param . '">';
+                        echo '<span class="eead-weather-label">' . $temp_param[$param]['label'] . ': </span>';
+                        echo '<span class="eead-weather-value">' . $temp_param[$param]['value'] . '</span>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
             <?php } ?>
+
+            <div class="eead-weather-last-update"><?php echo esc_html__('Last Updated: ', 'easy-elementor-addons') . esc_html($observation_time); ?></div>
         </div>
         <?php
     }
 
-    protected function get_current_day($datetime) {
+    protected function get_time($datetime, $format) {
         $date = date_create_from_format('Y-m-d', $datetime);
         $date = new DateTime($date);
-        return date_i18n('l', date_timestamp_get($date));
+        return date_i18n($format, date_timestamp_get($date));
     }
 
     protected function get_temp($temp) {
@@ -634,26 +635,17 @@ class Weather extends Widget_Base {
         return $temp_val;
     }
 
-    protected function get_weather_data() {
+    protected function get_weather_data($weatherstackApiKey) {
         $settings = $this->get_settings_for_display();
-        $weatherstackApiKey = $settings['api_key'];
         $widgetID = $this->get_id();
-
-        // if the API key is empty
-        if (empty($weatherstackApiKey)) {
-            echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
-            return false;
-        }
 
         $city = $settings['city_location'];
         $country = $settings['country_location'];
         if (empty($city) or empty($country)) {
             echo esc_html__('Oops! It seems that you have left either the city or the country field empty', 'easy-elementor-addons');
-            return false;
+            return;
         }
 
-        $unit = ($settings['temperature_units'] == 'metric') ? 'm' : (($settings['temperature_units'] == 'standard') ? 's' : 'f');
-        $language = $settings['country_language'];
 
         if (!empty($city)) {
             $location = $city;
@@ -663,9 +655,9 @@ class Weather extends Widget_Base {
         }
         $transientKey = sprintf('eead-weather-%s-%s', $city, md5($widgetID));
         $weatherTransientData = get_transient($transientKey);
+        //var_dump($weatherTransientData);
 
-        if (!isset($weatherTransientData) or empty($weatherTransientData)) {
-
+        if (!isset($weatherTransientData) || empty($weatherTransientData)) {
             /* Weather Stack Api Args */
             $request_args = [
                 'access_key' => $weatherstackApiKey,
@@ -684,18 +676,18 @@ class Weather extends Widget_Base {
             $remote_data = json_decode($remote_data, true);
 
             /* Check if something went wrong while fetching from api */
-            if (!$remote_data or is_wp_error($remote_data)) {
+            if (!$remote_data || is_wp_error($remote_data)) {
                 echo esc_html__('Oops! Something went wrong while fetching the data', 'easy-elementor-addons');
-                return false;
+                return;
             }
-            if (isset($remote_data['error'])) {
 
-                if (isset($remote_data['error']['message'])) {
-                    echo $remote_data['error']['message'];
+            if (isset($remote_data['error'])) {
+                if (isset($remote_data['error']['info'])) {
+                    echo $remote_data['error']['info'];
                 } else {
                     echo esc_html__('Weather data of this location not found.', 'easy-elementor-addons');
                 }
-                return false;
+                return;
             }
             set_transient($transientKey, $remote_data, $settings['cache_expiration']);
 

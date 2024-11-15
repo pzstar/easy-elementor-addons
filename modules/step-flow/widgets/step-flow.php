@@ -341,6 +341,9 @@ class StepFlow extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ]
                 ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-sf-h-pos:{{VALUE}}',
+                ],
                 'default' => 'right',
                 'toggle' => false,
             ]
@@ -407,6 +410,9 @@ class StepFlow extends Widget_Base {
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
                         'icon' => 'eicon-v-align-bottom',
                     ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-sf-v-pos:{{VALUE}}',
                 ],
                 'default' => 'top',
                 'toggle' => false,
@@ -581,7 +587,7 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'title_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -619,7 +625,7 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'description_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -698,28 +704,6 @@ class StepFlow extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'dash_length', [
-                'label' => esc_html__('Dash Length', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'default' => [
-                    'size' => 0,
-                    'unit' => 'px'
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 50,
-                        'step' => 1
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow' => '--eead-stepflow-dash-length: {{SIZE}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
             'dash_gap', [
                 'label' => esc_html__('Dash Gap', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -737,6 +721,28 @@ class StepFlow extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-step-flow' => '--eead-stepflow-dash-gap: {{SIZE}};',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'dash_length', [
+                'label' => esc_html__('Dash Length', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-step-flow' => '--eead-stepflow-dash-length: {{SIZE}};',
                 ]
             ]
         );
@@ -799,8 +805,8 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['deg'],
                 'range' => [
                     'deg' => [
-                        'min' => 0,
-                        'max' => 360,
+                        'min' => -180,
+                        'max' => 180,
                     ]
                 ],
                 'default' => [
