@@ -528,7 +528,6 @@ class AdvancedHeading extends Widget_Base {
             'mainh_split_text_color', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'separator' => 'before',
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text' => 'color: {{VALUE}};',
                 ],
@@ -552,7 +551,6 @@ class AdvancedHeading extends Widget_Base {
                 'condition' => [
                     'split_main_heading' => 'yes'
                 ],
-                'separator' => 'after'
             ]
         );
 
@@ -699,7 +697,6 @@ class AdvancedHeading extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'advanced_heading_typography',
                 'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-adv-heading',
-                'separator' => 'before'
             ]
         );
 

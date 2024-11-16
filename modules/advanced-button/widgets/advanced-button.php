@@ -72,6 +72,7 @@ class AdvancedButton extends Widget_Base {
                 'label' => esc_html__('Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'md',
+                'label_block' => true,
                 'options' => [
                     'xs' => esc_html__('Extra Small', 'easy-elementor-addons'),
                     'sm' => esc_html__('Small', 'easy-elementor-addons'),
@@ -87,6 +88,7 @@ class AdvancedButton extends Widget_Base {
             'button_animation', [
                 'label' => esc_html__('Background Animation (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
+                'label_block' => true,
                 'default' => 'b',
                 'options' => [
                     'a' => esc_html__('Fade In', 'easy-elementor-addons'),
@@ -100,27 +102,6 @@ class AdvancedButton extends Widget_Base {
                     'i' => esc_html__('Horizontal Center Out', 'easy-elementor-addons'),
                 ],
                 'prefix_class' => 'eead-ab-button-effect-'
-            ]
-        );
-
-        $this->add_control(
-            'add_custom_attributes', [
-                'label' => esc_html__('Add Custom Attributes', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER
-            ]
-        );
-
-        $this->add_control(
-            'custom_attributes', [
-                'label' => esc_html__('Custom Attributes', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXTAREA,
-                'dynamic' => [
-                    'active' => true,
-                ],
-                'placeholder' => esc_html__('key|value', 'easy-elementor-addons'),
-                'description' => sprintf(esc_html__('Set custom attributes for the button tag. Separate each attribute in a separate line. Separate attribute key from the value using %s character. eg. style|color:red', 'easy-elementor-addons'), '<code>|</code>'),
-                'classes' => 'elementor-control-direction-ltr',
-                'condition' => ['add_custom_attributes' => 'yes']
             ]
         );
 
@@ -203,19 +184,19 @@ class AdvancedButton extends Widget_Base {
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-left',
+                        'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-center',
+                        'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-right',
+                        'icon' => 'eicon-h-align-right',
                     ],
                     'stretch' => [
                         'title' => esc_html__('Stretch', 'easy-elementor-addons'),
-                        'icon' => 'eicon-text-align-justify',
+                        'icon' => 'eicon-grow',
                     ]
                 ],
                 'prefix_class' => 'eead-ab-button-align-'
@@ -376,33 +357,7 @@ class AdvancedButton extends Widget_Base {
         $this->add_render_attribute('wrapper', 'class', 'eead-ab-button-wrapper');
 
         if (!empty($settings['link']['url'])) {
-            $this->add_render_attribute('button', 'href', $settings['link']['url']);
-
-            if ($settings['link']['is_external']) {
-                $this->add_render_attribute('button', 'target', '_blank');
-            }
-
-            if ($settings['link']['nofollow']) {
-                $this->add_render_attribute('button', 'rel', 'nofollow');
-            }
-        }
-
-        if ($settings['add_custom_attributes'] && !empty($settings['custom_attributes'])) {
-            $attributes = explode("\n", $settings['custom_attributes']);
-            $reserved_attr = ['href', 'target'];
-
-            foreach ($attributes as $attribute) {
-                if (!empty($attribute)) {
-                    $attr = explode('|', $attribute, 2);
-                    if (!isset($attr[1])) {
-                        $attr[1] = '';
-                    }
-
-                    if (!in_array(strtolower($attr[0]), $reserved_attr)) {
-                        $this->add_render_attribute('button', trim($attr[0]), trim($attr[1]));
-                    }
-                }
-            }
+            $this->add_link_attributes('button', $settings['link']);
         }
 
         $this->add_render_attribute('button', 'class', 'eead-ab-button');
