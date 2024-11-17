@@ -6066,7 +6066,7 @@ Pricing List
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .eead-pricing-list .eead-pl-item-header:last-child {

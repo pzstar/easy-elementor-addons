@@ -216,6 +216,28 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
+            'price_list_spacing', [
+                'label' => esc_html__('Spacing Between List', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 30,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-list' => 'gap: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
             'image_width', [
                 'label' => esc_html__('Image Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -238,24 +260,14 @@ class PricingList extends Widget_Base {
         );
 
         $this->add_control(
-            'price_list_spacing', [
-                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
+            'price_position', [
+                'label' => esc_html__('Price Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'style1' => 'Inline With Heading',
+                    'style2' => 'Over Image',
                 ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 30,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-list' => 'gap: {{SIZE}}{{UNIT}};',
-                ]
+                'default' => 'style1'
             ]
         );
 
@@ -512,18 +524,6 @@ class PricingList extends Widget_Base {
                     'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                     'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'price_position', [
-                'label' => esc_html__('Price Position', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'style1' => 'Inline With Heading',
-                    'style2' => 'Over Image',
-                ],
-                'default' => 'style1'
             ]
         );
 
@@ -802,7 +802,7 @@ class PricingList extends Widget_Base {
                                 $link = $lists['link']['url'];
                             }
                             ?>
-                            <?php if ($lists['image']) { ?>
+                            <?php if ($lists['image']['url']) { ?>
                                 <div class="eead-pl-item-image">
                                     <?php
                                     if ($has_link) {
