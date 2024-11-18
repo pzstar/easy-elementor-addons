@@ -293,7 +293,7 @@ class DualButton extends Widget_Base {
 
         $this->add_control(
             'button_animation', [
-                'label' => esc_html__('Animation', 'easy-elementor-addons'),
+                'label' => esc_html__('Button Hover Animation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'none' => esc_html__('None', 'easy-elementor-addons'),
@@ -313,6 +313,13 @@ class DualButton extends Widget_Base {
         );
 
         $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'button_typography',
+                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
+            ]
+        );
+
+        $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'box_shadow',
                 'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container',
@@ -328,12 +335,7 @@ class DualButton extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'primary_button_typography',
-                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
-            ]
-        );
+       
 
         $this->start_controls_tabs('tabs_button_style');
 
@@ -394,6 +396,19 @@ class DualButton extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'pri_button_border_color_hover', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'pri_button_border_border!' => ''
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:hover, {{WRAPPER}} .eead-dual-buttons .eead-dual-pri-button .eead-dual-button:focus' => 'border-color: {{VALUE}};'
+                ],
+            ]
+        );
+
         $this->end_controls_tabs();
 
         $this->add_group_control(
@@ -449,13 +464,6 @@ class DualButton extends Widget_Base {
             'section_style_secondary_button', [
                 'label' => esc_html__('Secondary Button', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'secondary_button_typography',
-                'selector' => '{{WRAPPER}} .eead-dual-buttons .eead-dual-button',
             ]
         );
 

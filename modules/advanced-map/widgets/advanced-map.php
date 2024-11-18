@@ -52,7 +52,7 @@ class AdvancedMap extends Widget_Base {
             'api-notice', [
                 'type' => Controls_Manager::NOTICE,
                 'heading' => esc_html__('Notice', 'easy-elementor-addons'),
-                'content' => esc_html__('Google Map API key is required. To add Google Map API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>'
+                'content' => esc_html__('Google Map API key is required. To add Google Map API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead-settings') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>'
             ]
         );
 
@@ -62,6 +62,7 @@ class AdvancedMap extends Widget_Base {
             'lat', [
                 'label' => esc_html__('Latitude', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
+                'default' => '40.712775',
                 'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons')
             ]
         );
@@ -70,7 +71,16 @@ class AdvancedMap extends Widget_Base {
             'long', [
                 'label' => esc_html__('Longitude', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
+                'default' => '-74.005973',
                 'placeholder' => esc_html__('Enter latitude here', 'easy-elementor-addons')
+            ]
+        );
+
+        $repeater->add_control(
+            'lat_lang_notice', [
+                'type' => Controls_Manager::NOTICE,
+                'heading' => esc_html__('Notice', 'easy-elementor-addons'),
+                'content' => esc_html__('Get the Latitude and Longitude value by Location Address from ', 'easy-elementor-addons') . '<a target="_blank" href="https://www.latlong.net/">' . esc_html__('Here.', 'easy-elementor-addons') . '</a>'
             ]
         );
 
@@ -79,6 +89,7 @@ class AdvancedMap extends Widget_Base {
                 'label' => esc_html__('Address', 'easy-elementor-addons'),
                 'description' => esc_html__('Use line break to move to next line.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
+                'default' => 'New York City Hall, 260, Broadway,<br/> New York County, New York, 10000, United States',
                 'placeholder' => esc_html__('Enter address here..', 'easy-elementor-addons')
             ]
         );
@@ -226,7 +237,7 @@ class AdvancedMap extends Widget_Base {
 
         $this->add_control(
             'map_type', [
-                'label' => esc_html__('Map Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Map Type Controls', 'easy-elementor-addons'),
                 'description' => esc_html__('Map/Satellite', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'show',
@@ -254,7 +265,7 @@ class AdvancedMap extends Widget_Base {
                 'label' => esc_html__('Snazzy Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'separator' => 'before',
-                'description' => esc_html__('Choose any map styles by visiting <a href="https://snazzymaps.com/explore" target="_blank">Snazzy Maps</a>. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons')
+                'description' => sprintf(esc_html__('Choose any map styles by visiting %1$sSnazzy Maps%2$s. Copy any Javascript Style Array and paste here.', 'easy-elementor-addons'), '<a target="_blank" href="https://snazzymaps.com/explore">', '</a>')
             ]
         );
 
