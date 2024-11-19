@@ -255,7 +255,7 @@ class AdvancedMap extends Widget_Base {
                 'default' => 'yes',
                 'options' => array(
                     'yes' => esc_html__('Yes', 'easy-elementor-addons'),
-                    'noe' => esc_html__('No', 'easy-elementor-addons'),
+                    'no' => esc_html__('No', 'easy-elementor-addons'),
                 )
             ]
         );
@@ -277,7 +277,7 @@ class AdvancedMap extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $markers = $settings['markers'];
 
-        if ($settings['drggable'] === 'yes') {
+        if ($settings['drggable'] === 'no') {
             $this->add_render_attribute('wrapper', [
                 'data-gestureHandling' => 'none'
             ]);
