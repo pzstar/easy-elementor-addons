@@ -335,7 +335,7 @@ class DualButton extends Widget_Base {
             ]
         );
 
-       
+
 
         $this->start_controls_tabs('tabs_button_style');
 

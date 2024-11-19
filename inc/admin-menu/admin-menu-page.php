@@ -17,15 +17,15 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
 
     <nav class="eead-nav-tab-wrapper">
         <a href="javascript:void(0)" class="nav-tab-active eead-tab" data-tab="eead-api-settings-content" data-tohide="tab-content">
-            <i class="mdi mdi-settings"></i><?php esc_html_e('Settings', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-cog"></i><?php esc_html_e('Settings', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-widgets-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-buffer"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-widgets-outline"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-about-section-content" data-tohide="tab-content">
-            <i class="mdi mdi-rocket"></i><?php esc_html_e('About', 'easy-elementor-addons'); ?>
+            <i class="mdi mdi-file-document-multiple-outline"></i><?php esc_html_e('About', 'easy-elementor-addons'); ?>
         </a>
     </nav>
 
@@ -254,7 +254,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                 <li>Search for "Easy Elementor Addons" and install the plugin.</li>
                 <li>Activate Plugin from "Plugins" menu in WordPress.</li>
             </ol>
-            <p> </p>
+            <p style="height:40px;"></p>
         </div>
 
         <div class="eead-admin-notificn" style="display: none;"></div>

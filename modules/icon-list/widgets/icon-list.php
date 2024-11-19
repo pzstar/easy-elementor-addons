@@ -183,7 +183,9 @@ class IconList extends Widget_Base {
             'list_column', [
                 'label' => esc_html__('Grid Columns', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 3,
+                'default' => '3',
+                'tablet_default' => '2',
+                'mobile_default' => '1',
                 'options' => [
                     '1' => esc_html__('1', 'easy-elementor-addons'),
                     '2' => esc_html__('2', 'easy-elementor-addons'),
@@ -197,6 +199,8 @@ class IconList extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
                 ],
+                'prefix_class' => 'eead-lc%s-col-',
+                'render_type' => 'template',
                 'condition' => ['list_view' => 'grid']
             ]
         );
@@ -394,8 +398,8 @@ class IconList extends Widget_Base {
                     'item_divider' => 'yes'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-style: {{VALUE}};',
-                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-style: {{VALUE}};'
+                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after' => 'border-bottom-style: {{VALUE}};',
+                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:after' => 'border-right-style: {{VALUE}};'
                 ],
             ]
         );
@@ -417,8 +421,8 @@ class IconList extends Widget_Base {
                     'item_divider' => 'yes'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:after' => 'border-right-width: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -432,8 +436,8 @@ class IconList extends Widget_Base {
                     'item_divider' => 'yes'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:not(:last-child):after' => 'border-bottom-color: {{VALUE}};',
-                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:not(:last-child):after' => 'border-right-color: {{VALUE}};'
+                    '{{WRAPPER}}:where(.eead-icon-list-default, .eead-icon-list-grid) .eead-icon-list-items li:after' => 'border-bottom-color: {{VALUE}};',
+                    '{{WRAPPER}}.eead-icon-list-inline .eead-icon-list-items li:after' => 'border-right-color: {{VALUE}};'
                 ],
             ]
         );
@@ -596,14 +600,23 @@ class IconList extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $list_column = isset($settings['list_column']) ? (int) $settings['list_column'] : 3;
+        $list_column_tablet = isset($settings['list_column_tablet']) ? (int) $settings['list_column_tablet'] : 2;
+        $list_column_mobile = isset($settings['list_column_mobile']) ? (int) $settings['list_column_mobile'] : 1;
         ?>
         <div class="eead-icon-list-container">
             <ul class="eead-icon-list-items">
                 <?php
-                foreach ($settings['list_items'] as $index => $list) {
+                $count = 1;
+                if ($settings['list_view'] == 'grid') {
+                    $list_items = count($settings['list_items']);
+                    $last_row_items = $list_items % $list_column == 0 ? $list_column : $list_items % $list_column;
+                    $tablet_last_row_items = $list_items % $list_column_tablet == 0 ? $list_column_tablet : $list_items % $list_column_tablet;
+                    $mobile_last_row_items = $list_items % $list_column_mobile == 0 ? $list_column_mobile : $list_items % $list_column_mobile;
+                }
 
+                foreach ($settings['list_items'] as $index => $list) {
                     if ($list['text']) {
-                        $count = $index + 1;
                         $tag = 'span';
 
                         $this->add_render_attribute([
@@ -625,8 +638,17 @@ class IconList extends Widget_Base {
                             ]);
                             $tag = 'a';
                         }
+
+                        $classes = [
+                            'eead-icon-list-item',
+                            'eead-icon-list-item-' . $count,
+                            ($settings['list_view'] == 'grid' && $list_items - $count < $last_row_items) ? 'eead-last-row' : '',
+                            ($settings['list_view'] == 'grid' && $list_items - $count < $tablet_last_row_items) ? 'eead-tablet-last-row' : '',
+                            ($settings['list_view'] == 'grid' && $list_items - $count < $mobile_last_row_items) ? 'eead-mobile-last-row' : '',
+                        ];
+                        $this->add_render_attribute('list-item' . $count, ['class' => array_filter($classes)]);
                         ?>
-                        <li class="eead-icon-list-item">
+                        <li <?php echo $this->get_render_attribute_string('list-item' . $count); ?>>
                             <?php
                             echo '<' . $tag . ' ' . $this->get_render_attribute_string('items-' . $count) . '>';
                             $this->render_list_icon($list, $count);
@@ -640,6 +662,7 @@ class IconList extends Widget_Base {
                         </li>
                         <?php
                     }
+                    $count++;
                 }
                 ?>
             </ul>

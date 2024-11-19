@@ -560,17 +560,17 @@ class Switcher extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <div class="eead-switcher-container>
-            <div class=" eead-switcher-tabs">
-            <div class="eead-switcher-tabs-inner">
-                <?php $this->get_tabs(); ?>
-                <span class="eead-switcher-slider"></span>
+        <div class="eead-switcher-container">
+            <div class="eead-switcher-tabs">
+                <div class="eead-switcher-tabs-inner">
+                    <?php $this->get_tabs(); ?>
+                    <span class="eead-switcher-slider"></span>
+                </div>
             </div>
-        </div>
 
-        <div class="eead-switcher-contents">
-            <?php $this->get_tab_content(); ?>
-        </div>
+            <div class="eead-switcher-contents">
+                <?php $this->get_tab_content(); ?>
+            </div>
         </div>
         <?php
     }

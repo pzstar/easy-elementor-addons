@@ -348,6 +348,30 @@ class PieChart extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'chart_title_align', [
+				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', 'easy-elementor-addons'),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__('Center', 'easy-elementor-addons'),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__('Right', 'easy-elementor-addons'),
+						'icon' => 'eicon-text-align-right',
+					]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eead-pie-chart-title' => 'text-align: {{VALUE}};',
+				]
+			]
+		);
+
 		$this->add_control(
 			'chart_title_margin', [
 				'label' => esc_html__('Margin', 'easy-elementor-addons'),

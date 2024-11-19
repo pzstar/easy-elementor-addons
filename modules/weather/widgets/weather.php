@@ -53,7 +53,7 @@ class Weather extends Widget_Base {
             'api-notice', [
                 'type' => Controls_Manager::NOTICE,
                 'heading' => esc_html__('Notice', 'easy-elementor-addons'),
-                'content' => esc_html__('API key is required. To add API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead-settings') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '</a>'
+                'content' => esc_html__('API key is required. To add API key ', 'easy-elementor-addons') . '<a target="_blank" href="' . admin_url('admin.php?page=eead-settings') . '">' . esc_html__('Click Here', 'easy-elementor-addons') . '.</a>'
             ]
         );
 
