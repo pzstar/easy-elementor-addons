@@ -154,7 +154,7 @@ class FeatureList extends Widget_Base {
                 'label' => esc_html__('Icon Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list {{CURRENT_ITEM}} .eead-fl-icon-box' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-style-stacked {{CURRENT_ITEM}} .eead-fl-icon-box' => 'background: {{VALUE}}',
                 ],
                 'condition' => [
                     'icon_enable_each_style' => 'on'
@@ -275,6 +275,7 @@ class FeatureList extends Widget_Base {
                 ],
                 'range' => [
                     'px' => [
+                        'min' => 0,
                         'max' => 200,
                     ]
                 ],
