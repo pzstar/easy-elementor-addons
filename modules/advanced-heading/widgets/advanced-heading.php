@@ -258,17 +258,6 @@ class AdvancedHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'advanced_heading_enable_rotate', [
-                'label' => esc_html__('Rotate', 'easy-elementor-addons'),
-                'separator' => 'before',
-                'type' => Controls_Manager::SWITCHER,
-                'condition' => [
-                    'advanced_heading_visibility' => 'yes'
-                ]
-            ]
-        );
-
         $this->add_responsive_control(
             'advanced_heading_rotate', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
@@ -288,7 +277,6 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'advanced_heading_visibility' => 'yes',
-                    'advanced_heading_enable_rotate' => 'yes'
                 ]
             ]
         );
@@ -305,7 +293,6 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'condition' => [
                     'advanced_heading_visibility' => 'yes',
-                    'advanced_heading_enable_rotate' => 'yes'
                 ]
             ]
         );
@@ -473,24 +460,6 @@ class AdvancedHeading extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs('tabs_style_main_heading');
-
-        $this->start_controls_tab(
-            'tab_main_text', [
-                'label' => esc_html__('Heading', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'main_heading_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text' => 'color: {{VALUE}};',
-                ]
-            ]
-        );
-
         $this->add_responsive_control(
             'main_heading_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -506,6 +475,24 @@ class AdvancedHeading extends Widget_Base {
             Group_Control_Text_Shadow::get_type(), [
                 'name' => 'main_heading_text_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text'
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_style_main_heading');
+
+        $this->start_controls_tab(
+            'tab_main_text', [
+                'label' => esc_html__('Heading', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'main_heading_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text' => 'color: {{VALUE}};',
+                ]
             ]
         );
 
@@ -538,6 +525,17 @@ class AdvancedHeading extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'mainh_split_text_typography',
+                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text',
+                'condition' => [
+                    'split_main_heading' => 'yes',
+                    'split_text!' => ''
+                ]
+            ]
+        );
+
         $this->add_responsive_control(
             'split_text_space', [
                 'label' => esc_html__('Split Space', 'easy-elementor-addons'),
@@ -551,17 +549,6 @@ class AdvancedHeading extends Widget_Base {
                 'condition' => [
                     'split_main_heading' => 'yes'
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'mainh_split_text_typography',
-                'selector' => '{{WRAPPER}} .eead-advanced-heading .eead-ah-main-heading-text .eead-ah-split-text',
-                'condition' => [
-                    'split_main_heading' => 'yes',
-                    'split_text!' => ''
-                ]
             ]
         );
 

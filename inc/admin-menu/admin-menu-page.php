@@ -12,7 +12,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
         <h1 class="eead-admin-header-text">
             <?php echo esc_html__('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?>
         </h1>
-        <div class="eead-version">v 1.0.0</div>
+        <div class="eead-version">v<?php echo EEAD_VERSION; ?></div>
     </div>
 
     <nav class="eead-nav-tab-wrapper">

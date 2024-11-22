@@ -593,12 +593,7 @@ Advanced Icon Box
     justify-content: center;
 }
 
-:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box .eead-aib-icon span {
-    width: 100% !important;
-}
-
-:where(.eead-aib-icon-pos-left,
-    .eead-aib-icon-pos-right) .eead-advanced-icon-box {
+:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box {
     display: flex;
     gap: 20px;
 }
@@ -616,8 +611,14 @@ Advanced Icon Box
     margin-bottom: 10px;
 }
 
+:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box .eead-aib-icon span{
+    width: 90px;
+}
+
 .eead-advanced-icon-box .eead-aib-icon > span {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1;
     transition: all 0.3s ease;
     font-size: 38px;
@@ -6605,7 +6606,28 @@ Step Flow
 /*--------------------------------------------------------------
 Weather
 --------------------------------------------------------------*/
+.eead-weather-time{
+    margin-bottom: 10px;
+}
 
+.eead-weather-container.style1{
+    text-align: center;
+    background-color: #EAEAEA;
+}
+
+.eead-weather-temperature{
+    font-size: 40px;
+}
+
+.eead-weather-bottom-section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.eead-weather-bottom-section span{
+    display: block;
+}
 
 
 

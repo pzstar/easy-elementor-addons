@@ -109,10 +109,18 @@ class Weather extends Widget_Base {
 
         /* Round */
         $this->add_control(
-            'round', [
-                'label' => esc_html__('Round', 'easy-elementor-addons'),
+            'round_temp', [
+                'label' => esc_html__('Round Temprature Value', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'hide_wind_speed', [
+                'label' => esc_html__('Hide Wind Speed', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => ''
             ]
         );
 
@@ -133,16 +141,40 @@ class Weather extends Widget_Base {
         );
 
         $this->add_control(
-            'hide_wind_speed', [
-                'label' => esc_html__('Hide Wind Speed', 'easy-elementor-addons'),
+            'hide_clouds', [
+                'label' => esc_html__('Hide Clouds', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => ''
             ]
         );
 
         $this->add_control(
-            'hide_day', [
-                'label' => esc_html__('Hide Day', 'easy-elementor-addons'),
+            'hide_visibility', [
+                'label' => esc_html__('Hide Visibility', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => ''
+            ]
+        );
+
+        $this->add_control(
+            'hide_precipitation', [
+                'label' => esc_html__('Hide Precipitation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => ''
+            ]
+        );
+
+        $this->add_control(
+            'hide_uvindex', [
+                'label' => esc_html__('Hide UV Index', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => ''
+            ]
+        );
+
+        $this->add_control(
+            'hide_last_updated_time', [
+                'label' => esc_html__('Hide Last Updated Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => ''
             ]
@@ -572,7 +604,7 @@ class Weather extends Widget_Base {
                     <?php echo esc_html($this->get_time($localtime, 'l, d  M Y')); ?>
                 </div>
 
-                <div class="">
+                <div class="eead-weather-image-wrap">
                     <img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">
                     <div class="eead-weather-temperature">
                         <?php echo $this->get_temp($temp); ?>
@@ -585,7 +617,7 @@ class Weather extends Widget_Base {
                     </div>
                 <?php } ?>
 
-                <div class="eead-weather-description">
+                <div class="eead-weather-like">
                     <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
                 </div>
             </div>
@@ -597,7 +629,7 @@ class Weather extends Widget_Base {
                     $show_params = array('wind', 'humidity', 'pressure', 'cloudcover', 'visibility', 'precip', 'uv_index');
                     foreach ($show_params as $param) {
                         echo '<div class="eead-weather-' . $param . '">';
-                        echo '<span class="eead-weather-label">' . $temp_param[$param]['label'] . ': </span>';
+                        echo '<span class="eead-weather-label">' . $temp_param[$param]['label'] . '</span>';
                         echo '<span class="eead-weather-value">' . $temp_param[$param]['value'] . '</span>';
                         echo '</div>';
                     }
@@ -630,7 +662,7 @@ class Weather extends Widget_Base {
             $temp_unit = '&#176;F';
         }
 
-        $temp = $this->get_settings_for_display('round') == 'yes' ? round($temp) : $temp;
+        $temp = $this->get_settings_for_display('round_temp') == 'yes' ? round($temp) : $temp;
         $temp_val = sprintf('%1$s%2$s', $temp, $temp_unit);
         return $temp_val;
     }

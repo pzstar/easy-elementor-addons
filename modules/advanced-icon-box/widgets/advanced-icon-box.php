@@ -440,46 +440,68 @@ class AdvancedIconBox extends Widget_Base {
         $this->start_controls_section(
             'section_style_icon_box', [
                 'label' => esc_html__('Icon/Image', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'conditions' => [
-                    'relation' => 'or',
-                    'terms' => [
-                        [
-                            'name' => 'selected_icon[value]',
-                            'operator' => '!=',
-                            'value' => ''
-                        ],
-                        [
-                            'name' => 'image[url]',
-                            'operator' => '!=',
-                            'value' => ''
-                        ],
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_responsive_control(
+            'icon_space', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'separator' => 'before',
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
                     ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box, {{WRAPPER}} .eead-aib-header.eead-aib-inline-icon' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}.eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
-        $this->start_controls_tabs('icon_colors');
-
-        $this->start_controls_tab(
-            'icon_colors_normal', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'icon_color', [
-                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+        $this->add_responsive_control(
+            'icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200,
+                    ]
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'icon_type!' => 'image',
+                    'icon_type' => 'icon',
                 ]
             ]
         );
+
+        $this->add_responsive_control(
+            'icon_box_size', [
+                'label' => esc_html__('Icon Box Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 300,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'icon_type' => 'icon',
+                ]
+            ]
+        ); 
 
         $this->add_responsive_control(
             'image_width', [
@@ -494,29 +516,9 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box .eead-aib-icon' => 'width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'icon_type' => 'image',
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(), [
-                'name' => 'icon_background',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_padding', [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'separator' => 'before',
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -583,62 +585,9 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
-                'name' => 'icon_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_space', [
-                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'separator' => 'before',
-                'size_units' => ['px', 'em', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box, {{WRAPPER}} .eead-aib-header.eead-aib-inline-icon' => 'gap: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_size', [
-                'label' => esc_html__('Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 6,
-                        'max' => 300,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
-                ],
-                'conditions' => [
-                    'relation' => 'or',
-                    'terms' => [
-                        [
-                            'name' => 'icon_type',
-                            'operator' => '==',
-                            'value' => 'icon'
-                        ],
-                    ]
-                ]
-            ]
-        );
-
         $this->add_control(
             'rotate', [
-                'label' => esc_html__('Rotate', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
@@ -706,6 +655,45 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
+        $this->start_controls_tabs('icon_colors');
+
+        $this->start_controls_tab(
+            'icon_colors_normal', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'icon_color', [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'fill: {{VALUE}};',
+                ],
+                'condition' => [
+                    'icon_type!' => 'image',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name' => 'icon_background',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span',
+                'condition' => [
+                    'icon_type' => 'icon',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'icon_shadow',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span'
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -724,6 +712,16 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'condition' => [
                     'icon_type!' => 'image',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name' => 'icon_hover_background',
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box:hover .eead-aib-icon span',
+                'condition' => [
+                    'icon_type' => 'icon',
                 ]
             ]
         );
@@ -1103,6 +1101,17 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'readmore_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
         $this->start_controls_tabs('tabs_readmore_style');
 
         $this->start_controls_tab(
@@ -1158,17 +1167,6 @@ class AdvancedIconBox extends Widget_Base {
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'readmore_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'readmore_radius', [
-                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
             ]
         );
 
@@ -1286,13 +1284,6 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(), [
-                'name' => 'badge_shadow',
-                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge'
-            ]
-        );
-
-        $this->add_group_control(
             Group_Control_Border::get_type(), [
                 'name' => 'badge_border',
                 'fields_options' => [
@@ -1312,6 +1303,13 @@ class AdvancedIconBox extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
+                'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'badge_shadow',
                 'selector' => '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-badge'
             ]
         );
