@@ -45,24 +45,60 @@ class TwitterFeed extends Widget_Base {
                 'options' => [
                     'handle' => esc_html__('Handle', 'easy-elementor-addons'),
                     'hashtag' => esc_html__('Hashtag', 'easy-elementor-addons'),
-                    'collection' => esc_html__('Collection', 'easy-elementor-addons'),
+                    'post' => esc_html__('Post', 'easy-elementor-addons'),
+                    'video' => esc_html__('Video', 'easy-elementor-addons'),
+                    // 'collection' => esc_html__('Collection', 'easy-elementor-addons'),
                     'profile' => esc_html__('Profile', 'easy-elementor-addons'),
-                    'list' => esc_html__('List', 'easy-elementor-addons'),
-                    'moments' => esc_html__('Moments', 'easy-elementor-addons'),
-                    'likes' => esc_html__('Likes', 'easy-elementor-addons')
+                    // 'list' => esc_html__('List', 'easy-elementor-addons'),
+                    // 'moments' => esc_html__('Moments', 'easy-elementor-addons'),
+                    // 'likes' => esc_html__('Likes', 'easy-elementor-addons')
+                ]
+            ]
+        );
+
+        // $this->add_control(
+        //     'url_collection', [
+        //         'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::TEXT,
+        //         'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
+        //         'default' => 'https://twitter.com/TwitterDev/timelines/539487832448843776',
+        //         'condition' => [
+        //             'embed_type' => 'collection',
+        //         ]
+        //     ]
+        // );
+
+        $this->add_control(
+            'url_post', [
+                'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'placeholder' => esc_html__('https://twitter.com/SpaceX/status/1732824684683784516', 'easy-elementor-addons'),
+                'default' => 'https://twitter.com/SpaceX/status/1732824684683784516',
+                'condition' => [
+                    'embed_type' => 'post',
                 ]
             ]
         );
 
         $this->add_control(
-            'url_collection', [
+            'url_video', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
-                'default' => 'https://twitter.com/TwitterDev/timelines/539487832448843776',
+                'placeholder' => esc_html__('https://twitter.com/SpaceX/status/1732824684683784516', 'easy-elementor-addons'),
+                'default' => 'https://twitter.com/SpaceX/status/1732824684683784516',
                 'condition' => [
-                    'embed_type' => 'collection',
+                    'embed_type' => 'video',
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'width_max_video', [
+                'label' => esc_html__('Video Width', 'easy-elementor-addons') . ' (px)',
+                'type' => Controls_Manager::NUMBER,
+                'default' => 560,
+                'min' => 100,
+                'max' => 3000
             ]
         );
 
@@ -70,49 +106,49 @@ class TwitterFeed extends Widget_Base {
             'url_profile', [
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/TwitterDev', 'easy-elementor-addons'),
-                'default' => 'https://twitter.com/TwitterDev',
+                'placeholder' => esc_html__('https://twitter.com/elonmusk', 'easy-elementor-addons'),
+                'default' => 'https://twitter.com/elonmusk',
                 'condition' => [
                     'embed_type' => 'profile',
                 ]
             ]
         );
 
-        $this->add_control(
-            'url_list', [
-                'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
-                'default' => 'https://twitter.com/TwitterDev/lists/national-parks',
-                'condition' => [
-                    'embed_type' => 'list',
-                ]
-            ]
-        );
+        // $this->add_control(
+        //     'url_list', [
+        //         'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::TEXT,
+        //         'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
+        //         'default' => 'https://twitter.com/TwitterDev/lists/national-parks',
+        //         'condition' => [
+        //             'embed_type' => 'list',
+        //         ]
+        //     ]
+        // );
 
-        $this->add_control(
-            'url_moments', [
-                'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
-                'default' => 'https://twitter.com/i/moments/625792726546558977',
-                'condition' => [
-                    'embed_type' => 'moments',
-                ]
-            ]
-        );
+        // $this->add_control(
+        //     'url_moments', [
+        //         'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::TEXT,
+        //         'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
+        //         'default' => 'https://twitter.com/i/moments/625792726546558977',
+        //         'condition' => [
+        //             'embed_type' => 'moments',
+        //         ]
+        //     ]
+        // );
 
-        $this->add_control(
-            'url_likes', [
-                'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
-                'default' => 'https://twitter.com/TwitterDev/likes',
-                'condition' => [
-                    'embed_type' => 'likes',
-                ]
-            ]
-        );
+        // $this->add_control(
+        //     'url_likes', [
+        //         'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::TEXT,
+        //         'placeholder' => esc_html__('https://twitter.com/webtechhardik', 'easy-elementor-addons'),
+        //         'default' => 'https://twitter.com/TwitterDev/likes',
+        //         'condition' => [
+        //             'embed_type' => 'likes',
+        //         ]
+        //     ]
+        // );
 
         $this->add_control(
             'username', [
@@ -140,59 +176,59 @@ class TwitterFeed extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'display_mode_collection', [
-                'label' => esc_html__('Display Mode', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'timeline',
-                'options' => [
-                    'timeline' => esc_html__('Timeline', 'easy-elementor-addons'),
-                    'grid' => esc_html__('Grid', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'embed_type' => 'collection',
-                ]
-            ]
-        );
+        // $this->add_control(
+        //     'display_mode_collection', [
+        //         'label' => esc_html__('Display Mode', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::SELECT,
+        //         'default' => 'timeline',
+        //         'options' => [
+        //             'timeline' => esc_html__('Timeline', 'easy-elementor-addons'),
+        //             'grid' => esc_html__('Grid', 'easy-elementor-addons'),
+        //         ],
+        //         'condition' => [
+        //             'embed_type' => 'collection',
+        //         ]
+        //     ]
+        // );
+
+        // $this->add_control(
+        //     'no_of_tweets', [
+        //         'label' => esc_html__('Display No of Tweets', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::NUMBER,
+        //         'default' => 20,
+        //         'min' => '2',
+        //         'max' => '50',
+        //         'step' => '1',
+        //         'condition' => [
+        //             'display_mode_collection' => 'grid',
+        //             'embed_type' => 'collection',
+        //         ]
+        //     ]
+        // );
+
+        // $this->add_control(
+        //     'height_collection_timeline', [
+        //         'label' => esc_html__('Height', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::SLIDER,
+        //         'default' => [
+        //             'size' => 500,
+        //         ],
+        //         'range' => [
+        //             'px' => [
+        //                 'min' => 250,
+        //                 'max' => 1300,
+        //                 'step' => 10,
+        //             ]
+        //         ],
+        //         'condition' => [
+        //             'display_mode_collection' => 'timeline',
+        //             'embed_type' => 'collection',
+        //         ]
+        //     ]
+        // );
 
         $this->add_control(
-            'no_of_tweets', [
-                'label' => esc_html__('Display No of Tweets', 'easy-elementor-addons'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 20,
-                'min' => '2',
-                'max' => '50',
-                'step' => '1',
-                'condition' => [
-                    'display_mode_collection' => 'grid',
-                    'embed_type' => 'collection',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'height_collection_timeline', [
-                'label' => esc_html__('Height', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 500,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 250,
-                        'max' => 1300,
-                        'step' => 10,
-                    ]
-                ],
-                'condition' => [
-                    'display_mode_collection' => 'timeline',
-                    'embed_type' => 'collection',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'theme_collection_timeline', [
+            'theme_post', [
                 'label' => esc_html__('Theme', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'light',
@@ -201,22 +237,21 @@ class TwitterFeed extends Widget_Base {
                     'dark' => esc_html__('Dark', 'easy-elementor-addons'),
                 ],
                 'condition' => [
-                    'display_mode_collection' => 'timeline',
-                    'embed_type' => 'collection',
+                    'embed_type' => 'post',
                 ]
             ]
         );
 
-        $this->add_control(
-            'link_color_collection', [
-                'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'display_mode_collection' => 'timeline',
-                    'embed_type' => 'collection',
-                ]
-            ]
-        );
+        // $this->add_control(
+        //     'link_color_collection', [
+        //         'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
+        //         'type' => Controls_Manager::COLOR,
+        //         'condition' => [
+        //             'display_mode_collection' => 'timeline',
+        //             'embed_type' => 'collection',
+        //         ]
+        //     ]
+        // );
 
         $this->add_control(
             'display_mode_profile', [
@@ -520,23 +555,61 @@ class TwitterFeed extends Widget_Base {
             $this->get_handle_html($settings);
         } else if ($settings['embed_type'] == 'hashtag') {
             $this->get_hashtag_html($settings);
-        } else if ($settings['embed_type'] == 'collection') {
-            $this->get_collection_html($settings);
+        } else if ($settings['embed_type'] == 'post') {
+            $this->get_post_html($settings);
+        } else if ($settings['embed_type'] == 'video') {
+            $this->get_video_html($settings);
+        // } else if ($settings['embed_type'] == 'collection') {//not working
+        //     $this->get_collection_html($settings);
         } else if ($settings['embed_type'] == 'profile') {
             $this->get_profile_html($settings);
-        } else if ($settings['embed_type'] == 'list') {
-            $this->get_list_html($settings);
-        } else if ($settings['embed_type'] == 'moments') {
-            $this->get_moments_html($settings);
-        } else if ($settings['embed_type'] == 'likes') {
-            $this->get_likes_html($settings);
+        // } else if ($settings['embed_type'] == 'list') {//not working
+        //     $this->get_list_html($settings);
+        // } else if ($settings['embed_type'] == 'moments') {//not working
+        //     $this->get_moments_html($settings);
+        // } else if ($settings['embed_type'] == 'likes') {//not working
+        //     $this->get_likes_html($settings);
         }
         ?>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         <?php
     }
 
-    public function get_collection_html($settings) {
+    public function get_video_html($settings) {
+        $this->add_render_attribute('blockquote', [
+            'class' => 'twitter-tweet',
+            'data-media-max-width' => $settings['width_max_video'],
+            'data-lang' => $settings['language'],
+            // 'data-partner' => 'twitter-deck',
+            // 'data-height' => $settings['height_collection_timeline']['size'],
+            // 'data-link-color' => $settings['link_color_collection']
+        ]);
+        $this->add_render_attribute('video', [
+            'href' => $settings['url_video'],
+        ]);
+        ?>
+        <blockquote <?php $this->print_render_attribute_string('blockquote'); ?>><a <?php $this->print_render_attribute_string('video'); ?>></a></blockquote>
+        <?php
+    }
+
+    public function get_post_html($settings) {
+        $this->add_render_attribute('blockquote', [
+            'class' => 'twitter-tweet',
+            'data-lang' => $settings['language'],
+            'data-theme' => $settings['theme_post'],
+            // 'data-partner' => 'twitter-deck',
+            // 'data-height' => $settings['height_collection_timeline']['size'],
+            // 'data-link-color' => $settings['link_color_collection']
+        ]);
+        $this->add_render_attribute('post', [
+            'href' => $settings['url_post']
+        ]);
+        ?>
+        <blockquote <?php $this->print_render_attribute_string('blockquote'); ?>><a <?php $this->print_render_attribute_string('post'); ?>></a></blockquote>
+        <?php
+    }
+
+    /*public function get_collection_html($settings) {
         $this->add_render_attribute('collection', [
             'class' => 'twitter-' . $settings['display_mode_collection'],
             'href' => $settings['url_collection'],
@@ -556,7 +629,7 @@ class TwitterFeed extends Widget_Base {
         ?>
         <a <?php $this->print_render_attribute_string('collection'); ?>></a>
         <?php
-    }
+    }*/
 
     public function get_profile_html($settings) {
         $this->add_render_attribute('profile', [
@@ -619,7 +692,7 @@ class TwitterFeed extends Widget_Base {
         <?php
     }
 
-    public function get_moments_html($settings) {
+    /*public function get_moments_html($settings) {
         if ($settings['embed_type'] === 'moments') {
             $this->add_render_attribute('moments', 'class', 'twitter-moment');
         }
@@ -632,9 +705,9 @@ class TwitterFeed extends Widget_Base {
         ?>
         <a <?php $this->print_render_attribute_string('moments'); ?>></a>
         <?php
-    }
+    }*/
 
-    public function get_likes_html($settings) {
+    /*public function get_likes_html($settings) {
         $this->add_render_attribute('likes', [
             'href' => $settings['url_likes'],
             'class' => 'twitter-timeline',
@@ -647,7 +720,7 @@ class TwitterFeed extends Widget_Base {
         ?>
         <a <?php $this->print_render_attribute_string('likes'); ?>>Likes</a>
         <?php
-    }
+    }*/
 
     public function get_handle_html($settings) {
 
