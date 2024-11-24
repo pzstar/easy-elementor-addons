@@ -198,17 +198,6 @@ class TwitterFeed extends Widget_Base {
         );
 
         $this->add_control(
-            'link_color_profile', [
-                'label' => esc_html__('Display Link Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'condition' => [
-                    'display_mode_profile' => 'timeline',
-                    'embed_type' => ['profile', 'handle'],
-                ]
-            ]
-        );
-
-        $this->add_control(
             'button_type', [
                 'label' => esc_html__('Button Type', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
@@ -459,8 +448,7 @@ class TwitterFeed extends Widget_Base {
                 'class' => 'twitter-' . $settings['display_mode_profile'],
                 'data-partner' => 'twitter-deck',
                 'data-height' => $settings['height_profile_timeline']['size'],
-                'data-theme' => $settings['theme_profile_timeline'],
-                'data-link-color' => $settings['link_color_profile']
+                'data-theme' => $settings['theme_profile_timeline']
             ]);
         }
 
@@ -496,7 +484,6 @@ class TwitterFeed extends Widget_Base {
             'href' => $settings['url_list'],
             'data-height' => $settings['height_list']['size'],
             'data-theme' => $settings['theme_list'],
-            'data-link-color' => $settings['link_color_list'],
             'data-lang' => $settings['language'],
             'data-partner' => 'twitter-deck'
         ]);
@@ -519,8 +506,7 @@ class TwitterFeed extends Widget_Base {
                 'class' => 'twitter-' . $settings['display_mode_profile'],
                 'data-partner' => 'twitter-deck',
                 'data-height' => $settings['height_profile_timeline']['size'],
-                'data-theme' => $settings['theme_profile_timeline'],
-                'data-link-color' => $settings['link_color_profile']
+                'data-theme' => $settings['theme_profile_timeline']
             ]);
         }
 
