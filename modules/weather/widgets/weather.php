@@ -84,7 +84,7 @@ class Weather extends Widget_Base {
         /* Units */
         $this->add_control(
             'temperature_units', [
-                'label' => esc_html__('Units', 'easy-elementor-addons'),
+                'label' => esc_html__('Temperature Unit', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'standard' => esc_html__('Kelvin', 'easy-elementor-addons'),
@@ -117,8 +117,25 @@ class Weather extends Widget_Base {
         );
 
         $this->add_control(
+            'hide_weather_description', [
+                'label' => esc_html__('Hide Description', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => '',
+                'separator' => 'after'
+            ]
+        );
+
+        $this->add_control(
+            'hide_weather_params', [
+                'label' => esc_html__('Hide Weather Variables/Parameters', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => ''
+            ]
+        );
+
+        $this->add_control(
             'hide_wind_speed', [
-                'label' => esc_html__('Hide Wind Speed', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide Wind Speed and Direction', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => ''
             ]
@@ -134,7 +151,7 @@ class Weather extends Widget_Base {
 
         $this->add_control(
             'hide_preassure', [
-                'label' => esc_html__('Hide Preassure', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide Atmospheric Pressure', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => ''
             ]
@@ -142,7 +159,7 @@ class Weather extends Widget_Base {
 
         $this->add_control(
             'hide_clouds', [
-                'label' => esc_html__('Hide Clouds', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide Cloud Cover', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => ''
             ]
@@ -176,23 +193,8 @@ class Weather extends Widget_Base {
             'hide_last_updated_time', [
                 'label' => esc_html__('Hide Last Updated Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => ''
-            ]
-        );
-
-        $this->add_control(
-            'hide_weather_description', [
-                'label' => esc_html__('Hide Description', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => ''
-            ]
-        );
-
-        $this->add_control(
-            'hide_bottom_box', [
-                'label' => esc_html__('Hide Bottom', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => ''
+                'default' => '',
+                'separator' => 'before'
             ]
         );
 
@@ -615,15 +617,15 @@ class Weather extends Widget_Base {
                     <div class="eead-weather-description">
                         <?php echo esc_html($weather_description); ?>
                     </div>
-                <?php } ?>
 
-                <div class="eead-weather-like">
-                    <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
-                </div>
+                    <div class="eead-weather-like">
+                        <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
+                    </div>
+                <?php } ?>
             </div>
 
 
-            <?php if ($settings['hide_bottom_box'] != 'yes') { ?>
+            <?php if ($settings['hide_weather_params'] != 'yes') { ?>
                 <div class="eead-weather-bottom-section">
                     <?php
                     $show_params = array('wind', 'humidity', 'pressure', 'cloudcover', 'visibility', 'precip', 'uv_index');
@@ -687,7 +689,6 @@ class Weather extends Widget_Base {
         }
         $transientKey = sprintf('eead-weather-%s-%s', $city, md5($widgetID));
         $weatherTransientData = get_transient($transientKey);
-        //var_dump($weatherTransientData);
 
         if (!isset($weatherTransientData) || empty($weatherTransientData)) {
             /* Weather Stack Api Args */

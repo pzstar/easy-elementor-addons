@@ -405,6 +405,7 @@ class HorizontalTab extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );

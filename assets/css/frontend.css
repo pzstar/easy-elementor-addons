@@ -5983,7 +5983,6 @@ Video Player
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background: #000000;
 }
 
 .eead-video-player .eead-video-overlay {
@@ -6032,6 +6031,10 @@ Video Player
     height: 100%;
     margin: 0;
     border: none;
+}
+
+.eead-video-player video{
+    display: block;
 }
 
 .eead-video-player.eead-video-aspect-ratio-16-9 {

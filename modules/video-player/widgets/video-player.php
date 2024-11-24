@@ -288,6 +288,9 @@ class VideoPlayer extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-video-play-button i' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-video-play-button svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'show_play_button' => 'yes'
                 ]
             ]
         );
@@ -299,6 +302,9 @@ class VideoPlayer extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-video-play-button i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-video-play-button svg' => 'fill: {{VALUE}};',
+                ],
+                'condition' => [
+                    'show_play_button' => 'yes'
                 ]
             ]
         );
