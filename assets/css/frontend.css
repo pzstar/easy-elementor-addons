@@ -6609,35 +6609,115 @@ Step Flow
 /*--------------------------------------------------------------
 Weather
 --------------------------------------------------------------*/
-.eead-weather-time{
-    margin-bottom: 10px;
+.eead-weather-container{
+    padding: 30px;
+    background-color: var(--eead-light-bg-color);
 }
 
-.eead-weather-container.style1{
-    text-align: center;
-    background-color: #EAEAEA;
+.eead-weather-time{
+    margin-bottom: 20px;
+    font-size: 0.9em;
 }
 
 .eead-weather-temperature{
     font-size: 40px;
+    line-height: 1;
 }
 
-.eead-weather-bottom-section{
+.eead-weather-icon i{
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+.eead-weather-parameters{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin-top: 30px;
 }
 
-.eead-weather-bottom-section span{
-    display: block;
+.eead-weather-parameters .eead-weather-label{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.eead-weather-last-update{
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 0.8em;
+}
 
+/* Style 1 */
+.eead-weather-container.style1{
+    text-align: center;
+}
 
+.eead-weather-container.style1 .eead-weather-parameters .eead-weather-label{
+    display: flex;
+    justify-content: center;
+}
 
+.eead-weather-container.style1 .eead-weather-parameters .eead-weather-value{
+    font-weight: bold;
+}
 
+.eead-weather-container.style1 .eead-weather-info{
+    margin-bottom: 20px;;
+}
 
+/* Style 2 */
+.eead-weather-container.style2 .eead-weather-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.eead-weather-container.style2 .eead-weather-temperature{
+    font-size: 60px;
+}
+
+.eead-weather-container.style2 .eead-weather-detail{
+    text-align: right;
+}
+
+.eead-weather-container.style2 .eead-weather-parameters{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.eead-weather-container.style2 .eead-weather-parameters > div{
+    display: inline-flex;
+    gap: 5px;
+    line-height: 1;
+    background: #FFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+.eead-weather-container.style2 .eead-weather-label span{
+    display: none;
+}
+
+/* Style 3 */
+.eead-weather-container.style3 .eead-weather-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.eead-weather-container.style3 .eead-weather-detail{
+    text-align: right;
+}
+
+.eead-weather-container.style3 .eead-weather-icon i{
+    font-size: 60px;
+}
+
+.eead-weather-container.style3 .eead-weather-label:after{
+    content: ":";
+    margin-right: 10px;
+}
 
 
 

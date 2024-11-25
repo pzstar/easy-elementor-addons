@@ -197,6 +197,7 @@ class EEAD_Widget_Loader {
         wp_register_style('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/css/owl.carousel.min.css', array(), EEAD_VERSION);
         wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
         wp_register_style('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/justifiedGallery.min.css', '', EEAD_VERSION);
+        wp_register_style('weather-icons', EEAD_URL . 'assets/fonts/weather-icons/weather-icons.css', '', EEAD_VERSION);
         //Morph
         wp_enqueue_style('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.min.css', array(), EEAD_VERSION);
 

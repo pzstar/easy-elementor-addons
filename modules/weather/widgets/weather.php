@@ -8,6 +8,8 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use DateTime;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Border;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -25,6 +27,10 @@ class Weather extends Widget_Base {
 
     public function get_title() {
         return esc_html__('Weather', 'easy-elementor-addons');
+    }
+
+    public function get_style_depends() {
+        return ['weather-icons'];
     }
 
     /* Icon */
@@ -205,10 +211,87 @@ class Weather extends Widget_Base {
                 'default' => 'style1',
                 'options' => [
                     'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                    'style2' => esc_html__('Style 2', 'easy-elementor-addons')
+                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
+                    'style3' => esc_html__('Style 3', 'easy-elementor-addons')
                 ]
             ]
         );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'container_style', [
+                'label' => esc_html__('Container', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(), [
+                'name' => 'container_background',
+                'selector' => '{{WRAPPER}} .eead-weather-container',
+            ]
+        );
+
+        $this->add_control(
+            'container_background_overlay', [
+                'label' => esc_html__('Background Overlay', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container:before' => 'background-color: {{VALUE}};',
+                ],
+                'condition' => [
+                    'container_background[id]!' => '',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'container_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'container_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-weather-container',
+            ]
+        );
+
+        $this->add_control(
+            'container_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-weather-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
 
         $this->end_controls_section();
 
@@ -252,7 +335,6 @@ class Weather extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-temperature' => 'transform: scale(1, {{SIZE}});',
                 ],
-                'condition' => ['layout' => 'style1']
             ]
         );
 
@@ -264,7 +346,6 @@ class Weather extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-temperature' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'condition' => ['layout' => 'style1']
             ]
         );
 
@@ -482,7 +563,6 @@ class Weather extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-weather-container.style2 .eead-weather-bottom-section' => 'border-top-color: {{VALUE}}',
                 ],
-                'condition' => ['layout' => 'style2']
             ]
         );
 
@@ -547,6 +627,7 @@ class Weather extends Widget_Base {
         }
 
         $data = $this->get_weather_data($weatherstackApiKey);
+        //var_dump($data);
         if (!$data) {
             return;
         }
@@ -559,79 +640,108 @@ class Weather extends Widget_Base {
         $localtime = $data['location']['localtime'];
         $observation_time = $data['current']['observation_time'];
         $feelslike = $data['current']['feelslike'];
-        $is_day = $data['current']['is_day'];
+        $weather_code = $data['current']['weather_code'];
+        $is_day = $data['current']['is_day'] == 'yes' ? 'day' : 'night';
+
 
 
         $temp_param = [
             'wind' => [
                 'label' => esc_html__('Wind', 'easy-elementor-addons'),
-                'value' => $data['current']['wind_speed'] . 'Km/hr ' . $data['current']['wind_dir']
+                'value' => $data['current']['wind_speed'] . 'Km/hr ' . $data['current']['wind_dir'],
+                'icon' => 'wi-windy'
             ],
             'humidity' => [
                 'label' => esc_html__('Humidity', 'easy-elementor-addons'),
-                'value' => $data['current']['humidity'] . ' %'
+                'value' => $data['current']['humidity'] . ' %',
+                'icon' => 'wi-humidity'
             ],
             'pressure' => [
                 'label' => esc_html__('Pressure', 'easy-elementor-addons'),
-                'value' => $data['current']['pressure'] . ' hPa'
+                'value' => $data['current']['pressure'] . ' hPa',
+                'icon' => 'wi-barometer'
             ],
             'cloudcover' => [
                 'label' => esc_html__('Clouds', 'easy-elementor-addons'),
-                'value' => $data['current']['cloudcover'] . ' %'
+                'value' => $data['current']['cloudcover'] . ' %',
+                'icon' => 'wi-cloud'
             ],
             'visibility' => [
                 'label' => esc_html__('Visibility', 'easy-elementor-addons'),
-                'value' => $data['current']['visibility'] . ' km'
+                'value' => $data['current']['visibility'] . ' km',
+                'icon' => 'wi-day-haze'
             ],
             'precip' => [
                 'label' => esc_html__('Precipitation', 'easy-elementor-addons'),
-                'value' => $data['current']['precip'] . ' mm'
+                'value' => $data['current']['precip'] . ' mm',
+                'icon' => 'wi-raindrops'
             ],
             'uv_index' => [
                 'label' => esc_html__('UV Index', 'easy-elementor-addons'),
-                'value' => $data['current']['uv_index']
+                'value' => $data['current']['uv_index'],
+                'icon' => 'wi-day-sunny'
             ]
         ];
         ?>
         <div class="eead-weather-container <?php echo $layout; ?>">
-
-            <div class="eead-weather-top-section">
-                <div class="eead-weather-location">
-                    <i class="icofont icofont-location-pin"></i>
-                    <span class="eead-weather-city"><?php echo esc_html($data['location']['name']); ?></span>
-                    <span class="eead-weather-country"><?php echo esc_html($data['location']['country']); ?></s>
-                </div>
-
-                <div class="eead-weather-time">
-                    <?php echo esc_html($this->get_time($localtime, 'l, d  M Y')); ?>
-                </div>
-
-                <div class="eead-weather-image-wrap">
-                    <img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">
-                    <div class="eead-weather-temperature">
-                        <?php echo $this->get_temp($temp); ?>
+            <div class="eead-weather-header">
+                <!--<img src="<?php echo esc_url($weather_icon) ?>" alt="<?php echo esc_attr($weather_description); ?>">-->
+                <div class="eead-weather-info">
+                    <div class="eead-weather-location">
+                        <i class="icofont icofont-location-pin"></i>
+                        <span class="eead-weather-city"><?php echo esc_html($data['location']['name']); ?>,</span>
+                        <span class="eead-weather-country"><?php echo esc_html($data['location']['country']); ?></s>
                     </div>
+
+                    <div class="eead-weather-time">
+                        <?php echo esc_html($this->get_time($localtime, 'l, d  M Y')); ?>
+                    </div>
+
+                    <?php
+                    if ($settings['layout'] == 'style1') {
+                        $this->render_icon($weather_code, $is_day);
+                    }
+
+                    if ($settings['layout'] != 'style3') {
+                        $this->render_temperature($temp);
+                    } ?>
                 </div>
+
+                <?php
+                if ($settings['layout'] == 'style3') {
+                    $this->render_icon($weather_code, $is_day);
+                } ?>
 
                 <?php if ($settings['hide_weather_description'] != 'yes') { ?>
-                    <div class="eead-weather-description">
-                        <?php echo esc_html($weather_description); ?>
-                    </div>
+                    <div class="eead-weather-detail">
+                        <?php
+                        if ($settings['layout'] == 'style2') {
+                            $this->render_icon($weather_code, $is_day);
+                        }
 
-                    <div class="eead-weather-like">
-                        <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
+                        if ($settings['layout'] == 'style3') {
+                            $this->render_temperature($temp);
+                        } ?>
+
+                        <div class="eead-weather-description">
+                            <?php echo esc_html($weather_description); ?>
+                        </div>
+
+                        <div class="eead-weather-like">
+                            <?php echo esc_html__('Feels Like ', 'easy-elementor-addons') . $this->get_temp($feelslike); ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
 
 
             <?php if ($settings['hide_weather_params'] != 'yes') { ?>
-                <div class="eead-weather-bottom-section">
+                <div class="eead-weather-parameters">
                     <?php
                     $show_params = array('wind', 'humidity', 'pressure', 'cloudcover', 'visibility', 'precip', 'uv_index');
                     foreach ($show_params as $param) {
                         echo '<div class="eead-weather-' . $param . '">';
-                        echo '<span class="eead-weather-label">' . $temp_param[$param]['label'] . '</span>';
+                        echo '<span class="eead-weather-label"><i class="wi ' . $temp_param[$param]['icon'] . '"></i><span>' . $temp_param[$param]['label'] . '</span></span>';
                         echo '<span class="eead-weather-value">' . $temp_param[$param]['value'] . '</span>';
                         echo '</div>';
                     }
@@ -639,9 +749,73 @@ class Weather extends Widget_Base {
                 </div>
             <?php } ?>
 
-            <div class="eead-weather-last-update"><?php echo esc_html__('Last Updated: ', 'easy-elementor-addons') . esc_html($observation_time); ?></div>
+            <?php if ($settings['hide_last_updated_time'] != 'yes') { ?>
+                <div class="eead-weather-last-update"><?php echo esc_html__('Last Updated: ', 'easy-elementor-addons') . esc_html($observation_time); ?></div>
+            <?php } ?>
         </div>
         <?php
+    }
+
+    protected function render_temperature($temp) {
+        echo '<div class="eead-weather-temperature">';
+        echo $this->get_temp($temp);
+        echo '</div>';
+    }
+
+    protected function render_icon($weather_code, $is_day) {
+        $icon_mapping = array(
+            395 => 'wi-' . $is_day . '-storm-showers',
+            392 => 'wi-' . $is_day . '-storm-showers',
+            389 => 'wi-' . $is_day . '-thunderstorm',
+            386 => 'wi-' . $is_day . '-storm-showers',
+            377 => 'wi-' . $is_day . '-hail',
+            374 => 'wi-' . $is_day . '-sleet',
+            371 => 'wi-' . $is_day . '-snow',
+            368 => 'wi-' . $is_day . '-snow',
+            365 => 'wi-' . $is_day . '-sleet',
+            362 => 'wi-' . $is_day . '-sleet',
+            359 => 'wi-' . $is_day . '-rain',
+            356 => 'wi-' . $is_day . '-rain',
+            353 => 'wi-' . $is_day . '-sprinkle',
+            350 => 'wi-' . $is_day . '-hail',
+            338 => 'wi-' . $is_day . '-snow',
+            335 => 'wi-' . $is_day . '-snow',
+            332 => 'wi-' . $is_day . '-snow',
+            329 => 'wi-' . $is_day . '-snow',
+            326 => 'wi-' . $is_day . '-snow',
+            323 => 'wi-' . $is_day . '-snow',
+            320 => 'wi-' . $is_day . '-sleet',
+            317 => 'wi-' . $is_day . '-sleet',
+            314 => 'wi-' . $is_day . '-sleet',
+            311 => 'wi-' . $is_day . '-sleet',
+            308 => 'wi-' . $is_day . '-rain',
+            305 => 'wi-' . $is_day . '-rain',
+            302 => 'wi-' . $is_day . '-showers',
+            299 => 'wi-' . $is_day . '-showers',
+            296 => 'wi-' . $is_day . '-sprinkle',
+            293 => 'wi-' . $is_day . '-sprinkle',
+            284 => 'wi-' . $is_day . '-sleet',
+            281 => 'wi-' . $is_day . '-sleet',
+            266 => 'wi-' . $is_day . '-sprinkle',
+            263 => 'wi-' . $is_day . '-sprinkle',
+            260 => 'wi-' . $is_day . '-fog',
+            248 => 'wi-' . $is_day . '-fog',
+            230 => 'wi-' . $is_day . '-snow-wind',
+            227 => 'wi-' . $is_day . '-snow',
+            200 => 'wi-' . $is_day . '-storm-showers',
+            185 => 'wi-' . $is_day . '-sleet',
+            182 => 'wi-' . $is_day . '-sleet',
+            179 => 'wi-' . $is_day . '-snow',
+            176 => 'wi-' . $is_day . '-sprinkle',
+            143 => 'wi-' . $is_day . '-sprinkle',
+            122 => 'wi-' . $is_day . '-fog',
+            119 => 'wi-' . $is_day . '-cloudy',
+            116 => 'wi-' . $is_day . '-cloudy',
+            113 => 'wi-day-sunny'
+        );
+        echo '<div class="eead-weather-icon">';
+        echo '<i class="wi ' . $icon_mapping[$weather_code] . '"></i>';
+        echo '</div>';
     }
 
     protected function get_time($datetime, $format) {
