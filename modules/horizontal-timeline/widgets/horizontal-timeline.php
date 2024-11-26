@@ -84,7 +84,6 @@ class HorizontalTimeline extends Widget_Base {
             'title', [
                 'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'dynamic' => array('active' => true)
             ]
         );
 
@@ -223,45 +222,186 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'position', [
-                'label' => esc_html__('Layout Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::CHOOSE,
-                'default' => 'top',
+            'meta_position', [
+                'label' => esc_html__('Meta Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'alternate',
                 'options' => [
-                    'top' => [
-                        'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-top',
-                    ],
-                    'bottom' => [
-                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'eicon-v-align-bottom',
-                    ],
+                    'top' => esc_html__('Top', 'easy-elementor-addons'),
+                    'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
+                    'alternate' => esc_html__('Alternate', 'easy-elementor-addons'),
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'display_option', [
+                'label' => esc_html__('Display Option', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'carousel',
+                'options' => [
+                    'scrollbar' => esc_html__('Scroll Bar', 'easy-elementor-addons'),
+                    'carousel' => esc_html__('Carousel', 'easy-elementor-addons'),
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'block_width', [
+                'label' => esc_html__('Block Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 500,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 300,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-htimeline-card' => 'min-width: {{SIZE}}{{UNIT}}; flex-basis: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->add_control(
             'alignment', [
-                'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+                'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'center',
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-htimeline-card' => 'text-align: {{VALUE}}',
                 ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'carousel_settings', [
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons'),
+                'condition' => [
+                    'display_option' => 'carousel'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_to_show', [
+                'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 3,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'px',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_margin', [
+                'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'infinite', [
+                'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'autoplay', [
+                'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'pause_on_hover', [
+                'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'condition' => [
+                    'autoplay' => 'yes',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'autoplay_speed', [
+                'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['s'],
+                'range' => [
+                    's' => [
+                        'min' => 1,
+                        'max' => 15,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 5,
+                    'unit' => 's',
+                ],
+                'condition' => [
+                    'autoplay' => 'yes',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'arrows', [
+                'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes'
             ]
         );
 
@@ -712,57 +852,31 @@ class HorizontalTimeline extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $id = $this->get_id();
-        $position = $settings['position'];
+        $meta_position = 'eead-meta-pos-' . $settings['meta_position'];
         $layout = $settings['layout'];
         ?>
 
-        <style>
-            .eead-htimeline-lists #mCSB_1_container {
-                display: flex;
-            }
-        </style>
-
         <div class="eead-htimeline-wrap">
-            <div class="eead-htimeline-line"></div>
-
-            <div class="eead-htimeline-lists eead-horizontal-timeline-scrollbar <?php echo esc_attr($layout) . ' ' . esc_attr($position); ?>">
+            <div class="eead-htimeline-lists eead-horizontal-timeline-scrollbar <?php echo esc_attr($layout) . ' ' . esc_attr($meta_position); ?>">
                 <?php
+                $i = 0;
                 foreach ($settings['item_list'] as $key => $item) {
                     if ($item['enable'] != 'yes') {
                         continue;
                     }
+                    $alt_class = $i % 2 == 0 ? 'eead-htimeline-alt' : '';
                     ?>
-
-                    <div class="eead-htimeline-item">
-                        <div class="eead-htimeline-card">
-                            <div class="eead-htimeline-card-content">
-
-                                <?php
-                                if ($settings['layout'] != 'style3') {
-                                    ?>
+                    <div class="eead-htimeline-card <?php echo esc_attr($alt_class); ?>">
+                        <div class="eead-htimeline-card-content">
+                            <div class="eead-htimeline-content">
+                                <div class="eead-htimeline-content-inner">
                                     <div class="eead-htimeline-post-image">
                                         <?php
-                                        if (!$item['image']) {
-                                            $placeholder_img = Utils::get_placeholder_image_src();
-                                            echo '<img src="' . esc_url($placeholder_img) . '" >';
-                                        } else {
-                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
-                                        }
+                                        echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         ?>
                                     </div>
-                                    <?php
-                                }
-                                if ($settings['layout'] == 'style3') {
-                                    ?>
-                                    <div class="eead-htimeline-meta">
-                                        <span><?php echo esc_html($item['meta']); ?></span>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
 
-                                <div class="eead-htimeline-title">
-                                    <h2>
+                                    <h2 class="eead-htimeline-title">
                                         <?php
                                         if (!empty($item['button_url']['url']) && !empty($item['title'])) {
                                             echo '<a href="' . esc_url($item['button_url']['url']) . '">';
@@ -773,24 +887,12 @@ class HorizontalTimeline extends Widget_Base {
                                         }
                                         ?>
                                     </h2>
-                                </div>
 
-                                <?php
-                                if ($settings['layout'] == 'style1') {
-                                    ?>
-                                    <div class="eead-htimeline-meta">
-                                        <span><?php echo esc_html($item['meta']); ?></span>
+                                    <div class="eead-htimeline-description">
+                                        <p><?php echo esc_html($item['description']); ?></p>
                                     </div>
+
                                     <?php
-                                }
-                                ?>
-
-                                <div class="eead-htimeline-description">
-                                    <p><?php echo esc_html($item['description']); ?></p>
-                                </div>
-
-                                <?php
-                                if ($settings['layout'] == 'style1' || $settings['layout'] == 'style2') {
                                     if ($item['button_url']['url']) {
                                         ?>
                                         <div class="eead-more-button">
@@ -800,47 +902,35 @@ class HorizontalTimeline extends Widget_Base {
                                         </div>
                                         <?php
                                     }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="eead-htimeline-point">
+                                <?php
+                                if ($item['point_type'] == 'icon') {
+                                    ?>
+                                    <span class="eead-point-icon">
+                                        <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>
+                                    </span>
+                                    <?php
+                                } elseif ($item['point_type'] == 'text') {
+                                    ?>
+                                    <span class="eead-point-text">
+                                        <?php echo esc_html($item['point_text']); ?>
+                                    </span>
+                                    <?php
                                 }
                                 ?>
                             </div>
 
-                            <?php
-                            if ($settings['layout'] == 'style3') {
-                                echo '<div class="eead-htimeline-circle"></div>';
-                            }
-                            ?>
-
-                            <?php
-                            if ($settings['layout'] == 'style1' || $settings['layout'] == 'style3') {
-                                if ($item['point_type'] == 'icon') {
-                                    ?>
-                                    <div class="eead-point-icon">
-                                        <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>
-                                    </div>
-                                    <?php
-                                } else if ($item['point_type'] == 'text') {
-                                    ?>
-                                        <div class="eead-point-text">
-                                        <?php echo esc_html($item['point_text']); ?>
-                                        </div>
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                            <?php
-                            if ($settings['layout'] == 'style2') {
-                                ?>
-                                <div class="eead-htimeline-meta">
-                                    <span><?php echo esc_html($item['meta']); ?></span>
-                                </div>
-                                <?php
-                            }
-                            ?>
+                            <div class="eead-htimeline-meta">
+                                <span><?php echo esc_html($item['meta']); ?></span>
+                            </div>
                         </div>
                     </div>
-
                     <?php
+                    $i++;
                 }
                 ?>
             </div>

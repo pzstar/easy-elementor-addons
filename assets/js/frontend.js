@@ -579,6 +579,32 @@ odometerOptions = {auto: false};
                 axis: 'x',
                 advanced: {autoExpandHorizontalScroll: true}
             });
+
+            function equalizeHeights(selector1, selector2) {
+                var maxHeight1 = 0,
+                    maxHeight2 = 0;
+
+                $scope.find(selector1).each(function () {
+                    maxHeight1 = Math.max(maxHeight1, $(this).outerHeight());
+                });
+
+                $scope.find(selector2).each(function () {
+                    maxHeight2 = Math.max(maxHeight2, $(this).outerHeight());
+                });
+
+                // Apply the maximum height
+                $scope.find('.eead-htimeline-lists').css({
+                    '--eead-htimeline-content-height': maxHeight1 + 'px',
+                    '--eead-htimeline-meta-height': maxHeight2 + 'px',
+                });
+            }
+
+            equalizeHeights('.eead-htimeline-content', '.eead-htimeline-meta');
+
+            // Re-apply on window resize
+            $(window).resize(function () {
+                equalizeHeights('.eead-htimeline-content', '.eead-htimeline-meta');
+            });
         },
 
         hotspotBlock: function ($scope) {
