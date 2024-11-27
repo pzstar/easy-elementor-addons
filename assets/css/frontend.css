@@ -3944,8 +3944,18 @@ Horizontal Time Line
 --------------------------------------------------------------*/
 .eead-ht-content,
 .eead-ht-meta {
+    display: flex;
+    flex-direction: column;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.eead-ht-content-inner{
+    overflow: hidden;
+}
+
+.eead-ht-image {
+    overflow: hidden;
 }
 
 .eead-ht-scrollbar .eead-ht-card {
@@ -3954,6 +3964,22 @@ Horizontal Time Line
 
 .eead-ht-scrollbar .mCustomScrollBox .eead-ht-card {
     opacity: 1;
+}
+
+.eead-ht-title,
+.eead-ht-description,
+.eead-ht-more-button {
+    margin-bottom: 20px;
+}
+
+.eead-ht-title:last-child,
+.eead-ht-description:last-child,
+.eead-ht-more-button:last-child {
+    margin-bottom: 0;
+}
+
+.eead-ht-more-button a {
+    display: inline-block;
 }
 
 /*style 1*/
@@ -3965,17 +3991,18 @@ Horizontal Time Line
 .eead-ht-card {
     display: flex;
     flex-direction: column;
-    gap: 40px;
 }
 
 .eead-ht-point {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .eead-ht-point > span {
-    color: #FFF;
+    color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3988,6 +4015,36 @@ Horizontal Time Line
     height: 2px;
     flex-grow: 1;
     background: #000;
+}
+
+.eead-ht-point > span {
+    position: relative;
+}
+
+.eead-ht-point > span i {
+    line-height: 1.2;
+}
+
+.eead-ht-point > span:after {
+    content: "";
+    height: var(--eead-ht-timeline-top-spacing, 30px);
+    width: var(--eead-ht-timeline-height);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + var(--eead-ht-point-border-width, 0px));
+    position: absolute;
+    background: var(--eead-ht-timeline-color, #333)
+}
+
+.eead-ht-point > span:before {
+    content: "";
+    height: var(--eead-ht-timeline-bottom-spacing, 30px);
+    width: var(--eead-ht-timeline-height);
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + var(--eead-ht-point-border-width, 0px));
+    position: absolute;
+    background: var(--eead-ht-timeline-color, #333)
 }
 
 .eead-ht-list:not(.eead-ht-meta-pos-alternate) .eead-ht-content {
@@ -4016,9 +4073,8 @@ Horizontal Time Line
 
 .eead-ht-meta-pos-bottom .eead-ht-content,
 .eead-ht-meta-pos-top .eead-ht-meta,
-.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt .eead-ht-meta {
-    display: flex;
-    flex-direction: column;
+.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt .eead-ht-meta,
+.eead-ht-meta-pos-alternate .eead-ht-card:not(.eead-ht-alt) .eead-ht-content {
     justify-content: flex-end;
 }
 
@@ -4034,7 +4090,7 @@ Horizontal Time Line
 .eead-ht-carousel.owl-carousel .owl-nav button.owl-prev,
 .eead-ht-carousel.owl-carousel .owl-nav button.owl-next {
     position: absolute;
-    top: calc(var(--eead-ht-content-height) + 40px + 30px);
+    top: calc(var(--eead-ht-content-height) + var(--eead-ht-point-size, var(--eead-ht-point-icon-size, 0px))/2 + var(--eead-ht-timeline-top-spacing, 30px));
     background: #000;
     height: 50px;
     width: 50px;
@@ -4042,38 +4098,41 @@ Horizontal Time Line
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-50%);
+    transform: translateX() translateY(-50%);
+    border-radius: 50px;
 }
 
 .eead-ht-carousel.owl-carousel .owl-nav button.owl-prev {
     left: 0;
+    transform: translateX(calc(var(--eead-ht-nav-offset-x, 0px)*-1)) translateY(-50%);
 }
 
 .eead-ht-carousel.owl-carousel .owl-nav button.owl-next {
     right: 0;
+    transform: translateX(var(--eead-ht-nav-offset-x, 0px)) translateY(-50%);
 }
 
 .eead-ht-carousel.eead-ht-meta-pos-top.owl-carousel .owl-nav button.owl-prev,
 .eead-ht-carousel.eead-ht-meta-pos-top.owl-carousel .owl-nav button.owl-next {
-    top: calc(var(--eead-ht-meta-height) + 40px + 30px);
+    top: calc(var(--eead-ht-meta-height) + var(--eead-ht-point-size, var(--eead-ht-point-icon-size, 0px))/2 + var(--eead-ht-timeline-top-spacing, 30px));
 }
 
-
-.eead-ht-point-stacked .eead-ht-point > span{
-    background: #000;
+.eead-ht-point-stacked .eead-ht-point > span {
+    background: var(--eead-light-bg-color);
 }
 
-.eead-ht-point-framed .eead-ht-point > span{
-    border-color: #000;
+.eead-ht-point-framed .eead-ht-point > span {
+    border-color: #333;
     border-style: solid;
 }
 
-.eead-ht-point-pos-left .eead-ht-point:before{
-    display: none;
+.eead-ht-arrow-hide .owl-nav{
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.eead-ht-point-pos-right .eead-ht-point:after{
-    display: none;
+.eead-ht-arrow-hide:hover .owl-nav{
+    opacity: 1;
 }
 
 /*--------------------------------------------------------------

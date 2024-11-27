@@ -664,8 +664,8 @@ class LogoCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'add_responsive_control', [
+        $this->add_responsive_control(
+            'arrow_height', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
