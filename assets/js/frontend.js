@@ -573,12 +573,37 @@ odometerOptions = {auto: false};
         },
 
         horizontalTimelineCarousel: function ($scope) {
-            $scope.find('.eead-horizontal-timeline-scrollbar').mCustomScrollbar({
+            $scope.find('.eead-ht-scrollbar').mCustomScrollbar({
                 theme: 'dark',
                 scrollInertia: 500,
                 axis: 'x',
                 advanced: {autoExpandHorizontalScroll: true}
             });
+
+            var $ele = $scope.find('.eead-ht-carousel');
+            if ($ele.length > 0) {
+                var params = JSON.parse($ele.attr('data-params'));
+                $ele.owlCarousel({
+                    loop: JSON.parse(params.loop),
+                    autoplay: JSON.parse(params.autoplay),
+                    autoplayTimeout: params.pause,
+                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
+                    nav: JSON.parse(params.arrows),
+                    dots: false,
+                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
+                    responsive: {
+                        0: {
+                            items: params.items_mobile,
+                        },
+                        480: {
+                            items: params.items_tablet,
+                        },
+                        769: {
+                            items: params.items,
+                        }
+                    }
+                });
+            }
 
             function equalizeHeights(selector1, selector2) {
                 var maxHeight1 = 0,
@@ -593,17 +618,17 @@ odometerOptions = {auto: false};
                 });
 
                 // Apply the maximum height
-                $scope.find('.eead-htimeline-lists').css({
-                    '--eead-htimeline-content-height': maxHeight1 + 'px',
-                    '--eead-htimeline-meta-height': maxHeight2 + 'px',
+                $scope.find('.eead-ht-list').css({
+                    '--eead-ht-content-height': maxHeight1 + 'px',
+                    '--eead-ht-meta-height': maxHeight2 + 'px',
                 });
             }
 
-            equalizeHeights('.eead-htimeline-content', '.eead-htimeline-meta');
+            equalizeHeights('.eead-ht-content', '.eead-ht-meta');
 
             // Re-apply on window resize
             $(window).resize(function () {
-                equalizeHeights('.eead-htimeline-content', '.eead-htimeline-meta');
+                equalizeHeights('.eead-ht-content', '.eead-ht-meta');
             });
         },
 

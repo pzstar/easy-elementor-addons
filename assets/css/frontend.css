@@ -3942,42 +3942,39 @@ Pie Chart
 /*--------------------------------------------------------------
 Horizontal Time Line
 --------------------------------------------------------------*/
-.eead-htimeline-content,
-.eead-htimeline-meta {
+.eead-ht-content,
+.eead-ht-meta {
     padding-left: 30px;
     padding-right: 30px;
 }
 
-.eead-horizontal-timeline-scrollbar .eead-htimeline-card{
+.eead-ht-scrollbar .eead-ht-card {
     opacity: 0;
 }
 
-.eead-horizontal-timeline-scrollbar .mCustomScrollBox .eead-htimeline-card{
+.eead-ht-scrollbar .mCustomScrollBox .eead-ht-card {
     opacity: 1;
 }
 
 /*style 1*/
-.eead-htimeline-lists.style3 .mCSB_container {
+.eead-ht-scrollbar .mCSB_container {
     display: flex;
     align-items: center;
 }
 
-.eead-htimeline-card-content {
+.eead-ht-card {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.eead-htimeline-point {
+.eead-ht-point {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.eead-htimeline-point > span{
-    height: 60px;
-    width: 60px;
-    background: #000;
+.eead-ht-point > span {
     color: #FFF;
     display: flex;
     align-items: center;
@@ -3985,48 +3982,99 @@ Horizontal Time Line
     border-radius: 50%;
 }
 
-.eead-htimeline-point:before,
-.eead-htimeline-point:after {
+.eead-ht-point:before,
+.eead-ht-point:after {
     content: "";
     height: 2px;
     flex-grow: 1;
     background: #000;
 }
 
-.eead-htimeline-lists:not(.eead-meta-pos-alternate) .eead-htimeline-content {
-    height: var(--eead-htimeline-content-height);
+.eead-ht-list:not(.eead-ht-meta-pos-alternate) .eead-ht-content {
+    height: var(--eead-ht-content-height);
 }
 
-.eead-htimeline-lists:not(.eead-meta-pos-alternate) .eead-htimeline-meta {
-    height: var(--eead-htimeline-meta-height);
+.eead-ht-list:not(.eead-ht-meta-pos-alternate) .eead-ht-meta {
+    height: var(--eead-ht-meta-height);
 }
 
-.eead-htimeline-lists.eead-meta-pos-alternate .eead-htimeline-card.eead-htimeline-alt .eead-htimeline-content,
-.eead-htimeline-lists.eead-meta-pos-alternate .eead-htimeline-card:not(.eead-htimeline-alt) .eead-htimeline-meta {
-    height: var(--eead-htimeline-content-height);
+.eead-ht-list.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt .eead-ht-content,
+.eead-ht-list.eead-ht-meta-pos-alternate .eead-ht-card:not(.eead-ht-alt) .eead-ht-meta {
+    height: var(--eead-ht-content-height);
 }
 
-.eead-htimeline-lists.eead-meta-pos-alternate .eead-htimeline-card.eead-htimeline-alt .eead-htimeline-meta,
-.eead-htimeline-lists.eead-meta-pos-alternate .eead-htimeline-card:not(.eead-htimeline-alt) .eead-htimeline-content {
-    height: var(--eead-htimeline-content-height);
+.eead-ht-list.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt .eead-ht-meta,
+.eead-ht-list.eead-ht-meta-pos-alternate .eead-ht-card:not(.eead-ht-alt) .eead-ht-content {
+    height: var(--eead-ht-content-height);
 }
 
 /* Meta Position Top*/
-.eead-meta-pos-top .eead-htimeline-card-content,
-.eead-meta-pos-alternate .eead-htimeline-alt .eead-htimeline-card-content {
+.eead-ht-meta-pos-top .eead-ht-card,
+.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt {
     flex-direction: column-reverse;
 }
 
-.eead-meta-pos-bottom .eead-htimeline-content,
-.eead-meta-pos-top .eead-htimeline-meta,
-.eead-meta-pos-alternate .eead-htimeline-card.eead-htimeline-alt .eead-htimeline-meta {
+.eead-ht-meta-pos-bottom .eead-ht-content,
+.eead-ht-meta-pos-top .eead-ht-meta,
+.eead-ht-meta-pos-alternate .eead-ht-card.eead-ht-alt .eead-ht-meta {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
+.eead-ht-carousel.owl-carousel {
+    display: block;
+    opacity: 0;
+}
+
+.eead-ht-carousel.owl-carousel.owl-loaded {
+    opacity: 1;
+}
+
+.eead-ht-carousel.owl-carousel .owl-nav button.owl-prev,
+.eead-ht-carousel.owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: calc(var(--eead-ht-content-height) + 40px + 30px);
+    background: #000;
+    height: 50px;
+    width: 50px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+}
+
+.eead-ht-carousel.owl-carousel .owl-nav button.owl-prev {
+    left: 0;
+}
+
+.eead-ht-carousel.owl-carousel .owl-nav button.owl-next {
+    right: 0;
+}
+
+.eead-ht-carousel.eead-ht-meta-pos-top.owl-carousel .owl-nav button.owl-prev,
+.eead-ht-carousel.eead-ht-meta-pos-top.owl-carousel .owl-nav button.owl-next {
+    top: calc(var(--eead-ht-meta-height) + 40px + 30px);
+}
 
 
+.eead-ht-point-stacked .eead-ht-point > span{
+    background: #000;
+}
+
+.eead-ht-point-framed .eead-ht-point > span{
+    border-color: #000;
+    border-style: solid;
+}
+
+.eead-ht-point-pos-left .eead-ht-point:before{
+    display: none;
+}
+
+.eead-ht-point-pos-right .eead-ht-point:after{
+    display: none;
+}
 
 /*--------------------------------------------------------------
 Social Share Buttons
