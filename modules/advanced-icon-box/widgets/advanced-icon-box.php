@@ -601,6 +601,9 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-rotate:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'icon_type' => 'icon',
                 ]
             ]
         );
@@ -618,6 +621,9 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-v-offset:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'icon_type' => 'icon',
                 ]
             ]
         );
@@ -635,6 +641,9 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-h-offset:{{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'icon_type' => 'icon',
                 ]
             ]
         );
@@ -671,8 +680,8 @@ class AdvancedIconBox extends Widget_Base {
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'fill: {{VALUE}};',
                 ],
-                'condition' => [
-                    'icon_type!' => 'image',
+               'condition' => [
+                    'icon_type' => 'icon',
                 ]
             ]
         );

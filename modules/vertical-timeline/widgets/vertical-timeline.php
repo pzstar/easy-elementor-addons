@@ -10,7 +10,6 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Utils;
 use Elementor\Icons_Manager;
 
 if (!defined('ABSPATH')) {
@@ -60,9 +59,6 @@ class VerticalTimeline extends Widget_Base {
             'image', [
                 'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
-                'default' => array(
-                    'url' => Utils::get_placeholder_image_src(),
-                )
             ]
         );
 
@@ -110,7 +106,8 @@ class VerticalTimeline extends Widget_Base {
                 'default' => [
                     'value' => 'fa fa-star',
                     'library' => 'solid',
-                ]
+                ],
+                'skin' => 'inline'
             ]
         );
 
@@ -150,22 +147,22 @@ class VerticalTimeline extends Widget_Base {
                     [
                         'title' => esc_html__('Item #1', 'easy-elementor-addons'),
                         'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 31, 2018', 'easy-elementor-addons'),
+                        'meta' => esc_html__('Thursday, August 31, 2022', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #2', 'easy-elementor-addons'),
                         'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 29, 2018', 'easy-elementor-addons'),
+                        'meta' => esc_html__('Thursday, August 29, 2023', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #3', 'easy-elementor-addons'),
                         'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 28, 2018', 'easy-elementor-addons'),
+                        'meta' => esc_html__('Thursday, August 28, 2024', 'easy-elementor-addons'),
                     ],
                     [
                         'title' => esc_html__('Item #4', 'easy-elementor-addons'),
                         'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 27, 2018', 'easy-elementor-addons'),
+                        'meta' => esc_html__('Thursday, August 27, 2025', 'easy-elementor-addons'),
                     ]
                 ],
                 'title_field' => '{{{ title }}}'
@@ -177,19 +174,6 @@ class VerticalTimeline extends Widget_Base {
         $this->start_controls_section(
             'settings', [
                 'label' => esc_html__('Settings', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'style', [
-                'label' => esc_html__('Style', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'style1',
-                'options' => [
-                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
-                ]
             ]
         );
 
@@ -226,27 +210,80 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'content_alignment', [
-                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
+            'text_alignment_left', [
+                'label' => esc_html__('Left Blocks Text Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'right',
+                'toggle' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-card-center .eead-vt-each-wrap:nth-child(odd), {{WRAPPER}} .eead-card-left .eead-vt-each-wrap' => 'text-align: {{VALUE}}',
+                ],
+                'condition' => [
+                    'layout_style' => ['left', 'center']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'text_alignment_right', [
+                'label' => esc_html__('Right Blocks Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
                 'default' => 'left',
                 'toggle' => false,
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'eicon-h-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .eead-card-center .eead-vt-each-wrap:nth-child(even), {{WRAPPER}} .eead-card-right .eead-vt-each-wrap' => 'text-align: {{VALUE}}',
+                ],
+                'condition' => [
+                    'layout_style' => ['right', 'center']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'block_spacing', [
+                'label' => esc_html__('Blocks Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 60,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-inner' => 'gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -270,9 +307,9 @@ class VerticalTimeline extends Widget_Base {
                     'layout_style!' => 'center',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-wrap .eead-card-right .eead-vtimeline-each-wrap, {{WRAPPER}} .eead-vtimeline-wrap .eead-card-left .eead-vtimeline-each-wrap' => 'width: {{SIZE}}%;',
-                    '{{WRAPPER}} .eead-vtimeline-wrap .eead-card-right .eead-vtimeline-inner:before' => 'left: calc(100% - {{SIZE}}%);',
-                    '{{WRAPPER}} .eead-vtimeline-wrap .eead-card-left .eead-vtimeline-inner:before' => 'left: {{SIZE}}%;'
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-card-right .eead-vt-each-wrap, {{WRAPPER}} .eead-vertical-timeline .eead-card-left .eead-vt-each-wrap' => 'width: {{SIZE}}%;',
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-card-right .eead-vt-inner:before' => 'left: calc(100% - {{SIZE}}%);',
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-card-left .eead-vt-inner:before' => 'left: {{SIZE}}%;'
                 ]
             ]
         );
@@ -281,174 +318,441 @@ class VerticalTimeline extends Widget_Base {
 
         /* Style Tab */
         $this->start_controls_section(
-            'content_style', [
-                'label' => esc_html__('Content Box', 'easy-elementor-addons'),
+            'time_point_style', [
+                'label' => esc_html__('Time Point', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
-            'frame_style', [
-                'label' => esc_html__('Frame Style', 'plugin-domain'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'none',
-                'options' => [
-                    'none' => esc_html__('None', 'easy-elementor-addons'),
-                    'boxed' => esc_html__('Boxed', 'easy-elementor-addons'),
-                    'bordered' => esc_html__('Bordered', 'easy-elementor-addons')
+            'point_size', [
+                'label' => esc_html__('Point Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-point' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-timeline' => '--eead-vt-point-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->add_control(
-            'frame_bg_color', [
+            'icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-point i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vt-point svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'time_point_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card, {{WRAPPER}} .eead-frame-boxed .eead-vtimeline-card:before' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-point' => 'background: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'time_point_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-point' => 'color: {{VALUE}}; border-color:  {{VALUE}};',
+                    '{{WRAPPER}} .eead-vt-point svg' => 'fill: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'time_point_border_width', [
+                'label' => esc_html__('Border Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => 0,
                 ],
-                'condition' => ['frame_style' => 'boxed']
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 10,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-point' => 'border-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-timeline' => '--eead-vt-point-border-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'time_point_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-point' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'timeline_heading',
+            [
+                'label' => esc_html__('Time Line', 'textdomain'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'timeline_color', [
+                'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-vt-inner:before, {{WRAPPER}} .eead-vt-point:before, {{WRAPPER}} .eead-vt-point:after' => 'background: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'timeline_width', [
+                'label' => esc_html__('Time Line Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                        'step' => 1,
+                    ]
+                ],
+                'default' => [
+                    'size' => 1,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-vt-inner:before' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vt-point:before, {{WRAPPER}} .eead-vt-point:after' => 'height: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'meta_style', [
+                'label' => esc_html__('Meta', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'meta_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'meta_bg_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta, {{WRAPPER}} .eead-vertical-timeline .eead-vt-meta:before' => 'background: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'meta_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'meta_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'frame_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-vtimeline-card',
-                'condition' => ['frame_style' => 'boxed']
+                'name' => 'meta_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta'
             ]
         );
 
         $this->add_control(
-            'frame_border_color', [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
+            'meta_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card' => 'border-color: {{VALUE}}',
-                ],
-                'condition' => ['frame_style' => 'bordered']
+                    '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
             ]
         );
 
         $this->add_control(
-            'frame_border_radius', [
-                'label' => esc_html__('Border Radius', 'elementor'),
+            'meta_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'condition' => ['frame_style!' => 'none']
+                    '{{WRAPPER}} .eead-vt-each-wrap .eead-vt-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
             ]
         );
 
-        $this->add_responsive_control(
-            'frame_padding', [
-                'label' => esc_html__('Padding', 'elementor'),
+        $this->add_control(
+            'meta_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default' => [
-                    'top' => 20,
-                    'right' => 20,
-                    'bottom' => 20,
-                    'left' => 20,
-                    'unit' => 'px',
-                    'isLinked' => true,
-                ],
+                'allowed_dimensions' => ['left', 'right'],
+                'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-timeline .eead-vt-each-wrap .eead-vt-meta' => 'margin: 0 {{RIGHT}}{{UNIT}} 0 {{LEFT}}{{UNIT}};',
                 ],
-                'condition' => ['frame_style!' => 'none']
             ]
         );
 
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'title_style', [
-                'label' => esc_html__('Title', 'easy-elementor-addons'),
+            'content_style', [
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
-            'title_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-title' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'heading_box_bg_color', [
+            'content_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-wrap.style3 .eead-vtimeline-heading-box,
-                {{WRAPPER}} .eead-vtimeline-wrap.style3 .eead-vtimeline-heading-box:before' => 'background: {{VALUE}}',
-                ],
-                'condition' => ['style' => 'style3']
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'title_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-title'
-            ]
-        );
-
-        $this->add_control(
-            'title_margin', [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-vt-content' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
 
-        $this->end_controls_section();
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'content_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-vt-content'
+            ]
+        );
 
-        $this->start_controls_section(
-            'description_style', [
-                'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'content_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vt-content'
             ]
         );
 
         $this->add_control(
-            'description_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
+            'content_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem'],
+                'allowed_dimensions' => ['left', 'right'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-content' => 'margin: 0 {{RIGHT}}{{UNIT}} 0 {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'content_image_heading',
+            [
+                'label' => esc_html__('Image', 'textdomain'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'content_image_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_image_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'content_title_heading',
+            [
+                'label' => esc_html__('Title', 'textdomain'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'content_title_color', [
+                'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card .eead-vtimeline-description' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-title' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
-                'name' => 'description_typography',
+                'name' => 'content_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vtimeline-card .eead-vtimeline-description'
+                'selector' => '{{WRAPPER}} .eead-vt-title'
             ]
         );
 
         $this->add_control(
-            'description_margin', [
-                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+            'content_title_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'allowed_dimensions' => 'vertical',
-                'size_units' => ['px', '%', 'em'],
+                'allowed_dimensions' => ['top', 'bottom'],
+                'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-card .eead-vtimeline-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-vt-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'content_desc_heading',
+            [
+                'label' => esc_html__('Description', 'textdomain'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'content_desc_color', [
+                'label' => esc_html__('Description Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-description' => 'color: {{VALUE}}',
                 ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(), [
+                'name' => 'content_desc_typography',
+                'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-vt-description'
+            ]
+        );
+
+        $this->add_control(
+            'content_desc_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'allowed_dimensions' => ['top', 'bottom'],
+                'size_units' => ['px', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                ],
             ]
         );
 
@@ -465,7 +769,19 @@ class VerticalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'readmore_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a'
+                'selector' => '{{WRAPPER}} .eead-vt-more-button a',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'readmore_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
             ]
         );
 
@@ -476,83 +792,10 @@ class VerticalTimeline extends Widget_Base {
                 'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-vt-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ]
             ]
         );
-
-        $this->start_controls_tabs(
-            'readmore_tabs'
-        );
-
-        $this->start_controls_tab(
-            'readmore_style_normal_tab', [
-                'label' => esc_html__('Normal', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'readmore_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'readmore_bg_color', [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a' => 'background: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'readmore_style_active_tab', [
-                'label' => esc_html__('Hover', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'readmore_active_color', [
-                'label' => esc_html__('Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a:hover' => 'color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'readmore_active_bg_color', [
-                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a:hover' => 'background: {{VALUE}}',
-                ],
-                'condition' => ['style' => 'style1']
-            ]
-        );
-
-        $this->add_control(
-            'readmore_active_border_color', [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a:hover' => 'border-color: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
@@ -574,174 +817,100 @@ class VerticalTimeline extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a',
+                'selector' => '{{WRAPPER}} .eead-vt-more-button a',
                 'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'readmore_border_radius', [
-                'label' => esc_html__('Border Radius', 'elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'readmore_button_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-vtimeline-more-button a'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'readmore_text_padding', [
-                'label' => esc_html__('Padding', 'elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'meta_style', [
-                'label' => esc_html__('Meta', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'name' => 'meta_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-vt-more-button a'
             ]
         );
 
         $this->add_control(
-            'meta_color', [
+            'readmore_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'readmore_tabs'
+        );
+
+        $this->start_controls_tab(
+            'readmore_tab_normal', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'readmore_color_normal', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-meta' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-more-button a' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'meta_bg_color', [
+            'readmore_bg_color_normal', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-meta, {{WRAPPER}} .eead-vtimeline-wrap .eead-vtimeline-meta:before' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-more-button a' => 'background: {{VALUE}}',
                 ]
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'meta_typography',
-                'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-meta'
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'readmore_tab_hover', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'meta_padding', [
-                'label' => esc_html__('Padding', 'easy-elementor-addons'),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-each-wrap .eead-vtimeline-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'time_point_style', [
-                'label' => esc_html__('Time Point', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_control(
-            'time_point_color', [
+            'readmore_color_hover', [
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-point' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-vtimeline-point svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-more-button a:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'time_point_bg_color', [
+            'readmore_bg_color_hover', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-point' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-more-button a:hover' => 'background: {{VALUE}}',
                 ]
             ]
         );
 
         $this->add_control(
-            'time_point_outline_color', [
-                'label' => esc_html__('Outline Color', 'easy-elementor-addons'),
+            'readmore_border_color_hover', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-point' => 'border: 1px solid {{VALUE}}',
+                    '{{WRAPPER}} .eead-vt-more-button a:hover' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
 
-        $this->add_control(
-            'timeline_color', [
-                'label' => esc_html__('Time Line Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-wrap .eead-vtimeline-inner:before' => 'background: {{VALUE}}',
-                ]
-            ]
-        );
+        $this->end_controls_tab();
 
-        $this->add_control(
-            'point_size', [
-                'label' => esc_html__('Point Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-point' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'icon_size', [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'range' => [
-                    'px' => [
-                        'min' => 10,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-vtimeline-point i' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-vtimeline-point svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
-                ]
-            ]
-        );
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
     }
@@ -750,145 +919,70 @@ class VerticalTimeline extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <div class="eead-vtimeline-wrap <?php echo esc_attr($settings['style']); ?>">
-            <div class="<?php echo 'eead-card-' . esc_attr($settings['layout_style']) . ' eead-frame-' . esc_attr($settings['frame_style']); ?>">
-                <div class="eead-vtimeline-inner">
-
-                    <?php foreach ($settings['item_list'] as $key => $item) { ?>
-
+        <div class="eead-vertical-timeline">
+            <div class="<?php echo 'eead-card-' . esc_attr($settings['layout_style']); ?>">
+                <div class="eead-vt-inner">
+                    <?php
+                    foreach ($settings['item_list'] as $key => $item) { ?>
                         <?php
                         if ($item['enable'] != 'yes') {
                             continue;
                         }
                         ?>
-                        <div class="eead-vtimeline-each-wrap">
-                            <?php if ($settings['style'] == 'style3') { ?>
-                                <div class="eead-vtimeline-heading-box">
-                                    <?php $this->get_timeline_title($item); ?>
-
-                                    <div class="eead-vtimeline-point">
-                                        <?php
-                                        Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
-                                        ?>
-                                    </div>
+                        <div class="eead-vt-each-wrap">
+                            <div class="eead-vt-point">
+                                <?php
+                                Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
+                                ?>
+                                <div class="eead-vt-meta">
+                                    <span><?php echo esc_html($item['meta']); ?></span>
                                 </div>
-                            <?php } ?>
-
-                            <div class="eead-vtimeline-card">
-                                <?php if ($settings['style'] == 'style1' || $settings['style'] == 'style2') { ?>
-                                    <div class="eead-vtimeline-point">
-                                        <?php
-                                        Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
-                                        if ($settings['style'] == 'style1') {
-                                            ?>
-                                            <div class="eead-vtimeline-meta">
-                                                <span><?php echo esc_html($item['meta']); ?></span>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-
-                                    <div class="eead-vtimeline-post-image">
-                                        <?php if ($settings['style'] == 'style2' && !empty($item['meta'])) { ?>
-                                            <div class="eead-vtimeline-meta">
-                                                <span><?php echo esc_html($item['meta']); ?></span>
-                                            </div>
-                                        <?php } ?>
-
-                                        <?php
-                                        if (!$item['image']) {
-                                            $placeholder_img = Utils::get_placeholder_image_src();
-                                            echo '<img src="' . esc_url($placeholder_img) . '" >';
-                                        } else {
-                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
-                                        }
-                                        ?>
-                                    </div>
-
-                                    <?php
-                                    if ($settings['style'] == 'style2') {
-                                        echo '<div class="eead-desc-wrap">';
-                                    }
-
-                                    $this->get_timeline_title($item);
-                                    ?>
-
-                                    <div class="eead-vtimeline-description">
-                                        <p><?php echo wp_kses_post($item['description']); ?></p>
-                                    </div>
-
-                                    <?php $this->get_timeline_button($item); ?>
-
-                                    <?php
-                                    if ($settings['style'] == 'style2') {
-                                        echo '</div>';
-                                    }
-                                    ?>
-                                <?php } else { ?>
-
-                                    <div class="eead-vtimeline-post-image">
-
-                                        <?php if (!empty($item['meta'])) { ?>
-                                            <div class="eead-vtimeline-meta">
-                                                <span><?php echo esc_html($item['meta']); ?></span>
-                                            </div>
-                                        <?php } ?>
-
-                                        <?php
-                                        if (!$item['image']) {
-                                            $placeholder_img = Utils::get_placeholder_image_src();
-                                            echo '<img src="' . esc_url($placeholder_img) . '" >';
-                                        } else {
-                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
-                                        }
-                                        ?>
-                                    </div>
-
-                                    <div class="eead-vtimeline-description">
-                                        <p><?php echo wp_kses_post($item['description']); ?></p>
-                                    </div>
-
-                                    <?php $this->get_timeline_button($item); ?>
-                                <?php } ?>
                             </div>
-                        </div> <!--eead-timeline-each-wrap-->
 
-                    <?php } ?>
+                            <div class="eead-vt-card">
+                                <div class="eead-vt-content">
+                                    <?php if (!empty($item['image']['url'])) { ?>
+                                        <div class="eead-vt-image">
+                                            <?php
+                                            echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
+                                            ?>
+                                        </div>
+                                    <?php } ?>
 
+                                    <?php if ($item['title']) { ?>
+                                        <<?php echo $settings['title_html_tag']; ?> class="eead-vt-title">
+                                            <?php
+                                            echo esc_html($item['title']);
+                                            ?>
+                                        </<?php echo $settings['title_html_tag']; ?>>
+                                    <?php } ?>
+
+                                    <?php if ($item['description']) { ?>
+                                        <div class="eead-vt-description">
+                                            <?php echo wp_kses_post($item['description']); ?>
+                                        </div>
+                                    <?php } ?>
+
+                                    <?php
+                                    if (!empty($item['button_url']['url'])) {
+                                        $this->add_link_attributes('button_url' . $key, $item['button_url']);
+                                        ?>
+                                        <div class="eead-vt-more-button">
+                                            <a <?php $this->print_render_attribute_string('button_url' . $key); ?>>
+                                                <?php echo esc_html($item['button_text']); ?>
+                                            </a>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    } ?>
                 </div>
             </div>
         </div>
         <?php
     }
-
-    protected function get_timeline_title($item) {
-        $settings = $this->get_settings_for_display();
-        $target = $item['button_url']['is_external'] ? ' target="_blank"' : '';
-        $nofollow = $item['button_url']['nofollow'] ? ' rel="nofollow"' : '';
-        ?>
-        <<?php echo $settings['title_html_tag']; ?> class="eead-vtimeline-title">
-            <?php
-            if (!empty($item['button_url']['url'])) {
-                printf('<a href="%1$s" %2$s>%3$s</a>', $item['button_url']['url'], $target . $nofollow, esc_html($item['title']));
-            } else {
-                echo esc_html($item['title']);
-            }
-            ?>
-        </<?php echo $settings['title_html_tag']; ?>>
-        <?php
-    }
-
-    protected function get_timeline_button($item) {
-        $target = $item['button_url']['is_external'] ? ' target="_blank"' : '';
-        $nofollow = $item['button_url']['nofollow'] ? ' rel="nofollow"' : '';
-        if ($item['button_url']['url']) {
-            ?>
-            <div class="eead-vtimeline-more-button">
-                <a href="<?php echo $item['button_url']['url']; ?>" <?php echo $target . $nofollow; ?>>
-                    <?php echo esc_html($item['button_text']); ?>
-                </a>
-            </div>
-            <?php
-        }
-    }
-
 }

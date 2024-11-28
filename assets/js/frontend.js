@@ -1107,8 +1107,8 @@ odometerOptions = {auto: false};
 
         switcherBlock: function ($scope) {
             $scope.find('.eead-switcher-slider').css({
-                'width': $('.eead-switcher-active-tab').outerWidth() + 'px',
-                'left': $('.eead-switcher-active-tab').position().left + 'px'
+                'width': $scope.find('.eead-switcher-active-tab').outerWidth() + 'px',
+                'left': $scope.find('.eead-switcher-active-tab').position().left + 'px'
             });
 
             $('.eead-switcher-tab').on('click', function () {
@@ -1116,17 +1116,19 @@ odometerOptions = {auto: false};
                     return;
                 }
 
-                $scope.find('.eead-switcher-slider').css({
+                var $container = $(this).closest('.eead-switcher-container');
+
+                $container.find('.eead-switcher-slider').css({
                     'width': $(this).outerWidth() + 'px',
                     'left': $(this).position().left + 'px'
                 });
 
-                $scope.find('.eead-switcher-tab').removeClass('eead-switcher-active-tab');
-                $scope.find('.eead-switcher-content').removeClass('eead-switcher-active-content');
+                $container.find('.eead-switcher-tab').removeClass('eead-switcher-active-tab');
+                $container.find('.eead-switcher-content').removeClass('eead-switcher-active-content');
 
                 $(this).addClass('eead-switcher-active-tab');
                 var clickedTabId = $(this).attr('data-switchid');
-                $scope.find('.eead-switcher-content-' + clickedTabId).addClass('eead-switcher-active-content');
+                $container.find('.eead-switcher-content-' + clickedTabId).addClass('eead-switcher-active-content');
             });
         },
 

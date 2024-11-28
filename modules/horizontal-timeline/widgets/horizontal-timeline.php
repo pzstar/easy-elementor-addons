@@ -550,7 +550,7 @@ class HorizontalTimeline extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 50,
+                        'max' => 10,
                     ]
                 ],
                 'selectors' => [
@@ -604,7 +604,7 @@ class HorizontalTimeline extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 50,
+                        'max' => 10,
                     ]
                 ],
                 'selectors' => [
@@ -961,7 +961,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-card .eead-ht-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-ht-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -973,8 +973,40 @@ class HorizontalTimeline extends Widget_Base {
                 'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-card .eead-ht-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-ht-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'readmore_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-ht-more-button a',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'meta_box_shadow',
+                'selector' => '{{WRAPPER}} .eead-ht-more-button a'
             ]
         );
 
@@ -984,7 +1016,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-card .eead-ht-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-ht-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -1015,16 +1047,6 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-ht-more-button a' => 'background: {{VALUE}}',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'readmore_border_color_normal', [
-                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
-                'type' => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
