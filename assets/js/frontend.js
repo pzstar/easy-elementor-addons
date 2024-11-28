@@ -627,7 +627,7 @@ odometerOptions = {auto: false};
             equalizeHeights('.eead-ht-content', '.eead-ht-meta');
 
             // Re-apply on window resize
-            $(window).resize(function () {
+            $(window).on('resize', function () {
                 equalizeHeights('.eead-ht-content', '.eead-ht-meta');
             });
         },

@@ -208,14 +208,13 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->add_control(
-            'layout', [
-                'label' => esc_html__('Style', 'easy-elementor-addons'),
+            'display_option', [
+                'label' => esc_html__('Display Option', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'style1',
+                'default' => 'carousel',
                 'options' => [
-                    'style1' => esc_html__('Style 1', 'easy-elementor-addons'),
-                    'style2' => esc_html__('Style 2', 'easy-elementor-addons'),
-                    'style3' => esc_html__('Style 3', 'easy-elementor-addons'),
+                    'scrollbar' => esc_html__('Scroll Bar', 'easy-elementor-addons'),
+                    'carousel' => esc_html__('Carousel', 'easy-elementor-addons'),
                 ]
             ]
         );
@@ -229,18 +228,6 @@ class HorizontalTimeline extends Widget_Base {
                     'top' => esc_html__('Top', 'easy-elementor-addons'),
                     'bottom' => esc_html__('Bottom', 'easy-elementor-addons'),
                     'alternate' => esc_html__('Alternate', 'easy-elementor-addons'),
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'display_option', [
-                'label' => esc_html__('Display Option', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'carousel',
-                'options' => [
-                    'scrollbar' => esc_html__('Scroll Bar', 'easy-elementor-addons'),
-                    'carousel' => esc_html__('Carousel', 'easy-elementor-addons'),
                 ]
             ]
         );
@@ -1320,12 +1307,64 @@ class HorizontalTimeline extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'scrollbar_style', [
+                'label' => esc_html__('Scrollbar', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'display_option' => 'scrollbar',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'scrollbar_rail_color', [
+                'label' => esc_html__('Rail Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mCS-dark.mCSB_scrollTools .mCSB_draggerRail' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'scrollbar_dragger_color', [
+                'label' => esc_html__('Dragger Bar Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'scrollbar_spacing', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 50,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mCSB_horizontal.mCSB_inside>.mCSB_container' => 'margin-bottom:{{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
     }
 
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $layout = $settings['layout'];
 
         $this->add_render_attribute('timeline-container', [
             'class' => [
