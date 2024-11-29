@@ -5659,6 +5659,7 @@ Switcher
 
 .eead-switcher-tabs {
     display: inline-flex;
+    overflow: hidden;
 }
 
 .eead-switcher-tabs-inner {
@@ -6873,6 +6874,19 @@ Vertical Time Line
     left: calc(100% + var(--eead-vt-point-border-width, 0px));
     margin-left: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

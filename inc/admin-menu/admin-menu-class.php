@@ -19,6 +19,7 @@ class AdminClass {
     public function eead_admin_enqueue_scripts() {
         wp_enqueue_style('eead-admin-menu', EEAD_URL . 'assets/css/eead-admin-menu.css', false, EEAD_VERSION);
         wp_enqueue_style('materialdesignicons', EEAD_URL . 'assets/fonts/materialdesignicons/materialdesignicons.css', false, EEAD_VERSION);
+        wp_enqueue_style('easy-elementor-addons-icon-style', EEAD_ASSETS_URL . 'fonts/eeaddons/eeaddons.css', array(), EEAD_VERSION);
 
         wp_enqueue_script('eead-admin', EEAD_URL . 'assets/js/admin.js', ['jquery'], EEAD_VERSION, true);
         wp_localize_script('eead-admin', 'admin_ajax_script', [
@@ -70,12 +71,19 @@ class AdminClass {
         die();
     }
 
-    public function get_widget_field($label, $val) {
+    public function get_widget_field($label, $val, $icon = '') {
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         ?>
 
         <div class="eead-widget-wrap">
-            <span><?php esc_html_e($label); ?></span>
+            <span>
+                <?php
+                if ($icon) {
+                    echo '<i class="' . $icon . '"></i>';
+                }
+                esc_html_e($label);
+                ?>
+            </span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
                 <label></label>

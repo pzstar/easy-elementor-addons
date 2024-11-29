@@ -106,7 +106,8 @@ class Switcher extends Widget_Base {
                 'default' => [
                     'value' => 'fa fa-star',
                     'library' => 'solid',
-                ]
+                ],
+                'skin' => 'inline'
             ]
         );
 
@@ -159,14 +160,14 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
                 'options' => [
-                    '1' => esc_html__('1', 'easy-elementor-addons'),
-                    '2' => esc_html__('2', 'easy-elementor-addons'),
-                    '3' => esc_html__('3', 'easy-elementor-addons'),
-                    '4' => esc_html__('4', 'easy-elementor-addons'),
-                    '5' => esc_html__('5', 'easy-elementor-addons'),
-                    '6' => esc_html__('6', 'easy-elementor-addons'),
-                    '7' => esc_html__('7', 'easy-elementor-addons'),
-                    '8' => esc_html__('8', 'easy-elementor-addons'),
+                    '1' => esc_html__('First Tab', 'easy-elementor-addons'),
+                    '2' => esc_html__('Second Tab', 'easy-elementor-addons'),
+                    '3' => esc_html__('Third Tab', 'easy-elementor-addons'),
+                    '4' => esc_html__('Fourth Tab', 'easy-elementor-addons'),
+                    '5' => esc_html__('Fifth Tab', 'easy-elementor-addons'),
+                    '6' => esc_html__('Sixth Tab', 'easy-elementor-addons'),
+                    '7' => esc_html__('Seventh Tab', 'easy-elementor-addons'),
+                    '8' => esc_html__('Eight Tab', 'easy-elementor-addons'),
                 ]
             ]
         );
@@ -338,6 +339,38 @@ class Switcher extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'icon_position', [
+                'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'left',
+                'options' => array(
+                    'left' => array(
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ),
+                    'top' => array(
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ),
+                    'right' => array(
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ),
+                ),
+                'selectors_dictionary' => [
+                    'left' => 'flex-direction:row',
+                    'right' => 'flex-direction:row-reverse',
+                    'top' => 'flex-direction:column',
+                ],
+                'toggle' => false,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-switcher-tab' => '{{VALUE}};',
+                ],
+                'render_type' => 'template'
+            ]
+        );
+
         $this->add_control(
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
@@ -376,6 +409,18 @@ class Switcher extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-switcher-tab' => 'gap: {{SIZE}}{{UNIT}};',
+                ],
+                'render_type' => 'template'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'switch_padding', [
+                'label' => esc_html__('Padding', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-switcher-tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'render_type' => 'template'
             ]
@@ -579,8 +624,8 @@ class Switcher extends Widget_Base {
         $settings = $this->get_settings_for_display();
         if (!empty($settings['switcher'])) {
             $i = 0;
+            $active_switch = count($settings['switcher']) >= $settings['active_switch'] ? $settings['active_switch'] : 1;
             foreach ($settings['switcher'] as $tab) {
-                $active_switch = $settings['active_switch'];
                 $i++;
                 ?>
                 <div class="eead-switcher-tab <?php echo ($i == $active_switch ? 'eead-switcher-active-tab' : ''); ?>" data-switchid="<?php echo esc_attr($i); ?>">
@@ -597,8 +642,8 @@ class Switcher extends Widget_Base {
 
         if (!empty($settings['switcher'])) {
             $i = 0;
+            $active_switch = count($settings['switcher']) >= $settings['active_switch'] ? $settings['active_switch'] : 1;
             foreach ($settings['switcher'] as $tab) {
-                $active_switch = $settings['active_switch'];
                 $i++;
                 ?>
                 <div class="animated animated-fast <?php echo esc_attr($settings['content_animation']); ?> eead-switcher-content eead-switcher-content-<?php echo esc_attr($i) . ' ' . ($i == $active_switch ? 'eead-switcher-active-content' : ''); ?>">
