@@ -824,7 +824,7 @@ class VerticalTimeline extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'meta_box_shadow',
+                'name' => 'read_more_shadow',
                 'selector' => '{{WRAPPER}} .eead-vt-more-button a'
             ]
         );

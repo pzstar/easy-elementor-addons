@@ -399,7 +399,7 @@ class HorizontalTimeline extends Widget_Base {
             'point_style', [
                 'label' => esc_html__('Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'default',
+                'default' => 'stacked',
                 'label_block' => false,
                 'options' => [
                     'default' => esc_html__('Default', 'easy-elementor-addons'),
@@ -480,7 +480,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Point Background Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 70,
+                    'size' => 60,
                 ],
                 'range' => [
                     'px' => [
@@ -1005,7 +1005,7 @@ class HorizontalTimeline extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
-                'name' => 'meta_box_shadow',
+                'name' => 'readmore_box_shadow',
                 'selector' => '{{WRAPPER}} .eead-ht-more-button a'
             ]
         );
@@ -1127,7 +1127,7 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'default' => [
-                    'size' => 40,
+                    'size' => 50,
                     'unit' => 'px',
                 ],
                 'selectors' => [
@@ -1148,7 +1148,7 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'default' => [
-                    'size' => 40,
+                    'size' => 50,
                     'unit' => 'px',
                 ],
                 'selectors' => [

@@ -4118,7 +4118,8 @@ Horizontal Time Line
 }
 
 .eead-ht-point-stacked .eead-ht-point > span {
-    background: var(--eead-light-bg-color);
+    background: var(--eead-pri-color);
+    color: #FFF;
 }
 
 .eead-ht-point-framed .eead-ht-point > span {
