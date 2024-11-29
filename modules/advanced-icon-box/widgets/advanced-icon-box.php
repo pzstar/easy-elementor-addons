@@ -30,7 +30,7 @@ class AdvancedIconBox extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-icon-box';
+        return 'eead-element-icon eead-icons-icon-text';
     }
 
     public function get_categories() {

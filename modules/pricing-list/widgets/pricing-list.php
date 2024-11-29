@@ -31,7 +31,7 @@ class PricingList extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-pricing-list';
+        return 'eead-element-icon eead-icons-pricing-list';
     }
 
     public function get_categories() {

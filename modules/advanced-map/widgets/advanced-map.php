@@ -25,7 +25,7 @@ class AdvancedMap extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-map';
+        return 'eead-element-icon eead-icons-map';
     }
 
     public function get_keywords() {

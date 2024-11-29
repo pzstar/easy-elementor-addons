@@ -26,7 +26,7 @@ class AdvancedHeading extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-advanced-heading';
+        return 'eead-element-icon eead-icons-advanced-heading';
     }
 
     public function get_keywords() {

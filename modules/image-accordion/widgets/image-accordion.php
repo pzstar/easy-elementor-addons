@@ -25,7 +25,7 @@ class ImageAccordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-image-accordion';
+        return 'eead-element-icon eead-icons-image-accordion';
     }
 
     public function get_categories() {

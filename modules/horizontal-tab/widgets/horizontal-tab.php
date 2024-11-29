@@ -30,7 +30,7 @@ class HorizontalTab extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-horizontal-tab';
+        return 'eead-element-icon eead-icons-horizontal-tab';
     }
 
     public function get_categories() {

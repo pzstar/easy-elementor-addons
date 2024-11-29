@@ -29,7 +29,7 @@ class Lottie extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-lottie';
+        return 'eead-element-icon eead-icons-lottie';
     }
 
     public function get_categories() {

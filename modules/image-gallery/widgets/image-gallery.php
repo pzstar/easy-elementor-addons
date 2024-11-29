@@ -31,7 +31,7 @@ class ImageGallery extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-image-gallery';
+        return 'eead-element-icon eead-icons-gallery-grid';
     }
 
     public function get_categories() {

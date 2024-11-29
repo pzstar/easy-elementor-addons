@@ -27,7 +27,7 @@ class TestimonialSlider extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-testimonial-slider';
+        return 'eead-element-icon eead-icons-testimonial-slider';
     }
 
     public function get_categories() {

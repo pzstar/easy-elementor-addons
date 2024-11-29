@@ -27,7 +27,7 @@ class ImageComparison extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-compare-image';
+        return 'eead-element-icon eead-icons-compare';
     }
 
     public function get_categories() {

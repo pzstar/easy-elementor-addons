@@ -25,7 +25,7 @@ class CircularProgressbar extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-circular-progressbar';
+        return 'eead-element-icon eead-icons-circular-bar';
     }
 
     public function get_categories() {

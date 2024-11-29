@@ -24,7 +24,7 @@ class StepFlow extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-step-flow';
+        return 'eead-element-icon eead-icons-step-flow';
     }
 
     public function get_categories() {

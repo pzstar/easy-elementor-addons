@@ -28,7 +28,7 @@ class Counter extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-counter';
+        return 'eead-element-icon eead-icons-counter';
     }
 
     public function get_categories() {

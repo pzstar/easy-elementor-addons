@@ -29,7 +29,7 @@ class DropBar extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-drop-bar';
+        return 'eead-element-icon eead-icons-drop-box';
     }
 
     public function get_keywords() {

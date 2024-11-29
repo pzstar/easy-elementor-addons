@@ -27,7 +27,7 @@ class BusinessHour extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-business-hours';
+        return 'eead-element-icon eead-icons-business-hours';
     }
 
     public function get_categories() {

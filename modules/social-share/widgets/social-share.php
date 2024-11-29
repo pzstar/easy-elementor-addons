@@ -28,7 +28,7 @@ class SocialShare extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-social-share';
+        return 'eead-element-icon eead-icons-social-share';
     }
 
     public function get_categories() {

@@ -30,7 +30,7 @@ class VerticalTimeline extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-vertical-timeline';
+        return 'eead-element-icon eead-icons-vertical-timeline';
     }
 
     public function get_categories() {

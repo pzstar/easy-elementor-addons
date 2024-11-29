@@ -30,7 +30,7 @@ class PortfolioGrid extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-portfolio-grid';
+        return 'eead-element-icon eead-icons-portfolio-grid';
     }
 
     public function get_categories() {

@@ -32,7 +32,7 @@ class Hotspot extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-hot-spot';
+        return 'eead-element-icon eead-icons-hot-spot';
     }
 
     public function get_categories() {

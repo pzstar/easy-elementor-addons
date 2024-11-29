@@ -31,7 +31,7 @@ class VideoPlayer extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-video-player';
+        return 'eead-element-icon eead-icons-video-player';
     }
 
     public function get_categories() {

@@ -31,7 +31,7 @@ class FeatureList extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-listing';
+        return 'eead-element-icon eead-icons-feature-list';
     }
 
     public function get_categories() {

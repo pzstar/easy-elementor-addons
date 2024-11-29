@@ -33,7 +33,7 @@ class TeamMember extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-team';
+        return 'eead-element-icon eead-icons-team';
     }
 
     public function get_categories() {

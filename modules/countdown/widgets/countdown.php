@@ -28,7 +28,7 @@ class Countdown extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-count-down';
+        return 'eead-element-icon eead-icons-count-down';
     }
 
     public function get_categories() {

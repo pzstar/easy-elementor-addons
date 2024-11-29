@@ -23,7 +23,7 @@ class PieChart extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eead-element-icon eead-pie-chart';
+		return 'eead-element-icon eead-icons-pie-chart';
 	}
 
 	public function get_categories() {

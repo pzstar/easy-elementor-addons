@@ -6483,7 +6483,7 @@ Step Flow
     width: 1em;
     height: 1em;
     fill: currentColor;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

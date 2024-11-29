@@ -29,7 +29,7 @@ class Progressbar extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-progress-bar';
+        return 'eead-element-icon eead-icons-progress-bar';
     }
 
     public function get_categories() {

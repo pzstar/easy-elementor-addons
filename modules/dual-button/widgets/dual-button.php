@@ -28,7 +28,7 @@ class DualButton extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-dual-button';
+        return 'eead-element-icon eead-icons-dual-buttons';
     }
 
     public function get_categories() {

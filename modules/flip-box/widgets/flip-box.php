@@ -31,7 +31,7 @@ class FlipBox extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-flip-box';
+        return 'eead-element-icon eead-icons-flip-box';
     }
 
     public function get_keywords() {

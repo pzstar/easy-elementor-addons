@@ -28,7 +28,7 @@ class ThreesixtyImage extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-image360';
+        return 'eead-element-icon eead-icons-image360';
     }
 
     public function get_categories() {

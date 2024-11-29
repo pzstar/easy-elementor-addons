@@ -24,7 +24,7 @@ class AnimatedIcon extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-animated-icon';
+        return 'eead-element-icon eead-icons-animated-icon';
     }
 
     public function get_categories() {

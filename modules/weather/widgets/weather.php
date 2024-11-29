@@ -36,7 +36,7 @@ class Weather extends Widget_Base {
     /* Icon */
 
     public function get_icon() {
-        return 'eead-element-icon eead-weather';
+        return 'eead-element-icon eead-icons-weather';
     }
 
     /* Category */

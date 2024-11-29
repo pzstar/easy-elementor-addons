@@ -30,7 +30,7 @@ class Accordion extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-accordion';
+        return 'eead-element-icon eead-icons-accordion';
     }
 
     public function get_categories() {

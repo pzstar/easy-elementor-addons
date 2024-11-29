@@ -29,7 +29,7 @@ class DualHeading extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-dual-heading';
+        return 'eead-element-icon eead-icons-dual-heading';
     }
 
     public function get_categories() {

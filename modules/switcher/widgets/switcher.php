@@ -30,7 +30,7 @@ class Switcher extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-switcher';
+        return 'eead-element-icon eead-icons-switcher';
     }
 
     public function get_categories() {

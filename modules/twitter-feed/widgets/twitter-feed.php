@@ -23,7 +23,7 @@ class TwitterFeed extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-twitter1';
+        return 'eead-element-icon eead-icons-twitter-x';
     }
 
     public function get_categories() {

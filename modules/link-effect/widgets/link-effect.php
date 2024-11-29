@@ -25,7 +25,7 @@ class LinkEffect extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-link';
+        return 'eead-element-icon eead-icons-link';
     }
 
     public function get_categories() {

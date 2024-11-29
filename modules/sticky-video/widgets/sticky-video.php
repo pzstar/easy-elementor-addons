@@ -29,7 +29,7 @@ class StickyVideo extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-sticky-video';
+        return 'eead-element-icon eead-icons-sticky-video';
     }
 
     public function get_categories() {

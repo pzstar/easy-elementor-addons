@@ -32,7 +32,7 @@ class LogoGrid extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-logo-grid';
+        return 'eead-element-icon eead-icons-logo-grid';
     }
 
     public function get_keywords() {
