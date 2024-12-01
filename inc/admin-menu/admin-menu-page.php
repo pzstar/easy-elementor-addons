@@ -85,7 +85,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                     <?php $this->get_widget_field('Dual Button', 'dual-button', 'eead-icons-dual-buttons'); ?>
                     <?php $this->get_widget_field('Dual Heading', 'dual-heading', 'eead-icons-dual-heading'); ?>
                     <?php $this->get_widget_field('Feature List', 'feature-list', 'eead-icons-feature-list'); ?>
-                    <?php //$this->get_widget_field('Filterable Gallery', 'filterable-gallery', 'eead-icons-gallery-grid'); //premium ?>
+                    <?php //$this->get_widget_field('Advanced Filterable Gallery', 'filterable-gallery', 'eead-icons-gallery-grid'); //premium ?>
                     <?php $this->get_widget_field('Flip Box', 'flip-box', 'eead-icons-flip-box'); ?>
                     <?php //$this->get_widget_field('Flip Box Advanced', 'flip-box-advanced', 'eead-icons-flip-box');//premium ?>
                     <?php //$this->get_widget_field('Horizontal Scroll', 'horizontal-scroll', 'eead-icons-'); //premium ?>
@@ -95,7 +95,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                     <?php $this->get_widget_field('Icon List', 'icon-list', 'eead-icons-icon-list'); ?>
                     <?php $this->get_widget_field('Image Accordion', 'image-accordion', 'eead-icons-image-accordion'); ?>
                     <?php $this->get_widget_field('Image Comparison', 'image-comparison', 'eead-icons-compare'); ?>
-                    <?php $this->get_widget_field('Image Gallery', 'image-gallery', 'eead-icons-image-gallery'); ?>
+                    <?php $this->get_widget_field('Filterable Gallery', 'image-gallery', 'eead-icons-image-gallery'); ?>
                     <?php $this->get_widget_field('Link Effect', 'link-effect', 'eead-icons-link'); ?>
                     <?php $this->get_widget_field('Logo Carousel', 'logo-carousel', 'eead-icons-logo-carousel'); ?>
                     <?php $this->get_widget_field('Logo Grid', 'logo-grid', 'eead-icons-logo-grid'); ?>
