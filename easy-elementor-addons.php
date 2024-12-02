@@ -132,10 +132,10 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'advanced-icon-box',
                 'advanced-map',
                 'animated-heading',
-                'animated-icon', //premium
+                //'animated-icon', //premium
                 'business-hour',
-                'caption-hover-effect', //premium
-                'charts', //premium
+                //'caption-hover-effect', //premium
+                //'charts', //premium
                 'circular-progressbar',
                 'countdown',
                 'counter',
@@ -143,10 +143,10 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'dual-button',
                 'dual-heading',
                 'feature-list',
-                'filterable-gallery', //premium
+                //'filterable-gallery', //premium
                 'flip-box',
-                'flip-box-advanced', //premium
-                'horizontal-scroll', //premium
+                //'flip-box-advanced', //premium
+                //'horizontal-scroll', //premium
                 'horizontal-tab',
                 'horizontal-timeline',
                 'hotspot',
@@ -158,8 +158,8 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'logo-carousel',
                 'logo-grid',
                 'lottie',
-                'morphing-layouts', //premium
-                'multi-scroll', //premium
+                //'morphing-layouts', //premium
+                //'multi-scroll', //premium
                 'one-page-navigation',
                 'pie-chart',
                 'popup-modal',
@@ -172,7 +172,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'scroll-image',
                 'scroll-nav',
                 'slider',
-                'slinky-vertical-menu', //premium
+                //'slinky-vertical-menu', //premium
                 'social-share',
                 'step-flow',
                 'sticky-video',
@@ -181,10 +181,10 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'team-member-carousel',
                 'testimonial',
                 'testimonial-slider',
-                'text-marquee', //premium
-                'threed-text', //premium
-                'threesixty-image', //premium
-                'tilt-hover-image', //premium
+                //'text-marquee', //premium
+                //'threed-text', //premium
+                //'threesixty-image', //premium
+                //'tilt-hover-image', //premium
                 'toggle',
                 'twitter-feed',
                 'twitter-feed-carousel',
