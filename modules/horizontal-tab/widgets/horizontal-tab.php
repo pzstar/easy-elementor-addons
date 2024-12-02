@@ -715,7 +715,7 @@ class HorizontalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab.eead-ht-active-tab' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab.eead-ht-active-tab svg' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}} .eead-horizontal-tab .eead-ht-tab.eead-ht-active-tab svg *' => 'fill: {{VALUE}}',
                 ]
             ]
         );

@@ -248,7 +248,7 @@ class HorizontalTimeline extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-card' => 'min-width: {{SIZE}}{{UNIT}}; flex-basis: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-card' => 'min-width: {{SIZE}}{{UNIT}}; flex-basis: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'display_option' => 'scrollbar'
@@ -276,7 +276,7 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-card' => 'text-align: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-card' => 'text-align: {{VALUE}}',
                 ]
             ]
         );
@@ -439,7 +439,7 @@ class HorizontalTimeline extends Widget_Base {
                 'condition' => [
                     'point_background_toggle' => 'yes'
                 ],
-                'selector' => '{{WRAPPER}} .eead-ht-point > span'
+                'selector' => '{{WRAPPER}} .eead-htl-point > span'
             ]
         );
 
@@ -450,9 +450,9 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point .eead-ht-point-text, {{WRAPPER}} .eead-ht-point i' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ht-point svg' => 'fill: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ht-point-framed .eead-ht-point > span' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point .eead-htl-point-text, {{WRAPPER}} .eead-htl-point i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point-framed .eead-htl-point > span' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'point_style!' => 'stacked',
@@ -465,9 +465,9 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point .eead-ht-point-text, {{WRAPPER}} .eead-ht-point i' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ht-point svg' => 'fill: {{VALUE}};',
-                    '{{WRAPPER}} .eead-ht-point-framed .eead-ht-point > span' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point .eead-htl-point-text, {{WRAPPER}} .eead-htl-point i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point svg' => 'fill: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point-framed .eead-htl-point > span' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'point_style' => 'stacked',
@@ -489,8 +489,8 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point > span' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-point-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point > span' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-point-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'point_style!' => 'default',
@@ -512,9 +512,9 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point i' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ht-point svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-point-icon-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-point-icon-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -533,9 +533,9 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point' => 'gap: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ht-point-pos-left .eead-ht-point:after' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-ht-point-pos-right .eead-ht-point:before' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point-pos-left .eead-htl-point:after' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point-pos-right .eead-htl-point:before' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -554,8 +554,8 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point > span' => 'border-width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-point-border-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point > span' => 'border-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-point-border-width: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'point_style' => 'framed',
@@ -569,7 +569,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point > span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point > span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'point_style!' => 'default',
@@ -581,7 +581,7 @@ class HorizontalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'point_typography',
                 'label' => esc_html__('Point Text Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ht-point > span.eead-ht-point-text',
+                'selector' => '{{WRAPPER}} .eead-htl-point > span.eead-htl-point-text',
             ]
         );
 
@@ -608,8 +608,8 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point:before, {{WRAPPER}} .eead-ht-point:after' => 'height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-timeline-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point:before, {{WRAPPER}} .eead-htl-point:after' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-timeline-height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -619,8 +619,8 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Line Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point:before, {{WRAPPER}} .eead-ht-point:after' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-timeline-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-htl-point:before, {{WRAPPER}} .eead-htl-point:after' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-timeline-color: {{VALUE}};',
                 ]
             ]
         );
@@ -633,8 +633,8 @@ class HorizontalTimeline extends Widget_Base {
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-point' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-timeline-top-spacing: {{TOP}}{{UNIT}};--eead-ht-timeline-bottom-spacing: {{BOTTOM}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-timeline-top-spacing: {{TOP}}{{UNIT}};--eead-htl-timeline-bottom-spacing: {{BOTTOM}}{{UNIT}};',
                 ],
             ]
         );
@@ -653,7 +653,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-meta span' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-meta span' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -663,7 +663,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-meta span' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-meta span' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -672,7 +672,7 @@ class HorizontalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'meta_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ht-meta span'
+                'selector' => '{{WRAPPER}} .eead-htl-meta span'
             ]
         );
 
@@ -696,14 +696,14 @@ class HorizontalTimeline extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-ht-meta span'
+                'selector' => '{{WRAPPER}} .eead-htl-meta span'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'meta_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-ht-meta span'
+                'selector' => '{{WRAPPER}} .eead-htl-meta span'
             ]
         );
 
@@ -713,7 +713,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-meta span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-meta span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -724,7 +724,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-meta span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-meta span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -736,7 +736,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -755,7 +755,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content-inner' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-content-inner' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -780,14 +780,14 @@ class HorizontalTimeline extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-ht-content-inner'
+                'selector' => '{{WRAPPER}} .eead-htl-content-inner'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'content_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-ht-content-inner'
+                'selector' => '{{WRAPPER}} .eead-htl-content-inner'
             ]
         );
 
@@ -797,7 +797,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-content-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -808,7 +808,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-content-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -820,7 +820,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -840,7 +840,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -852,7 +852,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -871,7 +871,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Title Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-title' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -880,7 +880,7 @@ class HorizontalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'content_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ht-content .eead-ht-title'
+                'selector' => '{{WRAPPER}} .eead-htl-content .eead-htl-title'
             ]
         );
 
@@ -892,7 +892,7 @@ class HorizontalTimeline extends Widget_Base {
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-title' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ],
             ]
         );
@@ -911,7 +911,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Description Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-description' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-description' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -920,7 +920,7 @@ class HorizontalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'content_desc_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ht-content .eead-ht-description'
+                'selector' => '{{WRAPPER}} .eead-htl-content .eead-htl-description'
             ]
         );
 
@@ -932,7 +932,7 @@ class HorizontalTimeline extends Widget_Base {
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-content .eead-ht-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-htl-content .eead-htl-description' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ],
             ]
         );
@@ -950,7 +950,7 @@ class HorizontalTimeline extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'readmore_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-ht-more-button a',
+                'selector' => '{{WRAPPER}} .eead-htl-more-button a',
                 'separator' => 'before'
             ]
         );
@@ -961,7 +961,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-more-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -973,7 +973,7 @@ class HorizontalTimeline extends Widget_Base {
                 'allowed_dimensions' => 'vertical',
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+                    '{{WRAPPER}} .eead-htl-more-button' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
                 ]
             ]
         );
@@ -998,7 +998,7 @@ class HorizontalTimeline extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-ht-more-button a',
+                'selector' => '{{WRAPPER}} .eead-htl-more-button a',
                 'separator' => 'before'
             ]
         );
@@ -1006,7 +1006,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(), [
                 'name' => 'readmore_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-ht-more-button a'
+                'selector' => '{{WRAPPER}} .eead-htl-more-button a'
             ]
         );
 
@@ -1016,7 +1016,7 @@ class HorizontalTimeline extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-more-button a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -1036,7 +1036,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-more-button a' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -1046,7 +1046,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-more-button a' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -1064,7 +1064,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-more-button a:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -1074,7 +1074,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a:hover' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-more-button a:hover' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -1084,7 +1084,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ht-more-button a:hover' => 'border: 1px solid {{VALUE}}',
+                    '{{WRAPPER}} .eead-htl-more-button a:hover' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
@@ -1194,7 +1194,7 @@ class HorizontalTimeline extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-ht-nav-offset-x:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-nav-offset-x:{{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1390,10 +1390,10 @@ class HorizontalTimeline extends Widget_Base {
 
         $this->add_render_attribute('timeline-container', [
             'class' => [
-                'eead-ht-list',
-                'eead-ht-' . $settings['display_option'],
-                'eead-ht-point-' . $settings['point_style'],
-                'eead-ht-meta-pos-' . $settings['meta_position']
+                'eead-htl-list',
+                'eead-htl-' . $settings['display_option'],
+                'eead-htl-point-' . $settings['point_style'],
+                'eead-htl-meta-pos-' . $settings['meta_position']
             ]
         ]);
 
@@ -1426,7 +1426,7 @@ class HorizontalTimeline extends Widget_Base {
             $this->add_render_attribute('timeline-container', [
                 'class' => [
                     'owl-carousel',
-                    'eead-ht-arrow-' . $arrow_class
+                    'eead-htl-arrow-' . $arrow_class
                 ],
                 'data-params' => $params
             ]);
@@ -1441,13 +1441,13 @@ class HorizontalTimeline extends Widget_Base {
                     if ($item['enable'] != 'yes') {
                         continue;
                     }
-                    $alt_class = $i % 2 == 0 ? 'eead-ht-alt' : '';
+                    $alt_class = $i % 2 == 0 ? 'eead-htl-alt' : '';
                     ?>
-                    <div class="eead-ht-card <?php echo esc_attr($alt_class); ?>">
-                        <div class="eead-ht-content">
-                            <div class="eead-ht-content-inner">
+                    <div class="eead-htl-card <?php echo esc_attr($alt_class); ?>">
+                        <div class="eead-htl-content">
+                            <div class="eead-htl-content-inner">
                                 <?php if (!empty($item['image']['url'])) { ?>
-                                    <div class="eead-ht-image">
+                                    <div class="eead-htl-image">
                                         <?php
                                         echo Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image');
                                         ?>
@@ -1455,7 +1455,7 @@ class HorizontalTimeline extends Widget_Base {
                                 <?php } ?>
 
                                 <?php if (!empty($item['title'])) { ?>
-                                    <<?php echo $settings['title_html_tag']; ?> class="eead-ht-title">
+                                    <<?php echo $settings['title_html_tag']; ?> class="eead-htl-title">
                                         <?php
                                         echo esc_html($item['title']);
                                         ?>
@@ -1463,7 +1463,7 @@ class HorizontalTimeline extends Widget_Base {
                                 <?php } ?>
 
                                 <?php if (!empty($item['description'])) { ?>
-                                    <div class="eead-ht-description">
+                                    <div class="eead-htl-description">
                                         <?php echo esc_html($item['description']); ?>
                                     </div>
                                 <?php } ?>
@@ -1472,7 +1472,7 @@ class HorizontalTimeline extends Widget_Base {
                                 if (!empty($item['button_url']['url'])) {
                                     $this->add_link_attributes('button_url' . $i, $item['button_url']);
                                     ?>
-                                    <div class="eead-ht-more-button">
+                                    <div class="eead-htl-more-button">
                                         <a <?php $this->print_render_attribute_string('button_url' . $i); ?>>
                                             <?php echo esc_html($item['button_text']); ?>
                                         </a>
@@ -1483,17 +1483,17 @@ class HorizontalTimeline extends Widget_Base {
                             </div>
                         </div>
 
-                        <div class="eead-ht-point">
+                        <div class="eead-htl-point">
                             <?php
                             if ($item['point_type'] == 'icon') {
                                 ?>
-                                <span class="eead-ht-point-icon">
+                                <span class="eead-htl-point-icon">
                                     <?php Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']); ?>
                                 </span>
                                 <?php
                             } elseif ($item['point_type'] == 'text') {
                                 ?>
-                                <span class="eead-ht-point-text">
+                                <span class="eead-htl-point-text">
                                     <?php echo esc_html($item['point_text']); ?>
                                 </span>
                                 <?php
@@ -1501,7 +1501,7 @@ class HorizontalTimeline extends Widget_Base {
                             ?>
                         </div>
 
-                        <div class="eead-ht-meta">
+                        <div class="eead-htl-meta">
                             <span><?php echo esc_html($item['meta']); ?></span>
                         </div>
                     </div>

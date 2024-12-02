@@ -560,27 +560,27 @@ odometerOptions = {auto: false};
         },
 
         verticalTabsBlock: function ($scope) {
-            $scope.find('.eead-vertical-tab').on('click', '.eead-ht-tab', function () {
+            $scope.find('.eead-vertical-tab').on('click', '.eead-vt-tab', function () {
                 var $tab_id = $(this).data('tabid');
                 if ($tab_id) {
-                    $scope.find('.eead-ht-tab').removeClass('eead-ht-active-tab');
-                    $(this).addClass('eead-ht-active-tab');
+                    $scope.find('.eead-vt-tab').removeClass('eead-vt-active-tab');
+                    $(this).addClass('eead-vt-active-tab');
 
-                    $scope.find('.eead-ht-content').removeClass('eead-ht-active-content');
-                    $scope.find('.eead-ht-content-' + $tab_id).addClass('eead-ht-active-content');
+                    $scope.find('.eead-vt-content').removeClass('eead-vt-active-content');
+                    $scope.find('.eead-vt-content-' + $tab_id).addClass('eead-vt-active-content');
                 }
             });
         },
 
         horizontalTimelineCarousel: function ($scope) {
-            $scope.find('.eead-ht-scrollbar').mCustomScrollbar({
+            $scope.find('.eead-htl-scrollbar').mCustomScrollbar({
                 theme: 'dark',
                 scrollInertia: 500,
                 axis: 'x',
                 advanced: {autoExpandHorizontalScroll: true}
             });
 
-            var $ele = $scope.find('.eead-ht-carousel');
+            var $ele = $scope.find('.eead-htl-carousel');
             if ($ele.length > 0) {
                 var params = JSON.parse($ele.attr('data-params'));
                 $ele.owlCarousel({
@@ -618,17 +618,17 @@ odometerOptions = {auto: false};
                 });
 
                 // Apply the maximum height
-                $scope.find('.eead-ht-list').css({
-                    '--eead-ht-content-height': maxHeight1 + 'px',
-                    '--eead-ht-meta-height': maxHeight2 + 'px',
+                $scope.find('.eead-htl-list').css({
+                    '--eead-htl-content-height': maxHeight1 + 'px',
+                    '--eead-htl-meta-height': maxHeight2 + 'px',
                 });
             }
 
-            equalizeHeights('.eead-ht-content', '.eead-ht-meta');
+            equalizeHeights('.eead-htl-content', '.eead-htl-meta');
 
             // Re-apply on window resize
             $(window).on('resize', function () {
-                equalizeHeights('.eead-ht-content', '.eead-ht-meta');
+                equalizeHeights('.eead-htl-content', '.eead-htl-meta');
             });
         },
 

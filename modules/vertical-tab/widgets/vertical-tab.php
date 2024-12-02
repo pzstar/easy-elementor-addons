@@ -183,7 +183,7 @@ class VerticalTab extends Widget_Base {
                     'right' => 'order: 2'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => '{{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => '{{VALUE}}',
                 ]
             ]
         );
@@ -205,7 +205,7 @@ class VerticalTab extends Widget_Base {
                     'size' => 200
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'min-width: {{SIZE}}{{UNIT}};flex-basis: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'min-width: {{SIZE}}{{UNIT}};flex-basis: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -223,7 +223,7 @@ class VerticalTab extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-container' => 'gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -252,7 +252,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-container' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -277,7 +277,7 @@ class VerticalTab extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-container'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-container'
             ]
         );
 
@@ -285,7 +285,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'tab_container_shadow',
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-container'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-container'
             ]
         );
 
@@ -295,7 +295,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -306,7 +306,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -325,7 +325,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -350,7 +350,7 @@ class VerticalTab extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs'
             ]
         );
 
@@ -358,7 +358,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'tab_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs'
             ]
         );
 
@@ -368,7 +368,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -379,7 +379,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -397,7 +397,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'tab_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab'
             ]
         );
 
@@ -434,7 +434,7 @@ class VerticalTab extends Widget_Base {
                     'right' => 'flex-direction: row-reverse',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => '{{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => '{{VALUE}}',
                 ]
             ]
         );
@@ -452,7 +452,7 @@ class VerticalTab extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -470,7 +470,7 @@ class VerticalTab extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => 'gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -500,7 +500,7 @@ class VerticalTab extends Widget_Base {
                     'size' => 20
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -534,7 +534,7 @@ class VerticalTab extends Widget_Base {
                     'Right Tool Tip' => 'clip-path:polygon(0% 0%, calc(100% - 15px) 0, calc(100% - 15px) calc(50% - 10px), 100% 50%, calc(100% - 15px) calc(50% + 10px), calc(100% - 15px) 100%, 0 100%);--eead-vertical-tab-padding-right-extra: 15px;',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => '{{VALUE}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => '{{VALUE}};',
                 ]
             ]
         );
@@ -559,7 +559,7 @@ class VerticalTab extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab',
                 'condition' => [
                     'tab_buttons_shape' => 'none'
                 ]
@@ -570,7 +570,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'tab_buttons_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab',
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab',
                 'condition' => [
                     'tab_buttons_shape' => 'none'
                 ]
@@ -583,7 +583,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'tab_buttons_shape' => 'none'
@@ -617,7 +617,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -627,7 +627,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -645,7 +645,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab:hover' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -655,7 +655,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -665,7 +665,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab:hover' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab:hover' => 'border-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'tab_buttons_shape' => 'none'
@@ -686,7 +686,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab.eead-vt-active-tab' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -696,7 +696,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab.eead-vt-active-tab' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -706,7 +706,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tab.eead-ht-active-tab' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab.eead-vt-active-tab' => 'border-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'tab_buttons_shape' => 'none'
@@ -733,7 +733,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'tab_content_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-content'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-content'
             ]
         );
 
@@ -742,7 +742,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-content' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-content' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -752,7 +752,7 @@ class VerticalTab extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -777,7 +777,7 @@ class VerticalTab extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents'
             ]
         );
 
@@ -785,7 +785,7 @@ class VerticalTab extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'tab_content_box_shadow',
-                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents'
+                'selector' => '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents'
             ]
         );
 
@@ -795,7 +795,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -806,7 +806,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -837,7 +837,7 @@ class VerticalTab extends Widget_Base {
                     'size' => 0
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => 'transform: translateX({{SIZE}}{{UNIT}});',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => 'transform: translateX({{SIZE}}{{UNIT}});',
                 ]
             ]
         );
@@ -859,7 +859,7 @@ class VerticalTab extends Widget_Base {
                     'size' => 0
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-contents' => 'transform: translateX({{SIZE}}{{UNIT}});',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-contents' => 'transform: translateX({{SIZE}}{{UNIT}});',
                 ]
             ]
         );
@@ -879,7 +879,7 @@ class VerticalTab extends Widget_Base {
                     'content' => 'z-index:8'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vertical-tab .eead-ht-tabs' => '{{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tabs' => '{{VALUE}}',
                 ]
             ]
         );
@@ -891,12 +891,12 @@ class VerticalTab extends Widget_Base {
     protected function render() {
         ?>
         <div class="eead-vertical-tab">
-            <div class="eead-ht-container">
-                <div class="eead-ht-tabs">
+            <div class="eead-vt-container">
+                <div class="eead-vt-tabs">
                     <?php $this->get_tabs(); ?>
                 </div>
 
-                <div class="eead-ht-contents">
+                <div class="eead-vt-contents">
                     <?php $this->get_tab_content(); ?>
                 </div>
             </div>
@@ -913,7 +913,7 @@ class VerticalTab extends Widget_Base {
                 if ($tab['enable'] == 'yes') {
                     $i++;
                     ?>
-                    <div class="eead-ht-tab <?php echo ($i == 1 ? 'eead-ht-active-tab' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
+                    <div class="eead-vt-tab <?php echo ($i == 1 ? 'eead-vt-active-tab' : ''); ?>" data-tabid="<?php echo esc_attr($i); ?>">
                         <?php Icons_Manager::render_icon($tab['icon'], ['aria-hidden' => 'true']); ?>
                         <span><?php echo esc_html($tab['title']); ?></span>
                     </div>
@@ -932,7 +932,7 @@ class VerticalTab extends Widget_Base {
                 if ($tab['enable'] == 'yes') {
                     $i++;
                     ?>
-                    <div class="animated <?php echo $settings['tab_content_animation']; ?> eead-ht-content eead-ht-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-ht-active-content' : ''); ?>">
+                    <div class="animated <?php echo $settings['tab_content_animation']; ?> eead-vt-content eead-vt-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-vt-active-content' : ''); ?>">
                         <?php
                         if ($tab[
                             'content_type'] == 'page' && !empty($tab['page'])) {

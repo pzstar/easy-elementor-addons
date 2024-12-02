@@ -684,21 +684,27 @@ class FeatureList extends Widget_Base {
                         </div>
 
                         <div class="eead-fl-content-box">
-                            <<?php echo esc_attr($feature_title_tag); ?> class="eead-fl-title">
-                                <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('link' . $index); ?>>
-                                    <?php
-                                    echo esc_html($item['title']);
-                                    ?>
-                                </<?php echo esc_attr($feature_icon_tag); ?>>
-                            </<?php echo esc_attr($feature_title_tag); ?>>
+                            <?php if ($item['title']) { ?>
+                                <<?php echo esc_attr($feature_title_tag); ?> class="eead-fl-title">
+                                    <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('link' . $index); ?>>
+                                        <?php
+                                        echo esc_html($item['title']);
+                                        ?>
+                                    </<?php echo esc_attr($feature_icon_tag); ?>>
+                                </<?php echo esc_attr($feature_title_tag); ?>>
+                            <?php } ?>
 
-                            <div class="eead-fl-subtitle">
-                                <?php echo esc_html($item['subtitle']); ?>
-                            </div>
+                            <?php if ($item['subtitle']) { ?>
+                                <div class="eead-fl-subtitle">
+                                    <?php echo esc_html($item['subtitle']); ?>
+                                </div>
+                            <?php } ?>
 
-                            <div class="eead-fl-content">
-                                <?php echo wp_kses_post($item['content']); ?>
-                            </div>
+                            <?php if ($item['content']) { ?>
+                                <div class="eead-fl-content">
+                                    <?php echo wp_kses_post($item['content']); ?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </li>
                     <?php
