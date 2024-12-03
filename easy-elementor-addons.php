@@ -170,7 +170,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'pricing-table',
                 'progressbar',
                 'scroll-image',
-                'scroll-nav',
+                //'scroll-nav', //premium
                 'slider',
                 //'slinky-vertical-menu', //premium
                 'social-share',
