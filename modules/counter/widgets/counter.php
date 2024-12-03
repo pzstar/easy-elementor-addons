@@ -170,7 +170,6 @@ class Counter extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'counter_bg',
-                'label' => esc_html__('Counter Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-counter'
             ]
         );

@@ -516,7 +516,6 @@ class TwitterFeedCarousel extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'eead_twitter_feed_card_hover_bg',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-twitter-feed-item-inner:hover'
             ]

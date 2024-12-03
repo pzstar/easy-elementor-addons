@@ -618,7 +618,6 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'grid_view_txt_bg',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption',
                 'condition' => ['grid_txt_placement' => 'in-img']
@@ -637,7 +636,6 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'grid_view_txt_bg_hover',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-container.eead-fpg-grid-view figcaption:hover',
                 'condition' => ['grid_txt_placement' => 'in-img']
@@ -943,7 +941,6 @@ class PortfolioGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'toolbar_bg',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-fpg-toolbar',
             ]

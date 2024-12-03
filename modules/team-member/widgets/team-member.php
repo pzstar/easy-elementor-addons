@@ -300,7 +300,6 @@ class TeamMember extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'content_background',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'separator' => 'before',
                 'selector' => '{{WRAPPER}} .eead-team-member-content-normal'

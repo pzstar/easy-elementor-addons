@@ -17,6 +17,7 @@ odometerOptions = {auto: false};
                 'eead-filterable-gallery.default': EEA.filterableGallery,
                 'eead-horizontal-timeline.default': EEA.horizontalTimelineCarousel,
                 'eead-hotspot.default': EEA.hotspotBlock,
+                'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-image-comparison.default': EEA.imageComparison,
                 'eead-image-accordion.default': EEA.imageAccordion,
                 'eead-image-gallery.default': EEA.imageGallery,
@@ -34,6 +35,7 @@ odometerOptions = {auto: false};
                 'eead-vertical-tab.default': EEA.verticalTabsBlock,
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-video-player.default': EEA.videoPlayer,
+                'eead-slider.default': EEA.sliderBlock,
 
 
 
@@ -41,12 +43,10 @@ odometerOptions = {auto: false};
 
                 'eead-caption-hover-effect.default': EEA.captionHoverEffect,
                 'eead-charts.default': EEA.chartsBlock,
-                'eead-horizontal-scroll.default': EEA.horizontalScrollBlock,
                 'eead-multi-scroll.default': EEA.multiScrollBlock,
                 'eead-offcanvas-header.default': EEA.offcanvasHeader,
                 'eead-portfolio.default': EEA.portfolioBlock,
                 'eead-portfolio-grid.default': EEA.portfolioGrid,
-                'eead-slider.default': EEA.sliderBlock,
                 'eead-slinky-vertical-menu.default': EEA.slinkyVerticalMenuBlock,
                 'eead-text-marquee.default': EEA.textMarquee,
                 'eead-threesixty-image.default': EEA.threesixtyImage,
@@ -1255,6 +1255,38 @@ odometerOptions = {auto: false};
             }
         },
 
+        sliderBlock: function ($scope) {
+            var $ele = $scope.find('.eead-slider');
+            if ($ele.find('.eead-slide').length > 0) {
+                var params = JSON.parse($ele.attr('data-params'));
+                var sliderObj = {
+                    items: 1,
+                    mouseDrag: false,
+                    smartSpeed: 600,
+                    loop: JSON.parse(params.loop),
+                    autoplay: JSON.parse(params.autoplay),
+                    autoplaySpeed: params.speed,
+                    autoplayTimeout: params.pause,
+                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
+                    nav: JSON.parse(params.arrows),
+                    dots: JSON.parse(params.dots),
+                    autoHeight: JSON.parse(params.auto_height),
+                    responsiveClass: true
+                };
+
+                if ($('.eead-slider').attr('data-transition') == 'fade') {
+                    sliderObj.animateOut = 'fadeOut';
+                }
+                
+                $('.eead-slider').owlCarousel(sliderObj);
+            }
+        },
+
+
+
+
+
+
 
 
 
@@ -1392,31 +1424,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        sliderBlock: function ($scope) {
-            var $ele = $scope.find('.eead-slider');
-            if ($ele.find('.eead-slide').length > 0) {
-                var params = JSON.parse($ele.attr('data-params'));
-                var sliderObj = {
-                    items: 1,
-                    mouseDrag: false,
-                    smartSpeed: 600,
-                    loop: JSON.parse(params.loop),
-                    autoplay: JSON.parse(params.autoplay),
-                    autoplaySpeed: params.speed,
-                    autoplayTimeout: params.pause,
-                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
-                    nav: JSON.parse(params.arrows),
-                    dots: JSON.parse(params.dots),
-                    autoHeight: JSON.parse(params.auto_height),
-                    responsiveClass: true
-                };
-
-                if ($('.eead-slider').attr('data-transition') == 'fade') {
-                    sliderObj.animateOut = 'fadeOut';
-                }
-                $('.eead-slider').owlCarousel(sliderObj);
-            }
-        },
+        
 
         testimonialSlider: function ($scope) {
             var $ele = $scope.find('.eead-testimonial-block');

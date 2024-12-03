@@ -359,7 +359,6 @@ class LogoGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'logo_bg',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item'
             ]
@@ -414,7 +413,6 @@ class LogoGrid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'logos_bg_hover',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['none', 'classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-logo-grid .eead-grid-item:hover'
             ]

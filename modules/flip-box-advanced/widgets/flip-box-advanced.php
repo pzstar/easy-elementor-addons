@@ -428,7 +428,6 @@ class FlipBoxAdvanced extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'front_box_bg_color',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'default' => '#fff',
                 'selector' => '{{WRAPPER}} .eead-flip-box-front',
@@ -607,7 +606,6 @@ class FlipBoxAdvanced extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'back_box_background',
-                'label' => esc_html__('Back Box Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .eead-flip-box-back'
             ]

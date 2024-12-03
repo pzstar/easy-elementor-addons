@@ -644,12 +644,22 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
+        $this->start_controls_tabs(
+			'style_tabs'
+		);
+
+        $this->start_controls_tab(
+            'style_image_tab',
+            [
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
+            ]
+        );
+
         $this->add_control(
             'content_image_heading',
             [
                 'label' => esc_html__('Image', 'textdomain'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -676,12 +686,20 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'style_title_tab',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+            ]
+        );
+
         $this->add_control(
             'content_title_heading',
             [
                 'label' => esc_html__('Title', 'textdomain'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -716,12 +734,20 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'style_desc_tab',
+            [
+                'label' => esc_html__('Desc', 'easy-elementor-addons'),
+            ]
+        );
+
         $this->add_control(
             'content_desc_heading',
             [
                 'label' => esc_html__('Description', 'textdomain'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -755,6 +781,10 @@ class VerticalTimeline extends Widget_Base {
                 ],
             ]
         );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 

@@ -779,7 +779,6 @@ class MorphingLayouts extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'fixed_scroll_bg',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '.plus-morph-fixed-scroll-bg.morph-fixed-{{ID}}',
                 'condition' => [

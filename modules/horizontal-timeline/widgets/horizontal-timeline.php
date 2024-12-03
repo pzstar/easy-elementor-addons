@@ -412,10 +412,10 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'point_background_toggle',
             [
-                'label' => esc_html__('Background', 'textdomain'),
+                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
-                'label_off' => esc_html__('Default', 'textdomain'),
-                'label_on' => esc_html__('Custom', 'textdomain'),
+                'label_off' => esc_html__('Default', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Custom', 'easy-elementor-addons'),
                 'return_value' => 'yes',
                 'default' => '',
                 'condition' => [
@@ -588,7 +588,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'timeline_heading',
             [
-                'label' => esc_html__('Time Line', 'textdomain'),
+                'label' => esc_html__('Time Line', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -628,7 +628,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'timeline_spacing',
             [
-                'label' => esc_html__('Top & Bottom Spacing', 'textdomain'),
+                'label' => esc_html__('Top & Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
@@ -732,7 +732,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'meta_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
@@ -816,7 +816,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'content_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
@@ -825,12 +825,22 @@ class HorizontalTimeline extends Widget_Base {
             ]
         );
 
+        $this->start_controls_tabs(
+			'style_tabs'
+		);
+
+        $this->start_controls_tab(
+			'style_image_tab',
+			[
+				'label' => esc_html__('Image', 'easy-elementor-addons' ),
+			]
+		);
+
         $this->add_control(
             'content_image_heading',
             [
-                'label' => esc_html__('Image', 'textdomain'),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -848,7 +858,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'content_image_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
@@ -857,12 +867,20 @@ class HorizontalTimeline extends Widget_Base {
             ]
         );
 
+        $this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_title_tab',
+			[
+				'label' => esc_html__('Title', 'easy-elementor-addons' ),
+			]
+		);
+
         $this->add_control(
             'content_title_heading',
             [
-                'label' => esc_html__('Title', 'textdomain'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -887,7 +905,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'content_title_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
@@ -897,12 +915,20 @@ class HorizontalTimeline extends Widget_Base {
             ]
         );
 
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_desc_tab',
+			[
+				'label' => esc_html__( 'Desc', 'easy-elementor-addons' ),
+			]
+		);
+
         $this->add_control(
             'content_desc_heading',
             [
-                'label' => esc_html__('Description', 'textdomain'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
-                'separator' => 'before',
             ]
         );
 
@@ -927,7 +953,7 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_control(
             'content_desc_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
@@ -936,6 +962,10 @@ class HorizontalTimeline extends Widget_Base {
                 ],
             ]
         );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 

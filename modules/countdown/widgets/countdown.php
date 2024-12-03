@@ -252,7 +252,6 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_background',
-                'label' => esc_html__('Counter Background Color', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-countdown-item'
             ]
         );
@@ -544,7 +543,6 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_days_background_color',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-days'
             ]
         );
@@ -591,7 +589,6 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_hours_background_color',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-hours'
             ]
         );
@@ -638,7 +635,6 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_minutes_background_color',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-minutes'
             ]
         );
@@ -685,7 +681,6 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'countdown_seconds_background_color',
-                'label' => esc_html__('Background', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-countdown-item.eead-countdown-seconds'
             ]
         );

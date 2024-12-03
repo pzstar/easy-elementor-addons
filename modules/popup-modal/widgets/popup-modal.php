@@ -885,7 +885,6 @@ class PopupModal extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(), [
 				'name' => 'overlay_bg',
-				'label' => esc_html__('Background', 'easy-elementor-addons'),
 				'types' => array('classic', 'gradient'),
 				'exclude' => array('image'),
 				'selector' => '{{WRAPPER}} .eead-popup-modal .modal__overlay',
