@@ -319,7 +319,7 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
             'progressbar_bg_header', [
-                'label' => esc_html__('Bar Background Color', 'textdomain'),
+                'label' => esc_html__('Bar Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING
             ]
         );
@@ -334,7 +334,7 @@ class Progressbar extends Widget_Base {
 
         $this->add_control(
             'progress_length_header', [
-                'label' => esc_html__('Active Progress Color', 'textdomain'),
+                'label' => esc_html__('Active Progress Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before'
             ]

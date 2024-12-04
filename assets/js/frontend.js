@@ -1256,9 +1256,12 @@ odometerOptions = {auto: false};
         },
 
         sliderBlock: function ($scope) {
-            var $ele = $scope.find('.eead-slider');
-            if ($ele.find('.eead-slide').length > 0) {
-                var params = JSON.parse($ele.attr('data-params'));
+            var $slider = $scope.find('.eead-slider');
+            var titleAnim = $slider.attr('data-title-anim');
+            var subtitleAnim = $slider.attr('data-subtitle-anim');
+            var buttonAnim = $slider.attr('data-button-anim');
+            if ($slider.find('.eead-slide').length > 0) {
+                var params = JSON.parse($slider.attr('data-params'));
                 var sliderObj = {
                     items: 1,
                     mouseDrag: false,
@@ -1271,14 +1274,44 @@ odometerOptions = {auto: false};
                     nav: JSON.parse(params.arrows),
                     dots: JSON.parse(params.dots),
                     autoHeight: JSON.parse(params.auto_height),
-                    responsiveClass: true
+                    responsiveClass: true,
+                    onInitialized: function () {
+                        $slider.find('.owl-item.active .eead-slide-caption').addClass('eead-animate');
+
+                        if (titleAnim !== 'none') {
+                            $slider.find('.owl-item.active .eead-slide-cap-title').addClass(titleAnim);
+                        }
+                        if (subtitleAnim !== 'none') {
+                            $slider.find('.owl-item.active .eead-slide-cap-desc').addClass(subtitleAnim);
+                        }
+                        if (buttonAnim !== 'none') {
+                            $slider.find('.owl-item.active .eead-slide-button').addClass(buttonAnim);
+                        }
+                    },
                 };
 
-                if ($('.eead-slider').attr('data-transition') == 'fade') {
+                if ($slider.attr('data-transition') == 'fade') {
                     sliderObj.animateOut = 'fadeOut';
                 }
-                
-                $('.eead-slider').owlCarousel(sliderObj);
+
+                $slider.owlCarousel(sliderObj);
+
+                $slider.on('translated.owl.carousel', function (event) {
+                    $slider.find('.owl-item .eead-slide-caption').removeClass('eead-animate');
+                    $slider.find('.owl-item.active .eead-slide-caption').addClass('eead-animate');
+                    if (titleAnim !== 'none') {
+                        $slider.find('.owl-item .eead-slide-cap-title').removeClass(titleAnim);
+                        $slider.find('.owl-item.active .eead-slide-cap-title').addClass(titleAnim);
+                    }
+                    if (subtitleAnim !== 'none') {
+                        $slider.find('.owl-item .eead-slide-cap-desc').removeClass(subtitleAnim);
+                        $slider.find('.owl-item.active .eead-slide-cap-desc').addClass(subtitleAnim);
+                    }
+                    if (buttonAnim !== 'none') {
+                        $slider.find('.owl-item .eead-slide-button').removeClass(buttonAnim);
+                        $slider.find('.owl-item.active .eead-slide-button').addClass(buttonAnim);
+                    }
+                });
             }
         },
 
@@ -1424,7 +1457,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        
+
 
         testimonialSlider: function ($scope) {
             var $ele = $scope.find('.eead-testimonial-block');

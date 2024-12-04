@@ -197,6 +197,39 @@ if (!function_exists('eead_show_animations_alt')) {
     }
 }
 
+if (!function_exists('eead_slider_animations')) {
+    function eead_slider_animations() {
+        $animations = [
+            'none' => 'No Animation',
+            'fade-in' => 'FadeIn',
+            'scale-in-center' => 'ScaleInCenter',
+            'slide-in-top' => 'SlideInTop',
+            'slide-in-bottom' => 'SlideInBottom',
+            'slide-in-left' => 'SlideInLeft',
+            'slide-in-right' => 'SlideInRight',
+            'rotate-in-2-fwd-cw' => 'RotateInForwardClockWise',
+            'rotate-in-2-fwd-ccw' => 'RotateInForwardCounterClockWise',
+            'rotate-in-hor' => 'RotateInHorizontal',
+            'flip-in-hor-top' => 'FlipInHorizontalTop',
+            'flip-in-hor-bottom' => 'FlipInHorizontalBottom',
+            'flip-in-ver-left' => 'FlipInVerticalLeft',
+            'flip-in-ver-right' => 'FlipInVerticalRight',
+            'bounce-in-top' => 'BounceInTop',
+            'bounce-in-bottom' => 'BounceInBottom',
+            'bounce-in-left' => 'BounceInLeft',
+            'bounce-in-right' => 'BounceInRight',
+            'bounce-in-fwd' => 'BounceInFordward',
+            'bounce-in-bck' => 'BounceInBackward',
+            'swing-in-top-fwd' => 'SwingInTopForward',
+            'swing-in-bottom-fwd' => 'SwingInBottomForward',
+            'swing-in-left-fwd' => 'SwingInLeftForward',    
+            'swing-in-right-fwd' => 'SwingInRightForward',
+            'puff-in-center' => 'PuffInCenter',
+        ];
+        return $animations;
+    }
+}
+
 if (!function_exists('eead_svg_icon')) {
 
     function eead_svg_icon($icon) {
