@@ -74,7 +74,7 @@ class Slider extends Widget_Base {
         );
 
         $repeater->add_control(
-            'slider_caption', [
+            'slider_sub_title', [
                 'label' => esc_html__('Sub Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 8,
@@ -113,6 +113,11 @@ class Slider extends Widget_Base {
                 'default' => [
                     [
                         'slider_title' => esc_html__('Slider #1', 'easy-elementor-addons'),
+                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                    ],
+                    [
+                        'slider_title' => esc_html__('Slider #2', 'easy-elementor-addons'),
+                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                     ]
                 ],
                 'title_field' => '{{{ slider_title }}}'
@@ -125,6 +130,37 @@ class Slider extends Widget_Base {
             'normal_slider_settings', [
                 'label' => esc_html__('Slider Settings', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_CONTENT
+            ]
+        );
+
+        $this->add_control(
+            'enable_container', [
+                'label' => esc_html__('Enable Center Width Container', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'container_width', [
+                'label' => esc_html__('Container Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 500,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 2000,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption-container' => 'width:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'enable_container' => 'yes'
+                ]
             ]
         );
 
@@ -242,13 +278,13 @@ class Slider extends Widget_Base {
             'slider-overlay-popover-toggle',
             [
                 'type' => Controls_Manager::POPOVER_TOGGLE,
-                'label' => esc_html__( 'Slider Overlay', 'easy-elementor-addons' ),
-                'label_off' => esc_html__( 'Default', 'easy-elementor-addons' ),
-                'label_on' => esc_html__( 'Custom', 'easy-elementor-addons' ),
+                'label' => esc_html__('Slider Overlay', 'easy-elementor-addons'),
+                'label_off' => esc_html__('Default', 'easy-elementor-addons'),
+                'label_on' => esc_html__('Custom', 'easy-elementor-addons'),
                 'return_value' => 'yes',
             ]
         );
-        
+
         $this->start_popover();
 
         $this->add_group_control(
@@ -329,179 +365,179 @@ class Slider extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'caption_width', [
-				'label' => esc_html__('Caption Width', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'size' => 500,
-					'unit' => 'px'
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 2000,
-					]
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => 'width:{{SIZE}}{{UNIT}}',
-				],
-			]
-		);
+            'caption_width', [
+                'label' => esc_html__('Caption Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 500,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 2000,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => 'width:{{SIZE}}{{UNIT}}',
+                ],
+            ]
+        );
 
         $this->add_responsive_control(
-			'caption_h_position', [
-				'label' => esc_html__('Horizontal Position', 'easy-elementor-addons'),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', 'easy-elementor-addons'),
-						'icon' => 'eicon-h-align-left',
-					],
-					'center' => [
-						'title' => esc_html__('Center', 'easy-elementor-addons'),
-						'icon' => 'eicon-h-align-center',
-					],
-					'right' => [
-						'title' => esc_html__('Right', 'easy-elementor-addons'),
-						'icon' => 'eicon-h-align-right',
-					]
-				],
-				'default' => 'center',
-				'toggle' => false,
-				'selectors_dictionary' => [
-					'center' => 'left:50%;text-align:center',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => '{{VALUE}};--eead-slider-caption-h:-50%;'
-				],
-			]
-		);
+            'caption_h_position', [
+                'label' => esc_html__('Horizontal Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-h-align-right',
+                    ]
+                ],
+                'default' => 'center',
+                'toggle' => false,
+                'selectors_dictionary' => [
+                    'center' => 'left:50%;text-align:center',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => '{{VALUE}};--eead-slider-caption-h:-50%;'
+                ],
+            ]
+        );
 
-		$this->add_responsive_control(
-			'caption_offset_left', [
-				'label' => esc_html__('Offset', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'size' => 0,
-					'unit' => 'px'
-				],
-				'range' => [
-					'px' => [
-						'min' => -800,
-						'max' => 800,
-					]
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => 'left:{{SIZE}}{{UNIT}}',
-				],
-				'condition' => [
-					'caption_h_position' => 'left',
-				]
-			]
-		);
+        $this->add_responsive_control(
+            'caption_offset_left', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => 'left:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'caption_h_position' => 'left',
+                ]
+            ]
+        );
 
-		$this->add_responsive_control(
-			'caption_offset_right', [
-				'label' => esc_html__('Offset', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'size' => 0,
-					'unit' => 'px'
-				],
-				'range' => [
-					'px' => [
-						'min' => -800,
-						'max' => 800,
-					]
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => 'right:{{SIZE}}{{UNIT}}',
-				],
-				'condition' => [
-					'caption_h_position' => 'right',
-				]
-			]
-		);
+        $this->add_responsive_control(
+            'caption_offset_right', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => 'right:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'caption_h_position' => 'right',
+                ]
+            ]
+        );
 
-		$this->add_responsive_control(
-			'caption_v_position', [
-				'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'top' => [
-						'title' => esc_html__('Top', 'easy-elementor-addons'),
-						'icon' => 'eicon-v-align-top',
-					],
-					'middle' => [
-						'title' => esc_html__('Middle', 'easy-elementor-addons'),
-						'icon' => 'eicon-v-align-middle',
-					],
-					'bottom' => [
-						'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-						'icon' => 'eicon-v-align-bottom',
-					]
-				],
-				'default' => 'middle',
-				'toggle' => false,
-				'selectors_dictionary' => [
-					'middle' => 'top:50%;',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => '{{VALUE}};--eead-slider-caption-v:-50%;',
-				],
-			]
-		);
+        $this->add_responsive_control(
+            'caption_v_position', [
+                'label' => esc_html__('Vertical Position', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'top' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'middle' => [
+                        'title' => esc_html__('Middle', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-middle',
+                    ],
+                    'bottom' => [
+                        'title' => esc_html__('Bottom', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-bottom',
+                    ]
+                ],
+                'default' => 'middle',
+                'toggle' => false,
+                'selectors_dictionary' => [
+                    'middle' => 'top:50%;',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => '{{VALUE}};--eead-slider-caption-v:-50%;',
+                ],
+            ]
+        );
 
-		$this->add_responsive_control(
-			'caption_offset_top', [
-				'label' => esc_html__('Offset', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'size' => 0,
-					'unit' => 'px'
-				],
-				'range' => [
-					'px' => [
-						'min' => -800,
-						'max' => 800,
-					]
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => 'top:{{SIZE}}{{UNIT}}',
-				],
-				'condition' => [
-					'caption_v_position' => 'top',
-				]
-			]
-		);
+        $this->add_responsive_control(
+            'caption_offset_top', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => 'top:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'caption_v_position' => 'top',
+                ]
+            ]
+        );
 
-		$this->add_responsive_control(
-			'caption_offset_bottom', [
-				'label' => esc_html__('Offset', 'easy-elementor-addons'),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', 'em', '%'],
-				'default' => [
-					'size' => 0,
-					'unit' => 'px'
-				],
-				'range' => [
-					'px' => [
-						'min' => -800,
-						'max' => 800,
-					]
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eead-slide-caption' => 'bottom:{{SIZE}}{{UNIT}}',
-				],
-				'condition' => [
-					'caption_v_position' => 'bottom',
-				]
-			]
-		);
+        $this->add_responsive_control(
+            'caption_offset_bottom', [
+                'label' => esc_html__('Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => -800,
+                        'max' => 800,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slide-caption' => 'bottom:{{SIZE}}{{UNIT}}',
+                ],
+                'condition' => [
+                    'caption_v_position' => 'bottom',
+                ]
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -1052,7 +1088,7 @@ class Slider extends Widget_Base {
                     foreach ($sliders as $key => $slider) {
                         $image = $slider['slider_image']['url'];
                         $title = $slider['slider_title'];
-                        $caption = $slider['slider_caption'];
+                        $caption = $slider['slider_sub_title'];
                         $button_text = $slider['slider_button_text'];
                         $button_link = $slider['slider_button_link']['url'];
                         ?>
@@ -1068,26 +1104,31 @@ class Slider extends Widget_Base {
                                 }
                             }
                             ?>
-
-                            <div class="eead-slide-caption">
-                                <?php if ($title) { ?>
-                                    <div class="eead-slide-cap-title">
-                                        <span><?php echo wp_kses_post($title); ?></span>
-                                    </div>
+                            <?php if ($settings['enable_container']) { ?>
+                                <div class="eead-slide-caption-container">
                                 <?php } ?>
+                                <div class="eead-slide-caption">
+                                    <?php if ($title) { ?>
+                                        <div class="eead-slide-cap-title">
+                                            <span><?php echo wp_kses_post($title); ?></span>
+                                        </div>
+                                    <?php } ?>
 
-                                <?php if ($caption) { ?>
-                                    <div class="eead-slide-cap-desc">
-                                        <?php echo wp_kses_post($caption); ?>
-                                    </div>
-                                <?php } ?>
+                                    <?php if ($caption) { ?>
+                                        <div class="eead-slide-cap-desc">
+                                            <?php echo wp_kses_post($caption); ?>
+                                        </div>
+                                    <?php } ?>
 
-                                <?php if ($button_link) { ?>
-                                    <div class="eead-slide-button">
-                                        <a href="<?php echo esc_url($button_link); ?>"><?php echo esc_html($button_text); ?></a>
-                                    </div>
-                                <?php } ?>
-                            </div>
+                                    <?php if ($button_link) { ?>
+                                        <div class="eead-slide-button">
+                                            <a href="<?php echo esc_url($button_link); ?>"><?php echo esc_html($button_text); ?></a>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <?php if ($settings['enable_container']) { ?>
+                                </div>
+                            <?php } ?>
                         </div>
                         <?php
                     }
