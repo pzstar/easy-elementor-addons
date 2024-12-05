@@ -1275,6 +1275,7 @@ odometerOptions = {auto: false};
                     dots: JSON.parse(params.dots),
                     autoHeight: JSON.parse(params.auto_height),
                     responsiveClass: true,
+                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
                     onInitialized: function () {
                         $slider.find('.owl-item.active .eead-slide-caption').addClass('eead-animate');
 

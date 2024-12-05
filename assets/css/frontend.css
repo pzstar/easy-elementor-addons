@@ -4756,7 +4756,7 @@ Logo Carousel
 
 .eead-logo-carousel .owl-dots span {
     display: block;
-    background: #009dea;
+    background: var(--eead-pri-color);
     height: 15px;
     width: 15px;
     border-radius: 100%;
@@ -4777,7 +4777,7 @@ Logo Carousel
     height: 35px;
     font-size: 34px;
     line-height: 1;
-    background: #009dea;
+    background: var(--eead-pri-color);
     color: #fff;
     transition: all ease 0.3s;
     min-height: 0;
@@ -6878,6 +6878,10 @@ Vertical Time Line
 /*--------------------------------------------------------------
 Slider
 --------------------------------------------------------------*/
+.eead-slider{
+    overflow-x: hidden;
+}
+
 .eead-slide {
     position: relative;
     width: 100%;
@@ -6916,6 +6920,7 @@ Slider
 .eead-slider-height-custom .eead-slide img {
     object-fit: cover;
     object-position: center;
+    height: 100%;
 }
 
 .eead-slide .eead-slide-caption-container {
@@ -6936,98 +6941,115 @@ Slider
 
 .eead-slide .eead-slide-caption .eead-slide-cap-title {
     font-size: 30px;
-    color: #eb3e32;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.eead-slide .eead-slide-caption .eead-slide-cap-title span{
+    display: inline-block;
 }
 
 .eead-slide .eead-slide-caption .eead-slide-cap-desc {
-    font-weight: 600;
-    font-size: 18px;
+    font-size: 1.2em;
     margin-bottom: 20px;
 }
 
 .eead-slide .eead-slide-caption .eead-slide-button a {
     display: inline-block;
-    padding: 12px 25px;
-    background: #eb3e32;
-    border-radius: 5px;
-    text-transform: uppercase;
+    padding: 15px 25px;
+    background: var(--eead-pri-color);
+    border-radius: 3px;
     text-decoration: none;
     color: #fff;
-    font-weight: 600;
-    font-size: 13px;
 }
 
-.eead-slide .eead-slide-caption .eead-slide-button a:hover {
-    background: #fff;
-    color: #eb3e32;
+.eead-slider .owl-dots {
+    position: absolute;
+    bottom: 0;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+    transform: translate(var(--eead-slider-dots-offset-x, 0), var(--eead-slider-dots-offset-y, 0));
+}
+
+.eead-slider .owl-dots .owl-dot {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    height: auto;
+    min-height: 0;
+}
+
+.eead-slider .owl-dots span {
+    display: block;
+    background: var(--eead-pri-color);
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    transition: all ease 0.3s;
 }
 
 .eead-slider .owl-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
     width: 100%;
-    height: 40px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
 }
 
-.eead-slider .owl-nav button.owl-prev,
-.eead-slider .owl-nav button.owl-next {
-    width: 40px;
-    height: 40px;
-    background: #eb3e32;
-    text-align: center;
-    color: #fff;
-    font-size: 32px;
-    line-height: 40px;
+.eead-slider.owl-carousel .owl-nav .owl-prev,
+.eead-slider.owl-carousel .owl-nav .owl-next {
     position: absolute;
-}
-
-.eead-slider:hover .owl-nav {
-    opacity: 1;
-    visibility: visible;
+    width: 35px;
+    height: 35px;
+    font-size: 34px;
+    line-height: 1;
+    background: var(--eead-pri-color);
+    color: #fff;
+    transition: all ease 0.3s;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .eead-slider .owl-nav button.owl-prev {
-    left: -40px;
+    left: 0;
+    transform: translate(calc(var(--eead-slider-nav-offset-x, 0) * -1), var(--eead-slider-nav-offset-y, 0));
 }
 
 .eead-slider .owl-nav button.owl-next {
-    right: -40px;
+    right: 0;
+    transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
 }
 
-
-.eead-slider .owl-dots {
-    text-align: center;
-    margin-top: 10px;
+.eead-slider.eead-slider-show-nav-hover-on .owl-nav {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.eead-slider .owl-dots button.owl-dot {
-    width: 15px;
-    height: 15px;
-    background: #eb3e32;
-    border: 2px solid #eb3e32;
-    margin: 0 3px;
-    transition: all ease 0.4s;
-    -webkit-transition: all ease 0.4s;
+.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav {
+    opacity: 1;
 }
 
-.eead-slider .owl-dots button.owl-dot.active,
-.eead-slider .owl-dots button.owl-dot:hover {
-    background: transparent;
-    width: 20px;
+.eead-slider.eead-slider-show-nav-hover-on .owl-nav button.owl-prev {
+    left: -20px;
 }
 
+.eead-slider.eead-slider-show-nav-hover-on .owl-nav button.owl-next {
+    right: -20px;
+}
 
+.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav button.owl-prev {
+    left: 0;
+}
+
+.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav button.owl-next {
+    right: 0;
+}
 
 
 
@@ -8287,7 +8309,7 @@ span.eead-threesixty-rotation-magnify {
 .eead-twitter-feed-carousel .owl-dots span {
     display: block;
     background: transparent;
-    border: 2px solid #009dea;
+    border: 2px solid var(--eead-pri-color);
     height: 15px;
     width: 15px;
     margin: 0 4px;
@@ -8299,7 +8321,7 @@ span.eead-threesixty-rotation-magnify {
 
 .eead-twitter-feed-carousel .owl-dots .owl-dot:hover span,
 .eead-twitter-feed-carousel .owl-dots .owl-dot.active span {
-    background: #009dea;
+    background: var(--eead-pri-color);
 }
 
 .eead-twitter-feed-carousel .owl-nav {
