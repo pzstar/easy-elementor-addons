@@ -314,13 +314,13 @@ class Accordion extends Widget_Base {
         );
 
         $this->add_control(
-			'open_close_icon_header',
-			[
-				'label' => esc_html__( 'Open/Close Icon', 'textdomain' ),
-				'type' => Controls_Manager::HEADING,
+            'open_close_icon_header',
+            [
+                'label' => esc_html__('Open/Close Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
                 'separator' => 'before'
-			]
-		);
+            ]
+        );
 
         $this->add_control(
             'icon_size', [
@@ -368,7 +368,7 @@ class Accordion extends Widget_Base {
 
         $this->start_controls_tab(
             'title_normal_tab', [
-                'label' => esc_html__('Normal', 'textdomain')
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
             ]
         );
 
@@ -416,7 +416,7 @@ class Accordion extends Widget_Base {
 
         $this->start_controls_tab(
             'title_active_tab', [
-                'label' => esc_html__('Active', 'textdomain')
+                'label' => esc_html__('Active', 'easy-elementor-addons')
             ]
         );
 

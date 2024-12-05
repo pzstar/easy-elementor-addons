@@ -11,6 +11,7 @@ use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Text_Shadow;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -113,11 +114,13 @@ class Slider extends Widget_Base {
                 'default' => [
                     [
                         'slider_title' => esc_html__('Slider #1', 'easy-elementor-addons'),
-                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        'slider_button_link' => '#'
                     ],
                     [
                         'slider_title' => esc_html__('Slider #2', 'easy-elementor-addons'),
-                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                        'slider_sub_title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        'slider_button_link' => '#'
                     ]
                 ],
                 'title_field' => '{{{ slider_title }}}'
@@ -190,7 +193,7 @@ class Slider extends Widget_Base {
         $this->add_control(
             'slider_setting_heading',
             [
-                'label' => esc_html__('Slider Settings', 'textdomain'),
+                'label' => esc_html__('Slider Settings', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -300,7 +303,7 @@ class Slider extends Widget_Base {
         $this->add_control(
             'title_heading',
             [
-                'label' => esc_html__('Title', 'textdomain'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
@@ -367,7 +370,7 @@ class Slider extends Widget_Base {
         $this->add_control(
             'sub_title_heading',
             [
-                'label' => esc_html__('Sub Title', 'textdomain'),
+                'label' => esc_html__('Sub Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -435,7 +438,7 @@ class Slider extends Widget_Base {
         $this->add_control(
             'button_heading',
             [
-                'label' => esc_html__('Button', 'textdomain'),
+                'label' => esc_html__('Button', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -504,7 +507,7 @@ class Slider extends Widget_Base {
 
         $this->start_controls_section(
             'slider_style', [
-                'label' => esc_html__('Slider', 'easy-elementor-addons'),
+                'label' => esc_html__('Slider Overlay', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -770,7 +773,6 @@ class Slider extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
-                'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .eead-slide-caption' => 'text-align: {{VALUE}};',
                 ],
@@ -870,6 +872,13 @@ class Slider extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(), [
+                'name' => 'title_shadow',
+                'selector' => '{{WRAPPER}} .eead-slide-cap-title'
+            ]
+        );
+
         $this->add_responsive_control(
             'title_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
@@ -936,6 +945,13 @@ class Slider extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'sub_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
+                'selector' => '{{WRAPPER}} .eead-slide-cap-desc'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(), [
+                'name' => 'sub_title_shadow',
                 'selector' => '{{WRAPPER}} .eead-slide-cap-desc'
             ]
         );
@@ -1190,6 +1206,7 @@ class Slider extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
+                'default' => 'center',
                 'selectors_dictionary' => [
                     'left' => 'left:0',
                     'right' => 'right:0',
@@ -1203,7 +1220,7 @@ class Slider extends Widget_Base {
 
         $this->add_responsive_control(
             'dots_translate_x', [
-                'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
+                'label' => esc_html__('Horizontal Offset (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1227,7 +1244,7 @@ class Slider extends Widget_Base {
 
         $this->add_responsive_control(
             'dots_translate_y', [
-                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
+                'label' => esc_html__('Vertical Offset (px)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1237,7 +1254,7 @@ class Slider extends Widget_Base {
                     ]
                 ],
                 'default' => [
-                    'size' => 0,
+                    'size' => -20,
                     'unit' => 'px'
                 ],
                 'selectors' => [
@@ -1396,8 +1413,15 @@ class Slider extends Widget_Base {
         );
 
         $this->add_control(
+            'show_on_hover', [
+                'label' => esc_html__('Show on Hover Only', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER
+            ]
+        );
+
+        $this->add_control(
             'arrow_position', [
-                'label' => esc_html__('Slider Arrow Position', 'easy-elementor-addons'),
+                'label' => esc_html__('Arrow Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'bottom-center',
                 'options' => [
@@ -1410,9 +1434,20 @@ class Slider extends Widget_Base {
         );
 
         $this->add_control(
-            'show_on_hover', [
-                'label' => esc_html__('Show on Hover', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER
+            'arrow_orientation', [
+                'label' => esc_html__('Arrow Orientation', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'row',
+                'options' => [
+                    'row' => esc_html__('Horizontal', 'easy-elementor-addons'),
+                    'column' => esc_html__('Vertical', 'easy-elementor-addons'),
+                ],
+                'condition' => [
+                    'arrow_position' => ['bottom-left', 'bottom-right']
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slider .owl-nav' => 'flex-direction: {{VALUE}};'
+                ]
             ]
         );
 
@@ -1496,6 +1531,9 @@ class Slider extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slider' => '--eead-slider-nav-offset-x:{{SIZE}}{{UNIT}};'
+                ],
+                'condition' => [
+                    'arrow_position!' => 'bottom-center'
                 ]
             ]
         );
@@ -1517,6 +1555,30 @@ class Slider extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-slider' => '--eead-slider-nav-offset-y:{{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_spacing', [
+                'label' => esc_html__('Arrows Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 10,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-slider-nav-bottom-center .eead-slider .owl-nav' => 'gap:{{SIZE}}{{UNIT}};'
+                ],
+                'condition' => [
+                    'arrow_position!' => 'middle-center'
                 ]
             ]
         );

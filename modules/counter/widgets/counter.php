@@ -362,7 +362,7 @@ class Counter extends Widget_Base {
 
         $this->start_controls_tab(
             'counter_pre_tab', [
-                'label' => esc_html__('Pre Text', 'textdomain')
+                'label' => esc_html__('Pre Text', 'easy-elementor-addons')
             ]
         );
 
@@ -388,7 +388,7 @@ class Counter extends Widget_Base {
 
         $this->start_controls_tab(
             'counter_post_tab', [
-                'label' => esc_html__('Post Text', 'textdomain')
+                'label' => esc_html__('Post Text', 'easy-elementor-addons')
             ]
         );
 

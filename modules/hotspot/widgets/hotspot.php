@@ -72,7 +72,7 @@ class Hotspot extends Widget_Base {
 
         $repeater->start_controls_tab(
             'points_content', [
-                'label' => esc_html__('Content', 'textdomain'),
+                'label' => esc_html__('Content', 'easy-elementor-addons'),
             ]
         );
 
@@ -116,7 +116,7 @@ class Hotspot extends Widget_Base {
 
         $repeater->start_controls_tab(
             'points_position', [
-                'label' => esc_html__('Style/Position', 'textdomain'),
+                'label' => esc_html__('Style/Position', 'easy-elementor-addons'),
             ]
         );
 

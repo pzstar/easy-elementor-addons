@@ -391,8 +391,11 @@ class Weather extends Widget_Base {
 
         $this->start_controls_section(
             'description_style', [
-                'label' => esc_html__('Weather', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'label' => esc_html__('Weather Condition', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'hide_weather_description!' => 'yes'
+                ]
             ]
         );
 
@@ -430,7 +433,10 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'feels_like_style', [
                 'label' => esc_html__('Feels Like', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'hide_weather_description!' => 'yes'
+                ]
             ]
         );
 
@@ -577,7 +583,7 @@ class Weather extends Widget_Base {
         $this->start_controls_tab(
             'param_label_tab',
             [
-                'label' => esc_html__('Label', 'textdomain'),
+                'label' => esc_html__('Label', 'easy-elementor-addons'),
             ]
         );
 
@@ -604,7 +610,7 @@ class Weather extends Widget_Base {
         $this->start_controls_tab(
             'param_value_tab',
             [
-                'label' => esc_html__('Value', 'textdomain'),
+                'label' => esc_html__('Value', 'easy-elementor-addons'),
             ]
         );
 
@@ -635,7 +641,10 @@ class Weather extends Widget_Base {
         $this->start_controls_section(
             'last_updated_style', [
                 'label' => esc_html__('Last Updated', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'hide_last_updated_time!' => 'yes'
+                ]
             ]
         );
 

@@ -417,7 +417,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'timeline_heading',
             [
-                'label' => esc_html__('Time Line', 'textdomain'),
+                'label' => esc_html__('Time Line', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -549,7 +549,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'meta_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['left', 'right'],
                 'size_units' => ['px', 'em', 'rem'],
@@ -634,7 +634,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'allowed_dimensions' => ['left', 'right'],
@@ -645,8 +645,8 @@ class VerticalTimeline extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-			'style_tabs'
-		);
+            'style_tabs'
+        );
 
         $this->start_controls_tab(
             'style_image_tab',
@@ -658,7 +658,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_image_heading',
             [
-                'label' => esc_html__('Image', 'textdomain'),
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
@@ -677,7 +677,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_image_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', 'rem'],
                 'selectors' => [
@@ -698,7 +698,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_title_heading',
             [
-                'label' => esc_html__('Title', 'textdomain'),
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
@@ -724,7 +724,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_title_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],
@@ -746,7 +746,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_desc_heading',
             [
-                'label' => esc_html__('Description', 'textdomain'),
+                'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::HEADING,
             ]
         );
@@ -772,7 +772,7 @@ class VerticalTimeline extends Widget_Base {
         $this->add_control(
             'content_desc_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'allowed_dimensions' => ['top', 'bottom'],
                 'size_units' => ['px', 'em', 'rem'],

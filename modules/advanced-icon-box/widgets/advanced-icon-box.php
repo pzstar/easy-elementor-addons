@@ -501,7 +501,7 @@ class AdvancedIconBox extends Widget_Base {
                     'icon_type' => 'icon',
                 ]
             ]
-        ); 
+        );
 
         $this->add_responsive_control(
             'image_width', [
@@ -680,7 +680,7 @@ class AdvancedIconBox extends Widget_Base {
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon svg' => 'fill: {{VALUE}};',
                 ],
-               'condition' => [
+                'condition' => [
                     'icon_type' => 'icon',
                 ]
             ]

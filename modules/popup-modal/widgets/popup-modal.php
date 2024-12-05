@@ -189,7 +189,7 @@ class PopupModal extends Widget_Base {
 
 		$this->add_control(
 			'trigger_image', [
-				'label' => esc_html__('Trigger Image', 'textdomain'),
+				'label' => esc_html__('Trigger Image', 'easy-elementor-addons'),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),

@@ -437,9 +437,10 @@ class HorizontalTimeline extends Widget_Base {
                     'default' => '#3858f4',
                 ],
                 'condition' => [
-                    'point_background_toggle' => 'yes'
+                    'point_background_toggle' => 'yes',
+                    'point_style' => 'stacked',
                 ],
-                'selector' => '{{WRAPPER}} .eead-htl-point > span'
+                'selector' => '{{WRAPPER}} .eead-htl-point > span',
             ]
         );
 
@@ -500,7 +501,7 @@ class HorizontalTimeline extends Widget_Base {
 
         $this->add_responsive_control(
             'point_icon_size', [
-                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'label' => esc_html__('Text/Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 21,
@@ -512,7 +513,7 @@ class HorizontalTimeline extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-htl-point i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-point > span' => 'font-size: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-htl-point svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
                     '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-point-icon-size: {{SIZE}}{{UNIT}};',
                 ]
@@ -582,6 +583,7 @@ class HorizontalTimeline extends Widget_Base {
                 'name' => 'point_typography',
                 'label' => esc_html__('Point Text Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-htl-point > span.eead-htl-point-text',
+                'exclude' => ['font_size', 'line_height']
             ]
         );
 
@@ -826,15 +828,15 @@ class HorizontalTimeline extends Widget_Base {
         );
 
         $this->start_controls_tabs(
-			'style_tabs'
-		);
+            'style_tabs'
+        );
 
         $this->start_controls_tab(
-			'style_image_tab',
-			[
-				'label' => esc_html__('Image', 'easy-elementor-addons' ),
-			]
-		);
+            'style_image_tab',
+            [
+                'label' => esc_html__('Image', 'easy-elementor-addons'),
+            ]
+        );
 
         $this->add_control(
             'content_image_heading',
@@ -869,12 +871,12 @@ class HorizontalTimeline extends Widget_Base {
 
         $this->end_controls_tab();
 
-		$this->start_controls_tab(
-			'style_title_tab',
-			[
-				'label' => esc_html__('Title', 'easy-elementor-addons' ),
-			]
-		);
+        $this->start_controls_tab(
+            'style_title_tab',
+            [
+                'label' => esc_html__('Title', 'easy-elementor-addons'),
+            ]
+        );
 
         $this->add_control(
             'content_title_heading',
@@ -915,14 +917,14 @@ class HorizontalTimeline extends Widget_Base {
             ]
         );
 
-		$this->end_controls_tab();
+        $this->end_controls_tab();
 
-		$this->start_controls_tab(
-			'style_desc_tab',
-			[
-				'label' => esc_html__( 'Desc', 'easy-elementor-addons' ),
-			]
-		);
+        $this->start_controls_tab(
+            'style_desc_tab',
+            [
+                'label' => esc_html__('Desc', 'easy-elementor-addons'),
+            ]
+        );
 
         $this->add_control(
             'content_desc_heading',

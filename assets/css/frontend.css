@@ -4006,6 +4006,8 @@ Horizontal Time Line
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    line-height: 1;
+    position: relative;
 }
 
 .eead-htl-point:before,
@@ -4016,12 +4018,8 @@ Horizontal Time Line
     background: #000;
 }
 
-.eead-htl-point > span {
-    position: relative;
-}
-
 .eead-htl-point > span i {
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .eead-htl-point > span:after {
@@ -6653,14 +6651,23 @@ Weather
 .eead-weather-container.eead-style3 .eead-weather-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .eead-weather-container.eead-style3 .eead-weather-detail {
     text-align: right;
 }
 
+.eead-weather-container.eead-style3 .eead-weather-icon{
+    margin: 0;
+}
+
 .eead-weather-container.eead-style3 .eead-weather-icon i {
     font-size: 60px;
+}
+
+.eead-weather-container.eead-style3 .eead-weather-temperature:last-child{
+    margin-bottom: 0;
 }
 
 .eead-weather-container.eead-style3 .eead-weather-label:after {
@@ -6878,10 +6885,6 @@ Vertical Time Line
 /*--------------------------------------------------------------
 Slider
 --------------------------------------------------------------*/
-.eead-slider{
-    overflow-x: hidden;
-}
-
 .eead-slide {
     position: relative;
     width: 100%;
@@ -6933,7 +6936,6 @@ Slider
 
 .eead-slide .eead-slide-caption {
     position: absolute;
-    padding: 20px 15px;
     max-width: 100%;
     transform: translate(var(--eead-slider-caption-h, 0px), var(--eead-slider-caption-v, 0px));
     text-align: var(--eead-slider-caption-text-align, center);
@@ -6992,16 +6994,8 @@ Slider
     transition: all ease 0.3s;
 }
 
-.eead-slider .owl-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-}
-
 .eead-slider.owl-carousel .owl-nav .owl-prev,
 .eead-slider.owl-carousel .owl-nav .owl-next {
-    position: absolute;
     width: 35px;
     height: 35px;
     font-size: 34px;
@@ -7016,12 +7010,52 @@ Slider
     line-height: 1;
 }
 
-.eead-slider .owl-nav button.owl-prev {
+.eead-slider-nav-middle-center .owl-nav {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.eead-slider-nav-bottom-left .eead-slider .owl-nav {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    left: 20px;
+    bottom: 20px;
+    gap: 10px;
+    transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
+}
+
+.eead-slider-nav-bottom-right .eead-slider .owl-nav {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    right: 20px;
+    bottom: 20px;
+    gap: 10px;
+    transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
+}
+
+.eead-slider-nav-bottom-center .eead-slider .owl-nav {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    left: 50%;
+    bottom: 20px;
+    gap: 10px;
+    transform: translate(-50%, var(--eead-slider-nav-offset-y, 0));
+}
+
+.eead-slider-nav-middle-center .eead-slider .owl-nav button.owl-prev {
+    position: absolute;
     left: 0;
     transform: translate(calc(var(--eead-slider-nav-offset-x, 0) * -1), var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider .owl-nav button.owl-next {
+.eead-slider-nav-middle-center .eead-slider .owl-nav button.owl-next {
+    position: absolute;
     right: 0;
     transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
 }

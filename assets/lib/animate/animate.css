@@ -5359,6 +5359,11 @@ Copyright (c) 2015 Daniel Eden
     animation-name: swing-in-left-fwd;
 }
 
+.swing-in-right-fwd {
+    -webkit-animation-name: swing-in-right-fwd;
+    animation-name: swing-in-right-fwd;
+}
+
 .puff-in-center {
     -webkit-animation-name: puff-in-center;
     animation-name: puff-in-center;

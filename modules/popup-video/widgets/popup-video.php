@@ -94,7 +94,7 @@ class PopupVideo extends Widget_Base {
 
         $this->add_control(
             'custom_video', [
-                'label' => esc_html__('Upload Video', 'textdomain'),
+                'label' => esc_html__('Upload Video', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'media_types' => ['video'],
                 'condition' => [
@@ -175,7 +175,7 @@ class PopupVideo extends Widget_Base {
 
         $this->add_control(
             'play_image', [
-                'label' => esc_html__('Play Image', 'textdomain'),
+                'label' => esc_html__('Play Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -352,7 +352,7 @@ class PopupVideo extends Widget_Base {
 
         $this->add_control(
             'video_poster', [
-                'label' => esc_html__('Upload Poster Image', 'textdomain'),
+                'label' => esc_html__('Upload Poster Image', 'easy-elementor-addons'),
                 'type' => Controls_Manager::MEDIA,
                 'condition' => [
                     'enable_video_poster' => 'yes'
