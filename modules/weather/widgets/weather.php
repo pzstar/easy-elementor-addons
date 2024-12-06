@@ -124,7 +124,7 @@ class Weather extends Widget_Base {
 
         $this->add_control(
             'hide_weather_description', [
-                'label' => esc_html__('Hide Description', 'easy-elementor-addons'),
+                'label' => esc_html__('Hide Weather Condition', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
             ]
