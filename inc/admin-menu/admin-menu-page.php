@@ -248,15 +248,6 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
             <h3>Support:</h3>
             <p>If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website <a href="https://hashthemes.com/" target="_blank">here</a>.</p>
 
-
-            <h3>Installation</h3>
-            <p>The easy way to install the plugin is via WordPress.org plugin directory.</p>
-
-            <ol>
-                <li>Go to WordPress Dashboard > Plugins > Add New</li>
-                <li>Search for "Easy Elementor Addons" and install the plugin.</li>
-                <li>Activate Plugin from "Plugins" menu in WordPress.</li>
-            </ol>
             <p style="height:40px;"></p>
         </div>
 
