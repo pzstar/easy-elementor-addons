@@ -106,8 +106,6 @@ class Weather extends Widget_Base {
                 'label' => esc_html__('Cache Expiration(sec)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'description' => esc_html__('Please set the expiration time in seconds.', 'easy-elementor-addons'),
-                'min' => 10,
-                'max' => 86400,
                 'step' => 1,
                 'default' => 3600
             ]

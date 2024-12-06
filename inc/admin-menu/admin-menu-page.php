@@ -38,6 +38,9 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                         <div class="eead-settings-input-field">
                             <input type="text" name="gmap_access_token" placeholder="Enter Your Gmap Access Token" value="<?php echo esc_attr($gmap_access_token); ?>">
                         </div>
+                        <div class="eead-desc">
+                            <?php esc_html_e('Tutorial to create ', 'easy-elementor-addons'); ?> <a target="_blank" href="https://hashthemes.com/articles/create-a-google-maps-api-key/" target="_blank"><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons'); ?></a>
+                        </div>
                     </div>
 
                     <div class="eead-settings-field">
@@ -46,7 +49,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                             <input type="text" name="weather_api_key" placeholder="Enter Your API Key" value="<?php echo esc_attr($weather_api_key); ?>">
                         </div>
                         <div class="eead-desc">
-                        <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a target="_blank" href="https://weatherstack.com/quickstart" target="_blank">here</a>
+                            <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a target="_blank" href="https://weatherstack.com/quickstart" target="_blank">here</a>
                         </div>
                     </div>
                 </div>

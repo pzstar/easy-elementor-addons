@@ -514,7 +514,7 @@ class HorizontalTimeline extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-htl-point > span' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-htl-point svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+                    '{{WRAPPER}} .eead-htl-point svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-horizontal-timeline' => '--eead-htl-point-icon-size: {{SIZE}}{{UNIT}};',
                 ]
             ]

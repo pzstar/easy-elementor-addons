@@ -429,9 +429,9 @@ class VerticalTab extends Widget_Base {
                     ]
                 ],
                 'selectors_dictionary' => [
-                    'top' => 'flex-direction: column',
+                    'top' => 'flex-direction: column; text-align: center;',
                     'left' => 'flex-direction: row',
-                    'right' => 'flex-direction: row-reverse',
+                    'right' => 'flex-direction: row-reverse; text-align: right;',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => '{{VALUE}}',
