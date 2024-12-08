@@ -3958,43 +3958,10 @@ Copyright (c) 2015 Daniel Eden
 
 /**
    * ----------------------------------------
-   * animation flip-in-hor-bottom
+   * animation flip-in-hor
    * ----------------------------------------
    */
-@-webkit-keyframes flip-in-hor-bottom {
-    0% {
-        -webkit-transform: rotateX(80deg);
-        transform: rotateX(80deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: rotateX(0);
-        transform: rotateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes flip-in-hor-bottom {
-    0% {
-        -webkit-transform: rotateX(80deg);
-        transform: rotateX(80deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: rotateX(0);
-        transform: rotateX(0);
-        opacity: 1;
-    }
-}
-
-/**
-   * ----------------------------------------
-   * animation flip-in-hor-top
-   * ----------------------------------------
-   */
-@-webkit-keyframes flip-in-hor-top {
+@-webkit-keyframes flip-in-hor {
     0% {
         -webkit-transform: rotateX(-80deg);
         transform: rotateX(-80deg);
@@ -4008,7 +3975,7 @@ Copyright (c) 2015 Daniel Eden
     }
 }
 
-@keyframes flip-in-hor-top {
+@keyframes flip-in-hor {
     0% {
         -webkit-transform: rotateX(-80deg);
         transform: rotateX(-80deg);
@@ -4024,43 +3991,10 @@ Copyright (c) 2015 Daniel Eden
 
 /**
    * ----------------------------------------
-   * animation flip-in-ver-right
+   * animation flip-in-ver
    * ----------------------------------------
    */
-@-webkit-keyframes flip-in-ver-right {
-    0% {
-        -webkit-transform: rotateY(-80deg);
-        transform: rotateY(-80deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: rotateY(0);
-        transform: rotateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes flip-in-ver-right {
-    0% {
-        -webkit-transform: rotateY(-80deg);
-        transform: rotateY(-80deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: rotateY(0);
-        transform: rotateY(0);
-        opacity: 1;
-    }
-}
-
-/**
-   * ----------------------------------------
-   * animation flip-in-ver-left
-   * ----------------------------------------
-   */
-@-webkit-keyframes flip-in-ver-left {
+@-webkit-keyframes flip-in-ver {
     0% {
         -webkit-transform: rotateY(80deg);
         transform: rotateY(80deg);
@@ -4074,7 +4008,7 @@ Copyright (c) 2015 Daniel Eden
     }
 }
 
-@keyframes flip-in-ver-left {
+@keyframes flip-in-ver {
     0% {
         -webkit-transform: rotateY(80deg);
         transform: rotateY(80deg);
@@ -4819,8 +4753,8 @@ Copyright (c) 2015 Daniel Eden
    */
 @-webkit-keyframes bounce-in-bck {
     0% {
-        -webkit-transform: scale(7);
-        transform: scale(7);
+        -webkit-transform: scale(3);
+        transform: scale(3);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
         opacity: 0;
@@ -4879,8 +4813,8 @@ Copyright (c) 2015 Daniel Eden
 
 @keyframes bounce-in-bck {
     0% {
-        -webkit-transform: scale(7);
-        transform: scale(7);
+        -webkit-transform: scale(3);
+        transform: scale(3);
         -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
         opacity: 0;
@@ -5294,24 +5228,19 @@ Copyright (c) 2015 Daniel Eden
     animation-name: rotate-in-2-fwd-ccw;
 }
 
-.flip-in-hor-top {
-    -webkit-animation-name: flip-in-hor-top;
-    animation-name: flip-in-hor-top;
+.rotate-in-hor {
+    -webkit-animation-name: rotate-in-hor;
+    animation-name: rotate-in-hor;
 }
 
-.flip-in-hor-bottom {
-    -webkit-animation-name: flip-in-hor-bottom;
-    animation-name: flip-in-hor-bottom;
+.flip-in-hor {
+    -webkit-animation-name: flip-in-hor;
+    animation-name: flip-in-hor;
 }
 
-.flip-in-ver-left {
-    -webkit-animation-name: flip-in-ver-left;
-    animation-name: flip-in-ver-left;
-}
-
-.flip-in-ver-right {
-    -webkit-animation-name: flip-in-ver-right;
-    animation-name: flip-in-ver-right;
+.flip-in-ver {
+    -webkit-animation-name: flip-in-ver;
+    animation-name: flip-in-ver;
 }
 
 .bounce-in-top {
