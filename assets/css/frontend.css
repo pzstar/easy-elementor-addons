@@ -3229,7 +3229,7 @@ Link Effects
     position: relative;
     display: inline-block;
     padding: var(--eead-link-button-padding, 10px 20px);
-    background: var(--eead-link-effect-border-color, #2195de);
+    background: var(--eead-link-effect-bg-color, var(--eead-pri-color));
     color: var(--eead-link-effect-color-alt, #FFF);
     transition: transform 0.3s;
     transform-origin: 50% 0;
@@ -3242,8 +3242,8 @@ Link Effects
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--eead-link-effect-bg-color, #2195de);
-    color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-alt-color, #FFF));
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, var(--eead-pri-color)));
+    color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     transition: background 0.3s;
     transform: rotateX(-90deg);
@@ -3258,7 +3258,7 @@ Link Effects
 
 .eead-link-effect-4:hover span:before,
 .eead-link-effect-4:focus span:before {
-    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, var(--eead-pri-color)));
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
 }
 
@@ -3466,7 +3466,7 @@ Link Effects
 
 .eead-link-effect-10 span {
     display: block;
-    background: var(--eead-link-effect-bg-color, #2195de);
+    background: var(--eead-link-effect-bg-color, var(--eead-pri-color));
     color: var(--eead-link-effect-color-alt, #FFF);
     padding: var(--eead-link-button-padding, 10px 15px);
     transform: translateX(0);
@@ -3480,7 +3480,7 @@ Link Effects
     z-index: -1;
     width: 100%;
     height: 100%;
-    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, var(--eead-pri-color)));
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     padding: var(--eead-link-button-padding, 10px 15px);
@@ -3807,7 +3807,7 @@ Link Effects
     display: inline-block;
     width: 100%;
     padding: var(--eead-link-button-padding, 10px 20px);
-    background: var(--eead-link-effect-bg-color, #2195de);
+    background: var(--eead-link-effect-bg-color, var(--eead-pri-color));
     color: var(--eead-link-effect-color-alt, #FFF);
     transition: transform 0.4s, background 0.4s;
     transform-style: preserve-3d;
@@ -3821,7 +3821,7 @@ Link Effects
     width: 100%;
     height: 100%;
     padding: var(--eead-link-button-padding, 10px 20px);
-    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, var(--eead-pri-color)));
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     transition: background 0.4s;
@@ -3846,7 +3846,7 @@ Link Effects
     display: inline-block;
     text-align: center;
     padding: var(--eead-link-button-padding, 10px 20px);
-    background: var(--eead-link-effect-bg-color, #2195de);
+    background: var(--eead-link-effect-bg-color, var(--eead-pri-color));
     color: var(--eead-link-effect-color-alt, #FFF);
     transition: background 0.6s;
     transform-origin: 50% 0;
@@ -3861,7 +3861,7 @@ Link Effects
     width: 100%;
     height: 100%;
     padding: var(--eead-link-button-padding, 10px 20px);
-    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, #2195de));
+    background: var(--eead-link-effect-bg-color-hover, var(--eead-link-effect-bg-color, var(--eead-pri-color)));
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
     content: attr(data-hover);
     transform: rotateX(270deg);
