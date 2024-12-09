@@ -453,6 +453,7 @@ class VerticalTab extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
