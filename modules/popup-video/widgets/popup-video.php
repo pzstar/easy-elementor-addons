@@ -166,7 +166,6 @@ class PopupVideo extends Widget_Base {
                     'value' => 'fa fa-play',
                     'library' => 'fa-solid',
                 ],
-                'label_block' => true,
                 'condition' => [
                     'trigger_type' => ['button', 'icon']
                 ]
@@ -218,7 +217,6 @@ class PopupVideo extends Widget_Base {
                     'value' => 'fa fa-play',
                     'library' => 'fa-solid',
                 ],
-                'label_block' => true,
                 'condition' => [
                     'trigger_type' => 'image',
                     'enable_image_play_icon' => 'yes'

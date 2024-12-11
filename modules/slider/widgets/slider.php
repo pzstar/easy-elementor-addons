@@ -1696,7 +1696,6 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
                 'label_block' => false,
-                'exclude_inline_options' => ['svg'],
                 'separator' => 'before'
             ]
         );
@@ -1706,8 +1705,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Custom Next Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
-                'label_block' => false,
-                'exclude_inline_options' => ['svg']
+                'label_block' => false
             ]
         );
 

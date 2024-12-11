@@ -259,6 +259,8 @@ class VideoPlayer extends Widget_Base {
             'play_button_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => [
                     'value' => 'eicon-play-o',
                     'library' => 'solid',

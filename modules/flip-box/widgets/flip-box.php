@@ -104,7 +104,6 @@ class FlipBox extends Widget_Base {
             'box_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon',
                 'default' => [
                     'value' => 'fa fa-diamond',
                     'library' => 'fa-solid',

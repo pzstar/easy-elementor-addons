@@ -906,7 +906,7 @@ class TeamMemberCarousel extends Widget_Base {
             'select_arrow', [
                 'label' => esc_html__('Choose Arrow', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'arrow',
+                'skin' => 'inline',
                 'label_block' => false,
                 'default' => array(
                     'value' => 'fas fa-angle-right',

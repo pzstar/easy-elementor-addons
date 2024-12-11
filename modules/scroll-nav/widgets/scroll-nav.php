@@ -72,7 +72,6 @@ class ScrollNav extends Widget_Base {
             'scroll_nav_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'nav_icon'
             ]
         );
 

@@ -44,7 +44,8 @@ class StepFlow extends Widget_Base {
             'selected_icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'label_block' => true,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => [
                     'value' => 'fa fa-star',
                     'library' => 'fa-solid',

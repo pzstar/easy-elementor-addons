@@ -200,7 +200,8 @@ class TeamMember extends Widget_Base {
             'select_social_icon', [
                 'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'label_block' => true,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => array(
                     'value' => 'fas fa-hashtag',
                     'library' => 'fa-solid',

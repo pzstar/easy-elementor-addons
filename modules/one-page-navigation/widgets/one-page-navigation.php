@@ -48,7 +48,6 @@ class OnePageNavigation extends Widget_Base {
             'select_dot_icon', [
                 'label' => esc_html__('Navigation Dot', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'dot_icon',
                 'default' => [
                     'value' => 'fa fa-circle',
                     'library' => 'fa-solid',

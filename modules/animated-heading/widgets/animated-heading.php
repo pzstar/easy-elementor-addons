@@ -250,8 +250,8 @@ class AnimatedHeading extends Widget_Base {
         );
 
         $this->add_control(
-            'loop', [
-                'label' => esc_html__('Loop', 'easy-elementor-addons'),
+            'infinite_loop', [
+                'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes'
             ]
@@ -262,7 +262,10 @@ class AnimatedHeading extends Widget_Base {
                 'label' => esc_html__('Loop Count', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 0,
-                'min' => 0
+                'min' => 1,
+                'condition' => [
+                    'infinite_loop!' => 'yes'
+                ]
             ]
         );
 
@@ -293,7 +296,7 @@ class AnimatedHeading extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-ah-heading .eead-animated-heading' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-ah-heading .eead-animated-heading, {{WRAPPER}} .eead-ah-heading .typed-cursor' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -344,13 +347,13 @@ class AnimatedHeading extends Widget_Base {
                     'data-settings' => [
                         wp_json_encode(array_filter([
                             'layout' => $settings['layout'],
-                            'strings' => $type_heading,
+                            'strings' => array_merge([''], $type_heading),
                             'typeSpeed' => $settings['type_speed'],
                             'startDelay' => $settings['start_delay'],
                             'backSpeed' => $settings['back_speed'],
                             'backDelay' => $settings['back_delay'],
-                            'loop' => $settings['loop'] ? true : false,
-                            'loopCount' => $settings['loop_count'] ? $settings['loop_count'] : '0',
+                            'loop' => $settings['infinite_loop'] == 'yes' ? true : false,
+                            'loopCount' => $settings['infinite_loop'] == 'yes' ? false : $settings['loop_count'],
                         ]))
                     ]
                 ]

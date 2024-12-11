@@ -103,11 +103,12 @@ class Switcher extends Widget_Base {
             'icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => [
                     'value' => 'fa fa-star',
                     'library' => 'solid',
                 ],
-                'skin' => 'inline'
             ]
         );
 

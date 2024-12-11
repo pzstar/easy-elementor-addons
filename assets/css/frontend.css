@@ -5045,6 +5045,7 @@ Popup Modal
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 .eead-popup-modal .modal__close span {

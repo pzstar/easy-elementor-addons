@@ -89,7 +89,6 @@ class IconList extends Widget_Base {
             'icon', [
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'label_block' => true,
                 'default' => array(
                     'value' => 'fa fa-check',
                     'library' => 'fa-solid',

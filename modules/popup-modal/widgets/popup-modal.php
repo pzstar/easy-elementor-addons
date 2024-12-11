@@ -180,7 +180,8 @@ class PopupModal extends Widget_Base {
 					'value' => 'fa fa-search',
 					'library' => 'fa-solid',
 				],
-				'label_block' => true,
+				'skin' => 'inline',
+                'label_block' => false,
 				'condition' => [
 					'trigger_type' => ['button', 'icon']
 				]
@@ -232,7 +233,8 @@ class PopupModal extends Widget_Base {
 					'value' => 'fa fa-search',
 					'library' => 'fa-solid',
 				],
-				'label_block' => true,
+				'skin' => 'inline',
+                'label_block' => false,
 				'condition' => [
 					'trigger_type' => 'image',
 					'enable_image_trigger_icon' => 'yes'
@@ -1096,16 +1098,16 @@ class PopupModal extends Widget_Base {
 
 		$this->add_responsive_control(
 			'close_button_align', [
-				'label' => esc_html__('Alignment', 'easy-elementor-addons'),
+				'label' => esc_html__('Position', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
 						'title' => esc_html__('Left', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-left',
+						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
 						'title' => esc_html__('Right', 'easy-elementor-addons'),
-						'icon' => 'eicon-text-align-right',
+						'icon' => 'eicon-h-align-right',
 					]
 				],
 				'toggle' => false,

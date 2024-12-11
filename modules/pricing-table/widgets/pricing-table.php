@@ -103,6 +103,8 @@ class PricingTable extends Widget_Base {
             'feature_icon', [
                 'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => [
                     'value' => 'fa fa-check',
                     'library' => 'solid'
@@ -171,6 +173,8 @@ class PricingTable extends Widget_Base {
             'header_icon', [
                 'label' => esc_html__('Header Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
                 'default' => [
                     'value' => 'fas fa-home',
                     'library' => 'solid'
