@@ -54,7 +54,6 @@ odometerOptions = {auto: false};
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
                 'eead-team-member-carousel.default': EEA.teamMemberCarouselBlock,
-                'eead-twitter-feed-carousel.default': EEA.twitterFeedCarousel,
             };
 
             $.each(widgets, function (widget, callback) {
@@ -1423,40 +1422,6 @@ odometerOptions = {auto: false};
             });
         },
 
-        twitterFeedCarousel: function ($scope, $) {
-            var $ele = $scope.find('.eead-twitter-feed-carousel-slides');
-            if ($ele.length > 0) {
-                var params = JSON.parse($ele.attr('data-params'));
-                $ele.owlCarousel({
-                    loop: JSON.parse(params.loop),
-                    autoplay: JSON.parse(params.autoplay),
-                    autoplaySpeed: params.speed,
-                    autoplayTimeout: params.pause,
-                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
-                    nav: JSON.parse(params.arrows),
-                    dots: JSON.parse(params.dots),
-                    autoHeight: JSON.parse(params.auto_height),
-                    center: JSON.parse(params.center_image_bigger),
-                    responsive: {
-                        0: {
-                            items: params.items_mobile,
-                            margin: params.margin_mobile,
-                            stagePadding: params.stagepadding_mobile
-                        },
-                        480: {
-                            items: params.items_tablet,
-                            margin: params.margin_tablet,
-                            stagePadding: params.stagepadding_tablet
-                        },
-                        769: {
-                            items: params.items,
-                            margin: params.margin,
-                            stagePadding: params.stagepadding
-                        }
-                    }
-                });
-            }
-        },
 
 
 

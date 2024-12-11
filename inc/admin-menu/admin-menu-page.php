@@ -132,7 +132,6 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                     <?php //$this->get_widget_field('Tilt Hover Image', 'tilt-hover-image', 'eead-icons-'); //premium ?>
                     <?php $this->get_widget_field('Toggle', 'toggle', 'eead-icons-toggle'); ?>
                     <?php $this->get_widget_field('Twitter Feed', 'twitter-feed', 'eead-icons-twitter-x'); ?>
-                    <?php $this->get_widget_field('Twitter Feed Carousel', 'twitter-feed-carousel', 'eead-icons-twitter-x'); ?>
                     <?php $this->get_widget_field('Vertical Tab', 'vertical-tab', 'eead-icons-vertical-tab'); ?>
                     <?php $this->get_widget_field('Vertical Timeline', 'vertical-timeline', 'eead-icons-vertical-timeline'); ?>
                     <?php $this->get_widget_field('Video Player', 'video-player', 'eead-icons-video-player'); ?>

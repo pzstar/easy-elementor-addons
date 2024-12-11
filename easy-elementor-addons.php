@@ -187,7 +187,6 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 //'tilt-hover-image', //premium
                 'toggle',
                 'twitter-feed',
-                'twitter-feed-carousel',
                 'vertical-tab',
                 'vertical-timeline',
                 'video-player',
