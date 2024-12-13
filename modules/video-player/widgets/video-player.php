@@ -263,7 +263,6 @@ class VideoPlayer extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'eicon-play-o',
-                    'library' => 'solid',
                 ],
                 'condition' => [
                     'show_play_button' => 'yes'

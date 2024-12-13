@@ -1379,13 +1379,13 @@ odometerOptions = {auto: false};
                     el.preventDefault();
                     var $this = $(this);
                     var $play_btn_icon = $this.find('i');
-                    if ($play_btn_icon.hasClass('fa fa-play')) {
-                        $play_btn_icon.removeClass('fa fa-play');
-                        $play_btn_icon.addClass('fa fa-stop');
+                    if ($play_btn_icon.hasClass('fa-play')) {
+                        $play_btn_icon.removeClass('fa-play');
+                        $play_btn_icon.addClass('fa-stop');
                         crl.play();
                     } else {
-                        $play_btn_icon.removeClass('fa fa-stop');
-                        $play_btn_icon.addClass('fa fa-play');
+                        $play_btn_icon.removeClass('fa-stop');
+                        $play_btn_icon.addClass('fa-play');
                         crl.stop();
                     }
                     image.remove();

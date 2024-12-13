@@ -163,7 +163,7 @@ class PopupVideo extends Widget_Base {
                 'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-play',
+                    'value' => 'fas fa-play',
                     'library' => 'fa-solid',
                 ],
                 'condition' => [
@@ -214,7 +214,7 @@ class PopupVideo extends Widget_Base {
                 'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-play',
+                    'value' => 'fas fa-play',
                     'library' => 'fa-solid',
                 ],
                 'condition' => [
@@ -533,7 +533,7 @@ class PopupVideo extends Widget_Base {
             'icon_style', [
                 'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'default',
+                'default' => 'stacked',
                 'label_block' => false,
                 'options' => [
                     'default' => esc_html__('Default', 'easy-elementor-addons'),
@@ -559,7 +559,6 @@ class PopupVideo extends Widget_Base {
             'icon_bg_color', [
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#F1E2FF',
                 'selectors' => [
                     '{{WRAPPER}} .eead-popup-video .eead-vp-icon.eead-vp-style-stacked, {{WRAPPER}} .eead-popup-video .eead-vp-icon.eead-vp-style-stacked.eead-vp-ripple:before' => 'background: {{VALUE}};',
                 ],

@@ -126,8 +126,8 @@ class HorizontalTimeline extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fa fa-star',
-                    'library' => 'solid',
+                    'value' => 'fas fa-star',
+                    'library' => 'fa-solid',
                 ],
                 'condition' => ['point_type' => 'icon']
             ]

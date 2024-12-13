@@ -162,11 +162,11 @@ class Lottie extends Widget_Base {
                 'options' => [
                     'svg' => [
                         'title' => esc_html__('SVG', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-magic',
+                        'icon' => 'fas fa-magic',
                     ],
                     'canvas' => [
                         'title' => esc_html__('Canvas', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-chalkboard',
+                        'icon' => 'fas fa-chalkboard',
                     ]
                 ],
             ]

@@ -139,7 +139,7 @@ class CustomCursor {
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
                     'value' => 'fas fa-mouse-pointer',
-                    'library' => 'solid',
+                    'library' => 'fa-solid',
                 ),
                 'condition' => array(
                     'eead_global_cursor_switcher' => 'yes',

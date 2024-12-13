@@ -247,7 +247,7 @@ class ImageAccordion extends Widget_Base {
             'title_tag', [
                 'label' => esc_html__('Select Title Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'h2',
+                'default' => 'h3',
                 'options' => [
                     'h1' => esc_html__('H1', 'easy-elementor-addons'),
                     'h2' => esc_html__('H2', 'easy-elementor-addons'),

@@ -284,7 +284,7 @@ class StickyVideo extends Widget_Base {
                 'label' => esc_html__('Play Button Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 15,
+                    'size' => 25,
                     'unit' => 'px',
                 ],
                 'size_units' => ['px'],

@@ -278,7 +278,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Custom Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => array(
-					'value' => 'fa fa-check',
+					'value' => 'fas fa-check',
 					'library' => 'fa-solid',
 				),
 				'condition' => array(

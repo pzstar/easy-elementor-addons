@@ -57,8 +57,8 @@ class Counter extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-star',
-                    'library' => 'solid',
+                    'value' => 'fas fa-star',
+                    'library' => 'fa-solid',
                 ]
             ]
         );
@@ -255,6 +255,7 @@ class Counter extends Widget_Base {
                 'default' => '#333333',
                 'selectors' => [
                     '{{WRAPPER}} .eead-counter-box .eead-counter-icon i' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-counter-box .eead-counter-icon svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );
@@ -290,7 +291,7 @@ class Counter extends Widget_Base {
                     'size' => 30,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-counter-box .eead-counter-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-counter-box .eead-counter-icon' => 'font-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );

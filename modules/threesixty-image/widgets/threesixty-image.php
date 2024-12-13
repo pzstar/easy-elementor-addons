@@ -547,7 +547,7 @@ class ThreesixtyImage extends Widget_Base {
             <div <?php $this->print_render_attribute_string('rotation'); ?>>
                 <?php if ($settings['magnify'] === 'yes') { ?>
                     <span <?php $this->print_render_attribute_string('magnify_glass'); ?>>
-                        <i class="fa fa-search"></i>
+                        <i class="fas fa-search"></i>
                     </span>
                 <?php } ?>
 
@@ -565,7 +565,7 @@ class ThreesixtyImage extends Widget_Base {
             <?php if ($settings['auto_play'] === 'button') { ?>
                 <div class="eead-threesixty-rotation-autoplay-button">
                     <button class="eead-threesixty-rotation-play">
-                        <i aria-hidden="true" class="fa fa-play"></i>
+                        <i aria-hidden="true" class="fas fa-play"></i>
                     </button>
                 </div>
             <?php } ?>

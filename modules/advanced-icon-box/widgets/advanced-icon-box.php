@@ -71,7 +71,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-star',
+                    'value' => 'fas fa-star',
                     'library' => 'fa-solid',
                 ],
                 'render_type' => 'template',

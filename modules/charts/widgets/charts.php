@@ -539,15 +539,15 @@ class Charts extends Widget_Base {
                 'options' => array(
                     'left' => array(
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'fas fa-align-left',
                     ),
                     'center' => array(
                         'title' => esc_html__('Center', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'fas fa-align-center',
                     ),
                     'right' => array(
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'fas fa-align-right',
                     ),
                 ),
                 'selectors' => array(

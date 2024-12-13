@@ -54,8 +54,8 @@ class HorizontalTab extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fa fa-star',
-                    'library' => 'solid',
+                    'value' => 'fas fa-star',
+                    'library' => 'fa-solid',
                 ]
             ]
         );
@@ -129,24 +129,24 @@ class HorizontalTab extends Widget_Base {
                 'default' => [
                     [
                         'icon' => [
-                            'value' => 'fa fa-star',
-                            'library' => 'solid',
+                            'value' => 'fas fa-star',
+                            'library' => 'fa-solid',
                         ],
                         'title' => 'Tab Title 1',
                         'wisiwyg_content' => 'Ut posuere bibendum pretium. Nulla sit amet felis sem. Donec eu elit efficitur, vehicula quam sit amet, sodales elit. Praesent ac velit arcu. Sed volutpat vitae nulla sed fermentum. Praesent at pulvinar diam, a iaculis justo. In ullamcorper nec risus sit amet malesuada. Sed tempor, risus sit amet vestibulum dignissim, purus magna venenatis velit, sed facilisis diam arcu at leo. Donec nec lacus in ligula pretium finibus a lobortis ipsum. Nullam eu sem quis magna aliquet cursus. Nam vitae faucibus lorem. Praesent maximus, magna et volutpat scelerisque, neque quam hendrerit ante, nec eleifend est nunc a orci.'
                     ],
                     [
                         'icon' => [
-                            'value' => 'fa fa-star',
-                            'library' => 'solid',
+                            'value' => 'fas fa-star',
+                            'library' => 'fa-solid',
                         ],
                         'title' => 'Tab Title 2',
                         'wisiwyg_content' => 'Aenean facilisis accumsan nunc, vel maximus ipsum dictum ut. Sed in mauris commodo magna faucibus accumsan. Nunc non purus mi. Phasellus aliquet facilisis orci. Nullam vel tempor est. Aliquam eu elit sit amet nunc ullamcorper imperdiet. Phasellus porta egestas dolor sodales porttitor. Nunc mollis purus id nibh tempus pulvinar. In egestas et magna eu aliquam. Nunc dapibus massa metus, tempor lobortis risus cursus vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed dignissim rutrum tortor, vitae viverra augue tincidunt at. Sed leo nisl, congue ut justo in.'
                     ],
                     [
                         'icon' => [
-                            'value' => 'fa fa-star',
-                            'library' => 'solid',
+                            'value' => 'fas fa-star',
+                            'library' => 'fa-solid',
                         ],
                         'title' => 'Tab Title 3',
                         'wisiwyg_content' => 'Donec justo eros, luctus quis scelerisque id, ultricies sit amet odio. Vestibulum aliquam efficitur eleifend. Praesent dignissim faucibus ex vel sodales. Morbi aliquet libero at augue pharetra vehicula. Cras dapibus lorem efficitur nunc euismod convallis. Nunc molestie risus id lacinia consequat. Integer iaculis orci in ipsum vestibulum, non mattis justo ornare. Cras et lorem tempor ligula suscipit mollis. Nulla vitae augue non leo tempus finibus.'

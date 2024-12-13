@@ -273,7 +273,7 @@ class DualButton extends Widget_Base {
                 'exclude_inline_options' => 'none',
                 'default' => [
                     'value' => 'fas fa-plus',
-                    'library' => 'solid'
+                    'library' => 'fa-solid'
                 ],
                 'label_block' => false,
                 'condition' => [

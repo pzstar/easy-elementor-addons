@@ -106,8 +106,8 @@ class VerticalTimeline extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fa fa-star',
-                    'library' => 'solid',
+                    'value' => 'fas fa-star',
+                    'library' => 'fa-solid',
                 ]
             ]
         );
@@ -378,7 +378,7 @@ class VerticalTimeline extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-vt-point' => 'color: {{VALUE}}; border-color:  {{VALUE}};',
+                    '{{WRAPPER}} .eead-vt-point i' => 'color: {{VALUE}}; border-color:  {{VALUE}};',
                     '{{WRAPPER}} .eead-vt-point svg' => 'fill: {{VALUE}};',
                 ]
             ]

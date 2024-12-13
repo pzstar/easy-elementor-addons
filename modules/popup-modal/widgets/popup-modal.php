@@ -177,7 +177,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fa fa-search',
+					'value' => 'fas fa-search',
 					'library' => 'fa-solid',
 				],
 				'skin' => 'inline',
@@ -230,7 +230,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Trigger Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fa fa-search',
+					'value' => 'fas fa-search',
 					'library' => 'fa-solid',
 				],
 				'skin' => 'inline',

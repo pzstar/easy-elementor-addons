@@ -1423,7 +1423,7 @@ class Slider extends Widget_Base {
             'arrow_position', [
                 'label' => esc_html__('Arrow Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'bottom-center',
+                'default' => 'middle-center',
                 'options' => [
                     'bottom-left' => esc_html__('Bottom Left', 'easy-elementor-addons'),
                     'bottom-center' => esc_html__('Bottom Center', 'easy-elementor-addons'),

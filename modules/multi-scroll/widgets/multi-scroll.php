@@ -276,11 +276,11 @@ class MultiScroll extends Widget_Base {
                 'options' => array(
                     'top' => array(
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-up',
+                        'icon' => 'fas fa-long-arrow-up',
                     ),
                     'bottom' => array(
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-down',
+                        'icon' => 'fas fa-long-arrow-down',
                     ),
                 ),
                 'default' => 'top',
@@ -570,15 +570,15 @@ class MultiScroll extends Widget_Base {
                 'options' => array(
                     'top' => array(
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-up',
+                        'icon' => 'fas fa-long-arrow-up',
                     ),
                     'middle' => array(
                         'title' => esc_html__('Middle', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-align-justify',
+                        'icon' => 'fas fa-align-justify',
                     ),
                     'bottom' => array(
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-down',
+                        'icon' => 'fas fa-long-arrow-down',
                     ),
                 ),
                 'default' => 'middle',
@@ -698,15 +698,15 @@ class MultiScroll extends Widget_Base {
                 'options' => array(
                     'top' => array(
                         'title' => esc_html__('Top', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-up',
+                        'icon' => 'fas fa-long-arrow-up',
                     ),
                     'middle' => array(
                         'title' => esc_html__('Middle', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-align-justify',
+                        'icon' => 'fas fa-align-justify',
                     ),
                     'bottom' => array(
                         'title' => esc_html__('Bottom', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-long-arrow-down',
+                        'icon' => 'fas fa-long-arrow-down',
                     ),
                 ),
                 'default' => 'middle',

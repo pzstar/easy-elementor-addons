@@ -106,8 +106,8 @@ class PricingTable extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fa fa-check',
-                    'library' => 'solid'
+                    'value' => 'fas fa-check',
+                    'library' => 'fa-solid'
                 ],
             ]
         );
@@ -164,7 +164,7 @@ class PricingTable extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'fas fa-long-arrow-alt-right',
-                    'library' => 'solid'
+                    'library' => 'fa-solid'
                 ],
             ]
         );
@@ -176,8 +176,8 @@ class PricingTable extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fas fa-home',
-                    'library' => 'solid'
+                    'value' => 'fas fa-star',
+                    'library' => 'fa-solid'
                 ],
             ]
         );

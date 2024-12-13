@@ -110,8 +110,8 @@ class Portfolio extends Widget_Base {
                 'label' => esc_html__('Link Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-link',
-                    'library' => 'solid',
+                    'value' => 'fas fa-link',
+                    'library' => 'fa-solid',
                 ]
             ]
         );
@@ -141,8 +141,8 @@ class Portfolio extends Widget_Base {
                 'label' => esc_html__('Zoom Button Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-search',
-                    'library' => 'solid',
+                    'value' => 'fas fa-search',
+                    'library' => 'fa-solid',
                 ]
             ]
         );

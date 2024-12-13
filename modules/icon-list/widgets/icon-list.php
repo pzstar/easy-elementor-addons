@@ -66,7 +66,7 @@ class IconList extends Widget_Base {
                 'options' => array(
                     'none' => array(
                         'title' => esc_html__('None', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-ban',
+                        'icon' => 'fas fa-ban',
                     ),
                     'icon' => array(
                         'title' => esc_html__('Icon', 'easy-elementor-addons'),
@@ -78,7 +78,7 @@ class IconList extends Widget_Base {
                     ),
                     'number' => array(
                         'title' => esc_html__('Number', 'easy-elementor-addons'),
-                        'icon' => 'fa fa-hashtag',
+                        'icon' => 'fas fa-hashtag',
                     ),
                 ),
                 'default' => 'icon',
@@ -90,7 +90,7 @@ class IconList extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
-                    'value' => 'fa fa-check',
+                    'value' => 'fas fa-check',
                     'library' => 'fa-solid',
                 ),
                 'condition' => array(
@@ -140,15 +140,15 @@ class IconList extends Widget_Base {
                 'default' => array(
                     array(
                         'text' => esc_html__('List Item #1', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
                     ),
                     array(
                         'text' => esc_html__('List Item #2', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
                     ),
                     array(
                         'text' => esc_html__('List Item #3', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fa fa-check', 'easy-elementor-addons'),
+                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
                     ),
                 ),
                 'fields' => $repeater->get_controls(),

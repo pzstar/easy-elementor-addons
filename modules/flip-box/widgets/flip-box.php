@@ -105,7 +105,7 @@ class FlipBox extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fa-diamond',
+                    'value' => 'fas fa-star',
                     'library' => 'fa-solid',
                 ],
                 'condition' => [
@@ -223,24 +223,6 @@ class FlipBox extends Widget_Base {
                     'url' => '#',
                     'is_external' => true,
                     'nofollow' => true,
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'button_size', [
-                'label' => esc_html__('Button Size', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'sm',
-                'options' => [
-                    'xs' => esc_html__('Extra Small', 'easy-elementor-addons'),
-                    'sm' => esc_html__('Small', 'easy-elementor-addons'),
-                    'md' => esc_html__('Medium', 'easy-elementor-addons'),
-                    'lg' => esc_html__('Large', 'easy-elementor-addons'),
-                    'xl' => esc_html__('Extra Large', 'easy-elementor-addons'),
-                ],
-                'condition' => [
-                    'button_text!' => '',
                 ]
             ]
         );
@@ -1197,8 +1179,6 @@ class FlipBox extends Widget_Base {
             'class' =>
                 [
                     'eead-fb-button',
-                    'elementor-button',
-                    'elementor-size-' . $settings['button_size'],
                     $settings['button_hover_animation'] ? ' elementor-animation-' . $settings['button_hover_animation'] : ''
                 ],
             'href' => $settings['link']['url'],
