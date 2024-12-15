@@ -134,7 +134,6 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'description' => esc_html__('Please choose an icon from the list.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon',
                 'default' => [
                     'value' => 'fab fa-elementor',
                     'library' => 'brand',
@@ -243,7 +242,6 @@ class FlipBoxAdvanced extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'description' => esc_html__('Please choose an icon from the list.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon',
                 'default' => [
                     'value' => 'fab fa-wordpress',
                     'library' => 'brand',

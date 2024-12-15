@@ -6989,6 +6989,7 @@ Slider
     object-fit: cover;
     object-position: center;
     height: 100%;
+    width: 100%;
 }
 
 .eead-slide .eead-slide-caption-container {
@@ -7030,17 +7031,28 @@ Slider
     color: #fff;
 }
 
-.eead-slider .owl-dots {
+.eead-slider-container .slick-dots {
     position: absolute;
     bottom: 0;
     display: inline-flex;
+    list-style: none;
+    padding: 0;
     justify-content: center;
-    margin-top: 40px;
+    margin: 0;
     gap: 10px;
     transform: translate(var(--eead-slider-dots-offset-x, 0), var(--eead-slider-dots-offset-y, 0));
 }
 
-.eead-slider .owl-dots .owl-dot {
+.eead-slider-container .slick-dots li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.eead-slider-container .slick-dots button {
+    font-size: 0;
+    line-height: 0;
     border: 0;
     box-shadow: none;
     padding: 0;
@@ -7048,9 +7060,6 @@ Slider
     outline: 0;
     height: auto;
     min-height: 0;
-}
-
-.eead-slider .owl-dots span {
     display: block;
     background: var(--eead-pri-color);
     height: 15px;
@@ -7059,11 +7068,11 @@ Slider
     transition: all ease 0.3s;
 }
 
-.eead-slider.owl-carousel .owl-nav .owl-prev,
-.eead-slider.owl-carousel .owl-nav .owl-next {
-    width: 35px;
-    height: 35px;
-    font-size: 34px;
+.eead-slider-container .slick-nav .slick-prev,
+.eead-slider-container .slick-nav .slick-next {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
     line-height: 1;
     background: var(--eead-pri-color);
     color: #fff;
@@ -7073,9 +7082,10 @@ Slider
     align-items: center;
     justify-content: center;
     line-height: 1;
+    cursor: pointer;
 }
 
-.eead-slider-nav-middle-center .owl-nav {
+.eead-slider-nav-middle-center .slick-nav {
     position: absolute;
     top: 50%;
     display: flex;
@@ -7083,7 +7093,7 @@ Slider
     width: 100%;
 }
 
-.eead-slider-nav-bottom-left .eead-slider .owl-nav {
+.eead-slider-nav-bottom-left .slick-nav {
     position: absolute;
     display: inline-flex;
     align-items: center;
@@ -7093,7 +7103,7 @@ Slider
     transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider-nav-bottom-right .eead-slider .owl-nav {
+.eead-slider-nav-bottom-right .slick-nav {
     position: absolute;
     display: inline-flex;
     align-items: center;
@@ -7103,7 +7113,7 @@ Slider
     transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider-nav-bottom-center .eead-slider .owl-nav {
+.eead-slider-nav-bottom-center .slick-nav {
     position: absolute;
     display: inline-flex;
     align-items: center;
@@ -7113,40 +7123,40 @@ Slider
     transform: translate(-50%, var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider-nav-middle-center .eead-slider .owl-nav button.owl-prev {
+.eead-slider-nav-middle-center .slick-nav .slick-prev {
     position: absolute;
     left: 0;
     transform: translate(calc(var(--eead-slider-nav-offset-x, 0) * -1), var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider-nav-middle-center .eead-slider .owl-nav button.owl-next {
+.eead-slider-nav-middle-center .slick-nav .slick-next {
     position: absolute;
     right: 0;
     transform: translate(var(--eead-slider-nav-offset-x, 0), var(--eead-slider-nav-offset-y, 0));
 }
 
-.eead-slider.eead-slider-show-nav-hover-on .owl-nav {
+.eead-slider-show-nav-hover-on .slick-nav {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav {
+.eead-slider-show-nav-hover-on:hover .slick-nav {
     opacity: 1;
 }
 
-.eead-slider.eead-slider-show-nav-hover-on .owl-nav button.owl-prev {
+.eead-slider-show-nav-hover-on .slick-nav .slick-prev {
     left: -20px;
 }
 
-.eead-slider.eead-slider-show-nav-hover-on .owl-nav button.owl-next {
+.eead-slider-show-nav-hover-on .slick-nav .slick-next {
     right: -20px;
 }
 
-.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav button.owl-prev {
+.eead-slider-show-nav-hover-on:hover .slick-nav .slick-prev {
     left: 0;
 }
 
-.eead-slider.eead-slider-show-nav-hover-on:hover .owl-nav button.owl-next {
+.eead-slider-show-nav-hover-on:hover .slick-nav .slick-next {
     right: 0;
 }
 

@@ -270,7 +270,7 @@ class DualButton extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
-                'exclude_inline_options' => 'none',
+                'exclude_inline_options' => ['none'],
                 'default' => [
                     'value' => 'fas fa-plus',
                     'library' => 'fa-solid'

@@ -134,7 +134,6 @@ class Accordion extends Widget_Base {
             'accordion_close_icon', [
                 'label' => esc_html__('Close Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
-                'fa4compatibility' => 'icon_active',
                 'default' => [
                     'value' => 'mdi-chevron-up',
                     'library' => 'mdi',

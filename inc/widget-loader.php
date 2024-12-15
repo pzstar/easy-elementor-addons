@@ -128,6 +128,7 @@ class EEAD_Widget_Loader {
         wp_register_script('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/jquery.justifiedGallery.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('uikit', EEAD_URL . 'assets/lib/uikit/uikit.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/js/owl.carousel.min.js', ['jquery'], EEAD_VERSION, true);
+        wp_register_script('slick', EEAD_URL . 'assets/lib/slick/slick.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
         wp_register_script('tilt-anime', EEAD_URL . 'assets/lib/tilt/tilt-anime.min.js', ['jquery'], EEAD_VERSION);
         wp_register_script('tilt', EEAD_URL . 'assets/lib/tilt/tilt.js', ['jquery'], EEAD_VERSION);
@@ -195,6 +196,8 @@ class EEAD_Widget_Loader {
         wp_register_style('odometer-theme-default', EEAD_URL . 'assets/lib/odometer/odometer-theme-default.css', '', EEAD_VERSION);
         wp_register_style('light-gallery', EEAD_URL . 'assets/lib/lightgallery/lightgallery.css', array(), EEAD_VERSION);
         wp_register_style('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/css/owl.carousel.min.css', array(), EEAD_VERSION);
+        wp_register_style('slick', EEAD_URL . 'assets/lib/slick/slick.css', array(), EEAD_VERSION);
+        wp_register_style('slick-theme', EEAD_URL . 'assets/lib/slick/slick-theme.css', array(), EEAD_VERSION);
         wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
         wp_register_style('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/justifiedGallery.min.css', '', EEAD_VERSION);
         wp_register_style('weather-icons', EEAD_URL . 'assets/fonts/weather-icons/weather-icons.css', '', EEAD_VERSION);

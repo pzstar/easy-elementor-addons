@@ -39,11 +39,11 @@ class Slider extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['owlcarousel'];
+        return ['slick'];
     }
 
     public function get_script_depends() {
-        return ['owlcarousel'];
+        return ['slick'];
     }
 
     protected function register_controls() {
@@ -1141,7 +1141,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots span' => 'width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button' => 'width: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1162,7 +1162,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots span' => 'height: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button' => 'height: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1183,7 +1183,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots' => 'gap: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-dots' => 'gap: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1213,7 +1213,7 @@ class Slider extends Widget_Base {
                     'center' => 'left:50%;--eead-slider-dots-offset-x:-50%'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots' => '{{VALUE}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-dots' => '{{VALUE}};'
                 ]
             ]
         );
@@ -1234,7 +1234,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider' => '--eead-slider-dots-offset-x:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container' => '--eead-slider-dots-offset-x:{{SIZE}}{{UNIT}};'
                 ],
                 'condition' => [
                     'dots_alignment!' => 'center'
@@ -1258,7 +1258,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider' => '--eead-slider-dots-offset-y:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container' => '--eead-slider-dots-offset-y:{{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1283,7 +1283,7 @@ class Slider extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-slider .owl-dots .owl-dot span'
+                'selector' => '{{WRAPPER}} .eead-slider-container .slick-dots button'
             ]
         );
 
@@ -1293,7 +1293,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -1313,7 +1313,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1331,7 +1331,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots .slick-active button' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1341,7 +1341,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots .slick-active button' => 'border-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1362,7 +1362,7 @@ class Slider extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot.active span' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                    '{{WRAPPER}} .eead-slider-container .slick-dots .slick-active button' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
                 ]
             ]
         );
@@ -1380,7 +1380,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button:hover' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1390,7 +1390,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-dots button:hover' => 'border-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1446,7 +1446,7 @@ class Slider extends Widget_Base {
                     'arrow_position' => ['bottom-left', 'bottom-right']
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav' => 'flex-direction: {{VALUE}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-nav' => 'flex-direction: {{VALUE}};'
                 ]
             ]
         );
@@ -1467,7 +1467,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button' => 'width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow' => 'width: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1488,7 +1488,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button' => 'height: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow' => 'height: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1509,7 +1509,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button i' => 'font-size: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1530,7 +1530,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider' => '--eead-slider-nav-offset-x:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container' => '--eead-slider-nav-offset-x:{{SIZE}}{{UNIT}};'
                 ],
                 'condition' => [
                     'arrow_position!' => 'bottom-center'
@@ -1554,7 +1554,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider' => '--eead-slider-nav-offset-y:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container' => '--eead-slider-nav-offset-y:{{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -1575,7 +1575,7 @@ class Slider extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider-nav-bottom-center .eead-slider .owl-nav' => 'gap:{{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-slider-container .slick-nav' => 'gap:{{SIZE}}{{UNIT}};'
                 ],
                 'condition' => [
                     'arrow_position!' => 'middle-center'
@@ -1603,7 +1603,7 @@ class Slider extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-slider .owl-nav button'
+                'selector' => '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow'
             ]
         );
 
@@ -1613,7 +1613,7 @@ class Slider extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -1633,7 +1633,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1643,7 +1643,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -1661,7 +1661,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button:hover' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow:hover' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1671,7 +1671,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -1681,7 +1681,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slider .owl-nav button:hover' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slider-container .slick-nav .slick-arrow:hover' => 'border-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1695,6 +1695,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Custom Prev Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
+                'exclude_inline_options' => ['svg'],
                 'label_block' => false,
                 'separator' => 'before'
             ]
@@ -1705,6 +1706,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Custom Next Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'skin' => 'inline',
+                'exclude_inline_options' => ['svg'],
                 'label_block' => false
             ]
         );
@@ -1721,7 +1723,8 @@ class Slider extends Widget_Base {
                 'class' => [
                     'eead-slider-container',
                     'eead-slider-nav-' . $settings['arrow_position'],
-                    'eead-slider-height-' . $settings['slider_height_type']
+                    'eead-slider-height-' . $settings['slider_height_type'],
+                    'eead-slider-show-nav-hover-' . ($settings['show_on_hover'] ? 'on' : 'off')
                 ]
             ],
         );
@@ -1755,8 +1758,6 @@ class Slider extends Widget_Base {
                 [
                     'class' => [
                         'eead-slider',
-                        'owl-carousel',
-                        'eead-slider-show-nav-hover-' . ($settings['show_on_hover'] ? 'on' : 'off')
                     ],
                     'data-params' => json_encode($params),
                     'data-transition' => $slider_transition,
@@ -1819,7 +1820,10 @@ class Slider extends Widget_Base {
                     }
                 }
                 ?>
+
             </div>
+            <div class="slick-nav"></div>
+            <div class="slick-dots-wrap"></div>
         </div>
         <?php
     }

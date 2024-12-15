@@ -116,13 +116,13 @@ class FlipBox extends Widget_Base {
 
         $this->add_control(
             'icon_view', [
-                'label' => esc_html__('Icon Display Type', 'easy-elementor-addons'),
+                'label' => esc_html__('Icon Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => [
                     'default' => esc_html__('None', 'easy-elementor-addons'),
-                    'stacked' => esc_html__('Background', 'easy-elementor-addons'),
-                    'framed' => esc_html__('Frame', 'easy-elementor-addons'),
+                    'stacked' => esc_html__('Stacked', 'easy-elementor-addons'),
+                    'framed' => esc_html__('Framed', 'easy-elementor-addons'),
                 ],
                 'condition' => [
                     'graphic_element' => 'icon',
@@ -468,25 +468,6 @@ class FlipBox extends Widget_Base {
         );
 
         $this->add_control(
-            'icon_spacing', [
-                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-flip-box .elementor-icon-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'graphic_element' => 'icon',
-                ]
-            ]
-        );
-
-        $this->add_control(
             'icon_primary_color', [
                 'label' => esc_html__('Primary Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -602,6 +583,25 @@ class FlipBox extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'icon_spacing', [
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-flip-box .elementor-icon-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'graphic_element' => 'icon',
+                ]
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -710,25 +710,6 @@ class FlipBox extends Widget_Base {
         );
 
         $this->add_control(
-            'front_title_spacing', [
-                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 100,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-fb-front .eead-fb-layer-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-                'condition' => [
-                    'front_description_text!' => '',
-                ]
-            ]
-        );
-
-        $this->add_control(
             'front_title_color', [
                 'label' => esc_html__('Text Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
@@ -744,6 +725,25 @@ class FlipBox extends Widget_Base {
                 'name' => 'front_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-fb-front .eead-fb-layer-title'
+            ]
+        );
+
+        $this->add_control(
+            'front_title_spacing', [
+                'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-fb-front .eead-fb-layer-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'front_description_text!' => '',
+                ]
             ]
         );
 

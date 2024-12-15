@@ -1262,54 +1262,59 @@ odometerOptions = {auto: false};
             if ($slider.find('.eead-slide').length > 0) {
                 var params = JSON.parse($slider.attr('data-params'));
                 var sliderObj = {
-                    items: 1,
-                    mouseDrag: false,
-                    smartSpeed: 600,
-                    loop: JSON.parse(params.loop),
+                    infinite: JSON.parse(params.loop),
                     autoplay: JSON.parse(params.autoplay),
-                    autoplaySpeed: params.speed,
-                    autoplayTimeout: params.pause,
-                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
-                    nav: JSON.parse(params.arrows),
+                    speed: params.speed,
+                    autoplaySpeed: params.pause,
+                    pauseOnHover: JSON.parse(params.pause_on_hover),
+                    arrows: JSON.parse(params.arrows),
                     dots: JSON.parse(params.dots),
-                    autoHeight: JSON.parse(params.auto_height),
-                    responsiveClass: true,
-                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
-                    onInitialized: function () {
-                        $slider.find('.owl-item.active .eead-slide-caption').addClass('eead-animate');
-
-                        if (titleAnim !== 'none') {
-                            $slider.find('.owl-item.active .eead-slide-cap-title').addClass(titleAnim);
-                        }
-                        if (subtitleAnim !== 'none') {
-                            $slider.find('.owl-item.active .eead-slide-cap-desc').addClass(subtitleAnim);
-                        }
-                        if (buttonAnim !== 'none') {
-                            $slider.find('.owl-item.active .eead-slide-button').addClass(buttonAnim);
-                        }
-                    },
+                    adaptiveHeight: JSON.parse(params.auto_height),
+                    prevArrow: '<div class="slick-prev slick-arrow"><i class="' + params.prev_icon + '"></div>',
+                    nextArrow: '<div class="slick-next slick-arrow"><i class="' + params.next_icon + '"></div>',
+                    fade: $slider.attr('data-transition') == 'fade' ? true : false,
+                    appendArrows: $scope.find('.slick-nav'),
+                    appendDots:  $scope.find('.slick-dots-wrap')
                 };
 
-                if ($slider.attr('data-transition') == 'fade') {
-                    sliderObj.animateOut = 'fadeOut';
-                }
-
-                $slider.owlCarousel(sliderObj);
-
-                $slider.on('translated.owl.carousel', function (event) {
-                    $slider.find('.owl-item .eead-slide-caption').removeClass('eead-animate');
-                    $slider.find('.owl-item.active .eead-slide-caption').addClass('eead-animate');
+                $slider.on('init', function (event, slick) {
+                    $(this).find('.slick-current .eead-slide-caption').addClass('eead-animate');
                     if (titleAnim !== 'none') {
-                        $slider.find('.owl-item .eead-slide-cap-title').removeClass(titleAnim);
-                        $slider.find('.owl-item.active .eead-slide-cap-title').addClass(titleAnim);
+                        $(this).find('.slick-current .eead-slide-cap-title').addClass(titleAnim);
                     }
                     if (subtitleAnim !== 'none') {
-                        $slider.find('.owl-item .eead-slide-cap-desc').removeClass(subtitleAnim);
-                        $slider.find('.owl-item.active .eead-slide-cap-desc').addClass(subtitleAnim);
+                        $(this).find('.slick-current .eead-slide-cap-desc').addClass(subtitleAnim);
                     }
                     if (buttonAnim !== 'none') {
-                        $slider.find('.owl-item .eead-slide-button').removeClass(buttonAnim);
-                        $slider.find('.owl-item.active .eead-slide-button').addClass(buttonAnim);
+                        $(this).find('.slick-current .eead-slide-button').addClass(buttonAnim);
+                    }
+                });
+
+                $slider.slick(sliderObj);
+
+                $slider.on('beforeChange', function (event, slick, currentSlide) {
+                    $(this).find('.slick-slide .eead-slide-caption').removeClass('eead-animate');
+                    if (titleAnim !== 'none') {
+                        $(this).find('.slick-slide .eead-slide-cap-title').removeClass(titleAnim);
+                    }
+                    if (subtitleAnim !== 'none') {
+                        $(this).find('.slick-slide .eead-slide-cap-desc').removeClass(subtitleAnim);
+                    }
+                    if (buttonAnim !== 'none') {
+                        $(this).find('.slick-slide .eead-slide-button').removeClass(buttonAnim);
+                    }
+                });
+
+                $slider.on('afterChange', function (event, slick, currentSlide) {
+                    $(this).find('.slick-current .eead-slide-caption').addClass('eead-animate');
+                    if (titleAnim !== 'none') {
+                        $(this).find('.slick-current .eead-slide-cap-title').addClass(titleAnim);
+                    }
+                    if (subtitleAnim !== 'none') {
+                        $(this).find('.slick-current .eead-slide-cap-desc').addClass(subtitleAnim);
+                    }
+                    if (buttonAnim !== 'none') {
+                        $(this).find('.slick-current .eead-slide-button').addClass(buttonAnim);
                     }
                 });
             }
