@@ -262,7 +262,7 @@ class Slider extends Widget_Base {
 
         $this->add_control(
             'speed', [
-                'label' => esc_html__('Animation Speed', 'easy-elementor-addons'),
+                'label' => esc_html__('Animation Speed (ms)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 500
             ]
@@ -286,9 +286,12 @@ class Slider extends Widget_Base {
 
         $this->add_control(
             'auto_height', [
-                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'label' => esc_html__('Adaptive Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes'
+                'default' => 'yes',
+                'condition' => [
+                    'slider_height_type' => 'auto'
+                ]
             ]
         );
 
@@ -782,16 +785,16 @@ class Slider extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Background::get_type(), [
-                'name' => 'box_bg_color',
+                'name' => 'caption_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .eead-animate.eead-slide-caption',
+                'selector' => '{{WRAPPER}} .eead-slide-caption',
                 'exclude' => ['image']
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(), [
-                'name' => 'box_border',
+                'name' => 'caption_border',
                 'fields_options' => [
                     'border' => [
                         'default' => 'none',
@@ -809,28 +812,28 @@ class Slider extends Widget_Base {
                         'default' => '#444444',
                     ]
                 ],
-                'selector' => '{{WRAPPER}} .eead-animate.eead-slide-caption'
+                'selector' => '{{WRAPPER}} .eead-slide-caption'
             ]
         );
 
         $this->add_control(
-            'box_border_radius', [
+            'caption_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-animate.eead-slide-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-slide-caption' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'box_padding', [
+            'caption_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-animate.eead-slide-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-slide-caption' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
