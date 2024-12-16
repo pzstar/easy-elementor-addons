@@ -5721,11 +5721,11 @@ Switcher
     cursor: pointer;
 }
 
-.eead-switcher-tab i{
+.eead-switcher-tab i {
     font-size: 1em;
 }
 
-.eead-switcher-tab svg{
+.eead-switcher-tab svg {
     height: 1em;
     width: 1em;
 }
@@ -6775,12 +6775,12 @@ Vertical Time Line
     border-style: solid;
 }
 
-.eead-vt-point i{
+.eead-vt-point i {
     font-size: 1em;
     color: #FFF;
 }
 
-.eead-vt-point svg{
+.eead-vt-point svg {
     height: 1em;
     width: 1em;
     fill: #FFF;
@@ -6950,11 +6950,11 @@ Vertical Time Line
 /*--------------------------------------------------------------
 Slider
 --------------------------------------------------------------*/
-.eead-slider{
+.eead-slider {
     opacity: 0;
-} 
+}
 
-.eead-slider.slick-initialized{
+.eead-slider.slick-initialized {
     opacity: 1;
 }
 
@@ -7050,7 +7050,7 @@ Slider
     transform: translate(var(--eead-slider-dots-offset-x, 0), var(--eead-slider-dots-offset-y, 0));
 }
 
-.eead-slider-container .slick-dots li{
+.eead-slider-container .slick-dots li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7184,7 +7184,7 @@ Team
     overflow: hidden;
 }
 
-.eead-team-member-image img{
+.eead-team-member-image img {
     vertical-align: middle;
 }
 
@@ -7332,81 +7332,88 @@ Team
 /*--------------------------------------------------------------
 Testimonial
 --------------------------------------------------------------*/
-.eead-testimonial-container .eead-testimonial-image{
+.eead-testimonial-container {
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+.eead-testimonial-container .eead-testimonial-image {
     display: inline-block;
     height: 150px;
     width: 150px;
     flex: 0 0 150px;
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
-.eead-testimonial-container.eead-square .eead-testimonial-image{
+.eead-testimonial-container.eead-square .eead-testimonial-image {
     border-radius: 50%;
 }
 
-.eead-testimonial-container .eead-testimonial-image img{
+.eead-testimonial-container .eead-testimonial-image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.eead-testimonial-container .eead-testimonial-rating{
+.eead-testimonial-container .eead-testimonial-rating {
     font-size: 14px;
     display: inline-flex;
-    gap: 0.5em;
+    gap: 0.4em;
     color: #FDCC0D;
-    justify-content: center;
-    margin-bottom: 10px;
 }
 
-.eead-testimonial-container .eead-testimonial-name{
-    margin:  0 0 10px;
+.eead-testimonial-container .eead-testimonial-name {
+    margin: 0 0 10px;
+    line-height: 1.2;
 }
 
-.eead-testimonial-designation{
-    margin-bottom: 15px;
+.eead-testimonial-designation {
+    font-size: 0.9em;
+    line-height: 1.2;
 }
 
-.eead-testimonial-content{
-    margin-bottom: 15px;
-}
-
-.eead-testimonial-content .eead-testimonial-title{
-    font-size: 1.3em;
+.eead-testimonial-content .eead-testimonial-title {
+    font-size: 1.1em;
     margin: 0 0 10px;
 }
 
+.eead-testimonial-quote {
+    font-size: 24px;
+    position: absolute;
+}
+
+.eead-testimonial-quote svg {
+    height: 1em;
+    width: 1em;
+}
+
 /* Style 1 */
-.eead-testimonial-style1{
+.eead-testimonial-style1 {
     text-align: center;
 }
 
-.eead-testimonial-style1 .eead-testimonial-rating{
-    margin-bottom: 0;
-}
-
 /* Style 2 */
-.eead-testimonial-style2 .eead-testimonial-bottom{
+.eead-testimonial-style2 .eead-testimonial-header {
     display: flex;
-    gap: 20px;
+    gap: var(--eead-testimonial-image-spacing, 20px);
     align-items: center;
 }
 
-.eead-testimonial-style2 .eead-testimonial-image{
+.eead-testimonial-style2 .eead-testimonial-image {
     height: 100px;
     width: 100px;
     flex: 0 0 100px;
 }
 
 /* Style 3 */
-.eead-testimonial-style3.eead-testimonial-container{
+.eead-testimonial-style3.eead-testimonial-container {
     display: flex;
-    gap: 30px;
+    gap: var(--eead-testimonial-image-spacing, 30px);
     align-items: center;
 }
-
 
 
 
