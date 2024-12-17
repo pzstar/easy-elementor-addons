@@ -7175,6 +7175,7 @@ Team
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .eead-team-member-image {
@@ -7210,12 +7211,13 @@ Team
     color: #FFF;
 }
 
-.eead-team-member-social-links a i {
+.eead-team-member-social-links a svg {
     height: 1em;
     width: 1em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    fill: #FFF;
 }
 
 .eead-team-image-custom-height {

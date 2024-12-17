@@ -178,7 +178,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'sticky-video',
                 'switcher',
                 'team-member',
-                'team-member-carousel',
+                'team-carousel',
                 'testimonial',
                 'testimonial-slider',
                 //'text-marquee', //premium

@@ -36,6 +36,7 @@ odometerOptions = {auto: false};
                 'eead-sticky-video.default': EEA.stickyVideo,
                 'eead-video-player.default': EEA.videoPlayer,
                 'eead-slider.default': EEA.sliderBlock,
+                'eead-team-carousel.default': EEA.teamCarousel,
 
 
 
@@ -53,7 +54,7 @@ odometerOptions = {auto: false};
                 'eead-threed-text.default': EEA.threedTextBlock,
                 'eead-testimonial-slider.default': EEA.testimonialSlider,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
-                'eead-team-member-carousel.default': EEA.teamMemberCarouselBlock,
+                
             };
 
             $.each(widgets, function (widget, callback) {
@@ -1320,6 +1321,41 @@ odometerOptions = {auto: false};
             }
         },
 
+        teamCarousel: function ($scope, $) {
+            var $ele = $scope.find('.eead-team-carousel');
+            if ($ele.length > 0) {
+                var params = JSON.parse($ele.attr('data-params'));
+                $ele.owlCarousel({
+                    loop: JSON.parse(params.loop),
+                    autoplay: JSON.parse(params.autoplay),
+                    autoplayTimeout: params.pause,
+                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
+                    nav: JSON.parse(params.arrows),
+                    dots: JSON.parse(params.dots),
+                    autoHeight: JSON.parse(params.auto_height),
+                    center: JSON.parse(params.focus_center_slide),
+                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
+                    responsive: {
+                        0: {
+                            items: params.items_mobile,
+                            margin: params.margin_mobile,
+                            stagePadding: params.stagepadding_mobile
+                        },
+                        480: {
+                            items: params.items_tablet,
+                            margin: params.margin_tablet,
+                            stagePadding: params.stagepadding_tablet
+                        },
+                        769: {
+                            items: params.items,
+                            margin: params.margin,
+                            stagePadding: params.stagepadding
+                        }
+                    }
+                });
+            }
+        },
+
 
 
 
@@ -1461,17 +1497,7 @@ odometerOptions = {auto: false};
             }
         },
 
-        teamMemberCarouselBlock: function ($scope, $) {
-            var $carousel = $scope.find('.eead-swiper-slider').eq(0),
-                $slider_options = JSON.parse($carousel.attr('data-slider-settings'));
-
-            var mySwiper = new Swiper($carousel, $slider_options);
-            if ($scope.find('.eead-swiper-slider').length > 0) {
-                setTimeout(function () {
-                    mySwiper.update();
-                }, 100);
-            }
-        },
+        
 
 
         portfolioBlock: function ($scope) {

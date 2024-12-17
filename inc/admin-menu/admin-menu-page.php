@@ -123,7 +123,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                     <?php $this->get_widget_field('Sticky Video', 'sticky-video', 'eead-icons-sticky-video'); ?>
                     <?php $this->get_widget_field('Switcher', 'switcher', 'eead-icons-switcher'); ?>
                     <?php $this->get_widget_field('Team Member', 'team-member', 'eead-icons-team'); ?>
-                    <?php $this->get_widget_field('Team Member Carousel', 'team-member-carousel', 'eead-icons-team-carousel'); ?>
+                    <?php $this->get_widget_field('Team Member Carousel', 'team-carousel', 'eead-icons-team-carousel'); ?>
                     <?php $this->get_widget_field('Testimonial', 'testimonial', 'eead-icons-testimonial'); ?>
                     <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider', 'eead-icons-testimonial-slider'); ?>
                     <?php //$this->get_widget_field('Text Marquee', 'text-marquee', 'eead-icons-');//premium ?>

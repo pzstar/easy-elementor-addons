@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyElementorAddons\Modules\TeamMember\Widgets;
+namespace EasyElementorAddons\Modules\TeamCarousel\Widgets;
 
 // Elementor Classes
 use Elementor\Widget_Base;
@@ -21,14 +21,14 @@ if (!defined('ABSPATH')) {
 /**
  * Tiled Posts Widget
  */
-class TeamMember extends Widget_Base {
+class TeamCarousel extends Widget_Base {
 
     public function get_name() {
-        return 'eead-team-member';
+        return 'eead-team-carousel';
     }
 
     public function get_title() {
-        return esc_html__('Team', 'easy-elementor-addons');
+        return esc_html__('Team Carousel', 'easy-elementor-addons');
     }
 
     public function get_icon() {
@@ -39,163 +39,141 @@ class TeamMember extends Widget_Base {
         return ['easy-elementor-addons'];
     }
 
+    public function get_style_depends() {
+        return ['owlcarousel'];
+    }
+
+    public function get_script_depends() {
+        return ['owlcarousel'];
+    }
+
     protected function register_controls() {
 
         $this->start_controls_section(
-            'section_details', [
-                'label' => esc_html__('Details', 'easy-elementor-addons')
+            'section_team_members', [
+                'label' => esc_html__('Team Members', 'easy-elementor-addons')
             ]
         );
 
         $this->add_control(
-            'image', [
-                'label' => esc_html__('Image', 'easy-elementor-addons'),
-                'type' => Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => Utils::get_placeholder_image_src(),
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'name', [
-                'label' => esc_html__('Name', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('John Doe', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'position', [
-                'label' => esc_html__('Designation', 'easy-elementor-addons'),
-                'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('WordPress Developer', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'description', [
-                'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'type' => Controls_Manager::WYSIWYG,
-            ]
-        );
-
-        $this->add_control(
-            'link_type', [
-                'label' => esc_html__('Link Type', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'none',
-                'options' => [
-                    'none' => esc_html__('None', 'easy-elementor-addons'),
-                    'image' => esc_html__('Image', 'easy-elementor-addons'),
-                    'title' => esc_html__('Title', 'easy-elementor-addons'),
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'link', [
-                'label' => esc_html__('Link', 'easy-elementor-addons'),
-                'type' => Controls_Manager::URL,
-                'placeholder' => 'https://www.your-link.com',
-                'default' => [
-                    'url' => '#',
-                ],
-                'condition' => [
-                    'link_type!' => 'none',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_social_links', [
-                'label' => esc_html__('Social Links', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'enable_social_links', [
-                'label' => esc_html__('Show Social Links', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'yes'
-            ]
-        );
-
-        $repeater = new Repeater();
-
-        $repeater->add_control(
-            'social_icon_label', array(
-                'label' => esc_html__('Icon Label', 'easy-elementor-addons'),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT,
-            )
-        );
-
-        $repeater->add_control(
-            'social_icon', [
-                'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
-                'type' => Controls_Manager::ICONS,
-                'skin' => 'inline',
-                'label_block' => false,
-                'default' => array(
-                    'value' => 'fas fa-hashtag',
-                    'library' => 'fa-solid',
-                )
-            ]
-        );
-
-        $repeater->add_control(
-            'social_link', [
-                'label' => esc_html__('Social Link', 'easy-elementor-addons'),
-                'type' => Controls_Manager::URL,
-                'label_block' => true,
-                'placeholder' => esc_html__('Enter URL', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
-            'social', [
-                'label' => esc_html__('Add Social Links', 'easy-elementor-addons'),
+            'team_members',
+            [
+                'label' => esc_html__('Add Team Member', 'textdomain'),
                 'type' => Controls_Manager::REPEATER,
-                'default' => [
+                'fields' => [
                     [
-                        'social_icon_label' => 'Facebook',
-                        'social_icon' => [
-                            'value' => 'fab fa-facebook',
-                            'library' => 'fa-brands',
-                        ],
-                        'social_link' => [
-                            'url' => '#',
-                        ],
+                        'name' => 'image',
+                        'label' => esc_html__('Image', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::MEDIA,
+                        'default' => [
+                            'url' => Utils::get_placeholder_image_src(),
+                        ]
                     ],
                     [
-                        'social_icon_label' => 'Twitter',
-                        'social_icon' => [
-                            'value' => 'fab fa-twitter',
-                            'library' => 'fa-brands',
-                        ],
-                        'social_link' => [
-                            'url' => '#',
-                        ],
+                        'name' => 'name',
+                        'label' => esc_html__('Name', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::TEXT,
+                        'default' => esc_html__('John Doe', 'easy-elementor-addons')
                     ],
                     [
-                        'social_icon_label' => 'Youtube',
-                        'social_icon' => [
-                            'value' => 'fab fa-youtube',
-                            'library' => 'fa-brands',
-                        ],
-                        'social_link' => [
-                            'url' => '#',
-                        ],
-                    ]
+                        'name' => 'position',
+                        'label' => esc_html__('Designation', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::TEXT,
+                        'default' => esc_html__('WordPress Developer', 'easy-elementor-addons')
+                    ],
+                    [
+                        'name' => 'description',
+                        'label' => esc_html__('Description', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::TEXTAREA,
+                    ],
+                    [
+                        'name' => 'link',
+                        'label' => esc_html__('Link', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::URL,
+                        'placeholder' => 'https://www.your-link.com',
+                    ],
+                    [
+                        'name' => 'hr1',
+                        'type' => Controls_Manager::DIVIDER,
+                    ],
+                    [
+                        'name' => 'social_icon_1',
+                        'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::ICONS,
+                        'skin' => 'inline',
+                        'label_block' => false,
+                        'default' => array(
+                            'value' => 'fas fa-facebook',
+                            'library' => 'fa-solid',
+                        ),
+                    ],
+                    [
+                        'name' => 'social_link_1',
+                        'label' => esc_html__('Social Link', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::URL,
+                    ],
+                    [
+                        'name' => 'hr2',
+                        'type' => Controls_Manager::DIVIDER,
+                    ],
+                    [
+                        'name' => 'social_icon_2',
+                        'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::ICONS,
+                        'skin' => 'inline',
+                        'label_block' => false,
+                        'default' => array(
+                            'value' => 'fas fa-twitter',
+                            'library' => 'fa-solid',
+                        )
+                    ],
+                    [
+                        'name' => 'social_link_2',
+                        'label' => esc_html__('Social Link', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::URL,
+                    ],
+                    [
+                        'name' => 'hr3',
+                        'type' => Controls_Manager::DIVIDER,
+                    ],
+                    [
+                        'name' => 'social_icon_3',
+                        'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::ICONS,
+                        'skin' => 'inline',
+                        'label_block' => false,
+                        'default' => array(
+                            'value' => 'fas fa-instagram',
+                            'library' => 'fa-solid',
+                        )
+                    ],
+                    [
+                        'name' => 'social_link_3',
+                        'label' => esc_html__('Social Link', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::URL,
+                    ],
+                    [
+                        'name' => 'hr4',
+                        'type' => Controls_Manager::DIVIDER,
+                    ],
+                    [
+                        'name' => 'social_icon_4',
+                        'label' => esc_html__('Social Icon', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::ICONS,
+                        'skin' => 'inline',
+                        'label_block' => false,
+                        'default' => array(
+                            'value' => 'fas fa-whatsapp',
+                            'library' => 'fa-solid',
+                        ),
+                    ],
+                    [
+                        'name' => 'social_link_4',
+                        'label' => esc_html__('Social Link', 'easy-elementor-addons'),
+                        'type' => Controls_Manager::URL,
+                    ],
                 ],
-                'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ social_icon_label }}}',
-                'condition' => [
-                    'enable_social_links' => 'yes',
-                ]
+                'title_field' => '{{{ name }}}',
             ]
         );
 
@@ -209,7 +187,7 @@ class TeamMember extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Image_Size::get_type(), [
-                'name' => 'image',
+                'name' => 'thumbnail',
                 'label' => esc_html__('Image Size', 'easy-elementor-addons'),
                 'default' => 'full'
             ]
@@ -259,6 +237,184 @@ class TeamMember extends Widget_Base {
                 'condition' => [
                     'content_display' => 'below-image',
                     'social_icon_display' => 'on-image-hover'
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'carousel_settings', [
+                'label' => esc_html__('Carousel Settings', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_to_show', [
+                'label' => esc_html__('Slides To Show', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 3,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 2,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 1,
+                    'unit' => 'px',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_margin', [
+                'label' => esc_html__('Spacing Between Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_stagepadding', [
+                'label' => esc_html__('Stage Padding', 'easy-elementor-addons'),
+                'description' => esc_html__('Space or padding between the carousel stage and the edge of the container', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 300,
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'infinite', [
+                'label' => esc_html__('Infinite Loop', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'autoplay', [
+                'label' => esc_html__('Autoplay', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'pause_on_hover', [
+                'label' => esc_html__('Pause on Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'condition' => [
+                    'autoplay' => 'yes',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'autoplay_speed', [
+                'label' => esc_html__('Autoplay Speed (in Seconds)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['s'],
+                'range' => [
+                    's' => [
+                        'min' => 1,
+                        'max' => 15,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 5,
+                    'unit' => 's',
+                ],
+                'condition' => [
+                    'autoplay' => 'yes',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'auto_height', [
+                'label' => esc_html__('Auto Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER
+            ]
+        );
+
+        $this->add_control(
+            'dots', [
+                'label' => esc_html__('Navigation Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'arrows', [
+                'label' => esc_html__('Navigation Arrows', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'focus_center_slide', [
+                'label' => esc_html__('Focus Center', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'shrink_side_slides', [
+                'label' => esc_html__('Shrink Side Slides', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'unit' => 'px',
+                    'size' => '0.8'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 0.6,
+                        'max' => 0.95,
+                        'step' => .05
+                    ]
+                ],
+                'devices' => ['desktop', 'tablet', 'mobile'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-item:not(.center)' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                ],
+                'condition' => [
+                    'focus_center_slide' => 'yes'
                 ]
             ]
         );
@@ -938,140 +1094,178 @@ class TeamMember extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function get_image() {
+    protected function get_image($item) {
         $settings = $this->get_settings();
-        $image_html = Group_Control_Image_Size::get_attachment_image_html($settings);
-
-        if (!empty($settings['image']['url'])) {
-            if ($settings['link_type'] == 'image' && $settings['link']['url'] != '') {
-                $image = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), $image_html);
-            } else {
-                $image = $image_html;
-            }
+        $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumbnail', $settings);
+        if ($image_url) {
+            $image_html = '<img src="' . esc_url($image_url) . '">';
+        } else {
+            $image_html = '<img src="' . esc_url($item['image']['url']) . '">';
         }
-        return $image;
+
+        if ($item['link']['url'] != '') {
+            $image_html = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), $image_html);
+        }
+
+        return $image_html;
     }
 
-    protected function get_social_links() {
-        $settings = $this->get_settings_for_display();
-        $count = 1;
-        if ($settings['enable_social_links'] == 'yes') {
+    protected function get_description($item) {
+        if (!empty($item['description'])) {
             ?>
-            <div class="eead-team-member-social-links">
-                <?php
-                if (isset($settings['social']) && !empty($settings['social'])) {
-                    foreach ($settings['social'] as $item) {
-                        ?>
-                        <?php
-                        if (!empty($item['social_link']['url']) && !empty($item['social_icon'])) {
-                            $this->add_link_attributes('social-link' . $count, $item['social_link']);
-                            ?>
-                            <a <?php echo $this->get_render_attribute_string('social-link' . $count); ?>>
-                                <?php Icons_Manager::render_icon($item['social_icon'], ['aria-hidden' => 'true']); ?>
-                            </a>
-                            <?php
-                        }
-                        $count++;
-                    }
-                }
-                ?>
+            <div class="eead-team-member-description">
+                <?php echo parse_wisiwyg_content($item['description']); ?>
             </div>
             <?php
         }
     }
 
-    protected function get_description() {
-        $settings = $this->get_settings_for_display();
-        $this->add_inline_editing_attributes('description', 'basic');
-        $this->add_render_attribute('description', 'class', 'eead-team-member-description');
-
-        if (!empty($settings['description'])) {
-            ?>
-            <div <?php echo $this->get_render_attribute_string('description'); ?>>
-                <?php echo parse_wisiwyg_content($settings['description']); ?>
-            </div>
-            <?php
-        }
-    }
-
-    protected function get_member_name() {
-        $settings = $this->get_settings_for_display();
+    protected function get_member_name($item) {
         $member_name = '';
-        $this->add_inline_editing_attributes('name', 'none');
-        $this->add_render_attribute('name', 'class', 'eead-team-member-name');
-
-        if ($settings['name'] != '') {
-            if ($settings['link_type'] == 'title' && $settings['link']['url'] != '') {
-                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', $this->get_render_attribute_string('name'), $this->get_render_attribute_string('link'), $settings['name']);
+        if ($item['name'] != '') {
+            if ($item['link']['url'] != '') {
+                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', 'class="eead-team-member-name"', $this->get_render_attribute_string('link'), $item['name']);
             } else {
-                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', $this->get_render_attribute_string('name'), $settings['name']);
+                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', 'class="eead-team-member-name"', $item['name']);
             }
         }
         return $member_name;
     }
 
-    protected function get_member_position() {
-        $settings = $this->get_settings_for_display();
+    protected function get_member_position($item) {
         $position = '';
-        $this->add_inline_editing_attributes('position', 'none');
-        $this->add_render_attribute('position', 'class', 'eead-team-member-position');
 
-        if ($settings['position'] != '') {
-            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', $this->get_render_attribute_string('position'), $settings['position']);
+        if ($item['position'] != '') {
+            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', 'class="eead-team-member-position"', $item['position']);
         }
         return $position;
+    }
+
+    protected function get_social_links($item) {
+        ob_start();
+        for ($i = 1; $i <= 4; $i++) {
+            ?>
+            <?php
+            if (!empty($item['social_link_' . $i]['url']) && !empty($item['social_icon_' . $i])) {
+                $this->add_link_attributes('social-link-' . $i, $item['social_link_' . $i]);
+                ?>
+                <a <?php echo $this->get_render_attribute_string('social-link-' . $i); ?>>
+                    <?php Icons_Manager::render_icon($item['social_icon_' . $i], ['aria-hidden' => 'true']); ?>
+                </a>
+                <?php
+            }
+        }
+        $social_html = ob_get_clean();
+
+        if ($social_html != '') {
+            echo '<div class="eead-team-member-social-links">';
+            echo $social_html;
+            echo '</div>';
+        }
     }
 
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
+        $team_members = $settings['team_members'];
         $custom_height_class = $settings['custom_image_height'] == 'yes' ? 'eead-team-image-custom-height' : '';
+        $params = array(
+            'items' => $settings['slides_to_show']['size'] ? (int) $settings['slides_to_show']['size'] : 3,
+            'items_tablet' => isset($settings['slides_to_show_tablet']['size']) ? (int) $settings['slides_to_show_tablet']['size'] : 2,
+            'items_mobile' => isset($settings['slides_to_show_mobile']['size']) ? (int) $settings['slides_to_show_mobile']['size'] : 1,
+            'margin' => isset($settings['slides_margin']['size']) && $settings['slides_margin']['size'] !== null ? (int) $settings['slides_margin']['size'] : 20,
+            'margin_tablet' => isset($settings['slides_margin_tablet']['size']) && $settings['slides_margin_tablet']['size'] !== null ? (int) $settings['slides_margin_tablet']['size'] : 20,
+            'margin_mobile' => isset($settings['slides_margin_mobile']['size']) && $settings['slides_margin_mobile']['size'] !== null ? (int) $settings['slides_margin_mobile']['size'] : 20,
+            'autoplay' => $settings['autoplay'] && $settings['autoplay'] == 'yes' ? true : false,
+            'loop' => $settings['infinite'] && $settings['infinite'] == 'yes' ? true : false,
+            'pause' => isset($settings['autoplay_speed']['size']) ? (int) $settings['autoplay_speed']['size'] * 1000 : 500,
+            'dots' => $settings['dots'] == 'yes' ? true : false,
+            'arrows' => $settings['arrows'] == 'yes' ? true : false,
+            'pause_on_hover' => $settings['pause_on_hover'] == 'yes' ? true : false,
+            'auto_height' => $settings['auto_height'] == 'yes' ? true : false,
+            'stagepadding' => $settings['slides_stagepadding']['size'] && $settings['slides_stagepadding']['size'] !== null ? (int) $settings['slides_stagepadding']['size'] : 0,
+            'stagepadding_tablet' => isset($settings['slides_stagepadding_tablet']['size']) && $settings['slides_stagepadding_tablet']['size'] !== null ? (int) $settings['slides_stagepadding_tablet']['size'] : 0,
+            'stagepadding_mobile' => isset($settings['slides_stagepadding_mobile']['size']) && $settings['slides_stagepadding_mobile']['size'] !== null ? (int) $settings['slides_stagepadding_mobile']['size'] : 0,
+            'focus_center_slide' => $settings['focus_center_slide'] == 'yes' ? true : false,
+            'prev_icon' => 'icofont-simple-left',
+            'next_icon' => 'icofont-simple-right'
+        );
+
+        if (!empty($settings['prev_icon_arrow']['value'])) {
+            $params['prev_icon'] = $settings['prev_icon_arrow']['value'];
+        }
+
+        if (!empty($settings['next_icon_arrow']['value'])) {
+            $params['next_icon'] = $settings['next_icon_arrow']['value'];
+        }
+
+        $params = json_encode($params);
+
         $this->add_render_attribute('team-wrapper', [
             'class' => [
-                'eead-team-member',
+                'eead-team-carousel',
+                'owl-carousel',
                 $custom_height_class,
                 'eead-content-' . $settings['content_display'],
-            ]
+            ],
+            'data-params' => $params
         ]);
 
         if ($settings['content_display'] == 'below-image') {
             $this->add_render_attribute('team-wrapper', [
                 'class' => [
                     'eead-social-' . $settings['social_icon_display'],
-                    'eead-social-pos-' . $settings['social_icon_position']
+                    'eead-social-pos-' . ($settings['social_icon_position'] ? $settings['social_icon_position'] : 'bottom-center')
                 ]
             ]);
         }
 
+        $this->add_render_attribute('team', [
+            'class' => [
+                'eead-team-member',
+                'eead-content-' . $settings['content_display'],
+            ]
+        ]);
         ?>
         <div <?php $this->print_render_attribute_string('team-wrapper'); ?>>
             <?php
-            if (!empty($settings['image']['url'])) {
-                ?>
-                <div class="eead-team-member-image <?php echo esc_attr($custom_height_class); ?>">
-                    <?php
-                    echo $this->get_image();
-
-                    if ($settings['social_icon_display'] == 'on-image-hover') {
-                        $this->get_social_links();
-                    }
+            if (!empty($team_members)) {
+                foreach ($team_members as $team_member) {
                     ?>
-                </div>
-                <?php
+                    <div <?php $this->print_render_attribute_string('team'); ?>>
+                        <?php
+                        if (!empty($team_member['image']['url'])) {
+                            ?>
+                            <div class="eead-team-member-image">
+                                <?php
+                                echo $this->get_image($team_member);
+
+                                if ($settings['social_icon_display'] == 'on-image-hover') {
+                                    $this->get_social_links($team_member);
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        }
+
+                        ?>
+                        <div class="eead-team-member-content-wrapper">
+                            <div class="eead-team-member-content">
+                                <?php
+                                echo $this->get_member_name($team_member);
+                                echo $this->get_member_position($team_member);
+                                echo $this->get_description($team_member);
+                                if ($settings['social_icon_display'] !== 'on-image-hover') {
+                                    $this->get_social_links($team_member);
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
             }
             ?>
-            <div class="eead-team-member-content-wrapper">
-                <div class="eead-team-member-content">
-                    <?php
-                    echo $this->get_member_name();
-                    echo $this->get_member_position();
-                    echo $this->get_description();
-                    if ($settings['social_icon_display'] !== 'on-image-hover') {
-                        $this->get_social_links();
-                    }
-                    ?>
-                </div>
-            </div>
         </div>
         <?php
     }
