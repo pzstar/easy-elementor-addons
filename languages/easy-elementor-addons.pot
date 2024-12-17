@@ -188,7 +188,7 @@ msgstr ""
 #: modules/scroll-nav/widgets/scroll-nav.php:616
 #: modules/scroll-nav/widgets/scroll-nav.php:825
 #: modules/portfolio/widgets/portfolio.php:699
-#: modules/testimonial-slider/widgets/testimonial-slider.php:732
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:732
 #: modules/image-gallery/widgets/image-gallery.php:462
 msgid "Active"
 msgstr ""
@@ -439,7 +439,7 @@ msgstr ""
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:281
 #: modules/popup-video/widgets/popup-video.php:374
 #: modules/weather/widgets/weather.php:680
-#: modules/testimonial-slider/widgets/testimonial-slider.php:589
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:589
 #: modules/morphing-layouts/widgets/morphing-layouts.php:148
 #: modules/dual-button/widgets/dual-button.php:60
 msgid "Alignment"
@@ -572,7 +572,7 @@ msgstr ""
 
 #: modules/slider/widgets/slider.php:265
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:308
-#: modules/testimonial-slider/widgets/testimonial-slider.php:218
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:218
 msgid "Animation Speed"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 #: modules/logo-carousel/widgets/logo-carousel.php:250
 #: modules/slider/widgets/slider.php:289
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:332
-#: modules/testimonial-slider/widgets/testimonial-slider.php:242
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:242
 msgid "Auto Height"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr ""
 #: modules/lottie/widgets/lottie.php:126
 #: modules/portfolio/widgets/portfolio.php:303
 #: modules/sticky-video/widgets/sticky-video.php:171
-#: modules/testimonial-slider/widgets/testimonial-slider.php:169
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:169
 #: modules/video-player/widgets/video-player.php:152
 msgid "Autoplay"
 msgstr ""
@@ -781,7 +781,7 @@ msgstr ""
 #: modules/logo-carousel/widgets/logo-carousel.php:228
 #: modules/slider/widgets/slider.php:243
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:286
-#: modules/testimonial-slider/widgets/testimonial-slider.php:196
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:196
 msgid "Autoplay Speed (in Seconds)"
 msgstr ""
 
@@ -841,7 +841,7 @@ msgid "Backdrop Filter"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:140
-#: modules/testimonial-slider/widgets/testimonial-slider.php:311
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:311
 msgid "Backgrond Color"
 msgstr ""
 
@@ -973,8 +973,8 @@ msgstr ""
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:1037
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:1176
 #: modules/popup-video/widgets/popup-video.php:562
-#: modules/testimonial-slider/widgets/testimonial-slider.php:856
-#: modules/testimonial-slider/widgets/testimonial-slider.php:894
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:856
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:894
 #: modules/image-gallery/widgets/image-gallery.php:419
 #: modules/image-gallery/widgets/image-gallery.php:478
 #: modules/image-gallery/widgets/image-gallery.php:815
@@ -1026,7 +1026,7 @@ msgid "Background Transition Speed (sec)"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:287
-#: modules/testimonial-slider/widgets/testimonial-slider.php:456
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:456
 msgid "Backquote Color"
 msgstr ""
 
@@ -1308,13 +1308,13 @@ msgstr ""
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:804
 #: modules/popup-video/widgets/popup-video.php:836
 #: modules/sticky-video/widgets/sticky-video.php:448
-#: modules/testimonial-slider/widgets/testimonial-slider.php:321
-#: modules/testimonial-slider/widgets/testimonial-slider.php:479
-#: modules/testimonial-slider/widgets/testimonial-slider.php:720
-#: modules/testimonial-slider/widgets/testimonial-slider.php:748
-#: modules/testimonial-slider/widgets/testimonial-slider.php:776
-#: modules/testimonial-slider/widgets/testimonial-slider.php:876
-#: modules/testimonial-slider/widgets/testimonial-slider.php:914
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:321
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:479
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:720
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:748
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:776
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:876
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:914
 #: modules/counter/widgets/counter.php:179
 #: modules/counter/widgets/counter.php:264
 #: modules/image-gallery/widgets/image-gallery.php:489
@@ -1329,12 +1329,12 @@ msgid "Border Color"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:321
-#: modules/testimonial-slider/widgets/testimonial-slider.php:491
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:491
 msgid "Border Height"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:357
-#: modules/testimonial-slider/widgets/testimonial-slider.php:529
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:529
 msgid "Border Margin"
 msgstr ""
 
@@ -1458,8 +1458,8 @@ msgstr ""
 #: modules/sticky-video/widgets/sticky-video.php:465
 #: modules/weather/widgets/weather.php:227
 #: modules/weather/widgets/weather.php:548
-#: modules/testimonial-slider/widgets/testimonial-slider.php:667
-#: modules/testimonial-slider/widgets/testimonial-slider.php:824
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:667
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:824
 #: modules/counter/widgets/counter.php:222
 #: modules/image-gallery/widgets/image-gallery.php:511
 #: modules/image-gallery/widgets/image-gallery.php:581
@@ -1516,7 +1516,7 @@ msgstr ""
 #: modules/testimonial/widgets/testimonial.php:339
 #: modules/popup-video/widgets/popup-video.php:615
 #: modules/sticky-video/widgets/sticky-video.php:437
-#: modules/testimonial-slider/widgets/testimonial-slider.php:510
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:510
 #: modules/counter/widgets/counter.php:189
 #: modules/logo-grid/widgets/logo-grid.php:316
 msgid "Border Width"
@@ -1660,7 +1660,7 @@ msgstr ""
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:527
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:720
 #: modules/testimonial/widgets/testimonial.php:175
-#: modules/testimonial-slider/widgets/testimonial-slider.php:344
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:344
 msgid "Box Shadow"
 msgstr ""
 
@@ -1952,7 +1952,7 @@ msgstr ""
 #: modules/logo-carousel/widgets/logo-carousel.php:131
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:201
 #: modules/portfolio/widgets/portfolio.php:295
-#: modules/testimonial-slider/widgets/testimonial-slider.php:163
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:163
 msgid "Carousel Settings"
 msgstr ""
 
@@ -2036,7 +2036,7 @@ msgstr ""
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:290
 #: modules/popup-video/widgets/popup-video.php:382
 #: modules/weather/widgets/weather.php:689
-#: modules/testimonial-slider/widgets/testimonial-slider.php:597
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:597
 #: modules/morphing-layouts/widgets/morphing-layouts.php:156
 #: modules/image-gallery/widgets/image-gallery.php:141
 #: modules/image-gallery/widgets/image-gallery.php:610
@@ -2178,7 +2178,7 @@ msgstr ""
 #: modules/pricing-list/widgets/pricing-list.php:53
 #: modules/testimonial/widgets/testimonial.php:43
 #: modules/sticky-video/widgets/sticky-video.php:227
-#: modules/testimonial-slider/widgets/testimonial-slider.php:56
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:56
 msgid "Choose Image"
 msgstr ""
 
@@ -2447,15 +2447,15 @@ msgstr ""
 #: modules/weather/widgets/weather.php:443
 #: modules/weather/widgets/weather.php:481
 #: modules/weather/widgets/weather.php:651
-#: modules/testimonial-slider/widgets/testimonial-slider.php:360
-#: modules/testimonial-slider/widgets/testimonial-slider.php:399
-#: modules/testimonial-slider/widgets/testimonial-slider.php:438
-#: modules/testimonial-slider/widgets/testimonial-slider.php:550
-#: modules/testimonial-slider/widgets/testimonial-slider.php:710
-#: modules/testimonial-slider/widgets/testimonial-slider.php:738
-#: modules/testimonial-slider/widgets/testimonial-slider.php:766
-#: modules/testimonial-slider/widgets/testimonial-slider.php:866
-#: modules/testimonial-slider/widgets/testimonial-slider.php:904
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:360
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:399
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:438
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:550
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:710
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:738
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:766
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:866
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:904
 #: modules/counter/widgets/counter.php:253
 #: modules/counter/widgets/counter.php:330
 #: modules/counter/widgets/counter.php:371
@@ -2628,7 +2628,7 @@ msgstr ""
 #: modules/vertical-tab/widgets/vertical-tab.php:728
 #: modules/testimonial/widgets/testimonial.php:37
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:45
-#: modules/testimonial-slider/widgets/testimonial-slider.php:48
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:48
 #: modules/morphing-layouts/widgets/morphing-layouts.php:45
 #: modules/image-gallery/widgets/image-gallery.php:718
 #: modules/drop-bar/widgets/drop-bar.php:51
@@ -3249,8 +3249,8 @@ msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:62
 #: modules/testimonial/widgets/testimonial.php:223
-#: modules/testimonial-slider/widgets/testimonial-slider.php:75
-#: modules/testimonial-slider/widgets/testimonial-slider.php:392
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:75
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:392
 msgid "Designation"
 msgstr ""
 
@@ -4959,7 +4959,7 @@ msgid "General Style"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:133
-#: modules/testimonial-slider/widgets/testimonial-slider.php:304
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:304
 msgid "General Styles"
 msgstr ""
 
@@ -5556,8 +5556,8 @@ msgstr ""
 #: modules/portfolio/widgets/portfolio.php:959
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:842
 #: modules/popup-video/widgets/popup-video.php:811
-#: modules/testimonial-slider/widgets/testimonial-slider.php:760
-#: modules/testimonial-slider/widgets/testimonial-slider.php:888
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:760
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:888
 #: modules/morphing-layouts/widgets/morphing-layouts.php:1087
 #: modules/image-gallery/widgets/image-gallery.php:862
 #: modules/drop-bar/widgets/drop-bar.php:206
@@ -6163,7 +6163,7 @@ msgid "Image Shadow"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:106
-#: modules/testimonial-slider/widgets/testimonial-slider.php:136
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:136
 msgid "Image Shape"
 msgstr ""
 
@@ -6245,7 +6245,7 @@ msgstr ""
 #: modules/slider/widgets/slider.php:235
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:259
 #: modules/portfolio/widgets/portfolio.php:310
-#: modules/testimonial-slider/widgets/testimonial-slider.php:188
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:188
 msgid "Infinite Loop"
 msgstr ""
 
@@ -6731,7 +6731,7 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:160
 #: modules/icon-list/widgets/icon-list.php:170
 #: modules/testimonial/widgets/testimonial.php:118
-#: modules/testimonial-slider/widgets/testimonial-slider.php:148
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:148
 #: modules/image-gallery/widgets/image-gallery.php:179
 #: modules/slinky-vertical-menu/widgets/slinky-vertical-menu.php:47
 #: modules/dual-button/widgets/dual-button.php:48
@@ -6856,7 +6856,7 @@ msgstr ""
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:537
 #: modules/popup-video/widgets/popup-video.php:378
 #: modules/weather/widgets/weather.php:685
-#: modules/testimonial-slider/widgets/testimonial-slider.php:593
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:593
 #: modules/morphing-layouts/widgets/morphing-layouts.php:152
 #: modules/image-gallery/widgets/image-gallery.php:137
 #: modules/image-gallery/widgets/image-gallery.php:606
@@ -7565,11 +7565,11 @@ msgstr ""
 #: modules/weather/widgets/weather.php:461
 #: modules/weather/widgets/weather.php:499
 #: modules/weather/widgets/weather.php:669
-#: modules/testimonial-slider/widgets/testimonial-slider.php:378
-#: modules/testimonial-slider/widgets/testimonial-slider.php:417
-#: modules/testimonial-slider/widgets/testimonial-slider.php:467
-#: modules/testimonial-slider/widgets/testimonial-slider.php:568
-#: modules/testimonial-slider/widgets/testimonial-slider.php:689
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:378
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:417
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:467
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:568
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:689
 #: modules/counter/widgets/counter.php:349
 #: modules/image-gallery/widgets/image-gallery.php:380
 #: modules/slinky-vertical-menu/widgets/slinky-vertical-menu.php:500
@@ -7910,8 +7910,8 @@ msgstr ""
 #: modules/team-member/widgets/team-member.php:365
 #: modules/testimonial/widgets/testimonial.php:53
 #: modules/testimonial/widgets/testimonial.php:184
-#: modules/testimonial-slider/widgets/testimonial-slider.php:66
-#: modules/testimonial-slider/widgets/testimonial-slider.php:353
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:66
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:353
 msgid "Name"
 msgstr ""
 
@@ -7995,13 +7995,13 @@ msgstr ""
 
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:862
 #: modules/portfolio/widgets/portfolio.php:864
-#: modules/testimonial-slider/widgets/testimonial-slider.php:793
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:793
 msgid "Naviagation Arrow Style"
 msgstr ""
 
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:729
 #: modules/portfolio/widgets/portfolio.php:645
-#: modules/testimonial-slider/widgets/testimonial-slider.php:582
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:582
 msgid "Naviagation Dot Style"
 msgstr ""
 
@@ -8014,7 +8014,7 @@ msgstr ""
 #: modules/horizontal-timeline/widgets/horizontal-timeline.php:1133
 #: modules/logo-carousel/widgets/logo-carousel.php:631
 #: modules/slider/widgets/slider.php:1407
-#: modules/testimonial-slider/widgets/testimonial-slider.php:234
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:234
 msgid "Navigation Arrow"
 msgstr ""
 
@@ -8046,7 +8046,7 @@ msgstr ""
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:316
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:524
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:762
-#: modules/testimonial-slider/widgets/testimonial-slider.php:226
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:226
 msgid "Navigation Dots"
 msgstr ""
 
@@ -8222,8 +8222,8 @@ msgstr ""
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:758
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:362
 #: modules/popup-video/widgets/popup-video.php:753
-#: modules/testimonial-slider/widgets/testimonial-slider.php:704
-#: modules/testimonial-slider/widgets/testimonial-slider.php:850
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:704
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:850
 #: modules/morphing-layouts/widgets/morphing-layouts.php:56
 #: modules/morphing-layouts/widgets/morphing-layouts.php:989
 #: modules/image-gallery/widgets/image-gallery.php:403
@@ -8735,8 +8735,8 @@ msgstr ""
 #: modules/weather/widgets/weather.php:192
 #: modules/weather/widgets/weather.php:256
 #: modules/weather/widgets/weather.php:534
-#: modules/testimonial-slider/widgets/testimonial-slider.php:678
-#: modules/testimonial-slider/widgets/testimonial-slider.php:835
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:678
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:835
 #: modules/counter/widgets/counter.php:233
 #: modules/image-gallery/widgets/image-gallery.php:662
 #: modules/drop-bar/widgets/drop-bar.php:383
@@ -8838,7 +8838,7 @@ msgstr ""
 #: modules/logo-carousel/widgets/logo-carousel.php:217
 #: modules/slider/widgets/slider.php:224
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:275
-#: modules/testimonial-slider/widgets/testimonial-slider.php:177
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:177
 msgid "Pause on Hover"
 msgstr ""
 
@@ -9576,7 +9576,7 @@ msgstr ""
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:538
 #: modules/popup-video/widgets/popup-video.php:386
 #: modules/weather/widgets/weather.php:693
-#: modules/testimonial-slider/widgets/testimonial-slider.php:601
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:601
 #: modules/morphing-layouts/widgets/morphing-layouts.php:160
 #: modules/image-gallery/widgets/image-gallery.php:145
 #: modules/image-gallery/widgets/image-gallery.php:614
@@ -9715,7 +9715,7 @@ msgid "Rotate Y"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:111
-#: modules/testimonial-slider/widgets/testimonial-slider.php:141
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:141
 msgid "Round"
 msgstr ""
 
@@ -10275,7 +10275,7 @@ msgstr ""
 #: modules/vertical-tab/widgets/vertical-tab.php:161
 #: modules/portfolio/widgets/portfolio.php:176
 #: modules/testimonial/widgets/testimonial.php:91
-#: modules/testimonial-slider/widgets/testimonial-slider.php:121
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:121
 #: modules/image-gallery/widgets/image-gallery.php:173
 #: modules/caption-hover-effect/widgets/caption-hover-effect.php:156
 #: modules/logo-grid/widgets/logo-grid.php:141
@@ -10659,7 +10659,7 @@ msgstr ""
 msgid "Slide Down"
 msgstr ""
 
-#: modules/testimonial-slider/widgets/testimonial-slider.php:332
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:332
 msgid "Slide Item Padding"
 msgstr ""
 
@@ -10766,7 +10766,7 @@ msgstr ""
 #: modules/horizontal-timeline/widgets/horizontal-timeline.php:306
 #: modules/logo-carousel/widgets/logo-carousel.php:137
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:207
-#: modules/testimonial-slider/widgets/testimonial-slider.php:250
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:250
 msgid "Slides To Show"
 msgstr ""
 
@@ -10939,7 +10939,7 @@ msgstr ""
 #: modules/vertical-tab/widgets/vertical-tab.php:215
 #: modules/horizontal-scroll/widgets/horizontal-scroll.php:845
 #: modules/weather/widgets/weather.php:562
-#: modules/testimonial-slider/widgets/testimonial-slider.php:614
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:614
 #: modules/dual-button/widgets/dual-button.php:84
 msgid "Spacing"
 msgstr ""
@@ -10984,7 +10984,7 @@ msgstr ""
 #: modules/logo-carousel/widgets/logo-carousel.php:163
 #: modules/twitter-feed-carousel/widgets/twitter-feed-carousel.php:233
 #: modules/portfolio/widgets/portfolio.php:366
-#: modules/testimonial-slider/widgets/testimonial-slider.php:276
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:276
 msgid "Spacing Between Slides"
 msgstr ""
 
@@ -11043,7 +11043,7 @@ msgstr ""
 #: modules/testimonial/widgets/testimonial.php:110
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:123
 #: modules/flip-box-advanced/widgets/flip-box-advanced.php:232
-#: modules/testimonial-slider/widgets/testimonial-slider.php:140
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:140
 msgid "Square"
 msgstr ""
 
@@ -11224,7 +11224,7 @@ msgstr ""
 #: modules/portfolio/widgets/portfolio.php:186
 #: modules/testimonial/widgets/testimonial.php:122
 #: modules/weather/widgets/weather.php:153
-#: modules/testimonial-slider/widgets/testimonial-slider.php:152
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:152
 #: modules/counter/widgets/counter.php:146
 #: modules/dual-button/widgets/dual-button.php:300
 msgid "Style 1"
@@ -11261,7 +11261,7 @@ msgstr ""
 #: modules/portfolio/widgets/portfolio.php:187
 #: modules/testimonial/widgets/testimonial.php:123
 #: modules/weather/widgets/weather.php:154
-#: modules/testimonial-slider/widgets/testimonial-slider.php:153
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:153
 #: modules/counter/widgets/counter.php:147
 #: modules/dual-button/widgets/dual-button.php:302
 msgid "Style 2"
@@ -11295,7 +11295,7 @@ msgstr ""
 #: modules/scroll-nav/widgets/scroll-nav.php:400
 #: modules/testimonial/widgets/testimonial.php:124
 #: modules/weather/widgets/weather.php:155
-#: modules/testimonial-slider/widgets/testimonial-slider.php:154
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:154
 #: modules/counter/widgets/counter.php:148
 #: modules/dual-button/widgets/dual-button.php:304
 msgid "Style 3"
@@ -11721,26 +11721,26 @@ msgstr ""
 #: modules/testimonial/widgets/testimonial.php:23
 #: modules/testimonial/widgets/testimonial.php:80
 #: modules/testimonial/widgets/testimonial.php:262
-#: modules/testimonial-slider/widgets/testimonial-slider.php:431
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:431
 msgid "Testimonial"
 msgstr ""
 
-#: modules/testimonial-slider/widgets/testimonial-slider.php:93
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:93
 msgid "Testimonial Content"
 msgstr ""
 
-#: modules/testimonial-slider/widgets/testimonial-slider.php:26
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:26
 msgid "Testimonial Slider"
 msgstr ""
 
 #: modules/testimonial/widgets/testimonial.php:71
 #: modules/testimonial/widgets/testimonial.php:370
-#: modules/testimonial-slider/widgets/testimonial-slider.php:84
-#: modules/testimonial-slider/widgets/testimonial-slider.php:543
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:84
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:543
 msgid "Testimonial Title"
 msgstr ""
 
-#: modules/testimonial-slider/widgets/testimonial-slider.php:102
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:102
 msgid "Testimonials"
 msgstr ""
 
@@ -12739,10 +12739,10 @@ msgstr ""
 #: modules/weather/widgets/weather.php:601
 #: modules/weather/widgets/weather.php:628
 #: modules/weather/widgets/weather.php:662
-#: modules/testimonial-slider/widgets/testimonial-slider.php:371
-#: modules/testimonial-slider/widgets/testimonial-slider.php:410
-#: modules/testimonial-slider/widgets/testimonial-slider.php:449
-#: modules/testimonial-slider/widgets/testimonial-slider.php:561
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:371
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:410
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:449
+#: modules/testimonial-carousel/widgets/testimonial-carousel.php:561
 #: modules/counter/widgets/counter.php:342
 #: modules/counter/widgets/counter.php:382
 #: modules/counter/widgets/counter.php:408

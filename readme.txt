@@ -98,7 +98,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>38) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial/" target="_blank">Testimonial</a> - Showcase the positive words given by your clients in a stunning way.</p>
 
-<p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-slider/" target="_blank">Testimonial Slider</a> - Showcase the positive words given by your client in a beautiful slider.</p>
+<p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/" target="_blank">Testimonial Slider</a> - Showcase the positive words given by your client in a beautiful slider.</p>
 
 <p>40) <a href="https://demo.hashthemes.com/easy-elementor-addons/slider/" target="_blank">Slider Block</a> - Highlight your announcements, deals or even products in a responsive slider.</p>
 

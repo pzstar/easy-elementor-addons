@@ -7,7 +7,6 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
-use Elementor\Repeater;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -32,7 +31,7 @@ class TeamCarousel extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eead-element-icon eead-icons-team';
+        return 'eead-element-icon eead-icons-team-carousel';
     }
 
     public function get_categories() {
@@ -103,8 +102,8 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fas fa-facebook',
-                            'library' => 'fa-solid',
+                            'value' => 'fab fa-facebook',
+                            'library' => 'fa-brands',
                         ),
                     ],
                     [
@@ -123,8 +122,8 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fas fa-twitter',
-                            'library' => 'fa-solid',
+                            'value' => 'fab fa-twitter',
+                            'library' => 'fa-brands',
                         )
                     ],
                     [
@@ -143,8 +142,8 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fas fa-instagram',
-                            'library' => 'fa-solid',
+                            'value' => 'fab fa-instagram',
+                            'library' => 'fa-brands',
                         )
                     ],
                     [
@@ -163,8 +162,8 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fas fa-whatsapp',
-                            'library' => 'fa-solid',
+                            'value' => 'fab fa-whatsapp',
+                            'library' => 'fa-brands',
                         ),
                     ],
                     [
@@ -216,7 +215,8 @@ class TeamCarousel extends Widget_Base {
                 ],
                 'condition' => [
                     'content_display' => 'below-image'
-                ]
+                ],
+                'separator' => 'before'
             ]
         );
 
@@ -486,13 +486,24 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'container_margin', [
+                'label' => esc_html__('Margin', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-member' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->add_control(
             'container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-team-member' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-team-member, {{WRAPPER}} .eead-team-member.eead-content-on-image-hover .eead-team-member-content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -603,7 +614,7 @@ class TeamCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFF',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-team-member-content > *' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-team-member-content *' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'content_display' => 'on-image-hover'
@@ -1092,6 +1103,491 @@ class TeamCarousel extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+            'dot_style', [
+                'label' => esc_html__('Navigation Dot', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'dots' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dots_width', [
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots span' => 'width: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dots_height', [
+                'label' => esc_html__('Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots span' => 'height: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dots_spacing', [
+                'label' => esc_html__('Spacing Between Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 40,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 15,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots' => 'gap: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dots_upper_spacing', [
+                'label' => esc_html__('Spacing Above Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 150,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots' => 'margin-top: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'dots_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot span'
+            ]
+        );
+
+        $this->add_control(
+            'dots_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'dot_tabs'
+        );
+
+        $this->start_controls_tab(
+            'dot_style_normal_tab', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'dot_bg_color', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'dot_style_active_tab', [
+                'label' => esc_html__('Active', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'dot_bg_color_active', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot.active span' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dot_border_color_active', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dot_scale_active', [
+                'label' => esc_html__('Scale Dots', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'unit' => 'px',
+                    'size' => '1.3'
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 2,
+                        'step' => .05
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot.active span' => 'transform: scale({{SIZE}}); -webkit-transform: scale({{SIZE}});'
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'dot_style_hover_tab', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'dot_bg_color_hover', [
+                'label' => esc_html__('Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'dot_border_color_hover', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-dots .owl-dot:hover span' => 'border-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        /* Arrow Style */
+        $this->start_controls_section(
+            'arrow_style', [
+                'label' => esc_html__('Navigation Arrow', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'arrows' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'show_on_hover', [
+                'label' => esc_html__('Show on Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_width', [
+                'label' => esc_html__('Width', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 40,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button' => 'width: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_height', [
+                'label' => esc_html__('Height', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 50,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button' => 'height: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_icon_size', [
+                'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button i' => 'font-size: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_translate_x', [
+                'label' => esc_html__('Horizontal Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel' => '--eead-team-carousel-offset-x:{{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'arrow_translate_y', [
+                'label' => esc_html__('Vertical Offset', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => -200,
+                        'max' => 200,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'size' => 0,
+                    'unit' => 'px'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel' => '--eead-team-carousel-offset-y:{{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(), [
+                'name' => 'arrow_border',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'none',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => '#444444',
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .eead-team-carousel .owl-nav button'
+            ]
+        );
+
+        $this->add_control(
+            'arrows_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'arrow_tabs'
+        );
+
+        $this->start_controls_tab(
+            'arrow_style_normal_tab', [
+                'label' => esc_html__('Normal', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'arrow_bg_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'arrow_icon_color', [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'arrow_style_hover_tab', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons')
+            ]
+        );
+
+        $this->add_control(
+            'arrow_bg_color_hover', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button:hover' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'arrow_color_hover', [
+                'label' => esc_html__('Icon Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button:hover' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'arrow_border_color_hover', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-team-carousel .owl-nav button:hover' => 'border-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->add_control(
+            'prev_icon_arrow', [
+                'label' => esc_html__('Custom Prev Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
+                'exclude_inline_options' => ['svg'],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_control(
+            'next_icon_arrow', [
+                'label' => esc_html__('Custom Next Icon', 'easy-elementor-addons'),
+                'type' => Controls_Manager::ICONS,
+                'skin' => 'inline',
+                'label_block' => false,
+                'exclude_inline_options' => ['svg']
+            ]
+        );
+
+        $this->end_controls_section();
     }
 
     protected function get_image($item) {
@@ -1141,15 +1637,16 @@ class TeamCarousel extends Widget_Base {
         return $position;
     }
 
-    protected function get_social_links($item) {
+    protected function get_social_links($item, $index) {
+        $social_html = '';
         ob_start();
         for ($i = 1; $i <= 4; $i++) {
             ?>
             <?php
             if (!empty($item['social_link_' . $i]['url']) && !empty($item['social_icon_' . $i])) {
-                $this->add_link_attributes('social-link-' . $i, $item['social_link_' . $i]);
+                $this->add_link_attributes('social-link-' . $i . $index, $item['social_link_' . $i]);
                 ?>
-                <a <?php echo $this->get_render_attribute_string('social-link-' . $i); ?>>
+                <a <?php echo $this->get_render_attribute_string('social-link-' . $i . $index); ?>>
                     <?php Icons_Manager::render_icon($item['social_icon_' . $i], ['aria-hidden' => 'true']); ?>
                 </a>
                 <?php
@@ -1205,14 +1702,13 @@ class TeamCarousel extends Widget_Base {
             'class' => [
                 'eead-team-carousel',
                 'owl-carousel',
-                $custom_height_class,
-                'eead-content-' . $settings['content_display'],
+                'eead-tc-hover-arrow-' . ($settings['show_on_hover'] ? 'on' : 'off'),
             ],
             'data-params' => $params
         ]);
 
         if ($settings['content_display'] == 'below-image') {
-            $this->add_render_attribute('team-wrapper', [
+            $this->add_render_attribute('team', [
                 'class' => [
                     'eead-social-' . $settings['social_icon_display'],
                     'eead-social-pos-' . ($settings['social_icon_position'] ? $settings['social_icon_position'] : 'bottom-center')
@@ -1224,13 +1720,14 @@ class TeamCarousel extends Widget_Base {
             'class' => [
                 'eead-team-member',
                 'eead-content-' . $settings['content_display'],
+                $custom_height_class
             ]
         ]);
         ?>
         <div <?php $this->print_render_attribute_string('team-wrapper'); ?>>
             <?php
             if (!empty($team_members)) {
-                foreach ($team_members as $team_member) {
+                foreach ($team_members as $index => $team_member) {
                     ?>
                     <div <?php $this->print_render_attribute_string('team'); ?>>
                         <?php
@@ -1241,7 +1738,7 @@ class TeamCarousel extends Widget_Base {
                                 echo $this->get_image($team_member);
 
                                 if ($settings['social_icon_display'] == 'on-image-hover') {
-                                    $this->get_social_links($team_member);
+                                    $this->get_social_links($team_member, $index);
                                 }
                                 ?>
                             </div>
@@ -1256,7 +1753,7 @@ class TeamCarousel extends Widget_Base {
                                 echo $this->get_member_position($team_member);
                                 echo $this->get_description($team_member);
                                 if ($settings['social_icon_display'] !== 'on-image-hover') {
-                                    $this->get_social_links($team_member);
+                                    $this->get_social_links($team_member, $index);
                                 }
                                 ?>
                             </div>

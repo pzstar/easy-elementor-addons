@@ -356,11 +356,11 @@ class Testimonial extends Widget_Base {
         );
 
         $this->add_control(
-			'hr',
-			[
-				'type' => Controls_Manager::DIVIDER,
-			]
-		);
+            'hr',
+            [
+                'type' => Controls_Manager::DIVIDER,
+            ]
+        );
 
         $this->add_control(
             'testimony_v_position', [
@@ -741,7 +741,7 @@ class Testimonial extends Widget_Base {
                 'types' => ['classic', 'gradient'],
                 'exclude' => ['image'],
                 'selector' => '{{WRAPPER}} .eead-testimonial-content',
-                'condition' =>[
+                'condition' => [
                     'layout!' => 'style3'
                 ]
             ]
@@ -752,7 +752,7 @@ class Testimonial extends Widget_Base {
                 'name' => 'testimonial_box_shadow_hover',
                 'label' => esc_html__('Box Shadow', 'easy-elementor-addons'),
                 'selector' => '{{WRAPPER}} .eead-testimonial-content',
-                'condition' =>[
+                'condition' => [
                     'layout!' => 'style3'
                 ]
             ]
@@ -766,7 +766,7 @@ class Testimonial extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'condition' =>[
+                'condition' => [
                     'layout!' => 'style3'
                 ]
             ]
@@ -780,7 +780,7 @@ class Testimonial extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'condition' =>[
+                'condition' => [
                     'layout!' => 'style3'
                 ]
             ]

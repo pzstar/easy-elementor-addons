@@ -181,7 +181,7 @@ class PopupModal extends Widget_Base {
 					'library' => 'fa-solid',
 				],
 				'skin' => 'inline',
-                'label_block' => false,
+				'label_block' => false,
 				'condition' => [
 					'trigger_type' => ['button', 'icon']
 				]
@@ -234,7 +234,7 @@ class PopupModal extends Widget_Base {
 					'library' => 'fa-solid',
 				],
 				'skin' => 'inline',
-                'label_block' => false,
+				'label_block' => false,
 				'condition' => [
 					'trigger_type' => 'image',
 					'enable_image_trigger_icon' => 'yes'

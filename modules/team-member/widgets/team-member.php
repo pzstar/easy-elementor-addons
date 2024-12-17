@@ -76,7 +76,7 @@ class TeamMember extends Widget_Base {
         $this->add_control(
             'description', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
-                'type' => Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::TEXTAREA,
             ]
         );
 
@@ -238,7 +238,8 @@ class TeamMember extends Widget_Base {
                 ],
                 'condition' => [
                     'content_display' => 'below-image'
-                ]
+                ],
+                'separator' => 'before'
             ]
         );
 
@@ -336,7 +337,7 @@ class TeamMember extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-team-member' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-team-member, {{WRAPPER}} .eead-team-member.eead-content-on-image-hover .eead-team-member-content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -1038,7 +1039,7 @@ class TeamMember extends Widget_Base {
             $this->add_render_attribute('team-wrapper', [
                 'class' => [
                     'eead-social-' . $settings['social_icon_display'],
-                    'eead-social-pos-' . $settings['social_icon_position']
+                    'eead-social-pos-' . ($settings['social_icon_position'] ? $settings['social_icon_position'] : 'bottom-center')
                 ]
             ]);
         }

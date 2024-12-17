@@ -581,7 +581,7 @@ class LogoCarousel extends Widget_Base {
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 1.5,
+                        'max' => 2,
                         'step' => .05
                     ]
                 ],

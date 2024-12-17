@@ -37,7 +37,7 @@ odometerOptions = {auto: false};
                 'eead-video-player.default': EEA.videoPlayer,
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-team-carousel.default': EEA.teamCarousel,
-
+                'eead-testimonial-carousel.default': EEA.testimonialCarousel,
 
 
 
@@ -52,9 +52,8 @@ odometerOptions = {auto: false};
                 'eead-text-marquee.default': EEA.textMarquee,
                 'eead-threesixty-image.default': EEA.threesixtyImage,
                 'eead-threed-text.default': EEA.threedTextBlock,
-                'eead-testimonial-slider.default': EEA.testimonialSlider,
                 'eead-tilt-hover-image.default': EEA.tiltHoverImageBlock,
-                
+
             };
 
             $.each(widgets, function (widget, callback) {
@@ -1275,7 +1274,7 @@ odometerOptions = {auto: false};
                     nextArrow: '<div class="slick-next slick-arrow"><i class="' + params.next_icon + '"></div>',
                     fade: $slider.attr('data-transition') == 'fade' ? true : false,
                     appendArrows: $scope.find('.slick-nav'),
-                    appendDots:  $scope.find('.slick-dots-wrap')
+                    appendDots: $scope.find('.slick-dots-wrap')
                 };
 
                 $slider.on('init', function (event, slick) {
@@ -1323,6 +1322,41 @@ odometerOptions = {auto: false};
 
         teamCarousel: function ($scope, $) {
             var $ele = $scope.find('.eead-team-carousel');
+            if ($ele.length > 0) {
+                var params = JSON.parse($ele.attr('data-params'));
+                $ele.owlCarousel({
+                    loop: JSON.parse(params.loop),
+                    autoplay: JSON.parse(params.autoplay),
+                    autoplayTimeout: params.pause,
+                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
+                    nav: JSON.parse(params.arrows),
+                    dots: JSON.parse(params.dots),
+                    autoHeight: JSON.parse(params.auto_height),
+                    center: JSON.parse(params.focus_center_slide),
+                    navText: ['<i class="' + params.prev_icon + '">', '<i class="' + params.next_icon + '">'],
+                    responsive: {
+                        0: {
+                            items: params.items_mobile,
+                            margin: params.margin_mobile,
+                            stagePadding: params.stagepadding_mobile
+                        },
+                        480: {
+                            items: params.items_tablet,
+                            margin: params.margin_tablet,
+                            stagePadding: params.stagepadding_tablet
+                        },
+                        769: {
+                            items: params.items,
+                            margin: params.margin,
+                            stagePadding: params.stagepadding
+                        }
+                    }
+                });
+            }
+        },
+
+        testimonialCarousel: function ($scope) {
+            var $ele = $scope.find('.eead-testimonial-carousel');
             if ($ele.length > 0) {
                 var params = JSON.parse($ele.attr('data-params'));
                 $ele.owlCarousel({
@@ -1466,38 +1500,9 @@ odometerOptions = {auto: false};
 
 
 
-        testimonialSlider: function ($scope) {
-            var $ele = $scope.find('.eead-testimonial-block');
-            if ($ele.find('.eead-testimonial-all-slides').length > 0) {
-                var params = JSON.parse($ele.find('.eead-testimonial-all-slides').attr('data-params'));
-                $ele.find('.eead-testimonial-all-slides').owlCarousel({
-                    loop: JSON.parse(params.loop),
-                    autoplay: JSON.parse(params.autoplay),
-                    autoplaySpeed: params.speed,
-                    autoplayTimeout: params.pause,
-                    autoplayHoverPause: JSON.parse(params.pause_on_hover),
-                    nav: JSON.parse(params.arrows),
-                    dots: JSON.parse(params.dots),
-                    autoHeight: JSON.parse(params.auto_height),
-                    responsive: {
-                        0: {
-                            items: params.items_mobile,
-                            margin: params.margin_mobile
-                        },
-                        480: {
-                            items: params.items_tablet,
-                            margin: params.margin_tablet
-                        },
-                        769: {
-                            items: params.items,
-                            margin: params.margin
-                        }
-                    }
-                });
-            }
-        },
 
-        
+
+
 
 
         portfolioBlock: function ($scope) {

@@ -122,10 +122,10 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
                     <?php $this->get_widget_field('Step Flow', 'step-flow', 'eead-icons-step-flow'); ?>
                     <?php $this->get_widget_field('Sticky Video', 'sticky-video', 'eead-icons-sticky-video'); ?>
                     <?php $this->get_widget_field('Switcher', 'switcher', 'eead-icons-switcher'); ?>
-                    <?php $this->get_widget_field('Team Member', 'team-member', 'eead-icons-team'); ?>
-                    <?php $this->get_widget_field('Team Member Carousel', 'team-carousel', 'eead-icons-team-carousel'); ?>
+                    <?php $this->get_widget_field('Team', 'team-member', 'eead-icons-team'); ?>
+                    <?php $this->get_widget_field('Team Carousel', 'team-carousel', 'eead-icons-team-carousel'); ?>
                     <?php $this->get_widget_field('Testimonial', 'testimonial', 'eead-icons-testimonial'); ?>
-                    <?php $this->get_widget_field('Testimonial Slider', 'testimonial-slider', 'eead-icons-testimonial-slider'); ?>
+                    <?php $this->get_widget_field('Testimonial Carousel', 'testimonial-carousel', 'eead-icons-testimonial-carousel'); ?>
                     <?php //$this->get_widget_field('Text Marquee', 'text-marquee', 'eead-icons-');//premium ?>
                     <?php //$this->get_widget_field('3D Text', 'threed-text', 'eead-icons-');//premium ?>
                     <?php //$this->get_widget_field('360 Image', 'threesixty-image', 'eead-icons-image360'); //premium ?>
@@ -236,7 +236,7 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
 
             <p>38) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial/" target="_blank">Testimonial</a> - Showcase the positive words given by your clients in a stunning way.</p>
 
-            <p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-slider/" target="_blank">Testimonial Slider</a> - Showcase the positive words given by your client in a beautiful slider.</p>
+            <p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/" target="_blank">Testimonial Slider</a> - Showcase the positive words given by your client in a beautiful slider.</p>
 
             <p>40) <a href="https://demo.hashthemes.com/easy-elementor-addons/slider/" target="_blank">Slider Block</a> - Highlight your announcements, deals or even products in a responsive slider.</p>
 

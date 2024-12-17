@@ -180,7 +180,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'team-member',
                 'team-carousel',
                 'testimonial',
-                'testimonial-slider',
+                'testimonial-carousel',
                 //'text-marquee', //premium
                 //'threed-text', //premium
                 //'threesixty-image', //premium
