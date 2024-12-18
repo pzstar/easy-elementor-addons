@@ -1707,7 +1707,7 @@ class TeamCarousel extends Widget_Base {
             'data-params' => $params
         ]);
 
-        if ($settings['content_display'] == 'below-image') {
+        if ($settings['social_icon_display'] == 'on-image-hover') {
             $this->add_render_attribute('team', [
                 'class' => [
                     'eead-social-' . $settings['social_icon_display'],

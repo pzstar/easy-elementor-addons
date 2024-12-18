@@ -1035,7 +1035,7 @@ class TeamMember extends Widget_Base {
             ]
         ]);
 
-        if ($settings['content_display'] == 'below-image') {
+        if ($settings['social_icon_display'] == 'on-image-hover') {
             $this->add_render_attribute('team-wrapper', [
                 'class' => [
                     'eead-social-' . $settings['social_icon_display'],
