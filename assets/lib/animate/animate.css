@@ -5026,8 +5026,8 @@ Copyright (c) 2015 Daniel Eden
    */
 @-webkit-keyframes slide-in-top {
     0% {
-        -webkit-transform: translateY(-1000px);
-        transform: translateY(-1000px);
+        -webkit-transform: translateY(-200px);
+        transform: translateY(-200px);
         opacity: 0;
     }
 
@@ -5040,8 +5040,8 @@ Copyright (c) 2015 Daniel Eden
 
 @keyframes slide-in-top {
     0% {
-        -webkit-transform: translateY(-1000px);
-        transform: translateY(-1000px);
+        -webkit-transform: translateY(-200px);
+        transform: translateY(-200px);
         opacity: 0;
     }
 

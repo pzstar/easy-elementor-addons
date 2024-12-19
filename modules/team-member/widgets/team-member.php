@@ -554,6 +554,9 @@ class TeamMember extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-team-member.eead-content-below-image .eead-team-member-image, {{WRAPPER}} .eead-team-member.eead-content-on-image-hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'content_display' => 'below-image'
                 ]
             ]
         );
@@ -576,9 +579,12 @@ class TeamMember extends Widget_Base {
                     ],
                     'color' => [
                         'default' => '#444444',
-                    ]
+                    ],
                 ],
-                'selector' => '{{WRAPPER}} .eead-team-member-image'
+                'selector' => '{{WRAPPER}} .eead-team-member-image',
+                'condition' => [
+                    'content_display' => 'below-image'
+                ]
             ]
         );
 
