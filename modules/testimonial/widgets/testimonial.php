@@ -802,7 +802,7 @@ class Testimonial extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-title' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -812,7 +812,7 @@ class Testimonial extends Widget_Base {
                 'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-testimonial-content:hover .eead-testimonial-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-testimonial-container:hover .eead-testimonial-title' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -821,7 +821,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_title_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-title'
+                'selector' => '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-title'
             ]
         );
 
@@ -850,7 +850,7 @@ class Testimonial extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-txt' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -869,7 +869,7 @@ class Testimonial extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'testimonial_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-testimonial-content .eead-testimonial-txt'
+                'selector' => '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-txt'
             ]
         );
 
@@ -954,6 +954,17 @@ class Testimonial extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-quote' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-quote svg' => 'fill: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'quote_color_hover', [
+                'label' => esc_html__('Color (Hover)', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-testimonial-container:hover .eead-testimonial-quote' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-testimonial-container:hover .eead-testimonial-quote svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );

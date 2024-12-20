@@ -7485,6 +7485,7 @@ Testimonial
 .eead-testimonial-quote {
     font-size: 24px;
     position: absolute;
+    transform: translate(var(--eead-scroll-image-link-h, 0), var(--eead-scroll-image-link-v, 0));
 }
 
 .eead-testimonial-quote svg {
