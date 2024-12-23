@@ -7331,6 +7331,13 @@ Team
     right: 10px;
 }
 
+.eead-team-member.eead-content-on-image-hover .eead-team-member-name,
+.eead-team-member.eead-content-on-image-hover .eead-team-member-position,
+.eead-team-member.eead-content-on-image-hover .eead-team-member-description,
+.eead-team-member.eead-content-on-image-hover .eead-team-member-social-links {
+    color: var(--eead-team-carousel-text-color, #FFF)
+}
+
 /*--------------------------------------------------------------
 Team Carousel
 --------------------------------------------------------------*/
@@ -7576,12 +7583,12 @@ Testimonial Carousel
 
 .eead-testimonial-carousel .owl-nav button.owl-prev {
     left: 0;
-    transform: translate(calc(var(--eead-team-carousel-offset-x, 0) * -1), var(--eead-team-carousel-offset-y, 0));
+    transform: translate(calc(var(--eead-testimonial-carousel-offset-x, 0) * -1), var(--eead-testimonial-carousel-offset-y, 0));
 }
 
 .eead-testimonial-carousel .owl-nav button.owl-next {
     right: 0;
-    transform: translate(var(--eead-team-carousel-offset-x, 0), var(--eead-team-carousel-offset-y, 0));
+    transform: translate(var(--eead-testimonial-carousel-offset-x, 0), var(--eead-testimonial-carousel-offset-y, 0));
 }
 
 .eead-testimonial-carousel.eead-tc-hover-arrow-on .owl-nav {
@@ -7682,91 +7689,6 @@ Testimonial Carousel
 
 
 
-
-
-
-
-
-
-/*testimonial slider css*/
-.eead-testimonial-block.style1.eead-testimonial-carousel {
-    border: none;
-    padding: 0;
-}
-
-.eead-testimonial-block.style1.eead-testimonial-carousel .eead-testimonial-each-slider {
-    padding: 5px;
-    border: 5px solid #ffc000;
-    overflow: hidden;
-}
-
-.eead-testimonial-block.style2.eead-testimonial-carousel {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    padding: 0 10px;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-}
-
-.eead-testimonial-block.style2.eead-testimonial-carousel .eead-testimonial-each-slider {
-    box-shadow: 0px 7px 8px #8f8f8e;
-    -webkit-box-shadow: 0px 7px 8px #8f8f8e;
-    padding: 15px;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    margin: 10px 7px 15px;
-}
-
-.eead-testimonial-block.style3.eead-testimonial-carousel {
-    padding: 0;
-    border: none;
-    background: #fbfbfb;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-.eead-testimonial-block.style3.eead-testimonial-carousel .eead-testimonial-each-slider {
-    text-align: center;
-    padding: 30px 15px;
-    border: 1px solid #f3f3f3;
-    background: #fbfbfb;
-    box-shadow: 7px 8px 1px #ccc;
-    -webkit-box-shadow: 7px 8px 1px #ccc;
-    margin: 0 10px 15px;
-}
-
-.eead-testimonial-carousel .owl-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    width: 100%;
-    margin-top: -15px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all ease 0.3s;
-    -webkit-transition: all ease 0.3s;
-}
-
-.eead-testimonial-carousel:hover .owl-nav {
-    opacity: 1;
-    visibility: visible;
-}
-
-.eead-testimonial-carousel .owl-nav button {
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-}
-
-.eead-testimonial-carousel .owl-nav button.owl-prev {
-    left: 0;
-}
-
-.eead-testimonial-carousel .owl-nav button.owl-next {
-    right: 0;
-}
 
 
 

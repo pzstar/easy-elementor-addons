@@ -614,7 +614,7 @@ class TeamCarousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFF',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-team-member-content *' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-team-carousel' => '--eead-team-carousel-text-color: {{VALUE}}',
                 ],
                 'condition' => [
                     'content_display' => 'on-image-hover'
