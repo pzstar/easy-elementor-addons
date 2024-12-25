@@ -706,13 +706,16 @@ odometerOptions = {auto: false};
                     var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
                     var filterValue = $gallery_container.find('.eead-ig-filter-list .eead-ig-filter').first().data('filter');
 
-                    var $isotope_gallery = $gallery.isotope({
-                        itemSelector: '.eead-ig-item-box',
-                        layoutMode: layout,
-                        percentPosition: true,
-                        stagger: 30,
-                        transitionDuration: $settings.duration + 'ms',
-                        filter: filterValue
+                    $gallery.imagesLoaded().done(function () {
+                        console.log('loaded');
+                        $gallery.isotope({
+                            itemSelector: '.eead-ig-item-box',
+                            layoutMode: layout,
+                            percentPosition: true,
+                            stagger: 30,
+                            transitionDuration: $settings.duration + 'ms',
+                            filter: filterValue
+                        });
                     });
 
                     $gallery_container.on('click', '.eead-ig-filter', function () {
@@ -721,7 +724,14 @@ odometerOptions = {auto: false};
 
                         $this.siblings().removeClass('eead-ig-active');
                         $this.addClass('eead-ig-active');
-                        $isotope_gallery.isotope({filter: filterValue});
+                        $gallery.isotope({
+                            itemSelector: '.eead-ig-item-box',
+                            layoutMode: layout,
+                            percentPosition: true,
+                            stagger: 30,
+                            transitionDuration: $settings.duration + 'ms',
+                            filter: filterValue
+                        });
                     });
 
                     $gallery_container.addClass('eead-isotope-initialized');

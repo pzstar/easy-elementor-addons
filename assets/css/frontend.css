@@ -6990,7 +6990,7 @@ Slider
 }
 
 .eead-slider-height-full .eead-slide {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .eead-slider-height-full .eead-slide img,

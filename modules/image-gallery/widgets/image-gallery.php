@@ -43,7 +43,7 @@ class ImageGallery extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['light-gallery', 'isotope'];
+        return ['light-gallery', 'isotope', 'imagesloaded'];
     }
 
     protected function register_controls() {
@@ -1047,15 +1047,17 @@ class ImageGallery extends Widget_Base {
 
                     if ($settings.layout == 'masonry' || $settings.layout == 'grid') {
                         var layout = $settings.layout == 'grid' ? 'fitRows' : 'masonry';
-                        var filterValue = $gallery_container.find(".eead-ig-filter-list .eead-ig-filter").first().data("filter");
+                        var filterValue = $gallery_container.find('.eead-ig-filter-list .eead-ig-filter').first().data('filter');
 
-                        var $isotope_gallery = $gallery.isotope({
-                            itemSelector: '.eead-ig-item-box',
-                            layoutMode: layout,
-                            percentPosition: true,
-                            stagger: 30,
-                            transitionDuration: $settings.duration + "ms",
-                            filter: filterValue
+                        $gallery.imagesLoaded().done(function () {
+                            $gallery.isotope({
+                                itemSelector: '.eead-ig-item-box',
+                                layoutMode: layout,
+                                percentPosition: true,
+                                stagger: 30,
+                                transitionDuration: $settings.duration + 'ms',
+                                filter: filterValue
+                            });
                         });
 
                         $gallery_container.on('click', '.eead-ig-filter', function () {
@@ -1064,18 +1066,22 @@ class ImageGallery extends Widget_Base {
 
                             $this.siblings().removeClass('eead-ig-active');
                             $this.addClass('eead-ig-active');
-                            $isotope_gallery.isotope({filter: filterValue});
+                            $gallery.isotope({
+                                itemSelector: '.eead-ig-item-box',
+                                layoutMode: layout,
+                                percentPosition: true,
+                                stagger: 30,
+                                transitionDuration: $settings.duration + 'ms',
+                                filter: filterValue
+                            });
                         });
 
                         $gallery_container.addClass('eead-isotope-initialized');
 
-                        // Init Magnific Popup
-                        $($gallery_container).magnificPopup({
-                            delegate: ".eead-ig-lightbox",
-                            type: "image",
-                            gallery: {
-                                enabled: true
-                            }
+                        // Init Popup
+                        lightGallery(document.getElementById($gallery_container.attr('id')), {
+                            selector: '.eead-ig-lightbox',
+                            thumbnail: false,
                         });
                     }
                 }, 2000);
