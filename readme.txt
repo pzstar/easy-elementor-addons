@@ -48,7 +48,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>13) <a href="https://demo.hashthemes.com/easy-elementor-addons/dual-heading/" target="_blank">Dual Heading</a> - Allows you to display the heading in dual effects.</p>
 
-<p>14) <a href="https://demo.hashthemes.com/easy-elementor-addons/feature-list/" target="_blank">Feature List</a> - Showcase features or services with icons, text, and custom layouts.
+<p>14) <a href="https://demo.hashthemes.com/easy-elementor-addons/feature-list/" target="_blank">Feature List</a> - Showcase features or services with icons, text, and custom layouts.</p>
 
 <p>15) <a href="https://demo.hashthemes.com/easy-elementor-addons/flip-box/">Flip Box</a> - Display your information, custom text or even product detail in a customizable flip box.</p>
 
@@ -62,7 +62,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>20) <a href="https://demo.hashthemes.com/easy-elementor-addons/icon-list/" target="_blank">Icon List</a> - List down your contents with beautiful icons or png images.</p>
 
-<p>21) <a href="https://demo.hashthemes.com/easy-elementor-addons/image-accordion/" target="_blank">Image Accordion</a> - Images are displayed in a stacked layout that expands or collapses when clicked, showing or hiding additional images or content
+<p>21) <a href="https://demo.hashthemes.com/easy-elementor-addons/image-accordion/" target="_blank">Image Accordion</a> - Images are displayed in a stacked layout that expands or collapses when clicked, showing or hiding additional images or content</p>
 
 <p>22) <a href="https://demo.hashthemes.com/easy-elementor-addons/image-comparison/" target="_blank">Image Comparison</a> - To showcase the images before and after editing the images.</p>
 
@@ -84,7 +84,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>31) <a href="https://demo.hashthemes.com/easy-elementor-addons/portfolios/" target="_blank">Portfolio Block</a> - Allows you to create a beautiful portfolio gallery of your work with an amazing light box image.</p>
 
-<p>32) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-grid/" target="_blank">Portfolio Grid</a> - Organize and display portfolios in a clean, grid-style layout.
+<p>32) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-grid/" target="_blank">Portfolio Grid</a> - Organize and display portfolios in a clean, grid-style layout.</p>
 
 <p>33) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-list/" target="_blank">Pricing List</a> - Showcase the pricing of your products in a unique fashion.</p>
 
@@ -120,7 +120,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>49) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.</p>
 
-<p>50) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
+<p>50) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
 
 <p>51) <a href="https://demo.hashthemes.com/easy-elementor-addons/weather/" target="_blank">Weather Block</a> - Adds a weather report of a city with humidity, Pressure and Wind Speed.</p>
 
