@@ -29,7 +29,7 @@ class AdminClass {
     }
 
     public function eead_register_admin_menu() {
-        add_menu_page(esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), 'manage_options', 'eead-settings', [$this, 'eead_settings_page_display'], '', 99);
+        add_menu_page(esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), esc_html__('Easy Elementor Addons', 'easy-elementor-addons'), 'manage_options', 'eead-settings', [$this, 'eead_settings_page_display'], 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAuNjQgMTYwLjY3IiBmaWxsPSIjRkZGIj4KICA8cGF0aCBkPSJNNzQuNTUgMTQuOTRBMTQuOTMgMTQuOTMgMCAwIDAgNTkuNjQgMEgxNC45MUExNC45MyAxNC45MyAwIDAgMCAwIDE0Ljk0djQ0LjczYTE0LjkzIDE0LjkzIDAgMCAwIDE0LjkxIDE0LjkxaDQ0LjczYTE0LjkzIDE0LjkzIDAgMCAwIDE0LjkxLTE0LjkxWm0wIDg2LjA5YTE0LjkyIDE0LjkyIDAgMCAwLTE0LjkxLTE0LjkxSDE0LjkxQTE0LjkyIDE0LjkyIDAgMCAwIDAgMTAxdjQ0LjczYTE0LjkzIDE0LjkzIDAgMCAwIDE0LjkxIDE0LjkxaDQ0LjczYTE0LjkzIDE0LjkzIDAgMCAwIDE0LjkxLTE0LjkxWm04Ni4wOSAwYTE0LjkyIDE0LjkyIDAgMCAwLTE0LjkxLTE0LjkxSDEwMUExNC45IDE0LjkgMCAwIDAgODYuMDkgMTAxdjQ0LjczQTE0LjkyIDE0LjkyIDAgMCAwIDEwMSAxNjAuNjdoNDQuNzNhMTQuOTMgMTQuOTMgMCAwIDAgMTQuOTEtMTQuOTFaTTEzMy44IDQuMzNhMTQuODEgMTQuODEgMCAwIDAtMjAuOTIgMGwtMjIuNSAyMi41YTE0Ljc5IDE0Ljc5IDAgMCAwIDAgMjAuOTFsMjIuNSAyMi41YTE0Ljc5IDE0Ljc5IDAgMCAwIDIwLjkyIDBsMjIuNDktMjIuNWExNC43NyAxNC43NyAwIDAgMCAwLTIwLjl6Ii8+Cjwvc3ZnPgo=', 99);
     }
 
     public function eead_settings_save() {

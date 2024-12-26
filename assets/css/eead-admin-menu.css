@@ -158,6 +158,19 @@
     margin: 0;
 }
 
+.eead-admin-header-section h1{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.eead-admin-header-section h1 svg{
+    height: 16px;
+    width: 16px;
+}
+
 .eead-nav-tab-wrapper {
     display: flex;
     margin: 0 30px;

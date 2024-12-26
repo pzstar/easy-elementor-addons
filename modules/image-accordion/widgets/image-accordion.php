@@ -526,10 +526,17 @@ class ImageAccordion extends Widget_Base {
                 <<?php echo esc_attr($tag) . ' ' . $this->get_render_attribute_string('eead-image-accordion-' . $key); ?> >
                     <div class="eead-image-accordion-box">
                         <div class="eead-image-accordion-content">
-                            <?php printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['image_accordion_title'])); ?>
-                            <div class="eead-image-accordion-text">
-                                <?php echo wp_kses_post(parse_wisiwyg_content($img_accordion['image_accordion_content'])); ?>
-                            </div>
+                            <?php
+                            if ($img_accordion['image_accordion_title']) {
+                                printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['image_accordion_title']));
+                            }
+                            
+                            if ($img_accordion['image_accordion_content']) {
+                                ?>
+                                <div class="eead-image-accordion-text">
+                                    <?php echo wp_kses_post(parse_wisiwyg_content($img_accordion['image_accordion_content'])); ?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </<?php echo $tag; ?>>

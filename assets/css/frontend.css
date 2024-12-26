@@ -2830,6 +2830,10 @@ Image Accordion
     transform: translate3d(0, -60px, 0);
 }
 
+.eead-image-accordion .eead-image-accordion-content .eead-image-accordion-title:last-child{
+    margin-bottom: 0 !important;
+}
+
 .eead-image-accordion .eead-image-accordion-content .eead-image-accordion-text {
     color: #fff;
     margin-bottom: 0;
@@ -2850,7 +2854,7 @@ Image Accordion
     transform: translate3d(0, 0, 0);
     opacity: 1;
     visibility: visible;
-    transition: opacity .3s ease 0.3s, transform .3s ease 0.3s;
+    transition: opacity .3s ease 0.3s, transform .3s ease 0.3s, visibility .3s ease 0.3s;
 }
 
 
