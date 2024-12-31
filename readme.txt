@@ -11,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
 
 == Description ==
-Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 40 creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.
+Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 50+ creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.
 
 Easy Elementor Addons is a highly editable addon for Elementor with limitless possibilities. You can easily customize each element as per your preference and build a beautiful website beyond your imagination. The plugin has an intuitive UI where you can easily drag drop any elements of your choice and start the configuration. Also, you can follow the drag and drop process to reorder or shuffle any elements.
 
