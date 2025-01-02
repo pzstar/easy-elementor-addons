@@ -1,6 +1,6 @@
 === Easy Elementor Addons ===
 Contributors: hashthemes
-Tags: elementor addons, block elements, elementor widgets
+Tags: elementor addons, elementor, elementor widgets, elementor templates, elements, elementor extensions
 Requires at least: 5.0
 Tested up to: 6.7
 Stable tag: 2.1.0

@@ -165,7 +165,7 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_position', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -184,14 +184,11 @@ class AdvancedIconBox extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ]
                 ],
-                'prefix_class' => 'eead-aib-icon-pos-',
+                'prefix_class' => 'eead-aib-icon-pos%s-',
                 'toggle' => false,
                 'condition' => [
                     'icon_inline' => '',
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-pos: {{VALUE}};',
-                ]
             ]
         );
 
@@ -213,10 +210,11 @@ class AdvancedIconBox extends Widget_Base {
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
+                'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-text-align: {{VALUE}};',
                 ],
-                'prefix_class' => 'eead-aib-text-align-',
+                'prefix_class' => 'eead-aib-text-align%s-',
                 'condition' => [
                     'icon_position' => 'top',
                 ]
@@ -457,8 +455,7 @@ class AdvancedIconBox extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box, {{WRAPPER}} .eead-aib-header.eead-aib-inline-icon' => 'gap: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}}.eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-spacing: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -484,18 +481,18 @@ class AdvancedIconBox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'icon_box_size', [
-                'label' => esc_html__('Icon Box Size', 'easy-elementor-addons'),
+            'icon_box_padding', [
+                'label' => esc_html__('Icon Box Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
-                        'max' => 300,
+                        'max' => 100,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-icon span' => 'padding: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'icon_type' => 'icon',
@@ -508,6 +505,10 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Image Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
+                'default' => [
+                    'size' => 100,
+                    'unit' => '%'
+                ],
                 'range' => [
                     'px' => [
                         'min' => 50,

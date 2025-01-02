@@ -43,13 +43,20 @@ class DualButton extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_layout', [
                 'label' => esc_html__('Layout', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'horizontal' => esc_html__('Horizontal', 'easy-elementor-addons'),
                     'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
+                ],
+                'selectors_dictionary' => [
+                    'horizontal' => '--eead-dual-button-direction:row;--eead-dual-button-align-items:center;--eead-dual-button-left-offset:100%;--eead-dual-button-top-offset:50%;',
+                    'vertical' => '--eead-dual-button-direction:column;--eead-dual-button-align-items:stretch;--eead-dual-button-left-offset:50%;--eead-dual-button-top-offset:100%;--eead-dual-button-justify-content:center;',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons' => '{{VALUE}}'
                 ],
                 'default' => 'horizontal',
             ]
@@ -747,7 +754,9 @@ class DualButton extends Widget_Base {
         }
 
         $this->add_render_attribute('wrapper', [
-            'class' => ['eead-dual-button-container', 'eead-button-style-' . $settings['button_layout']]
+            'class' => [
+                'eead-dual-button-container'
+            ]
         ]);
 
         if ($settings['button_animation'] !== 'none') {

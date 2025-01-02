@@ -366,12 +366,18 @@ Advanced Button
     transition-timing-function: cubic-bezier(.2, 1, .3, 1)
 }
 
-.eead-ab-button-effect-i .eead-ab-button {
+.eead-ab-button-effect-i .eead-ab-button,
+.eead-ab-button-effect-i .eead-ab-button .eead-ab-button-icon i,
+.eead-ab-button-effect-i .eead-ab-button .eead-ab-button-icon svg {
     color: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
+    fill: var(--eead-ab-button-text-color-hover, var(--eead-ab-button-text-color, inherit));
 }
 
-.eead-ab-button-effect-i .eead-ab-button:hover {
+.eead-ab-button-effect-i .eead-ab-button:hover,
+.eead-ab-button-effect-i .eead-ab-button:hover .eead-ab-button-icon i,
+.eead-ab-button-effect-i .eead-ab-button:hover .eead-ab-button-icon svg {
     color: var(--eead-ab-button-text-color, inherit);
+    fill: var(--eead-ab-button-text-color, inherit);
 }
 
 .eead-ab-button-effect-i .eead-ab-button::before {
@@ -582,7 +588,7 @@ Advanced Icon Box
 .eead-advanced-icon-box .eead-aib-header.eead-aib-inline-icon {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--eead-aib-icon-spacing, 20px);
 }
 
 .eead-aib-text-align-right .eead-advanced-icon-box .eead-aib-header.eead-aib-inline-icon {
@@ -595,7 +601,7 @@ Advanced Icon Box
 
 :where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box {
     display: flex;
-    gap: 20px;
+    gap: var(--eead-aib-icon-spacing, 20px);
 }
 
 .eead-aib-icon-pos-right .eead-advanced-icon-box {
@@ -604,15 +610,11 @@ Advanced Icon Box
 }
 
 .eead-aib-icon-pos-top .eead-advanced-icon-box {
-    text-align: center;
+    text-align: var(--eead-aib-text-align, center);
 }
 
 .eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon {
-    margin-bottom: 10px;
-}
-
-:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box .eead-aib-icon span {
-    width: 90px;
+    margin-bottom: var(--eead-aib-icon-spacing, 10px);
 }
 
 .eead-advanced-icon-box .eead-aib-icon > span {
@@ -642,6 +644,8 @@ Advanced Icon Box
 .eead-advanced-icon-box .eead-aib-icon i {
     display: inline-block;
     font-size: 1em;
+    height: 1em;
+    width: 1em;
     line-height: 1;
     transform: translateX(var(--eead-aib-icon-h-offset, 0)) translateY(var(--eead-aib-icon-v-offset, 0)) rotate(var(--eead-aib-icon-rotate, 0deg));
 }
@@ -739,6 +743,56 @@ Advanced Icon Box
     right: 0;
 }
 
+@media screen and (max-width:1024px) {
+    .elementor-widget-eead-advanced-icon-box:where(.eead-aib-icon-pos-tablet-left, .eead-aib-icon-pos-tablet-right) .eead-advanced-icon-box {
+        display: flex;
+        gap: var(--eead-aib-icon-spacing, 20px);
+    }
+
+    .eead-aib-icon-pos-tablet-right .eead-advanced-icon-box {
+        flex-flow: row-reverse;
+        text-align: right;
+    }
+
+    .eead-aib-icon-pos-tablet-left .eead-advanced-icon-box {
+        text-align: left;
+    }
+
+    .eead-aib-icon-pos-tablet-top .eead-advanced-icon-box {
+        display: block;
+        text-align: var(--eead-aib-text-align, center);
+    }
+
+    .eead-aib-icon-pos-tablet-top .eead-advanced-icon-box .eead-aib-icon {
+        margin-bottom: var(--eead-aib-icon-spacing, 10px);
+    }
+}
+
+@media screen and (max-width:767px) {
+    .elementor-widget-eead-advanced-icon-box:where(.eead-aib-icon-pos-mobile-left, .eead-aib-icon-pos-mobile-right) .eead-advanced-icon-box {
+        display: flex;
+        gap: var(--eead-aib-icon-spacing, 20px);
+    }
+
+    .eead-aib-icon-pos-mobile-right .eead-advanced-icon-box {
+        flex-flow: row-reverse;
+        text-align: right;
+    }
+
+    .eead-aib-icon-pos-mobile-left .eead-advanced-icon-box {
+        text-align: left;
+    }
+
+    .eead-aib-icon-pos-mobile-top .eead-advanced-icon-box {
+        display: block;
+        text-align: var(--eead-aib-text-align, center);
+    }
+
+    .eead-aib-icon-pos-mobile-top .eead-advanced-icon-box .eead-aib-icon {
+        margin-bottom: var(--eead-aib-icon-spacing, 10px);
+    }
+}
+
 
 /*--------------------------------------------------------------
 Advanced Google Map
@@ -825,7 +879,6 @@ Circular Progressbar
 .eead-circular-progressbar-box .eead-cb-percent {
     position: relative;
     line-height: 0;
-    font-size: var(--eead-cb-circle-size);
 }
 
 .eead-circular-progressbar-box {
@@ -1109,7 +1162,8 @@ Dual Button
 .eead-dual-button-container {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: var(--eead-dual-button-align-items, center);
+    flex-direction: var(--eead-dual-button-direction, row);
 }
 
 .eead-dual-pri-button {
@@ -1129,6 +1183,7 @@ Dual Button
     background: #111;
     color: #FFF;
     font-size: 1.2em;
+    justify-content: var(--eead-dual-button-justify-content);
 }
 
 .eead-dual-buttons .eead-dual-button span {
@@ -1158,27 +1213,10 @@ Dual Button
     color: #444;
     text-transform: uppercase;
     position: absolute;
-    left: 100%;
-    top: 50%;
+    left: var(--eead-dual-button-left-offset, 100%);
+    top: var(--eead-dual-button-top-offset, 50%);
     transform: translateX(-50%) translateY(-50%);
 }
-
-/* Vertical */
-.eead-dual-button-container.eead-button-style-vertical {
-    flex-direction: column;
-    align-items: stretch;
-}
-
-.eead-dual-button-container.eead-button-style-vertical .eead-dual-button-separator {
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.eead-dual-button-container.eead-button-style-vertical .eead-dual-button {
-    justify-content: center;
-}
-
 
 /*--------------------------------------------------------------
 Dual Button Animations 
@@ -1484,6 +1522,7 @@ Feature List
 
 .eead-feature-list .eead-fl-item {
     display: flex;
+    align-items: flex-start;
 }
 
 .eead-feature-list .eead-fl-icon-box {
@@ -2830,7 +2869,7 @@ Image Accordion
     transform: translate3d(0, -60px, 0);
 }
 
-.eead-image-accordion .eead-image-accordion-content .eead-image-accordion-title:last-child{
+.eead-image-accordion .eead-image-accordion-content .eead-image-accordion-title:last-child {
     margin-bottom: 0 !important;
 }
 

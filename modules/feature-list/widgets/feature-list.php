@@ -403,8 +403,10 @@ class FeatureList extends Widget_Base {
             'icon_space', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'default' => [
                     'size' => 25,
+                    'unit' => 'px'
                 ],
                 'range' => [
                     'px' => [
@@ -421,8 +423,10 @@ class FeatureList extends Widget_Base {
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'default' => [
-                    'size' => 21,
+                    'size' => 20,
+                    'unit' => 'px'
                 ],
                 'range' => [
                     'px' => [
@@ -431,28 +435,29 @@ class FeatureList extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box i, {{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box img' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'icon_circle_size', [
-                'label' => esc_html__('Icon Outer Size', 'easy-elementor-addons'),
+            'icon_padding', [
+                'label' => esc_html__('Icon Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'default' => [
-                    'size' => 70,
+                    'size' => 10,
+                    'unit' => 'px'
                 ],
                 'range' => [
                     'px' => [
-                        'min' => 6,
+                        'min' => 0,
                         'max' => 300,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; flex: 0 0 {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-feature-list .eead-fl-icon-box' => 'padding: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
