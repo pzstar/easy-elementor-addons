@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH'))
+    exit; // Exit if accessed directly
+
 $eead_general_settings = get_option('eead_general_settings');
 $eead_widgets = get_option('eead_widgets');
 $eead_extenders = get_option('eead_extenders');
