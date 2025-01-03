@@ -187,7 +187,7 @@ class Progressbar extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'progress_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -208,7 +208,7 @@ class Progressbar extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'progressbar_spacing', [
                 'label' => esc_html__('Spacing Between Progress Bars', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -379,7 +379,7 @@ class Progressbar extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'progressbar_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -397,7 +397,7 @@ class Progressbar extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'progressbar_height', [
                 'label' => esc_html__('Progress Bar Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -421,7 +421,7 @@ class Progressbar extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'progressbar_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,

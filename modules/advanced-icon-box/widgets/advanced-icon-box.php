@@ -184,11 +184,18 @@ class AdvancedIconBox extends Widget_Base {
                         'icon' => 'eicon-h-align-right',
                     ]
                 ],
-                'prefix_class' => 'eead-aib-icon-pos%s-',
                 'toggle' => false,
                 'condition' => [
                     'icon_inline' => '',
                 ],
+                'selectors_dictionary' => [
+                    'top' => '--eead-aib-display:block;--eead-aib-margin-bottom:var(--eead-aib-icon-spacing, 20px);',
+                    'left' => '--eead-aib-display:flex;--eead-aib-flex-flow:row;--eead-aib-text-align:left;--eead-aib-margin-bottom:0;',
+                    'right' => '--eead-aib-display:flex;--eead-aib-flex-flow:row-reverse;--eead-aib-text-align:right;--eead-aib-margin-bottom:0;'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '{{VALUE}}',
+                ]
             ]
         );
 
@@ -214,9 +221,36 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-text-align: {{VALUE}};',
                 ],
-                'prefix_class' => 'eead-aib-text-align%s-',
                 'condition' => [
                     'icon_position' => 'top',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'inline_text_align', [
+                'label' => esc_html__('Content Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'default' => 'left',
+                'selectors_dictionary' => [
+                    'left' => '--eead-aib-inline-flex-flow:row;--eead-aib-text-align:left;',
+                    'right' => '--eead-aib-inline-flex-flow:row-reverse;--eead-aib-text-align:right;'
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '{{VALUE}}',
+                ],
+                'condition' => [
+                    'icon_inline' => 'yes',
                 ]
             ]
         );

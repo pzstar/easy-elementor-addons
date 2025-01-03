@@ -206,7 +206,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'top_offset', [
                 'label' => esc_html__('Top Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -231,7 +231,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'bottom_offset', [
                 'label' => esc_html__('Bottom Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -256,7 +256,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'left_offset', [
                 'label' => esc_html__('Left Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -281,7 +281,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'right_offset', [
                 'label' => esc_html__('Right Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -358,7 +358,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'nav_container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -462,7 +462,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -641,7 +641,7 @@ class OnePageNavigation extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'distance', [
                 'label' => esc_html__('Tool Tip OffSet', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,

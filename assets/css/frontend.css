@@ -585,36 +585,23 @@ Advanced Heading
 /*--------------------------------------------------------------
 Advanced Icon Box
 --------------------------------------------------------------*/
+.eead-advanced-icon-box{
+    display: var(--eead-aib-display, block);
+    gap: var(--eead-aib-icon-spacing, 20px);
+    flex-flow: var(--eead-aib-flex-flow, row);
+    text-align: var(--eead-aib-text-align, center);
+}
+
 .eead-advanced-icon-box .eead-aib-header.eead-aib-inline-icon {
     display: flex;
     align-items: center;
     gap: var(--eead-aib-icon-spacing, 20px);
+    flex-flow: var(--eead-aib-inline-flex-flow, row);
+    --eead-aib-margin-bottom: 0;
 }
 
-.eead-aib-text-align-right .eead-advanced-icon-box .eead-aib-header.eead-aib-inline-icon {
-    flex-flow: row-reverse;
-}
-
-.eead-aib-text-align-center .eead-advanced-icon-box .eead-aib-header.eead-aib-inline-icon {
-    justify-content: center;
-}
-
-:where(.eead-aib-icon-pos-left, .eead-aib-icon-pos-right) .eead-advanced-icon-box {
-    display: flex;
-    gap: var(--eead-aib-icon-spacing, 20px);
-}
-
-.eead-aib-icon-pos-right .eead-advanced-icon-box {
-    flex-flow: row-reverse;
-    text-align: right;
-}
-
-.eead-aib-icon-pos-top .eead-advanced-icon-box {
-    text-align: var(--eead-aib-text-align, center);
-}
-
-.eead-aib-icon-pos-top .eead-advanced-icon-box .eead-aib-icon {
-    margin-bottom: var(--eead-aib-icon-spacing, 10px);
+.eead-advanced-icon-box .eead-aib-icon {
+    margin-bottom: var(--eead-aib-margin-bottom, var(--eead-aib-icon-spacing, 10px));
 }
 
 .eead-advanced-icon-box .eead-aib-icon > span {
@@ -695,6 +682,10 @@ Advanced Icon Box
     margin-bottom: 30px;
 }
 
+.eead-advanced-icon-box .eead-aib-desc *:last-child{
+    margin-bottom: 0;
+}
+
 .eead-advanced-icon-box .eead-aib-title {
     margin: 0;
 }
@@ -742,57 +733,6 @@ Advanced Icon Box
     bottom: 0;
     right: 0;
 }
-
-@media screen and (max-width:1024px) {
-    .elementor-widget-eead-advanced-icon-box:where(.eead-aib-icon-pos-tablet-left, .eead-aib-icon-pos-tablet-right) .eead-advanced-icon-box {
-        display: flex;
-        gap: var(--eead-aib-icon-spacing, 20px);
-    }
-
-    .eead-aib-icon-pos-tablet-right .eead-advanced-icon-box {
-        flex-flow: row-reverse;
-        text-align: right;
-    }
-
-    .eead-aib-icon-pos-tablet-left .eead-advanced-icon-box {
-        text-align: left;
-    }
-
-    .eead-aib-icon-pos-tablet-top .eead-advanced-icon-box {
-        display: block;
-        text-align: var(--eead-aib-text-align, center);
-    }
-
-    .eead-aib-icon-pos-tablet-top .eead-advanced-icon-box .eead-aib-icon {
-        margin-bottom: var(--eead-aib-icon-spacing, 10px);
-    }
-}
-
-@media screen and (max-width:767px) {
-    .elementor-widget-eead-advanced-icon-box:where(.eead-aib-icon-pos-mobile-left, .eead-aib-icon-pos-mobile-right) .eead-advanced-icon-box {
-        display: flex;
-        gap: var(--eead-aib-icon-spacing, 20px);
-    }
-
-    .eead-aib-icon-pos-mobile-right .eead-advanced-icon-box {
-        flex-flow: row-reverse;
-        text-align: right;
-    }
-
-    .eead-aib-icon-pos-mobile-left .eead-advanced-icon-box {
-        text-align: left;
-    }
-
-    .eead-aib-icon-pos-mobile-top .eead-advanced-icon-box {
-        display: block;
-        text-align: var(--eead-aib-text-align, center);
-    }
-
-    .eead-aib-icon-pos-mobile-top .eead-advanced-icon-box .eead-aib-icon {
-        margin-bottom: var(--eead-aib-icon-spacing, 10px);
-    }
-}
-
 
 /*--------------------------------------------------------------
 Advanced Google Map
@@ -2523,6 +2463,12 @@ Horizontal Tabs
     display: block;
 }
 
+@media screen and (max-width: 767px) {
+    .eead-horizontal-tab .eead-ht-tabs{
+        flex-direction: column;
+    }
+}
+
 /*--------------------------------------------------------------
 Vertical Tabs
 --------------------------------------------------------------*/
@@ -2995,6 +2941,7 @@ Image Gallery
 
 .eead-ig-filter-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 40px;
 }

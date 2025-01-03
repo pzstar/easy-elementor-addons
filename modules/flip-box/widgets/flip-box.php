@@ -280,7 +280,7 @@ class FlipBox extends Widget_Base {
             'border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', 'em', '%'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -374,7 +374,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'front_alignment', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -401,7 +401,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'front_vertical_position', [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -497,10 +497,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 6,
@@ -516,10 +517,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_padding', [
                 'label' => esc_html__('Icon Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
                 ],
@@ -558,6 +560,7 @@ class FlipBox extends Widget_Base {
             'icon_border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-flip-box .elementor-icon' => 'border-width: {{SIZE}}{{UNIT}}',
                 ],
@@ -583,10 +586,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -613,10 +617,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -632,11 +637,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_width', [
                 'label' => esc_html__('Size (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['%'],
+                'size_units' => ['px', 'em', '%'],
                 'default' => [
                     'unit' => '%',
                     'size' => 10
@@ -679,10 +684,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -728,10 +734,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'front_title_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -847,7 +854,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'back_alignment', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -874,7 +881,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'back_vertical_position', [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -915,10 +922,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'back_title_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -970,10 +978,11 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'back_description_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -1093,7 +1102,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_text_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

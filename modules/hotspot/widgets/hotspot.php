@@ -236,7 +236,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $repeater->add_control(
+        $repeater->add_responsive_control(
             'content_width', [
                 'label' => esc_html__('Content Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -380,7 +380,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -399,7 +399,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_box_size', [
                 'label' => esc_html__('Icon Container Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -468,7 +468,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tooltip_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -479,7 +479,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tooltip_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -518,7 +518,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'title_spacing', [
                 'label' => esc_html__('Bottom Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
