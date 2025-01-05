@@ -497,7 +497,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -713,7 +713,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -988,7 +988,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'social_links_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -1222,7 +1222,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -1483,7 +1483,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'arrows_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

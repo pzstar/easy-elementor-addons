@@ -315,7 +315,7 @@ class Countdown extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'countdown_box_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

@@ -381,11 +381,13 @@ class VideoPlayer extends Widget_Base {
             ]);
         }
         ?>
+        <div class="sfsfs">
         <div <?php $this->print_render_attribute_string('video-player'); ?>>
             <?php
             $this->get_video_block();
             $this->get_overlay();
             ?>
+        </div>
         </div>
         <?php
     }

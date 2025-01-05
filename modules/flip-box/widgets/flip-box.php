@@ -276,7 +276,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -544,11 +544,17 @@ class FlipBox extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
-                    'unit' => 'deg',
+                    'unit' => 'px',
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 360,
+                        'min' => -360,
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-flip-box .elementor-icon i' => 'transform: rotate({{SIZE}}{{UNIT}});',
-                    '{{WRAPPER}} .eead-flip-box .elementor-icon svg' => 'transform: rotate({{SIZE}}{{UNIT}});',
+                    '{{WRAPPER}} .eead-flip-box .elementor-icon i' => 'transform: rotate({{SIZE}}deg);',
+                    '{{WRAPPER}} .eead-flip-box .elementor-icon svg' => 'transform: rotate({{SIZE}}deg);',
                 ],
                 'condition' => [
                     'graphic_element' => 'icon',
@@ -571,7 +577,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -1091,7 +1097,7 @@ class FlipBox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

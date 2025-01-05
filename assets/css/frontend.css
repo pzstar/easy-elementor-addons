@@ -2514,6 +2514,16 @@ Vertical Tabs
     display: block;
 }
 
+@media screen and (max-width:767px){
+    .eead-vertical-tab .eead-vt-container{
+        flex-direction: column;
+    }
+
+    .eead-vertical-tab .eead-vt-tabs{
+        order: -1 !important;
+    }
+}
+
 
 /*--------------------------------------------------------------
 Image Comparison
@@ -5733,9 +5743,37 @@ Switcher
 .eead-switcher-slider {
     position: absolute;
     height: 100%;
-    background: #EEE;
+    background: var(--eead-switcher-tab-active-bg-color, #EEE);
     z-index: 8;
     transition: left 0.3s linear;
+    border-radius: var(--eead-switcher-tab-border-radius, 0)
+}
+
+@media screen and (max-width:767px){
+    .eead-switcher-tabs-inner{
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .eead-switcher-tabs{
+        display: flex;
+        align-self: stretch !important;
+        
+    }
+
+    .eead-switcher-tab{
+        justify-content: center;
+    }
+
+    .eead-switcher-tab.eead-switcher-active-tab{
+        background: var(--eead-switcher-tab-active-bg-color, #EEE);
+        border-radius: var(--eead-switcher-tab-border-radius, 0)
+    }
+
+    .eead-switcher-slider{
+        display: none !important;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -7513,6 +7551,12 @@ Testimonial
     display: flex;
     gap: var(--eead-testimonial-image-spacing, 30px);
     align-items: center;
+}
+
+@media screen and (max-width:767px){
+    .eead-testimonial-style3.eead-testimonial-container{
+        flex-direction: column !important;
+    }
 }
 
 

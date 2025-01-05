@@ -732,7 +732,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -966,7 +966,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'testimonial_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -1164,7 +1164,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_width', [
                 'label' => esc_html__('Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -1185,7 +1185,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_height', [
                 'label' => esc_html__('Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -1206,7 +1206,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_spacing', [
                 'label' => esc_html__('Spacing Between Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -1227,7 +1227,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_upper_spacing', [
                 'label' => esc_html__('Spacing Above Dots', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -1272,7 +1272,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'dots_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -1533,7 +1533,7 @@ class TestimonialCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'arrows_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

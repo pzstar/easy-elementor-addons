@@ -237,14 +237,14 @@ class ThreedText extends Widget_Base {
                 'label' => esc_html__('Event Rotation', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
-                    'deg' => [
+                    'px' => [
                         'min' => -360,
                         'max' => 360,
                     ]
                 ],
                 'default' => [
                     'size' => 10,
-                    'unit' => 'deg',
+                    'unit' => 'px',
                 ]
             ]
         );

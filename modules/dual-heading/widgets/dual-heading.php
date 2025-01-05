@@ -300,7 +300,7 @@ class DualHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'first_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -311,7 +311,7 @@ class DualHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'first_text_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -483,7 +483,7 @@ class DualHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'second_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -494,7 +494,7 @@ class DualHeading extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'second_text_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

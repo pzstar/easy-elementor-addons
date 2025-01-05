@@ -190,7 +190,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_width', [
                 'label' => esc_html__('Tabs Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -212,7 +212,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_side_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -364,7 +364,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -375,7 +375,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -411,7 +411,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_icon_position', [
                 'label' => esc_html__('Icon Position', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -441,7 +441,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -460,7 +460,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -486,7 +486,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_buttons_spacing', [
                 'label' => esc_html__('Button Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -580,7 +580,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_buttons_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -594,7 +594,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_button_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -792,7 +792,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_content_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -803,7 +803,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -823,7 +823,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'tab_offset', [
                 'label' => esc_html__('Tab Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -845,7 +845,7 @@ class VerticalTab extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_offset', [
                 'label' => esc_html__('Content Horizontal Offset', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,

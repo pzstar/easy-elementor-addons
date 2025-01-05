@@ -433,10 +433,10 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
-                    'unit' => 'deg',
+                    'unit' => 'px',
                 ],
                 'range' => [
-                    'deg' => [
+                    'px' => [
                         'max' => 360,
                         'min' => -360,
                     ]
@@ -626,16 +626,16 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 0,
-                    'unit' => 'deg',
+                    'unit' => 'px',
                 ],
                 'range' => [
-                    'deg' => [
+                    'px' => [
                         'max' => 360,
                         'min' => -360,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-rotate:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-icon-rotate:{{SIZE}}deg;',
                 ],
                 'condition' => [
                     'icon_type' => 'icon',

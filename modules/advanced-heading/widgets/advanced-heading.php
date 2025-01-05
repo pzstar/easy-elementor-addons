@@ -267,9 +267,8 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'range' => [
                     'px' => [
-                        'min' => -180,
-                        'max' => 180,
-                        'step' => 5,
+                        'min' => -360,
+                        'max' => 360,
                     ]
                 ],
                 'selectors' => [

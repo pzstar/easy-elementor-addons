@@ -138,7 +138,7 @@ class Testimonial extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'quote_size', [
                 'label' => esc_html__('Quote Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -527,7 +527,7 @@ class Testimonial extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -538,7 +538,7 @@ class Testimonial extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -758,7 +758,7 @@ class Testimonial extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'testimonial_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -772,7 +772,7 @@ class Testimonial extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'testimonial_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

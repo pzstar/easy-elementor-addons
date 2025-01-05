@@ -372,7 +372,7 @@ class Switcher extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -392,7 +392,7 @@ class Switcher extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -433,7 +433,7 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-switcher-slider' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-switcher-container' => '--eead-switcher-tab-border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -489,7 +489,7 @@ class Switcher extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-switcher-slider' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-switcher-container' => '--eead-switcher-tab-active-bg-color: {{VALUE}}',
                 ]
             ]
         );

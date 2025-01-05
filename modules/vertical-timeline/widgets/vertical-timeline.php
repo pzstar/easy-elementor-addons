@@ -268,7 +268,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'block_spacing', [
                 'label' => esc_html__('Blocks Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -289,7 +289,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_width', [
                 'label' => esc_html__('Content Width (%)', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -325,7 +325,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'point_size', [
                 'label' => esc_html__('Point Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -344,7 +344,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -384,7 +384,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'time_point_border_width', [
                 'label' => esc_html__('Border Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -404,7 +404,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'time_point_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -434,7 +434,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'timeline_width', [
                 'label' => esc_html__('Time Line Width', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -525,7 +525,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'meta_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -536,7 +536,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'meta_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -547,7 +547,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'meta_margin',
             [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -610,7 +610,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -621,7 +621,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -632,7 +632,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_margin',
             [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -664,7 +664,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_image_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -675,7 +675,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_image_margin',
             [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -722,7 +722,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_title_margin',
             [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -770,7 +770,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_desc_margin',
             [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
@@ -805,7 +805,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'readmore_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -816,7 +816,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'readmore_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -860,7 +860,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'readmore_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

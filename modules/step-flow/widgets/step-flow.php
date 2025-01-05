@@ -668,7 +668,7 @@ class StepFlow extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'range' => [
                     'px' => [
-                        'min' => 1,
+                        'min' => 0,
                         'max' => 500,
                     ],
                     '%' => [
@@ -803,19 +803,18 @@ class StepFlow extends Widget_Base {
             'direction_angle', [
                 'label' => esc_html__('Rotate', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['deg'],
+                'size_units' => ['px'],
                 'range' => [
-                    'deg' => [
-                        'min' => -180,
-                        'max' => 180,
+                    'px' => [
+                        'min' => -360,
+                        'max' => 360,
                     ]
                 ],
                 'default' => [
                     'size' => 0,
-                    'unit' => 'deg'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow' => '--eead-stepflow-direction-angle: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-step-flow' => '--eead-stepflow-direction-angle: {{SIZE}}deg;',
                 ]
             ]
         );
@@ -842,7 +841,7 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'readmore_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -853,7 +852,7 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'readmore_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,

@@ -222,7 +222,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -289,7 +289,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'location_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -319,7 +319,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'weather_icon_size', [
                 'label' => esc_html__('Icon Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -336,7 +336,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'weather_icon_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -374,7 +374,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'temperature_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -415,7 +415,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'description_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -456,7 +456,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'feels_like_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -494,7 +494,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'date_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -529,7 +529,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'weather_param_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -543,7 +543,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'weather_param_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -557,7 +557,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'weather_param_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -664,7 +664,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'last_updated_margin', [
                 'label' => esc_html__('Margin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -675,7 +675,7 @@ class Weather extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'last_updated_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,

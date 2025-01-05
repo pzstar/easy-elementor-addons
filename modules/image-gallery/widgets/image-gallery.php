@@ -506,7 +506,7 @@ class ImageGallery extends Widget_Base {
 
         $this->end_controls_tabs();
 
-        $this->add_control(
+        $this->add_responsive_control(
             'filter_btn_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -576,7 +576,7 @@ class ImageGallery extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'item_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -791,7 +791,7 @@ class ImageGallery extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'overlay_button_border_radius', [
                 'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
