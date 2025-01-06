@@ -1215,7 +1215,8 @@ odometerOptions = {auto: false};
         },
 
         videoPlayer: function ($scope) {
-            var video = $scope.find('.eead-video-player'),
+            var videoContainer = $scope.find('.eead-video-player-container'),
+                video = $scope.find('.eead-video-player'),
                 videoPlayer = $scope.find('.eead-html-video-player'),
                 overlay = $scope.find('.eead-video-overlay'),
                 iframe = $scope.find('.eead-video-iframe'),
@@ -1251,6 +1252,12 @@ odometerOptions = {auto: false};
                 });
             }
 
+
+            resizeVideo();
+            $(window).resize(function () {
+                resizeVideo();
+            });
+
             function playIframeVideo() {
                 var lazyLoad = iframe.data('lazy-load');
                 if (lazyLoad) {
@@ -1261,6 +1268,12 @@ odometerOptions = {auto: false};
                 }
                 overlay.remove();
                 hasOverlay = false;
+            }
+
+            function resizeVideo() {
+                var videoHeight = video.outerHeight();
+                console.log(videoHeight);
+                videoContainer.height(videoHeight);
             }
         },
 

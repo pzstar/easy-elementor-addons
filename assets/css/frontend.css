@@ -1104,6 +1104,7 @@ Dual Button
     display: flex;
     align-items: var(--eead-dual-button-align-items, center);
     flex-direction: var(--eead-dual-button-direction, row);
+    gap: var(--eead-dual-button-gap, 0);
 }
 
 .eead-dual-pri-button {
@@ -1156,6 +1157,8 @@ Dual Button
     left: var(--eead-dual-button-left-offset, 100%);
     top: var(--eead-dual-button-top-offset, 50%);
     transform: translateX(-50%) translateY(-50%);
+    margin-left: var(--eead-dual-button-sep-margin-left, 0);
+    margin-top: var(--eead-dual-button-sep-margin-top, 0);
 }
 
 /*--------------------------------------------------------------

@@ -52,8 +52,8 @@ class DualButton extends Widget_Base {
                     'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
                 ],
                 'selectors_dictionary' => [
-                    'horizontal' => '--eead-dual-button-direction:row;--eead-dual-button-align-items:center;--eead-dual-button-left-offset:100%;--eead-dual-button-top-offset:50%;',
-                    'vertical' => '--eead-dual-button-direction:column;--eead-dual-button-align-items:stretch;--eead-dual-button-left-offset:50%;--eead-dual-button-top-offset:100%;--eead-dual-button-justify-content:center;',
+                    'horizontal' => '--eead-dual-button-direction:row;--eead-dual-button-align-items:center;--eead-dual-button-left-offset:100%;--eead-dual-button-top-offset:50%;--eead-dual-button-sep-margin-left:calc(var(--eead-dual-button-gap, 0)/2);',
+                    'vertical' => '--eead-dual-button-direction:column;--eead-dual-button-align-items:stretch;--eead-dual-button-left-offset:50%;--eead-dual-button-top-offset:100%;--eead-dual-button-justify-content:center;--eead-dual-button-sep-margin-top:calc(var(--eead-dual-button-gap, 0)/2);',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-buttons' => '{{VALUE}}'
@@ -100,9 +100,7 @@ class DualButton extends Widget_Base {
                     'size' => 10
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container' => 'gap:{{SIZE}}px;',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-button-style-horizontal .eead-dual-button-separator' => 'margin-left:calc({{SIZE}}px/2);',
-                    '{{WRAPPER}} .eead-dual-buttons .eead-button-style-vertical .eead-dual-button-separator' => 'margin-top:calc({{SIZE}}px/2);'
+                    '{{WRAPPER}} .eead-dual-buttons' => '--eead-dual-button-gap:{{SIZE}}px;'
                 ],
             ]
         );
