@@ -52,8 +52,8 @@ class DualButton extends Widget_Base {
                     'vertical' => esc_html__('Vertical', 'easy-elementor-addons')
                 ],
                 'selectors_dictionary' => [
-                    'horizontal' => '--eead-dual-button-direction:row;--eead-dual-button-align-items:center;--eead-dual-button-left-offset:100%;--eead-dual-button-top-offset:50%;--eead-dual-button-sep-margin-left:calc(var(--eead-dual-button-gap, 0)/2);',
-                    'vertical' => '--eead-dual-button-direction:column;--eead-dual-button-align-items:stretch;--eead-dual-button-left-offset:50%;--eead-dual-button-top-offset:100%;--eead-dual-button-justify-content:center;--eead-dual-button-sep-margin-top:calc(var(--eead-dual-button-gap, 0)/2);',
+                    'horizontal' => '--eead-dual-button-direction:row;--eead-dual-button-align-items:center;--eead-dual-button-left-offset:100%;--eead-dual-button-top-offset:50%;--eead-dual-button-sep-margin-left:calc(var(--eead-dual-button-gap, 0)/2);--eead-dual-button-sep-margin-top:0;',
+                    'vertical' => '--eead-dual-button-direction:column;--eead-dual-button-align-items:stretch;--eead-dual-button-left-offset:50%;--eead-dual-button-top-offset:100%;--eead-dual-button-justify-content:center;--eead-dual-button-sep-margin-left:0;--eead-dual-button-sep-margin-top:calc(var(--eead-dual-button-gap, 0)/2);',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-dual-buttons' => '{{VALUE}}'
@@ -86,7 +86,7 @@ class DualButton extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_spacing', [
                 'label' => esc_html__('Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -221,7 +221,7 @@ class DualButton extends Widget_Base {
 
         $this->end_controls_tabs();
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_icon_spacing', [
                 'label' => esc_html__('Icon Spacing', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
@@ -602,7 +602,7 @@ class DualButton extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'separator_size', [
                 'label' => esc_html__('Size', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SLIDER,
