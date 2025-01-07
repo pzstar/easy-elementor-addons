@@ -109,7 +109,7 @@ class AdvancedIconBox extends Widget_Base {
             'description_text', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
+                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
                 'placeholder' => esc_html__('Enter your description', 'easy-elementor-addons')
             ]
         );

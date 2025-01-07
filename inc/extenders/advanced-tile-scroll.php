@@ -139,7 +139,6 @@ class AdvancedTileScroll {
                 ],
                 'default' => [
                     [
-
                         'eead_advanced_tile_scroll_x_start' => [
                             'unit' => 'px',
                             'size' => -150,
@@ -150,29 +149,6 @@ class AdvancedTileScroll {
                         ],
                     ],
                     [
-
-                        'eead_advanced_tile_scroll_x_start' => [
-                            'unit' => 'px',
-                            'size' => 150,
-                        ],
-                        'eead_advanced_tile_scroll_x_end' => [
-                            'unit' => 'px',
-                            'size' => -150,
-                        ]
-                    ],
-                    [
-
-                        'eead_advanced_tile_scroll_x_start' => [
-                            'unit' => 'px',
-                            'size' => -150,
-                        ],
-                        'eead_advanced_tile_scroll_x_end' => [
-                            'unit' => 'px',
-                            'size' => 150,
-                        ]
-                    ],
-                    [
-
                         'eead_advanced_tile_scroll_x_start' => [
                             'unit' => 'px',
                             'size' => 150,
@@ -183,7 +159,26 @@ class AdvancedTileScroll {
                         ]
                     ],
                     [
-
+                        'eead_advanced_tile_scroll_x_start' => [
+                            'unit' => 'px',
+                            'size' => -150,
+                        ],
+                        'eead_advanced_tile_scroll_x_end' => [
+                            'unit' => 'px',
+                            'size' => 150,
+                        ]
+                    ],
+                    [
+                        'eead_advanced_tile_scroll_x_start' => [
+                            'unit' => 'px',
+                            'size' => 150,
+                        ],
+                        'eead_advanced_tile_scroll_x_end' => [
+                            'unit' => 'px',
+                            'size' => -150,
+                        ]
+                    ],
+                    [
                         'eead_advanced_tile_scroll_x_start' => [
                             'unit' => 'px',
                             'size' => -150,

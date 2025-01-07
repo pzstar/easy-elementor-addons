@@ -334,7 +334,7 @@ class Testimonial extends Widget_Base {
             'image_shape', [
                 'label' => esc_html__('Image Shape', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'eead-square',
+                'default' => 'eead-round',
                 'options' => [
                     'eead-square' => esc_html__('Square', 'easy-elementor-addons'),
                     'eead-round' => esc_html__('Round', 'easy-elementor-addons')

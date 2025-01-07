@@ -83,7 +83,7 @@ class Toggle extends Widget_Base {
             'primary_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => esc_html__('Primary Content', 'easy-elementor-addons'),
+                'default' => esc_html__('Ut posuere bibendum pretium. Nulla sit amet felis sem. Donec eu elit efficitur, vehicula quam sit amet, sodales elit. Praesent ac velit arcu. Sed volutpat vitae nulla sed fermentum. Praesent at pulvinar diam, a iaculis justo. In ullamcorper nec risus sit amet malesuada. Sed tempor, risus sit amet vestibulum dignissim, purus magna venenatis velit, sed facilisis diam arcu at leo. Donec nec lacus in ligula pretium finibus a lobortis ipsum. Nullam eu sem quis magna aliquet cursus. Nam vitae faucibus lorem. Praesent maximus, magna et volutpat scelerisque, neque quam hendrerit ante, nec eleifend est nunc a orci.', 'easy-elementor-addons'),
                 'condition' => [
                     'primary_content_type' => 'content',
                 ]
@@ -159,7 +159,7 @@ class Toggle extends Widget_Base {
             'secondary_content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => esc_html__('Secondary Content', 'easy-elementor-addons'),
+                'default' => esc_html__('Aenean facilisis accumsan nunc, vel maximus ipsum dictum ut. Sed in mauris commodo magna faucibus accumsan. Nunc non purus mi. Phasellus aliquet facilisis orci. Nullam vel tempor est. Aliquam eu elit sit amet nunc ullamcorper imperdiet. Phasellus porta egestas dolor sodales porttitor. Nunc mollis purus id nibh tempus pulvinar. In egestas et magna eu aliquam. Nunc dapibus massa metus, tempor lobortis risus cursus vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed dignissim rutrum tortor, vitae viverra augue tincidunt at. Sed leo nisl, congue ut justo in.', 'easy-elementor-addons'),
                 'condition' => [
                     'secondary_content_type' => 'content',
                 ]
@@ -555,7 +555,7 @@ class Toggle extends Widget_Base {
             'switch_handle_color_active', [
                 'label' => esc_html__('Switch Handle Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#FF0000',
+                'default' => '#00b3ff',
                 'selectors' => [
                     '{{WRAPPER}} .eead-toggle-container' => '--eead-toggle-switch-handle-active-color: {{VALUE}}',
                 ],

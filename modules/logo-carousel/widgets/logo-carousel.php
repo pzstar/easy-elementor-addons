@@ -86,6 +86,23 @@ class LogoCarousel extends Widget_Base {
             'slides', [
                 'label' => esc_html__('Slides', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
+                'default' => [
+                    [
+                        'image' => [
+                            'url' => Utils::get_placeholder_image_src(),
+                        ],
+                    ],
+                    [
+                        'image' => [
+                            'url' => Utils::get_placeholder_image_src(),
+                        ],
+                    ],
+                    [
+                        'image' => [
+                            'url' => Utils::get_placeholder_image_src(),
+                        ],
+                    ]
+                ],
                 'fields' => $repeater->get_controls(),
                 'title_field' => '{{{ title }}}'
             ]

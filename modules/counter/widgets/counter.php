@@ -495,9 +495,9 @@ class Counter extends Widget_Base {
                         <?php } ?>
                     </div>
 
-                    <h5 class="eead-counter-title">
+                    <h4 class="eead-counter-title">
                         <?php echo esc_html($counter_title); ?>
-                    </h5>
+                    </h4>
                     <?php
                     if ($counter_style == 'style4') {
                         echo '</div>';

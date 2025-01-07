@@ -103,6 +103,15 @@ class Accordion extends Widget_Base {
                 'default' => [
                     [
                         'title' => esc_html__('Accordion #1', 'easy-elementor-addons'),
+                        'wisiwyg_content' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.'
+                    ],
+                    [
+                        'title' => esc_html__('Accordion #2', 'easy-elementor-addons'),
+                        'wisiwyg_content' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.'
+                    ],
+                    [
+                        'title' => esc_html__('Accordion #3', 'easy-elementor-addons'),
+                        'wisiwyg_content' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.'
                     ]
                 ],
                 'title_field' => '{{{ title }}}'

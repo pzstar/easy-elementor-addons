@@ -834,7 +834,7 @@ Circular Progressbar
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.4em;
+    font-size: 48px;
 }
 
 .eead-circular-progressbar-box .eead-cb-title {
@@ -893,7 +893,6 @@ Counter
 }
 
 .eead-counter-box .eead-counter-count {
-    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1446,6 +1445,10 @@ Dual Heading Style
     display: inline-block;
 }
 
+.eead-dual-heading .eead-second-text{
+    color: var(--eead-pri-color);
+}
+
 
 /*--------------------------------------------------------------
 Feature List
@@ -1492,7 +1495,7 @@ Feature List
 
 /* Stacked */
 .eead-fl-style-stacked .eead-fl-icon-box {
-    background: #EEE;
+    background: var(--eead-light-bg-color);
 }
 
 
@@ -1543,7 +1546,7 @@ Filterable Gallery
 
 .eead-filter-gallery .eead-fg-filter-box {
     display: flex;
-    background-color: #f1f8ff;
+    background-color: var(--eead-light-bg-color);
     border-radius: 3px;
     border: 1px solid #dcedfe;
 }
@@ -2441,7 +2444,7 @@ Horizontal Tabs
 }
 
 .eead-horizontal-tab .eead-ht-tabs .eead-ht-tab.eead-ht-active-tab {
-    background: #EEF2F6;
+    background: var(--eead-light-bg-color);
 }
 
 .eead-horizontal-tab .eead-ht-tabs .eead-ht-tab i {
@@ -2454,7 +2457,7 @@ Horizontal Tabs
 }
 
 .eead-horizontal-tab .eead-ht-contents {
-    background: #EEF2F6;
+    background: var(--eead-light-bg-color);
     padding: 30px;
 }
 
@@ -2485,6 +2488,13 @@ Vertical Tabs
     position: relative;
 }
 
+.eead-vertical-tab .eead-vt-tabs i,
+.eead-vertical-tab .eead-vt-tabs svg{
+    font-size: 1em;
+    height: 1em;
+    width: 1em;
+}
+
 .eead-vertical-tab .eead-vt-tabs .eead-vt-tab {
     display: flex;
     align-items: center;
@@ -2498,11 +2508,11 @@ Vertical Tabs
 }
 
 .eead-vertical-tab .eead-vt-tabs .eead-vt-tab.eead-vt-active-tab {
-    background: #EEF2F6;
+    background: var(--eead-light-bg-color);
 }
 
 .eead-vertical-tab .eead-vt-contents {
-    background: #EEF2F6;
+    background: var(--eead-light-bg-color);
     padding: 30px;
     position: relative;
     z-index: 9;
@@ -4369,7 +4379,7 @@ One Page Navigation
     bottom: var(--eead-opn-offset-bottom, 20px);
 }
 
-.eead-opn-pos-right-middle .eead-one-page-nav-container,
+.eead-opn-pos-left-middle .eead-one-page-nav-container,
 .eead-opn-pos-right-middle .eead-one-page-nav-container {
     top: 50%;
     transform: translateY(-50%);
@@ -5304,7 +5314,7 @@ Toggle
 }
 
 .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:checked:after {
-    background: var(--eead-toggle-switch-handle-active-color, #FF0000);
+    background: var(--eead-toggle-switch-handle-active-color, var(--eead-pri-color));
 }
 
 .eead-toggle-switch-style1 .eead-toggle-switch-checkbox:checked:before {
@@ -5348,7 +5358,7 @@ Toggle
 }
 
 .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:checked:after {
-    background: var(--eead-toggle-switch-handle-active-color, #FF0000);
+    background: var(--eead-toggle-switch-handle-active-color, var(--eead-pri-color));
 }
 
 .eead-toggle-switch-style2 .eead-toggle-switch-checkbox:checked:before {
@@ -5504,7 +5514,7 @@ Toggle
 
 
 .eead-toggle-switch-style3 .eead-toggle-switch-checkbox:checked + .eead-toggle-slider::before {
-    background-color: var(--eead-toggle-switch-handle-active-color, #FF0000);
+    background-color: var(--eead-toggle-switch-handle-active-color, var(--eead-pri-color));
 }
 
 .eead-toggle-switch-style3 .eead-toggle-switch-checkbox:checked {
@@ -5643,7 +5653,7 @@ Toggle
 
 .eead-toggle-switch-style5 .eead-toggle-switch-checkbox:checked:after {
     animation: eead-contract 1s ease-in-out forwards;
-    background: var(--eead-toggle-switch-handle-active-color, #FF0000);
+    background: var(--eead-toggle-switch-handle-active-color, var(--eead-pri-color));
 }
 
 .eead-toggle-switch-style5 .eead-toggle-switch-checkbox:checked:before {
@@ -5746,10 +5756,22 @@ Switcher
 .eead-switcher-slider {
     position: absolute;
     height: 100%;
-    background: var(--eead-switcher-tab-active-bg-color, #EEE);
+    background: var(--eead-switcher-tab-active-bg-color, var(--eead-pri-color));
     z-index: 8;
     transition: left 0.3s linear;
     border-radius: var(--eead-switcher-tab-border-radius, 0)
+}
+
+.eead-switcher-tab.eead-switcher-active-tab{
+    color: #FFF;
+}
+
+.eead-switcher-tab.eead-switcher-active-tab i{
+    color: inherit;
+}
+
+.eead-switcher-tab.eead-switcher-active-tab svg{
+    fill: #FFF;
 }
 
 @media screen and (max-width:767px){
@@ -7236,7 +7258,7 @@ Team
 
 .eead-team-member-social-links a {
     font-size: 16px;
-    line-height: 1;
+    line-height: 0;
     border-radius: 50%;
     background: var(--eead-pri-color);
     color: #FFF;

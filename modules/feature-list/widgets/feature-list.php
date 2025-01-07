@@ -198,7 +198,7 @@ class FeatureList extends Widget_Base {
                     ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '<i class="{{icon.value}}" aria-hidden="true"></i> {{{title}}}'
+                'title_field' => '{{{title}}}'
             ]
         );
 

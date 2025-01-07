@@ -707,7 +707,6 @@ odometerOptions = {auto: false};
                     var filterValue = $gallery_container.find('.eead-ig-filter-list .eead-ig-filter').first().data('filter');
 
                     $gallery.imagesLoaded().done(function () {
-                        console.log('loaded');
                         $gallery.isotope({
                             itemSelector: '.eead-ig-item-box',
                             layoutMode: layout,
@@ -750,7 +749,6 @@ odometerOptions = {auto: false};
                 $canvas = $scope.find('.eead-pie-chart'),
                 data = $container.data('chart') || {},
                 options = $container.data('options') || {};
-            console.log(options);
             new Chart($canvas, {
                 type: 'pie',
                 data: data,
@@ -1272,7 +1270,6 @@ odometerOptions = {auto: false};
 
             function resizeVideo() {
                 var videoHeight = video.outerHeight();
-                console.log(videoHeight);
                 videoContainer.height(videoHeight);
             }
         },
