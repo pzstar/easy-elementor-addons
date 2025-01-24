@@ -454,6 +454,7 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-switcher-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-switcher-tab svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );
@@ -472,6 +473,7 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-switcher-tab:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-switcher-tab:hover svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );
@@ -500,6 +502,7 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-switcher-tab.eead-switcher-active-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-switcher-tab.eead-switcher-active-tab svg' => 'fill: {{VALUE}}'
                 ]
             ]
         );
