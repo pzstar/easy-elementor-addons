@@ -1145,7 +1145,6 @@ Dual Button
 .eead-dual-button-separator {
     width: 40px;
     height: 40px;
-    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2006,7 +2005,8 @@ Flip Box
 
 .eead-flip-box .eead-fb-layer-title {
     font-size: 22px;
-    color: #fff
+    color: #fff;
+    margin: 0;
 }
 
 .eead-flip-box .eead-fb-layer-title:not(:last-child) {
