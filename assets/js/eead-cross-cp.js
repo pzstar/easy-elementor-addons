@@ -81,7 +81,7 @@
                         elementor.previewView.addChildModel(data)
                     }
                     elementor.notifications.showToast({
-                        message: elementor.translate('Content Pasted. Have Fun ;)')
+                        message: elementor.translate('Content Pasted. Have Fun;)')
                     });
 
                 }
