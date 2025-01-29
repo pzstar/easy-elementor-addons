@@ -221,7 +221,7 @@ if (!function_exists('eead_slider_animations')) {
             'bounce-in-bck' => 'BounceInBackward',
             'swing-in-top-fwd' => 'SwingInTopForward',
             'swing-in-bottom-fwd' => 'SwingInBottomForward',
-            'swing-in-left-fwd' => 'SwingInLeftForward',    
+            'swing-in-left-fwd' => 'SwingInLeftForward',
             'swing-in-right-fwd' => 'SwingInRightForward',
             'puff-in-center' => 'PuffInCenter',
         ];

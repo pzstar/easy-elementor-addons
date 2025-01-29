@@ -530,7 +530,7 @@ class ImageAccordion extends Widget_Base {
                             if ($img_accordion['image_accordion_title']) {
                                 printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', $settings['title_tag'], esc_html($img_accordion['image_accordion_title']));
                             }
-                            
+
                             if ($img_accordion['image_accordion_content']) {
                                 ?>
                                 <div class="eead-image-accordion-text">

@@ -205,7 +205,7 @@
     font-weight: 900;
 }
 
-.elementor-element-wrapper .elementor-element:has(.eead-element-icon):before{
+.elementor-element-wrapper .elementor-element:has(.eead-element-icon):before {
     content: "EEA";
     position: absolute;
     right: 5px;
