@@ -500,7 +500,6 @@ class ThreedText extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $fade = $settings['fade'] == 'yes' ? 'true' : 'false';
         $html_tag = $settings['html_tag'];
-        ;
 
         $this->add_render_attribute('ztext', 'class', 'eead-z-text');
         $this->add_render_attribute('ztext', 'class', 'eead-align-' . $settings['alignment']);

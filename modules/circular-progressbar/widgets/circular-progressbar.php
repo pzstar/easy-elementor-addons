@@ -252,11 +252,9 @@ class CircularProgressbar extends Widget_Base {
                     <svg style="height:<?php echo $svg_size; ?>px;width:<?php echo $svg_size; ?>px">
                         <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php
                               echo $radius;
-                              ;
                               ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
                         <circle fill="none" cx="<?php echo $circle_size; ?>" cy="<?php echo $circle_size; ?>" r="<?php
                               echo $radius;
-                              ;
                               ?>" stroke-dasharray="<?php echo $dasharray; ?>" stroke-dashoffset="<?php echo $dasharray; ?>" stroke-width="<?php echo $stroke_width; ?>"></circle>
                     </svg>
 

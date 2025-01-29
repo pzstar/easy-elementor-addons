@@ -163,8 +163,8 @@
     }
 
     window.Waypoint = Waypoint
-}())
-        ;
+}());
+
 (function () {
     'use strict'
 
@@ -461,8 +461,8 @@
         requestFn.call(window, callback)
     }
     Waypoint.Context = Context
-}())
-        ;
+}());
+
 (function () {
     'use strict'
 
@@ -567,8 +567,8 @@
     }
 
     Waypoint.Group = Group
-}())
-        ;
+}());
+
 (function () {
     'use strict'
 
@@ -609,8 +609,8 @@
         Adapter: JQueryAdapter
     })
     Waypoint.Adapter = JQueryAdapter
-}())
-        ;
+}());
+
 (function () {
     'use strict'
 
@@ -646,5 +646,4 @@
     if (window.Zepto) {
         window.Zepto.fn.waypoint = createExtension(window.Zepto)
     }
-}())
-        ;
+}());

@@ -1392,7 +1392,6 @@ class MorphingLayouts extends Widget_Base {
             $image_clip = '<g clip-path="url(#mo_' . esc_attr($this->get_id()) . ')"><image class="morph-image" xlink:href="' . esc_url($morph_image) . '" x="' . esc_attr($image_x) . '" y="' . esc_attr($image_y) . '" height="' . esc_attr($image_height) . '" width="' . esc_attr($image_width) . '" ></image></g>';
         } else {
             $fill_style = 'style="fill:' . esc_attr($settings["morph_color"]) . '"';
-            ;
         }
 
         $output = '<div class="plus-morphing-svg-wrapper ' . $data_class . '" id="' . esc_attr($uid) . '" ' . $data_attr . ' data-morph=\'' . $json_array . '\' data-morphimage=\'' . $image_json_array . '\'>';

@@ -7052,6 +7052,10 @@ Slider
     height: 100vh;
 }
 
+.eead-slide img{
+    width: 100%;
+}
+
 .eead-slider-height-full .eead-slide img,
 .eead-slider-height-custom .eead-slide img {
     object-fit: cover;

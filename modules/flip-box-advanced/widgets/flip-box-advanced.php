@@ -963,7 +963,6 @@ class FlipBoxAdvanced extends Widget_Base {
             if ($settings['el_flip_3d']) {
                 echo $settings['el_flip_3d'];
             }
-            ;
             ?>">
             <div class="eead-flip-box-inner">
                 <div class="eead-flip-box-front">
