@@ -4324,13 +4324,13 @@ Social Share Buttons
     background: rgb(37, 211, 102, 0.90);
 }
 
-.eead-social-share-container a.eead-wechat {
+/*.eead-social-share-container a.eead-wechat {
     background: rgb(9, 184, 62);
 }
 
 .eead-social-share-container a.eead-wechat:hover {
     background: rgb(9, 184, 62, 0.90);
-}
+}*/
 
 .eead-social-share-container a.eead-line {
     background: rgb(0, 195, 0);

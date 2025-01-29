@@ -174,15 +174,6 @@ class SocialShare extends Widget_Base {
         );
 
         $this->add_control(
-            'wechat', [
-                'label' => esc_html__('WeChat', 'easy-elementor-addons'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('On', 'easy-elementor-addons'),
-                'label_off' => esc_html__('Off', 'easy-elementor-addons')
-            ]
-        );
-
-        $this->add_control(
             'line', [
                 'label' => esc_html__('Line', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
@@ -519,7 +510,6 @@ class SocialShare extends Widget_Base {
         $skype = esc_html($settings['skype']);
         $telegram = esc_html($settings['telegram']);
         $whatsapp = esc_html($settings['whatsapp']);
-        $wechat = esc_html($settings['wechat']);
         $line = esc_html($settings['line']);
         $email = esc_html($settings['email']);
         $show_text = $settings['show_text'];
@@ -615,14 +605,8 @@ class SocialShare extends Widget_Base {
             echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Whatsapp', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
         }
-        if ($wechat == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-wechat elementor-animation-' . $hover_animation . '" href="https://chart.googleapis.com/chart?cht=qr&chs=196x196&chd=t:60,40&chl=' . esc_url($url) . '">';
-            echo $show_icon == 'yes' ? '<i class="eead-icon icofont-wechat"></i>' : '';
-            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Wechat', 'easy-elementor-addons') . '</span>' : '';
-            echo '</a>';
-        }
         if ($line == 'yes') {
-            echo '<a target="_blank" class="eead-social-share-link eead-line elementor-animation-' . $hover_animation . '" href="ttps://lineit.line.me/share/ui?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
+            echo '<a target="_blank" class="eead-social-share-link eead-line elementor-animation-' . $hover_animation . '" href="https://lineit.line.me/share/ui?url=' . esc_url($url) . '&text=' . esc_html($title) . '">';
             echo $show_icon == 'yes' ? '<i class="eead-icon icofont-line"></i>' : '';
             echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html__('Line', 'easy-elementor-addons') . '</span>' : '';
             echo '</a>';
