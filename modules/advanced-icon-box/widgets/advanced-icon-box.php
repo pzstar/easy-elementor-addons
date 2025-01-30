@@ -1388,11 +1388,15 @@ class AdvancedIconBox extends Widget_Base {
         $has_image = !empty($settings['image']['url']);
 
         if ($has_icon && ('icon' == $settings['icon_type'])) {
-            $this->add_render_attribute('font-icon', 'class', $settings['selected_icon']);
-            $this->add_render_attribute('font-icon', 'aria-hidden', 'true');
+            $this->add_render_attribute('font-icon', [
+                'class' => $settings['selected_icon'],
+                'aria-hidden' => 'true'
+            ]);
         } elseif ($has_image && ('image' == $settings['icon_type'])) {
-            $this->add_render_attribute('image-icon', 'src', $settings['image']['url']);
-            $this->add_render_attribute('image-icon', 'alt', $settings['title_text']);
+            $this->add_render_attribute('image-icon', [
+                'src' => esc_url($settings['image']['url']),
+                'alt' => esc_html($settings['title_text'])
+            ]);
         }
 
         $this->add_render_attribute('icon-class', 'class', 'eead-aib-icon');
