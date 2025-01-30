@@ -72,10 +72,8 @@ if (!class_exists('Easy_Elementor_Addons')) {
             require EEAD_PATH . 'inc/icon-manager.php';
             require EEAD_PATH . 'inc/sticky-column.php';
             require EEAD_PATH . 'inc/admin-menu/admin-menu-class.php';
-            require EEAD_PATH . 'inc/live-editor/live-editor-class.php';
+            // require EEAD_PATH . 'inc/live-editor/live-editor-class.php';
             require EEAD_PATH . 'templates/templates.php';
-            //require EEAD_PATH . 'inc/cross-domain-cp/cross-domain-cp-integration.php';
-
         }
 
         public function required_plugins_notice() {
@@ -134,10 +132,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'advanced-icon-box',
                 'advanced-map',
                 'animated-heading',
-                //'animated-icon', //premium
                 'business-hour',
-                //'caption-hover-effect', //premium
-                //'charts', //premium
                 'circular-progressbar',
                 'countdown',
                 'counter',
@@ -145,10 +140,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'dual-button',
                 'dual-heading',
                 'feature-list',
-                //'filterable-gallery', //premium
                 'flip-box',
-                //'flip-box-advanced', //premium
-                //'horizontal-scroll', //premium
                 'horizontal-tab',
                 'horizontal-timeline',
                 'hotspot',
@@ -160,8 +152,6 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'logo-carousel',
                 'logo-grid',
                 'lottie',
-                //'morphing-layouts', //premium
-                //'multi-scroll', //premium
                 'one-page-navigation',
                 'pie-chart',
                 'popup-modal',
@@ -172,9 +162,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'pricing-table',
                 'progressbar',
                 'scroll-image',
-                //'scroll-nav', //premium
                 'slider',
-                //'slinky-vertical-menu', //premium
                 'social-share',
                 'step-flow',
                 'sticky-video',
@@ -183,10 +171,6 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 'team-carousel',
                 'testimonial',
                 'testimonial-carousel',
-                //'text-marquee', //premium
-                //'threed-text', //premium
-                //'threesixty-image', //premium
-                //'tilt-hover-image', //premium
                 'toggle',
                 'twitter-feed',
                 'vertical-tab',

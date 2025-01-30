@@ -7,6 +7,214 @@ $eead_widgets = get_option('eead_widgets');
 $eead_extenders = get_option('eead_extenders');
 $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
 $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
+
+
+$eead_all_widgets = array(
+    'accordion' => array(
+        'name' => 'Accordion',
+        'icon' => 'eead-icons-accordion'
+    ),
+    'advanced-button' => array(
+        'name' => 'Advanced Button',
+        'icon' => 'eead-icons-button'
+    ),
+    'advanced-heading' => array(
+        'name' => 'Advanced Heading',
+        'icon' => 'eead-icons-advanced-heading'
+    ),
+    'advanced-icon-box' => array(
+        'name' => 'Advanced Icon Box',
+        'icon' => 'eead-icons-icon-text'
+    ),
+    'advanced-map' => array(
+        'name' => 'Advanced Map',
+        'icon' => 'eead-icons-map'
+    ),
+    'animated-heading' => array(
+        'name' => 'Animated Heading',
+        'icon' => 'eead-icons-animated-heading'
+    ),
+    'business-hour' => array(
+        'name' => 'Business Hour',
+        'icon' => 'eead-icons-business-hours'
+    ),
+    'circular-progressbar' => array(
+        'name' => 'Circular Progressbar',
+        'icon' => 'eead-icons-circular-bar'
+    ),
+    'countdown' => array(
+        'name' => 'Countdown',
+        'icon' => 'eead-icons-count-down'
+    ),
+    'counter' => array(
+        'name' => 'Counter',
+        'icon' => 'eead-icons-counter'
+    ),
+    'drop-bar' => array(
+        'name' => 'Drop Bar',
+        'icon' => 'eead-icons-drop-box'
+    ),
+    'dual-button' => array(
+        'name' => 'Dual Button',
+        'icon' => 'eead-icons-dual-buttons'
+    ),
+    'dual-heading' => array(
+        'name' => 'Dual Heading',
+        'icon' => 'eead-icons-dual-heading'
+    ),
+    'feature-list' => array(
+        'name' => 'Feature List',
+        'icon' => 'eead-icons-feature-list'
+    ),
+    'flip-box' => array(
+        'name' => 'Flip Box',
+        'icon' => 'eead-icons-flip-box'
+    ),
+    'horizontal-tab' => array(
+        'name' => 'Horizontal Tab',
+        'icon' => 'eead-icons-horizontal-tab'
+    ),
+    'horizontal-timeline' => array(
+        'name' => 'Horizontal Timeline',
+        'icon' => 'eead-icons-horizontal-timeline'
+    ),
+    'hotspot' => array(
+        'name' => 'Hotspot',
+        'icon' => 'eead-icons-hot-spot'
+    ),
+    'icon-list' => array(
+        'name' => 'Icon List',
+        'icon' => 'eead-icons-icon-list'
+    ),
+    'image-accordion' => array(
+        'name' => 'Image Accordion',
+        'icon' => 'eead-icons-image-accordion'
+    ),
+    'image-comparison' => array(
+        'name' => 'Image Comparison',
+        'icon' => 'eead-icons-compare'
+    ),
+    'image-gallery' => array(
+        'name' => 'Filterable Gallery',
+        'icon' => 'eead-icons-image-gallery'
+    ),
+    'link-effect' => array(
+        'name' => 'Link Effect',
+        'icon' => 'eead-icons-link'
+    ),
+    'logo-carousel' => array(
+        'name' => 'Logo Carousel',
+        'icon' => 'eead-icons-logo-carousel'
+    ),
+    'logo-grid' => array(
+        'name' => 'Logo Grid',
+        'icon' => 'eead-icons-logo-grid'
+    ),
+    'lottie' => array(
+        'name' => 'Lottie',
+        'icon' => 'eead-icons-lottie'
+    ),
+    'one-page-navigation' => array(
+        'name' => 'One Page Navigation',
+        'icon' => 'eead-icons-one-page-nav'
+    ),
+    'pie-chart' => array(
+        'name' => 'Pie Chart',
+        'icon' => 'eead-icons-pie-chart'
+    ),
+    'popup-modal' => array(
+        'name' => 'Popup Modal',
+        'icon' => 'eead-icons-popup'
+    ),
+    'popup-video' => array(
+        'name' => 'Popup Video',
+        'icon' => 'eead-icons-video-popup'
+    ),
+    'portfolio' => array(
+        'name' => 'Portfolio',
+        'icon' => 'eead-icons-portfolio-grid'
+    ),
+    'portfolio-grid' => array(
+        'name' => 'Portfolio Grid',
+        'icon' => 'eead-icons-portfolio-grid'
+    ),
+    'pricing-list' => array(
+        'name' => 'Pricing List',
+        'icon' => 'eead-icons-pricing-list'
+    ),
+    'pricing-table' => array(
+        'name' => 'Pricing Table',
+        'icon' => 'eead-icons-pricing-table'
+    ),
+    'progressbar' => array(
+        'name' => 'Progressbar',
+        'icon' => 'eead-icons-progress-bar'
+    ),
+    'scroll-image' => array(
+        'name' => 'Scroll Image',
+        'icon' => 'eead-icons-scroll-image'
+    ),
+    'slider' => array(
+        'name' => 'Slider',
+        'icon' => 'eead-icons-slider'
+    ),
+    'social-share' => array(
+        'name' => 'Social Share',
+        'icon' => 'eead-icons-social-share'
+    ),
+    'step-flow' => array(
+        'name' => 'Step Flow',
+        'icon' => 'eead-icons-step-flow'
+    ),
+    'sticky-video' => array(
+        'name' => 'Sticky Video',
+        'icon' => 'eead-icons-sticky-video'
+    ),
+    'switcher' => array(
+        'name' => 'Switcher',
+        'icon' => 'eead-icons-switcher'
+    ),
+    'team-member' => array(
+        'name' => 'Team',
+        'icon' => 'eead-icons-team'
+    ),
+    'team-carousel' => array(
+        'name' => 'Team Carousel',
+        'icon' => 'eead-icons-team-carousel'
+    ),
+    'testimonial' => array(
+        'name' => 'Testimonial',
+        'icon' => 'eead-icons-testimonial'
+    ),
+    'testimonial-carousel' => array(
+        'name' => 'Testimonial Carousel',
+        'icon' => 'eead-icons-testimonial-carousel'
+    ),
+    'toggle' => array(
+        'name' => 'Toggle',
+        'icon' => 'eead-icons-toggle'
+    ),
+    'twitter-feed' => array(
+        'name' => 'Twitter Feed',
+        'icon' => 'eead-icons-twitter-x'
+    ),
+    'vertical-tab' => array(
+        'name' => 'Vertical Tab',
+        'icon' => 'eead-icons-vertical-tab'
+    ),
+    'vertical-timeline' => array(
+        'name' => 'Vertical Timeline',
+        'icon' => 'eead-icons-vertical-timeline'
+    ),
+    'video-player' => array(
+        'name' => 'Video Player',
+        'icon' => 'eead-icons-video-player'
+    ),
+    'weather' => array(
+        'name' => 'Weather Block',
+        'icon' => 'eead-icons-weather'
+    ),
+);
 ?>
 
 <div class="eead-wrap">
@@ -77,71 +285,11 @@ $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_gen
 
             <form id="eead-widget-selection-form">
                 <div class="eead-widget-section-inner-wrap">
-                    <?php $this->get_widget_field('Accordion', 'accordion', 'eead-icons-accordion'); ?>
-                    <?php $this->get_widget_field('Advanced Button', 'advanced-button', 'eead-icons-button'); ?>
-                    <?php $this->get_widget_field('Advanced Heading', 'advanced-heading', 'eead-icons-advanced-heading'); ?>
-                    <?php $this->get_widget_field('Advanced Icon Box', 'advanced-icon-box', 'eead-icons-icon-text'); ?>
-                    <?php $this->get_widget_field('Advanced Map', 'advanced-map', 'eead-icons-map'); ?>
-                    <?php $this->get_widget_field('Animated Heading', 'animated-heading', 'eead-icons-animated-heading'); ?>
-                    <?php //$this->get_widget_field('Animated Icon', 'animated-icon', 'eead-icons-animated-icon'); //premium ?>
-                    <?php $this->get_widget_field('Business Hour', 'business-hour', 'eead-icons-business-hours'); ?>
-                    <?php //$this->get_widget_field('Caption Hover Effect', 'caption-hover-effect', 'eead-icons-'); //premium ?>
-                    <?php //$this->get_widget_field('Charts', 'charts', 'eead-icons-chart'); //premium ?>
-                    <?php $this->get_widget_field('Circular Progressbar', 'circular-progressbar', 'eead-icons-circular-bar'); ?>
-                    <?php $this->get_widget_field('Countdown', 'countdown', 'eead-icons-count-down'); ?>
-                    <?php $this->get_widget_field('Counter', 'counter', 'eead-icons-counter'); ?>
-                    <?php $this->get_widget_field('Drop Bar', 'drop-bar', 'eead-icons-drop-box'); ?>
-                    <?php $this->get_widget_field('Dual Button', 'dual-button', 'eead-icons-dual-buttons'); ?>
-                    <?php $this->get_widget_field('Dual Heading', 'dual-heading', 'eead-icons-dual-heading'); ?>
-                    <?php $this->get_widget_field('Feature List', 'feature-list', 'eead-icons-feature-list'); ?>
-                    <?php //$this->get_widget_field('Advanced Filterable Gallery', 'filterable-gallery', 'eead-icons-gallery-grid'); //premium ?>
-                    <?php $this->get_widget_field('Flip Box', 'flip-box', 'eead-icons-flip-box'); ?>
-                    <?php //$this->get_widget_field('Flip Box Advanced', 'flip-box-advanced', 'eead-icons-flip-box');//premium ?>
-                    <?php //$this->get_widget_field('Horizontal Scroll', 'horizontal-scroll', 'eead-icons-'); //premium ?>
-                    <?php $this->get_widget_field('Horizontal Tab', 'horizontal-tab', 'eead-icons-horizontal-tab'); ?>
-                    <?php $this->get_widget_field('Horizontal Timeline', 'horizontal-timeline', 'eead-icons-horizontal-timeline'); ?>
-                    <?php $this->get_widget_field('Hotspot', 'hotspot', 'eead-icons-hot-spot'); ?>
-                    <?php $this->get_widget_field('Icon List', 'icon-list', 'eead-icons-icon-list'); ?>
-                    <?php $this->get_widget_field('Image Accordion', 'image-accordion', 'eead-icons-image-accordion'); ?>
-                    <?php $this->get_widget_field('Image Comparison', 'image-comparison', 'eead-icons-compare'); ?>
-                    <?php $this->get_widget_field('Filterable Gallery', 'image-gallery', 'eead-icons-image-gallery'); ?>
-                    <?php $this->get_widget_field('Link Effect', 'link-effect', 'eead-icons-link'); ?>
-                    <?php $this->get_widget_field('Logo Carousel', 'logo-carousel', 'eead-icons-logo-carousel'); ?>
-                    <?php $this->get_widget_field('Logo Grid', 'logo-grid', 'eead-icons-logo-grid'); ?>
-                    <?php $this->get_widget_field('Lottie', 'lottie', 'eead-icons-lottie'); ?>
-                    <?php //$this->get_widget_field('Morphing Layouts', 'morphing-layouts', 'eead-icons-'); //premium ?>
-                    <?php //$this->get_widget_field('Multi Scroll', 'multi-scroll', 'eead-icons-'); //premium ?>
-                    <?php $this->get_widget_field('One Page Navigation', 'one-page-navigation', 'eead-icons-one-page-nav'); ?>
-                    <?php $this->get_widget_field('Pie Chart', 'pie-chart', 'eead-icons-pie-chart'); ?>
-                    <?php $this->get_widget_field('Popup Modal', 'popup-modal', 'eead-icons-popup'); ?>
-                    <?php $this->get_widget_field('Popup Video', 'popup-video', 'eead-icons-video-popup'); ?>
-                    <?php $this->get_widget_field('Portfolio', 'portfolio', 'eead-icons-portfolio-grid'); ?>
-                    <?php $this->get_widget_field('Portfolio Grid', 'portfolio-grid', 'eead-icons-portfolio-grid'); // ?>
-                    <?php $this->get_widget_field('Pricing List', 'pricing-list', 'eead-icons-pricing-list'); ?>
-                    <?php $this->get_widget_field('Pricing Table', 'pricing-table', 'eead-icons-pricing-table'); ?>
-                    <?php $this->get_widget_field('Progressbar', 'progressbar', 'eead-icons-progress-bar'); ?>
-                    <?php $this->get_widget_field('Scroll Image', 'scroll-image', 'eead-icons-scroll-image'); ?>
-                    <?php //$this->get_widget_field('Scroll Nav', 'scroll-nav', 'eead-icons-');  //premium ?>
-                    <?php $this->get_widget_field('Slider', 'slider', 'eead-icons-slider'); ?>
-                    <?php //$this->get_widget_field('Slinky Vertical Menu', 'slinky-vertical-menu', 'eead-icons-'); //premium ?>
-                    <?php $this->get_widget_field('Social Share', 'social-share', 'eead-icons-social-share'); ?>
-                    <?php $this->get_widget_field('Step Flow', 'step-flow', 'eead-icons-step-flow'); ?>
-                    <?php $this->get_widget_field('Sticky Video', 'sticky-video', 'eead-icons-sticky-video'); ?>
-                    <?php $this->get_widget_field('Switcher', 'switcher', 'eead-icons-switcher'); ?>
-                    <?php $this->get_widget_field('Team', 'team-member', 'eead-icons-team'); ?>
-                    <?php $this->get_widget_field('Team Carousel', 'team-carousel', 'eead-icons-team-carousel'); ?>
-                    <?php $this->get_widget_field('Testimonial', 'testimonial', 'eead-icons-testimonial'); ?>
-                    <?php $this->get_widget_field('Testimonial Carousel', 'testimonial-carousel', 'eead-icons-testimonial-carousel'); ?>
-                    <?php //$this->get_widget_field('Text Marquee', 'text-marquee', 'eead-icons-');//premium ?>
-                    <?php //$this->get_widget_field('3D Text', 'threed-text', 'eead-icons-');//premium ?>
-                    <?php //$this->get_widget_field('360 Image', 'threesixty-image', 'eead-icons-image360'); //premium ?>
-                    <?php //$this->get_widget_field('Tilt Hover Image', 'tilt-hover-image', 'eead-icons-'); //premium ?>
-                    <?php $this->get_widget_field('Toggle', 'toggle', 'eead-icons-toggle'); ?>
-                    <?php $this->get_widget_field('Twitter Feed', 'twitter-feed', 'eead-icons-twitter-x'); ?>
-                    <?php $this->get_widget_field('Vertical Tab', 'vertical-tab', 'eead-icons-vertical-tab'); ?>
-                    <?php $this->get_widget_field('Vertical Timeline', 'vertical-timeline', 'eead-icons-vertical-timeline'); ?>
-                    <?php $this->get_widget_field('Video Player', 'video-player', 'eead-icons-video-player'); ?>
-                    <?php $this->get_widget_field('Weather Block', 'weather', 'eead-icons-weather'); ?>
+                    <?php
+                    foreach($eead_all_widgets as $key => $val) {
+                        $this->get_widget_field($val['name'], $key, $val['icon']);
+                    }
+                    ?>
                 </div>
 
                 <div class="eaad-save-button-wrap">
