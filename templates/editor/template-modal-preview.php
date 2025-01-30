@@ -1,0 +1,18 @@
+<?php
+/**
+ * Templates Item Preview
+ */
+?>
+<div class="ht-item-notice"></div>
+<div class="ht-item-preview-iframe">
+    <div class="elementor-loader-wrapper">
+        <div class="elementor-loader">
+            <div class="elementor-loader-box"></div>
+            <div class="elementor-loader-box"></div>
+            <div class="elementor-loader-box"></div>
+            <div class="elementor-loader-box"></div>
+        </div>
+        <div class="elementor-loading-title"><?php echo __('Loading..', 'easy-elementor-addons'); ?></div>
+    </div>
+    <iframe></iframe>
+</div>
