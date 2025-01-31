@@ -43,10 +43,15 @@ class EEAD_Widget_Loader {
 
         if (!class_exists($class_to_load)) {
             $filename = strtolower(preg_replace(['/^' . __NAMESPACE__ . '\\\/', '/([a-z])([A-Z])/', '/_/', '/\\\/'], ['', '$1-$2', '-', DIRECTORY_SEPARATOR], $class_to_load));
-            $filename = EEAD_PATH . $filename . '.php';
+            $filenamewithpath = EEAD_PATH . $filename . '.php';
 
-            if (is_readable($filename)) {
-                include($filename);
+            if (is_readable($filenamewithpath)) {
+                include($filenamewithpath);
+            } else if (defined('EEAD_PLUS_PATH')) {
+                $filenamewithpath = EEAD_PLUS_PATH . 'admin/' . $filename . '.php';
+                if (is_readable($filenamewithpath)) {
+                    include($filenamewithpath);
+                }
             }
         }
 
@@ -111,8 +116,6 @@ class EEAD_Widget_Loader {
         }
 
         wp_script_add_data('gmap-api', 'async/defer', true);
-        wp_register_script('circlr', EEAD_URL . 'assets/lib/threesixty-rotation/circlr.min.js', ['jquery'], EEAD_VERSION, true);
-        wp_register_script('simple-magnify', EEAD_URL . 'assets/lib/threesixty-rotation/simple-magnify.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('magnific-popup', EEAD_URL . 'assets/lib/magnific-popup/jquery.magnific-popup.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('countdown', EEAD_URL . 'assets/lib/countdown/countdown.min.js', ['jquery'], EEAD_VERSION, true);
@@ -130,41 +133,11 @@ class EEAD_Widget_Loader {
         wp_register_script('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/js/owl.carousel.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('slick', EEAD_URL . 'assets/lib/slick/slick.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
-        wp_register_script('tilt-anime', EEAD_URL . 'assets/lib/tilt/tilt-anime.min.js', ['jquery'], EEAD_VERSION);
-        wp_register_script('tilt', EEAD_URL . 'assets/lib/tilt/tilt.js', ['jquery'], EEAD_VERSION);
-
-        // Morph
-        wp_register_script('morph-anime', EEAD_URL . 'assets/lib/morph/morph-anime.js', ['jquery'], EEAD_VERSION);
-        wp_register_script('scrollmonitor', EEAD_URL . 'assets/lib/morph/scrollmonitor.js', array('jquery'), EEAD_VERSION, true);
-        wp_register_script('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.js', array('jquery'), EEAD_VERSION, true);
-
-        // Multi Scroll
-        wp_register_script('multiscroll', EEAD_URL . 'assets/lib/multiscroll/multiscroll.min.js', array('jquery'), EEAD_VERSION, true);
-
-        // Horizontal Scroll
-        wp_register_script('scrollmagic', EEAD_URL . 'assets/lib/scrollmagic/scrollmagic.js', array('jquery'), EEAD_VERSION, true);
-        wp_register_script('tweenmax', EEAD_URL . 'assets/lib/tweenmax/tweenmax.min.js', array('jquery'), EEAD_VERSION, true);
-        wp_register_script('hscroll', EEAD_URL . 'assets/js/hscroll.js', array('jquery'), EEAD_VERSION, true);
 
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION);
 
-        // Slinky Vertical Menu
-        wp_register_script('slinky', EEAD_URL . 'assets/lib/slinky/slinky.js', array('jquery'), EEAD_VERSION, true);
-
-        // LordIcon
-        wp_register_script('lordicon', EEAD_URL . 'assets/lib/lordicon/lordicon.min.js', array('jquery'), EEAD_VERSION, true);
-
-        // Modernizr
-        wp_register_script('modernizr-custom', EEAD_URL . 'assets/lib/modernizr/modernizr.custom.js', array('jquery'), EEAD_VERSION, true);
-
-        // Z Text
-        wp_register_script('z-text', EEAD_URL . 'assets/lib/ztext/ztext.min.js', [], EEAD_VERSION, true);
-
         // Lottie
         wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
-
-        // Text Marquee
-        wp_register_script('text-marquee', EEAD_URL . 'assets/lib/marquee/jquery.marquee.min.js', array('jquery'), EEAD_VERSION, true);
     }
 
     /**
@@ -201,8 +174,6 @@ class EEAD_Widget_Loader {
         wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
         wp_register_style('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/justifiedGallery.min.css', '', EEAD_VERSION);
         wp_register_style('weather-icons', EEAD_URL . 'assets/fonts/weather-icons/weather-icons.css', '', EEAD_VERSION);
-        //Morph
-        wp_enqueue_style('shape-morph', EEAD_URL . 'assets/lib/morph/shape-morph.min.css', array(), EEAD_VERSION);
 
     }
 

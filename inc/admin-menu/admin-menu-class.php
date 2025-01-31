@@ -71,11 +71,11 @@ class AdminClass {
         die();
     }
 
-    public function get_widget_field($label, $val, $icon = '') {
+    public function get_widget_field($label, $val, $icon = '', $premium = false) {
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         ?>
 
-        <div class="eead-widget-wrap">
+        <div class="eead-widget-wrap <?php echo $premium ? 'eead-premium' : ''; ?>">
             <span>
                 <?php
                 if ($icon) {
