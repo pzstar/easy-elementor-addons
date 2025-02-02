@@ -36,11 +36,11 @@ class PopupModal extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['micromodal', 'mcscrollbar'];
+		return ['micromodal', 'mcustomscrollbar'];
 	}
 
 	public function get_script_depends() {
-		return ['micromodal', 'mcscrollbar'];
+		return ['micromodal', 'mcustomscrollbar'];
 	}
 
 	protected function register_controls() {

@@ -39,11 +39,11 @@ class HorizontalTimeline extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['mcscrollbar'];
+        return ['mcustomscrollbar'];
     }
 
     public function get_script_depends() {
-        return ['mcscrollbar'];
+        return ['mcustomscrollbar'];
     }
 
     protected function register_controls() {

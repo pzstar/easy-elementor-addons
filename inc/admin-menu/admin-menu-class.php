@@ -10,16 +10,15 @@ class AdminClass {
     public function __construct() {
         add_action('wp_ajax_admin_settings_save', [$this, 'eead_settings_save']);
         add_action('wp_ajax_eead_widgets_save', [$this, 'eead_widgets_save']);
-        add_action('wp_ajax_eead_extenders_save', [$this, 'eead_extenders_save']);
 
         add_action('admin_menu', [$this, 'eead_register_admin_menu'], 20);
-        add_action('admin_enqueue_scripts', [$this, 'eead_admin_enqueue_scripts'], 2000);
+        add_action('admin_enqueue_scripts', [$this, 'eead_admin_enqueue_scripts']);
     }
 
     public function eead_admin_enqueue_scripts() {
         wp_enqueue_style('eead-admin-menu', EEAD_URL . 'assets/css/eead-admin-menu.css', false, EEAD_VERSION);
         wp_enqueue_style('materialdesignicons', EEAD_URL . 'assets/fonts/materialdesignicons/materialdesignicons.css', false, EEAD_VERSION);
-        wp_enqueue_style('easy-elementor-addons-icon-style', EEAD_ASSETS_URL . 'fonts/eeaddons/eeaddons.css', array(), EEAD_VERSION);
+        wp_enqueue_style('eeaddons-icon', EEAD_ASSETS_URL . 'fonts/eeaddons/eeaddons.css', array(), EEAD_VERSION);
 
         wp_enqueue_script('eead-admin', EEAD_URL . 'assets/js/admin.js', ['jquery'], EEAD_VERSION, true);
         wp_localize_script('eead-admin', 'admin_ajax_script', [
@@ -59,18 +58,6 @@ class AdminClass {
         die();
     }
 
-    public function eead_extenders_save() {
-
-        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
-            $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
-
-            update_option('eead_extenders', array());
-            $update_extenders = update_option('eead_extenders', $data_ar);
-            echo ($update_extenders || empty($data_ar)) ? 'yes' : 'no';
-        }
-        die();
-    }
-
     public function get_widget_field($label, $val, $icon = '', $premium = false) {
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         ?>
@@ -86,22 +73,6 @@ class AdminClass {
             </span>
             <div class="eead-checkbox">
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
-                <label></label>
-            </div>
-        </div>
-
-        <?php
-    }
-
-    public function get_extender_field($label, $val) {
-        $eead_extenders = get_option('eead_extenders') ? get_option('eead_extenders') : array();
-        ?>
-
-        <div class="eead-extender-wrap">
-            <span><?php esc_html_e($label); ?></span>
-
-            <div class="eead-checkbox">
-                <input type="checkbox" class="eead-extender-checkbox" name="extenders" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_extenders) && in_array($val, $eead_extenders)), true); ?>>
                 <label></label>
             </div>
         </div>

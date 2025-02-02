@@ -132,11 +132,8 @@ class EEAD_Widget_Loader {
         wp_register_script('uikit', EEAD_URL . 'assets/lib/uikit/uikit.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/js/owl.carousel.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('slick', EEAD_URL . 'assets/lib/slick/slick.min.js', ['jquery'], EEAD_VERSION, true);
-        wp_register_script('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
-
+        wp_register_script('mcustomscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION);
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION);
-
-        // Lottie
         wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
     }
 
@@ -144,24 +141,18 @@ class EEAD_Widget_Loader {
      * Enqueue Frontend Scripts
      */
     public function enqueue_frontend_scripts() {
-
-        wp_enqueue_script('theia-sticky-sidebar-js', EEAD_URL . 'assets/lib/theia-sticky-sidebar/theia-sticky-sidebar-js.js', [], EEAD_VERSION, true);
-        wp_enqueue_script('jQuery-cookie', EEAD_URL . 'assets/lib/jquery-cookie/jquery.cookie.js', ['jquery'], EEAD_VERSION, true);
-        wp_enqueue_script('swiper', EEAD_URL . 'assets/lib/swiper/swiper.js', ['jquery'], EEAD_VERSION, true);
-        wp_enqueue_script('eead-frontend-script', EEAD_URL . 'assets/js/frontend.js', ['jquery', 'jquery-ui-draggable', 'swiper'], EEAD_VERSION, true);
+        wp_enqueue_script('eead-frontend-script', EEAD_URL . 'assets/js/frontend.js', ['jquery'], EEAD_VERSION, true);
 
         wp_localize_script('eead-frontend-script', 'eead_widget_vars', [
             'ajax_url' => admin_url('admin-ajax.php'),
             'gallery_ajax_action' => 'loadmore_gallery',
         ]);
-
     }
 
     /**
      * Register Frontend Styles
      */
     public function register_frontend_styles() {
-
         wp_register_style('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.css', array(), EEAD_VERSION);
         wp_register_style('magnific-popup', EEAD_URL . 'assets/lib/magnific-popup/magnific-popup.css', array(), EEAD_VERSION);
         wp_register_style('image-compare', EEAD_URL . 'assets/lib/image-compare/image-compare.css', array(), EEAD_VERSION);
@@ -171,20 +162,18 @@ class EEAD_Widget_Loader {
         wp_register_style('owlcarousel', EEAD_URL . 'assets/lib/owl-carousel/css/owl.carousel.min.css', array(), EEAD_VERSION);
         wp_register_style('slick', EEAD_URL . 'assets/lib/slick/slick.css', array(), EEAD_VERSION);
         wp_register_style('slick-theme', EEAD_URL . 'assets/lib/slick/slick-theme.css', array(), EEAD_VERSION);
-        wp_register_style('mcscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
+        wp_register_style('mcustomscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', EEAD_VERSION);
         wp_register_style('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/justifiedGallery.min.css', '', EEAD_VERSION);
         wp_register_style('weather-icons', EEAD_URL . 'assets/fonts/weather-icons/weather-icons.css', '', EEAD_VERSION);
-
+        wp_register_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
     }
 
     /**
      * Enqueue Frontend Styles
      */
     public function enqueue_frontend_styles() {
-        wp_enqueue_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
         wp_enqueue_style('icofont', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-custom-animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
-        wp_enqueue_style('swiper', EEAD_URL . 'assets/lib/swiper/swiper.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
     }
 

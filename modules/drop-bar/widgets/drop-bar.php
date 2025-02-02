@@ -44,6 +44,10 @@ class DropBar extends Widget_Base {
         return ['uikit'];
     }
 
+    public function get_style_depends() {
+        return ['uikit'];
+    }
+
     protected function register_controls() {
 
         $this->start_controls_section(

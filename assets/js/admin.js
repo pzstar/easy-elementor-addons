@@ -136,7 +136,6 @@
 
     /* Tabs display on tab click for Plugin Menu Settings Page */
     $('body').on('click', '.eead-tab', function () {
-        console.log($(this).data('tab'));
         var selected_menu = $(this).data('tab');
         var hideDivs = $(this).data('tohide');
 

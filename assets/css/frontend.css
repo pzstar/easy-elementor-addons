@@ -1154,6 +1154,7 @@ Dual Button
     color: #444;
     text-transform: uppercase;
     position: absolute;
+    line-height: 1;
     left: var(--eead-dual-button-left-offset, 100%);
     top: var(--eead-dual-button-top-offset, 50%);
     transform: translateX(-50%) translateY(-50%);
@@ -1450,6 +1451,12 @@ Dual Heading Style
     color: var(--eead-pri-color);
 }
 
+.eead-dual-heading span.eead-first-text.eead-clipped,
+.eead-dual-heading span.eead-second-text.eead-clipped {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text
+}
 
 /*--------------------------------------------------------------
 Feature List
@@ -2167,7 +2174,7 @@ Flip Box
 }
 
 .eead-fb-effect-slide .eead-flip-box:hover .eead-fb-front {
-    opacity: 0;
+    opacity: 0.8;
 }
 
 /* Zoom Out */

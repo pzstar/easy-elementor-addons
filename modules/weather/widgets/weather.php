@@ -706,7 +706,6 @@ class Weather extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        //var_dump($settings);
         $eead_general_settings = get_option('eead_general_settings', true);
         $weatherstackApiKey = isset($eead_general_settings['weather_api_key']) ? $eead_general_settings['weather_api_key'] : NULL;
 
@@ -716,7 +715,6 @@ class Weather extends Widget_Base {
         }
 
         $data = $this->get_weather_data($weatherstackApiKey);
-        //var_dump($data);
         if (!$data) {
             return;
         }
