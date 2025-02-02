@@ -1,5 +1,3 @@
-odometerOptions = {auto: false};
-
 (function ($, elementor) {
     'use strict';
     var EEA = {
@@ -37,38 +35,11 @@ odometerOptions = {auto: false};
                 'eead-slider.default': EEA.sliderBlock,
                 'eead-team-carousel.default': EEA.teamCarousel,
                 'eead-testimonial-carousel.default': EEA.testimonialCarousel,
-
             };
 
             $.each(widgets, function (widget, callback) {
                 elementor.hooks.addAction('frontend/element_ready/' + widget, callback);
             });
-
-            elementor.hooks.addAction('frontend/element_ready/column', EEA.elementorColumn);
-
-            if (elementorFrontend.isEditMode() == true) {
-                elementor.hooks.addAction('panel/open_editor/widget/eead-sticky-video-block', function (panel, model, view) {
-                    var interval;
-                    model.attributes.settings.on('change:eead_sticky_width', function () {
-                        clearTimeout(interval);
-                        interval = setTimeout(function () {
-                            var height = Math.ceil(model.getSetting('eead_sticky_width') / 1.78);
-                            model.attributes.settings.attributes.eead_sticky_height = height;
-                            panel.el.querySelector('[data-setting="eead_sticky_height"]').value = height;
-                        }, 250);
-                    });
-                    model.attributes.settings.on('change:eead_sticky_height', function () {
-                        clearTimeout(interval);
-                        interval = setTimeout(function () {
-                            var width = Math.ceil(model.getSetting('eead_sticky_height') * 1.78);
-                            model.attributes.settings.attributes.eead_sticky_width = width;
-                            panel.el.querySelector('[data-setting="eead_sticky_width"]').value = width;
-                        }, 250);
-                    });
-                });
-            }
-
-
         },
 
         accordionBlock: function ($scope) {
@@ -1391,137 +1362,6 @@ odometerOptions = {auto: false};
                         }
                     }
                 });
-            }
-        },
-
-
-
-
-
-
-        elementorColumn: function ($scope) {
-            var columnId = $scope.data('id');
-            var editMode = Boolean(elementor.isEditMode());
-            var stickyInstanceOptions = {
-                topSpacing: 50,
-                bottomSpacing: 50,
-                innerWrapperSelector: '.elementor-widget-wrap'
-            };
-            if (!editMode) {
-                if ($scope.hasClass('eea-elementor-sticky-column')) {
-                    var adminbarHeight = 0;
-                    if ($('body').hasClass('admin-bar')) {
-                        adminbarHeight = 32;
-                    }
-                    var $stickywrap = $scope.find('> .elementor-column-wrap');
-                    $scope.find('> .elementor-column-wrap,> .elementor-widget-wrap').addClass('ht-clearfix');
-                    if ($stickywrap.length > 0) {
-                        stickyInstanceOptions.innerWrapperSelector = '.elementor-column-wrap';
-                    } else {
-                        stickyInstanceOptions.innerWrapperSelector = '.elementor-widget-wrap';
-                    }
-                    $scope.css({display: 'block'});
-                    stickyInstanceOptions.topSpacing = parseInt($scope.attr('data-top-spacing')) + adminbarHeight;
-                    stickyInstanceOptions.bottomSpacing = parseInt($scope.attr('data-bottom-spacing'));
-                    stickyInstanceOptions.containerSelector = '.elementor-container';
-
-                    var stickyInstance = new StickySidebar($scope[0], stickyInstanceOptions);
-                    $scope.attr('data-sticky-column', 'true');
-
-                    $(window).resize(function () {
-                        var currentDeviceMode = elementorFrontend.getCurrentDeviceMode(),
-                            availableDevices = ['desktop', 'tablet'],
-                            isInit = $scope.attr('data-sticky-column');
-
-                        if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
-                            if (isInit === 'false') {
-                                $scope.attr('data-sticky-column', 'true');
-                                stickyInstance = new StickySidebar($scope[0], stickyInstanceOptions);
-                                stickyInstance.updateSticky();
-                            }
-                        } else {
-                            $scope.attr('data-sticky-column', 'false');
-                            stickyInstance.destroy();
-                        }
-                    }).resize();
-                }
-            } else {
-                var settings = EEA.columnEditorSettings(columnId);
-                if ('true' === settings['sticky']) {
-                    $scope.addClass('eea-elementor-sticky-column');
-                    var $stickywrap = $scope.find('> .elementor-column-wrap');
-                    $scope.find('> .elementor-column-wrap,> .elementor-widget-wrap').addClass('ht-clearfix');
-                    if ($stickywrap.length > 0) {
-                        stickyInstanceOptions.innerWrapperSelector = '.elementor-column-wrap';
-                    } else {
-                        stickyInstanceOptions.innerWrapperSelector = '.elementor-widget-wrap';
-                    }
-                    $scope.css({display: 'block'});
-                    stickyInstanceOptions.topSpacing = settings['topSpacing'];
-                    stickyInstanceOptions.bottomSpacing = settings['bottomSpacing'];
-                    var stickyInstance = new StickySidebar($scope[0], stickyInstanceOptions);
-                    $scope.attr('data-sticky-column', 'true');
-                    stickyInstance.updateSticky();
-
-                    $(window).resize(function () {
-                        var currentDeviceMode = elementorFrontend.getCurrentDeviceMode(),
-                            availableDevices = ['desktop', 'tablet'],
-                            isInit = $scope.attr('data-sticky-column');
-
-                        if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
-                            if (isInit === 'false') {
-                                $scope.attr('data-sticky-column', 'true');
-                                stickyInstance = new StickySidebar($scope[0], stickyInstanceOptions);
-                                stickyInstance.updateSticky();
-                            }
-                        } else {
-                            $scope.attr('data-sticky-column', 'false');
-                            stickyInstance.destroy();
-                        }
-                    }).resize();
-                } else {
-                    $scope.removeClass('eea-elementor-sticky-column');
-                }
-            }
-        },
-
-        columnEditorSettings: function (columnId) {
-            var editorElements = null,
-                columnData = {};
-
-            if (!window.elementor.hasOwnProperty('elements')) {
-                return false;
-            }
-
-            editorElements = window.elementor.elements;
-            if (!editorElements.models) {
-                return false;
-            }
-
-            $.each(editorElements.models, function (index, obj) {
-                $.each(obj.attributes.elements.models, function (index, obj) {
-                    if (columnId == obj.id) {
-                        columnData = obj.attributes.settings.attributes;
-                    }
-                });
-            });
-
-            return {
-                'sticky': columnData['hash_elements_sidebar_sticky'] || false,
-                'topSpacing': columnData['hash_elements_sidebar_sticky_top_spacing'] || 50,
-                'bottomSpacing': columnData['hash_elements_sidebar_sticky_bottom_spacing'] || 50,
-            }
-        },
-
-        resizeSticky: function ($target) {
-            var currentDeviceMode = elementorFrontend.getCurrentDeviceMode();
-            if (-1 !== availableDevices.indexOf(currentDeviceMode)) {
-                $target.data('stickyColumnInit', true);
-                stickyInstance = new StickySidebar($target[0], stickyInstanceOptions);
-                stickyInstance.updateSticky();
-            } else {
-                $target.data('stickyColumnInit', false);
-                stickyInstance.destroy();
             }
         },
     };

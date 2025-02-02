@@ -7700,3 +7700,17 @@ Testimonial Carousel
     display: flex;
     align-items: center;
 }
+
+
+/*--------------------------------------------------------------
+Sticky Container
+--------------------------------------------------------------*/
+.e-con.eead-sticky-container-yes {
+    position: sticky;
+    top: var(--ht-sticky-top-spacing, 0);
+}
+
+body.admin-bar .e-con.eead-sticky-container-yes {
+    position: sticky;
+    top: calc(32px + var(--eead-sticky-top-spacing, 0));
+}
