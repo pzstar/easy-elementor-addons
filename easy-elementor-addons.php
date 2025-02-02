@@ -275,16 +275,6 @@ if (!class_exists('Easy_Elementor_Addons')) {
                     'icon' => 'eead-icons-video-popup',
                     'description' => __('Add eye-catching video popups to boost user engagement.', 'easy-elementor-addons')
                 ),
-                'portfolio' => array(
-                    'name' => 'Portfolio',
-                    'icon' => 'eead-icons-portfolio-grid',
-                    'description' => __('Allows you to create a beautiful portfolio gallery of your work with an amazing light box image.', 'easy-elementor-addons')
-                ),
-                'portfolio-grid' => array(
-                    'name' => 'Portfolio Grid',
-                    'icon' => 'eead-icons-portfolio-grid',
-                    'description' => __('Organize and display portfolios in a clean, grid-style layout.', 'easy-elementor-addons')
-                ),
                 'pricing-list' => array(
                     'name' => 'Pricing List',
                     'icon' => 'eead-icons-pricing-list',
