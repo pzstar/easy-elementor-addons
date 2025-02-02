@@ -4,7 +4,7 @@
  * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
  * Description: Elementor addons for WordPress Themes developed by HashThemes https://hashthemes.com
- * Version: 2.1.3
+ * Version: 2.1.4
  * Author: HashThemes
  * Author URI: https://hashthemes.com/
  * Text Domain: easy-elementor-addons
@@ -20,7 +20,7 @@ if (!defined('WPINC')) {
     die();
 }
 
-define('EEAD_VERSION', '2.1.3');
+define('EEAD_VERSION', '2.1.4');
 
 define('EEAD_FILE', __FILE__);
 define('EEAD_PLUGIN_BASENAME', plugin_basename(EEAD_FILE));
@@ -70,7 +70,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             require EEAD_PATH . 'inc/widget-loader.php';
             require EEAD_PATH . 'inc/helper-functions.php';
             require EEAD_PATH . 'inc/icon-manager.php';
-            require EEAD_PATH . 'inc/sticky-column.php';
+            require EEAD_PATH . 'inc/sticky-container.php';
             require EEAD_PATH . 'inc/admin-menu/admin-menu-class.php';
             require EEAD_PATH . 'templates/templates.php';
         }

@@ -81,7 +81,7 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
             <form id="eead-widget-selection-form">
                 <div class="eead-widget-section-inner-wrap">
                     <?php
-                    foreach($eead_all_widgets as $key => $val) {
+                    foreach ($eead_all_widgets as $key => $val) {
                         $this->get_widget_field($val['name'], $key, $val['icon'], isset($val['premium']) && $val['premium']);
                     }
                     ?>
