@@ -754,6 +754,10 @@ Animated Heading
     margin: 0 !important;
 }
 
+.eead-ah-heading .animated{
+    display: inline-block;
+}
+
 
 /*--------------------------------------------------------------
 Business Hours
