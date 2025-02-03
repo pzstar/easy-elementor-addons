@@ -224,6 +224,9 @@ class DropBar extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-drop' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'drop_position!' => ['top-justify', 'bottom-justify'],
                 ]
             ]
         );
