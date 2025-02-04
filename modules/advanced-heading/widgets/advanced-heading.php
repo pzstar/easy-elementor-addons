@@ -750,10 +750,10 @@ class AdvancedHeading extends Widget_Base {
         if ($settings['main_heading']) {
             $main_heading .= '<span class="eead-ah-main-heading-wrap">';
             $main_heading .= '<span class="eead-ah-main-heading-text">';
-            $main_heading .= $settings['main_heading'];
+            $main_heading .= esc_html($settings['main_heading']);
             if ($settings['split_main_heading'] == 'yes' && !empty($settings['split_text'])) {
                 $main_heading .= '<span class="eead-ah-split-text"> ';
-                $main_heading .= $settings['split_text'];
+                $main_heading .= esc_html($settings['split_text']);
                 $main_heading .= '</span>';
             }
             $main_heading .= '</span>';

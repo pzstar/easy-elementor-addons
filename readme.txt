@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -143,6 +143,9 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 2.1.5 Feb 4, 2025 =
+* Escaping variable fixes
+
 = 2.1.4 Feb 3, 2025 =
 * CSS fixes
 * Unused Code - Removed
