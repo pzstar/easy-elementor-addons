@@ -919,12 +919,29 @@
 
         scrollImage: function ($scope) {
             var $container = $scope.find('.eead-scroll-image-container');
+            var $frame = $scope.find('.eead-scroll-image-device');
+            var $frameContainer = $scope.find('.eead-scroll-image-frame-wrapper');
 
             lightGallery(document.getElementById($container.attr('id')), {
                 selector: '.eead-scroll-image-modal',
                 counter: false,
                 iframeMaxWidth: '80%',
             });
+
+            setTimeout(function () {
+                resizeVideo();
+            }, 1000);
+
+            $(window).resize(function () {
+                resizeVideo();
+            });
+
+            function resizeVideo() {
+                if ($frame.length > 0) {
+                    var frameHeight = $frame.outerHeight();
+                    $frameContainer.height(frameHeight);
+                }
+            }
         },
 
         logoCarousel: function ($scope) {
@@ -1205,8 +1222,10 @@
                 });
             }
 
+            setTimeout(function () {
+                resizeVideo();
+            }, 1000);
 
-            resizeVideo();
             $(window).resize(function () {
                 resizeVideo();
             });

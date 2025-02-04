@@ -789,17 +789,17 @@ class DualButton extends Widget_Base {
             <div <?php $this->print_render_attribute_string('wrapper'); ?>>
                 <div class="eead-dual-pri-button">
                     <a <?php $this->print_render_attribute_string('pri-button'); ?>>
+                        <span>
+                            <?php
+                            echo esc_html($settings['pri_button_text']);
+                            ?>
+                        </span>
                         <?php
-                        echo esc_html($settings['pri_button_text']);
-
                         if ($settings['pri_button_icon']['value'] !== '') {
                             ?>
-                            <span>
-                                <?php
-                                Icons_Manager::render_icon($settings['pri_button_icon'], ['aria-hidden' => 'true']);
-                                ?>
-                            </span>
                             <?php
+                            Icons_Manager::render_icon($settings['pri_button_icon'], ['aria-hidden' => 'true']);
+
                         }
                         ?>
                     </a>
@@ -835,17 +835,17 @@ class DualButton extends Widget_Base {
 
                 <div class="eead-dual-sec-button">
                     <a <?php $this->print_render_attribute_string('sec-button'); ?>>
+                        <span>
+                            <?php
+                            echo esc_html($settings['sec_button_text']);
+                            ?>
+                        </span>
                         <?php
-                        echo esc_html($settings['sec_button_text']);
-
                         if ($settings['sec_button_icon']['value'] !== '') {
                             ?>
-                            <span>
-                                <?php
-                                Icons_Manager::render_icon($settings['sec_button_icon'], ['aria-hidden' => 'true']);
-                                ?>
-                            </span>
                             <?php
+                            Icons_Manager::render_icon($settings['sec_button_icon'], ['aria-hidden' => 'true']);
+
                         }
                         ?>
                     </a>

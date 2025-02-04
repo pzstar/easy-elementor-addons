@@ -1214,8 +1214,10 @@ class ScrollImage extends Widget_Base {
 		?>
 		<div id="eead-scroll-image-container-<?php echo $this->get_id(); ?>" class="eead-scroll-image-container">
 			<div class="eead-scroll-image-wrapper">
-				<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
-					<?php $this->render_image(); ?>
+				<div class="eead-scroll-image-frame-wrapper">
+					<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+						<?php $this->render_image(); ?>
+					</div>
 				</div>
 
 				<?php if (!empty($settings['caption'])) { ?>

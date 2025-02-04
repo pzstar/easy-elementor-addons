@@ -754,7 +754,7 @@ Animated Heading
     margin: 0 !important;
 }
 
-.eead-ah-heading .animated{
+.eead-ah-heading .animated {
     display: inline-block;
 }
 
@@ -1116,10 +1116,6 @@ Dual Button
 }
 
 .eead-dual-buttons .eead-dual-button {
-    display: block;
-}
-
-.eead-dual-buttons .eead-dual-button {
     position: relative;
     padding: 15px 30px;
     gap: 0.4em;
@@ -1128,11 +1124,12 @@ Dual Button
     background: #111;
     color: #FFF;
     font-size: 1.2em;
+    overflow: hidden;
     justify-content: var(--eead-dual-button-justify-content);
 }
 
-.eead-dual-buttons .eead-dual-button span {
-    line-height: 1;
+.eead-dual-buttons .eead-dual-button > span {
+    position: relative;
 }
 
 .eead-dual-buttons .eead-dual-button i {
@@ -3315,6 +3312,26 @@ Link Effects
     color: var(--eead-link-effect-color-alt-hover, var(--eead-link-effect-color-alt, #FFF));
 }
 
+body.e--ua-safari .eead-link-effect-4.eead-link {
+    overflow: hidden;
+}
+
+body.e--ua-safari .eead-link-effect-4 span:before {
+    top: 0;
+    transition: transform 0.3s;
+    transform: translateY(100%);
+}
+
+body.e--ua-safari .eead-link-effect-4:hover span,
+body.e--ua-safari .eead-link-effect-4:focus span {
+    transform: none;
+}
+
+body.e--ua-safari .eead-link-effect-4:hover span:before,
+body.e--ua-safari .eead-link-effect-4:focus span:before {
+    transform: translateY(0);
+}
+
 /* Effect 5: duplicate text slide in */
 .eead-link-effect-5 {
     display: inline-block;
@@ -3886,6 +3903,22 @@ Link Effects
 .eead-link-effect-19:hover span,
 .eead-link-effect-19:focus span {
     transform: rotateY(-90deg);
+}
+
+body.e--ua-safari .eead-link-effect-19 span:before {
+    left: 0;
+    transform: rotateY(-270deg);
+    transition: transform 0.6s;
+}
+
+body.e--ua-safari .eead-link-effect-19:hover span,
+body.e--ua-safari .eead-link-effect-19:focus span {
+    transform: none;
+}
+
+body.e--ua-safari .eead-link-effect-19:hover span:before,
+body.e--ua-safari .eead-link-effect-19:focus span:before {
+    transform: rotateY(0);
 }
 
 /* Effect 20: Flip Unfold */
