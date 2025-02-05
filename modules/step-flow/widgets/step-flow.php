@@ -993,7 +993,7 @@ class StepFlow extends Widget_Base {
                 ?>
             </div>
 
-            <?php printf('<%1$s %2$s>%3$s</%1$s>', $settings['title_tag'], $this->get_render_attribute_string('title'), $title); ?>
+            <?php printf('<%1$s %2$s>%3$s</%1$s>', esc_attr(eead_check_allowed_html_tags($settings['title_tag'])), $this->get_render_attribute_string('title'), $title); ?>
 
             <?php if ($settings['description']) { ?>
                 <p <?php $this->print_render_attribute_string('description'); ?>><?php echo wp_kses_post($settings['description']); ?></p>

@@ -1488,11 +1488,11 @@ class HorizontalTimeline extends Widget_Base {
                                 <?php } ?>
 
                                 <?php if (!empty($item['title'])) { ?>
-                                    <<?php echo $settings['title_html_tag']; ?> class="eead-htl-title">
+                                    <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])); ?> class="eead-htl-title">
                                         <?php
                                         echo esc_html($item['title']);
                                         ?>
-                                    </<?php echo $settings['title_html_tag']; ?>>
+                                    </<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])); ?>>
                                 <?php } ?>
 
                                 <?php if (!empty($item['description'])) { ?>

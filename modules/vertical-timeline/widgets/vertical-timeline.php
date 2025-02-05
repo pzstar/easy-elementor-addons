@@ -981,11 +981,11 @@ class VerticalTimeline extends Widget_Base {
                                     <?php } ?>
 
                                     <?php if ($item['title']) { ?>
-                                        <<?php echo esc_attr($settings['title_html_tag']); ?> class="eead-vt-title">
+                                        <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])); ?> class="eead-vt-title">
                                             <?php
                                             echo esc_html($item['title']);
                                             ?>
-                                        </<?php echo esc_attr($settings['title_html_tag']); ?>>
+                                        </<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])); ?>>
                                     <?php } ?>
 
                                     <?php if ($item['description']) { ?>

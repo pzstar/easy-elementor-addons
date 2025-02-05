@@ -32,6 +32,19 @@ if (!function_exists('eead_html_tags')) {
 
 }
 
+if (!function_exists('eead_check_allowed_html_tags')) {
+
+    function eead_check_allowed_html_tags($tag, $default_tag = "h4") {
+        $allowed_tags = eead_html_tags();
+        if (in_array($tag, $allowed_tags)) {
+            return $tag;
+        } else {
+            return $default_tag;
+        }
+    }
+
+}
+
 if (!function_exists('parse_wisiwyg_content')) {
 
     function parse_wisiwyg_content($content) {

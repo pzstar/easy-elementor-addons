@@ -827,7 +827,7 @@ class PricingList extends Widget_Base {
                                 <div class="eead-pl-item-header">
 
                                     <?php if ($lists['title']) { ?>
-                                        <<?php echo $settings['title_tag']; ?> class="eead-pl-item-title">
+                                        <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_tag'])); ?> class="eead-pl-item-title">
                                             <?php
                                             if ($has_link) {
                                                 printf('<a href=%1$s>%2$s</a>', $link, $lists['title']);
@@ -835,7 +835,7 @@ class PricingList extends Widget_Base {
                                                 echo esc_html($lists['title']);
                                             }
                                             ?>
-                                        </<?php echo $settings['title_tag']; ?>>
+                                        </<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_tag'])); ?>>
                                     <?php } ?>
 
                                     <?php

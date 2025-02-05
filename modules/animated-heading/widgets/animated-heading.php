@@ -361,7 +361,7 @@ class AnimatedHeading extends Widget_Base {
         }
         ?>
 
-        <<?php echo esc_attr($html_tag); ?> class="eead-ah-heading">
+        <<?php echo esc_attr(eead_check_allowed_html_tags($html_tag)); ?> class="eead-ah-heading">
 
             <?php
             if (!empty($settings['heading_link']['url'])) {
@@ -409,7 +409,7 @@ class AnimatedHeading extends Widget_Base {
             }
             ?>
 
-        </<?php echo esc_attr($html_tag); ?>>
+        </<?php echo esc_attr(eead_check_allowed_html_tags($html_tag)); ?>>
         <?php
     }
 

@@ -690,13 +690,13 @@ class FeatureList extends Widget_Base {
 
                         <div class="eead-fl-content-box">
                             <?php if ($item['title']) { ?>
-                                <<?php echo esc_attr($feature_title_tag); ?> class="eead-fl-title">
+                                <<?php echo esc_attr(eead_check_allowed_html_tags($feature_title_tag)); ?> class="eead-fl-title">
                                     <<?php echo esc_attr($feature_icon_tag) . ' ' . $this->get_render_attribute_string('link' . $index); ?>>
                                         <?php
                                         echo esc_html($item['title']);
                                         ?>
                                     </<?php echo esc_attr($feature_icon_tag); ?>>
-                                </<?php echo esc_attr($feature_title_tag); ?>>
+                                </<?php echo esc_attr(eead_check_allowed_html_tags($feature_title_tag)); ?>>
                             <?php } ?>
 
                             <?php if ($item['subtitle']) { ?>

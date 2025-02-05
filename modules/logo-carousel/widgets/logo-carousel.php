@@ -1010,7 +1010,7 @@ class LogoCarousel extends Widget_Base {
                         echo $image_html;
                     }
                     if ($settings['show_title']) {
-                        echo '<' . $settings['title_html_tag'] . ' class="eead-logo-title">' . esc_html($item['title']) . '</' . $settings['title_html_tag'] . '>';
+                        echo '<' . esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])) . ' class="eead-logo-title">' . esc_html($item['title']) . '</' . esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])) . '>';
                     }
                     echo '</div>';
                 }

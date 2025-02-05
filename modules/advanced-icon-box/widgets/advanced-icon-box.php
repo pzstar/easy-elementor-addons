@@ -1440,11 +1440,11 @@ class AdvancedIconBox extends Widget_Base {
 
             if ($settings['title_text']) {
                 ?>
-                <<?php echo esc_attr($settings['title_size']); ?> class="eead-aib-title">
+                <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_size'])); ?> class="eead-aib-title">
                     <span>
                         <?php echo wp_kses($settings['title_text'], eead_allow_tags('title')); ?>
                     </span>
-                </<?php echo esc_attr($settings['title_size']); ?>>
+                </<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_size'])); ?>>
                 <?php
             }
             ?>

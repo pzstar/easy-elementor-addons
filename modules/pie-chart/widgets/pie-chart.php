@@ -548,9 +548,9 @@ class PieChart extends Widget_Base {
 			$title_tag = $settings['chart_title_size'];
 			?>
 			<div class="eead-pie-chart-title-container">
-				<<?php echo esc_attr($title_tag); ?> class="eead-pie-chart-title">
+				<<?php echo esc_attr(eead_check_allowed_html_tags($title_tag)); ?> class="eead-pie-chart-title">
 					<?php echo esc_html($settings['chart_title']); ?>
-				</<?php echo esc_attr($title_tag); ?>>
+				</<?php echo esc_attr(eead_check_allowed_html_tags($title_tag)); ?>>
 			</div>
 			<?php
 		}

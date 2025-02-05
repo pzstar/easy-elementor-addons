@@ -771,13 +771,13 @@ class AdvancedHeading extends Widget_Base {
                 }
             }
 
-            $heading .= '<' . esc_attr($settings['header_size']) . ' class="eead-ah-main-heading eead-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
+            $heading .= '<' . esc_attr(eead_check_allowed_html_tags($settings['header_size'])) . ' class="eead-ah-main-heading eead-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
             if (!empty($settings['link']['url'])) {
                 $heading .= wp_kses_post(sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('url'), $main_heading));
             } else {
                 $heading .= wp_kses_post($main_heading);
             }
-            $heading .= '</' . esc_attr($settings['header_size']) . '>';
+            $heading .= '</' . esc_attr(eead_check_allowed_html_tags($settings['header_size'])) . '>';
         }
 
         return $heading;

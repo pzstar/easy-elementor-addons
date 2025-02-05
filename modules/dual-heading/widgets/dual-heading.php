@@ -564,7 +564,7 @@ class DualHeading extends Widget_Base {
 
         if ($settings['first_heading'] || $settings['second_heading']) {
             ?>
-            <<?php echo esc_attr($settings['heading_html_tag']); ?> class="eead-dual-heading">
+            <<?php echo esc_attr(eead_check_allowed_html_tags($settings['heading_html_tag'])); ?> class="eead-dual-heading">
 
                 <?php
                 if (!empty($settings['link']['url'])) {
@@ -578,7 +578,7 @@ class DualHeading extends Widget_Base {
                 }
                 ?>
 
-            </<?php echo esc_attr($settings['heading_html_tag']); ?>>
+            </<?php echo esc_attr(eead_check_allowed_html_tags($settings['heading_html_tag'])); ?>>
             <?php
         }
     }

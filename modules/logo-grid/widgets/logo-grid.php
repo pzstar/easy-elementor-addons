@@ -565,7 +565,7 @@ class LogoGrid extends Widget_Base {
                         }
 
                         if (!empty($item['title'])) {
-                            echo '<' . esc_attr($settings['title_html_tag']) . ' class="eead-logo-grid-title">';
+                            echo '<' . esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])) . ' class="eead-logo-grid-title">';
 
                             if (!empty($item['link']['url'])) {
                                 echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
@@ -576,7 +576,7 @@ class LogoGrid extends Widget_Base {
                             if (!empty($item['link']['url'])) {
                                 echo '</a>';
                             }
-                            echo '</' . esc_attr($settings['title_html_tag']) . '>';
+                            echo '</' . esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])) . '>';
                         }
                         ?>
                     </div>
