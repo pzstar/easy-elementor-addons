@@ -279,9 +279,11 @@
             $coundDown.find('.eead-countdown-items').countdown({
                 end: function end() {
                     if ($expire_type == 'text') {
-                        countDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + '</h4>' + '<div class="eead-countdown-finish-text">' + $expiry_text + '</div></div>');
+                        $coundDown.html('<div class="eead-countdown-finish-message"><h4 class="expiry-title">' + $expiry_title + '</h4>' + '<div class="eead-countdown-finish-text">' + $expiry_text + '</div></div>');
                     } else if ($expire_type === 'url') {
-                        window.location.href = $redirect_url;
+                        if (elementorFrontend.isEditMode() == false) {
+                            window.location.href = $redirect_url;
+                        }
                     }
                 }
             });
