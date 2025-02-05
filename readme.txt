@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -143,6 +143,11 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 2.1.6 Feb 5, 2025 =
+* Dual button, on hover, flicking text issue on Safari - Fixed
+* Scroll Image mobile responsive issue - Fixed
+* Other minor CSS fixes
+
 = 2.1.5 Feb 4, 2025 =
 * Escaping variable fixes
 
