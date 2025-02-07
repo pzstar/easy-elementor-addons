@@ -143,9 +143,10 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
-= 2.1.6 Feb 5, 2025 =
+= 2.1.6 Feb 7, 2025 =
 * Dual button, on hover, flicking text issue on Safari - Fixed
 * Scroll Image mobile responsive issue - Fixed
+* Variable escaping security Bugs - Fixed
 * Other minor CSS fixes
 
 = 2.1.5 Feb 4, 2025 =
