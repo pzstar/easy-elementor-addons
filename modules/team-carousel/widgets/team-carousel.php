@@ -1620,9 +1620,9 @@ class TeamCarousel extends Widget_Base {
         $member_name = '';
         if ($item['name'] != '') {
             if ($item['link']['url'] != '') {
-                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', 'class="eead-team-member-name"', $this->get_render_attribute_string('link'), $item['name']);
+                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', 'class="eead-team-member-name"', $this->get_render_attribute_string('link'), esc_html($item['name']));
             } else {
-                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', 'class="eead-team-member-name"', $item['name']);
+                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', 'class="eead-team-member-name"', esc_html($item['name']));
             }
         }
         return $member_name;
@@ -1632,7 +1632,7 @@ class TeamCarousel extends Widget_Base {
         $position = '';
 
         if ($item['position'] != '') {
-            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', 'class="eead-team-member-position"', $item['position']);
+            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', 'class="eead-team-member-position"', esc_html($item['position']));
         }
         return $position;
     }
@@ -1710,8 +1710,8 @@ class TeamCarousel extends Widget_Base {
         if ($settings['social_icon_display'] == 'on-image-hover') {
             $this->add_render_attribute('team', [
                 'class' => [
-                    'eead-social-' . $settings['social_icon_display'],
-                    'eead-social-pos-' . ($settings['social_icon_position'] ? $settings['social_icon_position'] : 'bottom-center')
+                    'eead-social-' . esc_attr($settings['social_icon_display']),
+                    'eead-social-pos-' . ($settings['social_icon_position'] ? esc_attr($settings['social_icon_position']) : 'bottom-center')
                 ]
             ]);
         }
@@ -1719,8 +1719,8 @@ class TeamCarousel extends Widget_Base {
         $this->add_render_attribute('team', [
             'class' => [
                 'eead-team-member',
-                'eead-content-' . $settings['content_display'],
-                $custom_height_class
+                'eead-content-' . esc_attr($settings['content_display']),
+                esc_attr($custom_height_class)
             ]
         ]);
         ?>

@@ -575,7 +575,7 @@ class Hotspot extends Widget_Base {
 
                 <?php
                 if (!empty($settings['image']['url'])) {
-                    $this->add_render_attribute('image', 'src', $settings['image']['url']);
+                    $this->add_render_attribute('image', 'src', esc_url($settings['image']['url']));
                     $this->add_render_attribute('image', 'class', 'eead-hotspot-image');
                     $this->add_render_attribute('image', 'alt', Control_Media::get_image_alt($settings['image']));
                     echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'image');

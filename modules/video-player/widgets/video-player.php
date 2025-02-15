@@ -372,12 +372,12 @@ class VideoPlayer extends Widget_Base {
 
         $this->add_render_attribute('video-player', [
             'class' => 'eead-video-player',
-            'data-settings' => $data_settings
+            'data-settings' => esc_attr($data_settings)
         ]);
 
         if ($settings['aspect_ratio']) {
             $this->add_render_attribute('video-player', [
-                'class' => 'eead-video-aspect-ratio-' . $settings['aspect_ratio'],
+                'class' => 'eead-video-aspect-ratio-' . esc_attr($settings['aspect_ratio']),
             ]);
         }
         ?>
@@ -403,7 +403,7 @@ class VideoPlayer extends Widget_Base {
 
         if ($thumb_url) {
             $this->add_render_attribute('overlay', [
-                'style' => sprintf('background-image: url(%s);', $thumb_url)
+                'style' => sprintf('background-image: url(%s);', esc_url($thumb_url))
             ]);
         }
         ?>

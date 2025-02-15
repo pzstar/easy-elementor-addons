@@ -1721,15 +1721,14 @@ class Slider extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $slider_transition = $settings['slider_transition'];
-        $this->add_render_attribute('slider-container',
-            [
-                'class' => [
-                    'eead-slider-container',
-                    'eead-slider-nav-' . $settings['arrow_position'],
-                    'eead-slider-height-' . $settings['slider_height_type'],
-                    'eead-slider-show-nav-hover-' . ($settings['show_on_hover'] ? 'on' : 'off')
-                ]
-            ],
+        $this->add_render_attribute('slider-container', [
+            'class' => [
+                'eead-slider-container',
+                'eead-slider-nav-' . esc_attr($settings['arrow_position']),
+                'eead-slider-height-' . esc_attr($settings['slider_height_type']),
+                'eead-slider-show-nav-hover-' . ($settings['show_on_hover'] ? 'on' : 'off')
+            ]
+        ],
         );
         ?>
 
@@ -1764,9 +1763,9 @@ class Slider extends Widget_Base {
                     ],
                     'data-params' => json_encode($params),
                     'data-transition' => $slider_transition,
-                    'data-title-anim' => isset($settings['title_animation']) ? $settings['title_animation'] : 'none',
-                    'data-subtitle-anim' => isset($settings['sub_title_animation']) ? $settings['sub_title_animation'] : 'none',
-                    'data-button-anim' => isset($settings['button_animation']) ? $settings['button_animation'] : 'none'
+                    'data-title-anim' => isset($settings['title_animation']) ? esc_attr($settings['title_animation']) : 'none',
+                    'data-subtitle-anim' => isset($settings['sub_title_animation']) ? esc_attr($settings['sub_title_animation']) : 'none',
+                    'data-button-anim' => isset($settings['button_animation']) ? esc_attr($settings['button_animation']) : 'none'
                 ],
             );
             ?>

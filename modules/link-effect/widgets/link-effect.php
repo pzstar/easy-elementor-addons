@@ -376,9 +376,9 @@ class LinkEffect extends Widget_Base {
         $effect_two = ['effect-10', 'effect-11', 'effect-15', 'effect-16', 'effect-17', 'effect-18'];
 
         if (in_array($settings['effect'], $effect_one)) {
-            $this->add_render_attribute('eead-link-text', 'data-hover', $link_text);
+            $this->add_render_attribute('eead-link-text', 'data-hover', esc_html($link_text));
         } else if (in_array($settings['effect'], $effect_two)) {
-            $this->add_render_attribute('eead-link-text-2', 'data-hover', $link_text);
+            $this->add_render_attribute('eead-link-text-2', 'data-hover', esc_html($link_text));
         }
         ?>
         <a href="<?php echo esc_url($link); ?>" class="eead-link eead-link-<?php echo esc_attr($settings['effect']); ?>" <?php echo $this->get_render_attribute_string('eead-link-text-2'); ?>>
@@ -388,7 +388,7 @@ class LinkEffect extends Widget_Base {
 
             <?php if ($settings['effect'] === 'effect-9') { ?>
                 <span>
-                    <?php echo esc_attr($link_secondary_text); ?>
+                    <?php echo esc_html($link_secondary_text); ?>
                 </span>
             <?php } ?>
         </a>

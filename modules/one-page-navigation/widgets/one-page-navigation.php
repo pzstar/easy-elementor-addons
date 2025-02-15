@@ -728,11 +728,11 @@ class OnePageNavigation extends Widget_Base {
                 'class' => 'eead-one-page-nav',
                 'id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
                 'data-section-id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
-                'data-top-offset' => $settings['offset']['size'],
-                'data-scroll-speed' => $settings['scrolling_speed'],
-                'data-scroll-wheel' => $settings['scroll_wheel'],
-                'data-scroll-touch' => $settings['scroll_touch'],
-                'data-scroll-keys' => $settings['scroll_keys']
+                'data-top-offset' => esc_attr($settings['offset']['size']),
+                'data-scroll-speed' => esc_attr($settings['scrolling_speed']),
+                'data-scroll-wheel' => esc_attr($settings['scroll_wheel']),
+                'data-scroll-touch' => esc_attr($settings['scroll_touch']),
+                'data-scroll-keys' => esc_attr($settings['scroll_keys'])
             ]
         );
 

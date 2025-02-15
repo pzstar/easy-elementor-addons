@@ -1410,7 +1410,7 @@ class PopupModal extends Widget_Base {
 			'href' => '#',
 			'class' => [
 				'eead-popup-modal-trigger-btn',
-				'eead-popup-modal-trigger-' . $settings['trigger_type'],
+				'eead-popup-modal-trigger-' . esc_attr($settings['trigger_type']),
 				'eead-modal-popup-btn-' . esc_attr($id)
 			],
 			'data-id' => esc_attr($id)
@@ -1418,11 +1418,11 @@ class PopupModal extends Widget_Base {
 		);
 
 		if ($settings['button_hover_animation']) {
-			$this->add_render_attribute('popup-modal-button', 'class', 'elementor-animation-' . $settings['button_hover_animation']);
+			$this->add_render_attribute('popup-modal-button', 'class', 'elementor-animation-' . esc_attr($settings['button_hover_animation']));
 		}
 
 		if ($settings['trigger_type'] == 'icon') {
-			$this->add_render_attribute('popup-modal-button', 'class', 'eead-popup-modal-trigger-icon-' . $settings['icon_style']);
+			$this->add_render_attribute('popup-modal-button', 'class', 'eead-popup-modal-trigger-icon-' . esc_attr($settings['icon_style']));
 		}
 		?>
 
@@ -1456,11 +1456,11 @@ class PopupModal extends Widget_Base {
 		$overlay = $settings['show_overlay'] ? 'yes' : 'no';
 
 		$this->add_render_attribute('popup-modal', [
-			'id' => 'eead-popup-modal-' . $id,
+			'id' => 'eead-popup-modal-' . esc_attr($id),
 			'class' => [
 				'eead-popup-modal',
-				'eead-popup-modal-' . $settings['layout_type'],
-				'eead-popup-modal-overlay-' . $overlay
+				'eead-popup-modal-' . esc_attr($settings['layout_type']),
+				'eead-popup-modal-overlay-' . esc_attr($overlay)
 			],
 			'aria-hidden' => "true"
 		]);
@@ -1471,10 +1471,10 @@ class PopupModal extends Widget_Base {
 
 		<div <?php echo $this->get_render_attribute_string('popup-modal'); ?>>
 			<div class="modal__overlay" tabindex="-1" data-micromodal-close>
-				<div class="modal__container animated animated-fast <?php echo $settings['popup_animation'] ?>" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
+				<div class="modal__container animated animated-fast <?php echo esc_attr($settings['popup_animation']) ?>" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
 					<?php if ($settings['close_button'] == 'yes') { ?>
 						<div class="eead-popup-modal-close">
-							<button class="modal__close" aria-label="Close Modal" data-micromodal-close>
+							<button class="modal__close" aria-label="<?php echo esc_html__('Close Modal', 'easy-elementor-addons'); ?>" data-micromodal-close>
 								<span class="icofont-close-line" data-micromodal-close></span>
 							</button>
 						</div>
@@ -1483,7 +1483,7 @@ class PopupModal extends Widget_Base {
 					<?php if ($settings['popup_title'] == 'yes' && !empty($settings['title'])) { ?>
 						<header class="modal__header">
 							<h2 class="modal__title" id="modal-<?php echo esc_attr($id); ?>-title">
-								<?php echo $settings['title']; ?>
+								<?php echo esc_html($settings['title']); ?>
 							</h2>
 						</header>
 					<?php } ?>

@@ -785,7 +785,7 @@ class PricingList extends Widget_Base {
         $this->add_render_attribute('pricing-list',
             'class', [
                 'eead-pricing-list-container',
-                'eead-pl-price-' . $settings['price_style']
+                'eead-pl-price-' . esc_attr($settings['price_style'])
             ]
         );
         ?>
@@ -807,7 +807,7 @@ class PricingList extends Widget_Base {
                                     <?php
                                     if ($has_link) {
                                         $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
-                                        printf('<a href=%1$s>%2$s</a>', $link, $image);
+                                        printf('<a href=%1$s>%2$s</a>', esc_url($link), $image);
                                     } else {
                                         echo Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
                                     }
@@ -830,7 +830,7 @@ class PricingList extends Widget_Base {
                                         <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_tag'])); ?> class="eead-pl-item-title">
                                             <?php
                                             if ($has_link) {
-                                                printf('<a href=%1$s>%2$s</a>', $link, $lists['title']);
+                                                printf('<a href=%1$s>%2$s</a>', esc_url($link), esc_html($lists['title']));
                                             } else {
                                                 echo esc_html($lists['title']);
                                             }

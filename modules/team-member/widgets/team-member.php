@@ -1009,9 +1009,9 @@ class TeamMember extends Widget_Base {
 
         if ($settings['name'] != '') {
             if ($settings['link_type'] == 'title' && $settings['link']['url'] != '') {
-                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', $this->get_render_attribute_string('name'), $this->get_render_attribute_string('link'), $settings['name']);
+                $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', $this->get_render_attribute_string('name'), $this->get_render_attribute_string('link'), esc_html($settings['name']));
             } else {
-                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', $this->get_render_attribute_string('name'), $settings['name']);
+                $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', $this->get_render_attribute_string('name'), esc_html($settings['name']));
             }
         }
         return $member_name;
@@ -1024,7 +1024,7 @@ class TeamMember extends Widget_Base {
         $this->add_render_attribute('position', 'class', 'eead-team-member-position');
 
         if ($settings['position'] != '') {
-            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', $this->get_render_attribute_string('position'), $settings['position']);
+            $position .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h5', $this->get_render_attribute_string('position'), esc_html($settings['position']));
         }
         return $position;
     }
@@ -1037,15 +1037,15 @@ class TeamMember extends Widget_Base {
             'class' => [
                 'eead-team-member',
                 $custom_height_class,
-                'eead-content-' . $settings['content_display'],
+                'eead-content-' . esc_attr($settings['content_display']),
             ]
         ]);
 
         if ($settings['social_icon_display'] == 'on-image-hover') {
             $this->add_render_attribute('team-wrapper', [
                 'class' => [
-                    'eead-social-' . $settings['social_icon_display'],
-                    'eead-social-pos-' . ($settings['social_icon_position'] ? $settings['social_icon_position'] : 'bottom-center')
+                    'eead-social-' . esc_attr($settings['social_icon_display']),
+                    'eead-social-pos-' . ($settings['social_icon_position'] ? esc_attr($settings['social_icon_position']) : 'bottom-center')
                 ]
             ]);
         }

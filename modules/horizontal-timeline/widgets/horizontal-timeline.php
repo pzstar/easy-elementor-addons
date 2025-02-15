@@ -1424,9 +1424,9 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_render_attribute('timeline-container', [
             'class' => [
                 'eead-htl-list',
-                'eead-htl-' . $settings['display_option'],
-                'eead-htl-point-' . $settings['point_style'],
-                'eead-htl-meta-pos-' . $settings['meta_position']
+                'eead-htl-' . esc_attr($settings['display_option']),
+                'eead-htl-point-' . esc_attr($settings['point_style']),
+                'eead-htl-meta-pos-' . esc_attr($settings['meta_position'])
             ]
         ]);
 

@@ -934,7 +934,7 @@ class ImageGallery extends Widget_Base {
                                 <img src="<?php echo esc_url($value['url']); ?>">
                             </div>
 
-                            <div class="eead-ig-item-caption <?php echo $settings['image_hover_style']; ?>">
+                            <div class="eead-ig-item-caption <?php echo esc_attr($settings['image_hover_style']); ?>">
                                 <div class="eead-ig-item-caption-content">
                                     <?php
                                     $this->get_caption($value['id']);

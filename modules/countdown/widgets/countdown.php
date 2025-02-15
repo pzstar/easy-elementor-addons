@@ -882,7 +882,7 @@ class Countdown extends Widget_Base {
                         <?php
                         if (!empty($settings['countdown_days_label'])) {
                             ?>
-                            <span class="eead-countdown-label"><?php echo esc_attr($settings['countdown_days_label']); ?></span>
+                            <span class="eead-countdown-label"><?php echo esc_html($settings['countdown_days_label']); ?></span>
                             <?php
                         }
                         ?>
@@ -898,7 +898,7 @@ class Countdown extends Widget_Base {
                         <?php
                         if (!empty($settings['countdown_hours_label'])) {
                             ?>
-                            <span class="eead-countdown-label"><?php echo esc_attr($settings['countdown_hours_label']); ?></span>
+                            <span class="eead-countdown-label"><?php echo esc_html($settings['countdown_hours_label']); ?></span>
                             <?php
                         }
                         ?>
@@ -914,7 +914,7 @@ class Countdown extends Widget_Base {
                         <?php
                         if (!empty($settings['countdown_minutes_label'])) {
                             ?>
-                            <span class="eead-countdown-label"><?php echo esc_attr($settings['countdown_minutes_label']); ?></span>
+                            <span class="eead-countdown-label"><?php echo esc_html($settings['countdown_minutes_label']); ?></span>
                             <?php
                         }
                         ?>
@@ -930,7 +930,7 @@ class Countdown extends Widget_Base {
                         <?php
                         if (!empty($settings['countdown_seconds_label'])) {
                             ?>
-                            <span class="eead-countdown-label"><?php echo esc_attr($settings['countdown_seconds_label']); ?></span>
+                            <span class="eead-countdown-label"><?php echo esc_html($settings['countdown_seconds_label']); ?></span>
                             <?php
                         }
                         ?>

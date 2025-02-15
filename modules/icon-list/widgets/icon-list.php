@@ -621,7 +621,7 @@ class IconList extends Widget_Base {
                             'items-' . $count => [
                                 'class' => [
                                     'eead-il-block',
-                                    $settings['icon_hover_animation'] ? 'elementor-animation-' . $settings['icon_hover_animation'] : '',
+                                    $settings['icon_hover_animation'] ? 'elementor-animation-' . esc_attr($settings['icon_hover_animation']) : '',
                                 ]
                             ]
                         ]);
@@ -629,7 +629,7 @@ class IconList extends Widget_Base {
                         if (isset($list['link']) && !empty($list['link']['url'])) {
                             $this->add_render_attribute([
                                 'items-' . $count => [
-                                    'href' => $list['link']['url'],
+                                    'href' => esc_url($list['link']['url']),
                                     'target' => $list['link']['is_external'] ? '_blank' : '',
                                     'rel' => $list['link']['nofollow'] ? 'nofollow' : ''
                                 ]
@@ -683,7 +683,6 @@ class IconList extends Widget_Base {
 
             case 'number':
                 $number = $list['num_text'] ? $list['num_text'] : $count;
-
                 echo $number;
                 break;
         }

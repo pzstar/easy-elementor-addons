@@ -806,8 +806,8 @@ class Toggle extends Widget_Base {
 
         $this->add_render_attribute('toggle-switch-' . $toggle_position, [
             'class' => ['eead-toggle-switch-container',
-                'eead-toggle-switch-' . $toggle_position,
-                'eead-toggle-switch-' . $settings['switch_style']
+                'eead-toggle-switch-' . esc_attr($toggle_position),
+                'eead-toggle-switch-' . esc_attr($settings['switch_style'])
             ]
         ]
         );

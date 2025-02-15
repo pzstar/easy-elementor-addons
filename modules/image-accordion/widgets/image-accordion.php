@@ -483,8 +483,8 @@ class ImageAccordion extends Widget_Base {
             'eead-image-accordion', [
                 'class' => [
                     'eead-image-accordion',
-                    'eead-image-accordion-direction-' . $settings['image_accordion_orientation'],
-                    'eead-image-accordion-' . $settings['image_accordion_action_type'],
+                    'eead-image-accordion-direction-' . esc_attr($settings['image_accordion_orientation']),
+                    'eead-image-accordion-' . esc_attr($settings['image_accordion_action_type']),
                     $horizontal_align,
                     $vertical_align
                 ],

@@ -935,7 +935,7 @@ class VerticalTab extends Widget_Base {
                 if ($tab['enable'] == 'yes') {
                     $i++;
                     ?>
-                    <div class="animated <?php echo $settings['tab_content_animation']; ?> eead-vt-content eead-vt-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-vt-active-content' : ''); ?>">
+                    <div class="animated <?php echo esc_attr($settings['tab_content_animation']); ?> eead-vt-content eead-vt-content-<?php echo esc_attr($i) . ' ' . ($i == 1 ? 'eead-vt-active-content' : ''); ?>">
                         <?php
                         if ($tab[
                             'content_type'] == 'page' && !empty($tab['page'])) {

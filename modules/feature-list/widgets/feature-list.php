@@ -662,7 +662,7 @@ class FeatureList extends Widget_Base {
 
                     if ($item['link']['url']) {
                         $this->add_render_attribute('link' . $index, [
-                            'href' => $item['link']['url'],
+                            'href' => esc_url($item['link']['url']),
                             'target' => $item['link']['is_external'] ? '_blank' : '',
                             'rel' => $item['link']['nofollow'] ? 'nofollow' : ''
                         ]);

@@ -1109,7 +1109,7 @@ class ScrollImage extends Widget_Base {
 		$this->add_render_attribute('image-box', [
 			'class' => [
 				'eead-scroll-image-box',
-				'eead-scroll-image-' . $settings['image_scroll_option']
+				'eead-scroll-image-' . esc_attr($settings['image_scroll_option'])
 			]
 		]
 		);
@@ -1141,7 +1141,7 @@ class ScrollImage extends Widget_Base {
 					break;
 
 				case 'text':
-					echo $settings['badge_text'];
+					echo esc_html($settings['badge_text']);
 					break;
 			}
 			echo '</span>';

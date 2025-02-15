@@ -514,7 +514,7 @@ class LogoGrid extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid');
-        $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid-border-' . $settings['border_type']);
+        $this->add_render_attribute('logo-grid', 'class', 'eead-logo-grid-border-' . esc_attr($settings['border_type']));
 
         if ($settings['grayscale_normal'] === 'yes') {
             $this->add_render_attribute('logo-grid', 'class', 'grayscale-normal');

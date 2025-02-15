@@ -488,12 +488,12 @@ class StickyVideo extends Widget_Base {
             $this->add_render_attribute(
                 'video_wrapper', [
                     'class' => 'eead-sticky-video',
-                    'data-sticky' => $sticky,
-                    'data-position' => $settings['sticky_position'],
-                    'data-autoplay' => $autoplay,
-                    'data-overlay' => $overlay,
-                    'data-mute' => $muted,
-                    'data-loop' => $loop
+                    'data-sticky' => esc_attr($sticky),
+                    'data-position' => esc_attr($settings['sticky_position']),
+                    'data-autoplay' => esc_attr($autoplay),
+                    'data-overlay' => esc_attr($overlay),
+                    'data-mute' => esc_attr($muted),
+                    'data-loop' => esc_attr($loop)
                 ]
             );
             ?>
@@ -518,7 +518,7 @@ class StickyVideo extends Widget_Base {
                 $this->add_render_attribute(
                     'overlay_wrapper', [
                         'class' => 'eead-overlay',
-                        'style' => "background-image:url('" . $settings['overlay_image']['url'] . "');",
+                        'style' => "background-image:url('" . esc_url($settings['overlay_image']['url']) . "');",
                     ]
                 );
                 ?>
@@ -562,7 +562,7 @@ class StickyVideo extends Widget_Base {
 
         ob_start();
         ?>
-        <video src="<?php echo esc_url($video); ?>" id="eead-player-<?php echo $id; ?>" playsinline controls>
+        <video src="<?php echo esc_url($video); ?>" id="eead-player-<?php echo esc_attr($id); ?>" playsinline controls>
             <source src="<?php echo esc_url($video); ?>" type="video/mp4">
             <?php echo esc_html__('Your browser does not support the video tag.', 'easy-elementor-addons'); ?>
         </video>

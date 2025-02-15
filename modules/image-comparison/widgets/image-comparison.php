@@ -388,7 +388,7 @@ class ImageComparison extends Widget_Base {
 
         $this->add_render_attribute([
             'image-compare' => [
-                'id' => 'eead-image-compare-' . $id,
+                'id' => 'eead-image-compare-' . esc_attr($id),
                 'class' => ['eead-image-compare'],
                 'data-settings' => [
                     wp_json_encode($compare_settings),

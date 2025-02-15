@@ -828,9 +828,9 @@ class Weather extends Widget_Base {
                         <?php
                         $show_params = array('wind', 'humidity', 'pressure', 'cloudcover', 'visibility', 'precip', 'uv_index');
                         foreach ($show_params as $param) {
-                            echo '<div class="eead-weather-' . $param . '">';
-                            echo '<span class="eead-weather-label"><i class="wi ' . $temp_param[$param]['icon'] . '"></i><span>' . $temp_param[$param]['label'] . '</span></span>';
-                            echo '<span class="eead-weather-value">' . $temp_param[$param]['value'] . '</span>';
+                            echo '<div class="eead-weather-' . esc_attr($param) . '">';
+                            echo '<span class="eead-weather-label"><i class="wi ' . esc_attr($temp_param[$param]['icon']) . '"></i><span>' . esc_html($temp_param[$param]['label']) . '</span></span>';
+                            echo '<span class="eead-weather-value">' . esc_html($temp_param[$param]['value']) . '</span>';
                             echo '</div>';
                         }
                         ?>

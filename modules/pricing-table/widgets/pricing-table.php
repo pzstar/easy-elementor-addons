@@ -940,7 +940,7 @@ class PricingTable extends Widget_Base {
         <div class="<?php echo esc_attr(implode(' ', array_filter($pricing_class))); ?>">
             <?php
             if ($settings['tag']) {
-                echo '<span class="eead-pricing-tag eead-pt-tag-' . $settings['tag_style'] . '">' . $settings['tag'] . '</span>';
+                echo '<span class="eead-pricing-tag eead-pt-tag-' . esc_attr($settings['tag_style']) . '">' . esc_html($settings['tag']) . '</span>';
             }
             ?>
 

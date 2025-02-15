@@ -813,7 +813,7 @@ class DualButton extends Widget_Base {
                                 ?>
                                 <span class="eead-dual-button-separator-text">
                                     <?php
-                                    echo $settings['separator_text'];
+                                    echo esc_html($settings['separator_text']);
                                     ?>
                                 </span>
                                 <?php

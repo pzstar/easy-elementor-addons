@@ -555,7 +555,7 @@ class DualHeading extends Widget_Base {
         if (!empty($settings['link']['url'])) {
             $this->add_render_attribute('heading-link', [
                 'class' => 'eead-heading-link',
-                'href' => $settings['link']['url']
+                'href' => esc_url($settings['link']['url'])
             ]);
             if ($settings['link']['is_external']) {
                 $this->add_render_attribute('heading-link', 'target', '_blank');

@@ -1191,19 +1191,18 @@ class FlipBox extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('button', [
-            'class' =>
-                [
-                    'eead-fb-button',
-                    $settings['button_hover_animation'] ? ' elementor-animation-' . $settings['button_hover_animation'] : ''
-                ],
-            'href' => $settings['link']['url'],
+            'class' => [
+                'eead-fb-button',
+                $settings['button_hover_animation'] ? ' elementor-animation-' . esc_attr($settings['button_hover_animation']) : ''
+            ],
+            'href' => esc_url($settings['link']['url']),
             'target' => $settings['link']['is_external'] ? '_blank' : '_self'
         ]);
 
 
         $this->add_render_attribute('box_link', [
             'class' => 'eead-fb-link',
-            'href' => $settings['link']['url']
+            'href' => esc_url($settings['link']['url'])
         ]);
         if ($settings['link']['is_external']) {
             $this->add_render_attribute('box_link', 'target', '_blank');
@@ -1211,10 +1210,10 @@ class FlipBox extends Widget_Base {
 
         if ($settings['graphic_element'] === 'icon') {
             $this->add_render_attribute('icon-wrapper', [
-                'class' => ['elementor-icon-wrapper', ' elementor-view-' . $settings['icon_view']]
+                'class' => ['elementor-icon-wrapper', ' elementor-view-' . esc_attr($settings['icon_view'])]
             ]);
             if ('default' != $settings['icon_view']) {
-                $this->add_render_attribute('icon-wrapper', 'class', 'elementor-shape-' . $settings['icon_shape']);
+                $this->add_render_attribute('icon-wrapper', 'class', 'elementor-shape-' . esc_attr($settings['icon_shape']));
             }
         }
 

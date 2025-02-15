@@ -884,16 +884,16 @@ class PopupVideo extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute('popup-video', [
-            'id' => 'eead-video-popup-' . $this->get_id(),
-            'class' => ['eead-video-popup-button', 'eead-vp-' . $settings['trigger_type']],
+            'id' => 'eead-video-popup-' . esc_attr($this->get_id()),
+            'class' => ['eead-video-popup-button', 'eead-vp-' . esc_attr($settings['trigger_type'])],
             'data-elementor-open-lightbox' => 'no',
-            'data-video-type' => $settings['video_type'],
-            'data-video-width' => isset($settings['video_width']['size']) ? $settings['video_width']['size'] . $settings['video_width']['unit'] : '800px'
+            'data-video-type' => esc_attr($settings['video_type']),
+            'data-video-width' => isset($settings['video_width']['size']) ? esc_attr($settings['video_width']['size'] . $settings['video_width']['unit']) : '800px'
         ]);
 
         if ($settings['enable_video_poster'] && isset($settings['video_poster']['url'])) {
             $this->add_render_attribute('popup-video', [
-                'data-poster' => $settings['video_poster']['url']
+                'data-poster' => esc_url($settings['video_poster']['url'])
             ]);
         }
 
@@ -927,24 +927,24 @@ class PopupVideo extends Widget_Base {
             ]);
         } elseif ($settings['video_type'] == 'custom') {
             $this->add_render_attribute('popup-video', [
-                'data-html' => '#eead-custom-video-' . $this->get_id()
+                'data-html' => '#eead-custom-video-' . esc_attr($this->get_id())
             ]);
             ?>
-            <div id="eead-custom-video-<?php echo $this->get_id(); ?>" style="display: none;">
+            <div id="eead-custom-video-<?php echo esc_attr($this->get_id()); ?>" style="display: none;">
                 <video class="lg-video-object lg-html5" controls preload="none">
-                    <source src="<?php echo $settings['custom_video']['url']; ?>" type="video/mp4">
-                    Your browser does not support HTML5 video.
+                    <source src="<?php echo esc_url($settings['custom_video']['url']); ?>" type="video/mp4">
+                    <?php echo esc_html__('Your browser does not support HTML5 video.', 'easy-elementor-addons'); ?>
                 </video>
             </div>
             <?php
         }
 
         if ($settings['button_hover_animation']) {
-            $this->add_render_attribute('popup-video', 'class', 'elementor-animation-' . $settings['button_hover_animation']);
+            $this->add_render_attribute('popup-video', 'class', 'elementor-animation-' . esc_attr($settings['button_hover_animation']));
         }
 
         if ($settings['trigger_type'] == 'icon') {
-            $this->add_render_attribute('popup-video', 'class', 'eead-vp-style-' . $settings['icon_style']);
+            $this->add_render_attribute('popup-video', 'class', 'eead-vp-style-' . esc_attr($settings['icon_style']));
         }
 
         if ($settings['enable_ripple']) {
