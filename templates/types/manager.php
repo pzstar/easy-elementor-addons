@@ -96,7 +96,7 @@ if (!class_exists('EEAD_Templates_Types')) {
          */
         public function get_types_for_popup() {
             $result['eead_pages'] = array(
-                'title' => __('Pages', 'easy-elementor-addons'),
+                'title' => esc_html__('Pages', 'easy-elementor-addons'),
                 'data' => [],
                 'sources' => array('easy-elementor-addons'),
                 'settings' => array(

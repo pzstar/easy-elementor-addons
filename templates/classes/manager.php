@@ -151,7 +151,7 @@ if (!class_exists('EEAD_Templates_Manager')) {
             $all_cats = array(
                 array(
                     'slug' => '',
-                    'title' => __('All Sections', 'easy-elementor-addons'),
+                    'title' => esc_html__('All Sections', 'easy-elementor-addons'),
                 ),
             );
 

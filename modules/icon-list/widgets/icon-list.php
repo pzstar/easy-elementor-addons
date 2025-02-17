@@ -66,7 +66,7 @@ class IconList extends Widget_Base {
                 'options' => array(
                     'none' => array(
                         'title' => esc_html__('None', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-ban',
+                        'icon' => 'eicon-close',
                     ),
                     'icon' => array(
                         'title' => esc_html__('Icon', 'easy-elementor-addons'),
@@ -78,7 +78,7 @@ class IconList extends Widget_Base {
                     ),
                     'number' => array(
                         'title' => esc_html__('Number', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-hashtag',
+                        'icon' => 'eicon-number-field',
                     ),
                 ),
                 'default' => 'icon',
@@ -90,8 +90,7 @@ class IconList extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
-                    'value' => 'fas fa-check',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-check-alt',
                 ),
                 'condition' => array(
                     'icon_type' => 'icon',
@@ -129,7 +128,7 @@ class IconList extends Widget_Base {
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
                 'label_block' => true,
-                'placeholder' => esc_html__('http://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'http://your-link.com',
             ]
         );
 
@@ -140,15 +139,15 @@ class IconList extends Widget_Base {
                 'default' => array(
                     array(
                         'text' => esc_html__('List Item #1', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
+                        'icon' => 'icofont-check-alt',
                     ),
                     array(
                         'text' => esc_html__('List Item #2', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
+                        'icon' => 'icofont-check-alt',
                     ),
                     array(
                         'text' => esc_html__('List Item #3', 'easy-elementor-addons'),
-                        'icon' => esc_html__('fas fa-check', 'easy-elementor-addons'),
+                        'icon' => 'icofont-check-alt',
                     ),
                 ),
                 'fields' => $repeater->get_controls(),

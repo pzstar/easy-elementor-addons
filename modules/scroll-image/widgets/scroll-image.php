@@ -224,7 +224,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('External Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
 				'show_external' => false,
-				'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+				'placeholder' => 'https://your-link.com',
 				'condition' => [
 					'link_to' => ['external', 'modal'],
 				]
@@ -236,7 +236,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Video Link', 'easy-elementor-addons'),
 				'type' => Controls_Manager::URL,
 				'show_external' => false,
-				'placeholder' => esc_html__('https://www.youtube.com/watch?v=FSDFEWFRW12', 'easy-elementor-addons'),
+				'placeholder' => 'https://www.youtube.com/watch?v=FSDFEWFRW12',
 				'condition' => [
 					'link_to' => 'video',
 				]
@@ -248,24 +248,24 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Link Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'fas fa-link' => [
+					'icofont-link' => [
 						'title' => esc_html__('Link', 'easy-elementor-addons'),
-						'icon' => 'fas fa-link',
+						'icon' => 'icofont-link',
 					],
-					'fas fa-plus' => [
+					'icofont-plus' => [
 						'title' => esc_html__('Plus', 'easy-elementor-addons'),
-						'icon' => 'fas fa-plus',
+						'icon' => 'icofont-plus',
 					],
-					'fas fa-search' => [
+					'icofont-search-1' => [
 						'title' => esc_html__('Zoom', 'easy-elementor-addons'),
-						'icon' => 'fas fa-search',
+						'icon' => 'icofont-search-1',
 					],
 					'custom' => [
 						'title' => esc_html__('Custom', 'easy-elementor-addons'),
 						'icon' => 'eicon-circle',
 					]
 				],
-				'default' => 'fas fa-search',
+				'default' => 'icofont-search-1',
 				'toggle' => false,
 				'condition' => [
 					'link_to!' => '',
@@ -278,8 +278,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Custom Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => array(
-					'value' => 'fas fa-check',
-					'library' => 'fa-solid',
+					'value' => 'icofont-check-alt',
 				),
 				'condition' => array(
 					'link_icon' => 'custom',

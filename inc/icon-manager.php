@@ -31,7 +31,7 @@ class EEAD_Icon_Manager {
             'eead-mdi-icon' => array(
                 'name' => 'eead-mdi-icon',
                 'label' => esc_html__('EEA - MaterialDesign Icons', 'easy-elementor-addons'),
-                'labelIcon' => 'mdi mdi-rhombus',
+                'labelIcon' => 'mdi-rhombus',
                 'prefix' => 'mdi-',
                 'displayPrefix' => 'mdi',
                 'url' => EEAD_URL . 'assets/fonts/materialdesignicons/materialdesignicons.css',
@@ -41,7 +41,7 @@ class EEAD_Icon_Manager {
             'eead-icofont-icon' => array(
                 'name' => 'eead-icfont-icon',
                 'label' => esc_html__('EEA - Iconfont Icons', 'easy-elementor-addons'),
-                'labelIcon' => 'mdi mdi-rhombus',
+                'labelIcon' => 'mdi-rhombus',
                 'prefix' => 'icofont-',
                 'displayPrefix' => '',
                 'url' => EEAD_URL . 'assets/fonts/icofont/icofont.css',

@@ -90,7 +90,7 @@ class PopupModal extends Widget_Base {
 			'content', [
 				'label' => esc_html__('Content', 'easy-elementor-addons'),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => esc_html__("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 'easy-elementor-addons'),
+				'default' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 				'condition' => [
 					'popup_type' => 'content',
 				]
@@ -177,8 +177,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Button Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fas fa-search',
-					'library' => 'fa-solid',
+					'value' => 'icofont-search',
 				],
 				'skin' => 'inline',
 				'label_block' => false,
@@ -230,8 +229,7 @@ class PopupModal extends Widget_Base {
 				'label' => esc_html__('Trigger Icon', 'easy-elementor-addons'),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
-					'value' => 'fas fa-search',
-					'library' => 'fa-solid',
+					'value' => 'icofont-search',
 				],
 				'skin' => 'inline',
 				'label_block' => false,

@@ -102,8 +102,7 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fab fa-facebook',
-                            'library' => 'fa-brands',
+                            'value' => 'icofont-facebook',
                         ),
                     ],
                     [
@@ -122,8 +121,7 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fab fa-twitter',
-                            'library' => 'fa-brands',
+                            'value' => 'icofont-x-twitter',
                         )
                     ],
                     [
@@ -142,8 +140,7 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fab fa-instagram',
-                            'library' => 'fa-brands',
+                            'value' => 'icofont-instagram',
                         )
                     ],
                     [
@@ -162,8 +159,7 @@ class TeamCarousel extends Widget_Base {
                         'skin' => 'inline',
                         'label_block' => false,
                         'default' => array(
-                            'value' => 'fab fa-whatsapp',
-                            'library' => 'fa-brands',
+                            'value' => 'icofont-whatsapp',
                         ),
                     ],
                     [

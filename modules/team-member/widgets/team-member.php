@@ -140,8 +140,7 @@ class TeamMember extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => array(
-                    'value' => 'fas fa-hashtag',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-facebook',
                 )
             ]
         );
@@ -163,8 +162,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Facebook',
                         'social_icon' => [
-                            'value' => 'fab fa-facebook',
-                            'library' => 'fa-brands',
+                            'value' => 'iconfont-facebook',
                         ],
                         'social_link' => [
                             'url' => '#',
@@ -173,8 +171,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Twitter',
                         'social_icon' => [
-                            'value' => 'fab fa-twitter',
-                            'library' => 'fa-brands',
+                            'value' => 'iconfont-x-twitter',
                         ],
                         'social_link' => [
                             'url' => '#',
@@ -183,8 +180,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Youtube',
                         'social_icon' => [
-                            'value' => 'fab fa-youtube',
-                            'library' => 'fa-brands',
+                            'value' => 'iconfont-youtube',
                         ],
                         'social_link' => [
                             'url' => '#',

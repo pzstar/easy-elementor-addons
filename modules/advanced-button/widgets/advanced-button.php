@@ -60,7 +60,7 @@ class AdvancedButton extends Widget_Base {
             'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
                 ]

@@ -257,8 +257,7 @@ class ImageGallery extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fas fa-search-plus',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-search',
                 ],
                 'condition' => [
                     'show_lightbox' => 'yes',

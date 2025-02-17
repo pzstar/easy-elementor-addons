@@ -47,8 +47,7 @@ class StepFlow extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fas fa-star',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-star',
                 ]
             ]
         );

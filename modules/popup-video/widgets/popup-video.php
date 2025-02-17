@@ -163,8 +163,7 @@ class PopupVideo extends Widget_Base {
                 'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-play',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-play-alt-2',
                 ],
                 'condition' => [
                     'trigger_type' => ['button', 'icon']
@@ -214,8 +213,7 @@ class PopupVideo extends Widget_Base {
                 'label' => esc_html__('Play Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-play',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-play-alt-2',
                 ],
                 'condition' => [
                     'trigger_type' => 'image',

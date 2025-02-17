@@ -61,15 +61,15 @@ class FlipBox extends Widget_Base {
                 'options' => [
                     'none' => [
                         'title' => esc_html__('None', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-ban',
+                        'icon' => 'eicon-close',
                     ],
                     'image' => [
                         'title' => esc_html__('Image', 'easy-elementor-addons'),
-                        'icon' => 'far fa-image',
+                        'icon' => 'eicon-image',
                     ],
                     'icon' => [
                         'title' => esc_html__('Icon', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-star',
+                        'icon' => 'eicon-star',
                     ]
                 ],
                 'default' => 'icon'
@@ -105,8 +105,7 @@ class FlipBox extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-star',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-star',
                 ],
                 'condition' => [
                     'graphic_element' => 'icon',
@@ -161,7 +160,7 @@ class FlipBox extends Widget_Base {
             'front_description_text', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
+                'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.',
                 'placeholder' => esc_html__('Your Description', 'easy-elementor-addons'),
                 'title' => esc_html__('Input image text here', 'easy-elementor-addons')
             ]
@@ -198,7 +197,7 @@ class FlipBox extends Widget_Base {
             'back_description_text', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.', 'easy-elementor-addons'),
+                'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua. Ut enim ad minim veniam, laboris nisi ut aliquip ex ea commodo consequat.',
                 'placeholder' => esc_html__('Your Description', 'easy-elementor-addons'),
                 'title' => esc_html__('Input image text here', 'easy-elementor-addons')
             ]
@@ -217,7 +216,7 @@ class FlipBox extends Widget_Base {
             'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('http://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'http://your-link.com',
                 'show_external' => true,
                 'default' => [
                     'url' => '#',

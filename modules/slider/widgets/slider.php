@@ -146,13 +146,13 @@ class Slider extends Widget_Base {
 
         $this->add_control(
             'slider_height_type', [
-                'label' => __('Slider Height', 'easy-elementor-addons'),
+                'label' => esc_html__('Slider Height', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'auto',
                 'options' => [
-                    'auto' => __('Auto', 'easy-elementor-addons'),
-                    'full' => __('Screen Height', 'easy-elementor-addons'),
-                    'custom' => __('Custom Height', 'easy-elementor-addons'),
+                    'auto' => esc_html__('Auto', 'easy-elementor-addons'),
+                    'full' => esc_html__('Screen Height', 'easy-elementor-addons'),
+                    'custom' => esc_html__('Custom Height', 'easy-elementor-addons'),
                 ],
             ]
         );

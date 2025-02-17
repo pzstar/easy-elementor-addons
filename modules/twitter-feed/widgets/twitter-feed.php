@@ -57,7 +57,7 @@ class TwitterFeed extends Widget_Base {
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/SpaceX/status/1732824684683784516', 'easy-elementor-addons'),
+                'placeholder' => 'https://twitter.com/SpaceX/status/1732824684683784516',
                 'default' => 'https://twitter.com/SpaceX/status/1732824684683784516',
                 'condition' => [
                     'embed_type' => 'post',
@@ -70,7 +70,7 @@ class TwitterFeed extends Widget_Base {
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/SpaceX/status/1732824684683784516', 'easy-elementor-addons'),
+                'placeholder' => 'https://twitter.com/SpaceX/status/1732824684683784516',
                 'default' => 'https://twitter.com/SpaceX/status/1732824684683784516',
                 'condition' => [
                     'embed_type' => 'video',
@@ -96,7 +96,7 @@ class TwitterFeed extends Widget_Base {
                 'label' => esc_html__('Enter URL', 'easy-elementor-addons'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://twitter.com/SpaceX', 'easy-elementor-addons'),
+                'placeholder' => 'https://twitter.com/SpaceX',
                 'default' => 'https://twitter.com/SpaceX',
                 'condition' => [
                     'embed_type' => 'profile',
@@ -111,7 +111,7 @@ class TwitterFeed extends Widget_Base {
                 'dynamic' => [
                     'active' => true,
                 ],
-                'placeholder' => esc_html__('@username', 'easy-elementor-addons'),
+                'placeholder' => '@username',
                 'default' => '@x',
                 'condition' => [
                     'embed_type' => 'handle',
@@ -123,7 +123,7 @@ class TwitterFeed extends Widget_Base {
             'hashtag', [
                 'label' => esc_html__('Enter Hashtag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('#hashtag', 'easy-elementor-addons'),
+                'placeholder' => '#hashtag',
                 'condition' => [
                     'embed_type' => 'hashtag',
                 ]

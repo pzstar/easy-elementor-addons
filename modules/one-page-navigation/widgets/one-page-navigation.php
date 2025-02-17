@@ -49,8 +49,7 @@ class OnePageNavigation extends Widget_Base {
                 'label' => esc_html__('Navigation Dot', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-circle',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-plus-circle',
                 ]
             ]
         );
@@ -78,17 +77,17 @@ class OnePageNavigation extends Widget_Base {
                     [
                         'section_title' => esc_html__('Section 1', 'easy-elementor-addons'),
                         'section_id' => 'section-1',
-                        'select_dot_icon' => 'fas fa-circle',
+                        'select_dot_icon' => 'icofont-plus-circle',
                     ],
                     [
                         'section_title' => esc_html__('Section 2', 'easy-elementor-addons'),
                         'section_id' => 'section-2',
-                        'select_dot_icon' => 'fas fa-circle',
+                        'select_dot_icon' => 'icofont-plus-circle',
                     ],
                     [
                         'section_title' => esc_html__('Section 3', 'easy-elementor-addons'),
                         'section_id' => 'section-3',
-                        'select_dot_icon' => 'fas fa-circle',
+                        'select_dot_icon' => 'icofont-plus-circle',
                     ]
                 ],
                 'fields' => $repeater->get_controls(),

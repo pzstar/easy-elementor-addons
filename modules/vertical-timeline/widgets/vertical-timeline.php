@@ -106,8 +106,7 @@ class VerticalTimeline extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fas fa-star',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-star',
                 ]
             ]
         );
@@ -147,23 +146,23 @@ class VerticalTimeline extends Widget_Base {
                 'default' => [
                     [
                         'title' => esc_html__('Item #1', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 31, 2022', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.',
+                        'meta' => 'Thursday, August 31, 2022',
                     ],
                     [
                         'title' => esc_html__('Item #2', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 29, 2023', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.',
+                        'meta' => 'Thursday, August 29, 2023',
                     ],
                     [
                         'title' => esc_html__('Item #3', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 28, 2024', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.',
+                        'meta' => 'Thursday, August 28, 2024',
                     ],
                     [
                         'title' => esc_html__('Item #4', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 27, 2025', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos. Nostro aperiam petentium eu nam, mel debet urbanitas ad, idque complectitur eu quo. An sea autem dolore dolores.',
+                        'meta' => 'Thursday, August 27, 2025',
                     ]
                 ],
                 'title_field' => '{{{ title }}}'

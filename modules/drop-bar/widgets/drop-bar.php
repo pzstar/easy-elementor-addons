@@ -74,7 +74,7 @@ class DropBar extends Widget_Base {
                 'type' => Controls_Manager::WYSIWYG,
                 'placeholder' => esc_html__('Dropbar content goes here', 'easy-elementor-addons'),
                 'show_label' => false,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam', 'easy-elementor-addons'),
+                'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam',
                 'condition' => ['source' => 'custom']
             ]
         );
@@ -592,7 +592,7 @@ class DropBar extends Widget_Base {
                 ?>
                 <span>
                     <?php
-                    Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true', 'class' => 'fa-fw']);
+                    Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']);
                     ?>
                 </span>
                 <?php

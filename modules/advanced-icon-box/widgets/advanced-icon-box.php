@@ -71,8 +71,7 @@ class AdvancedIconBox extends Widget_Base {
                 'label' => esc_html__('Icon', 'easy-elementor-addons'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-star',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-star',
                 ],
                 'render_type' => 'template',
                 'condition' => [
@@ -109,7 +108,7 @@ class AdvancedIconBox extends Widget_Base {
             'description_text', [
                 'label' => esc_html__('Description', 'easy-elementor-addons'),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'easy-elementor-addons'),
+                'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
                 'placeholder' => esc_html__('Enter your description', 'easy-elementor-addons')
             ]
         );
@@ -295,7 +294,7 @@ class AdvancedIconBox extends Widget_Base {
             'readmore_link', [
                 'label' => esc_html__('Link to', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#',
                 ],

@@ -12,7 +12,7 @@ class EEAD_Section_Document extends EEAD_Document_Base {
     }
 
     public static function get_title() {
-        return __('Section', 'easy-elementor-addons');
+        return esc_html__('Section', 'easy-elementor-addons');
     }
 
     public function has_conditions() {

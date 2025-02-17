@@ -12,7 +12,7 @@
             <div class="elementor-loader-box"></div>
             <div class="elementor-loader-box"></div>
         </div>
-        <div class="elementor-loading-title"><?php echo __('Loading..', 'easy-elementor-addons'); ?></div>
+        <div class="elementor-loading-title"><?php echo esc_html__('Loading..', 'easy-elementor-addons'); ?></div>
     </div>
     <iframe></iframe>
 </div>

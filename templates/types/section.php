@@ -17,11 +17,11 @@ if (!class_exists('EEAD_Structure_Section')) {
         }
 
         public function get_single_label() {
-            return __('Section', 'easy-elementor-addons');
+            return esc_html__('Section', 'easy-elementor-addons');
         }
 
         public function get_plural_label() {
-            return __('Sections', 'easy-elementor-addons');
+            return esc_html__('Sections', 'easy-elementor-addons');
         }
 
         public function get_sources() {

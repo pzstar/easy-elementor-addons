@@ -137,8 +137,7 @@ class TestimonialCarousel extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => array(
-                    'value' => 'icofont icofont-quote-right',
-                    'library' => 'icofont'
+                    'value' => 'icofont-quote-right',
                 )
             ]
         );
@@ -1744,7 +1743,7 @@ class TestimonialCarousel extends Widget_Base {
             <div class="eead-testimonial-rating">
                 <?php
                 for ($i = 0; $i < $rating_count; $i++) {
-                    $stars .= '<i class="fas fa-star"></i>';
+                    $stars .= '<i class="icofont-star"></i>';
                 }
                 echo $stars;
                 ?>

@@ -123,21 +123,21 @@ class ImageAccordion extends Widget_Base {
                 'default' => [
                     [
                         'image_accordion_title' => esc_html__('Image Accordion #1', 'easy-elementor-addons'),
-                        'image_accordion_content' => esc_html__('Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!', 'easy-elementor-addons'),
+                        'image_accordion_content' => 'Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!',
                         'image_accordion_bg' => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
                     ],
                     [
                         'image_accordion_title' => esc_html__('Image Accordion #2', 'easy-elementor-addons'),
-                        'image_accordion_content' => esc_html__('Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!', 'easy-elementor-addons'),
+                        'image_accordion_content' => 'Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!',
                         'image_accordion_bg' => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
                     ],
                     [
                         'image_accordion_title' => esc_html__('Image Accordion #3', 'easy-elementor-addons'),
-                        'image_accordion_content' => esc_html__('Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!', 'easy-elementor-addons'),
+                        'image_accordion_content' => 'Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ratione, dolore expedita repudiandae unde nihil, accusantium!',
                         'image_accordion_bg' => [
                             'url' => Utils::get_placeholder_image_src(),
                         ]
@@ -248,17 +248,7 @@ class ImageAccordion extends Widget_Base {
                 'label' => esc_html__('Select Title Tag', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'h3',
-                'options' => [
-                    'h1' => esc_html__('H1', 'easy-elementor-addons'),
-                    'h2' => esc_html__('H2', 'easy-elementor-addons'),
-                    'h3' => esc_html__('H3', 'easy-elementor-addons'),
-                    'h4' => esc_html__('H4', 'easy-elementor-addons'),
-                    'h5' => esc_html__('H5', 'easy-elementor-addons'),
-                    'h6' => esc_html__('H6', 'easy-elementor-addons'),
-                    'span' => esc_html__('Span', 'easy-elementor-addons'),
-                    'p' => esc_html__('P', 'easy-elementor-addons'),
-                    'div' => esc_html__('Div', 'easy-elementor-addons')
-                ],
+                'options' => eead_html_tags(),
             ]
         );
 
@@ -523,7 +513,7 @@ class ImageAccordion extends Widget_Base {
                 );
                 ?>
 
-                <<?php echo esc_attr($tag) . ' ' . $this->get_render_attribute_string('eead-image-accordion-' . $key); ?> >
+                <<?php echo esc_attr(eead_check_allowed_html_tags($tag)) . ' ' . $this->get_render_attribute_string('eead-image-accordion-' . $key); ?> >
                     <div class="eead-image-accordion-box">
                         <div class="eead-image-accordion-content">
                             <?php
@@ -539,7 +529,7 @@ class ImageAccordion extends Widget_Base {
                             <?php } ?>
                         </div>
                     </div>
-                </<?php echo $tag; ?>>
+                </<?php echo esc_attr(eead_check_allowed_html_tags($tag)); ?>>
             <?php } ?>
         </div>
 

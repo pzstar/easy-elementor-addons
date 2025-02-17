@@ -39,11 +39,11 @@ class HorizontalTimeline extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['mcustomscrollbar'];
+        return ['mcustomscrollbar', 'owlcarousel'];
     }
 
     public function get_script_depends() {
-        return ['mcustomscrollbar'];
+        return ['mcustomscrollbar', 'owlcarousel'];
     }
 
     protected function register_controls() {
@@ -126,8 +126,7 @@ class HorizontalTimeline extends Widget_Base {
                 'skin' => 'inline',
                 'label_block' => false,
                 'default' => [
-                    'value' => 'fas fa-star',
-                    'library' => 'fa-solid',
+                    'value' => 'icofont-star',
                 ],
                 'condition' => ['point_type' => 'icon']
             ]
@@ -177,23 +176,23 @@ class HorizontalTimeline extends Widget_Base {
                 'default' => [
                     [
                         'title' => esc_html__('Item #1', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Thursday, August 31, 2020', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.',
+                        'meta' => 'Thursday, August 31, 2020',
                     ],
                     [
                         'title' => esc_html__('Item #2', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Friday, August 29, 2021', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.',
+                        'meta' => 'Friday, August 29, 2021',
                     ],
                     [
                         'title' => esc_html__('Item #3', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Sunday, August 28, 2022', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.',
+                        'meta' => 'Sunday, August 28, 2022',
                     ],
                     [
                         'title' => esc_html__('Item #4', 'easy-elementor-addons'),
-                        'description' => esc_html__('Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.', 'easy-elementor-addons'),
-                        'meta' => esc_html__('Monday, August 27, 2023', 'easy-elementor-addons'),
+                        'description' => 'Lorem ipsum dolor sit amet, mea ei viderer probatus consequuntur, sonet vocibus lobortis has ad. Eos erant indoctum an, dictas invidunt est ex, et sea consulatu torquatos.',
+                        'meta' => 'Monday, August 27, 2023',
                     ]
                 ],
                 'title_field' => '{{{title}}}'

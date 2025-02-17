@@ -143,7 +143,9 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
-= 2.1.7 Feb 16, 2025 =
+= 2.1.7 Feb 17, 2025 =
+* Font Icons - Updated
+* Proper escaping of variable - Fixed
 * Security Fixes
 
 = 2.1.6 Feb 7, 2025 =

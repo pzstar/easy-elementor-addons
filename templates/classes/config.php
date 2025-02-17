@@ -127,7 +127,7 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
          * @return string Pro version message
          */
         public function get_pro_message() {
-            return __('Get Pro', 'easy-elementor-addons');
+            return esc_html__('Get Pro', 'easy-elementor-addons');
         }
 
         /**

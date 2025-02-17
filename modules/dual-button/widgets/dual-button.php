@@ -127,7 +127,7 @@ class DualButton extends Widget_Base {
             'pri_button_link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#'
                 ],
@@ -186,7 +186,7 @@ class DualButton extends Widget_Base {
                 'dynamic' => [
                     'active' => true
                 ],
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'default' => [
                     'url' => '#'
                 ],
@@ -277,8 +277,7 @@ class DualButton extends Widget_Base {
                 'skin' => 'inline',
                 'exclude_inline_options' => ['none'],
                 'default' => [
-                    'value' => 'fas fa-plus',
-                    'library' => 'fa-solid'
+                    'value' => 'icofont-plus',
                 ],
                 'label_block' => false,
                 'condition' => [

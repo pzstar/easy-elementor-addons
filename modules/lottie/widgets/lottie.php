@@ -86,7 +86,7 @@ class Lottie extends Widget_Base {
                 ),
                 'default' => 'https://assets6.lottiefiles.com/packages/lf20_sgnacf85.json',
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__('https://example.com/file.json', 'easy-elementor-addons'),
+                'placeholder' => 'https://example.com/file.json',
                 'show_external' => false,
                 'condition' => [
                     'lottie_type' => 'url'
@@ -162,11 +162,11 @@ class Lottie extends Widget_Base {
                 'options' => [
                     'svg' => [
                         'title' => esc_html__('SVG', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-magic',
+                        'icon' => 'eicon-ai',
                     ],
                     'canvas' => [
                         'title' => esc_html__('Canvas', 'easy-elementor-addons'),
-                        'icon' => 'fas fa-chalkboard',
+                        'icon' => 'eicon-tv',
                     ]
                 ],
             ]

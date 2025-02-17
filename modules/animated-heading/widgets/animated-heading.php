@@ -79,7 +79,7 @@ class AnimatedHeading extends Widget_Base {
             'heading_link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons'),
+                'placeholder' => 'https://your-link.com',
                 'show_external' => true,
                 'default' => [
                     'url' => '',

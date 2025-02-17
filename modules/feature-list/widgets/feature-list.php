@@ -113,7 +113,7 @@ class FeatureList extends Widget_Base {
             'content', [
                 'label' => esc_html__('Content', 'easy-elementor-addons'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'easy-elementor-addons')
+                'default' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.'
             ]
         );
 
@@ -121,7 +121,7 @@ class FeatureList extends Widget_Base {
             'link', [
                 'label' => esc_html__('Link', 'easy-elementor-addons'),
                 'type' => Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-link.com', 'easy-elementor-addons')
+                'placeholder' => 'https://your-link.com'
             ]
         );
 
@@ -170,8 +170,7 @@ class FeatureList extends Widget_Base {
                 'default' => [
                     [
                         'icon' => [
-                            'value' => 'fas fa-check',
-                            'library' => 'fa-solid',
+                            'value' => 'icofont-check-alt',
                         ],
                         'title' => esc_html__('Feature List Item 1', 'easy-elementor-addons'),
                         'subtitle' => 'Consectetur adipisi cing elit',
@@ -179,8 +178,7 @@ class FeatureList extends Widget_Base {
                     ],
                     [
                         'icon' => [
-                            'value' => 'fas fa-check',
-                            'library' => 'fa-solid',
+                            'value' => 'icofont-check-alt',
                         ],
                         'title' => esc_html__('Feature List Item 2', 'easy-elementor-addons'),
                         'subtitle' => 'Rem ipsum dolor sit amet',
@@ -189,8 +187,7 @@ class FeatureList extends Widget_Base {
                     ],
                     [
                         'icon' => [
-                            'value' => 'fas fa-check',
-                            'library' => 'fa-solid',
+                            'value' => 'icofont-check-alt',
                         ],
                         'title' => esc_html__('Feature List Item 3', 'easy-elementor-addons'),
                         'subtitle' => 'Seo eiusmod tempor incididunt ut',

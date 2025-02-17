@@ -17,7 +17,7 @@
     <# if ( 'valid' === window.HTData.license.status || ! pro ) { #>
     <a href="#" class="elementor-template-library-template-action ht-template-insert">
         <i class="eicon-download-circle-o"></i>
-        <span class="elementor-button-title"><?php echo __('Insert', 'easy-elementor-addons'); ?></span>
+        <span class="elementor-button-title"><?php echo esc_html__('Insert', 'easy-elementor-addons'); ?></span>
     </a>
     <# } else if ( pro ) { #>
     <a href="{{{ window.HTData.license.activateLink }}}" class="ht-template-go-pro" target="_blank">
