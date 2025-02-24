@@ -143,64 +143,64 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
-= 2.1.7 Feb 17, 2025 =
+= 2.1.7 - Feb 17, 2025 =
 * Font Icons - Updated
 * Proper escaping of variable - Fixed
 * Security Fixes
 
-= 2.1.6 Feb 7, 2025 =
+= 2.1.6 - Feb 7, 2025 =
 * Dual button, on hover, flicking text issue on Safari - Fixed
 * Scroll Image mobile responsive issue - Fixed
 * Variable escaping security Bugs - Fixed
 * Other minor CSS fixes
 
-= 2.1.5 Feb 4, 2025 =
+= 2.1.5 - Feb 4, 2025 =
 * Escaping variable fixes
 
-= 2.1.4 Feb 3, 2025 =
+= 2.1.4 - Feb 3, 2025 =
 * CSS fixes
 * Unused Code - Removed
 
-= 2.1.3 Jan 29, 2025 =
+= 2.1.3 - Jan 29, 2025 =
 * CSS fixes
 
-= 2.1.2 Jan 09, 2025 =
+= 2.1.2 - Jan 09, 2025 =
 * Responsive Fixes
 
-= 2.1.1 Jan 06, 2025 =
+= 2.1.1 - Jan 06, 2025 =
 * Responsive Fixes
 
-= 2.1.0 Dec 31, 2024 =
+= 2.1.0 - Dec 31, 2024 =
 * Modules Refinements
 
-= 2.0.9 Dec 25, 2024 =
+= 2.0.9 - Dec 25, 2024 =
 * Modules Refinements
 
-= 2.0.8 Dec 10, 2024 =
+= 2.0.8 - Dec 10, 2024 =
 * Modules Refinements
 
-= 2.0.7 Dec 10, 2024 =
+= 2.0.7 - Dec 10, 2024 =
 * Modules Refinements
 
-= 2.0.6 Dec 2, 2024 =
+= 2.0.6 - Dec 2, 2024 =
 * Modules Refinements
 
-= 2.0.5 Nov 26, 2024 =
+= 2.0.5 - Nov 26, 2024 =
 * Modules Refinements
 
-= 2.0.4 Nov 12, 2024 =
+= 2.0.4 - Nov 12, 2024 =
 * Modules Refinements
 
-= 2.0.3 Oct 18, 2024 =
+= 2.0.3 - Oct 18, 2024 =
 * Modules Refinements
 
-= 2.0.2 Sep 30, 2024 =
+= 2.0.2 - Sep 30, 2024 =
 * Modules Refinements
 
-= 2.0.1 Aug 11, 2024 =
+= 2.0.1 - Aug 11, 2024 =
 * Accordion module updated
 
-= 2.0.0 Aug 6, 2024 =
+= 2.0.0 - Aug 6, 2024 =
 * Major update with additional modules
 
 = 1.0.3 =
@@ -214,8 +214,3 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 
 = 1.0 =
 * Release
-
-== Upgrade Notice ==
-
-= 1.0 =
-Release
