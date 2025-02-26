@@ -627,6 +627,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );
@@ -655,6 +656,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab:hover svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );
@@ -696,6 +698,7 @@ class VerticalTab extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab.eead-vt-active-tab' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-vertical-tab .eead-vt-tab.eead-vt-active-tab svg' => 'fill: {{VALUE}}',
                 ]
             ]
         );

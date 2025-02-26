@@ -2503,6 +2503,7 @@ Vertical Tabs
     font-size: 1em;
     height: 1em;
     width: 1em;
+    color: inherit;
 }
 
 .eead-vertical-tab .eead-vt-tabs .eead-vt-tab {
