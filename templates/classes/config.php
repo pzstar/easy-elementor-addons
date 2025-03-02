@@ -58,7 +58,7 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
                 'pro_message' => $this->get_pro_message(),
                 'api' => array(
                     'enabled' => true,
-                    'base' => 'https://eead.hashcreation.com/',
+                    'base' => 'https://eea.hashcreation.com/',
                     'path' => 'wp-json/eead/v2',
                     'endpoints' => array(
                         'templates' => '/templates/',
