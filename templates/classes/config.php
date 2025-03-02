@@ -33,14 +33,6 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
          */
         private $config;
 
-        /*
-         * License page slug
-         *
-         * @access private
-         *
-         */
-        private $slug = 'easy-elementor-addons';
-
         /**
          * EEAD_Templates_Core_Config constructor.
          *

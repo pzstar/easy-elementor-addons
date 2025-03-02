@@ -98,7 +98,7 @@ if (!class_exists('EEAD_Templates_Types')) {
             $result['eead_pages'] = array(
                 'title' => esc_html__('Pages', 'easy-elementor-addons'),
                 'data' => [],
-                'sources' => array('easy-elementor-addons'),
+                'sources' => array('eead'),
                 'settings' => array(
                     'show_title' => true,
                     'show_widgets' => true

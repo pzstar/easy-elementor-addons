@@ -18,7 +18,7 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
      * @access public
      */
     public function get_slug() {
-        return 'easy-elementor-addons';
+        return 'eead';
     }
 
     /**

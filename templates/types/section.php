@@ -25,7 +25,7 @@ if (!class_exists('EEAD_Structure_Section')) {
         }
 
         public function get_sources() {
-            return array('easy-elementor-addons');
+            return array('eead');
         }
 
         public function get_document_type() {

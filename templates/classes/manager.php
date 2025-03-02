@@ -73,7 +73,7 @@ if (!class_exists('EEAD_Templates_Manager')) {
             require EEAD_PATH . 'templates/sources/base.php';
             $namespace = str_replace('Classes', 'Sources', __NAMESPACE__);
             $sources = array(
-                'easy-elementor-addons' => $namespace . '\EEAD_Templates_Source_Api',
+                'eead' => $namespace . '\EEAD_Templates_Source_Api',
             );
 
             foreach ($sources as $key => $class) {

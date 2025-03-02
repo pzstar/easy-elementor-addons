@@ -8,7 +8,7 @@ if (!defined('ABSPATH'))
 class EEAD_Section_Document extends EEAD_Document_Base {
 
     public function get_name() {
-        return 'easy-elementor-addons';
+        return 'eead';
     }
 
     public static function get_title() {
