@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -143,6 +143,10 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 2.1.8 - Mar 3, 2025 =
+* SVG icon color not working on Vertical Tab widget - Fixed
+* Template importer refinements
+
 = 2.1.7 - Feb 17, 2025 =
 * Font Icons - Updated
 * Proper escaping of variable - Fixed
