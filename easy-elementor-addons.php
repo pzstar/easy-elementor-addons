@@ -27,7 +27,7 @@ define('EEAD_PATH', plugin_dir_path(EEAD_FILE));
 define('EEAD_URL', plugins_url('/', EEAD_FILE));
 
 define('EEAD_ASSETS_URL', EEAD_URL . 'assets/');
-define('EEAD_API_DEBUG', true);
+// define('EEAD_API_DEBUG', true);
 
 if (!class_exists('Easy_Elementor_Addons')) {
 
