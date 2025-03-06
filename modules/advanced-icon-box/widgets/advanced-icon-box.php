@@ -72,6 +72,7 @@ class AdvancedIconBox extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ],
                 'render_type' => 'template',
                 'condition' => [
@@ -1404,7 +1405,7 @@ class AdvancedIconBox extends Widget_Base {
             $this->add_render_attribute('icon-class', 'class', 'elementor-animation-' . $settings['icon_hover_animation']);
         }
 
-        if ($has_icon or $has_image) {
+        if ($has_icon || $has_image) {
             ?>
             <div <?php $this->print_render_attribute_string('icon-class'); ?>>
                 <span>

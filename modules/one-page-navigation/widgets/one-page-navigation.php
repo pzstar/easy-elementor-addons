@@ -50,6 +50,7 @@ class OnePageNavigation extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-plus-circle',
+                    'library' => 'iconfont'
                 ]
             ]
         );

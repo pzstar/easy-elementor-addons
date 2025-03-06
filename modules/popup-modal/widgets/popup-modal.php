@@ -178,6 +178,7 @@ class PopupModal extends Widget_Base {
 				'type' => Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'icofont-search',
+					'library' => 'iconfont'
 				],
 				'skin' => 'inline',
 				'label_block' => false,
@@ -230,6 +231,7 @@ class PopupModal extends Widget_Base {
 				'type' => Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'icofont-search',
+					'library' => 'iconfont'
 				],
 				'skin' => 'inline',
 				'label_block' => false,

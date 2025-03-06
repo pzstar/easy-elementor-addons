@@ -258,6 +258,7 @@ class ImageGallery extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-search',
+                    'library' => 'iconfont'
                 ],
                 'condition' => [
                     'show_lightbox' => 'yes',

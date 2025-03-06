@@ -58,6 +58,7 @@ class Counter extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ]
             ]
         );

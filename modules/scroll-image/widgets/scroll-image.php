@@ -279,6 +279,7 @@ class ScrollImage extends Widget_Base {
 				'type' => Controls_Manager::ICONS,
 				'default' => array(
 					'value' => 'icofont-check-alt',
+					'library' => 'iconfont'
 				),
 				'condition' => array(
 					'link_icon' => 'custom',

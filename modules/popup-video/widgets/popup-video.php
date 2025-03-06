@@ -164,6 +164,7 @@ class PopupVideo extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-play-alt-2',
+                    'library' => 'iconfont'
                 ],
                 'condition' => [
                     'trigger_type' => ['button', 'icon']
@@ -214,6 +215,7 @@ class PopupVideo extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-play-alt-2',
+                    'library' => 'iconfont'
                 ],
                 'condition' => [
                     'trigger_type' => 'image',

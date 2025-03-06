@@ -141,6 +141,7 @@ class TeamMember extends Widget_Base {
                 'label_block' => false,
                 'default' => array(
                     'value' => 'icofont-facebook',
+                    'library' => 'iconfont'
                 )
             ]
         );
@@ -162,7 +163,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Facebook',
                         'social_icon' => [
-                            'value' => 'iconfont-facebook',
+                            'value' => 'icofont-facebook',
                         ],
                         'social_link' => [
                             'url' => '#',
@@ -171,7 +172,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Twitter',
                         'social_icon' => [
-                            'value' => 'iconfont-x-twitter',
+                            'value' => 'icofont-x-twitter',
                         ],
                         'social_link' => [
                             'url' => '#',
@@ -180,7 +181,7 @@ class TeamMember extends Widget_Base {
                     [
                         'social_icon_label' => 'Youtube',
                         'social_icon' => [
-                            'value' => 'iconfont-youtube',
+                            'value' => 'icofont-youtube',
                         ],
                         'social_link' => [
                             'url' => '#',

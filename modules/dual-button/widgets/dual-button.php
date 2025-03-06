@@ -278,6 +278,7 @@ class DualButton extends Widget_Base {
                 'exclude_inline_options' => ['none'],
                 'default' => [
                     'value' => 'icofont-plus',
+                    'library' => 'iconfont'
                 ],
                 'label_block' => false,
                 'condition' => [

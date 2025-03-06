@@ -103,6 +103,7 @@ class TeamCarousel extends Widget_Base {
                         'label_block' => false,
                         'default' => array(
                             'value' => 'icofont-facebook',
+                            'library' => 'iconfont'
                         ),
                     ],
                     [
@@ -122,6 +123,7 @@ class TeamCarousel extends Widget_Base {
                         'label_block' => false,
                         'default' => array(
                             'value' => 'icofont-x-twitter',
+                            'library' => 'iconfont'
                         )
                     ],
                     [
@@ -141,6 +143,7 @@ class TeamCarousel extends Widget_Base {
                         'label_block' => false,
                         'default' => array(
                             'value' => 'icofont-instagram',
+                            'library' => 'iconfont'
                         )
                     ],
                     [
@@ -160,6 +163,7 @@ class TeamCarousel extends Widget_Base {
                         'label_block' => false,
                         'default' => array(
                             'value' => 'icofont-whatsapp',
+                            'library' => 'iconfont'
                         ),
                     ],
                     [

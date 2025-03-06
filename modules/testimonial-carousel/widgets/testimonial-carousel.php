@@ -138,6 +138,7 @@ class TestimonialCarousel extends Widget_Base {
                 'label_block' => false,
                 'default' => array(
                     'value' => 'icofont-quote-right',
+                    'library' => 'iconfont'
                 )
             ]
         );

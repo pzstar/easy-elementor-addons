@@ -106,6 +106,7 @@ class FlipBox extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ],
                 'condition' => [
                     'graphic_element' => 'icon',

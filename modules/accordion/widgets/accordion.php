@@ -132,7 +132,7 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'mdi-chevron-down',
-                    'library' => 'mdi ',
+                    'library' => 'mdi',
                 ],
                 'skin' => 'inline',
                 'label_block' => false

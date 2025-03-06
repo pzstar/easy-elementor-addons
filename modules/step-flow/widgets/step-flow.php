@@ -48,6 +48,7 @@ class StepFlow extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ]
             ]
         );

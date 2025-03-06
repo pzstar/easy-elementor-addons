@@ -91,6 +91,7 @@ class IconList extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => array(
                     'value' => 'icofont-check-alt',
+                    'library' => 'icofont'
                 ),
                 'condition' => array(
                     'icon_type' => 'icon',

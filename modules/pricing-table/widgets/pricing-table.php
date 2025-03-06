@@ -107,6 +107,7 @@ class PricingTable extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-check-alt',
+                    'library' => 'iconfont'
                 ],
             ]
         );
@@ -163,6 +164,7 @@ class PricingTable extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-rounded-right',
+                    'library' => 'iconfont'
                 ],
             ]
         );
@@ -175,6 +177,7 @@ class PricingTable extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ],
             ]
         );

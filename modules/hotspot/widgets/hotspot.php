@@ -145,6 +145,7 @@ class Hotspot extends Widget_Base {
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'eicon-plus',
+                    'library' => 'eicon'
                 ],
                 'condition' => ['hotspot_type' => 'icon']
             ]

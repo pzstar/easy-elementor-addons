@@ -127,6 +127,7 @@ class HorizontalTimeline extends Widget_Base {
                 'label_block' => false,
                 'default' => [
                     'value' => 'icofont-star',
+                    'library' => 'iconfont'
                 ],
                 'condition' => ['point_type' => 'icon']
             ]
