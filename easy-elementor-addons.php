@@ -13,7 +13,7 @@
  * Domain Path: /languages
  * Elementor tested up to: 3.27
  * Elementor Pro tested up to: 3.2.1
- * Requires Plugins:  elementor
+ * Requires Plugins: elementor
  */
 /* If this file is called directly, abort */
 if (!defined('WPINC')) {
