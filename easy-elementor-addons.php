@@ -53,6 +53,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
             // Load necessary files.
             add_action('plugins_loaded', array($this, 'init'));
+            add_filter('plugin_action_links_' . plugin_basename(EEAD_FILE), array($this, 'add_plugin_action_link'), 10, 1);
         }
 
         public function load_plugin_textdomain() {
@@ -377,6 +378,14 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
         public static function get_all_default_widgets() {
             return array_keys(self::get_all_widgets_list());
+        }
+
+        public function add_plugin_action_link($links) {
+            $custom['settings'] = sprintf(
+                '<a href="%s" aria-label="%s">%s</a>', esc_url(add_query_arg('page', 'eead-settings', admin_url('admin.php'))), esc_attr__('Easy Elementor Addons Settings', 'easy-elementor-addons'), esc_html__('Settings', 'easy-elementor-addons')
+            );
+
+            return array_merge($custom, (array) $links);
         }
     }
 
