@@ -58,7 +58,7 @@ class AdminClass {
         die();
     }
 
-    public function get_widget_field($label, $val, $icon = '', $premium = false) {
+    public function get_widget_field($label, $val, $icon = '', $url = '', $premium = false) {
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         ?>
 
@@ -75,6 +75,8 @@ class AdminClass {
                 <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
                 <label></label>
             </div>
+
+            <a href="<?php echo esc_url($url); ?>" target="_blank" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>
         </div>
 
         <?php

@@ -142,6 +142,28 @@
     border-color: #329043;
 }
 
+.eead-widget-wrap .eead-widget-demo-link {
+    position: absolute;
+    left: 30px;
+    bottom: -8px;
+    padding: 3px 8px;
+    font-size: 11px;
+    line-height: 1;
+    background: #FFF;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 16px;
+    outline: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #EEE;
+}
+
+.eead-widget-wrap .eead-widget-demo-link:hover {
+    background: #9c19e9;
+    color: #FFF;
+}
+
 .eead-admin-header-section {
     padding: 20px;
     background: #FFF;
@@ -152,8 +174,7 @@
     justify-content: space-between;
 }
 
-.eead-admin-header-section h1,
-.eead-admin-header-section .eead-version {
+.eead-admin-header-section h1 {
     font-size: 18px;
     margin: 0;
 }
@@ -169,6 +190,21 @@
 .eead-admin-header-section h1 svg {
     height: 16px;
     width: 16px;
+}
+
+.eead-admin-header-section .eead-version a{
+    background: #000;
+    color: #FFF;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+.eead-admin-header-section .eead-version a:hover{
+    background: #9c19e9;
 }
 
 .eead-nav-tab-wrapper {
@@ -247,7 +283,7 @@
     margin-top: 5px;
 }
 
-.eead-save-button {
+.eaad-save-button-wrap .eead-save-button {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -258,6 +294,10 @@
     color: #FFF;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.eaad-save-button-wrap .eead-save-button:hover{
+    background: #9c19e9;
 }
 
 .eead-widget-action-buttons,

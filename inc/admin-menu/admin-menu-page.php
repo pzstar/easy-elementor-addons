@@ -20,8 +20,9 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
                 <path d="M74.55 14.94A14.93 14.93 0 0 0 59.64 0H14.91A14.93 14.93 0 0 0 0 14.94v44.73a14.93 14.93 0 0 0 14.91 14.91h44.73a14.93 14.93 0 0 0 14.91-14.91Zm0 86.09a14.92 14.92 0 0 0-14.91-14.91H14.91A14.92 14.92 0 0 0 0 101v44.73a14.93 14.93 0 0 0 14.91 14.91h44.73a14.93 14.93 0 0 0 14.91-14.91Zm86.09 0a14.92 14.92 0 0 0-14.91-14.91H101A14.9 14.9 0 0 0 86.09 101v44.73A14.92 14.92 0 0 0 101 160.67h44.73a14.93 14.93 0 0 0 14.91-14.91ZM133.8 4.33a14.81 14.81 0 0 0-20.92 0l-22.5 22.5a14.79 14.79 0 0 0 0 20.91l22.5 22.5a14.79 14.79 0 0 0 20.92 0l22.49-22.5a14.77 14.77 0 0 0 0-20.9z" />
             </svg>
             <?php echo esc_html__('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?>
+            - V<?php echo EEAD_VERSION; ?>
         </h1>
-        <div class="eead-version">v<?php echo EEAD_VERSION; ?></div>
+        <div class="eead-version"><a href="https://hashthemes.com/documentation/easy-elementor-addons-documentation/" target="_blank"><span class="mdi-text-box-multiple-outline"></span><?php echo esc_html__('Documentation', 'easy-elementor-addons'); ?></a></div>
     </div>
 
     <nav class="eead-nav-tab-wrapper">
@@ -82,7 +83,7 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
                 <div class="eead-widget-section-inner-wrap">
                     <?php
                     foreach ($eead_all_widgets as $key => $val) {
-                        $this->get_widget_field($val['name'], $key, $val['icon'], isset($val['premium']) && $val['premium']);
+                        $this->get_widget_field($val['name'], $key, $val['icon'], $val['demo_url'], isset($val['premium']) && $val['premium']);
                     }
                     ?>
                 </div>
