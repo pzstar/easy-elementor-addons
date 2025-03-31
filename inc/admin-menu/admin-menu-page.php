@@ -26,12 +26,12 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
     </div>
 
     <nav class="eead-nav-tab-wrapper">
-        <a href="javascript:void(0)" class="nav-tab-active eead-tab" data-tab="eead-api-settings-content" data-tohide="tab-content">
-            <i class="mdi-cog"></i><?php esc_html_e('Settings', 'easy-elementor-addons'); ?>
+        <a href="javascript:void(0)" class="nav-tab-active eead-tab" data-tab="eead-widgets-section-content" data-tohide="tab-content">
+            <i class="mdi-widgets-outline"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
         </a>
 
-        <a href="javascript:void(0)" class="eead-tab" data-tab="eead-widgets-section-content" data-tohide="tab-content">
-            <i class="mdi-widgets-outline"></i><?php esc_html_e('Widgets', 'easy-elementor-addons'); ?>
+        <a href="javascript:void(0)" class="eead-tab" data-tab="eead-api-settings-content" data-tohide="tab-content">
+            <i class="mdi-cog"></i><?php esc_html_e('Settings', 'easy-elementor-addons'); ?>
         </a>
 
         <a href="javascript:void(0)" class="eead-tab" data-tab="eead-about-section-content" data-tohide="tab-content">
@@ -40,7 +40,31 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
     </nav>
 
     <div class="eead-tab-contents">
-        <div id="eead-api-settings-content" class="tab-content">
+        <div id="eead-widgets-section-content" class="tab-content">
+            <div class="eead-widget-action-buttons">
+                <button class="eead-widget-action-btn eead-widget-enable-all"><i class="mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons') ?></button>
+                <button class="eead-widget-action-btn eead-widget-disable-all"><i class="mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons') ?></button>
+            </div>
+
+            <form id="eead-widget-selection-form">
+                <div class="eead-widget-section-inner-wrap">
+                    <?php
+                    foreach ($eead_all_widgets as $key => $val) {
+                        $this->get_widget_field($val['name'], $key, $val['icon'], $val['demo_url'], isset($val['premium']) && $val['premium']);
+                    }
+                    ?>
+                </div>
+
+                <div class="eaad-save-button-wrap">
+                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">
+                        <i class="mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?>
+                        <span class="eead-loader"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="eead-api-settings-content" class="tab-content" style="display: none;">
             <form id="eead-general-settings-form">
                 <div class="eead-google-api-key">
                     <div class="eead-settings-field">
@@ -69,30 +93,6 @@ $eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
                         <i class="mdi-content-save"></i>
                         <?php esc_html_e('Save', 'easy-elementor-addons'); ?>
                         <span class="eead-loader"></span></button>
-                </div>
-            </form>
-        </div>
-
-        <div id="eead-widgets-section-content" class="tab-content" style="display: none;">
-            <div class="eead-widget-action-buttons">
-                <button class="eead-widget-action-btn eead-widget-enable-all"><i class="mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons') ?></button>
-                <button class="eead-widget-action-btn eead-widget-disable-all"><i class="mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons') ?></button>
-            </div>
-
-            <form id="eead-widget-selection-form">
-                <div class="eead-widget-section-inner-wrap">
-                    <?php
-                    foreach ($eead_all_widgets as $key => $val) {
-                        $this->get_widget_field($val['name'], $key, $val['icon'], $val['demo_url'], isset($val['premium']) && $val['premium']);
-                    }
-                    ?>
-                </div>
-
-                <div class="eaad-save-button-wrap">
-                    <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">
-                        <i class="mdi-content-save"></i><?php esc_html_e('Save', 'easy-elementor-addons'); ?>
-                        <span class="eead-loader"></span>
-                    </button>
                 </div>
             </form>
         </div>
