@@ -6484,6 +6484,22 @@ Pricing Table
 
 .eead-pricing-table.style7 .eead-pricing-header {
     padding: var(--eead-pt-header-padding, 30px);
+    position: relative;
+}
+
+.eead-pricing-table.style7 .eead-pricing-header:before{
+    content: "";
+    background: var(--eead-pt-header-overlay-color, transparent);
+    opacity: 0.9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.eead-pricing-table.style7 .eead-pricing-header > *{
+    position: relative;
 }
 
 .eead-pricing-table.style7 .eead-pricing-body {

@@ -317,6 +317,19 @@ class PricingTable extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'header_background7_overlay', [
+                'label' => esc_html__('Overlay Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table' => '--eead-pt-header-overlay-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'layout' => 'style7'
+                ]
+            ]
+        );
+
         $this->add_responsive_control(
             'header_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
