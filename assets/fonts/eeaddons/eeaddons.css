@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'EEaddons';
   src:
-    url('fonts/EEaddons.ttf?xt59lg') format('truetype'),
-    url('fonts/EEaddons.woff?xt59lg') format('woff'),
-    url('fonts/EEaddons.svg?xt59lg#EEaddons') format('svg');
+    url('fonts/EEaddons.ttf') format('truetype'),
+    url('fonts/EEaddons.woff') format('woff'),
+    url('fonts/EEaddons.svg') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -11,16 +11,11 @@
 
 [class^="eead-icons-"],
 [class*=" eead-icons-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'EEaddons' !important;
-  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
