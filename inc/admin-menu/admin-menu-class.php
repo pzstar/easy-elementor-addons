@@ -58,11 +58,11 @@ class AdminClass {
         die();
     }
 
-    public function get_widget_field($label, $val, $icon = '', $url = '', $premium = false) {
+    public function get_widget_field($label, $val, $icon = '', $url = '', $premium = false, $category = '') {
         $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         ?>
 
-        <div class="eead-widget-wrap <?php echo $premium ? 'eead-premium' : ''; ?>">
+        <div class="eead-widget-wrap <?php echo $premium ? 'eead-premium' : ''; ?>" data-main="<?php echo $premium ? 'pro' : 'free'; ?>" data-sub="<?php echo esc_attr($category); ?>">
             <span>
                 <?php
                 if ($icon) {
