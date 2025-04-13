@@ -1064,7 +1064,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slide-button:hover a' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slide-button a:hover' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -1074,7 +1074,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slide-button:hover a' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slide-button a:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -1084,7 +1084,7 @@ class Slider extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-slide-button:hover a' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-slide-button a:hover' => 'border-color: {{VALUE}}',
                 ]
             ]
         );

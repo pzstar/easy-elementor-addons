@@ -380,7 +380,7 @@ class HorizontalTab extends Widget_Base {
                     ]
                 ],
                 'selectors_dictionary' => [
-                    'top' => 'flex-direction: column',
+                    'top' => 'flex-direction: column; text-align: center',
                     'left' => 'flex-direction: row',
                     'right' => 'flex-direction: row-reverse',
                 ],
