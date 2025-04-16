@@ -29,7 +29,8 @@ final class EEAD_Modules_Manager {
     public function register_modules() {
 
         $modules = get_option('eead_widgets') ? get_option('eead_widgets') : array();
-        $default_modules = \Easy_Elementor_Addons::get_all_default_widgets();
+        $all_modules = \eead_get_all_widgets_list();
+        $default_modules = array_keys($all_modules);
         if ($modules) {
             foreach ($modules as $module) {
                 if (!in_array($module, $default_modules)) {

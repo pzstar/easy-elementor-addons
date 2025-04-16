@@ -8,7 +8,7 @@ $eead_extenders = get_option('eead_extenders');
 $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
 $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
 
-$eead_all_widgets = Easy_Elementor_Addons::get_all_widgets_list();
+$eead_all_widgets = eead_get_all_widgets_list();
 
 ?>
 
