@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -143,6 +143,11 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
  
 == Changelog ==
+= 2.2.1 - Apr 18, 2025 =
+* Warning notice - Fixed
+* CSS fixes
+* Typo Fixes
+
 = 2.2.0 - Apr 4, 2025 =
 * Demo link added on admin panel for each modules - Updated
 * Overlay option added for pricing table - style 7

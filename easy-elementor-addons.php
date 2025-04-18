@@ -3,15 +3,15 @@
 /**
  * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
- * Description: Elementor addons for WordPress Themes developed by HashThemes https://hashthemes.com
- * Version: 2.2.0
+ * Description: Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite page builder.
+ * Version: 2.2.1
  * Author: HashThemes
  * Author URI: https://hashthemes.com/
  * Text Domain: easy-elementor-addons
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
- * Elementor tested up to: 3.27
+ * Elementor tested up to: 3.28
  * Elementor Pro tested up to: 3.2.1
  */
 /* If this file is called directly, abort */
@@ -19,7 +19,7 @@ if (!defined('WPINC')) {
     die();
 }
 
-define('EEAD_VERSION', '2.2.0');
+define('EEAD_VERSION', '2.2.1');
 
 define('EEAD_FILE', __FILE__);
 define('EEAD_PLUGIN_BASENAME', plugin_basename(EEAD_FILE));
