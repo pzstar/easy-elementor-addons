@@ -123,11 +123,12 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <h3><?php esc_html_e('Elements Available in the Extension:', 'easy-elementor-addons'); ?></h3>
 
             <?php
+            $description = eead_get_all_widgets_desc();
             $count = 0;
             foreach ($eead_all_widgets as $key => $val) {
                 $count++;
                 ?>
-                <p><?php echo esc_html($count); ?>) <a href="https://demo.hashthemes.com/easy-elementor-addons/<?php echo esc_attr($key); ?>/" target="_blank"><?php echo esc_html($val['name']); ?></a> - <?php echo isset($val['description']) ? esc_html($val['description']) : ''; ?></p>
+                <p><?php echo esc_html($count); ?>) <a href="https://demo.hashthemes.com/easy-elementor-addons/<?php echo esc_attr($key); ?>/" target="_blank"><?php echo esc_html($val['name']); ?></a> - <?php echo isset($description[$key]) ? esc_html($description[$key]) : ''; ?></p>
                 <?php
             }
             ?>

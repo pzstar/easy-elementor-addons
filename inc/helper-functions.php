@@ -594,349 +594,354 @@ function eead_get_all_widgets_list() {
         'accordion' => array(
             'name' => 'Accordion',
             'icon' => 'eead-icons-accordion',
-            'description' => esc_html__('Displays the FAQ of your clients within a beautiful UI.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/accordion/',
             'category' => 'essential'
         ),
         'advanced-button' => array(
             'name' => 'Advanced Button',
             'icon' => 'eead-icons-button',
-            'description' => esc_html__('Allows you to place responsive buttons with different animations, hover effects and many more.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-button/',
             'category' => 'creative'
         ),
         'advanced-heading' => array(
             'name' => 'Advanced Heading',
             'icon' => 'eead-icons-advanced-heading',
-            'description' => esc_html__('Place a unique heading with border, animations, etc.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-heading/',
             'category' => 'creative'
         ),
         'advanced-icon-box' => array(
             'name' => 'Advanced Icon Box',
             'icon' => 'eead-icons-icon-text',
-            'description' => esc_html__('Lets you create an icon box where you can place an icon with the title, and description.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-icon-box/',
             'category' => 'essential'
         ),
         'advanced-map' => array(
             'name' => 'Advanced Map',
             'icon' => 'eead-icons-map',
-            'description' => esc_html__('Add fully customizable maps with advanced styling and multiple location markers.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-map/',
             'category' => 'essential'
         ),
         'animated-heading' => array(
             'name' => 'Animated Heading',
             'icon' => 'eead-icons-animated-heading',
-            'description' => esc_html__('Place the animated heading to display your deals, offers, discounts or features of your services in an eye catchy way.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/animated-heading/',
             'category' => 'creative'
         ),
         'business-hour' => array(
             'name' => 'Business Hour',
             'icon' => 'eead-icons-business-hours',
-            'description' => esc_html__('Displays the timetable of the business hour of your company.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/business-hour/',
             'category' => 'listing'
         ),
         'circular-progressbar' => array(
             'name' => 'Circular Progressbar',
             'icon' => 'eead-icons-circular-bar',
-            'description' => esc_html__('Displays the work progress of your company in a circular layout.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/circular-progress-bar/',
             'category' => 'essential'
         ),
         'countdown' => array(
             'name' => 'Countdown',
             'icon' => 'eead-icons-count-down',
-            'description' => esc_html__('Create engaging countdown timers to highlight offers, events, or launches.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/countdown/',
             'category' => 'essential'
         ),
         'counter' => array(
             'name' => 'Counter',
             'icon' => 'eead-icons-counter',
-            'description' => esc_html__('Let you place a beautiful stats counter of your business by highlighting the achievements.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/counter/',
             'category' => 'essential'
         ),
         'drop-bar' => array(
             'name' => 'Drop Bar',
             'icon' => 'eead-icons-drop-box',
-            'description' => esc_html__('Display a short information on the drop bar and display it in different positions, animation effects.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/drop-bar/',
             'category' => 'essential'
         ),
         'dual-button' => array(
             'name' => 'Dual Button',
             'icon' => 'eead-icons-dual-buttons',
-            'description' => esc_html__('Design stylish dual-action buttons with unique layouts and effects.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/dual-button/',
             'category' => 'creative'
         ),
         'dual-heading' => array(
             'name' => 'Dual Heading',
             'icon' => 'eead-icons-dual-heading',
-            'description' => esc_html__('Allows you to display the heading in dual effects.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/dual-heading/',
             'category' => 'creative'
         ),
         'feature-list' => array(
             'name' => 'Feature List',
             'icon' => 'eead-icons-feature-list',
-            'description' => esc_html__('Showcase features or services with icons, text, and custom layouts.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/feature-list/',
             'category' => 'listing'
         ),
         'flip-box' => array(
             'name' => 'Flip Box',
             'icon' => 'eead-icons-flip-box',
-            'description' => esc_html__('Display your information, custom text or even product detail in a customizable flip box.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/flip-box/',
             'category' => 'creative'
         ),
         'horizontal-tab' => array(
             'name' => 'Horizontal Tab',
             'icon' => 'eead-icons-horizontal-tab',
-            'description' => esc_html__('Allows you to showcase different information in a responsive horizontal tab.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/horizontal-tab/',
             'category' => 'advanced'
         ),
         'horizontal-timeline' => array(
             'name' => 'Horizontal Timeline',
             'icon' => 'eead-icons-horizontal-timeline',
-            'description' => esc_html__('Adds a horizontal timeline to display the evolution, history and success story of your company in a responsive timeline.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/horizontal-timeline/',
             'category' => 'advanced'
         ),
         'hotspot' => array(
             'name' => 'Hotspot',
             'icon' => 'eead-icons-hot-spot',
-            'description' => esc_html__('Add hotspot tooltips of different parts of the images.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/hotspot/',
             'category' => 'creative'
         ),
         'icon-list' => array(
             'name' => 'Icon List',
             'icon' => 'eead-icons-icon-list',
-            'description' => esc_html__('List down your contents with beautiful icons or png images.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/icon-list/',
             'category' => 'listing'
         ),
         'image-accordion' => array(
             'name' => 'Image Accordion',
             'icon' => 'eead-icons-image-accordion',
-            'description' => esc_html__('Images are displayed in a stacked layout that expands or collapses when clicked, showing or hiding additional images or content', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-accordion/',
             'category' => 'listing'
         ),
         'image-comparison' => array(
             'name' => 'Image Comparison',
             'icon' => 'eead-icons-compare',
-            'description' => esc_html__('To showcase the images before and after editing the images.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-comparison/',
             'category' => 'advanced'
         ),
         'image-gallery' => array(
             'name' => 'Filterable Gallery',
             'icon' => 'eead-icons-image-gallery',
-            'description' => esc_html__('Build dynamic, filterable image or video galleries with ease.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-gallery/',
             'category' => 'advanced'
         ),
         'link-effect' => array(
             'name' => 'Link Effect',
             'icon' => 'eead-icons-link',
-            'description' => esc_html__('Customize your hyperlink by adding different animation effects.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/link-effect/',
             'category' => 'essential'
         ),
         'logo-carousel' => array(
             'name' => 'Logo Carousel',
             'icon' => 'eead-icons-logo-carousel',
-            'description' => esc_html__('Highlight the logo of your clients, partners, or sponsor in a beautiful carousel.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/logo-carousel/',
             'category' => 'essential'
         ),
         'logo-grid' => array(
             'name' => 'Logo Grid',
             'icon' => 'eead-icons-logo-grid',
-            'description' => esc_html__('Highlight the logo of your clients, partners, or sponsor in a beautiful logo grid.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/logo-grid/',
             'category' => 'essential'
         ),
         'lottie' => array(
             'name' => 'Lottie',
             'icon' => 'eead-icons-lottie',
-            'description' => esc_html__('Embed lightweight, animated Lottie files to enhance interactivity.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/lottie/',
             'category' => 'essential'
         ),
         'one-page-navigation' => array(
             'name' => 'One Page Navigation',
             'icon' => 'eead-icons-one-page-nav',
-            'description' => esc_html__('Place an extra navigator to navigate different contents present in a single page.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/one-page-navigation/',
             'category' => 'essential'
         ),
         'pie-chart' => array(
             'name' => 'Pie Chart',
             'icon' => 'eead-icons-pie-chart',
-            'description' => esc_html__('Display your company progress in a beautiful pie chart.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pie-chart/',
             'category' => 'creative'
         ),
         'popup-modal' => array(
             'name' => 'Popup Modal',
             'icon' => 'eead-icons-popup',
-            'description' => esc_html__('Place an animated popup with different animations.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/popup/',
             'category' => 'essential'
         ),
         'popup-video' => array(
             'name' => 'Popup Video',
             'icon' => 'eead-icons-video-popup',
-            'description' => esc_html__('Add eye-catching video popups to boost user engagement.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/video-popup/',
             'category' => 'essential'
         ),
         'pricing-list' => array(
             'name' => 'Pricing List',
             'icon' => 'eead-icons-pricing-list',
-            'description' => esc_html__('Showcase the pricing of your products in a unique fashion.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pricing-list/',
             'category' => 'listing'
         ),
         'pricing-table' => array(
             'name' => 'Pricing Table',
             'icon' => 'eead-icons-pricing-table',
-            'description' => esc_html__('Display the pricing plan of your services in a beautifully designed pricing table.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pricing-table/',
             'category' => 'listing'
         ),
         'progressbar' => array(
             'name' => 'Progressbar',
             'icon' => 'eead-icons-progress-bar',
-            'description' => esc_html__('Allows you to showcase your work progress in an attractive progress bar.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/progress-bar/',
             'category' => 'essential'
         ),
         'scroll-image' => array(
             'name' => 'Scroll Image',
             'icon' => 'eead-icons-scroll-image',
-            'description' => esc_html__('Let’s you showcase a long and full width image in a short space. Automatically scroll the images when hovered over.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/scroll-image/',
             'category' => 'essential'
         ),
         'slider' => array(
             'name' => 'Slider',
             'icon' => 'eead-icons-slider',
-            'description' => esc_html__('Highlight your announcements, deals or even products in a responsive slider.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/slider/',
             'category' => 'essential'
         ),
         'social-share' => array(
             'name' => 'Social Share',
             'icon' => 'eead-icons-social-share',
-            'description' => esc_html__('Add social share buttons to share your pages or posts to different social media networks in a single click.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/social-share/',
             'category' => 'social'
         ),
         'step-flow' => array(
             'name' => 'Step Flow',
             'icon' => 'eead-icons-step-flow',
-            'description' => esc_html__('Present step-by-step processes with a clean and professional layout.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/step-flow/',
             'category' => 'essential'
         ),
         'sticky-video' => array(
             'name' => 'Sticky Video',
             'icon' => 'eead-icons-sticky-video',
-            'description' => esc_html__('Keep videos visible while users scroll through the page.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/sticky-video/',
             'category' => 'essential'
         ),
         'switcher' => array(
             'name' => 'Switcher',
             'icon' => 'eead-icons-switcher',
-            'description' => esc_html__('To display multiple web contents in a switcher for comparison.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/switcher/',
             'category' => 'essential'
         ),
         'team-member' => array(
             'name' => 'Team',
             'icon' => 'eead-icons-team',
-            'description' => esc_html__('Display your team members of your company/organization.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/team-member/',
             'category' => 'essential'
         ),
         'team-carousel' => array(
             'name' => 'Team Carousel',
             'icon' => 'eead-icons-team-carousel',
-            'description' => esc_html__('Display your team members of your company/organization in an attractive carousel.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/team-carousel/',
             'category' => 'essential'
         ),
         'testimonial' => array(
             'name' => 'Testimonial',
             'icon' => 'eead-icons-testimonial',
-            'description' => esc_html__('Showcase the positive words given by your clients in a stunning way.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/testimonial/',
             'category' => 'essential'
         ),
         'testimonial-carousel' => array(
             'name' => 'Testimonial Carousel',
             'icon' => 'eead-icons-testimonial-carousel',
-            'description' => esc_html__('Showcase the positive words given by your client in a beautiful slider.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/',
             'category' => 'essential'
         ),
         'toggle' => array(
             'name' => 'Toggle',
             'icon' => 'eead-icons-toggle',
-            'description' => esc_html__('Display multiple contents and toggle them for comparison.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/toggle/',
             'category' => 'essential'
         ),
         'twitter-feed' => array(
             'name' => 'Twitter Feed',
             'icon' => 'eead-icons-twitter-x',
-            'description' => esc_html__('Display real-time Twitter feeds directly on your website.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/',
             'category' => 'essential'
         ),
         'vertical-tab' => array(
             'name' => 'Vertical Tab',
             'icon' => 'eead-icons-vertical-tab',
-            'description' => esc_html__('Allows you to showcase different information in a responsive vertical tab.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/',
             'category' => 'advanced'
         ),
         'vertical-timeline' => array(
             'name' => 'Vertical Timeline',
             'icon' => 'eead-icons-vertical-timeline',
-            'description' => esc_html__('Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/',
             'category' => 'advanced'
         ),
         'video-player' => array(
             'name' => 'Video Player',
             'icon' => 'eead-icons-video-player',
-            'description' => esc_html__('Allow you to embed the videos from Youtube, Vimeo or from your local computer.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/video-player/',
             'category' => 'essential'
         ),
         'weather' => array(
             'name' => 'Weather Block',
             'icon' => 'eead-icons-weather',
-            'description' => esc_html__('Adds a weather report of a city with humidity, Pressure and Wind Speed.', 'easy-elementor-addons'),
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/weather/',
             'category' => 'essential'
         ),
     ));
     ksort($all_wid);
     return $all_wid;
+}
+
+function eead_get_all_widgets_desc() {
+    return array(
+        'accordion' => esc_html__('Displays the FAQ of your clients within a beautiful UI.', 'easy-elementor-addons'),
+        'advanced-button' => esc_html__('Allows you to place responsive buttons with different animations, hover effects and many more.', 'easy-elementor-addons'),
+        'advanced-heading' => esc_html__('Displays heading in different styles.', 'easy-elementor-addons'),
+        'advanced-icon-box' => esc_html__('Lets you create an icon box where you can place an icon with the title, and description.', 'easy-elementor-addons'),
+        'advanced-map' => esc_html__('Add fully customizable maps with advanced styling and multiple location markers.', 'easy-elementor-addons'),
+        'animated-heading' => esc_html__('Place the animated heading to display your deals, offers, discounts or features of your services in an eye catchy way.', 'easy-elementor-addons'),
+        'business-hour' => esc_html__('Displays the timetable of the business hour of your company.', 'easy-elementor-addons'),
+        'circular-progressbar' => esc_html__('Displays the work progress of your company in a circular layout.', 'easy-elementor-addons'),
+        'countdown' => esc_html__('Create engaging countdown timers to highlight offers, events, or launches.', 'easy-elementor-addons'),
+        'counter' => esc_html__('Let you place a beautiful stats counter of your business by highlighting the achievements.', 'easy-elementor-addons'),
+        'drop-bar' => esc_html__('Display a short information on the drop bar and display it in different positions, animation effects.', 'easy-elementor-addons'),
+        'dual-button' => esc_html__('Design stylish dual-action buttons with unique layouts and effects.', 'easy-elementor-addons'),
+        'dual-heading' => esc_html__('Allows you to display the heading in dual effects.', 'easy-elementor-addons'),
+        'feature-list' => esc_html__('Showcase features or services with icons, text, and custom layouts.', 'easy-elementor-addons'),
+        'flip-box' => esc_html__('Display your information, custom text or even product detail in a customizable flip box.', 'easy-elementor-addons'),
+        'horizontal-tab' => esc_html__('Allows you to showcase different information in a responsive horizontal tab.', 'easy-elementor-addons'),
+        'horizontal-timeline' => esc_html__('Adds a horizontal timeline to display the evolution, history and success story of your company in a responsive timeline.', 'easy-elementor-addons'),
+        'hotspot' => esc_html__('Add hotspot tooltips of different parts of the images.', 'easy-elementor-addons'),
+        'icon-list' => esc_html__('List down your contents with beautiful icons or png images.', 'easy-elementor-addons'),
+        'image-accordion' => esc_html__('Images are displayed in a stacked layout that expands or collapses when clicked, showing or hiding additional images or content', 'easy-elementor-addons'),
+        'image-comparison' => esc_html__('To showcase the images before and after editing the images.', 'easy-elementor-addons'),
+        'image-gallery' => esc_html__('Build dynamic, filterable image or video galleries with ease.', 'easy-elementor-addons'),
+        'link-effect' => esc_html__('Customize your hyperlink by adding different animation effects.', 'easy-elementor-addons'),
+        'logo-carousel' => esc_html__('Highlight the logo of your clients, partners, or sponsor in a beautiful carousel.', 'easy-elementor-addons'),
+        'logo-grid' => esc_html__('Highlight the logo of your clients, partners, or sponsor in a beautiful logo grid.', 'easy-elementor-addons'),
+        'lottie' => esc_html__('Embed lightweight, animated Lottie files to enhance interactivity.', 'easy-elementor-addons'),
+        'one-page-navigation' => esc_html__('Place an extra navigator to navigate different contents present in a single page.', 'easy-elementor-addons'),
+        'pie-chart' => esc_html__('Display your company progress in a beautiful pie chart.', 'easy-elementor-addons'),
+        'popup-modal' => esc_html__('Place an animated popup with different animations.', 'easy-elementor-addons'),
+        'popup-video' => esc_html__('Add eye-catching video popups to boost user engagement.', 'easy-elementor-addons'),
+        'pricing-list' => esc_html__('Showcase the pricing of your products in a unique fashion.', 'easy-elementor-addons'),
+        'pricing-table' => esc_html__('Display the pricing plan of your services in a beautifully designed pricing table.', 'easy-elementor-addons'),
+        'progressbar' => esc_html__('Allows you to showcase your work progress in an attractive progress bar.', 'easy-elementor-addons'),
+        'scroll-image' => esc_html__('Let’s you showcase a long and full width image in a short space. Automatically scroll the images when hovered over.', 'easy-elementor-addons'),
+        'slider' => esc_html__('Highlight your announcements, deals or even products in a responsive slider.', 'easy-elementor-addons'),
+        'social-share' => esc_html__('Add social share buttons to share your pages or posts to different social media networks in a single click.', 'easy-elementor-addons'),
+        'step-flow' => esc_html__('Present step-by-step processes with a clean and professional layout.', 'easy-elementor-addons'),
+        'sticky-video' => esc_html__('Keep videos visible while users scroll through the page.', 'easy-elementor-addons'),
+        'switcher' => esc_html__('To display multiple web contents in a switcher for comparison.', 'easy-elementor-addons'),
+        'team-member' => esc_html__('Display your team members of your company/organization.', 'easy-elementor-addons'),
+        'team-carousel' => esc_html__('Display your team members of your company/organization in an attractive carousel.', 'easy-elementor-addons'),
+        'testimonial' => esc_html__('Showcase the positive words given by your clients in a stunning way.', 'easy-elementor-addons'),
+        'testimonial-carousel' => esc_html__('Showcase the positive words given by your client in a beautiful slider.', 'easy-elementor-addons'),
+        'toggle' => esc_html__('Display multiple contents and toggle them for comparison.', 'easy-elementor-addons'),
+        'twitter-feed' => esc_html__('Display real-time Twitter feeds directly on your website.', 'easy-elementor-addons'),
+        'vertical-tab' => esc_html__('Allows you to showcase different information in a responsive vertical tab.', 'easy-elementor-addons'),
+        'vertical-timeline' => esc_html__('Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.', 'easy-elementor-addons'),
+        'video-player' => esc_html__('Allow you to embed the videos from Youtube, Vimeo or from your local computer.', 'easy-elementor-addons'),
+        'weather' => esc_html__('Adds a weather report of a city with humidity, Pressure and Wind Speed.', 'easy-elementor-addons'),
+    );
 }
 
 

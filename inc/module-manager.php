@@ -27,10 +27,10 @@ final class EEAD_Modules_Manager {
     }
 
     public function register_modules() {
-
-        $modules = get_option('eead_widgets') ? get_option('eead_widgets') : array();
         $all_modules = \eead_get_all_widgets_list();
         $default_modules = array_keys($all_modules);
+        $modules = get_option('eead_widgets') ? get_option('eead_widgets') : $default_modules;
+        
         if ($modules) {
             foreach ($modules as $module) {
                 if (!in_array($module, $default_modules)) {
