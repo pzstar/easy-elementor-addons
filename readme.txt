@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
+Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite Elementor page builder.
 
 == Description ==
 Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 50+ creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.
@@ -82,47 +82,43 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>30) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-popup/" target="_blank">Popup Video</a> - Add eye-catching video popups to boost user engagement.</p>
 
-<p>31) <a href="https://demo.hashthemes.com/easy-elementor-addons/portfolios/" target="_blank">Portfolio Block</a> - Allows you to create a beautiful portfolio gallery of your work with an amazing light box image.</p>
+<p>31) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-list/" target="_blank">Pricing List</a> - Showcase the pricing of your products in a unique fashion.</p>
 
-<p>32) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-grid/" target="_blank">Portfolio Grid</a> - Organize and display portfolios in a clean, grid-style layout.</p>
+<p>32) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-table/" target="_blank">Pricing Table</a> - Display the pricing plan of your services in a beautifully designed pricing table.</p>
 
-<p>33) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-list/" target="_blank">Pricing List</a> - Showcase the pricing of your products in a unique fashion.</p>
+<p>33) <a href="https://demo.hashthemes.com/easy-elementor-addons/progress-bar/" target="_blank">Progress Bar</a> - Allows you to showcase your work progress in an attractive progress bar.</p>
 
-<p>34) <a href="https://demo.hashthemes.com/easy-elementor-addons/pricing-table/" target="_blank">Pricing Table</a> - Display the pricing plan of your services in a beautifully designed pricing table.</p>
+<p>34) <a href="https://demo.hashthemes.com/easy-elementor-addons/scroll-image/" target="_blank">Scroll Image</a> - Let’s you showcase a long and full width image in a short space. Automatically scroll the images when hovered over.</p>
 
-<p>35) <a href="https://demo.hashthemes.com/easy-elementor-addons/progress-bar/" target="_blank">Progress Bar</a> - Allows you to showcase your work progress in an attractive progress bar.</p>
+<p>35) <a href="https://demo.hashthemes.com/easy-elementor-addons/slider/" target="_blank">Slider Block</a> - Highlight your announcements, deals or even products in a responsive slider.</p>
 
-<p>36) <a href="https://demo.hashthemes.com/easy-elementor-addons/scroll-image/" target="_blank">Scroll Image</a> - Let’s you showcase a long and full width image in a short space. Automatically scroll the images when hovered over.</p>
+<p>36) <a href="https://demo.hashthemes.com/easy-elementor-addons/social-share/" target="_blank">Social Share</a> - Add social share buttons to share your pages or posts to different social media networks in a single click.</p>
 
-<p>37) <a href="https://demo.hashthemes.com/easy-elementor-addons/slider/" target="_blank">Slider Block</a> - Highlight your announcements, deals or even products in a responsive slider.</p>
+<p>37) <a href="https://demo.hashthemes.com/easy-elementor-addons/step-flow/" target="_blank">Step Flow</a> - Present step-by-step processes with a clean and professional layout.</p>
 
-<p>38) <a href="https://demo.hashthemes.com/easy-elementor-addons/social-share/" target="_blank">Social Share</a> - Add social share buttons to share your pages or posts to different social media networks in a single click.</p>
+<p>38) <a href="https://demo.hashthemes.com/easy-elementor-addons/sticky-video/" target="_blank">Sticky Video</a> - Keep videos visible while users scroll through the page.</p>
 
-<p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/step-flow/" target="_blank">Step Flow</a> - Present step-by-step processes with a clean and professional layout.</p>
+<p>39) <a href="https://demo.hashthemes.com/easy-elementor-addons/switcher/" target="_blank">Switcher</a> - To display multiple web contents in a switcher for comparison.</p>
 
-<p>40) <a href="https://demo.hashthemes.com/easy-elementor-addons/sticky-video/" target="_blank">Sticky Video</a> - Keep videos visible while users scroll through the page.</p>
+<p>40) <a href="https://demo.hashthemes.com/easy-elementor-addons/team-member/" target="_blank">Team</a> - Display your team members of your company/organization.</p>
 
-<p>41) <a href="https://demo.hashthemes.com/easy-elementor-addons/switcher/" target="_blank">Switcher</a> - To display multiple web contents in a switcher for comparison.</p>
+<p>41) <a href="https://demo.hashthemes.com/easy-elementor-addons/team-carousel/" target="_blank">Team Carousel</a> - Display your team members of your company/organization in an attractive carousel.</p>
 
-<p>42) <a href="https://demo.hashthemes.com/easy-elementor-addons/team-member/" target="_blank">Team</a> - Display your team members of your company/organization.</p>
+<p>42) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial/" target="_blank">Testimonial</a> - Showcase the positive words given by your clients in a stunning way.</p>
 
-<p>43) <a href="https://demo.hashthemes.com/easy-elementor-addons/team-carousel/" target="_blank">Team Carousel</a> - Display your team members of your company/organization in an attractive carousel.</p>
+<p>43) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/" target="_blank">Testimonial Carousel</a> - Showcase the positive words given by your client in a beautiful slider.</p>
 
-<p>44) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial/" target="_blank">Testimonial</a> - Showcase the positive words given by your clients in a stunning way.</p>
+<p>44) <a href="https://demo.hashthemes.com/easy-elementor-addons/toggle/" target="_blank">Toggle</a> - Display multiple contents and toggle them for comparison.</p>
 
-<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/" target="_blank">Testimonial Carousel</a> - Showcase the positive words given by your client in a beautiful slider.</p>
+<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Display real-time Twitter feeds directly on your website.</p>
 
-<p>46) <a href="https://demo.hashthemes.com/easy-elementor-addons/toggle/" target="_blank">Toggle</a> - Display multiple contents and toggle them for comparison.</p>
+<p>46) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/" target="_blank">Vertical Tab</a> - Allows you to showcase different information in a responsive vertical tab.</p>
 
-<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Display real-time Twitter feeds directly on your website.</p>
+<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.</p>
 
-<p>48) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/" target="_blank">Vertical Tab</a> - Allows you to showcase different information in a responsive vertical tab.</p>
+<p>48) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
 
-<p>49) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.</p>
-
-<p>50) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
-
-<p>51) <a href="https://demo.hashthemes.com/easy-elementor-addons/weather/" target="_blank">Weather Block</a> - Adds a weather report of a city with humidity, Pressure and Wind Speed.</p>
+<p>49) <a href="https://demo.hashthemes.com/easy-elementor-addons/weather/" target="_blank">Weather Block</a> - Adds a weather report of a city with humidity, Pressure and Wind Speed.</p>
 
 <p>More Comming</p>
 

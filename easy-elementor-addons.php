@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
- * Description: Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite page builder.
+ * Description: Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite Elementor page builder.
  * Version: 2.2.1
  * Author: HashThemes
  * Author URI: https://hashthemes.com/
