@@ -3,10 +3,10 @@
  * Templates Loader View
  */
 ?>
-<# if(window.HTData.cat>0) { #>
-<div class="ht-filters-list"></div>
+<# if(window.EEADData.cat>0) { #>
+<div class="eead-filters-list"></div>
 <# } #>
-<div class="ht-modal-templates-wrap">
-    <div class="ht-widgets-list"></div>
-    <div class="ht-templates-list"></div>
+<div class="eead-modal-templates-wrap">
+    <div class="eead-widgets-list"></div>
+    <div class="eead-templates-list"></div>
 </div>

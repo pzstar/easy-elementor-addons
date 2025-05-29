@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 if (!class_exists('EEAD_Templates_Core_Config')) {
 
     /**
-     * HT Templates Core config.
+     * EEAD Templates Core config.
      *
      * Templates core class is responsible for handling templates library.
      *
@@ -43,7 +43,7 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
         public function __construct() {
 
             $this->config = array(
-                'eead_elementor_templates' => esc_html__('HT Templates', 'easy-elementor-addons'),
+                'eead_elementor_templates' => esc_html__('EEAD Templates', 'easy-elementor-addons'),
                 'key' => $this->get_license_key(),
                 'status' => $this->get_license_status(),
                 'license_page' => $this->get_license_page(),
@@ -66,7 +66,7 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
         /**
          * Get license key.
          *
-         * Gets HT Add-ons PRO license key.
+         * Gets EEAD Add-ons PRO license key.
          *
          * @access public
          *
@@ -83,7 +83,7 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
         /**
          * Get license status.
          *
-         * Gets HT Add-ons PRO license status.
+         * Gets EEAD Add-ons PRO license status.
          *
          * @access public
          *
@@ -100,14 +100,14 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
         /**
          * Get license page.
          *
-         * Gets HT Add-ons PRO license page.
+         * Gets EEAD Add-ons PRO license page.
          *
          * @access public
          *
          * @return string admin license page or plugin URI
          */
         public function get_license_page() {
-            return esc_url(admin_url('admin.php?page=ht-license-key'));
+            return esc_url(admin_url('admin.php?page=eead-license-key'));
         }
 
         /**

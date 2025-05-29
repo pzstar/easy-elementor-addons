@@ -1,6 +1,6 @@
 !function (e) {
     "use strict";
-    var t, a, o, n, i = window.HTData || {};
+    var t, a, o, n, i = window.EEADData || {};
     a = {
         ModalLayoutView: null,
         ModalHeaderView: null,
@@ -43,18 +43,18 @@
                     package: ""
                 }
             }), a.ModalHeaderView = Marionette.LayoutView.extend({
-                id: "ht-template-modal-header",
-                template: "#views-ht-template-modal-header",
+                id: "eead-template-modal-header",
+                template: "#views-eead-template-modal-header",
                 ui: {
-                    closeModal: "#ht-template-modal-header-close-modal"
+                    closeModal: "#eead-template-modal-header-close-modal"
                 },
                 events: {
                     "click @ui.closeModal": "onCloseModalClick"
                 },
                 regions: {
-                    headerLogo: "#ht-template-modal-header-logo-area",
-                    headerTabs: "#ht-template-modal-header-tabs",
-                    headerActions: "#ht-template-modal-header-actions"
+                    headerLogo: "#eead-template-modal-header-logo-area",
+                    headerTabs: "#eead-template-modal-header-tabs",
+                    headerActions: "#eead-template-modal-header-actions"
                 },
                 onCloseModalClick: function () {
                     t.closeModal()
@@ -81,9 +81,9 @@
                 model: a.CategoryModel
             }), a.KeywordsView = Marionette.ItemView.extend({
                 id: "elementor-template-library-filter-wrap",
-                template: "#views-ht-template-modal-widgets",
+                template: "#views-eead-template-modal-widgets",
                 ui: {
-                    widgets: ".ht-library-widgets"
+                    widgets: ".eead-library-widgets"
                 },
                 events: {
                     "change @ui.widgets": "onSelectKeyword"
@@ -93,7 +93,7 @@
                     t.setFilter("keyword", a)
                 },
                 onRender: function () {
-                    this.$(".ht-library-widgets").select2({
+                    this.$(".eead-library-widgets").select2({
                         placeholder: "Choose Widget",
                         allowClear: !0,
                         width: 250,
@@ -101,11 +101,11 @@
                     })
                 }
             }), a.ModalPreviewView = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-preview",
-                id: "ht-item-preview-wrap",
+                template: "#views-eead-template-modal-preview",
+                id: "eead-item-preview-wrap",
                 ui: {
                     iframe: "iframe",
-                    notice: ".ht-item-notice"
+                    notice: ".eead-item-notice"
                 },
                 onRender: function () {
                     if (null !== this.getOption("notice") && this.getOption("notice").length && -1 == this.getOption("notice").indexOf("")) {
@@ -115,8 +115,8 @@
                     this.ui.iframe.attr("src", this.getOption("url"))
                 }
             }), a.ModalHeaderBack = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-header-back",
-                id: "ht-template-modal-header-back",
+                template: "#views-eead-template-modal-header-back",
+                id: "eead-template-modal-header-back",
                 ui: {
                     button: "button"
                 },
@@ -127,28 +127,28 @@
                     t.setPreview("back")
                 }
             }), a.ModalHeaderLogo = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-header-logo",
-                id: "ht-template-modal-header-logo"
+                template: "#views-eead-template-modal-header-logo",
+                id: "eead-template-modal-header-logo"
             }), a.ModalBodyView = Marionette.LayoutView.extend({
-                template: "#views-ht-template-modal-content",
-                id: "ht-template-library-content",
+                template: "#views-eead-template-modal-content",
+                id: "eead-template-library-content",
                 className: function () {
                     return "library-tab-" + t.getTab()
                 },
                 regions: {
-                    contentTemplates: ".ht-templates-list",
-                    contentFilters: ".ht-filters-list",
-                    contentKeywords: ".ht-widgets-list"
+                    contentTemplates: ".eead-templates-list",
+                    contentFilters: ".eead-filters-list",
+                    contentKeywords: ".eead-widgets-list"
                 }
             }), a.LibraryLoadingView = Marionette.ItemView.extend({
-                id: "ht-modal-template-library-loading",
-                template: "#views-ht-template-modal-loading"
+                id: "eead-modal-template-library-loading",
+                template: "#views-eead-template-modal-loading"
             }), a.LibraryErrorView = Marionette.ItemView.extend({
-                id: "ht-modal-template-error",
-                template: "#views-ht-template-modal-error"
+                id: "eead-modal-template-error",
+                template: "#views-eead-template-modal-error"
             }), a.ModalInsertTemplateBehavior = Marionette.Behavior.extend({
                 ui: {
-                    insertButton: ".ht-template-insert"
+                    insertButton: ".eead-template-insert"
                 },
                 events: {
                     "click @ui.insertButton": "onInsertButtonClick"
@@ -185,22 +185,22 @@
                     })
                 }
             }), a.ModalHeaderInsertButton = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-insert-button",
-                id: "ht-template-modal-insert-button",
+                template: "#views-eead-template-modal-insert-button",
+                id: "eead-template-modal-insert-button",
                 behaviors: {
                     insertTemplate: {
                         behaviorClass: a.ModalInsertTemplateBehavior
                     }
                 }
             }), a.EEADProButton = Marionette.ItemView.extend({
-                template: "#views-ht-template-pro-button",
-                id: "ht-modal-template-pro-button"
+                template: "#views-eead-template-pro-button",
+                id: "eead-modal-template-pro-button"
             }), a.ModalTemplateItemView = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-item",
+                template: "#views-eead-template-modal-item",
                 className: function () {
-                    var e = " ht-modal-template-has-url",
+                    var e = " eead-modal-template-has-url",
                         t = "";
-                    return "" === this.model.get("preview") && (e = " ht-modal-template-no-url"), this.model.get("pro") && "valid" != i.license.status && (t = " ht-modal-template-pro"), "elementor-template-library-template elementor-template-library-template-remote" + e + t
+                    return "" === this.model.get("preview") && (e = " eead-modal-template-no-url"), this.model.get("pro") && "valid" != i.license.status && (t = " eead-modal-template-pro"), "elementor-template-library-template elementor-template-library-template-remote" + e + t
                 },
                 ui: function () {
                     return {
@@ -221,13 +221,13 @@
                     }
                 }
             }), a.FiltersItemView = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-filters-item",
+                template: "#views-eead-template-modal-filters-item",
                 className: function () {
-                    return "ht-modal-template-filter-item"
+                    return "eead-modal-template-filter-item"
                 },
                 ui: function () {
                     return {
-                        filterLabels: ".ht-modal-template-filter-label"
+                        filterLabels: ".eead-modal-template-filter-label"
                     }
                 },
                 events: function () {
@@ -237,10 +237,10 @@
                 },
                 onFilterClick: function (e) {
                     var a = jQuery(e.target);
-                    jQuery(".ht-library-widgets").val(""), t.setFilter("category", a.val()), t.setFilter("keyword", "")
+                    jQuery(".eead-library-widgets").val(""), t.setFilter("category", a.val()), t.setFilter("keyword", "")
                 }
             }), a.ModalTabsItemView = Marionette.ItemView.extend({
-                template: "#views-ht-template-modal-tabs-item",
+                template: "#views-eead-template-modal-tabs-item",
                 className: function () {
                     return "elementor-template-library-menu-item"
                 },
@@ -263,15 +263,15 @@
                     t.setTab(a.val()), t.setFilter("keyword", "")
                 }
             }), a.FiltersCollectionView = Marionette.CompositeView.extend({
-                id: "ht-modal-template-library-filters",
-                template: "#views-ht-template-modal-filters",
-                childViewContainer: "#ht-modal-filters-container",
+                id: "eead-modal-template-library-filters",
+                template: "#views-eead-template-modal-filters",
+                childViewContainer: "#eead-modal-filters-container",
                 getChildView: function (e) {
                     return a.FiltersItemView
                 }
             }), a.ModalTabsCollectionView = Marionette.CompositeView.extend({
-                template: "#views-ht-template-modal-tabs",
-                childViewContainer: "#views-ht-template-modal-tabs-items",
+                template: "#views-eead-template-modal-tabs",
+                childViewContainer: "#views-eead-template-modal-tabs-items",
                 initialize: function () {
                     this.listenTo(t.channels.layout, "tamplate:cloned", this._renderChildren)
                 },
@@ -279,9 +279,9 @@
                     return a.ModalTabsItemView
                 }
             }), a.ModalCollectionView = Marionette.CompositeView.extend({
-                template: "#views-ht-template-modal-templates",
-                id: "ht-modal-template-library-templates",
-                childViewContainer: "#ht-modal-templates-container",
+                template: "#views-eead-template-modal-templates",
+                id: "eead-modal-template-library-templates",
+                childViewContainer: "#eead-modal-templates-container",
                 initialize: function () {
                     this.listenTo(t.channels.templates, "filter:change", this._renderChildren)
                 },
@@ -307,13 +307,13 @@
                     })
                 }
             }), a.ModalLoadingView = Marionette.ItemView.extend({
-                id: "ht-modal-loading",
-                template: "#views-ht-template-modal-loading"
+                id: "eead-modal-loading",
+                template: "#views-eead-template-modal-loading"
             }), a.ModalErrorView = Marionette.ItemView.extend({
-                id: "ht-modal-loading",
-                template: "#views-ht-template-modal-error"
+                id: "eead-modal-loading",
+                template: "#views-eead-template-modal-error"
             }), a.ModalLayoutView = Marionette.LayoutView.extend({
-                el: "#ht-modal-template",
+                el: "#eead-modal-template",
                 regions: i.modalRegions,
                 initialize: function () {
                     this.getRegion("modalHeader").show(new a.ModalHeaderView), this.listenTo(t.channels.tabs, "filter:change", this.switchTabs), this.listenTo(t.channels.layout, "preview:change", this.switchPreview)
@@ -328,7 +328,7 @@
                         i = t.getFilter("keyword");
                     return "back" === o ? (e.headerLogo.show(new a.ModalHeaderLogo), e.headerTabs.show(new a.ModalTabsCollectionView({
                         collection: t.collections.tabs
-                    })), e.headerActions.empty(), t.setTab(t.getTab()), "" != n && (t.setFilter("category", n), jQuery("#ht-modal-filters-container").find("input[value='" + n + "']").prop("checked", !0)), void ("" != i && t.setFilter("keyword", i))) : "initial" === o ? (e.headerActions.empty(), void e.headerLogo.show(new a.ModalHeaderLogo)) : (this.getRegion("modalContent").show(new a.ModalPreviewView({
+                    })), e.headerActions.empty(), t.setTab(t.getTab()), "" != n && (t.setFilter("category", n), jQuery("#eead-modal-filters-container").find("input[value='" + n + "']").prop("checked", !0)), void ("" != i && t.setFilter("keyword", i))) : "initial" === o ? (e.headerActions.empty(), void e.headerLogo.show(new a.ModalHeaderLogo)) : (this.getRegion("modalContent").show(new a.ModalPreviewView({
                         preview: o.get("preview"),
                         url: o.get("url"),
                         notice: o.get("notice")
@@ -349,7 +349,7 @@
                     this.modalContent.show(new a.ModalErrorView)
                 },
                 showTemplatesView: function (e, o, n) {
-                    window.HTData.cat = o.length;
+                    window.EEADData.cat = o.length;
                     this.getRegion("modalContent").show(new a.ModalBodyView);
                     var i = this.getContentView(),
                         l = this.getHeaderView(),
@@ -477,7 +477,7 @@
             let e = setInterval(() => {
                 window.elementor.$previewContents.find(".elementor-add-new-section").length && (this.initEEADTempsButton(), clearInterval(e))
             }, 100);
-            window.elementor.$previewContents.on("click.addEEADTemplate", ".ht-add-section-btn", _.bind(this.showTemplatesModal, this)), this.channels = {
+            window.elementor.$previewContents.on("click.addEEADTemplate", ".eead-add-section-btn", _.bind(this.showTemplatesModal, this)), this.channels = {
                 templates: Backbone.Radio.channel("EEAD_EDITOR:templates"),
                 tabs: Backbone.Radio.channel("EEAD_EDITOR:tabs"),
                 layout: Backbone.Radio.channel("EEAD_EDITOR:layout")
@@ -485,15 +485,15 @@
         },
         initEEADTempsButton: function () {
             var a = window.elementor.$previewContents.find(".elementor-add-new-section"),
-                o = '<div class="elementor-add-section-area-button ht-add-section-btn"><div class="ht-editor-icon"></div></div>';
-            a.length && i.HTEditorBtn && e(o).prependTo(a), window.elementor.$previewContents.on("click.addEEADTemplate", ".elementor-editor-section-settings .elementor-editor-element-add", function () {
+                o = '<div class="elementor-add-section-area-button eead-add-section-btn"><div class="eead-editor-icon"></div></div>';
+            a.length && i.EEADEditorBtn && e(o).prependTo(a), window.elementor.$previewContents.on("click.addEEADTemplate", ".elementor-editor-section-settings .elementor-editor-element-add", function () {
                 var a = e(this).closest(".elementor-top-section"),
                     n = a.data("model-cid");
                 elementor.config.version < "3.0.0" ? window.elementor.sections.currentView.collection.length && e.each(window.elementor.sections.currentView.collection.models, function (e, a) {
                     n === a.cid && (t.atIndex = e)
                 }) : elementor.previewView.collection.length && e.each(elementor.previewView.collection.models, function (e, a) {
                     n === a.cid && (t.atIndex = e)
-                }), i.HTEditorBtn && a.prev(".elementor-add-section").find(".elementor-add-new-section").prepend(o)
+                }), i.EEADEditorBtn && a.prev(".elementor-add-section").find(".elementor-add-new-section").prepend(o)
             })
         },
         getFilter: function (e) {
@@ -561,7 +561,7 @@
         },
         getModal: function () {
             return this.modal || (this.modal = elementor.dialogsManager.createWidget("lightbox", {
-                id: "ht-modal-template",
+                id: "eead-modal-template",
                 className: "elementor-templates-modal",
                 closeButton: !1
             })), this.modal

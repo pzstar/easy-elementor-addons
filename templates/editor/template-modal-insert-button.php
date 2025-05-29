@@ -10,14 +10,14 @@
 </a>
 <# } #>
 
-<# if ( 'valid' === window.HTData.license.status || ! pro ) { #>
-<button class="ht-template-insert elementor-button elementor-button-success">
+<# if ( 'valid' === window.EEADData.license.status || ! pro ) { #>
+<button class="eead-template-insert elementor-button elementor-button-success">
     <i class="eicon-download-circle-o"></i>
     <span class="elementor-button-title"><?php esc_html_e('Insert', 'easy-elementor-addons'); ?></span>
 </button>
 <# } else { #>
-<a class="elementor-button elementor-button-go-pro" href="{{{ window.HTData.license.activateLink }}}" target="_blank">
+<a class="elementor-button elementor-button-go-pro" href="{{{ window.EEADData.license.activateLink }}}" target="_blank">
     <i class="eicon-cart-medium"></i>
-    <span class="elementor-button-title">{{{ window.HTData.license.proMessage }}}</span>
+    <span class="elementor-button-title">{{{ window.EEADData.license.proMessage }}}</span>
 </a>
 <# } #>

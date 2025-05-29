@@ -8,7 +8,7 @@ if (!defined('ABSPATH'))
 if (!class_exists('EEAD_Templates_Types')) {
 
     /**
-     * HT Templates Types.
+     * EEAD Templates Types.
      *
      * Templates types responsible for handling templates library tabs
      *
@@ -49,7 +49,7 @@ if (!class_exists('EEAD_Templates_Types')) {
                 require $file;
                 $this->register_type($class);
             });
-            do_action('ht-elementor-templates/types/register', $this);
+            do_action('eead-elementor-templates/types/register', $this);
         }
 
         /**

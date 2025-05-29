@@ -14,15 +14,15 @@
     </div>
 </div>
 <div class="elementor-template-library-template-controls">
-    <# if ( 'valid' === window.HTData.license.status || ! pro ) { #>
-    <a href="#" class="elementor-template-library-template-action ht-template-insert">
+    <# if ( 'valid' === window.EEADData.license.status || ! pro ) { #>
+    <a href="#" class="elementor-template-library-template-action eead-template-insert">
         <i class="eicon-download-circle-o"></i>
         <span class="elementor-button-title"><?php echo esc_html__('Insert', 'easy-elementor-addons'); ?></span>
     </a>
     <# } else if ( pro ) { #>
-    <a href="{{{ window.HTData.license.activateLink }}}" class="ht-template-go-pro" target="_blank">
+    <a href="{{{ window.EEADData.license.activateLink }}}" class="eead-template-go-pro" target="_blank">
         <i class="eicon-cart-medium"></i>
-        <span class="elementor-button-title">{{{ window.HTData.license.proMessage }}}</span>
+        <span class="elementor-button-title">{{{ window.EEADData.license.proMessage }}}</span>
     </a>    
     <# } #>
 </div>

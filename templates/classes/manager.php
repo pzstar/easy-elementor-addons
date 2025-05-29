@@ -10,7 +10,7 @@ if (!defined('ABSPATH'))
 if (!class_exists('EEAD_Templates_Manager')) {
 
     /**
-     * HT Templates Manager.
+     * EEAD Templates Manager.
      *
      * Templates manager class handles all templates library insertion
      *
@@ -39,7 +39,7 @@ if (!class_exists('EEAD_Templates_Manager')) {
             }
 
             $this->register_sources();
-            add_filter('ht-addons-core/assets/editor/localize', array($this, 'localize_tabs'));
+            add_filter('eead-addons-core/assets/editor/localize', array($this, 'localize_tabs'));
         }
 
         /**
@@ -372,7 +372,7 @@ if (!class_exists('EEAD_Templates_Manager')) {
         }
 
         /**
-         * HT get template data
+         * EEAD get template data
          *
          * trigger `get_template_data_array` after template insert
          *

@@ -3,4 +3,4 @@
  * Templates Modal Container
  */
 ?>
-<div id="ht-modal-templates-container"></div>
+<div id="eead-modal-templates-container"></div>

@@ -1,10 +1,10 @@
-#ht-modal-template .dialog-widget-content {
+#eead-modal-template .dialog-widget-content {
     background-color: #f1f3f5;
     width: 100%;
 }
 
-#ht-modal-template .dialog-header,
-#ht-modal-template .dialog-widget-header {
+#eead-modal-template .dialog-header,
+#eead-modal-template .dialog-widget-header {
     padding: 0;
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -12,80 +12,80 @@
     z-index: 1;
 }
 
-#ht-modal-template .dialog-message {
+#eead-modal-template .dialog-message {
     padding: 30px 0 30px 30px;
 }
 
-#ht-modal-template .dialog-buttons-wrapper {
+#eead-modal-template .dialog-buttons-wrapper {
     display: none;
 }
 
-#ht-modal-template a,
-#ht-modal-template a:hover {
+#eead-modal-template a,
+#eead-modal-template a:hover {
     color: inherit;
 }
 
-#ht-modal-template .elementor-button {
+#eead-modal-template .elementor-button {
     text-transform: uppercase;
 }
 
 /* Scroll Bar Modification */
-#ht-modal-template .ht-templates-list::-webkit-scrollbar {
+#eead-modal-template .eead-templates-list::-webkit-scrollbar {
     width: 6px;
 }
 
-#ht-modal-template .ht-templates-list::-webkit-scrollbar-button {
+#eead-modal-template .eead-templates-list::-webkit-scrollbar-button {
     width: 0;
     height: 10px;
 }
 
-#ht-modal-template .ht-templates-list::-webkit-scrollbar-thumb {
+#eead-modal-template .eead-templates-list::-webkit-scrollbar-thumb {
     background-color: #d5dadf;
     border-radius: 0;
 }
 
-#ht-modal-template .ht-templates-list::-webkit-scrollbar-track {
+#eead-modal-template .eead-templates-list::-webkit-scrollbar-track {
     border: none;
     background: #FFF;
     border-radius: 0;
 }
 
-#ht-modal-template .ht-templates-list::-webkit-scrollbar-corner {}
+#eead-modal-template .eead-templates-list::-webkit-scrollbar-corner {}
 
 /* Modal Header */
-#ht-template-modal-header {
+#eead-template-modal-header {
     display: flex;
     align-items: center;
     height: 50px;
 }
 
-#ht-template-modal-header-logo-area {
+#eead-template-modal-header-logo-area {
     padding-left: 15px;
 }
 
-#ht-template-modal-header-logo {
+#eead-template-modal-header-logo {
     color: #6d7882;
     display: flex;
     align-items: center;
 }
 
-#ht-template-modal-header-logo .ht-modal-header-logo-icon {
+#eead-template-modal-header-logo .eead-modal-header-logo-icon {
     margin-right: 5px;
 }
 
-#ht-template-modal-header-logo .ht-modal-header-logo-icon img {
+#eead-template-modal-header-logo .eead-modal-header-logo-icon img {
     width: 30px;
     height: 30px;
 }
 
-#ht-template-modal-header-logo .ht-modal-header-logo-label {
+#eead-template-modal-header-logo .eead-modal-header-logo-label {
     font-size: 18px;
     line-height: 1;
     text-transform: uppercase;
     font-weight: 700;
 }
 
-#ht-template-modal-header .ht-template-modal-header-back {
+#eead-template-modal-header .eead-template-modal-header-back {
     background: none;
     border: none;
     border-right: 1px solid #e6e9ec;
@@ -99,23 +99,23 @@
     color: #a4afb7;
 }
 
-#ht-template-modal-header .ht-template-modal-header-back:hover {
+#eead-template-modal-header .eead-template-modal-header-back:hover {
     color: #6d7882;
 }
 
-#ht-template-modal-header .elementor-button i {
+#eead-template-modal-header .elementor-button i {
     margin-right: 5px;
 }
 
-#ht-template-modal-header .elementor-button.elementor-button-live-preview {
+#eead-template-modal-header .elementor-button.elementor-button-live-preview {
     color: #6d7882 !important;
 }
 
-#ht-template-modal-header .elementor-button.elementor-button-live-preview i {
+#eead-template-modal-header .elementor-button.elementor-button-live-preview i {
     margin: 0 0 0 5px;
 }
 
-#ht-template-modal-header .elementor-button {
+#eead-template-modal-header .elementor-button {
     padding: 8px 10px;
     font-size: 14px;
     color: #FFF;
@@ -125,11 +125,11 @@
     align-items: center;
 }
 
-#ht-template-modal-header .elementor-button:hover {
+#eead-template-modal-header .elementor-button:hover {
     color: #FFF;
 }
 
-#ht-template-modal-header-close-modal {
+#eead-template-modal-header-close-modal {
     width: 50px;
     height: 50px;
     border-left: 1px solid #e6e9ec;
@@ -141,14 +141,14 @@
     transition: all 0.2s linear;
 }
 
-#ht-template-modal-header-tabs {
+#eead-template-modal-header-tabs {
     display: flex;
     align-items: center;
     flex-grow: 1;
     justify-content: center;
 }
 
-#ht-template-modal-header-tabs .elementor-template-library-menu-item {
+#eead-template-modal-header-tabs .elementor-template-library-menu-item {
     display: inline-block;
     position: relative;
     text-align: left;
@@ -162,11 +162,11 @@
     letter-spacing: 1px;
 }
 
-#ht-template-modal-header-tabs .elementor-template-library-menu-item label {
+#eead-template-modal-header-tabs .elementor-template-library-menu-item label {
     display: block;
 }
 
-#ht-template-modal-header-tabs .elementor-template-library-menu-item input[type="radio"] {
+#eead-template-modal-header-tabs .elementor-template-library-menu-item input[type="radio"] {
     position: absolute;
     left: 0;
     top: 0;
@@ -180,25 +180,25 @@
     cursor: pointer;
 }
 
-#ht-template-modal-header-tabs .elementor-template-library-menu-item input:checked + span,
-#ht-template-modal-header-tabs .elementor-template-library-menu-item:hover span {
+#eead-template-modal-header-tabs .elementor-template-library-menu-item input:checked + span,
+#eead-template-modal-header-tabs .elementor-template-library-menu-item:hover span {
     background: #fafafa;
     border-bottom: 3px solid #4b00e7;
 }
 
-#ht-template-modal-header-tabs .elementor-template-library-menu-item span {
+#eead-template-modal-header-tabs .elementor-template-library-menu-item span {
     display: block;
     padding: 20px 19px 16px 19px;
 }
 
 /* Modal View */
-#ht-item-preview-wrap,
-#ht-item-preview-wrap .ht-item-preview-iframe {
+#eead-item-preview-wrap,
+#eead-item-preview-wrap .eead-item-preview-iframe {
     height: 100%;
     overflow: hidden;
 }
 
-#ht-item-preview-wrap iframe {
+#eead-item-preview-wrap iframe {
     height: 150%;
     -webkit-transform: scale(0.666) translateX(-25%) translateY(-25%);
     -ms-transform: scale(0.666) translateX(-25%) translateY(-25%);
@@ -206,43 +206,43 @@
 }
 
 @media (max-width: 1439px) {
-    #ht-item-preview-wrap iframe {
+    #eead-item-preview-wrap iframe {
         width: 1440px;
     }
 }
 
 @media (min-width: 1440px) {
-    #ht-item-preview-wrap iframe {
+    #eead-item-preview-wrap iframe {
         width: 1710px;
     }
 }
 
-#ht-template-library-content {
+#eead-template-library-content {
     display: flex;
     height: calc(100% - 20px);
 }
 
 
-#ht-template-library-content .ht-filters-list {
+#eead-template-library-content .eead-filters-list {
     width: 18%;
     padding: 0 30px 0 0;
     height: 100%;
     overflow: auto;
 }
 
-#ht-template-library-content .ht-modal-template-filter-item {
+#eead-template-library-content .eead-modal-template-filter-item {
     border-top: 1px solid rgba(213, 218, 223, 0.5);
 }
 
-#ht-template-library-content .ht-modal-template-filter-item:first-child {
+#eead-template-library-content .eead-modal-template-filter-item:first-child {
     border-top: none;
 }
 
-#ht-template-library-content .ht-modal-templates-wrap {
+#eead-template-library-content .eead-modal-templates-wrap {
     width: 100%;
 }
 
-#ht-template-library-content .ht-modal-template-filter-label {
+#eead-template-library-content .eead-modal-template-filter-label {
     display: block;
     position: relative;
     text-align: left;
@@ -250,7 +250,7 @@
     color: #6d7882;
 }
 
-#ht-template-library-content .ht-modal-template-filter-label input[type="radio"] {
+#eead-template-library-content .eead-modal-template-filter-label input[type="radio"] {
     position: absolute;
     left: 0;
     top: 0;
@@ -264,29 +264,29 @@
     cursor: pointer;
 }
 
-#ht-template-library-content .ht-modal-template-filter-label input:checked + span,
-#ht-template-library-content .ht-modal-template-filter-label:hover span {
+#eead-template-library-content .eead-modal-template-filter-label input:checked + span,
+#eead-template-library-content .eead-modal-template-filter-label:hover span {
     color: #4b00e7;
 }
 
-#ht-template-library-content .ht-templates-list {
+#eead-template-library-content .eead-templates-list {
     height: 100%;
     overflow: auto;
 }
 
 /* Template Listing */
-#ht-modal-templates-container {
+#eead-modal-templates-container {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 30px;
 }
 
-#ht-modal-templates-container .elementor-template-library-template {
+#eead-modal-templates-container .elementor-template-library-template {
     position: relative;
 }
 
-#ht-modal-templates-container .ht-modal-template-pro::before {
+#eead-modal-templates-container .eead-modal-template-pro::before {
     position: absolute;
     right: 20px;
     top: 0;
@@ -309,7 +309,7 @@
     justify-content: center;
 }
 
-#ht-modal-templates-container .ht-modal-template-pro::after {
+#eead-modal-templates-container .eead-modal-template-pro::after {
     content: '';
     position: absolute;
     z-index: 2;
@@ -320,7 +320,7 @@
     border-bottom: 10px solid transparent;
 }
 
-#ht-modal-templates-container .elementor-template-library-template-remote {
+#eead-modal-templates-container .elementor-template-library-template-remote {
     width: calc(33.3333% - 30px);
     margin: 0;
 }
@@ -329,14 +329,14 @@
     font-style: normal;
 }
 
-#ht-modal-templates-container .elementor-template-library-template-name {
+#eead-modal-templates-container .elementor-template-library-template-name {
     padding: 5px 5px 0;
     display: block;
     text-align: center;
     background: #FFF;
 }
 
-#ht-modal-templates-container .elementor-template-library-template-controls {
+#eead-modal-templates-container .elementor-template-library-template-controls {
     position: absolute;
     background-color: #fff;
     left: 0;
@@ -348,12 +348,12 @@
     transition: all 0.3s ease;
 }
 
-#ht-modal-templates-container .elementor-template-library-template:hover .elementor-template-library-template-controls {
+#eead-modal-templates-container .elementor-template-library-template:hover .elementor-template-library-template-controls {
     transform: translateY(0);
 }
 
-#ht-modal-templates-container .ht-template-insert,
-#ht-modal-templates-container .ht-template-go-pro {
+#eead-modal-templates-container .eead-template-insert,
+#eead-modal-templates-container .eead-template-go-pro {
     padding: 10px;
     margin: 0;
     color: #39b54a;
@@ -367,12 +367,12 @@
     line-height: 1;
 }
 
-#ht-modal-templates-container .ht-template-go-pro {
+#eead-modal-templates-container .eead-template-go-pro {
     color: #93003c;
 }
 
-#ht-template-library-content .ht-template-insert i,
-#ht-modal-templates-container .ht-template-go-pro i {
+#eead-template-library-content .eead-template-insert i,
+#eead-modal-templates-container .eead-template-go-pro i {
     margin-right: 5px;
 }
 
@@ -392,25 +392,25 @@
 }
 
 /* Notification */
-#ht-template-modal-header-close-modal i {
+#eead-template-modal-header-close-modal i {
     color: #a4afb7;
     font-size: 16px;
 }
 
-#ht-template-modal-header-close-modal:hover i {
+#eead-template-modal-header-close-modal:hover i {
     color: #6d7882;
 }
 
-#ht-modal-template .elementor-library-error {
+#eead-modal-template .elementor-library-error {
     margin: 18% 0 0;
 }
 
-#ht-modal-template .elementor-library-error-message {
+#eead-modal-template .elementor-library-error-message {
     font-size: 18px;
     padding: 0 0 20px;
 }
 
-#ht-modal-template .elementor-library-error-link a {
+#eead-modal-template .elementor-library-error-link a {
     display: inline-block;
     color: #fff;
     background-image: none;
@@ -430,42 +430,42 @@
     transition: all 0.5s;
 }
 
-#ht-modal-template .elementor-library-error-link a:hover {
+#eead-modal-template .elementor-library-error-link a:hover {
     opacity: 0.85;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Loader */
-#ht-modal-template .elementor-loader {
+#eead-modal-template .elementor-loader {
     position: relative;
 }
 
-#ht-modal-template .elementor-loader .elementor-loader-box:first-of-type {
+#eead-modal-template .elementor-loader .elementor-loader-box:first-of-type {
     left: 40px;
     top: 40px;
     width: 14px;
     height: 70px;
 }
 
-#ht-modal-template .elementor-loader .elementor-loader-box:nth-of-type(2) {
+#eead-modal-template .elementor-loader .elementor-loader-box:nth-of-type(2) {
     top: 40px;
 }
 
-#ht-modal-template .elementor-loader .elementor-loader-box:nth-of-type(3) {
+#eead-modal-template .elementor-loader .elementor-loader-box:nth-of-type(3) {
     top: 68px;
 }
 
-#ht-modal-template .elementor-loader .elementor-loader-box:nth-of-type(4) {
+#eead-modal-template .elementor-loader .elementor-loader-box:nth-of-type(4) {
     bottom: 40px;
 }
 
-#ht-modal-template .elementor-loader .elementor-loader-box:not(:first-of-type) {
+#eead-modal-template .elementor-loader .elementor-loader-box:not(:first-of-type) {
     right: 40px;
     height: 14px;
     width: 42px;
 }
 
-.ht-item-notice > div {
+.eead-item-notice > div {
     color: #31708f;
     background-color: #d9edf7;
     padding: 5px 15px;
@@ -477,13 +477,13 @@
 }
 
 @media (max-width: 1439px) {
-    #ht-modal-template .dialog-widget-content {
+    #eead-modal-template .dialog-widget-content {
         max-width: 990px;
     }
 }
 
 @media (min-width: 1440px) {
-    #ht-modal-template .dialog-widget-content {
+    #eead-modal-template .dialog-widget-content {
         max-width: 1200px;
     }
 }

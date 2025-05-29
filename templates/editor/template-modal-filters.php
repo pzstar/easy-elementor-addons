@@ -3,4 +3,4 @@
  * Template Library Filter
  */
 ?>
-<div id="ht-modal-filters-container"></div>
+<div id="eead-modal-filters-container"></div>

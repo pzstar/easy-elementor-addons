@@ -3,8 +3,8 @@
  * Templates Item Preview
  */
 ?>
-<div class="ht-item-notice"></div>
-<div class="ht-item-preview-iframe">
+<div class="eead-item-notice"></div>
+<div class="eead-item-preview-iframe">
     <div class="elementor-loader-wrapper">
         <div class="elementor-loader">
             <div class="elementor-loader-box"></div>

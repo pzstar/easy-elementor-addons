@@ -10,9 +10,9 @@ if (!defined('ABSPATH'))
 if (!class_exists('EEAD_Templates_API')) {
 
     /**
-     * HT API.
+     * EEAD API.
      *
-     * HT API class is responsible for getting API data.
+     * EEAD API class is responsible for getting API data.
      *
      */
     class EEAD_Templates_API {

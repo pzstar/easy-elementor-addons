@@ -10,9 +10,9 @@ if (!defined('ABSPATH'))
 if (!class_exists('EEAD_Templates_Assets')) {
 
     /**
-     * HT Templates Assets.
+     * EEAD Templates Assets.
      *
-     * HT Templates Assets class is responsible for enqueuing all required assets for integration templates on the editor page.
+     * EEAD Templates Assets class is responsible for enqueuing all required assets for integration templates on the editor page.
      *
      */
     class EEAD_Templates_Assets {
@@ -47,7 +47,7 @@ if (!class_exists('EEAD_Templates_Assets')) {
          */
         public function editor_styles() {
             wp_enqueue_style(
-                'ht-editor-only', EEAD_URL . 'templates/assets/css/editor.css', [], EEAD_VERSION
+                'eead-editor-only', EEAD_URL . 'templates/assets/css/editor.css', [], EEAD_VERSION
             );
         }
 
@@ -60,7 +60,7 @@ if (!class_exists('EEAD_Templates_Assets')) {
          */
         public function enqueue_preview_styles() {
             wp_enqueue_style(
-                'ht-addons-editor-preview', EEAD_URL . 'templates/assets/css/preview.css', array(), EEAD_VERSION, 'all'
+                'eead-addons-editor-preview', EEAD_URL . 'templates/assets/css/preview.css', array(), EEAD_VERSION, 'all'
             );
         }
 
@@ -72,16 +72,16 @@ if (!class_exists('EEAD_Templates_Assets')) {
          * @access public
          */
         public function editor_scripts() {
-            wp_enqueue_script('ht-addons-editor-js', EEAD_URL . 'templates/assets/js/editor.js', array(
+            wp_enqueue_script('eead-addons-editor-js', EEAD_URL . 'templates/assets/js/editor.js', array(
                 'jquery',
                 'underscore',
                 'backbone-marionette'
             ), EEAD_VERSION, true
             );
             $button = Templates\eead_elementor_templates()->config->get('eead_elementor_templates');
-            wp_localize_script('ht-addons-editor-js', 'HTData', apply_filters('ht-addons-core/assets/editor/localize', array(
+            wp_localize_script('eead-addons-editor-js', 'EEADData', apply_filters('eead-addons-core/assets/editor/localize', array(
                 'eead_image_dir' => EEAD_URL . 'templates/assets/images/hash-icon.svg',
-                'HTEditorBtn' => $button,
+                'EEADEditorBtn' => $button,
                 'modalRegions' => $this->get_modal_region(),
                 'license' => array(
                     'status' => Templates\eead_elementor_templates()->config->get('status'),
@@ -119,7 +119,7 @@ if (!class_exists('EEAD_Templates_Assets')) {
                 $name = basename($file, '.php');
                 ob_start();
                 include $file;
-                printf('<script type="text/html" id="views-ht-%1$s">%2$s</script>', $name, ob_get_clean());
+                printf('<script type="text/html" id="views-eead-%1$s">%2$s</script>', $name, ob_get_clean());
             }, $scripts);
         }
 
