@@ -73,7 +73,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
             require EEAD_PATH . 'inc/icon-manager.php';
             require EEAD_PATH . 'inc/sticky-container.php';
             require EEAD_PATH . 'inc/admin-menu/admin-menu-class.php';
-            require EEAD_PATH . 'templates/templates.php';
+            //require EEAD_PATH . 'templates/templates.php';
         }
 
         public function required_plugins_notice() {

@@ -485,7 +485,7 @@
         },
         initEEADTempsButton: function () {
             var a = window.elementor.$previewContents.find(".elementor-add-new-section"),
-                o = '<div class="elementor-add-section-area-button eead-add-section-btn"><div class="eead-editor-icon"></div></div>';
+                o = '<div class="elementor-add-section-area-button eead-add-section-btn" title="Add Easy Elementor Addons Template"><div class="eead-editor-icon"></div></div>';
             a.length && i.EEADEditorBtn && e(o).prependTo(a), window.elementor.$previewContents.on("click.addEEADTemplate", ".elementor-editor-section-settings .elementor-editor-element-add", function () {
                 var a = e(this).closest(".elementor-top-section"),
                     n = a.data("model-cid");
