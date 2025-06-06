@@ -328,7 +328,7 @@ if (!class_exists('EEAD_Templates_Manager')) {
 
             $source = $data['data']['source'];
 
-            if (!isset($this->sources[$source])) {
+            if (!$source && !isset($this->sources[$source])) {
                 return;
             }
 

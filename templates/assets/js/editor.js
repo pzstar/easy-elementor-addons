@@ -159,18 +159,21 @@
                         n = a.attributes.pro,
                         l = Object.keys(o).length,
                         r = {};
-                    if (t.layout.showLoadingView(), 0 < l)
-                        for (var s in o)
+                    if (t.layout.showLoadingView(), 0 < l) {
+                        for (var s in o) {
+                            const templateAttr = o[s];
                             e.ajax({
                                 url: ajaxurl,
                                 type: "post",
                                 dataType: "json",
                                 data: {
                                     action: "eead_inner_template",
-                                    template: o[s],
+                                    template: templateAttr?.template_id ? templateAttr : {...templateAttr, template_id: a.attributes.template_id},
                                     tab: t.getTab()
                                 }
                             });
+                        }
+                    }
                     "valid" !== i.license.status && n ? t.layout.showLicenseError() : elementor.templates.requestTemplateContent(a.get("source"), a.get("template_id"), {
                         data: {
                             tab: t.getTab(),
