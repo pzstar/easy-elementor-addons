@@ -983,19 +983,36 @@
 
         popupModal: function ($scope) {
             var $open = $scope.find('.eead-popup-modal-trigger-btn');
-            $open.on('click', function () {
-                var $id = $(this).data('id');
-                MicroModal.show('eead-popup-modal-' + $id, {
-                    awaitOpenAnimation: true,
-                    awaitCloseAnimation: true,
-                    openClass: 'eead-open-modal',
-                    disableScroll: true,
-                    onShow: (modal) => {
-                    },
-                    onClose: (modal) => {
-                    }
-                })
-            });
+            if ($open.hasClass('eead-popup-modal-trigger-selector')) {
+                var $trigger = $open.attr('data-selector');
+                $($trigger)?.on('click', function () {
+                    var $id = $open.data('id');
+                    MicroModal.show('eead-popup-modal-' + $id, {
+                        awaitOpenAnimation: true,
+                        awaitCloseAnimation: true,
+                        openClass: 'eead-open-modal',
+                        disableScroll: true,
+                        onShow: (modal) => {
+                        },
+                        onClose: (modal) => {
+                        }
+                    })
+                });
+            } else {
+                $open.on('click', function () {
+                    var $id = $(this).data('id');
+                    MicroModal.show('eead-popup-modal-' + $id, {
+                        awaitOpenAnimation: true,
+                        awaitCloseAnimation: true,
+                        openClass: 'eead-open-modal',
+                        disableScroll: true,
+                        onShow: (modal) => {
+                        },
+                        onClose: (modal) => {
+                        }
+                    })
+                });
+            }
         },
 
         popupVideo: function ($scope) {

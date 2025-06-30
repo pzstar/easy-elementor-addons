@@ -155,6 +155,7 @@ class PopupModal extends Widget_Base {
 					'button' => esc_html__('Button', 'easy-elementor-addons'),
 					'image' => esc_html__('Image', 'easy-elementor-addons'),
 					'icon' => esc_html__('Icon', 'easy-elementor-addons'),
+                    'selector' => esc_html__('Selector', 'easy-elementor-addons'),
 				],
 				'separator' => 'before'
 			]
@@ -259,6 +260,18 @@ class PopupModal extends Widget_Base {
 				]
 			]
 		);
+
+        $this->add_control(
+            'trigger_selector', [
+                'label' => esc_html__('Selector', 'easy-elementor-addons'),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'description' => esc_html__('#id or .class of element, or element for selecting element.', 'easy-elementor-addons'),
+                'condition' => [
+                    'trigger_type' => 'selector'
+                ]
+            ]
+        );
 
 		$this->end_controls_section();
 
@@ -1414,8 +1427,11 @@ class PopupModal extends Widget_Base {
 				'eead-modal-popup-btn-' . esc_attr($id)
 			],
 			'data-id' => esc_attr($id)
-		]
-		);
+		]);
+
+		if ($settings['trigger_type'] == 'selector') {
+			$this->add_render_attribute('popup-modal-button', 'data-selector', $settings['trigger_selector']);
+		}
 
 		if ($settings['button_hover_animation']) {
 			$this->add_render_attribute('popup-modal-button', 'class', 'elementor-animation-' . esc_attr($settings['button_hover_animation']));
