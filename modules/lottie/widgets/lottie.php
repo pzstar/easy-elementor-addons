@@ -330,7 +330,7 @@ class Lottie extends Widget_Base {
             }
 
             $this->add_render_attribute('wrapper', [
-                'id' => 'eead-lottie-' . $this->get_id(),
+                'id' => esc_attr('eead-lottie-' . $this->get_id()),
                 'class' => 'eead-lottie',
                 'data-settings' => json_encode($lottie_settings)
             ]);

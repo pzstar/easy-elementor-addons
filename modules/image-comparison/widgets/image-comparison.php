@@ -366,10 +366,10 @@ class ImageComparison extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $id = esc_attr($this->get_id());
+        $id = $this->get_id();
 
         $compare_settings = [
-            'id' => 'eead-image-compare-' . $id,
+            'id' => esc_attr('eead-image-compare-' . $id),
             'orientation' => $settings['orientation'] == 'horizontal' ? false : true,
             'smoothing' => $settings['smoothing'] == 'yes' ? true : false,
             'smoothing_amount' => $settings['smoothing_intensity']['size'] ? $settings['smoothing_intensity']['size'] : 600,
@@ -388,7 +388,7 @@ class ImageComparison extends Widget_Base {
 
         $this->add_render_attribute([
             'image-compare' => [
-                'id' => 'eead-image-compare-' . esc_attr($id),
+                'id' => esc_attr('eead-image-compare-' . $id),
                 'class' => ['eead-image-compare'],
                 'data-settings' => [
                     wp_json_encode($compare_settings),

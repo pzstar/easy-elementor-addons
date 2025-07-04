@@ -884,7 +884,7 @@ class PopupVideo extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute('popup-video', [
-            'id' => 'eead-video-popup-' . esc_attr($this->get_id()),
+            'id' => esc_attr('eead-video-popup-' . $this->get_id()),
             'class' => ['eead-video-popup-button', 'eead-vp-' . esc_attr($settings['trigger_type'])],
             'data-elementor-open-lightbox' => 'no',
             'data-video-type' => esc_attr($settings['video_type']),
@@ -927,7 +927,7 @@ class PopupVideo extends Widget_Base {
             ]);
         } elseif ($settings['video_type'] == 'custom') {
             $this->add_render_attribute('popup-video', [
-                'data-html' => '#eead-custom-video-' . esc_attr($this->get_id())
+                'data-html' => esc_attr('#eead-custom-video-' . $this->get_id())
             ]);
             ?>
             <div id="eead-custom-video-<?php echo esc_attr($this->get_id()); ?>" style="display: none;">

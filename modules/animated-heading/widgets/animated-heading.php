@@ -321,7 +321,7 @@ class AnimatedHeading extends Widget_Base {
 
         $this->add_render_attribute([
             'animated-heading' => [
-                'id' => 'eead-animated-heading-' . $id,
+                'id' => esc_attr('eead-animated-heading-' . $id),
                 'class' => 'eead-animated-heading'
             ]
         ]);

@@ -1417,14 +1417,14 @@ class PopupModal extends Widget_Base {
 
 	protected function render_button() {
 		$settings = $this->get_settings_for_display();
-		$id = esc_attr($this->get_id());
+		$id = $this->get_id();
 
 		$this->add_render_attribute('popup-modal-button', [
 			'href' => '#',
 			'class' => [
 				'eead-popup-modal-trigger-btn',
-				'eead-popup-modal-trigger-' . esc_attr($settings['trigger_type']),
-				'eead-modal-popup-btn-' . esc_attr($id)
+				esc_attr('eead-popup-modal-trigger-' . $settings['trigger_type']),
+				esc_attr('eead-modal-popup-btn-' . $id)
 			],
 			'data-id' => esc_attr($id)
 		]);
@@ -1472,7 +1472,7 @@ class PopupModal extends Widget_Base {
 		$overlay = $settings['show_overlay'] ? 'yes' : 'no';
 
 		$this->add_render_attribute('popup-modal', [
-			'id' => 'eead-popup-modal-' . esc_attr($id),
+			'id' => esc_attr('eead-popup-modal-' . $id),
 			'class' => [
 				'eead-popup-modal',
 				'eead-popup-modal-' . esc_attr($settings['layout_type']),

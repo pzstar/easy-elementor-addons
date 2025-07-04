@@ -546,7 +546,7 @@ class DropBar extends Widget_Base {
         $this->add_render_attribute(
             [
                 'drop-settings' => [
-                    'id' => $id,
+                    'id' => esc_attr($id),
                     'class' => 'eead-drop uk-drop',
                     'uk-drop' => [$btn_settings],
                 ]

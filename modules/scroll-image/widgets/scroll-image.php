@@ -1212,7 +1212,7 @@ class ScrollImage extends Widget_Base {
 			$this->add_render_attribute('wrapper', 'class', 'eead-scroll-image-frame-on eead-scroll-image-frame-' . esc_attr($settings['frame']));
 		}
 		?>
-		<div id="eead-scroll-image-container-<?php echo $this->get_id(); ?>" class="eead-scroll-image-container">
+		<div id="eead-scroll-image-container-<?php echo esc_attr($this->get_id()); ?>" class="eead-scroll-image-container">
 			<div class="eead-scroll-image-wrapper">
 				<div class="eead-scroll-image-frame-wrapper">
 					<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>

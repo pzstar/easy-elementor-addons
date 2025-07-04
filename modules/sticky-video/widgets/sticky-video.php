@@ -540,7 +540,7 @@ class StickyVideo extends Widget_Base {
     protected function get_youtube_player() {
         $id = $this->get_url_id();
 
-        return '<div id="eead-player-' . $this->get_id() . '"
+        return '<div id="eead-player-' . esc_attr($this->get_id()) . '"
             data-plyr-provider="youtube"
             data-plyr-embed-id="' . esc_attr($id) . '">
             </div>';
@@ -549,7 +549,7 @@ class StickyVideo extends Widget_Base {
     protected function get_vimeo_player() {
         $id = $this->get_url_id();
 
-        return '<div id="eead-player-' . $this->get_id() . '"
+        return '<div id="eead-player-' . esc_attr($this->get_id()) . '"
             data-plyr-provider="vimeo"
             data-plyr-embed-id="' . esc_attr($id) . '">
             </div>';

@@ -726,8 +726,8 @@ class OnePageNavigation extends Widget_Base {
         $this->add_render_attribute(
             'onepage-nav', [
                 'class' => 'eead-one-page-nav',
-                'id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
-                'data-section-id' => 'eead-one-page-nav-' . esc_attr($this->get_id()),
+                'id' => esc_attr('eead-one-page-nav-' . $this->get_id()),
+                'data-section-id' => esc_attr('eead-one-page-nav-' . $this->get_id()),
                 'data-top-offset' => esc_attr($settings['offset']['size']),
                 'data-scroll-speed' => esc_attr($settings['scrolling_speed']),
                 'data-scroll-wheel' => esc_attr($settings['scroll_wheel']),

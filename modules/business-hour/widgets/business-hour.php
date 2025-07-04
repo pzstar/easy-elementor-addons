@@ -871,7 +871,7 @@ class BusinessHour extends Widget_Base {
                 'data-settings' => [
                     wp_json_encode(
                         array_filter([
-                            "id" => 'business-hours-' . $this->get_id(),
+                            "id" => esc_attr('business-hours-' . $this->get_id()),
                             'business_hour_style' => $settings['business_hour_style'] == 'default' ? 'static' : 'dynamic',
                             "dynamic_timezone_default" => get_option('gmt_offset'),
                             "dynamic_timezone" => $settings['dynamic_timezone'] == 'default' ? get_option('gmt_offset') : $ct_input,
