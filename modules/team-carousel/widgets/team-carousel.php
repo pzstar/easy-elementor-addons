@@ -57,7 +57,7 @@ class TeamCarousel extends Widget_Base {
         $this->add_control(
             'team_members',
             [
-                'label' => esc_html__('Add Team Member', 'textdomain'),
+                'label' => esc_html__('Add Team Member', 'easy-elementor-addons'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => [
                     [

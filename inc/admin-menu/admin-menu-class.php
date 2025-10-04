@@ -72,9 +72,9 @@ class AdminClass {
             <span>
                 <?php
                 if ($icon) {
-                    echo '<i class="' . $icon . '"></i>';
+                    echo '<i class="' . esc_attr($icon) . '"></i>';
                 }
-                esc_html_e($label);
+                echo esc_html($label);
                 ?>
             </span>
             <div class="eead-checkbox">

@@ -861,14 +861,14 @@ class Countdown extends Widget_Base {
 
         if ($settings['countdown_expire_type'] == 'text') {
             if (!empty($settings['countdown_expiry_text'])) {
-                $this->add_render_attribute('eead-countdown', 'data-expiry-text', wp_kses_post($settings['countdown_expiry_text']));
+                $this->add_render_attribute('eead-countdown', 'data-expiry-text', esc_html($settings['countdown_expiry_text']));
             }
 
             if (!empty($settings['countdown_expiry_text_title'])) {
-                $this->add_render_attribute('eead-countdown', 'data-expiry-title', wp_kses_post($settings['countdown_expiry_text_title']));
+                $this->add_render_attribute('eead-countdown', 'data-expiry-title', esc_html($settings['countdown_expiry_text_title']));
             }
         } elseif ($settings['countdown_expire_type'] == 'url') {
-            $this->add_render_attribute('eead-countdown', 'data-redirect-url', $settings['countdown_expiry_redirection']);
+            $this->add_render_attribute('eead-countdown', 'data-redirect-url', esc_url($settings['countdown_expiry_redirection']));
         }
         ?>
 

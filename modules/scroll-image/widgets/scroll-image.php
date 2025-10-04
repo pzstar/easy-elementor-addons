@@ -1115,7 +1115,7 @@ class ScrollImage extends Widget_Base {
 		);
 
 		if ($settings['image_framing']) {
-			echo '<img class="eead-scroll-image-device" src="' . EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg">';
+			echo '<img class="eead-scroll-image-device" src="' . esc_url(EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg') . '">';
 		}
 
 		echo '<div ' . $this->get_render_attribute_string('image-box') . '>';

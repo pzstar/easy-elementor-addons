@@ -67,7 +67,7 @@ class Lottie extends Widget_Base {
             'lottie_json', [
                 'show_label' => false,
                 'description' => sprintf(
-                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
+                    esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
                 ),
                 'type' => Controls_Manager::MEDIA,
                 'media_type' => 'application/json',
@@ -82,7 +82,7 @@ class Lottie extends Widget_Base {
                 'show_label' => false,
                 'label_block' => true,
                 'description' => sprintf(
-                    esc_html__('Discover thousands of %sLottie animations%s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
+                    esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
                 ),
                 'default' => 'https://assets6.lottiefiles.com/packages/lf20_sgnacf85.json',
                 'type' => Controls_Manager::TEXT,
