@@ -562,7 +562,7 @@ class DropBar extends Widget_Base {
                     if ($settings['source'] == "custom" && !empty($settings['content'])) {
                         echo wp_kses_post($settings['content']);
                     } else if ($settings['source'] == "elementor" && !empty($settings['template_id'])) {
-                        echo Plugin::$instance->frontend->get_builder_content_for_display($settings['template_id']);
+                        echo wp_kses_post(Plugin::$instance->frontend->get_builder_content_for_display($settings['template_id']));
                     }
                     ?>
                 </div>

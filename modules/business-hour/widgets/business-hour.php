@@ -849,7 +849,7 @@ class BusinessHour extends Widget_Base {
         $absmin = abs($min);
 
         $tz = sprintf("%s%02d", $sign, $absmin / 60, $absmin % 60);
-        $data = gmdate("g:i:s A", time() + 3600 * ($tz + date("I")));
+        $data = gmdate("g:i:s A", time() + 3600 * ($tz + gmdate("I")));
         return $data;
     }
 
@@ -894,10 +894,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-time">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo date(get_option('time_format'), current_time('timestamp'));
+                                echo esc_html(gmdate(get_option('time_format'), current_time('timestamp')));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo date('h:i a', $cur_time);
+                                echo esc_html(gmdate('h:i a', $cur_time));
                             }
                             ?>
                         </div>
@@ -905,10 +905,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-date">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo date(get_option('date_format'), current_time('timestamp'));
+                                echo esc_html(gmdate(get_option('date_format'), current_time('timestamp')));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo date(get_option('date_format'), $cur_time);
+                                echo esc_html(gmdate(get_option('date_format'), $cur_time));
                             }
                             ?>
                         </div>
@@ -978,10 +978,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-time">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo date(get_option('time_format'), current_time('timestamp'));
+                                echo esc_html(gmdate(get_option('time_format'), current_time('timestamp')));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo date('h:i a', $cur_time);
+                                echo esc_html(gmdate('h:i a', $cur_time));
                             }
                             ?>
                         </div>
@@ -989,10 +989,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-date">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo date(get_option('date_format'), current_time('timestamp'));
+                                echo esc_html(gmdate(get_option('date_format'), current_time('timestamp')));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo date(get_option('date_format'), $cur_time);
+                                echo esc_html(gmdate(get_option('date_format'), $cur_time));
                             }
                             ?>
                         </div>

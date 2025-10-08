@@ -533,7 +533,7 @@ class TwitterFeed extends Widget_Base {
             ]);
         }
         ?>
-        <a <?php $this->print_render_attribute_string('handle'); ?>> Handle <?php echo $settings['username']; ?></a>
+        <a <?php $this->print_render_attribute_string('handle'); ?>> Handle <?php echo esc_html($settings['username']); ?></a>
         <?php
     }
 
@@ -541,7 +541,7 @@ class TwitterFeed extends Widget_Base {
 
         $this->add_render_attribute('hashtag', [
             'class' => 'twitter-hashtag-button',
-            'href' => 'https://twitter.com/intent/tweet?button_hashtag=' . $settings['hashtag'],
+            'href' => 'https://twitter.com/intent/tweet?button_hashtag=' . esc_attr($settings['hashtag']),
             'data-lang' => $settings['language']
         ]);
 
@@ -562,7 +562,7 @@ class TwitterFeed extends Widget_Base {
         }
         $this->add_render_attribute('hashtag', 'data-url', $settings['hashtag_url']);
         ?>
-        <a <?php $this->print_render_attribute_string('hashtag'); ?>>Tweet<?php echo $settings['hashtag']; ?> </a>
+        <a <?php $this->print_render_attribute_string('hashtag'); ?>>Tweet<?php echo esc_html($settings['hashtag']); ?> </a>
         <?php
     }
 

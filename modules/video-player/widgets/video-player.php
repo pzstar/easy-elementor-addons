@@ -450,7 +450,7 @@ class VideoPlayer extends Widget_Base {
                 $this->add_render_attribute('video_player', 'class', 'eead-custom-play-button');
             }
 
-            $video_html = '<video ' . $this->get_render_attribute_string('video_player') . '></video>';
+            $video_html = '<video ' . esc_attr($this->get_render_attribute_string('video_player')) . '></video>';
         } else {
             $embed_params = $this->get_embed_params();
             $embed_options = $this->get_embed_options();
@@ -462,7 +462,7 @@ class VideoPlayer extends Widget_Base {
 
             $video_html = Embed::get_embed_html($video_url, $embed_params, $embed_options, $embed_attr);
         }
-        echo $video_html;
+        echo wp_kses_post($video_html);
     }
 
     public function get_embed_params() {

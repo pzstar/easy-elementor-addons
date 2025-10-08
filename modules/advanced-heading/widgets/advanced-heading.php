@@ -723,9 +723,9 @@ class AdvancedHeading extends Widget_Base {
         ?>
         <div class="eead-advanced-heading">
             <?php
-            echo $this->get_sub_heading();
-            echo $this->get_advanced_heading();
-            echo $this->get_main_heading();
+            $this->get_sub_heading();
+            $this->get_advanced_heading();
+            $this->get_main_heading();
             ?>
         </div>
         <?php
@@ -740,7 +740,7 @@ class AdvancedHeading extends Widget_Base {
             $sub_heading .= esc_html($settings['sub_heading']);
             $sub_heading .= '</span></div>';
         }
-        return $sub_heading;
+        echo wp_kses_post($sub_heading);
     }
 
     protected function get_main_heading() {
@@ -773,14 +773,14 @@ class AdvancedHeading extends Widget_Base {
 
             $heading .= '<' . esc_attr(eead_check_allowed_html_tags($settings['header_size'])) . ' class="eead-ah-main-heading eead-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
             if (!empty($settings['link']['url'])) {
-                $heading .= wp_kses_post(sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('url'), $main_heading));
+                $heading .= wp_kses_post(sprintf('<a %1$s>%2$s</a>', esc_attr($this->get_render_attribute_string('url'), $main_heading)));
             } else {
                 $heading .= wp_kses_post($main_heading);
             }
             $heading .= '</' . esc_attr(eead_check_allowed_html_tags($settings['header_size'])) . '>';
         }
 
-        return $heading;
+        echo wp_kses_post($heading);
     }
 
     protected function get_advanced_heading() {
@@ -795,11 +795,11 @@ class AdvancedHeading extends Widget_Base {
                 ]
             );
 
-            $advanced_heading .= '<div ' . $this->get_render_attribute_string('advanced_heading') . '>';
+            $advanced_heading .= '<div ' . esc_attr($this->get_render_attribute_string('advanced_heading')) . '>';
             $advanced_heading .= esc_html($settings['advanced_heading']);
             $advanced_heading .= '</div>';
         }
-        return $advanced_heading;
+        echo wp_kses_post($advanced_heading);
     }
 
 }

@@ -66,9 +66,8 @@ class Lottie extends Widget_Base {
         $this->add_control(
             'lottie_json', [
                 'show_label' => false,
-                'description' => sprintf(
-                    esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
-                ),
+                /* translators: 1: link start tag, 2: link end tag */
+                'description' => sprintf(esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'),
                 'type' => Controls_Manager::MEDIA,
                 'media_type' => 'application/json',
                 'condition' => [
@@ -81,9 +80,8 @@ class Lottie extends Widget_Base {
             'lottie_url', [
                 'show_label' => false,
                 'label_block' => true,
-                'description' => sprintf(
-                    esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'
-                ),
+                /* translators: 1: link start tag, 2: link end tag */
+                'description' => sprintf(esc_html__('Discover thousands of %1$sLottie animations%2$s ready to use.', 'easy-elementor-addons'), '<a href="https://lottiefiles.com/featured" target="_blank">', '</a>'),
                 'default' => 'https://assets6.lottiefiles.com/packages/lf20_sgnacf85.json',
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => 'https://example.com/file.json',
@@ -343,7 +341,7 @@ class Lottie extends Widget_Base {
                 }
             }
 
-            echo '<' . $tag . ' ' . $this->get_render_attribute_string('wrapper') . ' ' . $this->get_render_attribute_string('link') . '>&nbsp</' . $tag . '>';
+            echo '<' . esc_attr($tag) . ' ' . esc_attr($this->get_render_attribute_string('wrapper')) . ' ' . esc_attr($this->get_render_attribute_string('link')) . '>&nbsp</' . esc_attr($tag) . '>';
             ?>
         </div>
         <?php

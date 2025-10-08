@@ -525,7 +525,7 @@ class LogoGrid extends Widget_Base {
         }
         ?>
 
-        <div <?php echo $this->get_render_attribute_string('logo-grid'); ?>>
+        <div <?php $this->print_render_attribute_string('logo-grid')); ?>>
             <?php
             $count = 1;
             $logo_count = count($settings['logos']);
@@ -544,11 +544,11 @@ class LogoGrid extends Widget_Base {
                     ];
                     $this->add_render_attribute('logo-item' . $count, ['class' => array_filter($classes)]);
                     ?>
-                    <div <?php echo $this->get_render_attribute_string('logo-item' . $count); ?>>
+                    <div <?php $this->print_render_attribute_string('logo-item' . $count)); ?>>
                         <?php
                         if (!empty($item['link']['url'])) {
                             $this->add_link_attributes('logo-link' . $count, $item['link']);
-                            echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
+                            echo '<a ' . esc_attr($this->get_render_attribute_string('logo-link' . $count)) . '>';
                         }
 
                         $image_alt = Control_Media::get_image_alt($item['logo_image']);
@@ -568,7 +568,7 @@ class LogoGrid extends Widget_Base {
                             echo '<' . esc_attr(eead_check_allowed_html_tags($settings['title_html_tag'])) . ' class="eead-logo-grid-title">';
 
                             if (!empty($item['link']['url'])) {
-                                echo '<a ' . $this->get_render_attribute_string('logo-link' . $count) . '>';
+                                echo '<a ' . esc_attr($this->get_render_attribute_string('logo-link' . $count)) . '>';
                             }
 
                             echo esc_html($item['title']);

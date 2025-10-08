@@ -403,8 +403,8 @@ class ImageComparison extends Widget_Base {
         <div class="eead-image-comparison">
             <div <?php $this->print_render_attribute_string('image-compare'); ?>>
                 <?php
-                echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'before_image');
-                echo Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'after_image');
+                echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'before_image'));
+                echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail_size', 'after_image'));
                 ?>
             </div>
         </div>

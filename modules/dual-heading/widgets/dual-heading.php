@@ -545,11 +545,11 @@ class DualHeading extends Widget_Base {
         $heading_text = '';
 
         if ($settings['first_heading']) {
-            $heading_text = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('first_heading'), esc_html($settings['first_heading']));
+            $heading_text = sprintf('<span %1$s>%2$s</span>', esc_attr($this->get_render_attribute_string('first_heading')), esc_html($settings['first_heading']));
         }
         $heading_text .= '&nbsp;';
         if ($settings['second_heading']) {
-            $heading_text .= sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('second_heading'), esc_html($settings['second_heading']));
+            $heading_text .= sprintf('<span %1$s>%2$s</span>', esc_attr($this->get_render_attribute_string('second_heading')), esc_html($settings['second_heading']));
         }
 
         if (!empty($settings['link']['url'])) {
@@ -568,7 +568,7 @@ class DualHeading extends Widget_Base {
 
                 <?php
                 if (!empty($settings['link']['url'])) {
-                    printf('<a %1$s>', $this->get_render_attribute_string('heading-link'));
+                    printf('<a %1$s>', esc_attr($this->get_render_attribute_string('heading-link')));
                 }
 
                 echo wp_kses_post($heading_text);

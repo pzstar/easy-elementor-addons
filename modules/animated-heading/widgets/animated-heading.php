@@ -373,7 +373,7 @@ class AnimatedHeading extends Widget_Base {
                 if (!empty($settings['heading_link']['nofollow'])) {
                     $this->add_render_attribute('url', 'rel', 'nofollow');
                 }
-                echo sprintf('<a %1$s>', $this->get_render_attribute_string('url'));
+                echo sprintf('<a %1$s>', esc_attr($this->get_render_attribute_string('url')));
             }
 
             if ($settings['pre_heading']) {
@@ -389,7 +389,7 @@ class AnimatedHeading extends Widget_Base {
                 <span <?php $this->print_render_attribute_string('animated-heading'); ?>>
                     <?php
                     if ($settings['layout'] != 'typed') {
-                        echo rtrim(esc_attr($settings['animated_heading']), ',');
+                        echo esc_attr(rtrim($settings['animated_heading'], ','));
                     }
                     ?>
                 </span>

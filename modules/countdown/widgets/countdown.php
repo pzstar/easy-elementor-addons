@@ -55,7 +55,7 @@ class Countdown extends Widget_Base {
             'countdown_due_time', [
                 'label' => esc_html__('Countdown Date & Time', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DATE_TIME,
-                'default' => date("Y-m-d", strtotime("+ 2 day"))
+                'default' => gmdate("Y-m-d", strtotime("+ 2 day"))
             ]
         );
 
@@ -847,7 +847,7 @@ class Countdown extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
         $get_due_date = esc_attr($settings['countdown_due_time']);
-        $due_date = date("M d Y G:i:s", strtotime($get_due_date));
+        $due_date = gmdate("M d Y G:i:s", strtotime($get_due_date));
         $separator = '';
 
         $this->add_render_attribute('eead-countdown', [
@@ -888,7 +888,7 @@ class Countdown extends Widget_Base {
                         ?>
                     </div>
                     <?php
-                    echo $separator;
+                    echo wp_kses_post($separator);
                 }
 
                 if (!empty($settings['countdown_hours'])) {
@@ -904,7 +904,7 @@ class Countdown extends Widget_Base {
                         ?>
                     </div>
                     <?php
-                    echo $separator;
+                    echo wp_kses_post($separator);
                 }
 
                 if (!empty($settings['countdown_minutes'])) {
@@ -920,7 +920,7 @@ class Countdown extends Widget_Base {
                         ?>
                     </div>
                     <?php
-                    echo $separator;
+                    echo wp_kses_post($separator);
                 }
 
                 if (!empty($settings['countdown_seconds'])) {

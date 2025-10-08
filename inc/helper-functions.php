@@ -2,16 +2,6 @@
 
 use Elementor\Plugin;
 
-if (!function_exists('pr')) {
-
-    function pr($ar) {
-        echo '<pre>';
-        print_r($ar);
-        echo '</pre>';
-    }
-
-}
-
 if (!function_exists('eead_html_tags')) {
 
     function eead_html_tags() {

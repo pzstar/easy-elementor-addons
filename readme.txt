@@ -1,4 +1,4 @@
-=== Easy Elementor Addons ===
+=== Easy Elementor Addons - Addons Pack for Elementor Page Builder ===
 Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3

@@ -1118,8 +1118,8 @@ class ScrollImage extends Widget_Base {
 			echo '<img class="eead-scroll-image-device" src="' . esc_url(EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg') . '">';
 		}
 
-		echo '<div ' . $this->get_render_attribute_string('image-box') . '>';
-		echo '<div ' . $this->get_render_attribute_string('image') . '></div>';
+		echo '<div ' . esc_attr($this->get_render_attribute_string('image-box')) . '>';
+		echo '<div ' . esc_attr($this->get_render_attribute_string('image')) . '></div>';
 		$this->render_badge();
 		$this->render_link();
 		echo '</div>';
@@ -1137,7 +1137,7 @@ class ScrollImage extends Widget_Base {
 					break;
 
 				case 'image':
-					echo Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'badge_image');
+					echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'badge_image'));
 					break;
 
 				case 'text':
@@ -1184,7 +1184,7 @@ class ScrollImage extends Widget_Base {
 
 		if (($settings['link_to'] !== '') && ($settings['link_icon'] !== '')) {
 			?>
-			<a <?php echo $this->get_render_attribute_string('link'); ?>>
+			<a <?php $this->print_render_attribute_string('link')); ?>>
 				<?php if ($settings['link_icon'] !== 'custom') { ?>
 					<i class="<?php echo esc_attr($settings['link_icon']); ?>" aria-hidden="true"></i>
 					<?php
@@ -1215,7 +1215,7 @@ class ScrollImage extends Widget_Base {
 		<div id="eead-scroll-image-container-<?php echo esc_attr($this->get_id()); ?>" class="eead-scroll-image-container">
 			<div class="eead-scroll-image-wrapper">
 				<div class="eead-scroll-image-frame-wrapper">
-					<div <?php echo $this->get_render_attribute_string('wrapper'); ?>>
+					<div <?php $this->print_render_attribute_string('wrapper')); ?>>
 						<?php $this->render_image(); ?>
 					</div>
 				</div>

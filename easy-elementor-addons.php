@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder Plugin
+ * Plugin Name: Easy Elementor Addons - Addons Pack for Elementor Page Builder
  * Plugin URI: https://demo.hashthemes.com/easy-elementor-addons/
  * Description: Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite Elementor page builder.
  * Version: 2.3.0
@@ -44,19 +44,12 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
         public function __construct() {
 
-            // Load translation files
-            add_action('init', array($this, 'load_plugin_textdomain'));
-
             // Run On Plugin Activation 
             register_activation_hook(__FILE__, array($this, 'plugin_activation'));
 
             // Load necessary files.
             add_action('plugins_loaded', array($this, 'init'));
             add_filter('plugin_action_links_' . plugin_basename(EEAD_FILE), array($this, 'add_plugin_action_link'), 10, 1);
-        }
-
-        public function load_plugin_textdomain() {
-            load_plugin_textdomain('easy-elementor-addons', false, basename(dirname(__FILE__)) . '/languages');
         }
 
         public function init() {
@@ -101,7 +94,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
                 $admin_message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__('Install Elementor Now', 'easy-elementor-addons')) . '</p>';
             }
 
-            echo '<div class="error">' . $admin_message . '</div>';
+            echo '<div class="error">' . wp_kses_post($admin_message) . '</div>';
         }
 
         /**

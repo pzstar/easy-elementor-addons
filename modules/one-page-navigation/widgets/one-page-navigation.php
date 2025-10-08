@@ -750,7 +750,7 @@ class OnePageNavigation extends Widget_Base {
                     <li class="eead-one-page-nav-item">
                         <?php
                         if ($settings['nav_tooltip'] == 'yes') {
-                            printf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('tooltip'), esc_html($dot['section_title']));
+                            printf('<span %1$s>%2$s</span>', esc_attr($this->get_render_attribute_string('tooltip')), esc_html($dot['section_title']));
                         }
                         ?>
                         <a href="#" data-row-id="<?php echo esc_attr($dot['section_id']); ?>">
@@ -771,11 +771,11 @@ class OnePageNavigation extends Widget_Base {
         <?php if (Plugin::instance()->editor->is_edit_mode()) { ?>
             <div class="eead-editor-placeholder">
                 <h4 class="eead-editor-placeholder-title">
-                    <?php _e('One Page Navigation', 'easy-elementor-addons'); ?>
+                    <?php esc_html_e('One Page Navigation', 'easy-elementor-addons'); ?>
                 </h4>
 
                 <div class="eead-editor-placeholder-content">
-                    <p><?php _e('Click here to edit the Navigation settings. This text will not show in the frontend.', 'easy-elementor-addons'); ?></p>
+                    <p><?php esc_html_e('Click here to edit the Navigation settings. This text will not show in the frontend.', 'easy-elementor-addons'); ?></p>
                 </div>
             </div>
             <?php
