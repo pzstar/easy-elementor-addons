@@ -525,7 +525,7 @@ class LogoGrid extends Widget_Base {
         }
         ?>
 
-        <div <?php $this->print_render_attribute_string('logo-grid')); ?>>
+        <div <?php $this->print_render_attribute_string('logo-grid'); ?>>
             <?php
             $count = 1;
             $logo_count = count($settings['logos']);
@@ -544,7 +544,7 @@ class LogoGrid extends Widget_Base {
                     ];
                     $this->add_render_attribute('logo-item' . $count, ['class' => array_filter($classes)]);
                     ?>
-                    <div <?php $this->print_render_attribute_string('logo-item' . $count)); ?>>
+                    <div <?php $this->print_render_attribute_string('logo-item' . $count); ?>>
                         <?php
                         if (!empty($item['link']['url'])) {
                             $this->add_link_attributes('logo-link' . $count, $item['link']);

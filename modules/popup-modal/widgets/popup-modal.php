@@ -1443,7 +1443,7 @@ class PopupModal extends Widget_Base {
 		}
 		?>
 
-		<a <?php $this->print_render_attribute_string('popup-modal-button')); ?>>
+		<a <?php $this->print_render_attribute_string('popup-modal-button'); ?>>
 			<?php
 			if ($settings['trigger_type'] == 'button') {
 				if (!empty($settings['trigger_icon']['value'])) {
@@ -1486,7 +1486,7 @@ class PopupModal extends Widget_Base {
 			<?php $this->render_button(); ?>
 		</div>
 
-		<div <?php $this->print_render_attribute_string('popup-modal')); ?>>
+		<div <?php $this->print_render_attribute_string('popup-modal'); ?>>
 			<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 				<div class="modal__container animated animated-fast <?php echo esc_attr($settings['popup_animation']) ?>" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
 					<?php if ($settings['close_button'] == 'yes') { ?>

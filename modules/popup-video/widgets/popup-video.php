@@ -954,7 +954,7 @@ class PopupVideo extends Widget_Base {
         ?>
 
         <div class="eead-popup-video">
-            <a <?php $this->print_render_attribute_string('popup-video')); ?>>
+            <a <?php $this->print_render_attribute_string('popup-video'); ?>>
                 <?php $this->render_button(); ?>
             </a>
         </div>

@@ -968,7 +968,7 @@ class StepFlow extends Widget_Base {
             );
         } else {
             $this->add_inline_editing_attributes('title', 'basic');
-            $title = ($settings['title'];
+            $title = $settings['title'];
         }
         ?>
         <div class="eead-step-flow">

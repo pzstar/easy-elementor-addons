@@ -775,7 +775,7 @@ class Toggle extends Widget_Base {
         }
         ?>
 
-        <div <?php $this->print_render_attribute_string('toggle-container')); ?>>
+        <div <?php $this->print_render_attribute_string('toggle-container'); ?>>
             <?php
             if ($settings['toggle_position'] === 'before' || $settings['toggle_position'] === 'before-after') {
                 $this->before_after_toggle('before');
@@ -819,7 +819,7 @@ class Toggle extends Widget_Base {
         }
         ?>
 
-        <div <?php $this->print_render_attribute_string('toggle-switch-' . esc_attr($toggle_position))); ?>>
+        <div <?php $this->print_render_attribute_string('toggle-switch-' . esc_attr($toggle_position)); ?>>
             <div class="eead-toggle-switch-inner">
 
                 <?php if ($settings['primary_label']) { ?>

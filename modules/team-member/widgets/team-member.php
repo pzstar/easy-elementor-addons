@@ -970,7 +970,7 @@ class TeamMember extends Widget_Base {
                         if (!empty($item['social_link']['url']) && !empty($item['social_icon'])) {
                             $this->add_link_attributes('social-link' . $count, $item['social_link']);
                             ?>
-                            <a <?php $this->print_render_attribute_string('social-link' . $count)); ?>>
+                            <a <?php $this->print_render_attribute_string('social-link' . $count); ?>>
                                 <?php Icons_Manager::render_icon($item['social_icon'], ['aria-hidden' => 'true']); ?>
                             </a>
                             <?php

@@ -1644,7 +1644,7 @@ class TeamCarousel extends Widget_Base {
             if (!empty($item['social_link_' . $i]['url']) && !empty($item['social_icon_' . $i])) {
                 $this->add_link_attributes('social-link-' . $i . $index, $item['social_link_' . $i]);
                 ?>
-                <a <?php $this->print_render_attribute_string('social-link-' . $i . $index)); ?>>
+                <a <?php $this->print_render_attribute_string('social-link-' . $i . $index); ?>>
                     <?php Icons_Manager::render_icon($item['social_icon_' . $i], ['aria-hidden' => 'true']); ?>
                 </a>
                 <?php

@@ -919,7 +919,7 @@ class ImageGallery extends Widget_Base {
             'data-settings' => wp_json_encode($gallery_settings),
         ]);
         ?>
-        <div id="eead-image-gallery-container-<?php echo esc_attr($id); ?>" class="eead-image-gallery-container" <?php $this->print_render_attribute_string('gallery-settings')); ?>>
+        <div id="eead-image-gallery-container-<?php echo esc_attr($id); ?>" class="eead-image-gallery-container" <?php $this->print_render_attribute_string('gallery-settings'); ?>>
 
             <?php $this->render_filters(); ?>
 
