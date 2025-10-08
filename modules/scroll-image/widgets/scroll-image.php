@@ -1117,12 +1117,17 @@ class ScrollImage extends Widget_Base {
 		if ($settings['image_framing']) {
 			echo '<img class="eead-scroll-image-device" src="' . esc_url(EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg') . '">';
 		}
+		?>
 
-		echo '<div ' . esc_attr($this->get_render_attribute_string('image-box')) . '>';
-		echo '<div ' . esc_attr($this->get_render_attribute_string('image')) . '></div>';
-		$this->render_badge();
-		$this->render_link();
-		echo '</div>';
+		<div <?php $this->print_render_attribute_string('image-box'); ?>>
+			<div <?php $this->print_render_attribute_string('image'); ?>>
+			</div>
+			<?php
+			$this->render_badge();
+			$this->render_link();
+			?>
+		</div>
+		<?php
 	}
 
 	protected function render_badge() {

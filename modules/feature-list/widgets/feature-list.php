@@ -668,7 +668,7 @@ class FeatureList extends Widget_Base {
                     ?>
                     <li class="eead-fl-item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
                         <div class="eead-fl-icon-box">
-                            <<?php echo esc_attr($feature_icon_tag) . ' ' . esc_attr($this->get_render_attribute_string('link' . esc_attr($index))); ?>>
+                            <<?php echo esc_attr($feature_icon_tag); ?> <?php $this->print_render_attribute_string('link' . $index); ?>>
                                 <?php
                                 if ($item['icon_type'] == 'icon' && !empty($item['icon']['value'])) {
                                     Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
@@ -680,7 +680,9 @@ class FeatureList extends Widget_Base {
                                             'alt' => esc_attr(get_post_meta($item['img']['id'], '_wp_attachment_image_alt', true)),
                                         ]
                                     );
-                                    echo '<img ' . esc_attr($this->get_render_attribute_string('feature_list_image' . esc_attr($index))) . '/>';
+                                    ?>
+                                        <img <?php $this->print_render_attribute_string('feature_list_image' . $index); ?> />
+                                    <?php
                                 }
                                 ?>
                             </<?php echo esc_attr($feature_icon_tag); ?>>
@@ -689,7 +691,7 @@ class FeatureList extends Widget_Base {
                         <div class="eead-fl-content-box">
                             <?php if ($item['title']) { ?>
                                 <<?php echo esc_attr(eead_check_allowed_html_tags($feature_title_tag)); ?> class="eead-fl-title">
-                                    <<?php echo esc_attr($feature_icon_tag) . ' ' . esc_attr($this->get_render_attribute_string('link' . $index)); ?>>
+                                    <<?php echo esc_attr($feature_icon_tag); ?> <?php $this->print_render_attribute_string('link' . $index); ?>>
                                         <?php
                                         echo esc_html($item['title']);
                                         ?>

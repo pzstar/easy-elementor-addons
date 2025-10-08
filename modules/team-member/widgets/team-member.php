@@ -990,9 +990,13 @@ class TeamMember extends Widget_Base {
         $this->add_render_attribute('description', 'class', 'eead-team-member-description');
 
         if (!empty($settings['description'])) {
-            echo '<div' . esc_attr($this->get_render_attribute_string('description')) . '>';
-            echo wp_kses_post(parse_wisiwyg_content($settings['description']));
-            echo '</div>';
+            ?>
+            <div <?php $this->print_render_attribute_string('description'); ?>>
+                <?php
+                echo wp_kses_post(parse_wisiwyg_content($settings['description']));
+                ?>
+            </div>
+            <?php
         }
     }
 

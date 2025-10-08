@@ -742,7 +742,7 @@ class OnePageNavigation extends Widget_Base {
         }
         ?>
         <div class='eead-one-page-nav-container'>
-            <ul <?php echo wp_kses_post($this->get_render_attribute_string('onepage-nav')); ?>>
+            <ul <?php $this->print_render_attribute_string('onepage-nav'); ?>>
                 <?php
                 $count = 1;
                 foreach ($settings['nav_dots'] as $index => $dot) {
@@ -750,7 +750,11 @@ class OnePageNavigation extends Widget_Base {
                     <li class="eead-one-page-nav-item">
                         <?php
                         if ($settings['nav_tooltip'] == 'yes') {
-                            printf('<span %1$s>%2$s</span>', esc_attr($this->get_render_attribute_string('tooltip')), esc_html($dot['section_title']));
+                            ?>
+                            <span <?php $this->print_render_attribute_string('tooltip'); ?>>
+                                <?php echo esc_html($dot['section_title']); ?>
+                            </span>
+                            <?php
                         }
                         ?>
                         <a href="#" data-row-id="<?php echo esc_attr($dot['section_id']); ?>">

@@ -337,12 +337,13 @@ class Lottie extends Widget_Base {
                 $tag = 'a';
 
                 if (!empty($settings['lottie_link']['url'])) {
-                    $this->add_link_attributes('link', $settings['lottie_link']);
+                    $this->add_link_attributes('wrapper', $settings['lottie_link']);
                 }
             }
-
-            echo '<' . esc_attr($tag) . ' ' . esc_attr($this->get_render_attribute_string('wrapper')) . ' ' . esc_attr($this->get_render_attribute_string('link')) . '>&nbsp</' . esc_attr($tag) . '>';
             ?>
+            <<?php echo esc_attr($tag); ?> <?php $this->print_render_attribute_string('wrapper'); ?> <?php $this->print_render_attribute_string('link'); ?>>
+                &nbsp
+            </<?php echo esc_attr($tag); ?>>
         </div>
         <?php
     }
