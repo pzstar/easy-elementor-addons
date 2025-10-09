@@ -608,7 +608,7 @@ class AdvancedIconBox extends Widget_Base {
             'icon_radius_advanced', [
                 'label' => esc_html__('Radius', 'easy-elementor-addons'),
                 /* translators: 1: border radius, 2: link. */
-                'description' => sprintf(__('For example: <b>%1$1s</b> or Go <a href="%2$2s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
+                'description' => sprintf(__('For example: <b>%1$s</b> or Go <a href="%2$s" target="_blank">this link</a> and copy and paste the radius value.', 'easy-elementor-addons'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
                 'type' => Controls_Manager::TEXT,
                 'size_units' => ['px', '%'],
                 'default' => '75% 25% 43% 57% / 46% 29% 71% 54%',
