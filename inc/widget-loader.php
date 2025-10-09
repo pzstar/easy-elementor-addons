@@ -135,6 +135,7 @@ class EEAD_Widget_Loader {
         wp_register_script('mcustomscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
+        wp_register_script('twitter-widgets', '//platform.twitter.com/widgets.js', [], EEAD_VERSION, true);
     }
 
     /**
@@ -166,6 +167,7 @@ class EEAD_Widget_Loader {
         wp_register_style('justifiedGallery', EEAD_URL . 'assets/lib/justifiedGallery/justifiedGallery.min.css', '', EEAD_VERSION);
         wp_register_style('weather-icons', EEAD_URL . 'assets/fonts/weather-icons/weather-icons.css', '', EEAD_VERSION);
         wp_register_style('uikit', EEAD_URL . 'assets/lib/uikit/uikit.css', array(), EEAD_VERSION);
+
     }
 
     /**

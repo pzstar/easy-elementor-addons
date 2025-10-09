@@ -958,3 +958,73 @@ if (!function_exists('eead_eleganticons_array')) {
     }
 
 }
+
+
+/* Sanitizes value and returns param value */
+if (!function_exists('eead_get_var')) {
+    function eead_get_var($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
+        $value = (isset($_GET[$param]) ? wp_unslash($_GET[$param]) : $default);
+        if (!empty($sanitize_array) && is_array($value)) {
+            return eead_sanitize_array($value, $sanitize_array);
+        }
+        return eead_sanitize_value($sanitize, $value);
+    }
+}
+
+if (!function_exists('eead_get_request')) {
+    function eead_get_request($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
+        $value = (isset($_REQUEST[$param]) ? wp_unslash($_REQUEST[$param]) : $default);
+        if (!empty($sanitize_array) && is_array($value)) {
+            return eead_sanitize_array($value, $sanitize_array);
+        }
+        return eead_sanitize_value($sanitize, $value);
+    }
+}
+
+if (!function_exists('eead_get_post')) {
+    function eead_get_post($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
+        $value = (isset($_POST[$param]) ? wp_unslash($_POST[$param]) : $default);
+        if (!empty($sanitize_array) && is_array($value)) {
+            return eead_sanitize_array($value, $sanitize_array);
+        }
+        return eead_sanitize_value($sanitize, $value);
+    }
+}
+
+if (!function_exists('eead_sanitize_value')) {
+    function eead_sanitize_value($sanitize, &$value) {
+        if (!empty($sanitize)) {
+            if (is_array($value)) {
+                $temp_values = $value;
+                foreach ($temp_values as $k => $v) {
+                    $value[$k] = eead_sanitize_value($sanitize, $value[$k]);
+                }
+            } else {
+                $value = call_user_func($sanitize, ($value ? htmlspecialchars_decode($value) : ''));
+            }
+        }
+
+        return $value;
+    }
+}
+
+if (!function_exists('eead_sanitize_array')) {
+    function eead_sanitize_array($array = array(), $sanitize_rule = array()) {
+        $new_args = (array) $array;
+
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $new_args[$key] = eead_sanitize_array($value, isset($sanitize_rule[$key]) ? $sanitize_rule[$key] : 'sanitize_text_field');
+            } else {
+                if (isset($sanitize_rule[$key]) && !empty($sanitize_rule[$key]) && function_exists($sanitize_rule[$key])) {
+                    $sanitize_type = $sanitize_rule[$key];
+                    $new_args[$key] = $sanitize_type($value);
+                } else {
+                    $new_args[$key] = sanitize_text_field($value);
+                }
+            }
+        }
+
+        return $new_args;
+    }
+}

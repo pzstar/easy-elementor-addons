@@ -36,8 +36,8 @@ class AdminClass {
             return;
         }
 
-        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
-            $data_ar = $_POST['data'];
+        if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
+            $data_ar = eead_get_post('data');
             $settings_ar = [];
 
             foreach ($data_ar as $key => $value) {
@@ -55,8 +55,8 @@ class AdminClass {
             return;
         }
 
-        if (isset($_POST['wp_nonce']) && wp_verify_nonce($_POST['wp_nonce'], 'eead_ajax_nonce')) {
-            $data_ar = isset($_POST['data']) && !empty($_POST['data']) ? $_POST['data'] : array();
+        if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
+            $data_ar = eead_get_post('data');
             update_option('eead_widgets', array());
             $update_widgets = update_option('eead_widgets', $data_ar);
             echo ($update_widgets || empty($data_ar)) ? 'yes' : 'no';

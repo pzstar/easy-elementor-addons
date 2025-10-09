@@ -119,7 +119,7 @@ if (!class_exists('EEAD_Templates_Assets')) {
                 $name = basename($file, '.php');
                 ob_start();
                 include $file;
-                printf('<script type="text/html" id="views-eead-%1$s">%2$s</script>', $name, ob_get_clean());
+                printf('<script type="text/html" id="views-eead-%1$s">%2$s</script>', esc_attr($name), ob_get_clean());
             }, $scripts);
         }
 
