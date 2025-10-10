@@ -894,10 +894,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-time">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo esc_html(date(get_option('time_format'), current_time('timestamp')));
+                                echo date(get_option('time_format'), current_time('timestamp'));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo esc_html(date('h:i a', $cur_time));
+                                echo date('h:i a', $cur_time);
                             }
                             ?>
                         </div>
@@ -905,10 +905,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-date">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo esc_html(date(get_option('date_format'), current_time('timestamp')));
+                                echo date(get_option('date_format'), current_time('timestamp'));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo esc_html(date(get_option('date_format'), $cur_time));
+                                echo date(get_option('date_format'), $cur_time);
                             }
                             ?>
                         </div>
@@ -978,10 +978,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-time">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo esc_html(date(get_option('time_format'), current_time('timestamp')));
+                                echo date(get_option('time_format'), current_time('timestamp'));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo esc_html(date('h:i a', $cur_time));
+                                echo date('h:i a', $cur_time);
                             }
                             ?>
                         </div>
@@ -989,10 +989,10 @@ class BusinessHour extends Widget_Base {
                         <div class="eead-bh-current-date">
                             <?php
                             if ($settings['business_hour_style'] == 'default') {
-                                echo esc_html(date(get_option('date_format'), current_time('timestamp')));
+                                echo date(get_option('date_format'), current_time('timestamp'));
                             } else {
                                 $cur_time = strtotime($this->set_time_zone());
-                                echo esc_html(date(get_option('date_format'), $cur_time));
+                                echo date(get_option('date_format'), $cur_time);
                             }
                             ?>
                         </div>
