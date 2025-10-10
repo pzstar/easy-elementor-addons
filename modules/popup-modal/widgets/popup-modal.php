@@ -1520,7 +1520,7 @@ class PopupModal extends Widget_Base {
 
 							case 'template':
 								$template_id = $settings['templates'];
-								echo wp_kses_post(!empty($template_id) ? Plugin::$instance->frontend->get_builder_content_for_display($template_id) : '');
+								echo Plugin::$instance->frontend->get_builder_content_for_display($template_id);
 								break;
 
 							case 'custom-html':

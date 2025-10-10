@@ -761,7 +761,7 @@ class Toggle extends Widget_Base {
         } else if ($settings[$content . '_content_type'] === 'template') {
             if (!empty($settings[$content . '_templates'])) {
                 $template_id = $settings[$content . '_templates'];
-                echo wp_kses_post(Plugin::$instance->frontend->get_builder_content_for_display($template_id));
+                echo Plugin::$instance->frontend->get_builder_content_for_display($template_id);
             }
         }
     }
