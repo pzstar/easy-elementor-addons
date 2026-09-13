@@ -25,8 +25,12 @@ if (!function_exists('eead_html_tags')) {
 if (!function_exists('eead_check_allowed_html_tags')) {
 
     function eead_check_allowed_html_tags($tag, $default_tag = "h4") {
-        $allowed_tags = eead_html_tags();
-        if (in_array($tag, $allowed_tags)) {
+        // The tags are the keys of eead_html_tags(); the values are only the
+        // labels shown in the control, and read "H1" - "H6" for headings, so
+        // matching against them sent every heading choice to the fallback.
+        $tag = is_string($tag) ? strtolower($tag) : '';
+        $allowed_tags = array_keys(eead_html_tags());
+        if (in_array($tag, $allowed_tags, true)) {
             return $tag;
         } else {
             return $default_tag;
