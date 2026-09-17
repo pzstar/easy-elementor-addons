@@ -107,7 +107,12 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
          * @return string admin license page or plugin URI
          */
         public function get_license_page() {
-            return esc_url(admin_url('admin.php?page=eead-license-key'));
+            // No `eead-license-key` screen is registered by the plugin, so the old
+            // target was a dead link. An add-on that owns licensing can filter this;
+            // the dashboard is the fallback so the link always lands somewhere.
+            $url = apply_filters('eead_license_page_url', admin_url('admin.php?page=eead-settings'));
+
+            return esc_url($url);
         }
 
         /**

@@ -56,7 +56,16 @@ class AdminClass {
         }
 
         if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
+            /*
+             * jQuery omits an empty array from the request body altogether, so
+             * clearing every checkbox arrives with no `data` key at all. Stored
+             * as it came in, that became an empty string, which the reader treats
+             * as "never saved" and answers with the full widget list - turning
+             * "disable everything" into "enable everything".
+             */
             $data_ar = eead_get_post('data');
+            $data_ar = is_array($data_ar) ? array_values($data_ar) : array();
+
             update_option('eead_widgets', array());
             $update_widgets = update_option('eead_widgets', $data_ar);
             echo ($update_widgets || empty($data_ar)) ? 'yes' : 'no';
@@ -65,7 +74,14 @@ class AdminClass {
     }
 
     public function get_widget_field($label, $val, $icon = '', $url = '', $premium = false, $category = '') {
-        $eead_widgets = get_option('eead_widgets') ? get_option('eead_widgets') : array();
+        // Same source of truth the module manager registers from, so a fresh
+        // install shows every widget ticked instead of an all-off dashboard.
+        static $eead_widgets = null;
+
+        if (null === $eead_widgets) {
+            $eead_widgets = \eead_get_enabled_widgets();
+        }
+
         ?>
 
         <div class="eead-widget-wrap <?php echo $premium ? 'eead-premium' : ''; ?>" data-main="<?php echo $premium ? 'pro' : 'free'; ?>" data-sub="<?php echo esc_attr($category); ?>">
@@ -78,11 +94,25 @@ class AdminClass {
                 ?>
             </span>
             <div class="eead-checkbox">
-                <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked((isset($eead_widgets) && in_array($val, $eead_widgets)), true); ?>>
+                <input type="checkbox" class="eead-widget-checkbox" name="widgets" value="<?php echo esc_attr($val); ?>" <?php checked(in_array($val, $eead_widgets), true); ?>>
                 <label></label>
             </div>
 
-            <a href="<?php echo esc_url($url); ?>" target="_blank" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>
+            <?php
+            if ($premium) {
+                ?>
+                <span class="eead-widget-pro-badge"><?php echo esc_html__('Pro', 'easy-elementor-addons'); ?></span>
+                <?php
+            }
+
+            // Add-on widgets may ship without a demo page; an empty href would just
+            // reload this screen, so the link is dropped instead.
+            if ($url) {
+                ?>
+                <a href="<?php echo esc_url($url); ?>" target="_blank" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>
+                <?php
+            }
+            ?>
         </div>
 
         <?php

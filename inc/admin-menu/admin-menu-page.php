@@ -19,7 +19,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.64 160.67" fill="#111">
                 <path d="M74.55 14.94A14.93 14.93 0 0 0 59.64 0H14.91A14.93 14.93 0 0 0 0 14.94v44.73a14.93 14.93 0 0 0 14.91 14.91h44.73a14.93 14.93 0 0 0 14.91-14.91Zm0 86.09a14.92 14.92 0 0 0-14.91-14.91H14.91A14.92 14.92 0 0 0 0 101v44.73a14.93 14.93 0 0 0 14.91 14.91h44.73a14.93 14.93 0 0 0 14.91-14.91Zm86.09 0a14.92 14.92 0 0 0-14.91-14.91H101A14.9 14.9 0 0 0 86.09 101v44.73A14.92 14.92 0 0 0 101 160.67h44.73a14.93 14.93 0 0 0 14.91-14.91ZM133.8 4.33a14.81 14.81 0 0 0-20.92 0l-22.5 22.5a14.79 14.79 0 0 0 0 20.91l22.5 22.5a14.79 14.79 0 0 0 20.92 0l22.49-22.5a14.77 14.77 0 0 0 0-20.9z" />
             </svg>
-            <?php echo esc_html__('Easy Elementor Addons Setttings', 'easy-elementor-addons'); ?> - V<?php echo esc_html(EEAD_VERSION); ?>
+            <?php echo esc_html__('Easy Elementor Addons Settings', 'easy-elementor-addons'); ?> - V<?php echo esc_html(EEAD_VERSION); ?>
         </h2>
         <div class="eead-doc-link">
             <a href="https://hashthemes.com/documentation/easy-elementor-addons-documentation/" target="_blank">
@@ -52,15 +52,19 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
     <div class="eead-tab-contents">
         <div id="eead-widgets-section-content" class="tab-content">
-            <?php do_action('eead_before_admin_widgets'); ?>
+            <div class="eead-widget-toolbar">
+                <div class="eead-widget-toolbar-filters">
+                    <?php do_action('eead_before_admin_widgets'); ?>
+                </div>
 
-            <div class="eead-widget-action-buttons">
-                <button class="eead-widget-action-btn eead-widget-enable-all">
-                    <i class="mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons') ?>
-                </button>
-                <button class="eead-widget-action-btn eead-widget-disable-all">
-                    <i class="mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons') ?>
-                </button>
+                <div class="eead-widget-action-buttons">
+                    <button class="eead-widget-action-btn eead-widget-enable-all">
+                        <i class="mdi-check-circle-outline"></i><?php esc_html_e('Enable All', 'easy-elementor-addons') ?>
+                    </button>
+                    <button class="eead-widget-action-btn eead-widget-disable-all">
+                        <i class="mdi-close-circle-outline"></i><?php esc_html_e('Disable All', 'easy-elementor-addons') ?>
+                    </button>
+                </div>
             </div>
 
             <form id="eead-widget-selection-form">
@@ -132,7 +136,24 @@ $eead_all_widgets = eead_get_all_widgets_list();
             foreach ($eead_all_widgets as $key => $val) {
                 $count++;
                 ?>
-                <p><?php echo esc_html($count); ?>) <a href="https://demo.hashthemes.com/easy-elementor-addons/<?php echo esc_attr($key); ?>/" target="_blank"><?php echo esc_html($val['name']); ?></a> - <?php echo isset($description[$key]) ? esc_html($description[$key]) : ''; ?></p>
+                <p>
+                    <?php echo esc_html($count); ?>)
+                    <?php
+                    // Add-on widgets have no page on the free demo site, so the name is
+                    // only linked when the widget actually declares a demo URL.
+                    $demo_url = isset($val['demo_url']) ? $val['demo_url'] : '';
+
+                    if ($demo_url) {
+                        ?>
+                        <a href="<?php echo esc_url($demo_url); ?>" target="_blank"><?php echo esc_html($val['name']); ?></a>
+                        <?php
+                    } else {
+                        echo esc_html($val['name']);
+                    }
+
+                    echo isset($description[$key]) && $description[$key] ? ' - ' . esc_html($description[$key]) : '';
+                    ?>
+                </p>
                 <?php
             }
             ?>

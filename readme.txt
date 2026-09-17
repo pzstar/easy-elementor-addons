@@ -163,14 +163,11 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
-= 2.3.8 - 19 Aug, 2026 =
-* Missing nonce verification in the template library Ajax handlers (CSRF) - Fixed
-* Featured image for an inserted template is now sideloaded with file type validation, so a non image file can no longer be written to the uploads folder - Fixed
-* Featured image is now fetched through the safe HTTP API, blocking requests to internal addresses - Fixed
-* Post type of a template dependency is now validated, and the post is only created when the user holds the rights to publish that type - Fixed
-* New taxonomy terms are only created for users who can manage them, and terms no longer leak between taxonomies - Fixed
-* Settings save Ajax action renamed with the plugin prefix to avoid clashing with other plugins - Updated
+= 2.3.8 - 27 Aug, 2026 =
+* Template library is available again from the Elementor editor. Its Ajax handlers verify a nonce, check the caller's capabilities before creating anything, and sideload a template's image through the safe HTTP API with the file type validated
+* Disabling every widget on the dashboard saved as no selection at all and silently switched the full list back on - Fixed
 * Template library now shows a clear message instead of loading forever when a request fails - Updated
+* Settings save Ajax action renamed with the plugin prefix to avoid clashing with other plugins - Updated
 * Feature list added in readme.txt file - Updated
 
 = 2.3.7 - 27 Jul, 2026 =

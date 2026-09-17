@@ -884,6 +884,26 @@ function eead_get_all_widgets_list() {
     return $all_wid;
 }
 
+/**
+ * Widget keys that should actually be registered.
+ *
+ * `eead_widgets` only exists once the dashboard has been saved, so until then
+ * every widget ships enabled. Keys are intersected with the current list so
+ * that entries left behind by a deactivated add-on are quietly ignored.
+ *
+ * @return array
+ */
+function eead_get_enabled_widgets() {
+    $all_widgets = array_keys(eead_get_all_widgets_list());
+    $saved = get_option('eead_widgets');
+
+    if (!is_array($saved)) {
+        return $all_widgets;
+    }
+
+    return array_values(array_intersect($all_widgets, $saved));
+}
+
 function eead_get_all_widgets_desc() {
     return array(
         'accordion' => esc_html__('Displays the FAQ of your clients within a beautiful UI.', 'easy-elementor-addons'),
