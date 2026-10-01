@@ -542,6 +542,13 @@ Advanced Heading
     flex-wrap: wrap;
 }
 
+/* Without a line there is nothing to lay out beside the text, so the heading
+   and its split text flow as one run of words and wrap between any of them. */
+.eead-advanced-heading .eead-ah-main-heading.eead-ah-line- span.eead-ah-main-heading-wrap,
+.eead-advanced-heading .eead-ah-main-heading.eead-ah-line- .eead-ah-main-heading-text {
+    display: inline;
+}
+
 .eead-advanced-heading .eead-ah-adv-heading {
     color: rgba(156, 156, 156, 0.12);
     font-size: 60px;
@@ -703,6 +710,34 @@ Advanced Icon Box
     height: 1em;
     width: auto;
     fill: #FFF;
+}
+
+/* Fill Height: the box takes its column's full height, the content grows to
+   fill it and Read More sits at the bottom, placed like the rest of the text. */
+.eead-aib-fill-height-yes > .elementor-widget-container,
+.eead-aib-fill-height-yes .eead-advanced-icon-box {
+    height: 100%;
+}
+
+.eead-aib-fill-height-yes .eead-advanced-icon-box {
+    display: flex;
+    flex-flow: var(--eead-aib-flex-flow, column);
+}
+
+/* On top, the icon's own bottom margin already spaces it from the content. */
+.eead-aib-fill-height-yes .eead-advanced-icon-box {
+    row-gap: 0;
+}
+
+.eead-aib-fill-height-yes .eead-aib-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.eead-aib-fill-height-yes .eead-aib-content .eead-aib-button {
+    margin-top: auto;
+    align-self: var(--eead-aib-justify, center);
 }
 
 .eead-advanced-icon-box .eead-aib-badge {
@@ -1474,6 +1509,12 @@ Feature List
 .eead-feature-list .eead-fl-item {
     display: flex;
     align-items: flex-start;
+    transition: background-color 0.15s ease;
+}
+
+.eead-feature-list .eead-fl-title,
+.eead-feature-list .eead-fl-title a {
+    transition: color 0.15s ease;
 }
 
 .eead-feature-list .eead-fl-icon-box {
@@ -2906,6 +2947,11 @@ Icon List
 .eead-icon-list-container .eead-icon-list-items li > a {
     display: flex;
     gap: 10px;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+
+.eead-icon-list-container .eead-il-text {
+    transition: color 0.15s ease;
 }
 
 .eead-icon-list-container .eead-il-icon img,
@@ -5818,28 +5864,28 @@ Switcher
 }
 
 @media screen and (max-width:767px) {
-    .eead-switcher-tabs-inner {
+    .eead-switcher-stack-yes .eead-switcher-tabs-inner {
         flex-direction: column;
         width: 100%;
         align-items: stretch;
     }
 
-    .eead-switcher-tabs {
+    .eead-switcher-stack-yes .eead-switcher-tabs {
         display: flex;
         align-self: stretch !important;
 
     }
 
-    .eead-switcher-tab {
+    .eead-switcher-stack-yes .eead-switcher-tab {
         justify-content: center;
     }
 
-    .eead-switcher-tab.eead-switcher-active-tab {
+    .eead-switcher-stack-yes .eead-switcher-tab.eead-switcher-active-tab {
         background: var(--eead-switcher-tab-active-bg-color, #EEE);
         border-radius: var(--eead-switcher-tab-border-radius, 0)
     }
 
-    .eead-switcher-slider {
+    .eead-switcher-stack-yes .eead-switcher-slider {
         display: none !important;
     }
 }
@@ -6221,6 +6267,29 @@ Pricing Table
 
 .eead-pricing-table {
     overflow: hidden;
+}
+
+/* Fill Height: the table takes its column's full height, the features list
+   takes up the slack and the button sits at the bottom. */
+.eead-pt-fill-height-yes > .elementor-widget-container,
+.eead-pt-fill-height-yes .eead-pricing-table {
+    height: 100%;
+}
+
+.eead-pt-fill-height-yes .eead-pricing-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.eead-pt-fill-height-yes .eead-pricing-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.eead-pt-fill-height-yes .eead-pricing-table ul.eead-pricing-listing {
+    flex: 1 1 auto;
+    align-self: center;
 }
 
 .eead-pricing-button a {
@@ -6630,6 +6699,18 @@ Step Flow
 
 .eead-step-direction svg > path {
     stroke-dasharray: var(--eead-stepflow-dash-length, 0) var(--eead-stepflow-dash-gap, 0);
+}
+
+@media screen and (max-width: 1024px) {
+    .eead-step-direction-hide-tablet .eead-step-direction {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .eead-step-direction-hide-mobile .eead-step-direction {
+        display: none;
+    }
 }
 
 .eead-step-flow .eead-steps-icon-box {

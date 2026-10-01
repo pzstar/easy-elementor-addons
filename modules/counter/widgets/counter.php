@@ -443,6 +443,24 @@ class Counter extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'counter_title_spacing', [
+                'label' => esc_html__('Spacing', 'easy-elementor-addons'),
+                'description' => esc_html__('Space between the number and the title.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 60,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-counter-box .eead-counter-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
         $this->end_controls_section();
     }
 

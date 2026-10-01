@@ -215,6 +215,16 @@ class Switcher extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'stack_on_mobile', [
+                'label' => esc_html__('Stack Tabs on Mobile', 'easy-elementor-addons'),
+                'description' => esc_html__('Turn off to keep two short tabs side by side on phones.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'prefix_class' => 'eead-switcher-stack-',
+            ]
+        );
+
         $this->add_responsive_control(
             'switch_spacing', [
                 'label' => esc_html__('Spacing Between Buttons', 'easy-elementor-addons'),

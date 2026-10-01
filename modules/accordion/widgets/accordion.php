@@ -349,6 +349,27 @@ class Accordion extends Widget_Base {
         );
 
         $this->add_control(
+            'icon_box_size', [
+                'label' => esc_html__('Icon Box Size', 'easy-elementor-addons'),
+                'description' => esc_html__('A fixed square for the icon, centred inside it - keeps the background round or square whatever the icon.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-container .eead-each-accordion .eead-accordion-icon' => 'flex: 0 0 {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; display: grid; place-items: center; line-height: 0;',
+                    // Only the spacing: the open and close icons are shown and hidden by display.
+                    '{{WRAPPER}} .eead-accordion-container .eead-each-accordion .eead-accordion-icon > div' => 'line-height: 0;',
+                ]
+            ]
+        );
+
+        $this->add_control(
             'icon_padding', [
                 'label' => esc_html__('Icon Padding', 'easy-elementor-addons'),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -505,6 +526,26 @@ class Accordion extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}}' => '--eead-accordion-content-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_link_color', [
+                'label' => esc_html__('Link Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-content a' => 'color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'content_link_hover_color', [
+                'label' => esc_html__('Link Hover Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-accordion-content a:hover' => 'color: {{VALUE}};',
                 ]
             ]
         );

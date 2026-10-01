@@ -172,6 +172,24 @@ class StepFlow extends Widget_Base {
         );
 
         $this->add_control(
+            'direction_hide_on', [
+                'label' => esc_html__('Hide Direction On', 'easy-elementor-addons'),
+                'description' => esc_html__('Steps usually stack on smaller screens, where an arrow pointing sideways no longer leads anywhere.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => '',
+                'options' => [
+                    '' => esc_html__('Never', 'easy-elementor-addons'),
+                    'tablet' => esc_html__('Tablet and Mobile', 'easy-elementor-addons'),
+                    'mobile' => esc_html__('Mobile', 'easy-elementor-addons'),
+                ],
+                'prefix_class' => 'eead-step-direction-hide-',
+                'condition' => [
+                    'show_direction' => 'yes',
+                ]
+            ]
+        );
+
+        $this->add_control(
             'arrow_style', [
                 'label' => esc_html__('Direction Style', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,

@@ -189,9 +189,9 @@ class AdvancedIconBox extends Widget_Base {
                     'icon_inline' => '',
                 ],
                 'selectors_dictionary' => [
-                    'top' => '--eead-aib-display:block;--eead-aib-margin-bottom:var(--eead-aib-icon-spacing, 20px);',
-                    'left' => '--eead-aib-display:flex;--eead-aib-flex-flow:row;--eead-aib-text-align:left;--eead-aib-margin-bottom:0;',
-                    'right' => '--eead-aib-display:flex;--eead-aib-flex-flow:row-reverse;--eead-aib-text-align:right;--eead-aib-margin-bottom:0;'
+                    'top' => '--eead-aib-display:block;--eead-aib-flex-flow:column;--eead-aib-margin-bottom:var(--eead-aib-icon-spacing, 20px);',
+                    'left' => '--eead-aib-display:flex;--eead-aib-flex-flow:row;--eead-aib-text-align:left;--eead-aib-justify:flex-start;--eead-aib-margin-bottom:0;',
+                    'right' => '--eead-aib-display:flex;--eead-aib-flex-flow:row-reverse;--eead-aib-text-align:right;--eead-aib-justify:flex-end;--eead-aib-margin-bottom:0;'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '{{VALUE}}',
@@ -218,8 +218,13 @@ class AdvancedIconBox extends Widget_Base {
                     ]
                 ],
                 'default' => 'center',
+                'selectors_dictionary' => [
+                    'left' => '--eead-aib-text-align:left;--eead-aib-justify:flex-start;',
+                    'center' => '--eead-aib-text-align:center;--eead-aib-justify:center;',
+                    'right' => '--eead-aib-text-align:right;--eead-aib-justify:flex-end;'
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-advanced-icon-box' => '--eead-aib-text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eead-advanced-icon-box' => '{{VALUE}}',
                 ],
                 'condition' => [
                     'icon_position' => 'top',
@@ -243,8 +248,8 @@ class AdvancedIconBox extends Widget_Base {
                 ],
                 'default' => 'left',
                 'selectors_dictionary' => [
-                    'left' => '--eead-aib-inline-flex-flow:row;--eead-aib-text-align:left;',
-                    'right' => '--eead-aib-inline-flex-flow:row-reverse;--eead-aib-text-align:right;'
+                    'left' => '--eead-aib-inline-flex-flow:row;--eead-aib-text-align:left;--eead-aib-justify:flex-start;',
+                    'right' => '--eead-aib-inline-flex-flow:row-reverse;--eead-aib-text-align:right;--eead-aib-justify:flex-end;'
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => '{{VALUE}}',
@@ -1234,6 +1239,21 @@ class AdvancedIconBox extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'readmore_hover_text_decoration', [
+                'label' => esc_html__('Text Decoration', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__('Default', 'easy-elementor-addons'),
+                    'none' => esc_html__('None', 'easy-elementor-addons'),
+                    'underline' => esc_html__('Underline', 'easy-elementor-addons'),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-advanced-icon-box .eead-aib-button:hover' => 'text-decoration: {{VALUE}};',
+                ]
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Background::get_type(), [
                 'name' => 'readmore_hover_background',
@@ -1376,6 +1396,15 @@ class AdvancedIconBox extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-icon-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'fill_height', [
+                'label' => esc_html__('Fill Height', 'easy-elementor-addons'),
+                'description' => esc_html__('Stretch the box to the full height of its column and keep the Read More button at the bottom, so a row of boxes lines up.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'prefix_class' => 'eead-aib-fill-height-',
             ]
         );
 

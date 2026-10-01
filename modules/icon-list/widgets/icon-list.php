@@ -347,6 +347,44 @@ class IconList extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'item_hover_heading', [
+                'label' => esc_html__('Hover', 'easy-elementor-addons'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'item_bg_hover_color', [
+                'label' => esc_html__('Background Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block:hover' => 'background-color: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'item_border_hover_color', [
+                'label' => esc_html__('Border Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'item_border_border!' => ['', 'none'],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items li .eead-il-block:hover' => 'border-color: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'item_boxshadow_hover',
+                'selector' => '{{WRAPPER}} .eead-icon-list-items li .eead-il-block:hover',
+            ]
+        );
+
         $this->add_responsive_control(
             'item_padding', [
                 'label' => esc_html__('Padding', 'easy-elementor-addons'),
@@ -562,6 +600,17 @@ class IconList extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'text_color', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'description' => esc_html__('Leave empty to use the color above for the text too.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-items .eead-il-block .eead-il-text' => 'color: {{VALUE}};'
+                ],
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -577,6 +626,16 @@ class IconList extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover .eead-il-icon svg' => 'fill: {{VALUE}};'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'text_color_hover', [
+                'label' => esc_html__('Text Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-icon-list-item .eead-il-block:hover .eead-il-text' => 'color: {{VALUE}};'
                 ],
             ]
         );

@@ -207,6 +207,15 @@ class PricingTable extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'fill_height', [
+                'label' => esc_html__('Fill Height', 'easy-elementor-addons'),
+                'description' => esc_html__('Stretch the table to the full height of its column and keep the button at the bottom, so plans side by side line up.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'prefix_class' => 'eead-pt-fill-height-',
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -586,6 +595,35 @@ class PricingTable extends Widget_Base {
             'feature_list_style', [
                 'label' => esc_html__('Features List', 'easy-elementor-addons'),
                 'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'feature_list_items_align', [
+                'label' => esc_html__('Items Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'selectors_dictionary' => [
+                    'left' => 'flex-start',
+                    'center' => 'center',
+                    'right' => 'flex-end',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-pricing-table ul.eead-pricing-listing li' => 'justify-content: {{VALUE}};',
+                ],
             ]
         );
 
