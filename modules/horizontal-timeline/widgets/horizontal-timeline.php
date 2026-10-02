@@ -196,7 +196,7 @@ class HorizontalTimeline extends Widget_Base {
                         'meta' => 'Monday, August 27, 2023',
                     ]
                 ],
-                'title_field' => '{{{title}}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -1424,9 +1424,9 @@ class HorizontalTimeline extends Widget_Base {
         $this->add_render_attribute('timeline-container', [
             'class' => [
                 'eead-htl-list',
-                'eead-htl-' . esc_attr($settings['display_option']),
-                'eead-htl-point-' . esc_attr($settings['point_style']),
-                'eead-htl-meta-pos-' . esc_attr($settings['meta_position'])
+                'eead-htl-' . $settings['display_option'],
+                'eead-htl-point-' . $settings['point_style'],
+                'eead-htl-meta-pos-' . $settings['meta_position']
             ]
         ]);
 
@@ -1452,7 +1452,7 @@ class HorizontalTimeline extends Widget_Base {
                 $params['next_icon'] = $settings['next_icon_arrow']['value'];
             }
 
-            $params = json_encode($params);
+            $params = wp_json_encode($params);
 
             $arrow_class = $settings['show_on_hover'] == 'yes' ? 'hide' : 'show';
 

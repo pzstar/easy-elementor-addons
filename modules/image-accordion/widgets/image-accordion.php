@@ -473,8 +473,8 @@ class ImageAccordion extends Widget_Base {
             'eead-image-accordion', [
                 'class' => [
                     'eead-image-accordion',
-                    'eead-image-accordion-direction-' . esc_attr($settings['image_accordion_orientation']),
-                    'eead-image-accordion-' . esc_attr($settings['image_accordion_action_type']),
+                    'eead-image-accordion-direction-' . $settings['image_accordion_orientation'],
+                    'eead-image-accordion-' . $settings['image_accordion_action_type'],
                     $horizontal_align,
                     $vertical_align
                 ],
@@ -493,14 +493,8 @@ class ImageAccordion extends Widget_Base {
                 $tag = $img_accordion['image_accordion_link_image'] == 'yes' ? 'a' : 'div';
                 $active = $img_accordion['image_accordion_is_active'];
 
-                if ($img_accordion['image_accordion_link_image'] == 'yes') {
-                    $this->add_render_attribute(
-                        'eead-image-accordion-' . $key, [
-                            'href' => esc_url($img_accordion['image_accordion_link']['url']),
-                            'target' => $img_accordion['image_accordion_link']['is_external'] ? '_blank' : '_self',
-                            'rel' => $img_accordion['image_accordion_link']['nofollow'] ? 'nofollow' : '',
-                        ]
-                    );
+                if ($tag === 'a') {
+                    $this->add_link_attributes('eead-image-accordion-' . $key, $img_accordion['image_accordion_link']);
                 }
 
                 $this->add_render_attribute(
@@ -513,12 +507,12 @@ class ImageAccordion extends Widget_Base {
                 );
                 ?>
 
-                <<?php echo esc_attr(eead_check_allowed_html_tags($tag)); ?> <?php $this->print_render_attribute_string('eead-image-accordion-' . $key); ?> >
+                <<?php echo esc_attr($tag); ?> <?php $this->print_render_attribute_string('eead-image-accordion-' . $key); ?> >
                     <div class="eead-image-accordion-box">
                         <div class="eead-image-accordion-content">
                             <?php
                             if ($img_accordion['image_accordion_title']) {
-                                printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', esc_attr($settings['title_tag']), esc_html($img_accordion['image_accordion_title']));
+                                printf('<%1$s class="eead-image-accordion-title">%2$s</%1$s>', esc_attr(eead_check_allowed_html_tags($settings['title_tag'])), esc_html($img_accordion['image_accordion_title']));
                             }
 
                             if ($img_accordion['image_accordion_content']) {
@@ -529,7 +523,7 @@ class ImageAccordion extends Widget_Base {
                             <?php } ?>
                         </div>
                     </div>
-                </<?php echo esc_attr(eead_check_allowed_html_tags($tag)); ?>>
+                </<?php echo esc_attr($tag); ?>>
             <?php } ?>
         </div>
 

@@ -561,8 +561,8 @@ class DropBar extends Widget_Base {
                     <?php
                     if ($settings['source'] == "custom" && !empty($settings['content'])) {
                         echo wp_kses_post($settings['content']);
-                    } else if ($settings['source'] == "elementor" && !empty($settings['template_id'])) {
-                        echo Plugin::$instance->frontend->get_builder_content_for_display($settings['template_id']);
+                    } else if ($settings['source'] == "elementor" && !empty($settings['template_id']) && 'publish' === get_post_status((int) $settings['template_id'])) {
+                        echo Plugin::instance()->frontend->get_builder_content_for_display($settings['template_id']);
                     }
                     ?>
                 </div>
@@ -580,7 +580,7 @@ class DropBar extends Widget_Base {
         ]);
 
         if ($settings['hover_animation']) {
-            $this->add_render_attribute('button', 'class', 'elementor-animation-' . esc_attr($settings['hover_animation']));
+            $this->add_render_attribute('button', 'class', 'elementor-animation-' . $settings['hover_animation']);
         }
         ?>
         <a <?php $this->print_render_attribute_string('button'); ?>>

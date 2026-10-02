@@ -189,7 +189,7 @@ class TeamMember extends Widget_Base {
                     ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ social_icon_label }}}',
+                'title_field' => '{{ social_icon_label }}',
                 'condition' => [
                     'enable_social_links' => 'yes',
                 ]
@@ -943,11 +943,12 @@ class TeamMember extends Widget_Base {
     }
 
     protected function get_image() {
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
         $image_html = Group_Control_Image_Size::get_attachment_image_html($settings);
+        $image = '';
 
         if (!empty($settings['image']['url'])) {
-            if ($settings['link_type'] == 'image' && $settings['link']['url'] != '') {
+            if ($settings['link_type'] == 'image' && !empty($settings['link']['url'])) {
                 $image = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), wp_kses_post($image_html));
             } else {
                 $image = wp_kses_post($image_html);
@@ -1007,7 +1008,7 @@ class TeamMember extends Widget_Base {
         $this->add_render_attribute('name', 'class', 'eead-team-member-name');
 
         if ($settings['name'] != '') {
-            if ($settings['link_type'] == 'title' && $settings['link']['url'] != '') {
+            if ($settings['link_type'] == 'title' && !empty($settings['link']['url'])) {
                 $member_name .= sprintf('<%1$s %2$s><a %3$s>%4$s</a></%1$s>', 'h4', $this->get_render_attribute_string('name'), $this->get_render_attribute_string('link'), esc_html($settings['name']));
             } else {
                 $member_name .= sprintf('<%1$s %2$s>%3$s</%1$s>', 'h4', $this->get_render_attribute_string('name'), esc_html($settings['name']));
@@ -1039,6 +1040,10 @@ class TeamMember extends Widget_Base {
                 'eead-content-' . esc_attr($settings['content_display']),
             ]
         ]);
+
+        if (!empty($settings['link']['url'])) {
+            $this->add_link_attributes('link', $settings['link']);
+        }
 
         if ($settings['social_icon_display'] == 'on-image-hover') {
             $this->add_render_attribute('team-wrapper', [

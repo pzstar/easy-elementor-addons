@@ -72,7 +72,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => $this->get_elementor_templates(),
+                'options' => get_elementor_templates(),
                 'label_block' => 'true',
                 'condition' => ['content_type' => 'elementor_template']
             ]
@@ -114,7 +114,17 @@ class Accordion extends Widget_Base {
                         'wisiwyg_content' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at. Ei eum eleifend laboramus, nonumy legere quaerendum vis cu. Ut facete quodsi eloquentiam mel. Pri purto sale option at.'
                     ]
                 ],
-                'title_field' => '{{{ title }}}'
+                'title_field' => '{{ title }}'
+            ]
+        );
+
+        $this->add_control(
+            'one_at_a_time', [
+                'label' => esc_html__('Open One Item at a Time', 'easy-elementor-addons'),
+                'description' => esc_html__('Opening an item closes the others.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+                'default' => '',
             ]
         );
 
@@ -580,7 +590,7 @@ class Accordion extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $accordions = $settings['items'];
         ?>
-        <div class="eead-accordion-container">
+        <div class="eead-accordion-container" data-one-at-a-time="<?php echo esc_attr($settings['one_at_a_time'] === 'yes' ? 'yes' : 'no'); ?>">
             <?php foreach ($accordions as $key => $accordion) { ?>
                 <div class="eead-each-accordion eead-each-accordion-<?php echo esc_attr($key) . (($accordion['keep_open'] == 'yes') ? ' eead-open' : ''); ?>">
                     <div class="eead-accordion-title">
@@ -599,9 +609,9 @@ class Accordion extends Widget_Base {
                         <div class="eead-accordion-content-scroll">
                             <?php
                             if ($accordion['content_type'] == 'wisiwyg') {
-                                echo wp_kses_post($this->wisiwyg_text_parser($accordion['wisiwyg_content']));
-                            } else if ($accordion['content_type'] == 'elementor_template') {
-                                echo $this->elementor()->frontend->get_builder_content_for_display($accordion['elementor_template']);
+                                echo wp_kses_post(parse_wisiwyg_content($accordion['wisiwyg_content']));
+                            } else if ($accordion['content_type'] == 'elementor_template' && 'publish' === get_post_status((int) $accordion['elementor_template'])) {
+                                echo Plugin::instance()->frontend->get_builder_content_for_display($accordion['elementor_template']);
                             }
                             ?>
                         </div>
@@ -610,35 +620,6 @@ class Accordion extends Widget_Base {
             <?php } ?>
         </div>
         <?php
-    }
-
-    // Elementor Saved Template 
-    protected function get_elementor_templates() {
-        $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
-        $types = [];
-
-        if (empty($templates)) {
-            $template_options = ['0' => esc_html__('Template Not Found!', 'easy-elementor-addons')];
-        } else {
-            $template_options = ['0' => esc_html__('Select Template', 'easy-elementor-addons')];
-
-            foreach ($templates as $template) {
-                $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
-                $types[$template['template_id']] = $template['type'];
-            }
-        }
-        return $template_options;
-    }
-
-    protected function elementor() {
-        return Plugin::$instance;
-    }
-
-    protected function wisiwyg_text_parser($content) {
-        $content = shortcode_unautop($content);
-        $content = do_shortcode($content);
-        $content = wptexturize($content);
-        return $content;
     }
 
 }

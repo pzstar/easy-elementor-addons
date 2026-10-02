@@ -4,7 +4,7 @@
  */
 ?>
 <# if ( '' != url ) { #>
-<a class="elementor-button elementor-button-live-preview" href="{{{ url }}}" target="_blank">
+<a class="elementor-button elementor-button-live-preview" href="{{ url }}" target="_blank">
     <?php esc_html_e('Live Preview', 'easy-elementor-addons'); ?>
     <i class="eicon-editor-external-link"></i>
 </a>

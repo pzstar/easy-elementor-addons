@@ -302,7 +302,7 @@ class AdvancedMap extends Widget_Base {
                     <?php
                     foreach ($markers as $marker) {
                         ?>
-                        <div class="eead-gmap-marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['long']); ?>" data-icon-size="<?php echo esc_attr($marker['icon_size']['size']); ?>" data-icon="<?php echo esc_attr($marker['icon']['url']); ?>" data-info-window="<?php echo esc_attr($marker['info_window_onload']); ?>" data-animate="<?php echo esc_attr('animate-' . $settings['animate']) ?>">
+                        <div class="eead-gmap-marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['long']); ?>" data-icon-size="<?php echo esc_attr($marker['icon_size']['size']); ?>" data-icon="<?php echo esc_url($marker['icon']['url']); ?>" data-info-window="<?php echo esc_attr($marker['info_window_onload']); ?>" data-animate="<?php echo esc_attr('animate-' . $settings['animate']) ?>">
                             <?php echo wp_kses_post($marker['address']); ?>
                         </div>
                         <?php

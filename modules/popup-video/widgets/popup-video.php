@@ -909,7 +909,7 @@ class PopupVideo extends Widget_Base {
             ];
 
             $this->add_render_attribute('popup-video', [
-                'href' => $settings['youtube_url'],
+                'href' => esc_url($settings['youtube_url']),
                 'data-settings' => wp_json_encode($video_settings)
             ]);
         } elseif ($settings['video_type'] == 'vimeo') {
@@ -923,7 +923,7 @@ class PopupVideo extends Widget_Base {
             ];
 
             $this->add_render_attribute('popup-video', [
-                'href' => $settings['vimeo_url'],
+                'href' => esc_url($settings['vimeo_url']),
                 'data-settings' => wp_json_encode($video_settings)
             ]);
         } elseif ($settings['video_type'] == 'custom') {

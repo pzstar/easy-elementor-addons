@@ -130,7 +130,7 @@ class PricingList extends Widget_Base {
                         'description' => 'Cu utamur torquatos his. Qui dicta propriae signiferumque ex, esse eligendi adipisci te mel. At ius dolores offendit, vis case zril causae an. Vel integre euripidis expetendis eu. Omnis eleifend intellegebat vel cu, pri dicant admodum at.'
                     ]
                 ],
-                'title_field' => '{{{ title }}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -794,13 +794,14 @@ class PricingList extends Widget_Base {
             <div class="eead-pricing-list">
                 <?php
                 if ($settings['pricing_lists']) {
-                    foreach ($settings['pricing_lists'] as $lists) { ?>
+                    foreach ($settings['pricing_lists'] as $index => $lists) { ?>
                         <div class="eead-pl-item">
                             <?php
                             $has_link = false;
+                            $link_key = 'link-' . $index;
                             if (isset($lists['link']['url']) && !empty($lists['link']['url'])) {
                                 $has_link = true;
-                                $link = $lists['link']['url'];
+                                $this->add_link_attributes($link_key, $lists['link']);
                             }
                             ?>
                             <?php if ($lists['image']['url']) { ?>
@@ -808,7 +809,7 @@ class PricingList extends Widget_Base {
                                     <?php
                                     if ($has_link) {
                                         $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
-                                        printf('<a href=%1$s>%2$s</a>', esc_url($link), wp_kses_post($image));
+                                        printf('<a %1$s>%2$s</a>', $this->get_render_attribute_string($link_key), wp_kses_post($image));
                                     } else {
                                         echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image'));
                                     }
@@ -831,7 +832,7 @@ class PricingList extends Widget_Base {
                                         <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_tag'])); ?> class="eead-pl-item-title">
                                             <?php
                                             if ($has_link) {
-                                                printf('<a href=%1$s>%2$s</a>', esc_url($link), esc_html($lists['title']));
+                                                printf('<a %1$s>%2$s</a>', $this->get_render_attribute_string($link_key), esc_html($lists['title']));
                                             } else {
                                                 echo esc_html($lists['title']);
                                             }

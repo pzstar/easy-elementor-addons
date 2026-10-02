@@ -483,7 +483,7 @@ class Counter extends Widget_Base {
             if ($counter_count) {
                 ?>
                 <div class="eead-counter">
-                    <?php if ($settings['icon']['value']) { ?>
+                    <?php if (!empty($settings['icon']['value'])) { ?>
                         <div class="eead-counter-icon">
                             <?php Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                         </div>

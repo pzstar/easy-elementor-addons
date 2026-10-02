@@ -92,7 +92,7 @@ class OnePageNavigation extends Widget_Base {
                     ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ section_title }}}'
+                'title_field' => '{{ section_title }}'
             ]
         );
 
@@ -721,7 +721,7 @@ class OnePageNavigation extends Widget_Base {
     }
 
     protected function render() {
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute(
             'onepage-nav', [
@@ -744,8 +744,7 @@ class OnePageNavigation extends Widget_Base {
         <div class='eead-one-page-nav-container'>
             <ul <?php $this->print_render_attribute_string('onepage-nav'); ?>>
                 <?php
-                $count = 1;
-                foreach ($settings['nav_dots'] as $index => $dot) {
+                foreach ($settings['nav_dots'] as $dot) {
                     ?>
                     <li class="eead-one-page-nav-item">
                         <?php
@@ -766,7 +765,6 @@ class OnePageNavigation extends Widget_Base {
                         </a>
                     </li>
                     <?php
-                    $count++;
                 }
                 ?>
             </ul>

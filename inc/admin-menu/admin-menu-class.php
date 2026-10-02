@@ -15,7 +15,11 @@ class AdminClass {
         add_action('admin_enqueue_scripts', [$this, 'eead_admin_enqueue_scripts']);
     }
 
-    public function eead_admin_enqueue_scripts() {
+    public function eead_admin_enqueue_scripts($hook) {
+        if ('toplevel_page_eead-settings' !== $hook) {
+            return;
+        }
+
         wp_enqueue_style('eead-admin-menu', EEAD_URL . 'assets/css/eead-admin-menu.css', false, EEAD_VERSION);
         wp_enqueue_style('materialdesignicons', EEAD_URL . 'assets/fonts/materialdesignicons/materialdesignicons.css', false, EEAD_VERSION);
         wp_enqueue_style('eeaddons-icon', EEAD_ASSETS_URL . 'fonts/eeaddons/eeaddons.css', array(), EEAD_VERSION);
@@ -33,15 +37,18 @@ class AdminClass {
 
     public function eead_settings_save() {
         if (!current_user_can('manage_options')) {
-            return;
+            wp_die('', '', 403);
         }
 
         if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
             $data_ar = eead_get_post('data');
             $settings_ar = [];
+            $allowed_keys = apply_filters('eead_general_settings_keys', ['gmap_access_token', 'weather_api_key']);
 
-            foreach ($data_ar as $key => $value) {
-                $settings_ar[$value['name']] = $value['value'];
+            foreach ((array) $data_ar as $value) {
+                if (isset($value['name'], $value['value']) && in_array($value['name'], $allowed_keys, true)) {
+                    $settings_ar[$value['name']] = $value['value'];
+                }
             }
 
             $update = update_option('eead_general_settings', $settings_ar);
@@ -52,7 +59,7 @@ class AdminClass {
 
     public function eead_widgets_save() {
         if (!current_user_can('manage_options')) {
-            return;
+            wp_die('', '', 403);
         }
 
         if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
@@ -109,7 +116,7 @@ class AdminClass {
             // reload this screen, so the link is dropped instead.
             if ($url) {
                 ?>
-                <a href="<?php echo esc_url($url); ?>" target="_blank" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>
+                <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>
                 <?php
             }
             ?>

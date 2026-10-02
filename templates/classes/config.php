@@ -7,7 +7,7 @@ use EEADElements\Helper\EEAD_Helper;
 if (!defined('ABSPATH'))
     exit; // No access of directly access
 
-if (!class_exists('EEAD_Templates_Core_Config')) {
+if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
 
     /**
      * EEAD Templates Core config.
@@ -16,14 +16,6 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
      *
      */
     class EEAD_Templates_Core_Config {
-        /*
-         * Instance of the class
-         *
-         * @access private
-         *
-         */
-
-        private static $instance = null;
 
         /*
          * Holds config data
@@ -138,20 +130,6 @@ if (!class_exists('EEAD_Templates_Core_Config')) {
          */
         public function get($key = '') {
             return isset($this->config[$key]) ? $this->config[$key] : false;
-        }
-
-        /**
-         * Creates and returns an instance of the class
-         *
-         * @access public
-         *
-         * @return object
-         */
-        public static function get_instance() {
-            if (self::$instance == null) {
-                self::$instance = new self;
-            }
-            return self::$instance;
         }
 
     }

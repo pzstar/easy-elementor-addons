@@ -1193,19 +1193,15 @@ class FlipBox extends Widget_Base {
         $this->add_render_attribute('button', [
             'class' => [
                 'eead-fb-button',
-                $settings['button_hover_animation'] ? ' elementor-animation-' . esc_attr($settings['button_hover_animation']) : ''
-            ],
-            'href' => esc_url($settings['link']['url']),
-            'target' => $settings['link']['is_external'] ? '_blank' : '_self'
+                $settings['button_hover_animation'] ? ' elementor-animation-' . $settings['button_hover_animation'] : ''
+            ]
         ]);
 
+        $this->add_render_attribute('box_link', 'class', 'eead-fb-link');
 
-        $this->add_render_attribute('box_link', [
-            'class' => 'eead-fb-link',
-            'href' => esc_url($settings['link']['url'])
-        ]);
-        if ($settings['link']['is_external']) {
-            $this->add_render_attribute('box_link', 'target', '_blank');
+        if (!empty($settings['link']['url'])) {
+            $this->add_link_attributes('button', $settings['link']);
+            $this->add_link_attributes('box_link', $settings['link']);
         }
 
         if ($settings['graphic_element'] === 'icon') {
@@ -1276,7 +1272,7 @@ class FlipBox extends Widget_Base {
                     <?php
                     if ($settings['link_click'] === 'box') {
                         ?>
-                        <a <?php $this->print_render_attribute_string('box_link'); ?>></a>;
+                        <a <?php $this->print_render_attribute_string('box_link'); ?>></a>
                         <?php
                     }
                     ?>

@@ -365,14 +365,7 @@ class AnimatedHeading extends Widget_Base {
 
             <?php
             if (!empty($settings['heading_link']['url'])) {
-                $this->add_render_attribute('url', 'href', esc_url($settings['heading_link']['url']));
-                if ($settings['heading_link']['is_external']) {
-                    $this->add_render_attribute('url', 'target', '_blank');
-                }
-
-                if (!empty($settings['heading_link']['nofollow'])) {
-                    $this->add_render_attribute('url', 'rel', 'nofollow');
-                }
+                $this->add_link_attributes('url', $settings['heading_link']);
                 ?>
                 <a <?php $this->print_render_attribute_string('url'); ?>>
                     <?php
@@ -391,7 +384,7 @@ class AnimatedHeading extends Widget_Base {
                     <span <?php $this->print_render_attribute_string('animated-heading'); ?>>
                         <?php
                         if ($settings['layout'] != 'typed') {
-                            echo esc_attr(rtrim($settings['animated_heading'], ','));
+                            echo esc_html(rtrim($settings['animated_heading'], ','));
                         }
                         ?>
                     </span>

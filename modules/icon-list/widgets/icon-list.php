@@ -152,7 +152,7 @@ class IconList extends Widget_Base {
                     ),
                 ),
                 'fields' => $repeater->get_controls(),
-                'title_field' => '<i class="{{icon}}" aria-hidden="true"></i> {{{text}}}',
+                'title_field' => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || "" }}} {{ text }}',
             ]
         );
 
@@ -657,9 +657,9 @@ class IconList extends Widget_Base {
     /** Render Layout */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $list_column = isset($settings['list_column']) ? (int) $settings['list_column'] : 3;
-        $list_column_tablet = isset($settings['list_column_tablet']) ? (int) $settings['list_column_tablet'] : 2;
-        $list_column_mobile = isset($settings['list_column_mobile']) ? (int) $settings['list_column_mobile'] : 1;
+        $list_column = !empty($settings['list_column']) ? max(1, (int) $settings['list_column']) : 3;
+        $list_column_tablet = !empty($settings['list_column_tablet']) ? max(1, (int) $settings['list_column_tablet']) : 2;
+        $list_column_mobile = !empty($settings['list_column_mobile']) ? max(1, (int) $settings['list_column_mobile']) : 1;
         ?>
         <div class="eead-icon-list-container">
             <ul class="eead-icon-list-items">
@@ -680,19 +680,13 @@ class IconList extends Widget_Base {
                             'items-' . $count => [
                                 'class' => [
                                     'eead-il-block',
-                                    $settings['icon_hover_animation'] ? 'elementor-animation-' . esc_attr($settings['icon_hover_animation']) : '',
+                                    $settings['icon_hover_animation'] ? 'elementor-animation-' . $settings['icon_hover_animation'] : '',
                                 ]
                             ]
                         ]);
 
                         if (isset($list['link']) && !empty($list['link']['url'])) {
-                            $this->add_render_attribute([
-                                'items-' . $count => [
-                                    'href' => esc_url($list['link']['url']),
-                                    'target' => $list['link']['is_external'] ? '_blank' : '',
-                                    'rel' => $list['link']['nofollow'] ? 'nofollow' : ''
-                                ]
-                            ]);
+                            $this->add_link_attributes('items-' . $count, $list['link']);
                             $tag = 'a';
                         }
 

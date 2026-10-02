@@ -1417,15 +1417,10 @@ class AdvancedIconBox extends Widget_Base {
         $has_icon = !empty($settings['selected_icon']['value']);
         $has_image = !empty($settings['image']['url']);
 
-        if ($has_icon && ('icon' == $settings['icon_type'])) {
-            $this->add_render_attribute('font-icon', [
-                'class' => $settings['selected_icon'],
-                'aria-hidden' => 'true'
-            ]);
-        } elseif ($has_image && ('image' == $settings['icon_type'])) {
+        if ($has_image && ('image' == $settings['icon_type'])) {
             $this->add_render_attribute('image-icon', [
-                'src' => esc_url($settings['image']['url']),
-                'alt' => esc_html($settings['title_text'])
+                'src' => $settings['image']['url'],
+                'alt' => wp_strip_all_tags($settings['title_text'])
             ]);
         }
 
@@ -1514,16 +1509,19 @@ class AdvancedIconBox extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $align = $settings['text_align'] ? $settings['text_align'] : $settings['icon_position'];
+        $align = in_array($align, ['left', 'center', 'right'], true) ? $align : 'center';
         $title_separator_type = in_array($settings['title_separator_type'], $this->valid_svg_list()) ? $settings['title_separator_type'] : 'line';
-        $svg_image = EEAD_PATH . 'assets/img/divider/' . esc_attr($title_separator_type) . '-' . $align . '.svg';
+        $svg_image = EEAD_PATH . 'assets/img/divider/' . $title_separator_type . '-' . $align . '.svg';
 
         if (file_exists($svg_image)) {
             $file_path = $svg_image;
         } else {
-            $file_path = EEAD_PATH . 'assets/img/divider/' . esc_attr($title_separator_type) . '.svg';
+            $file_path = EEAD_PATH . 'assets/img/divider/' . $title_separator_type . '.svg';
         }
 
-        include($file_path);
+        if (file_exists($file_path)) {
+            echo file_get_contents($file_path);
+        }
     }
 
     protected function render_button() {
@@ -1531,15 +1529,7 @@ class AdvancedIconBox extends Widget_Base {
         $this->add_render_attribute('readmore', 'class', ['eead-aib-button']);
 
         if (!empty($settings['readmore_link']['url'])) {
-            $this->add_render_attribute('readmore', 'href', $settings['readmore_link']['url']);
-
-            if ($settings['readmore_link']['is_external']) {
-                $this->add_render_attribute('readmore', 'target', '_blank');
-            }
-
-            if ($settings['readmore_link']['nofollow']) {
-                $this->add_render_attribute('readmore', 'rel', 'nofollow');
-            }
+            $this->add_link_attributes('readmore', $settings['readmore_link']);
         }
 
         if ($settings['readmore_hover_animation']) {

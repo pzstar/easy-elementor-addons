@@ -87,7 +87,7 @@ class PieChart extends Widget_Base {
 						'color' => '#64b1d5',
 					),
 				),
-				'title_field' => '{{{ label }}}'
+				'title_field' => '{{ label }}'
 			]
 		);
 
@@ -637,7 +637,6 @@ class PieChart extends Widget_Base {
 		$legend_style_dictionary = [
 			'boxWidth' => 'chart_legend_box_width',
 			'color' => 'chart_legend_font_color',
-			//'family' => 'chart_legend_font_family',
 			'size' => 'chart_legend_font_size',
 			'style' => 'chart_legend_font_style',
 			'weight' => 'chart_legend_font_weight',

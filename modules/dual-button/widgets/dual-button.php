@@ -795,7 +795,7 @@ class DualButton extends Widget_Base {
                             ?>
                         </span>
                         <?php
-                        if ($settings['pri_button_icon']['value'] !== '') {
+                        if (!empty($settings['pri_button_icon']['value'])) {
                             ?>
                             <?php
                             Icons_Manager::render_icon($settings['pri_button_icon'], ['aria-hidden' => 'true']);
@@ -841,7 +841,7 @@ class DualButton extends Widget_Base {
                             ?>
                         </span>
                         <?php
-                        if ($settings['sec_button_icon']['value'] !== '') {
+                        if (!empty($settings['sec_button_icon']['value'])) {
                             ?>
                             <?php
                             Icons_Manager::render_icon($settings['sec_button_icon'], ['aria-hidden' => 'true']);

@@ -3,12 +3,10 @@
 namespace EasyElementorAddons\Modules\StickyVideo\Widgets;
 
 // Elementor Classes
-use Elementor\Modules\DynamicTags\Module as TagsModule;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 use Elementor\Utils;
-use Elementor\Icons_Manager;
 use Elementor\Group_Control_Box_Shadow;
 
 if (!defined('ABSPATH')) {
@@ -573,17 +571,15 @@ class StickyVideo extends Widget_Base {
     protected function get_url_id() {
         $settings = $this->get_settings_for_display();
 
+        $url = '';
         if ($settings['video_source'] === 'youtube') {
             $url = $settings['link_youtube'];
-            $link = explode('=', wp_parse_url($url, PHP_URL_QUERY));
-            $id = $link[1];
         } else if ($settings['video_source'] === 'vimeo') {
             $url = $settings['link_vimeo'];
-            $link = explode('/', $url);
-            $id = $link[3];
         }
 
-        return $id;
+        $props = \Elementor\Embed::get_video_properties($url);
+        return isset($props['video_id']) ? $props['video_id'] : '';
     }
 
 }

@@ -62,40 +62,6 @@
             },
             beforeSend: function () {
                 $('.eead-save-button').addClass('eead-btn-loading');
-                // if( Array.isArray(widgets_arr) && widgets_arr.length == 0 ) { }
-            },
-            success: function (res) {
-                if (res == 'yes') {
-                    $('body').find('.eead-admin-notificn').html('Saved Successfully!').addClass('eead-saved').show();
-                } else {
-                    $('body').find('.eead-admin-notificn').html('Save Failed!').addClass('eead-failed').show();
-                }
-                $('.eead-save-button').removeClass('eead-btn-loading');
-                hideNotification();
-            }
-        });
-    });
-
-    /* Save Extenders Button Action */
-    $(document).on('click', '#eead-extender-selection-btn', function (e) {
-        e.preventDefault();
-
-        var extenders_arr = [];
-        $.each($('.eead-extender-wrap input[name="extenders"]:checked'), function () {
-            extenders_arr.push($(this).val());
-        });
-
-        $.ajax({
-            url: ajaxURL,
-            type: 'post',
-            data: {
-                action: 'eead_extenders_save',
-                data: extenders_arr,
-                wp_nonce: adminNonce
-            },
-            beforeSend: function () {
-                $('.eead-save-button').addClass('eead-btn-loading');
-                // if( Array.isArray(extenders_arr) && widgets_arr.length == 0 ) { }
             },
             success: function (res) {
                 if (res == 'yes') {
@@ -127,15 +93,6 @@
         }
     });
 
-    /* Enable / Disable All Extenders Button Actions */
-    $('body').on('click', '.eead-extender-action-btn', function () {
-        if ($(this).hasClass('eead-extender-enable-all')) {
-            $('.eead-extender-wrap').find('.eead-extender-checkbox').prop('checked', true);
-        } else if ($(this).hasClass('eead-extender-disable-all')) {
-            $('.eead-extender-wrap').find('.eead-extender-checkbox').prop('checked', false);
-        }
-    });
-
     /* Tabs display on tab click for Plugin Menu Settings Page */
     $('body').on('click', '.eead-tab', function () {
         var selected_menu = $(this).data('tab');
@@ -149,8 +106,7 @@
         $(this).parent().find('.eead-tab').removeClass('nav-tab-active');
         $(this).addClass('nav-tab-active');
 
-        if ($(this).find('input'))
-            $(this).find('input').prop('checked', true);
+        $(this).find('input').prop('checked', true);
     });
 
 }(jQuery));

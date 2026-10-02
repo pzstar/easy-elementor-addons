@@ -251,7 +251,7 @@ class BusinessHour extends Widget_Base {
                             'end_time' => $this->format_time('20:00'), //'H:i'
                         ]
                     ],
-                    'title_field' => '{{{start_time}}} - {{{end_time}}}',
+                    'title_field' => '{{ start_time }} - {{ end_time }}',
                     'condition' => [
                         "{$key}_closed" => '',
                     ],
@@ -845,7 +845,7 @@ class BusinessHour extends Widget_Base {
 
     public function set_gmt_zone($receive) {
         // Convert hours to seconds
-        $offset_seconds = $receive * 3600;
+        $offset_seconds = (float) $receive * 3600;
 
         // Get GMT time adjusted by offset
         $time = gmdate("g:i:s A", time() + $offset_seconds);
@@ -858,7 +858,6 @@ class BusinessHour extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $timeNotation = (get_option('time_format') == 'H:i') ? '24h' : '12h';
-        $ct_input = get_option('gmt_offset');
 
         if ($settings['dynamic_timezone'] == 'custom') {
             $ct_input = (isset($settings['custom_timezone_input']) && !empty($settings['custom_timezone_input'])) ? $settings['custom_timezone_input'] : '+6';
@@ -895,13 +894,13 @@ class BusinessHour extends Widget_Base {
                         ?>
                         <div class="eead-bh-current-time">
                             <?php
-                            echo esc_html(date('g:i a', $cur_time));
+                            echo esc_html(gmdate('g:i a', $cur_time));
                             ?>
                         </div>
 
                         <div class="eead-bh-current-date">
                             <?php
-                            echo esc_html(date(get_option('date_format'), $cur_time));
+                            echo esc_html(gmdate(get_option('date_format'), $cur_time));
                             ?>
                         </div>
                         <?php
@@ -920,7 +919,7 @@ class BusinessHour extends Widget_Base {
                     } elseif ($settings['header_content_type'] == 'text') {
                         ?>
                         <div class="eead-bh-custom-text">
-                            <?php echo do_shortcode($settings['header_text']); ?>
+                            <?php echo wp_kses_post(do_shortcode($settings['header_text'])); ?>
                         </div>
                         <?php
                     }
@@ -970,13 +969,13 @@ class BusinessHour extends Widget_Base {
                         ?>
                         <div class="eead-bh-current-time">
                             <?php
-                            echo esc_html(date('g:i a', $cur_time));
+                            echo esc_html(gmdate('g:i a', $cur_time));
                             ?>
                         </div>
 
                         <div class="eead-bh-current-date">
                             <?php
-                            echo esc_html(date(get_option('date_format'), $cur_time));
+                            echo esc_html(gmdate(get_option('date_format'), $cur_time));
                             ?>
                         </div>
                         <?php
@@ -995,7 +994,7 @@ class BusinessHour extends Widget_Base {
                     } elseif ($settings['footer_content_type'] == 'text') {
                         ?>
                         <div class="eead-bh-custom-text">
-                            <?php echo do_shortcode($settings['footer_text']); ?>
+                            <?php echo wp_kses_post(do_shortcode($settings['footer_text'])); ?>
                         </div>
                         <?php
                     }
@@ -1030,6 +1029,10 @@ class BusinessHour extends Widget_Base {
             $date1 = DateTime::createFromFormat($wp_time_format, $current_time);
             $date2 = DateTime::createFromFormat($wp_time_format, $start_time);
             $date3 = DateTime::createFromFormat($wp_time_format, $end_time);
+
+            if (!$date1 || !$date2 || !$date3) {
+                continue;
+            }
 
             /** If the current time between start_time and end_time - we are opened now. */
             if ($date1 > $date2 && $date1 < $date3) {

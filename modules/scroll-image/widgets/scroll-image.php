@@ -1115,7 +1115,7 @@ class ScrollImage extends Widget_Base {
 		);
 
 		if ($settings['image_framing']) {
-			echo '<img class="eead-scroll-image-device" src="' . esc_url(EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg') . '">';
+			echo '<img class="eead-scroll-image-device" src="' . esc_url(EEAD_ASSETS_URL . 'img/devices/' . esc_attr($frame) . '.svg') . '" alt="">';
 		}
 		?>
 
@@ -1227,7 +1227,7 @@ class ScrollImage extends Widget_Base {
 
 				<?php if (!empty($settings['caption'])) { ?>
 					<div class="eead-scroll-image-caption">
-						<?php echo esc_attr($settings['caption']); ?>
+						<?php echo esc_html($settings['caption']); ?>
 					</div>
 				<?php } ?>
 			</div>

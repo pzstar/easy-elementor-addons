@@ -87,7 +87,7 @@ class Progressbar extends Widget_Base {
                         'progressbar_label' => esc_html__('Progress Bar #1', 'easy-elementor-addons'),
                     ]
                 ],
-                'title_field' => '{{{ progressbar_label }}}'
+                'title_field' => '{{ progressbar_label }}'
             ]
         );
 
@@ -478,16 +478,6 @@ class Progressbar extends Widget_Base {
                             break;
 
                         case 'style3':
-                            ?>
-                            <label><?php echo esc_html($progressbar['progressbar_label']); ?></label>
-                            <div class="eead-progressbar" data-width="<?php echo absint($percentage); ?>">
-                                <div class="eead-progressbar-length">
-                                    <div class="eead-progressbar-percentage"><?php echo absint($percentage) . "%"; ?></div>
-                                </div>
-                            </div>
-                            <?php
-                            break;
-
                         case 'style4':
                             ?>
                             <label><?php echo esc_html($progressbar['progressbar_label']); ?></label>

@@ -760,15 +760,7 @@ class AdvancedHeading extends Widget_Base {
             $main_heading .= '</span>';
 
             if (!empty($settings['link']['url'])) {
-                $this->add_render_attribute('url', 'href', $settings['link']['url']);
-
-                if ($settings['link']['is_external']) {
-                    $this->add_render_attribute('url', 'target', '_blank');
-                }
-
-                if (!empty($settings['link']['nofollow'])) {
-                    $this->add_render_attribute('url', 'rel', 'nofollow');
-                }
+                $this->add_link_attributes('url', $settings['link']);
             }
 
             $heading .= '<' . esc_attr(eead_check_allowed_html_tags($settings['header_size'])) . ' class="eead-ah-main-heading eead-ah-line-' . esc_attr($settings['main_heading_line_position']) . '">';
@@ -788,12 +780,11 @@ class AdvancedHeading extends Widget_Base {
         $advanced_heading = '';
 
         if ($settings['advanced_heading'] && $settings['advanced_heading_visibility'] == 'yes') {
-            $this->add_render_attribute('advanced_heading', 'class',
-                [
-                    'eead-ah-adv-heading',
-                    $settings['advanced_heading_hide'] ? 'eead-hide-' . implode('-', $settings['advanced_heading_hide']) : '',
-                ]
-            );
+            $this->add_render_attribute('advanced_heading', 'class', 'eead-ah-adv-heading');
+
+            foreach ((array) $settings['advanced_heading_hide'] as $device) {
+                $this->add_render_attribute('advanced_heading', 'class', 'eead-hide-' . $device);
+            }
 
             $advanced_heading .= '<div ' . $this->get_render_attribute_string('advanced_heading') . '>';
             $advanced_heading .= esc_html($settings['advanced_heading']);

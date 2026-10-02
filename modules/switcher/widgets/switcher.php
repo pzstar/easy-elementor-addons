@@ -75,7 +75,7 @@ class Switcher extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'label_block' => true,
                 'multiple' => false,
-                'options' => $this->get_pages(),
+                'options' => eead_get_pages(),
                 'condition' => ['content_type' => 'page']
             ]
         );
@@ -93,7 +93,7 @@ class Switcher extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => $this->get_elementor_templates(),
+                'options' => get_elementor_templates(),
                 'label_block' => 'true',
                 'condition' => ['content_type' => 'elementor_template']
             ]
@@ -140,7 +140,7 @@ class Switcher extends Widget_Base {
                         'wisiwyg_content' => 'Donec justo eros, luctus quis scelerisque id, ultricies sit amet odio. Vestibulum aliquam efficitur eleifend. Praesent dignissim faucibus ex vel sodales. Morbi aliquet libero at augue pharetra vehicula. Cras dapibus lorem efficitur nunc euismod convallis. Nunc molestie risus id lacinia consequat. Integer iaculis orci in ipsum vestibulum, non mattis justo ornare. Cras et lorem tempor ligula suscipit mollis. Nulla vitae augue non leo tempus finibus.'
                     ]
                 ],
-                'title_field' => '{{{title}}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -614,7 +614,6 @@ class Switcher extends Widget_Base {
     }
 
     protected function render() {
-        $settings = $this->get_settings_for_display();
         ?>
         <div class="eead-switcher-container">
             <div class="eead-switcher-tabs">
@@ -663,21 +662,19 @@ class Switcher extends Widget_Base {
                         $page_id = $tab['page'];
                         $post = get_post($page_id);
 
-                        if ($post && $post->post_status === 'publish' && !post_password_required($post)) {
-                            if (\Elementor\Plugin::$instance->db->is_built_with_elementor($page_id)) {
-                                echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($page_id);
+                        if ($post && $post->post_status === 'publish' && !post_password_required($post) && (int) $page_id !== get_the_ID()) {
+                            if (\Elementor\Plugin::instance()->db->is_built_with_elementor($page_id)) {
+                                echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($page_id);
                             } else {
-                                if ($post && !is_wp_error($post)) {
-                                    if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-                                        echo do_shortcode($post->post_content);
-                                    } else {
-                                        echo apply_filters('the_content', $post->post_content);
-                                    }
+                                if (\Elementor\Plugin::instance()->editor->is_edit_mode()) {
+                                    echo do_shortcode($post->post_content);
+                                } else {
+                                    echo apply_filters('the_content', $post->post_content);
                                 }
                             }
                         }
                     } elseif (isset($tab['content_type']) && $tab['content_type'] === 'elementor_template' && !empty($tab['elementor_template'])) {
-                        echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display($tab['elementor_template']);
+                        echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($tab['elementor_template']);
                     } elseif (isset($tab['content_type']) && $tab['content_type'] === 'wisiwyg' && !empty($tab['wisiwyg_content'])) {
                         echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
                     }
@@ -686,39 +683,6 @@ class Switcher extends Widget_Base {
                 <?php
             }
         }
-    }
-
-    protected function get_elementor_templates() {
-        $templates = $this->elementor()->templates_manager->get_source('local')->get_items();
-        $types = array();
-
-        if (empty($templates)) {
-            $template_options = ['0' => esc_html__('Template Not Found!', 'easy-elementor-addons')];
-        } else {
-            $template_options = ['0' => esc_html__('Select Template', 'easy-elementor-addons')];
-
-            foreach ($templates as $template) {
-                $template_options[$template['template_id']] = $template['title'] . ' (' . $template['type'] . ')';
-                $types[$template['template_id']] = $template['type'];
-            }
-        }
-
-        return $template_options;
-    }
-
-    protected function elementor() {
-        return Plugin::$instance;
-    }
-
-    protected function get_pages() {
-        $pages = get_pages();
-
-        $_pages = [];
-        foreach ($pages as $key => $object) {
-            $_pages[$object->ID] = ucfirst($object->post_title);
-        }
-
-        return $_pages;
     }
 
 }

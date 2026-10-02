@@ -195,7 +195,7 @@ class FeatureList extends Widget_Base {
                     ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{title}}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -757,14 +757,10 @@ class FeatureList extends Widget_Base {
                 <?php
                 foreach ($settings['feature_list'] as $index => $item) {
                     $feature_title_tag = $settings['title_size'];
-                    $feature_icon_tag = $item['link']['url'] ? 'a' : 'span';
+                    $feature_icon_tag = !empty($item['link']['url']) ? 'a' : 'span';
 
-                    if ($item['link']['url']) {
-                        $this->add_render_attribute('link' . $index, [
-                            'href' => esc_url($item['link']['url']),
-                            'target' => $item['link']['is_external'] ? '_blank' : '',
-                            'rel' => $item['link']['nofollow'] ? 'nofollow' : ''
-                        ]);
+                    if (!empty($item['link']['url'])) {
+                        $this->add_link_attributes('link' . $index, $item['link']);
                     }
                     ?>
                     <li class="eead-fl-item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">

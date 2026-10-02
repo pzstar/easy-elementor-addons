@@ -3,8 +3,6 @@ if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
 $eead_general_settings = get_option('eead_general_settings');
-$eead_widgets = get_option('eead_widgets');
-$eead_extenders = get_option('eead_extenders');
 $gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
 $weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
 
@@ -22,7 +20,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <?php echo esc_html__('Easy Elementor Addons Settings', 'easy-elementor-addons'); ?> - V<?php echo esc_html(EEAD_VERSION); ?>
         </h2>
         <div class="eead-doc-link">
-            <a href="https://hashthemes.com/documentation/easy-elementor-addons-documentation/" target="_blank">
+            <a href="https://hashthemes.com/documentation/easy-elementor-addons-documentation/" target="_blank" rel="noopener noreferrer">
                 <span class="mdi-text-box-multiple-outline"></span>
                 <?php echo esc_html__('Documentation', 'easy-elementor-addons'); ?>
             </a>
@@ -94,7 +92,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
                             <input type="text" name="gmap_access_token" placeholder="<?php esc_attr_e('Enter Your Gmap Access Token', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($gmap_access_token); ?>">
                         </div>
                         <div class="eead-desc">
-                            <?php esc_html_e('Tutorial to create ', 'easy-elementor-addons'); ?> <a target="_blank" href="https://hashthemes.com/articles/create-a-google-maps-api-key/" target="_blank"><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons'); ?></a>
+                            <?php esc_html_e('Tutorial to create ', 'easy-elementor-addons'); ?> <a href="https://hashthemes.com/articles/create-a-google-maps-api-key/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons'); ?></a>
                         </div>
                     </div>
 
@@ -104,7 +102,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
                             <input type="text" name="weather_api_key" placeholder="<?php esc_attr_e('Enter Your API Key', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($weather_api_key); ?>">
                         </div>
                         <div class="eead-desc">
-                            <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a target="_blank" href="https://weatherstack.com/quickstart" target="_blank"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>
+                            <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a href="https://weatherstack.com/quickstart" target="_blank" rel="noopener noreferrer"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +124,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
             <p><?php esc_html_e('Easy Elementor Addons is built using all the modern trends and is well optimized with speed and SEO. So, you can be assured that the extension won’t make any impact on the SEO or the speed of your WordPress website.', 'easy-elementor-addons'); ?></p>
 
-            <p><a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank"><?php esc_html_e('See Demos of All Elementor Widgets', 'easy-elementor-addons'); ?></a></p>
+            <p><a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('See Demos of All Elementor Widgets', 'easy-elementor-addons'); ?></a></p>
 
             <h3><?php esc_html_e('Elements Available in the Extension:', 'easy-elementor-addons'); ?></h3>
 
@@ -145,7 +143,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
                     if ($demo_url) {
                         ?>
-                        <a href="<?php echo esc_url($demo_url); ?>" target="_blank"><?php echo esc_html($val['name']); ?></a>
+                        <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($val['name']); ?></a>
                         <?php
                     } else {
                         echo esc_html($val['name']);
@@ -164,7 +162,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <p><?php esc_html_e('Easy Elementor Addons is compatible with all types of free and premium WordPress themes. The only thing is that you will need to install Elementor Plugin.', 'easy-elementor-addons'); ?></p>
 
             <h3><?php esc_html_e('Support:', 'easy-elementor-addons'); ?></h3>
-            <p><?php esc_html_e('If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website', 'easy-elementor-addons'); ?> <a href="https://hashthemes.com/" target="_blank"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>.</p>
+            <p><?php esc_html_e('If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website', 'easy-elementor-addons'); ?> <a href="https://hashthemes.com/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>.</p>
 
             <p style="height:40px;"></p>
         </div>

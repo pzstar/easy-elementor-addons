@@ -104,7 +104,7 @@ class LogoCarousel extends Widget_Base {
                     ]
                 ],
                 'fields' => $repeater->get_controls(),
-                'title_field' => '{{{ title }}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -978,7 +978,7 @@ class LogoCarousel extends Widget_Base {
             $params['next_icon'] = $settings['next_icon_arrow']['value'];
         }
 
-        $params = json_encode($params);
+        $params = wp_json_encode($params);
 
         $this->add_render_attribute('logo_container', [
             'class' => [

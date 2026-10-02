@@ -846,8 +846,7 @@ class Countdown extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $get_due_date = esc_attr($settings['countdown_due_time']);
-        $due_date = gmdate("M d Y G:i:s", strtotime($get_due_date));
+        $due_date = gmdate("M d Y G:i:s", strtotime($settings['countdown_due_time']));
         $separator = '';
 
         $this->add_render_attribute('eead-countdown', [
@@ -859,16 +858,8 @@ class Countdown extends Widget_Base {
             $separator = '<span class="eead-countdown-separator">:</span>';
         }
 
-        if ($settings['countdown_expire_type'] == 'text') {
-            if (!empty($settings['countdown_expiry_text'])) {
-                $this->add_render_attribute('eead-countdown', 'data-expiry-text', esc_html($settings['countdown_expiry_text']));
-            }
-
-            if (!empty($settings['countdown_expiry_text_title'])) {
-                $this->add_render_attribute('eead-countdown', 'data-expiry-title', esc_html($settings['countdown_expiry_text_title']));
-            }
-        } elseif ($settings['countdown_expire_type'] == 'url') {
-            $this->add_render_attribute('eead-countdown', 'data-redirect-url', esc_url($settings['countdown_expiry_redirection']));
+        if ($settings['countdown_expire_type'] == 'url') {
+            $this->add_render_attribute('eead-countdown', 'data-redirect-url', esc_url_raw($settings['countdown_expiry_redirection']));
         }
         ?>
 
@@ -940,6 +931,18 @@ class Countdown extends Widget_Base {
                 ?>
             </div>
 
+            <?php if ($settings['countdown_expire_type'] == 'text') { ?>
+                <template class="eead-countdown-expiry">
+                    <div class="eead-countdown-finish-message">
+                        <?php if (!empty($settings['countdown_expiry_text_title'])) { ?>
+                            <h4 class="expiry-title"><?php echo esc_html($settings['countdown_expiry_text_title']); ?></h4>
+                        <?php } ?>
+                        <?php if (!empty($settings['countdown_expiry_text'])) { ?>
+                            <div class="eead-countdown-finish-text"><?php echo wp_kses_post($settings['countdown_expiry_text']); ?></div>
+                        <?php } ?>
+                    </div>
+                </template>
+            <?php } ?>
         </div>
         <?php
     }

@@ -1491,7 +1491,7 @@ class PopupModal extends Widget_Base {
 				<div class="modal__container animated animated-fast <?php echo esc_attr($settings['popup_animation']) ?>" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo esc_attr($id); ?>-title">
 					<?php if ($settings['close_button'] == 'yes') { ?>
 						<div class="eead-popup-modal-close">
-							<button class="modal__close" aria-label="<?php echo esc_html__('Close Modal', 'easy-elementor-addons'); ?>" data-micromodal-close>
+							<button class="modal__close" aria-label="<?php echo esc_attr__('Close Modal', 'easy-elementor-addons'); ?>" data-micromodal-close>
 								<span class="icofont-close-line" data-micromodal-close></span>
 							</button>
 						</div>
@@ -1509,7 +1509,7 @@ class PopupModal extends Widget_Base {
 						<?php
 						switch ($settings['popup_type']) {
 							case 'image':
-								echo '<img src="' . esc_url($settings['image']['url']) . '">';
+								echo '<img src="' . esc_url($settings['image']['url']) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($settings['image'])) . '">';
 								break;
 
 							case 'content':
@@ -1520,7 +1520,7 @@ class PopupModal extends Widget_Base {
 
 							case 'template':
 								$template_id = $settings['templates'];
-								echo Plugin::$instance->frontend->get_builder_content_for_display($template_id);
+								echo Plugin::instance()->frontend->get_builder_content_for_display($template_id);
 								break;
 
 							case 'custom-html':

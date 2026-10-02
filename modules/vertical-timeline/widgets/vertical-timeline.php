@@ -166,7 +166,7 @@ class VerticalTimeline extends Widget_Base {
                         'meta' => 'Thursday, August 27, 2025',
                     ]
                 ],
-                'title_field' => '{{{ title }}}'
+                'title_field' => '{{ title }}'
             ]
         );
 
@@ -311,6 +311,88 @@ class VerticalTimeline extends Widget_Base {
                     '{{WRAPPER}} .eead-vertical-timeline .eead-card-right .eead-vt-each-wrap, {{WRAPPER}} .eead-vertical-timeline .eead-card-left .eead-vt-each-wrap' => 'width: {{SIZE}}%;',
                     '{{WRAPPER}} .eead-vertical-timeline .eead-card-right .eead-vt-inner:before' => 'left: calc(100% - {{SIZE}}%);',
                     '{{WRAPPER}} .eead-vertical-timeline .eead-card-left .eead-vt-inner:before' => 'left: {{SIZE}}%;'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'stack_on', [
+                'label' => esc_html__('Stack On', 'easy-elementor-addons'),
+                'description' => esc_html__('Below this screen size the items stack in a single column, with the line on the left.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'mobile',
+                'separator' => 'before',
+                'options' => [
+                    'none' => esc_html__('Never', 'easy-elementor-addons'),
+                    'tablet' => esc_html__('Tablet & Mobile', 'easy-elementor-addons'),
+                    'mobile' => esc_html__('Mobile Only', 'easy-elementor-addons'),
+                ],
+                'prefix_class' => 'eead-vt-stack-',
+            ]
+        );
+
+        $this->add_control(
+            'stack_text_alignment', [
+                'label' => esc_html__('Stacked Text Alignment', 'easy-elementor-addons'),
+                'type' => Controls_Manager::CHOOSE,
+                'default' => 'left',
+                'toggle' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', 'easy-elementor-addons'),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-vt-stack-align: {{VALUE}};',
+                ],
+                'condition' => [
+                    'stack_on!' => 'none',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'stack_gap', [
+                'label' => esc_html__('Stacked Gap From Line', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 60,
+                        'step' => 1
+                    ]
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 15,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--eead-vt-stack-gap: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'stack_on!' => 'none',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'stack_hide_meta', [
+                'label' => esc_html__('Hide Meta When Stacked', 'easy-elementor-addons'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+                'prefix_class' => 'eead-vt-stack-hide-meta-',
+                'condition' => [
+                    'stack_on!' => 'none',
                 ]
             ]
         );

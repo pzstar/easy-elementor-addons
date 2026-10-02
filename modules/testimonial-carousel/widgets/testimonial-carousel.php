@@ -118,7 +118,7 @@ class TestimonialCarousel extends Widget_Base {
                         ]
                     ]
                 ],
-                'title_field' => '{{{ name }}}',
+                'title_field' => '{{ name }}',
             ]
         );
 
@@ -1759,10 +1759,11 @@ class TestimonialCarousel extends Widget_Base {
         <div class="eead-testimonial-image">
             <?php
             $image_url = Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumbnail', $settings);
+            $image_alt = \Elementor\Control_Media::get_image_alt($item['image']);
             if ($image_url) {
-                echo '<img src="' . esc_url($image_url) . '">';
+                echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '">';
             } else {
-                echo '<img src="' . esc_url($item['image']['url']) . '">';
+                echo '<img src="' . esc_url($item['image']['url']) . '" alt="' . esc_attr($image_alt) . '">';
             }
             ?>
         </div>
@@ -1773,7 +1774,7 @@ class TestimonialCarousel extends Widget_Base {
         ?>
         <div class="eead-testimonial-content">
             <?php
-            if (!empty($settings['testimonial_title'])) {
+            if (!empty($item['testimonial_title'])) {
                 printf('<h4 class="eead-testimonial-title">%1$s</h4>', esc_html($item['testimonial_title']));
             }
 

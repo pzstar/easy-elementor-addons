@@ -131,7 +131,7 @@ class PricingTable extends Widget_Base {
                         'list' => 'Enter Features List'
                     ]
                 ],
-                'title_field' => '{{{ list }}}',
+                'title_field' => '{{ list }}',
             ]
         );
 
@@ -1011,9 +1011,12 @@ class PricingTable extends Widget_Base {
             <div class="eead-pricing-body">
                 <?php $this->get_pricing_list(); ?>
 
-                <?php if (!empty($settings['link']['url'])) { ?>
+                <?php
+                if (!empty($settings['link']['url'])) {
+                    $this->add_link_attributes('button', $settings['link']);
+                    ?>
                     <div class="eead-pricing-button">
-                        <a href="<?php echo esc_url($settings['link']['url']); ?>" <?php echo ($settings['link']['is_external'] ? ' target="_blank"' : '') . ($settings['link']['nofollow'] ? ' rel="nofollow"' : ''); ?>>
+                        <a <?php $this->print_render_attribute_string('button'); ?>>
                             <?php echo wp_kses_post($settings['link_text']); ?>
                             <?php Icons_Manager::render_icon($settings['link_icon'], ['aria-hidden' => 'true']); ?>
                         </a>

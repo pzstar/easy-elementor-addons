@@ -2,9 +2,9 @@
 Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
-Tested up to: 7.0
-Stable tag: 2.3.8
-Requires PHP: 7.2
+Tested up to: 7.1
+Stable tag: 2.4.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <h3>Elements Available in the Extension:</h3>
 
-<p>1) <a href="https://demo.hashthemes.com/easy-elementor-addons/accordion/" target="_blank">Accordions</a> - Displays the FAQ of your clients within a beautiful UI.</p>
+<p>1) <a href="https://demo.hashthemes.com/easy-elementor-addons/accordion/" target="_blank">Accordions</a> - Displays the FAQ of your clients within a beautiful UI, with an option to keep only one item open at a time.</p>
 
 <p>2) <a href="https://demo.hashthemes.com/easy-elementor-addons/advanced-button/" target="_blank">Advanced Button</a> - Allows you to place responsive buttons with different animations, hover effects and many more.</p>
 
@@ -74,9 +74,9 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>14) <a href="https://demo.hashthemes.com/easy-elementor-addons/feature-list/" target="_blank">Feature List</a> - Showcase features or services with icons, text, and custom layouts.</p>
 
-<p>15) <a href="https://demo.hashthemes.com/easy-elementor-addons/flip-box/">Flip Box</a> - Display your information, custom text or even product detail in a customizable flip box.</p>
+<p>15) <a href="https://demo.hashthemes.com/easy-elementor-addons/flip-box/" target="_blank">Flip Box</a> - Display your information, custom text or even product detail in a customizable flip box.</p>
 
-<p>16) <a href="https://demo.hashthemes.com/easy-elementor-addons/image-gallery/" target="_blank">Filterable Gallery</a> - Build dynamic, filterable image or video galleries with ease.</p>
+<p>16) <a href="https://demo.hashthemes.com/easy-elementor-addons/image-gallery/" target="_blank">Image Gallery</a> - Build grid or masonry image galleries with lightbox, and optional filter tabs to sort images into groups.</p>
 
 <p>17) <a href="https://demo.hashthemes.com/easy-elementor-addons/horizontal-tab/" target="_blank">Horizontal Tab</a> - Allows you to showcase different information in a responsive horizontal tab.</p>
 
@@ -134,11 +134,11 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>44) <a href="https://demo.hashthemes.com/easy-elementor-addons/toggle/" target="_blank">Toggle</a> - Display multiple contents and toggle them for comparison.</p>
 
-<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Display real-time Twitter feeds directly on your website.</p>
+<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Embed X (Twitter) posts and videos, or add a hashtag button, directly on your website.</p>
 
 <p>46) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/" target="_blank">Vertical Tab</a> - Allows you to showcase different information in a responsive vertical tab.</p>
 
-<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company in a responsive timeline.</p>
+<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company. Switches to a single column layout on tablet or mobile.</p>
 
 <p>48) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
 
@@ -163,6 +163,31 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
+= 2.4.0 - 2 Oct, 2026 =
+* Compatibility test with WordPress v 7.1 and Elementor v 4.3
+* Widgets now register through Elementor's current API (elementor/widgets/register) instead of the deprecated widgets_registered hook
+* Accordion - new "Open One Item at a Time" option
+* Vertical Timeline - stacks into a single column on mobile; new Stack On, Stacked Text Alignment, Stacked Gap and Hide Meta options
+* New style options - Accordion (icon box size, link colors), Advanced Icon Box (text decoration, fill height), Counter (spacing), Feature List (item padding, radius, background and hover colors), Icon List (hover colors), Pricing Table (fill height, items alignment), Step Flow (hide direction on devices), Switcher (stack tabs on mobile)
+* Template library modal displayed raw markup instead of the templates - Fixed
+* Inserting Elementor's own saved or library templates failed while the plugin was active - Fixed
+* Template library requests verify SSL, cache the API version and validate template ids - Updated
+* Image Accordion links were rendered as headings and did not work - Fixed
+* Image Gallery filters did not match images in groups without a label - Fixed
+* Team Member and Team Carousel image and name links had no URL - Fixed
+* Testimonial Carousel title never displayed - Fixed
+* Weather widget showed the server date, broken markup and cached the wrong city when only the country changed - Fixed
+* Social Share links broke on titles with special characters; retired Digg, Skype and Evernote buttons removed - Fixed
+* Advanced Heading "Hide On" did not work when devices were picked in a different order - Fixed
+* Possible fatal error in Logo Grid and Icon List when a responsive column value was empty - Fixed
+* Stray semicolon in Flip Box output, PHP 8 warnings in several widgets - Fixed
+* Links in all widgets now honour nofollow and custom attributes - Updated
+* Countdown expiry message, Business Hours text and repeater titles in the editor are now escaped - Security
+* Tabs, Switcher and Vertical Tabs no longer loop when a tab shows the current page - Fixed
+* Settings save only accepts known keys and admin assets load on the plugin page only - Updated
+* Removed unused code, helper functions and unused Magnific Popup / Justified Gallery libraries
+* Minimum PHP version raised to 7.4
+
 = 2.3.8 - 27 Aug, 2026 =
 * Template library is available again from the Elementor editor. Its Ajax handlers verify a nonce, check the caller's capabilities before creating anything, and sideload a template's image through the safe HTTP API with the file type validated
 * Disabling every widget on the dashboard saved as no selection at all and silently switched the full list back on - Fixed
