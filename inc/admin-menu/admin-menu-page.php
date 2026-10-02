@@ -3,8 +3,9 @@ if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
 $eead_general_settings = get_option('eead_general_settings');
-$gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
-$weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
+$eead_gmap_access_token = isset($eead_general_settings['gmap_access_token']) && $eead_general_settings['gmap_access_token'] ? $eead_general_settings['gmap_access_token'] : '';
+$eead_gmap_map_id = isset($eead_general_settings['gmap_map_id']) && $eead_general_settings['gmap_map_id'] ? $eead_general_settings['gmap_map_id'] : '';
+$eead_weather_api_key = isset($eead_general_settings['weather_api_key']) && $eead_general_settings['weather_api_key'] ? $eead_general_settings['weather_api_key'] : '';
 
 $eead_all_widgets = eead_get_all_widgets_list();
 
@@ -46,6 +47,8 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <i class="mdi-file-document-multiple-outline"></i>
             <?php esc_html_e('About', 'easy-elementor-addons'); ?>
         </a>
+
+        <?php do_action('eead_admin_tabs'); ?>
     </nav>
 
     <div class="eead-tab-contents">
@@ -68,8 +71,8 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <form id="eead-widget-selection-form">
                 <div class="eead-widget-section-inner-wrap">
                     <?php
-                    foreach ($eead_all_widgets as $key => $val) {
-                        $this->get_widget_field($val['name'], $key, $val['icon'], $val['demo_url'], isset($val['premium']) && $val['premium'], isset($val['category']) ? $val['category'] : '');
+                    foreach ($eead_all_widgets as $eead_key => $eead_val) {
+                        $this->get_widget_field($eead_val['name'], $eead_key, $eead_val['icon'], $eead_val['demo_url'], isset($eead_val['premium']) && $eead_val['premium'], isset($eead_val['category']) ? $eead_val['category'] : '');
                     }
                     ?>
                 </div>
@@ -89,7 +92,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
                     <div class="eead-settings-field">
                         <label><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons') ?></label>
                         <div class="eead-settings-input-field">
-                            <input type="text" name="gmap_access_token" placeholder="<?php esc_attr_e('Enter Your Gmap Access Token', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($gmap_access_token); ?>">
+                            <input type="text" name="gmap_access_token" placeholder="<?php esc_attr_e('Enter Your Gmap Access Token', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($eead_gmap_access_token); ?>">
                         </div>
                         <div class="eead-desc">
                             <?php esc_html_e('Tutorial to create ', 'easy-elementor-addons'); ?> <a href="https://hashthemes.com/articles/create-a-google-maps-api-key/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Google Map Access Token', 'easy-elementor-addons'); ?></a>
@@ -97,9 +100,19 @@ $eead_all_widgets = eead_get_all_widgets_list();
                     </div>
 
                     <div class="eead-settings-field">
+                        <label><?php esc_html_e('Google Map ID', 'easy-elementor-addons') ?></label>
+                        <div class="eead-settings-input-field">
+                            <input type="text" name="gmap_map_id" placeholder="<?php esc_attr_e('Enter Your Google Map ID (optional)', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($eead_gmap_map_id); ?>">
+                        </div>
+                        <div class="eead-desc">
+                            <?php esc_html_e('Optional. Required for Advanced Markers (replacement of the deprecated legacy markers). With a Map ID, map styling is managed in Google Cloud and the widget\'s Snazzy Style option is ignored. Can be overridden per widget.', 'easy-elementor-addons'); ?> <a href="https://developers.google.com/maps/documentation/get-map-id" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Create a Map ID', 'easy-elementor-addons'); ?></a>
+                        </div>
+                    </div>
+
+                    <div class="eead-settings-field">
                         <label><?php esc_html_e('Weather API Key', 'easy-elementor-addons') ?></label>
                         <div class="eead-settings-input-field">
-                            <input type="text" name="weather_api_key" placeholder="<?php esc_attr_e('Enter Your API Key', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($weather_api_key); ?>">
+                            <input type="text" name="weather_api_key" placeholder="<?php esc_attr_e('Enter Your API Key', 'easy-elementor-addons'); ?>" value="<?php echo esc_attr($eead_weather_api_key); ?>">
                         </div>
                         <div class="eead-desc">
                             <?php esc_html_e('To get the api key click', 'easy-elementor-addons') ?> <a href="https://weatherstack.com/quickstart" target="_blank" rel="noopener noreferrer"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>
@@ -129,27 +142,27 @@ $eead_all_widgets = eead_get_all_widgets_list();
             <h3><?php esc_html_e('Elements Available in the Extension:', 'easy-elementor-addons'); ?></h3>
 
             <?php
-            $description = eead_get_all_widgets_desc();
-            $count = 0;
-            foreach ($eead_all_widgets as $key => $val) {
-                $count++;
+            $eead_description = eead_get_all_widgets_desc();
+            $eead_count = 0;
+            foreach ($eead_all_widgets as $eead_key => $eead_val) {
+                $eead_count++;
                 ?>
                 <p>
-                    <?php echo esc_html($count); ?>)
+                    <?php echo esc_html($eead_count); ?>)
                     <?php
                     // Add-on widgets have no page on the free demo site, so the name is
                     // only linked when the widget actually declares a demo URL.
-                    $demo_url = isset($val['demo_url']) ? $val['demo_url'] : '';
+                    $eead_demo_url = isset($eead_val['demo_url']) ? $eead_val['demo_url'] : '';
 
-                    if ($demo_url) {
+                    if ($eead_demo_url) {
                         ?>
-                        <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($val['name']); ?></a>
+                        <a href="<?php echo esc_url($eead_demo_url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($eead_val['name']); ?></a>
                         <?php
                     } else {
-                        echo esc_html($val['name']);
+                        echo esc_html($eead_val['name']);
                     }
 
-                    echo isset($description[$key]) && $description[$key] ? ' - ' . esc_html($description[$key]) : '';
+                    echo isset($eead_description[$eead_key]) && $eead_description[$eead_key] ? ' - ' . esc_html($eead_description[$eead_key]) : '';
                     ?>
                 </p>
                 <?php
@@ -166,6 +179,8 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
             <p style="height:40px;"></p>
         </div>
+
+        <?php do_action('eead_admin_tab_contents'); ?>
 
         <div class="eead-admin-notificn" style="display: none;"></div>
     </div>

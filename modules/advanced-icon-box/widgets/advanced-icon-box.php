@@ -33,6 +33,18 @@ class AdvancedIconBox extends Widget_Base {
         return 'eead-element-icon eead-icons-icon-text';
     }
 
+    public function get_keywords() {
+        return ['icon box', 'icon', 'feature', 'box', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -1466,7 +1478,7 @@ class AdvancedIconBox extends Widget_Base {
             if ($settings['title_text']) {
                 ?>
                 <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_size'])); ?> class="eead-aib-title">
-                    <span>
+                    <span <?php $this->print_render_attribute_string('title_text'); ?>>
                         <?php echo wp_kses($settings['title_text'], eead_allow_tags('title')); ?>
                     </span>
                 </<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_size'])); ?>>
@@ -1520,7 +1532,7 @@ class AdvancedIconBox extends Widget_Base {
         }
 
         if (file_exists($file_path)) {
-            echo file_get_contents($file_path);
+            echo file_get_contents($file_path); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Bundled static SVG file.
         }
     }
 
@@ -1566,7 +1578,8 @@ class AdvancedIconBox extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute('description_text', 'class', 'eead-advanced-icon-box-description');
+        $this->add_render_attribute('description_text', 'class', 'eead-aib-desc');
+        $this->add_inline_editing_attributes('description_text', 'advanced');
         $this->add_inline_editing_attributes('title_text', 'none');
         ?>
         <div class="eead-advanced-icon-box">
@@ -1599,7 +1612,7 @@ class AdvancedIconBox extends Widget_Base {
 
                 if ($settings['description_text']) {
                     ?>
-                    <div class="eead-aib-desc">
+                    <div <?php $this->print_render_attribute_string('description_text'); ?>>
                         <?php echo wp_kses_post($this->parse_text_editor($settings['description_text'])); ?>
                     </div>
                     <?php

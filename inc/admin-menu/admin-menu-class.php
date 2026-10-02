@@ -5,6 +5,10 @@
 
 namespace EasyElementorAddons;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 class AdminClass {
 
     public function __construct() {
@@ -43,7 +47,7 @@ class AdminClass {
         if (wp_verify_nonce(eead_get_post('wp_nonce'), 'eead_ajax_nonce')) {
             $data_ar = eead_get_post('data');
             $settings_ar = [];
-            $allowed_keys = apply_filters('eead_general_settings_keys', ['gmap_access_token', 'weather_api_key']);
+            $allowed_keys = apply_filters('eead_general_settings_keys', ['gmap_access_token', 'gmap_map_id', 'weather_api_key']);
 
             foreach ((array) $data_ar as $value) {
                 if (isset($value['name'], $value['value']) && in_array($value['name'], $allowed_keys, true)) {

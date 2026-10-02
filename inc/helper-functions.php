@@ -2,6 +2,10 @@
 
 use Elementor\Plugin;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 if (!function_exists('eead_html_tags')) {
 
     function eead_html_tags() {
@@ -39,9 +43,9 @@ if (!function_exists('eead_check_allowed_html_tags')) {
 
 }
 
-if (!function_exists('parse_wisiwyg_content')) {
+if (!function_exists('eead_parse_wysiwyg_content')) {
 
-    function parse_wisiwyg_content($content) {
+    function eead_parse_wysiwyg_content($content) {
         $content = shortcode_unautop($content);
         $content = do_shortcode($content);
         $content = wptexturize($content);
@@ -69,9 +73,9 @@ if (!function_exists('eead_get_pages')) {
 
 }
 
-if (!function_exists('get_element_position')) {
+if (!function_exists('eead_get_element_position')) {
 
-    function get_element_position() {
+    function eead_get_element_position() {
         $position_options = [
             'top left' => esc_html__('Top Left', 'easy-elementor-addons'),
             'top center' => esc_html__('Top Center', 'easy-elementor-addons'),
@@ -357,9 +361,9 @@ if (!function_exists('eead_allow_tags')) {
 
 }
 
-if (!function_exists('get_elementor_templates')) {
+if (!function_exists('eead_get_elementor_templates')) {
 
-    function get_elementor_templates() {
+    function eead_get_elementor_templates() {
 
         $templates = Plugin::instance()->templates_manager->get_source('local')->get_items();
 
@@ -905,7 +909,7 @@ if (!function_exists('eead_icofont_icon_array')) {
 /* Sanitizes value and returns param value */
 if (!function_exists('eead_get_var')) {
     function eead_get_var($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
-        $value = (isset($_GET[$param]) ? wp_unslash($_GET[$param]) : $default);
+        $value = (isset($_GET[$param]) ? wp_unslash($_GET[$param]) : $default); // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized below; callers verify the nonce.
         if (!empty($sanitize_array) && is_array($value)) {
             return eead_sanitize_array($value, $sanitize_array);
         }
@@ -915,7 +919,7 @@ if (!function_exists('eead_get_var')) {
 
 if (!function_exists('eead_get_request')) {
     function eead_get_request($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
-        $value = (isset($_REQUEST[$param]) ? wp_unslash($_REQUEST[$param]) : $default);
+        $value = (isset($_REQUEST[$param]) ? wp_unslash($_REQUEST[$param]) : $default); // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized below; callers verify the nonce.
         if (!empty($sanitize_array) && is_array($value)) {
             return eead_sanitize_array($value, $sanitize_array);
         }
@@ -925,7 +929,7 @@ if (!function_exists('eead_get_request')) {
 
 if (!function_exists('eead_get_post')) {
     function eead_get_post($param, $sanitize = 'sanitize_text_field', $default = '', $sanitize_array = array()) {
-        $value = (isset($_POST[$param]) ? wp_unslash($_POST[$param]) : $default);
+        $value = (isset($_POST[$param]) ? wp_unslash($_POST[$param]) : $default); // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized below; callers verify the nonce.
         if (!empty($sanitize_array) && is_array($value)) {
             return eead_sanitize_array($value, $sanitize_array);
         }

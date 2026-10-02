@@ -30,6 +30,18 @@ class VideoPlayer extends Widget_Base {
         return 'eead-element-icon eead-icons-video-player';
     }
 
+    public function get_keywords() {
+        return ['video player', 'video', 'youtube', 'vimeo', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -392,7 +404,10 @@ class VideoPlayer extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('overlay', [
-            'class' => 'eead-video-overlay'
+            'class' => 'eead-video-overlay',
+            'role' => 'button',
+            'tabindex' => '0',
+            'aria-label' => esc_html__('Play video', 'easy-elementor-addons')
         ]);
 
         $thumb_url = $this->get_thumbnail_url();
@@ -419,7 +434,7 @@ class VideoPlayer extends Widget_Base {
 
         $this->add_render_attribute('play_button', [
             'class' => 'eead-video-play-button',
-            'role' => 'button'
+            'aria-hidden' => 'true'
         ]);
         ?>
 
@@ -446,7 +461,9 @@ class VideoPlayer extends Widget_Base {
                 $this->add_render_attribute('video_player', 'class', 'eead-custom-play-button');
             }
 
-            echo '<video ' . $this->get_render_attribute_string('video_player') . '></video>';
+            ?>
+            <video <?php $this->print_render_attribute_string('video_player'); ?>></video>
+            <?php
         } else {
             $embed_params = $this->get_embed_params();
             $embed_options = $this->get_embed_options();
@@ -495,7 +512,7 @@ class VideoPlayer extends Widget_Base {
 
             if ($settings['loop']) {
                 $video_properties = Embed::get_video_properties(esc_url($settings['youtube_url']));
-                $params['playlist'] = $video_properties['video_id'];
+                $params['playlist'] = $video_properties['video_id'] ?? '';
             }
 
             $params['wmode'] = 'opaque';

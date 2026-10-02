@@ -31,6 +31,18 @@ class SocialShare extends Widget_Base {
         return 'eead-element-icon eead-icons-social-share';
     }
 
+    public function get_keywords() {
+        return ['social share', 'share', 'social', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -501,7 +513,7 @@ class SocialShare extends Widget_Base {
 
             echo '<a target="_blank" rel="noopener noreferrer" class="eead-social-share-link eead-' . esc_attr($network['class']) . ' elementor-animation-' . esc_attr($hover_animation) . '" href="' . esc_url($network['href']) . '">';
             echo $show_icon == 'yes' ? '<i class="eead-icon ' . esc_attr($network['icon']) . '"></i>' : '';
-            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . $network['label'] . '</span>' : '';
+            echo $show_text == 'yes' ? '<span class="eead-social-share-text">' . esc_html($network['label']) . '</span>' : '';
             echo '</a>';
         }
         echo '</div>';

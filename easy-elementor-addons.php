@@ -62,7 +62,8 @@ if (!class_exists('Easy_Elementor_Addons')) {
             require EEAD_PATH . 'inc/icon-manager.php';
             require EEAD_PATH . 'inc/sticky-container.php';
             require EEAD_PATH . 'inc/admin-menu/admin-menu-class.php';
-            require EEAD_PATH . 'templates/templates.php';
+            // Template library is disabled until the import feature is complete.
+            // require EEAD_PATH . 'templates/templates.php';
         }
 
         public function required_plugins_notice() {
@@ -117,18 +118,4 @@ if (!class_exists('Easy_Elementor_Addons')) {
 
 }
 
-/**
- * Returns instanse of the plugin class.
- *
- * @since  1.0.0
- * @return object
- */
-if (!function_exists('easy_elementor_addons')) {
-
-    function easy_elementor_addons() {
-        return Easy_Elementor_Addons::get_instance();
-    }
-
-}
-
-easy_elementor_addons();
+Easy_Elementor_Addons::get_instance();

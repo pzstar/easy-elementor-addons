@@ -31,6 +31,18 @@ class Counter extends Widget_Base {
         return 'eead-element-icon eead-icons-counter';
     }
 
+    public function get_keywords() {
+        return ['counter', 'number', 'stats', 'odometer', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -266,7 +278,7 @@ class Counter extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-counter-box.eadd-counter-style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-counter-box.eead-counter-style2 .eead-counter-icon:after' => 'background: {{VALUE}}',
                 ],
                 'condition' => [
                     'counter_style' => 'style2'

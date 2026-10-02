@@ -28,8 +28,6 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p><strong>Lean Asset Loading</strong> - Third party libraries such as carousels, charts and lightboxes are pulled in only by the widgets that need them, rather than loading on every page of your site.</p>
 
-<p><strong>Ready Made Template Library</strong> - Browse and insert pre designed sections without leaving the Elementor editor, then restyle them to match your brand.</p>
-
 <p><strong>Sticky Container</strong> - Adds an Enable Sticky switch to Elementor's native Container element, so a nested container can stay in view while the visitor scrolls.</p>
 
 <p><strong>Extra Icon Libraries</strong> - Adds Material Design Icons and Iconfont icon sets to the Elementor icon picker, on top of the icons Elementor already ships with.</p>
@@ -169,9 +167,7 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 * Accordion - new "Open One Item at a Time" option
 * Vertical Timeline - stacks into a single column on mobile; new Stack On, Stacked Text Alignment, Stacked Gap and Hide Meta options
 * New style options - Accordion (icon box size, link colors), Advanced Icon Box (text decoration, fill height), Counter (spacing), Feature List (item padding, radius, background and hover colors), Icon List (hover colors), Pricing Table (fill height, items alignment), Step Flow (hide direction on devices), Switcher (stack tabs on mobile)
-* Template library modal displayed raw markup instead of the templates - Fixed
-* Inserting Elementor's own saved or library templates failed while the plugin was active - Fixed
-* Template library requests verify SSL, cache the API version and validate template ids - Updated
+* Template library temporarily disabled while the import feature is being completed
 * Image Accordion links were rendered as headings and did not work - Fixed
 * Image Gallery filters did not match images in groups without a label - Fixed
 * Team Member and Team Carousel image and name links had no URL - Fixed
@@ -186,6 +182,23 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 * Tabs, Switcher and Vertical Tabs no longer loop when a tab shows the current page - Fixed
 * Settings save only accepts known keys and admin assets load on the plugin page only - Updated
 * Removed unused code, helper functions and unused Magnific Popup / Justified Gallery libraries
+* Responsive fixes on mobile - Hotspot tooltips, Horizontal Timeline cards, Pricing List (new "Top" image position), Dual Heading, Dual Button, Business Hours, Switcher tabs, Image Accordion, Link Effect, One Page Navigation, Countdown and Team Member hover content
+* Countdown now ends at the same moment for every visitor regardless of their timezone - Fixed
+* Pie Chart cutout was applied in pixels instead of percent - Fixed
+* Several style controls had no effect (Counter, Countdown, Image Accordion, Step Flow, Flip Box image size, Sticky Video overlay) - Fixed
+* Nested Accordion, Tabs and Toggle widgets no longer interfere with each other - Fixed
+* Carousel tablet settings now follow Elementor's tablet breakpoint - Fixed
+* Images keep responsive srcset/sizes; Image Gallery images are lazy loaded - Updated
+* One Page Navigation, Advanced Map, Counter, Image Comparison, Lottie and Animated Heading no longer break on empty or unusual settings - Fixed
+* Draft or private Elementor templates are no longer shown inside Popup, Toggle, Switcher and Tabs - Security
+* Keyboard and screen reader support for Accordion, Tabs, Video Player, Progress Bar, Popup and One Page Navigation - Added
+* Widgets are easier to find in the Elementor panel search - Added
+* Step Flow direction arrows are now hidden on mobile by default, where steps stack - Updated
+* Advanced Map - supports Google Advanced Markers when a Map ID is set (new optional Map ID in settings and per widget); maps without a Map ID keep their custom styles - Updated
+* Logo Carousel - links now use a proper link field with new tab, nofollow and dynamic tags; existing links keep working - Updated
+* Business Hours - "open now" and the highlighted day follow the widget's own timezone - Fixed
+* Flip Box - long content scrolls inside the box on mobile instead of overflowing - Fixed
+* Lighter markup on sites using Elementor's Optimized Markup feature - Updated
 * Minimum PHP version raised to 7.4
 
 = 2.3.8 - 27 Aug, 2026 =

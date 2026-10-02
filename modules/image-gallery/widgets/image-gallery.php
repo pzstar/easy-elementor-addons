@@ -33,6 +33,18 @@ class ImageGallery extends Widget_Base {
         return 'eead-element-icon eead-icons-gallery-grid';
     }
 
+    public function get_keywords() {
+        return ['gallery', 'image gallery', 'filterable', 'masonry', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -930,7 +942,15 @@ class ImageGallery extends Widget_Base {
                     <div class="eead-ig-item-box <?php echo esc_attr($this->get_filter_class($filter_label)); ?>">
                         <div class="eead-ig-item">
                             <div class="eead-ig-item-thumbnail">
-                                <img src="<?php echo esc_url($value['url']); ?>">
+                                <?php
+                                if (!empty($value['id'])) {
+                                    echo wp_get_attachment_image($value['id'], 'large', false, ['loading' => 'lazy']);
+                                } else {
+                                    ?>
+                                    <img src="<?php echo esc_url($value['url']); ?>" alt="">
+                                    <?php
+                                }
+                                ?>
                             </div>
 
                             <div class="eead-ig-item-caption <?php echo esc_attr($settings['image_hover_style']); ?>">

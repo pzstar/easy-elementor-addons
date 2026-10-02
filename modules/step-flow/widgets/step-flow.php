@@ -27,6 +27,18 @@ class StepFlow extends Widget_Base {
         return 'eead-element-icon eead-icons-step-flow';
     }
 
+    public function get_keywords() {
+        return ['step flow', 'steps', 'process', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -137,7 +149,7 @@ class StepFlow extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -158,7 +170,7 @@ class StepFlow extends Widget_Base {
                 'default' => 'center',
                 'toggle' => true,
                 'selectors' => [
-                    '{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};'
+                    '{{WRAPPER}} .eead-step-flow' => 'text-align: {{VALUE}};'
                 ]
             ]
         );
@@ -176,9 +188,9 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Hide Direction On', 'easy-elementor-addons'),
                 'description' => esc_html__('Steps usually stack on smaller screens, where an arrow pointing sideways no longer leads anywhere.', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
-                'default' => '',
+                'default' => 'mobile',
                 'options' => [
-                    '' => esc_html__('Never', 'easy-elementor-addons'),
+                    'none' => esc_html__('Never', 'easy-elementor-addons'),
                     'tablet' => esc_html__('Tablet and Mobile', 'easy-elementor-addons'),
                     'mobile' => esc_html__('Mobile', 'easy-elementor-addons'),
                 ],
@@ -598,7 +610,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Hover Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
-                    'link[url]!' => ''
+                    'readmore_link[url]!' => ''
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-steps-title a:hover' => 'color: {{VALUE}};',
@@ -854,7 +866,7 @@ class StepFlow extends Widget_Base {
             Group_Control_Typography::get_type(), [
                 'name' => 'readmore_typography',
                 'label' => esc_html__('Typography', 'easy-elementor-addons'),
-                'selector' => '{{WRAPPER}} .eead-step-flow-readmore',
+                'selector' => '{{WRAPPER}} .eead-step-readmore',
                 'separator' => 'before'
             ]
         );
@@ -865,7 +877,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-step-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -876,7 +888,7 @@ class StepFlow extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-step-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -896,7 +908,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -906,7 +918,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -916,7 +928,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore' => 'border: 1px solid {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
@@ -934,7 +946,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore:hover' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -944,7 +956,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Background Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore:hover' => 'background: {{VALUE}}',
                 ]
             ]
         );
@@ -954,7 +966,7 @@ class StepFlow extends Widget_Base {
                 'label' => esc_html__('Border Color', 'easy-elementor-addons'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .eead-step-flow-readmore:hover' => 'border: 1px solid {{VALUE}}',
+                    '{{WRAPPER}} .eead-step-readmore:hover' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
@@ -977,13 +989,16 @@ class StepFlow extends Widget_Base {
         $this->add_render_attribute('badge', 'class', 'eead-steps-label');
         $this->add_inline_editing_attributes('badge', 'none');
 
+        $this->add_inline_editing_attributes('title', 'basic');
+
         if (!empty($settings['readmore_link']['url'])) {
             $this->add_link_attributes('link', $settings['readmore_link']);
-            $this->add_inline_editing_attributes('link', 'basic', 'title');
 
             $title = sprintf('<a %s>%s</a>', $this->get_render_attribute_string('link'), esc_html($settings['title']));
+
+            $this->add_link_attributes('readmore', $settings['readmore_link']);
+            $this->add_render_attribute('readmore', 'class', 'eead-step-readmore');
         } else {
-            $this->add_inline_editing_attributes('title', 'basic');
             $title = esc_html($settings['title']);
         }
         ?>
@@ -1018,7 +1033,7 @@ class StepFlow extends Widget_Base {
             <?php } ?>
 
             <?php if ($settings['show_readmore'] == 'yes' && !empty($settings['readmore_text']) && !empty($settings['readmore_link']['url'])) { ?>
-                <a href="<?php echo esc_url($settings['readmore_link']['url']); ?>" class="eead-step-readmore"><?php echo esc_html($settings['readmore_text']); ?></a>
+                <a <?php $this->print_render_attribute_string('readmore'); ?>><?php echo esc_html($settings['readmore_text']); ?></a>
             <?php } ?>
 
         </div>

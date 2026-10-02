@@ -33,6 +33,18 @@ class Accordion extends Widget_Base {
         return 'eead-element-icon eead-icons-accordion';
     }
 
+    public function get_keywords() {
+        return ['accordion', 'faq', 'toggle', 'collapse', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -72,7 +84,7 @@ class Accordion extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => get_elementor_templates(),
+                'options' => eead_get_elementor_templates(),
                 'label_block' => 'true',
                 'condition' => ['content_type' => 'elementor_template']
             ]
@@ -593,7 +605,7 @@ class Accordion extends Widget_Base {
         <div class="eead-accordion-container" data-one-at-a-time="<?php echo esc_attr($settings['one_at_a_time'] === 'yes' ? 'yes' : 'no'); ?>">
             <?php foreach ($accordions as $key => $accordion) { ?>
                 <div class="eead-each-accordion eead-each-accordion-<?php echo esc_attr($key) . (($accordion['keep_open'] == 'yes') ? ' eead-open' : ''); ?>">
-                    <div class="eead-accordion-title">
+                    <div class="eead-accordion-title" role="button" tabindex="0" aria-expanded="<?php echo esc_attr($accordion['keep_open'] == 'yes' ? 'true' : 'false'); ?>">
                         <h3><?php echo esc_html($accordion['title']); ?></h3>
                         <div class="eead-accordion-icon">
                             <div class="eead-accordion-open-icon">
@@ -609,9 +621,9 @@ class Accordion extends Widget_Base {
                         <div class="eead-accordion-content-scroll">
                             <?php
                             if ($accordion['content_type'] == 'wisiwyg') {
-                                echo wp_kses_post(parse_wisiwyg_content($accordion['wisiwyg_content']));
+                                echo wp_kses_post(eead_parse_wysiwyg_content($accordion['wisiwyg_content']));
                             } else if ($accordion['content_type'] == 'elementor_template' && 'publish' === get_post_status((int) $accordion['elementor_template'])) {
-                                echo Plugin::instance()->frontend->get_builder_content_for_display($accordion['elementor_template']);
+                                echo Plugin::instance()->frontend->get_builder_content_for_display($accordion['elementor_template']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor-rendered content.
                             }
                             ?>
                         </div>

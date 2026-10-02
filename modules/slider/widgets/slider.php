@@ -34,6 +34,18 @@ class Slider extends Widget_Base {
         return 'eead-element-icon eead-icons-slider';
     }
 
+    public function get_keywords() {
+        return ['slider', 'carousel', 'slideshow', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }

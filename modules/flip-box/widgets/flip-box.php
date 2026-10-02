@@ -38,6 +38,14 @@ class FlipBox extends Widget_Base {
         return ['3d', 'flip', 'box'];
     }
 
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -1221,7 +1229,7 @@ class FlipBox extends Widget_Base {
                     <div class="eead-fb-layer-inner">
                         <?php if ($settings['graphic_element'] === 'image' && !empty($settings['image']['url'])) { ?>
                             <div class="eead-fb-image">
-                                <?php echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'image')); ?>
+                                <?php Group_Control_Image_Size::print_attachment_image_html($settings, 'image', 'image'); ?>
                             </div>
                         <?php } elseif ($settings['graphic_element'] === 'icon' && !empty($settings['box_icon']['value'])) { ?>
                             <div <?php $this->print_render_attribute_string('icon-wrapper'); ?>>

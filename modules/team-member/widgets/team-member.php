@@ -35,6 +35,18 @@ class TeamMember extends Widget_Base {
         return 'eead-element-icon eead-icons-team';
     }
 
+    public function get_keywords() {
+        return ['team member', 'team', 'member', 'profile', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -348,7 +360,7 @@ class TeamMember extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_text_alignment', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -373,7 +385,7 @@ class TeamMember extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_vertical_alignment', [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -516,7 +528,7 @@ class TeamMember extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -944,17 +956,16 @@ class TeamMember extends Widget_Base {
 
     protected function get_image() {
         $settings = $this->get_settings_for_display();
-        $image_html = Group_Control_Image_Size::get_attachment_image_html($settings);
-        $image = '';
 
         if (!empty($settings['image']['url'])) {
             if ($settings['link_type'] == 'image' && !empty($settings['link']['url'])) {
-                $image = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('link'), wp_kses_post($image_html));
+                ?>
+                <a <?php $this->print_render_attribute_string('link'); ?>><?php Group_Control_Image_Size::print_attachment_image_html($settings); ?></a>
+                <?php
             } else {
-                $image = wp_kses_post($image_html);
+                Group_Control_Image_Size::print_attachment_image_html($settings);
             }
         }
-        echo wp_kses_post($image);
     }
 
     protected function get_social_links() {
@@ -994,7 +1005,7 @@ class TeamMember extends Widget_Base {
             ?>
             <div <?php $this->print_render_attribute_string('description'); ?>>
                 <?php
-                echo wp_kses_post(parse_wisiwyg_content($settings['description']));
+                echo wp_kses_post(eead_parse_wysiwyg_content($settings['description']));
                 ?>
             </div>
             <?php

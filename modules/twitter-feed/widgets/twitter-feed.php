@@ -26,6 +26,18 @@ class TwitterFeed extends Widget_Base {
         return 'eead-element-icon eead-icons-twitter-x';
     }
 
+    public function get_keywords() {
+        return ['twitter', 'tweet', 'x', 'feed', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -241,7 +253,7 @@ class TwitterFeed extends Widget_Base {
         ]);
 
         $this->add_render_attribute('video', [
-            'href' => $settings['url_video'],
+            'href' => esc_url($settings['url_video']),
         ]);
         ?>
         <blockquote <?php $this->print_render_attribute_string('blockquote'); ?>><a <?php $this->print_render_attribute_string('video'); ?>></a></blockquote>
@@ -256,7 +268,7 @@ class TwitterFeed extends Widget_Base {
         ]);
 
         $this->add_render_attribute('post', [
-            'href' => $settings['url_post']
+            'href' => esc_url($settings['url_post'])
         ]);
         ?>
         <blockquote <?php $this->print_render_attribute_string('blockquote'); ?>><a <?php $this->print_render_attribute_string('post'); ?>></a></blockquote>

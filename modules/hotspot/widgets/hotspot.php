@@ -34,6 +34,18 @@ class Hotspot extends Widget_Base {
         return 'eead-element-icon eead-icons-hot-spot';
     }
 
+    public function get_keywords() {
+        return ['hotspot', 'image hotspot', 'marker', 'tooltip', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -169,7 +181,7 @@ class Hotspot extends Widget_Base {
             ]
         );
 
-        $repeater->add_control(
+        $repeater->add_responsive_control(
             'text_align', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -575,7 +587,7 @@ class Hotspot extends Widget_Base {
 
                 <?php
                 if (!empty($settings['image']['url'])) {
-                    echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'image'));
+                    Group_Control_Image_Size::print_attachment_image_html($settings, 'thumbnail', 'image');
                 }
                 ?>
 
@@ -594,7 +606,7 @@ class Hotspot extends Widget_Base {
                                 if ($item['hotspot_type'] == 'icon' && !empty($item['icon']['value'])) {
                                     Icons_Manager::render_icon($item['icon'], ['aria-hidden' => 'true']);
                                 } elseif ($item['hotspot_type'] == 'image' && !empty($item['image']['url'])) {
-                                    echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($item, 'thumb', 'image'));
+                                    Group_Control_Image_Size::print_attachment_image_html($item, 'thumb', 'image');
                                 }
                                 ?>
                             </a>
@@ -635,7 +647,7 @@ class Hotspot extends Widget_Base {
                 ?>
                 <div class="eead-hotspot-desc">
                     <?php
-                    echo wp_kses_post(do_shortcode($item['content']));
+                    echo do_shortcode(wp_kses_post($item['content'])); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Sanitized before shortcode processing.
                     ?>
                 </div>
                 <?php

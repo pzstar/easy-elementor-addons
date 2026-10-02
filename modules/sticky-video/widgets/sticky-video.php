@@ -30,6 +30,18 @@ class StickyVideo extends Widget_Base {
         return 'eead-element-icon eead-icons-sticky-video';
     }
 
+    public function get_keywords() {
+        return ['sticky video', 'video', 'youtube', 'vimeo', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -148,18 +160,6 @@ class StickyVideo extends Widget_Base {
                 'condition' => [
                     'video_source' => 'self_hosted',
                     'link_external' => 'yes',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'video_self_hosted_link', [
-                'label' => esc_html__('Choose File', 'easy-elementor-addons'),
-                'type' => Controls_Manager::MEDIA,
-                'label_block' => true,
-                'condition' => [
-                    'video_source' => 'self_hosted',
-                    'video_source_external' => '',
                 ]
             ]
         );
@@ -513,20 +513,30 @@ class StickyVideo extends Widget_Base {
             </div>
             <?php
             if ('yes' === $settings['overlay_options']) {
+                $overlay_image_url = '';
+                if (!empty($settings['overlay_image']['id'])) {
+                    $overlay_image_url = Group_Control_Image_Size::get_attachment_image_src($settings['overlay_image']['id'], 'overlay_image_size', $settings);
+                }
+                if (empty($overlay_image_url) && !empty($settings['overlay_image']['url'])) {
+                    $overlay_image_url = $settings['overlay_image']['url'];
+                }
+
                 $this->add_render_attribute(
                     'overlay_wrapper', [
                         'class' => 'eead-overlay',
-                        'style' => "background-image:url('" . esc_url($settings['overlay_image']['url']) . "');",
+                        'style' => "background-image:url('" . esc_url($overlay_image_url) . "');",
                     ]
                 );
                 ?>
 
                 <div <?php $this->print_render_attribute_string('overlay_wrapper'); ?>>
-                    <div class="eead-overlay-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" viewBox="2 0 14 18">
-                            <path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z" />
-                        </svg>
-                    </div>
+                    <?php if ('yes' === $settings['overlay_play_icon']) { ?>
+                        <div class="eead-overlay-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" viewBox="2 0 14 18">
+                                <path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z" />
+                            </svg>
+                        </div>
+                    <?php } ?>
                 </div>
                 <?php
             }

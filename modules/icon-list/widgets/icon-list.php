@@ -35,6 +35,18 @@ class IconList extends Widget_Base {
         return 'eead-element-icon eead-icons-icon-list';
     }
 
+    public function get_keywords() {
+        return ['icon list', 'list', 'icon', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -196,7 +208,7 @@ class IconList extends Widget_Base {
                     '8' => esc_html__('8', 'easy-elementor-addons')
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
+                    '{{WRAPPER}} .eead-icon-list-items' => 'grid-template-columns: repeat({{VALUE}}, 1fr);'
                 ],
                 'prefix_class' => 'eead-lc%s-col-',
                 'render_type' => 'template',
@@ -729,7 +741,7 @@ class IconList extends Widget_Base {
                 break;
 
             case 'image':
-                echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($list, 'full', 'image'));
+                Group_Control_Image_Size::print_attachment_image_html($list, 'full', 'image');
                 break;
 
             case 'number':

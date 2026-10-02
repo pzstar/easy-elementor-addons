@@ -30,6 +30,18 @@ class ScrollImage extends Widget_Base {
 		return 'eead-element-icon eead-icons-scroll-image';
 	}
 
+	public function get_keywords() {
+		return ['scroll image', 'image scroll', 'screenshot', 'eead'];
+	}
+
+	/**
+	 * Drop the inner .elementor-widget-container wrapper when Elementor's
+	 * Optimized Markup feature is active.
+	 */
+	public function has_widget_inner_wrapper(): bool {
+		return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+	}
+
 	public function get_categories() {
 		return ['easy-elementor-addons'];
 	}
@@ -707,7 +719,7 @@ class ScrollImage extends Widget_Base {
 				'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'center center',
-				'options' => get_element_position(),
+				'options' => eead_get_element_position(),
 				'label_block' => true,
 				'selectors' => [
 					'{{WRAPPER}} .eead-scroll-image-container .eead-scroll-badge' => 'transform-origin:{{VALUE}}',
@@ -1142,7 +1154,7 @@ class ScrollImage extends Widget_Base {
 					break;
 
 				case 'image':
-					echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, 'full', 'badge_image'));
+					Group_Control_Image_Size::print_attachment_image_html($settings, 'full', 'badge_image');
 					break;
 
 				case 'text':

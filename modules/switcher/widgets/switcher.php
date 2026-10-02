@@ -33,6 +33,18 @@ class Switcher extends Widget_Base {
         return 'eead-element-icon eead-icons-switcher';
     }
 
+    public function get_keywords() {
+        return ['switcher', 'content switcher', 'toggle', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -93,7 +105,7 @@ class Switcher extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => get_elementor_templates(),
+                'options' => eead_get_elementor_templates(),
                 'label_block' => 'true',
                 'condition' => ['content_type' => 'elementor_template']
             ]
@@ -664,19 +676,19 @@ class Switcher extends Widget_Base {
 
                         if ($post && $post->post_status === 'publish' && !post_password_required($post) && (int) $page_id !== get_the_ID()) {
                             if (\Elementor\Plugin::instance()->db->is_built_with_elementor($page_id)) {
-                                echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($page_id);
+                                echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($page_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor-rendered content.
                             } else {
                                 if (\Elementor\Plugin::instance()->editor->is_edit_mode()) {
-                                    echo do_shortcode($post->post_content);
+                                    echo do_shortcode($post->post_content); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Published post content.
                                 } else {
-                                    echo apply_filters('the_content', $post->post_content);
+                                    echo apply_filters('the_content', $post->post_content); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core content filter output.
                                 }
                             }
                         }
-                    } elseif (isset($tab['content_type']) && $tab['content_type'] === 'elementor_template' && !empty($tab['elementor_template'])) {
-                        echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($tab['elementor_template']);
+                    } elseif (isset($tab['content_type']) && $tab['content_type'] === 'elementor_template' && !empty($tab['elementor_template']) && 'publish' === get_post_status((int) $tab['elementor_template'])) {
+                        echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($tab['elementor_template']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor-rendered content.
                     } elseif (isset($tab['content_type']) && $tab['content_type'] === 'wisiwyg' && !empty($tab['wisiwyg_content'])) {
-                        echo wp_kses_post(parse_wisiwyg_content($tab['wisiwyg_content']));
+                        echo wp_kses_post(eead_parse_wysiwyg_content($tab['wisiwyg_content']));
                     }
                     ?>
                 </div>

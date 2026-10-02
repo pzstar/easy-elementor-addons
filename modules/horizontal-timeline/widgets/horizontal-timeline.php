@@ -34,6 +34,18 @@ class HorizontalTimeline extends Widget_Base {
         return 'eead-element-icon eead-icons-vertical-timeline';
     }
 
+    public function get_keywords() {
+        return ['timeline', 'horizontal timeline', 'history', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -241,15 +253,23 @@ class HorizontalTimeline extends Widget_Base {
                     'px' => [
                         'min' => 100,
                         'max' => 800,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
                     ]
                 ],
-                'size_units' => ['px', 'em', 'vw'],
+                'size_units' => ['px', '%', 'em', 'vw'],
                 'default' => [
                     'size' => 340,
                     'unit' => 'px',
                 ],
+                'mobile_default' => [
+                    'size' => 280,
+                    'unit' => 'px',
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-htl-card' => 'min-width: {{SIZE}}{{UNIT}}; flex-basis: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-htl-card' => 'flex-basis: {{SIZE}}{{UNIT}}; min-width: min({{SIZE}}{{UNIT}}, 85vw);',
                 ],
                 'condition' => [
                     'display_option' => 'scrollbar'
@@ -1482,7 +1502,7 @@ class HorizontalTimeline extends Widget_Base {
                                 <?php if (!empty($item['image']['url'])) { ?>
                                     <div class="eead-htl-image">
                                         <?php
-                                        echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image'));
+                                        Group_Control_Image_Size::print_attachment_image_html($item, 'item_image', 'image');
                                         ?>
                                     </div>
                                 <?php } ?>

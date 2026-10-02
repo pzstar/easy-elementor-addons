@@ -33,6 +33,14 @@ class AdvancedHeading extends Widget_Base {
         return ['heading', 'title'];
     }
 
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -285,7 +293,7 @@ class AdvancedHeading extends Widget_Base {
                 'label' => esc_html__('Rotate Origin', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'center center',
-                'options' => get_element_position(),
+                'options' => eead_get_element_position(),
                 'label_block' => true,
                 'selectors' => [
                     '{{WRAPPER}} .eead-advanced-heading' => '--eead-ah-adv-heading-rotate-origin:{{VALUE}}',
@@ -782,7 +790,7 @@ class AdvancedHeading extends Widget_Base {
         if ($settings['advanced_heading'] && $settings['advanced_heading_visibility'] == 'yes') {
             $this->add_render_attribute('advanced_heading', 'class', 'eead-ah-adv-heading');
 
-            foreach ((array) $settings['advanced_heading_hide'] as $device) {
+            foreach (array_filter((array) $settings['advanced_heading_hide']) as $device) {
                 $this->add_render_attribute('advanced_heading', 'class', 'eead-hide-' . $device);
             }
 

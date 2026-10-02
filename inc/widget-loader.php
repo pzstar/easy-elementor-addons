@@ -82,8 +82,8 @@ class EEAD_Widget_Loader {
         $eead_general_settings = get_option('eead_general_settings', []);
         $gmap_access_token = isset($eead_general_settings['gmap_access_token']) ? $eead_general_settings['gmap_access_token'] : '';
 
-        // The Maps JavaScript API no longer loads without a key; `sensor` was retired years ago.
-        wp_register_script('gmap-api', add_query_arg('key', rawurlencode($gmap_access_token), 'https://maps.googleapis.com/maps/api/js'), [], null, true);
+        // The Maps JavaScript API requires a key; without one the map shows an error.
+        wp_register_script('gmap-api', add_query_arg(['key' => rawurlencode($gmap_access_token), 'libraries' => 'marker'], 'https://maps.googleapis.com/maps/api/js'), [], EEAD_VERSION, true);
         wp_register_script('plyr', EEAD_URL . 'assets/lib/plyr/plyr.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('countdown', EEAD_URL . 'assets/lib/countdown/countdown.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('image-compare', EEAD_URL . 'assets/lib/image-compare/image-compare-viewer.js', ['jquery'], EEAD_VERSION, true);
@@ -101,7 +101,7 @@ class EEAD_Widget_Loader {
         wp_register_script('mcustomscrollbar', EEAD_URL . 'assets/lib/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('chart', EEAD_URL . 'assets/lib/chart/chart.js', ['jquery'], EEAD_VERSION, true);
         wp_register_script('lottie', EEAD_URL . 'assets/lib/lottie/lottie.min.js', NULL, EEAD_VERSION, true);
-        wp_register_script('twitter-widgets', 'https://platform.twitter.com/widgets.js', [], null, true);
+        wp_register_script('twitter-widgets', 'https://platform.twitter.com/widgets.js', [], EEAD_VERSION, true);
     }
 
     /**

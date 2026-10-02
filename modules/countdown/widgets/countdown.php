@@ -31,6 +31,18 @@ class Countdown extends Widget_Base {
         return 'eead-element-icon eead-icons-count-down';
     }
 
+    public function get_keywords() {
+        return ['countdown', 'timer', 'coming soon', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -133,7 +145,7 @@ class Countdown extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'countdown_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -818,7 +830,7 @@ class Countdown extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(), [
                 'name' => 'countdown_expire_message_typography',
-                'selector' => '.eead-countdown-finish-text',
+                'selector' => '{{WRAPPER}} .eead-countdown-finish-text',
                 'condition' => [
                     'countdown_expire_type' => 'text',
                 ]
@@ -832,7 +844,7 @@ class Countdown extends Widget_Base {
                 'size_units' => ['px', '%', 'em'],
                 'separator' => 'before',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-countdown-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-countdown-finish-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'condition' => [
                     'countdown_expire_type' => 'text',
@@ -846,7 +858,15 @@ class Countdown extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $due_date = gmdate("M d Y G:i:s", strtotime($settings['countdown_due_time']));
+        $due_date = '';
+        if (!empty($settings['countdown_due_time'])) {
+            try {
+                $ts = (new \DateTime($settings['countdown_due_time'], wp_timezone()))->getTimestamp();
+                $due_date = gmdate('Y-m-d\TH:i:s\Z', $ts);
+            } catch (\Exception $e) {
+                $due_date = '';
+            }
+        }
         $separator = '';
 
         $this->add_render_attribute('eead-countdown', [

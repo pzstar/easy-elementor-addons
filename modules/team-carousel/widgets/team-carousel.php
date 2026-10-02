@@ -34,6 +34,18 @@ class TeamCarousel extends Widget_Base {
         return 'eead-element-icon eead-icons-team-carousel';
     }
 
+    public function get_keywords() {
+        return ['team carousel', 'team', 'carousel', 'member', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -517,7 +529,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_text_alignment', [
                 'label' => esc_html__('Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -542,7 +554,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_vertical_alignment', [
                 'label' => esc_html__('Vertical Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -685,7 +697,7 @@ class TeamCarousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'image_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -1610,7 +1622,7 @@ class TeamCarousel extends Widget_Base {
     protected function get_description($item) {
         if (!empty($item['description'])) {
             echo '<div class="eead-team-member-description">';
-            echo wp_kses_post(parse_wisiwyg_content($item['description']));
+            echo wp_kses_post(eead_parse_wysiwyg_content($item['description']));
             echo '</div>';
         }
     }

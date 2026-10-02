@@ -39,6 +39,18 @@ class Weather extends Widget_Base {
 
     /* Category */
 
+    public function get_keywords() {
+        return ['weather', 'forecast', 'temperature', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -708,7 +720,9 @@ class Weather extends Widget_Base {
         $weatherstackApiKey = isset($eead_general_settings['weather_api_key']) ? $eead_general_settings['weather_api_key'] : NULL;
 
         if (empty($weatherstackApiKey)) {
-            echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
+            if (current_user_can('edit_posts')) {
+                echo esc_html__('Please enter the API Key first!', 'easy-elementor-addons');
+            }
             return;
         }
 
@@ -934,7 +948,9 @@ class Weather extends Widget_Base {
         $city = $settings['city_location'];
         $country = $settings['country_location'];
         if (empty($city) or empty($country)) {
-            echo esc_html__('Oops! It seems that you have left either the city or the country field empty', 'easy-elementor-addons');
+            if (current_user_can('edit_posts')) {
+                echo esc_html__('Oops! It seems that you have left either the city or the country field empty', 'easy-elementor-addons');
+            }
             return;
         }
 

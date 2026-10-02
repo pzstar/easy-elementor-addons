@@ -33,6 +33,18 @@ class VerticalTimeline extends Widget_Base {
         return 'eead-element-icon eead-icons-vertical-timeline';
     }
 
+    public function get_keywords() {
+        return ['timeline', 'vertical timeline', 'history', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -210,7 +222,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'text_alignment_left', [
                 'label' => esc_html__('Left Blocks Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -239,7 +251,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'text_alignment_right', [
                 'label' => esc_html__('Right Blocks Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -331,7 +343,7 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'stack_text_alignment', [
                 'label' => esc_html__('Stacked Text Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -1057,7 +1069,7 @@ class VerticalTimeline extends Widget_Base {
                                     <?php if (!empty($item['image']['url'])) { ?>
                                         <div class="eead-vt-image">
                                             <?php
-                                            echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($item, 'item_image', 'image'));
+                                            Group_Control_Image_Size::print_attachment_image_html($item, 'item_image', 'image');
                                             ?>
                                         </div>
                                     <?php } ?>

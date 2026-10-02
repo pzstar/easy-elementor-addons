@@ -34,6 +34,18 @@ class Toggle extends Widget_Base {
         return 'eead-element-icon eead-icons-toggle';
     }
 
+    public function get_keywords() {
+        return ['toggle', 'content toggle', 'switch', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -72,7 +84,7 @@ class Toggle extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => get_elementor_templates(),
+                'options' => eead_get_elementor_templates(),
                 'condition' => [
                     'primary_content_type' => 'template',
                 ]
@@ -148,7 +160,7 @@ class Toggle extends Widget_Base {
                 'label' => esc_html__('Select Template', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '0',
-                'options' => get_elementor_templates(),
+                'options' => eead_get_elementor_templates(),
                 'condition' => [
                     'secondary_content_type' => 'template',
                 ]
@@ -248,7 +260,7 @@ class Toggle extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'toggle_switch_alignment', [
                 'label' => esc_html__('Alignment', 'easy-elementor-addons'),
                 'type' => Controls_Manager::CHOOSE,
@@ -757,11 +769,11 @@ class Toggle extends Widget_Base {
         if ($settings[$content . '_content_type'] === 'content') {
             echo wp_kses_post($this->parse_text_editor($settings[$content . '_content']));
         } else if ($settings[$content . '_content_type'] === 'image') {
-            echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($settings, $content . '_image', $content . '_image'));
+            Group_Control_Image_Size::print_attachment_image_html($settings, $content . '_image', $content . '_image');
         } else if ($settings[$content . '_content_type'] === 'template') {
-            if (!empty($settings[$content . '_templates'])) {
+            if (!empty($settings[$content . '_templates']) && 'publish' === get_post_status((int) $settings[$content . '_templates'])) {
                 $template_id = $settings[$content . '_templates'];
-                echo Plugin::instance()->frontend->get_builder_content_for_display($template_id);
+                echo Plugin::instance()->frontend->get_builder_content_for_display($template_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor-rendered content.
             }
         }
     }

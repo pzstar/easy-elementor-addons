@@ -34,6 +34,18 @@ class PricingList extends Widget_Base {
         return 'eead-element-icon eead-icons-pricing-list';
     }
 
+    public function get_keywords() {
+        return ['pricing list', 'price', 'menu', 'eead'];
+    }
+
+    /**
+     * Drop the inner .elementor-widget-container wrapper when Elementor's
+     * Optimized Markup feature is active.
+     */
+    public function has_widget_inner_wrapper(): bool {
+        return !\Elementor\Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+    }
+
     public function get_categories() {
         return ['easy-elementor-addons'];
     }
@@ -162,7 +174,7 @@ class PricingList extends Widget_Base {
                     '3' => esc_html__('3', 'easy-elementor-addons'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-list' => 'grid-template-columns: repeat({{SIZE}}, 1fr);'
+                    '{{WRAPPER}} .eead-pricing-list' => 'grid-template-columns: repeat({{VALUE}}, 1fr);'
                 ],
             ]
         );
@@ -173,16 +185,22 @@ class PricingList extends Widget_Base {
                 'type' => Controls_Manager::CHOOSE,
                 'toggle' => false,
                 'default' => 'row',
+                'mobile_default' => 'column',
                 'options' => [
                     'row' => [
                         'title' => esc_html__('Left', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-left',
+                    ],
+                    'column' => [
+                        'title' => esc_html__('Top', 'easy-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
                     ],
                     'row-reverse' => [
                         'title' => esc_html__('Right', 'easy-elementor-addons'),
                         'icon' => 'eicon-h-align-right',
                     ]
                 ],
+                'prefix_class' => 'eead-pl-align%s-',
                 'selectors' => [
                     '{{WRAPPER}} .eead-pricing-list .eead-pl-item' => 'flex-direction: {{VALUE}};',
                 ]
@@ -808,10 +826,11 @@ class PricingList extends Widget_Base {
                                 <div class="eead-pl-item-image">
                                     <?php
                                     if ($has_link) {
-                                        $image = Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image');
-                                        printf('<a %1$s>%2$s</a>', $this->get_render_attribute_string($link_key), wp_kses_post($image));
+                                        ?>
+                                        <a <?php $this->print_render_attribute_string($link_key); ?>><?php Group_Control_Image_Size::print_attachment_image_html($lists, 'thumb', 'image'); ?></a>
+                                        <?php
                                     } else {
-                                        echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html($lists, 'thumb', 'image'));
+                                        Group_Control_Image_Size::print_attachment_image_html($lists, 'thumb', 'image');
                                     }
 
                                     if ($settings['price_position'] == 'style2' && $lists['price']) {
@@ -832,7 +851,9 @@ class PricingList extends Widget_Base {
                                         <<?php echo esc_attr(eead_check_allowed_html_tags($settings['title_tag'])); ?> class="eead-pl-item-title">
                                             <?php
                                             if ($has_link) {
-                                                printf('<a %1$s>%2$s</a>', $this->get_render_attribute_string($link_key), esc_html($lists['title']));
+                                                ?>
+                                                <a <?php $this->print_render_attribute_string($link_key); ?>><?php echo esc_html($lists['title']); ?></a>
+                                                <?php
                                             } else {
                                                 echo esc_html($lists['title']);
                                             }
