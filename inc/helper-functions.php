@@ -775,6 +775,13 @@ function eead_get_all_widgets_list() {
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/',
             'category' => 'essential'
         ),
+        'text-marquee' => array(
+            'name' => 'Text Marquee',
+            'icon' => 'eead-icons-text-marquee',
+            'demo_url' => '',
+            'category' => 'creative',
+            'since' => '2.5.0'
+        ),
         'toggle' => array(
             'name' => 'Toggle',
             'icon' => 'eead-icons-toggle',
@@ -826,14 +833,36 @@ function eead_get_all_widgets_list() {
  * @return array
  */
 function eead_get_enabled_widgets() {
-    $all_widgets = array_keys(eead_get_all_widgets_list());
+    $widgets = eead_get_all_widgets_list();
+    $all_widgets = array_keys($widgets);
     $saved = get_option('eead_widgets');
 
     if (!is_array($saved)) {
         return $all_widgets;
     }
 
+    // Widgets added after the settings were last saved were never offered to
+    // the user, so they start enabled instead of silently missing. Settings
+    // saved before this was tracked date from 2.4.0.
+    $seen = get_option('eead_widgets_seen', '2.4.0');
+    foreach ($widgets as $key => $widget) {
+        if (!empty($widget['since']) && version_compare($widget['since'], $seen, '>')) {
+            $saved[] = $key;
+        }
+    }
+
     return array_values(array_intersect($all_widgets, $saved));
+}
+
+/** The newest `since` version in the widget list, stored when the widget settings are saved. */
+function eead_widgets_latest_since() {
+    $latest = EEAD_VERSION;
+    foreach (eead_get_all_widgets_list() as $widget) {
+        if (!empty($widget['since']) && version_compare($widget['since'], $latest, '>')) {
+            $latest = $widget['since'];
+        }
+    }
+    return $latest;
 }
 
 function eead_get_all_widgets_desc() {
@@ -881,6 +910,7 @@ function eead_get_all_widgets_desc() {
         'team-carousel' => esc_html__('Display your team members of your company/organization in an attractive carousel.', 'easy-elementor-addons'),
         'testimonial' => esc_html__('Showcase the positive words given by your clients in a stunning way.', 'easy-elementor-addons'),
         'testimonial-carousel' => esc_html__('Showcase the positive words given by your client in a beautiful slider.', 'easy-elementor-addons'),
+        'text-marquee' => esc_html__('Scroll text, icons and images in an endless marquee, with separators, outline text, hover and scroll effects.', 'easy-elementor-addons'),
         'toggle' => esc_html__('Display multiple contents and toggle them for comparison.', 'easy-elementor-addons'),
         'twitter-feed' => esc_html__('Display real-time Twitter feeds directly on your website.', 'easy-elementor-addons'),
         'vertical-tab' => esc_html__('Allows you to showcase different information in a responsive vertical tab.', 'easy-elementor-addons'),

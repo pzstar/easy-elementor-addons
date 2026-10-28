@@ -36,6 +36,7 @@
                 'eead-team-carousel.default': EEA.teamCarousel,
                 'eead-testimonial-carousel.default': EEA.testimonialCarousel,
                 'eead-twitter-feed.default': EEA.twitterFeed,
+                'eead-text-marquee.default': EEA.textMarquee,
             };
 
             $.each(widgets, function (widget, callback) {
@@ -1318,6 +1319,256 @@
                     $frameContainer.height(frameHeight);
                 }
             }
+        },
+
+        textMarquee: function ($scope) {
+            EEA.release($scope, 'textMarquee');
+
+            var el = EEA.own($scope, '.eead-text-marquee')[0];
+            if (!el) {
+                return;
+            }
+
+            var track = el.querySelector('.eead-tm-track'),
+                group = track.querySelector('.eead-tm-group'),
+                settings = JSON.parse(el.getAttribute('data-settings') || '{}'),
+                vertical = settings.direction === 'up' || settings.direction === 'down',
+                // pos grows while the content moves left / up
+                sign = settings.direction === 'right' || settings.direction === 'down' ? -1 : 1,
+                hoverFactor = settings.hover === 'pause' ? 0 : (settings.hover === 'slow' ? 0.3 : 1),
+                dist = 0, pos = 0, factor = 1, boost = 0, scrollDir = 1,
+                last = null, raf = 0, running = false,
+                hovering = false, dragging = false, dragMoved = false, dragStart = 0, dragPos = 0,
+                lastScroll = window.pageYOffset, resizeObserver = null, viewObserver = null;
+
+            $(track).children('.eead-tm-clone').remove();
+            el.classList.remove('eead-tm-static', 'eead-tm-dragging');
+            track.style.transform = '';
+
+            if (settings.reducedMotion && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                el.classList.add('eead-tm-static');
+                return;
+            }
+
+            function speed() {
+                var map = settings.speed || {},
+                    mode = elementorFrontend.getCurrentDeviceMode ? elementorFrontend.getCurrentDeviceMode() : 'desktop';
+                if (map[mode] !== undefined) {
+                    return map[mode];
+                }
+                if (mode === 'mobile' && map.tablet !== undefined) {
+                    return map.tablet;
+                }
+                return map.desktop !== undefined ? map.desktop : 60;
+            }
+
+            function wrap() {
+                if (dist > 0) {
+                    pos = ((pos % dist) + dist) % dist;
+                }
+            }
+
+            function paint() {
+                track.style.transform = vertical ? 'translate3d(0,' + (-pos) + 'px,0)' : 'translate3d(' + (-pos) + 'px,0,0)';
+            }
+
+            // Enough copies of the group to cover the box while one group scrolls out.
+            function layout() {
+                var size = vertical ? group.offsetHeight : group.offsetWidth,
+                    style = window.getComputedStyle(track),
+                    gap = parseFloat(vertical ? style.rowGap : style.columnGap) || 0,
+                    box = vertical ? el.clientHeight : el.clientWidth,
+                    clones = track.querySelectorAll('.eead-tm-clone'),
+                    need, i, clone;
+
+                if (size <= 0) {
+                    return;
+                }
+
+                dist = size + gap;
+                need = Math.ceil(box / dist) + 1;
+
+                for (i = clones.length; i < need; i++) {
+                    clone = group.cloneNode(true);
+                    clone.classList.add('eead-tm-clone');
+                    clone.setAttribute('aria-hidden', 'true');
+                    $(clone).find('a, button, [tabindex]').attr('tabindex', '-1');
+                    track.appendChild(clone);
+                }
+                for (i = clones.length - 1; i >= need; i--) {
+                    track.removeChild(clones[i]);
+                }
+
+                wrap();
+                paint();
+            }
+
+            function tick(now) {
+                var dt = last === null ? 0 : Math.min((now - last) / 1000, 0.1),
+                    target = hovering ? hoverFactor : 1;
+                last = now;
+
+                factor += (target - factor) * Math.min(1, dt * 5);
+                if (Math.abs(target - factor) < 0.01) {
+                    factor = target;
+                }
+                boost *= Math.pow(0.04, dt);
+
+                if (!dragging) {
+                    pos += speed() * sign * scrollDir * factor * (1 + boost) * dt;
+                    wrap();
+                    paint();
+                }
+
+                raf = window.requestAnimationFrame(tick);
+            }
+
+            function start() {
+                if (!running) {
+                    running = true;
+                    last = null;
+                    raf = window.requestAnimationFrame(tick);
+                }
+            }
+
+            function stop() {
+                running = false;
+                window.cancelAnimationFrame(raf);
+            }
+
+            function onScroll() {
+                var y = window.pageYOffset,
+                    delta = y - lastScroll;
+                lastScroll = y;
+                if (!delta) {
+                    return;
+                }
+                boost = Math.max(boost, Math.min(Math.abs(delta) / 10, 6));
+                if (settings.scroll === 'direction') {
+                    scrollDir = delta < 0 ? -1 : 1;
+                }
+            }
+
+            function onEnter() {
+                hovering = true;
+            }
+
+            function onLeave() {
+                hovering = false;
+            }
+
+            function point(e) {
+                return vertical ? e.clientY : e.clientX;
+            }
+
+            function onDown(e) {
+                if (e.button !== undefined && e.button !== 0) {
+                    return;
+                }
+                dragging = true;
+                dragMoved = false;
+                dragStart = point(e);
+                dragPos = pos;
+                el.classList.add('eead-tm-dragging');
+                if (el.setPointerCapture) {
+                    el.setPointerCapture(e.pointerId);
+                }
+            }
+
+            function onMove(e) {
+                if (!dragging) {
+                    return;
+                }
+                var moved = point(e) - dragStart;
+                if (Math.abs(moved) > 4) {
+                    dragMoved = true;
+                }
+                pos = dragPos - moved;
+                wrap();
+                paint();
+            }
+
+            function onUp() {
+                dragging = false;
+                el.classList.remove('eead-tm-dragging');
+            }
+
+            // A drag ends with a click on whatever is under the pointer; don't follow that link.
+            function onClick(e) {
+                if (dragMoved) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dragMoved = false;
+                }
+            }
+
+            layout();
+
+            if (window.ResizeObserver) {
+                resizeObserver = new ResizeObserver(layout);
+                resizeObserver.observe(el);
+                resizeObserver.observe(group);
+            } else {
+                $(window).on('resize' + EEA.ns($scope, 'Marquee'), layout);
+            }
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(layout);
+            }
+
+            // Only animate while the marquee is on screen.
+            if (window.IntersectionObserver) {
+                viewObserver = new IntersectionObserver(function (entries) {
+                    if (entries[entries.length - 1].isIntersecting) {
+                        start();
+                    } else {
+                        stop();
+                    }
+                });
+                viewObserver.observe(el);
+            } else {
+                start();
+            }
+
+            // Touch screens fire mouseenter on tap but never mouseleave.
+            if (!window.matchMedia || window.matchMedia('(hover: hover)').matches) {
+                el.addEventListener('mouseenter', onEnter);
+                el.addEventListener('mouseleave', onLeave);
+            }
+            el.addEventListener('focusin', onEnter);
+            el.addEventListener('focusout', onLeave);
+
+            if (settings.scroll && settings.scroll !== 'none') {
+                window.addEventListener('scroll', onScroll, {passive: true});
+            }
+
+            if (settings.drag) {
+                el.addEventListener('pointerdown', onDown);
+                el.addEventListener('pointermove', onMove);
+                el.addEventListener('pointerup', onUp);
+                el.addEventListener('pointercancel', onUp);
+                el.addEventListener('click', onClick, true);
+            }
+
+            EEA.keep($scope, 'textMarquee', function () {
+                stop();
+                if (resizeObserver) {
+                    resizeObserver.disconnect();
+                }
+                if (viewObserver) {
+                    viewObserver.disconnect();
+                }
+                $(window).off(EEA.ns($scope, 'Marquee'));
+                window.removeEventListener('scroll', onScroll);
+                el.removeEventListener('mouseenter', onEnter);
+                el.removeEventListener('mouseleave', onLeave);
+                el.removeEventListener('focusin', onEnter);
+                el.removeEventListener('focusout', onLeave);
+                el.removeEventListener('pointerdown', onDown);
+                el.removeEventListener('pointermove', onMove);
+                el.removeEventListener('pointerup', onUp);
+                el.removeEventListener('pointercancel', onUp);
+                el.removeEventListener('click', onClick, true);
+            });
         },
 
         logoCarousel: function ($scope) {

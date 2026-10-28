@@ -11,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite Elementor page builder.
 
 == Description ==
-Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 49 creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.
+Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 50 creative widgets to provide an outstanding look to your Elementor based WordPress website. The elements are multi concept and contain amazing features to make your website more effective by placing the spectacular widgets and enhance the engagement rate.
 
 Easy Elementor Addons is a highly editable addon for Elementor with limitless possibilities. You can easily customize each element as per your preference and build a beautiful website beyond your imagination. The plugin has an intuitive UI where you can easily drag drop any elements of your choice and start the configuration. Also, you can follow the drag and drop process to reorder or shuffle any elements.
 
@@ -22,7 +22,7 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <h3>Key Features:</h3>
 
-<p><strong>49 Elementor Widgets</strong> - A complete pack of creative widgets covering headings, buttons, galleries, sliders, tabs, timelines, pricing tables, team, testimonials, charts, maps and much more.</p>
+<p><strong>50 Elementor Widgets</strong> - A complete pack of creative widgets covering headings, buttons, galleries, sliders, tabs, timelines, pricing tables, team, testimonials, charts, maps and much more.</p>
 
 <p><strong>Enable Only the Widgets You Need</strong> - Every widget can be switched on or off from the plugin dashboard. Widgets you disable are never registered, so you only ever load what your site actually uses.</p>
 
@@ -130,17 +130,19 @@ Easy Elementor Addons is built using all the modern trends and is well optimized
 
 <p>43) <a href="https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/" target="_blank">Testimonial Carousel</a> - Showcase the positive words given by your client in a beautiful slider.</p>
 
-<p>44) <a href="https://demo.hashthemes.com/easy-elementor-addons/toggle/" target="_blank">Toggle</a> - Display multiple contents and toggle them for comparison.</p>
+<p>44) Text Marquee - Scroll text, icons and images in an endless marquee in any direction, with separators, outline text, pause or slow down on hover, page scroll effects and drag to scroll.</p>
 
-<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Embed X (Twitter) posts and videos, or add a hashtag button, directly on your website.</p>
+<p>45) <a href="https://demo.hashthemes.com/easy-elementor-addons/toggle/" target="_blank">Toggle</a> - Display multiple contents and toggle them for comparison.</p>
 
-<p>46) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/" target="_blank">Vertical Tab</a> - Allows you to showcase different information in a responsive vertical tab.</p>
+<p>46) <a href="https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/" target="_blank">Twitter Feed</a> - Embed X (Twitter) posts and videos, or add a hashtag button, directly on your website.</p>
 
-<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company. Switches to a single column layout on tablet or mobile.</p>
+<p>47) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/" target="_blank">Vertical Tab</a> - Allows you to showcase different information in a responsive vertical tab.</p>
 
-<p>48) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
+<p>48) <a href="https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/" target="_blank">Vertical Timeline</a> - Adds a vertical timeline to represent the evolution, history and success story of your company. Switches to a single column layout on tablet or mobile.</p>
 
-<p>49) <a href="https://demo.hashthemes.com/easy-elementor-addons/weather/" target="_blank">Weather Block</a> - Adds a weather report of a city with humidity, Pressure and Wind Speed.</p>
+<p>49) <a href="https://demo.hashthemes.com/easy-elementor-addons/video-player/" target="_blank">Video Player</a> - Allow you to embed the videos from Youtube, Vimeo or from your local computer.</p>
+
+<p>50) <a href="https://demo.hashthemes.com/easy-elementor-addons/weather/" target="_blank">Weather Block</a> - Adds a weather report of a city with humidity, Pressure and Wind Speed.</p>
 
 <p>More widgets coming soon.</p>
 
@@ -161,6 +163,10 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
+= 2.5.0 - Unreleased =
+* New widget - Text Marquee: endless scrolling text, icons and images left, right, up or down; icon, text or image separators (with spin); filled, outline or alternating text; per-item colors and highlights; pause or slow down on hover; speed up or follow the page scroll; drag to scroll; responsive speed; fade edges; respects reduced motion
+* Widgets added in a new version now start enabled on sites that saved the widget settings before
+
 = 2.4.0 - 2 Oct, 2026 =
 * Compatibility test with WordPress v 7.1 and Elementor v 4.3
 * Widgets now register through Elementor's current API (elementor/widgets/register) instead of the deprecated widgets_registered hook
