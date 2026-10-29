@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyElementorAddons\Modules\TextMarquee;
+namespace EasyElementorAddons\Modules\ScrollTextReveal;
 
 use EasyElementorAddons\Base\Module_Base;
 
@@ -11,12 +11,12 @@ if (!defined('ABSPATH')) {
 class Module extends Module_Base {
 
     public function get_name() {
-        return 'eead-text-marquee';
+        return 'eead-scroll-text-reveal';
     }
 
     public function get_widgets() {
         $widgets = [
-            'TextMarquee',
+            'ScrollTextReveal',
         ];
         return $widgets;
     }
