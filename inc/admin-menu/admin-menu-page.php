@@ -69,13 +69,45 @@ $eead_all_widgets = eead_get_all_widgets_list();
             </div>
 
             <form id="eead-widget-selection-form">
-                <div class="eead-widget-section-inner-wrap">
-                    <?php
-                    foreach ($eead_all_widgets as $eead_key => $eead_val) {
-                        $this->get_widget_field($eead_val['name'], $eead_key, $eead_val['icon'], $eead_val['demo_url'], isset($eead_val['premium']) && $eead_val['premium'], isset($eead_val['category']) ? $eead_val['category'] : '');
+                <?php
+                // Group the widgets by category, in the categories' order; unknown or
+                // missing categories still show, in their own groups at the end.
+                $eead_categories = eead_get_widget_categories();
+                $eead_groups = array_fill_keys(array_keys($eead_categories), array());
+                foreach ($eead_all_widgets as $eead_key => $eead_val) {
+                    $eead_cat = !empty($eead_val['category']) ? $eead_val['category'] : 'other';
+                    $eead_groups[$eead_cat][$eead_key] = $eead_val;
+                }
+
+                foreach (array_filter($eead_groups) as $eead_cat => $eead_widgets) {
+                    if (isset($eead_categories[$eead_cat])) {
+                        $eead_label = $eead_categories[$eead_cat];
+                    } else {
+                        $eead_label = 'other' === $eead_cat ? __('Other', 'easy-elementor-addons') : ucwords(str_replace('-', ' ', $eead_cat));
                     }
                     ?>
-                </div>
+                    <div class="eead-widget-group" data-category="<?php echo esc_attr($eead_cat); ?>">
+                        <div class="eead-widget-group-header">
+                            <h3 class="eead-widget-group-title">
+                                <?php echo esc_html($eead_label); ?>
+                                <span class="eead-widget-group-count"><?php echo esc_html(count($eead_widgets)); ?></span>
+                            </h3>
+                            <div class="eead-widget-group-actions">
+                                <button type="button" class="eead-widget-group-btn eead-enable" data-checked="1"><i class="mdi-check-circle-outline" aria-hidden="true"></i><?php esc_html_e('Enable All', 'easy-elementor-addons'); ?></button>
+                                <button type="button" class="eead-widget-group-btn eead-disable" data-checked="0"><i class="mdi-close-circle-outline" aria-hidden="true"></i><?php esc_html_e('Disable All', 'easy-elementor-addons'); ?></button>
+                            </div>
+                        </div>
+                        <div class="eead-widget-section-inner-wrap">
+                            <?php
+                            foreach ($eead_widgets as $eead_key => $eead_val) {
+                                $this->get_widget_field($eead_val['name'], $eead_key, $eead_val['icon'], $eead_val['demo_url'], isset($eead_val['premium']) && $eead_val['premium'], $eead_cat);
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
 
                 <div class="eaad-save-button-wrap">
                     <button name="eead-widget-enable" id="eead-widget-selection-btn" class="eead-save-button">

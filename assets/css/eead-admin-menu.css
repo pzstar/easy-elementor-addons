@@ -10,59 +10,86 @@
     box-sizing: content-box;
 }
 
+/* Always three columns, so a group with one or two widgets keeps the same card size. */
 .eead-widget-section-inner-wrap,
 .eead-extender-section-inner-wrap {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-    grid-gap: 30px;
-    grid-auto-rows: 80px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
+@media (max-width: 1100px) {
+    .eead-widget-section-inner-wrap,
+    .eead-extender-section-inner-wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .eead-widget-section-inner-wrap,
+    .eead-extender-section-inner-wrap {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Widget card: icon tile, name with an optional Pro tag and demo link, switch on the right. */
 .eead-widget-section-inner-wrap .eead-widget-wrap,
 .eead-extender-section-inner-wrap .eead-extender-wrap {
     position: relative;
-    border: 1px solid #EEE;
-    box-shadow: 4px 4px 15px rgb(0 0 0 / 10%);
-    border-radius: 5px;
-    padding: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.eead-widget-section-inner-wrap {
-    counter-reset: my-sec-counter;
-}
-
-.eead-widget-section-inner-wrap .eead-widget-wrap > span:first-child:before {
-    counter-increment: my-sec-counter;
-    content: counter(my-sec-counter);
-    position: absolute;
-    left: -16px;
-    top: 50%;
+    gap: 14px;
+    min-width: 0;
+    padding: 16px 18px;
+    border: 1px solid #E8E9EE;
+    border-radius: 12px;
     background: #FFF;
-    border-radius: 30px;
-    color: #333;
-    font-size: 12px;
-    height: 32px;
-    width: 32px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.eead-widget-section-inner-wrap .eead-widget-wrap:hover,
+.eead-extender-section-inner-wrap .eead-extender-wrap:hover {
+    border-color: #D9C2F3;
+    box-shadow: 0 8px 24px -14px rgba(84, 18, 140, 0.35);
+}
+
+.eead-widget-wrap .eead-widget-icon,
+.eead-extender-wrap .eead-widget-icon {
     display: flex;
+    flex: 0 0 44px;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    margin-top: -16px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #F5EEFC;
+    color: #7B12BC;
 }
 
-.eead-widget-wrap > span {
-    display: inline-flex;
-    gap: 14px;
+.eead-widget-wrap .eead-widget-icon i,
+.eead-extender-wrap .eead-widget-icon i {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.eead-widget-wrap .eead-widget-info,
+.eead-extender-wrap .eead-widget-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.eead-widget-wrap .eead-widget-name,
+.eead-extender-wrap .eead-widget-name {
+    display: flex;
     align-items: center;
-}
-
-.eead-widget-wrap > span i {
-    font-size: 30px;
+    gap: 8px;
+    color: #1B1E2B;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .eead-checkbox {
@@ -148,25 +175,21 @@
 }
 
 .eead-widget-wrap .eead-widget-demo-link {
-    position: absolute;
-    left: 30px;
-    bottom: -8px;
-    padding: 3px 8px;
-    font-size: 11px;
-    line-height: 1;
-    background: #FFF;
+    align-self: flex-start;
+    color: #8A8FA0;
+    font-size: 12px;
+    line-height: 1.3;
     text-decoration: none;
-    color: #000000;
-    border-radius: 16px;
-    outline: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid #EEE;
+    transition: color 0.2s;
 }
 
-.eead-widget-wrap .eead-widget-demo-link:hover {
-    background: #9c19e9;
-    color: #FFF;
+.eead-widget-wrap .eead-widget-demo-link::after {
+    content: " \2197";
+}
+
+.eead-widget-wrap .eead-widget-demo-link:hover,
+.eead-widget-wrap .eead-widget-demo-link:focus-visible {
+    color: #9c19e9;
 }
 
 .eead-admin-header-section {
@@ -212,50 +235,69 @@
     background: #9c19e9;
 }
 
+/* Main tabs: rounded blocks; the current one is white and joins the panel like a folder tab. */
 .eead-nav-tab-wrapper {
     display: flex;
-    margin: 0 30px;
+    gap: 8px;
+    max-width: 1200px;
+    margin: 0 20px 0 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .eead-nav-tab-wrapper .eead-tab {
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 20px 40px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px 10px 0 0;
-    margin-right: 10px;
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    padding: 15px 24px;
+    border: 0;
+    border-radius: 12px 12px 0 0;
     outline: none;
     box-shadow: none;
-    background: rgba(0, 0, 0, 0.03);
-    color: #9c19e9;
+    background: rgba(15, 23, 42, 0.05);
+    color: #5C6272;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .eead-nav-tab-wrapper .eead-tab i {
-    margin-right: 6px;
+    margin: 0;
     color: inherit;
+    font-size: 18px;
+    line-height: 1;
 }
 
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active {
-    background: #FFF;
-    border-bottom: 0;
-    color: #000;
+.eead-nav-tab-wrapper .eead-tab:hover {
+    background: rgba(15, 23, 42, 0.09);
+    color: #1B1E2B;
 }
 
+.eead-nav-tab-wrapper .eead-tab:focus-visible {
+    box-shadow: inset 0 0 0 2px #9c19e9;
+}
+
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active,
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active:hover,
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus,
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus:active,
-.eead-nav-tab-wrapper .eead-tab.nav-tab-active:hover {
-    border-bottom: 0;
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus:active {
     background: #FFF;
-    color: #000;
+    color: #7B12BC;
+    box-shadow: inset 0 3px 0 #9c19e9;
 }
 
 .eead-tab-contents {
-    background: #FFF;
-    padding: 30px 30px 0;
-    margin-right: 20px;
-    border-radius: 6px;
     max-width: 1200px;
+    margin-right: 20px;
+    padding: 30px 30px 0;
+    border-radius: 0 14px 14px 14px;
+    background: #FFF;
 }
 
 .eead-settings-field {
@@ -344,7 +386,7 @@
 .eead-widget-toolbar {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 20px 30px;
     margin-bottom: 30px;
@@ -355,29 +397,244 @@
     min-width: 0;
 }
 
-.eead-widget-toolbar .eead-widget-action-buttons {
+/* Bulk actions for every widget: one joined control in the same grey track as the Free / Pro filter. */
+.eead-widget-toolbar .eead-widget-action-buttons,
+.eead-widget-toolbar .eead-extender-action-buttons {
+    display: inline-flex;
     flex: 0 0 auto;
+    gap: 2px;
     margin-bottom: 0;
+    padding: 4px;
+    border-radius: 12px;
+    background: #F1F2F5;
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-action-btn,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-action-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #5C6272;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-action-btn i,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-action-btn i {
+    margin-right: 6px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-action-btn:hover,
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-action-btn:focus-visible,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-action-btn:hover,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-action-btn:focus-visible {
+    background: #FFF;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 2px 8px -2px rgba(16, 24, 40, 0.12);
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-enable-all:hover,
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-enable-all:focus-visible,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-enable-all:hover,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-enable-all:focus-visible {
+    color: #7B12BC;
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-disable-all:hover,
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-disable-all:focus-visible,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-disable-all:hover,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-disable-all:focus-visible {
+    color: #C53030;
+}
+
+.eead-widget-toolbar .eead-widget-action-buttons .eead-widget-action-btn:focus-visible,
+.eead-widget-toolbar .eead-extender-action-buttons .eead-extender-action-btn:focus-visible {
+    outline: 2px solid #9c19e9;
+    outline-offset: 1px;
+}
+
+/* Widgets grouped by category: a heading row with a count and per-group actions above each grid. */
+.eead-widget-group + .eead-widget-group {
+    margin-top: 44px;
+}
+
+.eead-widget-group-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.eead-widget-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+}
+
+.eead-widget-group-count {
+    min-width: 26px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: #F1E6FC;
+    color: #7B12BC;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Per category: quiet text buttons split by a hairline, so they never outshine the title. */
+.eead-widget-group-actions {
+    display: flex;
+    align-items: center;
+}
+
+.eead-widget-group-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #8A8FA0;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.eead-widget-group-btn + .eead-widget-group-btn {
+    position: relative;
+    margin-left: 9px;
+}
+
+.eead-widget-group-btn + .eead-widget-group-btn::before {
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    width: 1px;
+    height: 14px;
+    background: #E3E5EB;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.eead-widget-group-btn i {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.eead-widget-group-btn.eead-enable:hover,
+.eead-widget-group-btn.eead-enable:focus-visible {
+    background: #F5EEFC;
+    color: #7B12BC;
+}
+
+.eead-widget-group-btn.eead-disable:hover,
+.eead-widget-group-btn.eead-disable:focus-visible {
+    background: #FDEEEE;
+    color: #C53030;
+}
+
+.eead-widget-group-btn:focus-visible {
+    outline: 2px solid #9c19e9;
+    outline-offset: 1px;
 }
 
 .eead-widget-section-inner-wrap .eead-widget-wrap.eead-premium {
-    border-color: #E6D3F7;
+    border-color: #EADCF8;
+    background: linear-gradient(135deg, #FFF 60%, #FBF7FF);
 }
 
 .eead-widget-wrap .eead-widget-pro-badge {
-    position: absolute;
-    top: -9px;
-    right: 16px;
-    padding: 2px 9px;
+    padding: 1px 7px;
+    border-radius: 6px;
+    background: #9c19e9;
+    color: #FFF;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     line-height: 1.6;
     text-transform: uppercase;
-    color: #FFF;
+}
+
+/* A compact switch inside widget cards; the Extenders tab keeps the ON/OFF toggle. */
+.eead-widget-wrap .eead-checkbox,
+.eead-extender-wrap .eead-checkbox {
+    flex: 0 0 auto;
+}
+
+.eead-widget-wrap .eead-checkbox:after,
+.eead-extender-wrap .eead-checkbox:after {
+    content: none;
+}
+
+.eead-widget-wrap .eead-checkbox label,
+.eead-extender-wrap .eead-checkbox label {
+    display: block;
+    width: 40px;
+    height: 22px;
+    border: 0;
+    border-radius: 22px;
+    background: #D7D9E0;
+    transition: background-color 0.25s;
+}
+
+.eead-widget-wrap .eead-checkbox label:after,
+.eead-extender-wrap .eead-checkbox label:after {
+    top: 3px;
+    right: auto;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    content: "";
+    text-indent: 0;
+    transform: none;
+    transition: transform 0.25s;
+}
+
+.eead-widget-wrap .eead-checkbox input:checked + label,
+.eead-extender-wrap .eead-checkbox input:checked + label {
     background: #9c19e9;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(156, 25, 233, 0.25);
+}
+
+.eead-widget-wrap .eead-checkbox input:checked + label:after,
+.eead-extender-wrap .eead-checkbox input:checked + label:after {
+    width: 16px;
+    background: #FFF;
+    transform: translateX(18px);
+    transition: transform 0.25s;
+}
+
+.eead-widget-wrap .eead-checkbox input:hover + label:after,
+.eead-extender-wrap .eead-checkbox input:hover + label:after {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.eead-widget-wrap .eead-checkbox input:focus-visible + label,
+.eead-extender-wrap .eead-checkbox input:focus-visible + label {
+    outline: 2px solid #9c19e9;
+    outline-offset: 2px;
 }
 
 .eaad-save-button-wrap {

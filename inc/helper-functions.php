@@ -515,279 +515,297 @@ function eead_get_image_sizes() {
     return $output_sizes;
 }
 
+/** Widget categories (plain labels, escape when printing) in the order the settings page groups them. Add-ons can add their own. */
+function eead_get_widget_categories() {
+    return apply_filters('eead_widget_categories', array(
+        'text' => __('Headings & Text', 'easy-elementor-addons'),
+        'buttons' => __('Buttons & Icons', 'easy-elementor-addons'),
+        'images' => __('Images & Galleries', 'easy-elementor-addons'),
+        'media' => __('Video & Media', 'easy-elementor-addons'),
+        'interactive' => __('Tabs, Toggles & Popups', 'easy-elementor-addons'),
+        'data' => __('Tables, Charts & Counters', 'easy-elementor-addons'),
+        'pricing' => __('Pricing & Promotion', 'easy-elementor-addons'),
+        'proof' => __('Testimonials & Team', 'easy-elementor-addons'),
+        'timeline' => __('Timelines & Steps', 'easy-elementor-addons'),
+        'navigation' => __('Navigation & Site', 'easy-elementor-addons'),
+        'contact' => __('Contact & Business', 'easy-elementor-addons'),
+        'social' => __('Social', 'easy-elementor-addons'),
+    ));
+}
+
 function eead_get_all_widgets_list() {
     $all_wid = apply_filters('eead_all_widgets_list', array(
         'accordion' => array(
             'name' => 'Accordion',
             'icon' => 'eead-icons-accordion',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/accordion/',
-            'category' => 'essential'
+            'category' => 'interactive'
         ),
         'advanced-button' => array(
             'name' => 'Advanced Button',
             'icon' => 'eead-icons-button',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-button/',
-            'category' => 'creative'
+            'category' => 'buttons'
         ),
         'advanced-heading' => array(
             'name' => 'Advanced Heading',
             'icon' => 'eead-icons-advanced-heading',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-heading/',
-            'category' => 'creative'
+            'category' => 'text'
         ),
         'advanced-icon-box' => array(
             'name' => 'Advanced Icon Box',
             'icon' => 'eead-icons-icon-text',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-icon-box/',
-            'category' => 'essential'
+            'category' => 'buttons'
         ),
         'advanced-map' => array(
             'name' => 'Advanced Map',
             'icon' => 'eead-icons-map',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/advanced-map/',
-            'category' => 'essential'
+            'category' => 'contact'
         ),
         'animated-heading' => array(
             'name' => 'Animated Heading',
             'icon' => 'eead-icons-animated-heading',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/animated-heading/',
-            'category' => 'creative'
+            'category' => 'text'
         ),
         'appearing-image' => array(
             'name' => 'Appearing Image',
             'icon' => 'eead-icons-appearing-image',
             'demo_url' => '',
-            'category' => 'creative',
+            'category' => 'images',
             'since' => '2.5.0'
         ),
         'business-hour' => array(
             'name' => 'Business Hour',
             'icon' => 'eead-icons-business-hours',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/business-hour/',
-            'category' => 'listing'
+            'category' => 'contact'
         ),
         'circular-progressbar' => array(
             'name' => 'Circular Progressbar',
             'icon' => 'eead-icons-circular-bar',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/circular-progress-bar/',
-            'category' => 'essential'
+            'category' => 'data'
         ),
         'comparison-table' => array(
             'name' => 'Comparison Table',
             'icon' => 'eead-icons-comparison-table',
             'demo_url' => '',
-            'category' => 'listing',
+            'category' => 'pricing',
             'since' => '2.5.0'
         ),
         'countdown' => array(
             'name' => 'Countdown',
             'icon' => 'eead-icons-count-down',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/countdown/',
-            'category' => 'essential'
+            'category' => 'data'
         ),
         'counter' => array(
             'name' => 'Counter',
             'icon' => 'eead-icons-counter',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/counter/',
-            'category' => 'essential'
+            'category' => 'data'
         ),
         'data-table' => array(
             'name' => 'Data Table',
             'icon' => 'eead-icons-data-table',
             'demo_url' => '',
-            'category' => 'listing',
+            'category' => 'data',
             'since' => '2.5.0'
         ),
         'drop-bar' => array(
             'name' => 'Drop Bar',
             'icon' => 'eead-icons-drop-box',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/drop-bar/',
-            'category' => 'essential'
+            'category' => 'interactive'
         ),
         'dual-button' => array(
             'name' => 'Dual Button',
             'icon' => 'eead-icons-dual-buttons',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/dual-button/',
-            'category' => 'creative'
+            'category' => 'buttons'
         ),
         'dual-heading' => array(
             'name' => 'Dual Heading',
             'icon' => 'eead-icons-dual-heading',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/dual-heading/',
-            'category' => 'creative'
+            'category' => 'text'
         ),
         'feature-list' => array(
             'name' => 'Feature List',
             'icon' => 'eead-icons-feature-list',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/feature-list/',
-            'category' => 'listing'
+            'category' => 'buttons'
         ),
         'flip-box' => array(
             'name' => 'Flip Box',
             'icon' => 'eead-icons-flip-box',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/flip-box/',
-            'category' => 'creative'
+            'category' => 'interactive'
         ),
         'horizontal-tab' => array(
             'name' => 'Horizontal Tab',
             'icon' => 'eead-icons-horizontal-tab',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/horizontal-tab/',
-            'category' => 'advanced'
+            'category' => 'interactive'
         ),
         'horizontal-timeline' => array(
             'name' => 'Horizontal Timeline',
             'icon' => 'eead-icons-horizontal-timeline',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/horizontal-timeline/',
-            'category' => 'advanced'
+            'category' => 'timeline'
         ),
         'hotspot' => array(
             'name' => 'Hotspot',
             'icon' => 'eead-icons-hot-spot',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/hotspot/',
-            'category' => 'creative'
+            'category' => 'images'
         ),
         'icon-list' => array(
             'name' => 'Icon List',
             'icon' => 'eead-icons-icon-list',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/icon-list/',
-            'category' => 'listing'
+            'category' => 'buttons'
         ),
         'image-accordion' => array(
             'name' => 'Image Accordion',
             'icon' => 'eead-icons-image-accordion',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-accordion/',
-            'category' => 'listing'
+            'category' => 'images'
         ),
         'image-comparison' => array(
             'name' => 'Image Comparison',
             'icon' => 'eead-icons-compare',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-comparison/',
-            'category' => 'advanced'
+            'category' => 'images'
         ),
         'image-gallery' => array(
             'name' => 'Filterable Gallery',
             'icon' => 'eead-icons-image-gallery',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-gallery/',
-            'category' => 'advanced'
+            'category' => 'images'
         ),
         'image-hover-effect' => array(
             'name' => 'Image Hover Effects',
             'icon' => 'eead-icons-image-hover-effect',
             'demo_url' => '',
-            'category' => 'creative',
+            'category' => 'images',
             'since' => '2.5.0'
         ),
         'image-stack' => array(
             'name' => 'Image Stack',
             'icon' => 'eead-icons-image-stack',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'proof',
             'since' => '2.5.0'
         ),
         'justified-grid' => array(
             'name' => 'Justified Grid',
             'icon' => 'eead-icons-justified-grid',
             'demo_url' => '',
-            'category' => 'listing',
+            'category' => 'images',
             'since' => '2.5.0'
         ),
         'link-effect' => array(
             'name' => 'Link Effect',
             'icon' => 'eead-icons-link',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/link-effect/',
-            'category' => 'essential'
+            'category' => 'text'
         ),
         'logo-carousel' => array(
             'name' => 'Logo Carousel',
             'icon' => 'eead-icons-logo-carousel',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/logo-carousel/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'logo-grid' => array(
             'name' => 'Logo Grid',
             'icon' => 'eead-icons-logo-grid',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/logo-grid/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'lottie' => array(
             'name' => 'Lottie',
             'icon' => 'eead-icons-lottie',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/lottie/',
-            'category' => 'essential'
+            'category' => 'media'
         ),
         'one-page-navigation' => array(
             'name' => 'One Page Navigation',
             'icon' => 'eead-icons-one-page-nav',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/one-page-navigation/',
-            'category' => 'essential'
+            'category' => 'navigation'
         ),
         'pdf-viewer' => array(
             'name' => 'PDF Viewer',
             'icon' => 'eead-icons-pdf-viewer',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'media',
             'since' => '2.5.0'
         ),
         'pie-chart' => array(
             'name' => 'Pie Chart',
             'icon' => 'eead-icons-pie-chart',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pie-chart/',
-            'category' => 'creative'
+            'category' => 'data'
         ),
         'popup-modal' => array(
             'name' => 'Popup Modal',
             'icon' => 'eead-icons-popup',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/popup/',
-            'category' => 'essential'
+            'category' => 'interactive'
         ),
         'popup-video' => array(
             'name' => 'Popup Video',
             'icon' => 'eead-icons-video-popup',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/video-popup/',
-            'category' => 'essential'
+            'category' => 'media'
         ),
         'pricing-list' => array(
             'name' => 'Pricing List',
             'icon' => 'eead-icons-pricing-list',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pricing-list/',
-            'category' => 'listing'
+            'category' => 'pricing'
         ),
         'pricing-table' => array(
             'name' => 'Pricing Table',
             'icon' => 'eead-icons-pricing-table',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pricing-table/',
-            'category' => 'listing'
+            'category' => 'pricing'
         ),
         'progressbar' => array(
             'name' => 'Progressbar',
             'icon' => 'eead-icons-progress-bar',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/progress-bar/',
-            'category' => 'essential'
+            'category' => 'data'
         ),
         'scroll-image' => array(
             'name' => 'Scroll Image',
             'icon' => 'eead-icons-scroll-image',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/scroll-image/',
-            'category' => 'essential'
+            'category' => 'images'
         ),
         'scroll-text-reveal' => array(
             'name' => 'Text Scroll Reveal',
             'icon' => 'eead-icons-scroll-text-reveal',
             'demo_url' => '',
-            'category' => 'creative',
+            'category' => 'text',
             'since' => '2.5.0'
         ),
         'slider' => array(
             'name' => 'Slider',
             'icon' => 'eead-icons-slider',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/slider/',
-            'category' => 'essential'
+            'category' => 'images'
         ),
         'social-icons' => array(
             'name' => 'Social Icons',
             'icon' => 'eead-icons-social-icons',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'social',
             'since' => '2.5.0'
         ),
         'social-share' => array(
@@ -800,114 +818,114 @@ function eead_get_all_widgets_list() {
             'name' => 'Star Rating',
             'icon' => 'eead-icons-star-rating',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'proof',
             'since' => '2.5.0'
         ),
         'promo-box' => array(
             'name' => 'Promo Box',
             'icon' => 'eead-icons-promo-box',
             'demo_url' => '',
-            'category' => 'creative',
+            'category' => 'pricing',
             'since' => '2.5.0'
         ),
         'step-flow' => array(
             'name' => 'Step Flow',
             'icon' => 'eead-icons-step-flow',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/step-flow/',
-            'category' => 'essential'
+            'category' => 'timeline'
         ),
         'sticky-video' => array(
             'name' => 'Sticky Video',
             'icon' => 'eead-icons-sticky-video',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/sticky-video/',
-            'category' => 'essential'
+            'category' => 'media'
         ),
         'switcher' => array(
             'name' => 'Switcher',
             'icon' => 'eead-icons-switcher',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/switcher/',
-            'category' => 'essential'
+            'category' => 'interactive'
         ),
         'table-of-contents' => array(
             'name' => 'Table of Contents',
             'icon' => 'eead-icons-table-of-contents',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'navigation',
             'since' => '2.5.0'
         ),
         'team-member' => array(
             'name' => 'Team',
             'icon' => 'eead-icons-team',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/team-member/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'team-carousel' => array(
             'name' => 'Team Carousel',
             'icon' => 'eead-icons-team-carousel',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/team-carousel/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'testimonial' => array(
             'name' => 'Testimonial',
             'icon' => 'eead-icons-testimonial',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/testimonial/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'testimonial-carousel' => array(
             'name' => 'Testimonial Carousel',
             'icon' => 'eead-icons-testimonial-carousel',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/testimonial-carousel/',
-            'category' => 'essential'
+            'category' => 'proof'
         ),
         'marquee' => array(
             'name' => 'Marquee',
             'icon' => 'eead-icons-marquee',
             'demo_url' => '',
-            'category' => 'creative',
+            'category' => 'text',
             'since' => '2.5.0'
         ),
         'toggle' => array(
             'name' => 'Toggle',
             'icon' => 'eead-icons-toggle',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/toggle/',
-            'category' => 'essential'
+            'category' => 'interactive'
         ),
         'twitter-feed' => array(
             'name' => 'Twitter Feed',
             'icon' => 'eead-icons-twitter-x',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/twitter-feed/',
-            'category' => 'essential'
+            'category' => 'social'
         ),
         'vertical-tab' => array(
             'name' => 'Vertical Tab',
             'icon' => 'eead-icons-vertical-tab',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/vertical-tab/',
-            'category' => 'advanced'
+            'category' => 'interactive'
         ),
         'vertical-timeline' => array(
             'name' => 'Vertical Timeline',
             'icon' => 'eead-icons-vertical-timeline',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/vertical-timeline/',
-            'category' => 'advanced'
+            'category' => 'timeline'
         ),
         'video-player' => array(
             'name' => 'Video Player',
             'icon' => 'eead-icons-video-player',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/video-player/',
-            'category' => 'essential'
+            'category' => 'media'
         ),
         'whatsapp-chat' => array(
             'name' => 'WhatsApp Chat',
             'icon' => 'eead-icons-whatsapp-chat',
             'demo_url' => '',
-            'category' => 'essential',
+            'category' => 'contact',
             'since' => '2.5.0'
         ),
         'weather' => array(
             'name' => 'Weather Block',
             'icon' => 'eead-icons-weather',
             'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/weather/',
-            'category' => 'essential'
+            'category' => 'contact'
         ),
     ));
     ksort($all_wid);
