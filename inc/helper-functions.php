@@ -574,7 +574,7 @@ function eead_get_all_widgets_list() {
         'appearing-image' => array(
             'name' => 'Appearing Image',
             'icon' => 'eead-icons-appearing-image',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/appearing-image/',
             'category' => 'images',
             'since' => '2.5.0'
         ),
@@ -593,7 +593,7 @@ function eead_get_all_widgets_list() {
         'comparison-table' => array(
             'name' => 'Comparison Table',
             'icon' => 'eead-icons-comparison-table',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/comparison-table/',
             'category' => 'pricing',
             'since' => '2.5.0'
         ),
@@ -612,7 +612,7 @@ function eead_get_all_widgets_list() {
         'data-table' => array(
             'name' => 'Data Table',
             'icon' => 'eead-icons-data-table',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/data-table/',
             'category' => 'data',
             'since' => '2.5.0'
         ),
@@ -691,21 +691,21 @@ function eead_get_all_widgets_list() {
         'image-hover-effect' => array(
             'name' => 'Image Hover Effects',
             'icon' => 'eead-icons-image-hover-effect',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-hover-effects/',
             'category' => 'images',
             'since' => '2.5.0'
         ),
         'image-stack' => array(
             'name' => 'Image Stack',
             'icon' => 'eead-icons-image-stack',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/image-stack/',
             'category' => 'proof',
             'since' => '2.5.0'
         ),
         'justified-grid' => array(
             'name' => 'Justified Grid',
             'icon' => 'eead-icons-justified-grid',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/justified-grid/',
             'category' => 'images',
             'since' => '2.5.0'
         ),
@@ -743,7 +743,7 @@ function eead_get_all_widgets_list() {
             'name' => 'PDF Viewer',
             'icon' => 'eead-icons-pdf-viewer',
             'demo_url' => '',
-            'category' => 'media',
+            'category' => 'essential',
             'since' => '2.5.0'
         ),
         'pie-chart' => array(
@@ -791,7 +791,7 @@ function eead_get_all_widgets_list() {
         'scroll-text-reveal' => array(
             'name' => 'Text Scroll Reveal',
             'icon' => 'eead-icons-scroll-text-reveal',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/text-scroll-reveal/',
             'category' => 'text',
             'since' => '2.5.0'
         ),
@@ -804,7 +804,7 @@ function eead_get_all_widgets_list() {
         'social-icons' => array(
             'name' => 'Social Icons',
             'icon' => 'eead-icons-social-icons',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/social-icons/',
             'category' => 'social',
             'since' => '2.5.0'
         ),
@@ -817,14 +817,14 @@ function eead_get_all_widgets_list() {
         'star-rating' => array(
             'name' => 'Star Rating',
             'icon' => 'eead-icons-star-rating',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/star-rating/',
             'category' => 'proof',
             'since' => '2.5.0'
         ),
         'promo-box' => array(
             'name' => 'Promo Box',
             'icon' => 'eead-icons-promo-box',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/promo-box/',
             'category' => 'pricing',
             'since' => '2.5.0'
         ),
@@ -849,7 +849,7 @@ function eead_get_all_widgets_list() {
         'table-of-contents' => array(
             'name' => 'Table of Contents',
             'icon' => 'eead-icons-table-of-contents',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/table-of-contents/',
             'category' => 'navigation',
             'since' => '2.5.0'
         ),
@@ -880,7 +880,7 @@ function eead_get_all_widgets_list() {
         'marquee' => array(
             'name' => 'Marquee',
             'icon' => 'eead-icons-marquee',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/marquee/',
             'category' => 'text',
             'since' => '2.5.0'
         ),
@@ -917,7 +917,7 @@ function eead_get_all_widgets_list() {
         'whatsapp-chat' => array(
             'name' => 'WhatsApp Chat',
             'icon' => 'eead-icons-whatsapp-chat',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/whatsapp-chat/',
             'category' => 'contact',
             'since' => '2.5.0'
         ),
@@ -928,7 +928,10 @@ function eead_get_all_widgets_list() {
             'category' => 'contact'
         ),
     ));
-    ksort($all_wid);
+    // Sort by the displayed name, not the key, so renamed widgets land where users look for them.
+    uasort($all_wid, function ($a, $b) {
+        return strnatcasecmp($a['name'], $b['name']);
+    });
     return $all_wid;
 }
 

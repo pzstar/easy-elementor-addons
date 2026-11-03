@@ -1822,6 +1822,7 @@ Filterable Gallery
 
 .eead-filter-gallery .eead-fg-style-overlay .eead-fg-item-caption-content {
     position: relative;
+    width: 100%;
     color: #FFF;
 }
 
