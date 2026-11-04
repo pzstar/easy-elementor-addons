@@ -184,6 +184,20 @@ class TeamCarousel extends Widget_Base {
                         'type' => Controls_Manager::URL,
                     ],
                 ],
+                'default' => [
+                    [
+                        'name' => esc_html__('John Doe', 'easy-elementor-addons'),
+                        'designation' => esc_html__('WordPress Developer', 'easy-elementor-addons'),
+                    ],
+                    [
+                        'name' => esc_html__('Jane Smith', 'easy-elementor-addons'),
+                        'designation' => esc_html__('UI/UX Designer', 'easy-elementor-addons'),
+                    ],
+                    [
+                        'name' => esc_html__('Alex Brown', 'easy-elementor-addons'),
+                        'designation' => esc_html__('Project Manager', 'easy-elementor-addons'),
+                    ],
+                ],
                 'title_field' => '{{ name }}',
             ]
         );

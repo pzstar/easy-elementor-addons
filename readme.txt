@@ -189,7 +189,7 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
-= 2.5.0 - Unreleased =
+= 2.5.0 - 4 Nov, 2026 =
 * New widget - Marquee: endless scrolling text, icons and images left, right, up or down; icon, text or image separators (with spin); filled, outline, alternating or gradient text; custom items or latest posts (featured image, date); tilted bands and a crossing second row; grayscale/opacity image effects for logo marquees; image size; per-item colors and highlights; pause or slow down on hover; speed up or follow the page scroll; drag to scroll; responsive speed; fade edges; respects reduced motion
 * New widget - Data Table: build in the editor or paste CSV; column/row spans, icons, links; sortable columns, search, pagination; scroll or stack as cards on small screens
 * New widget - Table of Contents: built from the page headings; nested numbering, bullets or icons; smooth scroll with offset, current section highlight, sticky and collapsible box
@@ -205,6 +205,25 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 * New widget - Justified Grid: even photo rows that keep their shape, captions, hover effects and lightbox
 * New widget - PDF Viewer: embedded PDF with title bar, open and download buttons, and a button on phones
 * Widgets added in a new version now start enabled on sites that saved the widget settings before
+* Settings page - widgets grouped by purpose with per-group Enable/Disable All, redesigned widget cards
+* New options - Accordion (title tag, FAQ schema, link to an item by ID), Advanced Button (icon size, icon hover effect, new Shutter In effect), Advanced Heading (split gradient, split before or after), Advanced Icon Box (badge, title link, link whole box), Advanced Map (map type, marker title), Animated Heading (cursor, animated text style), Appearing Image (every time in view, curtain direction), Circular Progress Bar (start position, count up, suffix, title tag), Countdown (evergreen timer, hide timer on expiry), Counter (thousands separator, title tag), Data Table (initial sort), Dual Button (equal width), Dual Heading (stack on devices), Feature List (connector line), Icon List (icon box size and background), Image Stack (max visible), Logo Carousel and Logo Grid (logo height, grayscale, opacity), Lottie (label, loop, play in view, click), Marquee (pause button), Pie Chart (animate in view, percent tooltip, value prefix and suffix), Popup Modal (open automatically after a delay, on scroll or on exit, hide trigger), Popup Video and Video Player (privacy mode), Pricing List (old price, badge), Pricing Table (old price, excluded features, footer note), Progress Bar (per-bar color, duration), Promo Box (schedule), Scroll Image (scroll duration), Slider (title tag, Ken Burns), Social Icons (10 more networks), Social Share (copy link, native share), Star Rating (SEO rich results), Sticky Video (sticky on mobile), Team Member and Team Carousel (name tag), Testimonial and Testimonial Carousel (empty stars, name tag, equal height), Toggle (switch animation, open by URL hash), Twitter Feed (hide parent post, hide media, width, alignment, privacy mode), Horizontal and Vertical Tab (active tab, link to a tab by ID), Vertical Timeline (scroll progress line, reveal on scroll), Video Player (video title, captions), Weather (location label, choose parameters), WhatsApp Chat (page title and URL in the message)
+* Accessibility - keyboard support and screen reader labels across carousels, tabs, switcher, toggle, hotspots, image accordion, image comparison, drop bar, flip box, sticky video and popups; hover effects also show on keyboard focus and touch; animations respect reduced motion
+* Animated Heading no longer uses the Morphext library (text is inserted safely) - Security
+* Countdown keeps time from the clock instead of a ticking counter, no longer conflicts with themes that load jQuery Countdown - Fixed
+* Counter showed nothing for 0, Pie Chart dropped 0 values - Fixed
+* Data Table sorted dates and currency values as text - Fixed
+* Drop Bar panels ran off small screens and UIkit restyled theme headings, quotes and code - Fixed
+* Hotspot tooltips ran off small screens - Fixed
+* Image Gallery lightbox included images hidden by the filter - Fixed
+* Justified Grid used the original image shape for cropped image sizes - Fixed
+* One Page Navigation moved two sections on one mouse wheel turn - Fixed
+* Progress Bar and Circular Progress Bar duration setting was ignored - Fixed
+* Social Share and Twitter Feed shared the first post on archive pages instead of the page itself - Fixed
+* Weather - one API request per city shared by all widgets, last good data shown if the service fails, imperial wind, visibility and rain units, local update time - Fixed
+* Video Player could load without playing after the play button was clicked - Fixed
+* Placeholder '#' links no longer open the same page in a new tab (Pricing List, Vertical Timeline) - Fixed
+* Images now load responsive sizes with alt text fallbacks in more widgets - Updated
+* Elementor CSS is regenerated once after updating so changed widget styles apply - Updated
 
 = 2.4.0 - 2 Oct, 2026 =
 * Compatibility test with WordPress v 7.1 and Elementor v 4.3

@@ -814,7 +814,7 @@ function eead_get_all_widgets_list() {
         'pdf-viewer' => array(
             'name' => 'PDF Viewer',
             'icon' => 'eead-icons-pdf-viewer',
-            'demo_url' => '',
+            'demo_url' => 'https://demo.hashthemes.com/easy-elementor-addons/pdf-viewer/',
             'category' => 'essential',
             'since' => '2.5.0'
         ),

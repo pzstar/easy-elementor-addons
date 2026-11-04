@@ -130,6 +130,29 @@ class TestimonialCarousel extends Widget_Base {
                         ]
                     ]
                 ],
+                'default' => [
+                    [
+                        'name' => esc_html__('Emma Clark', 'easy-elementor-addons'),
+                        'designation' => esc_html__('Marketing Manager', 'easy-elementor-addons'),
+                        'testimonial_content' => esc_html__('Working with this team was a pleasure. They understood what we needed and delivered ahead of schedule.', 'easy-elementor-addons'),
+                        'show_rating' => 'yes',
+                        'rating' => ['size' => 5, 'unit' => 's'],
+                    ],
+                    [
+                        'name' => esc_html__('Liam Johnson', 'easy-elementor-addons'),
+                        'designation' => esc_html__('Small Business Owner', 'easy-elementor-addons'),
+                        'testimonial_content' => esc_html__('Our new website brought in more enquiries in the first month than the old one did all year.', 'easy-elementor-addons'),
+                        'show_rating' => 'yes',
+                        'rating' => ['size' => 5, 'unit' => 's'],
+                    ],
+                    [
+                        'name' => esc_html__('Sofia Martinez', 'easy-elementor-addons'),
+                        'designation' => esc_html__('Product Designer', 'easy-elementor-addons'),
+                        'testimonial_content' => esc_html__('Friendly, fast and thorough. Every question got a clear answer, and the result looks fantastic.', 'easy-elementor-addons'),
+                        'show_rating' => 'yes',
+                        'rating' => ['size' => 5, 'unit' => 's'],
+                    ],
+                ],
                 'title_field' => '{{ name }}',
             ]
         );

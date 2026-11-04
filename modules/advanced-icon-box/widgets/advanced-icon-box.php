@@ -1574,12 +1574,13 @@ class AdvancedIconBox extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         // The alignment control that is in use: inline, left/right icon, or top.
-        if ('yes' === $settings['icon_inline']) {
-            $align = $settings['inline_text_align'];
-        } elseif (in_array($settings['icon_position'], ['left', 'right'], true)) {
+        // Controls whose condition is not met are left out of the settings.
+        if ('yes' === ($settings['icon_inline'] ?? '')) {
+            $align = $settings['inline_text_align'] ?? '';
+        } elseif (in_array($settings['icon_position'] ?? '', ['left', 'right'], true)) {
             $align = $settings['icon_position'];
         } else {
-            $align = $settings['text_align'];
+            $align = $settings['text_align'] ?? '';
         }
         $align = in_array($align, ['left', 'center', 'right'], true) ? $align : 'center';
         $title_separator_type = in_array($settings['title_separator_type'], $this->valid_svg_list()) ? $settings['title_separator_type'] : 'line';
