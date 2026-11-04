@@ -1206,6 +1206,11 @@ class FlipBox extends Widget_Base {
         ]);
 
         $this->add_render_attribute('box_link', 'class', 'eead-fb-link');
+        // The whole-box link has no text of its own; name it after the box.
+        $box_label = wp_strip_all_tags((string) ($settings['back_title_text'] ?: ($settings['front_title_text'] ?: $settings['button_text'])));
+        if ('' !== trim($box_label)) {
+            $this->add_render_attribute('box_link', 'aria-label', trim($box_label));
+        }
 
         if (!empty($settings['link']['url'])) {
             $this->add_link_attributes('button', $settings['link']);
@@ -1223,7 +1228,12 @@ class FlipBox extends Widget_Base {
 
         $this->add_render_attribute('box_front_title_tags', 'class', 'eead-fb-layer-title');
         ?>
-        <div class="eead-flip-box">
+        <?php
+        // Focusable so Tab or a tap flips it (the CSS flips on :focus-within too).
+        // A whole-box link already takes focus, so it isn't needed twice then.
+        $box_linked = $settings['link_click'] === 'box' && !empty($settings['link']['url']);
+        ?>
+        <div class="eead-flip-box"<?php echo $box_linked ? '' : ' tabindex="0"'; ?>>
             <div class="eead-fb-layer eead-fb-front">
                 <div class="eead-fb-layer-overlay">
                     <div class="eead-fb-layer-inner">

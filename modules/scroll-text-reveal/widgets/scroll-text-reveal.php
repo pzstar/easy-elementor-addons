@@ -349,7 +349,6 @@ class ScrollTextReveal extends Widget_Base {
 
         $this->add_render_attribute('text', [
             'class' => 'eead-str',
-            'aria-label' => trim(html_entity_decode(wp_strip_all_tags($html), ENT_QUOTES, get_bloginfo('charset'))),
             'data-settings' => wp_json_encode([
                 'trigger' => 'view' === $settings['trigger'] ? 'view' : 'scroll',
                 'start' => isset($settings['start']['size']) ? (float) $settings['start']['size'] : 85,
@@ -359,7 +358,12 @@ class ScrollTextReveal extends Widget_Base {
             ]),
         ]);
         ?>
+        <?php
+        // Real hidden text rather than aria-label: several screen readers ignore
+        // aria-label on headings, and the split letters below are hidden.
+        ?>
         <<?php echo esc_attr($tag); ?> <?php $this->print_render_attribute_string('text'); ?>>
+            <span class="elementor-screen-only"><?php echo esc_html(trim(html_entity_decode(wp_strip_all_tags($html), ENT_QUOTES, get_bloginfo('charset')))); ?></span>
             <span class="eead-str-inner" aria-hidden="true"><?php echo $split; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from wp_kses() output. ?></span>
         </<?php echo esc_attr($tag); ?>>
         <?php

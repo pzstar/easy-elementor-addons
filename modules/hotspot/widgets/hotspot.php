@@ -599,8 +599,14 @@ class Hotspot extends Widget_Base {
                             continue;
                         }
                         ?>
+                        <?php
+                        $content_id = 'eead-hotspot-' . $this->get_id() . '-' . $key;
+                        $has_content = !empty($item['title']) || !empty($item['content']);
+                        /* translators: %d: hotspot number */
+                        $label = !empty($item['title']) ? $item['title'] : sprintf(esc_html__('Hotspot %d', 'easy-elementor-addons'), $key + 1);
+                        ?>
                         <div class="eead-hotspot-item elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
-                            <a href="javascript:void(0)">
+                            <a href="javascript:void(0)" role="button" aria-label="<?php echo esc_attr($label); ?>"<?php if ($has_content) { ?> aria-controls="<?php echo esc_attr($content_id); ?>" aria-expanded="false"<?php } ?>>
                                 <?php
                                 $this->pulsate_animation();
                                 if ($item['hotspot_type'] == 'icon' && !empty($item['icon']['value'])) {
@@ -611,7 +617,7 @@ class Hotspot extends Widget_Base {
                                 ?>
                             </a>
                             <?php
-                            $this->get_content($key);
+                            $this->get_content($key, $content_id);
                             ?>
                         </div>
                         <?php
@@ -630,12 +636,12 @@ class Hotspot extends Widget_Base {
         }
     }
 
-    protected function get_content($key) {
+    protected function get_content($key, $content_id = '') {
         $settings = $this->get_settings_for_display();
         $item = $settings['hotspot_points'][$key];
         $tooltip_pos = $item['tooltip_position'] !== 'default' ? $item['tooltip_position'] : $settings['tooltip_position'];
         ?>
-        <div class="eead-hotspot-content eead-<?php echo esc_attr($tooltip_pos); ?>">
+        <div class="eead-hotspot-content eead-<?php echo esc_attr($tooltip_pos); ?>" id="<?php echo esc_attr($content_id); ?>" data-pos="<?php echo esc_attr($tooltip_pos); ?>">
             <?php
             if (!empty($item['title'])) {
                 ?>

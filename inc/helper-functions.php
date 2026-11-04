@@ -240,6 +240,78 @@ if (!function_exists('eead_slider_animations')) {
     }
 }
 
+if (!function_exists('eead_social_label')) {
+
+    /**
+     * A name for an icon-only social link, from its URL: "Jane Doe on LinkedIn",
+     * "Email Jane Doe", or just "LinkedIn" without a person.
+     */
+    function eead_social_label($url, $person = '', $icon = '') {
+        $url = (string) $url;
+        $person = trim(wp_strip_all_tags((string) $person));
+        if (0 === stripos($url, 'mailto:')) {
+            /* translators: %s: person name */
+            return '' !== $person ? sprintf(__('Email %s', 'easy-elementor-addons'), $person) : __('Email', 'easy-elementor-addons');
+        }
+        if (0 === stripos($url, 'tel:')) {
+            /* translators: %s: person name */
+            return '' !== $person ? sprintf(__('Call %s', 'easy-elementor-addons'), $person) : __('Phone', 'easy-elementor-addons');
+        }
+        $host = strtolower((string) wp_parse_url($url, PHP_URL_HOST));
+        $host = preg_replace('/^(www|m|mobile)\./', '', $host);
+        $networks = [
+            'facebook.com' => 'Facebook', 'fb.com' => 'Facebook', 'instagram.com' => 'Instagram', 'x.com' => 'X', 'twitter.com' => 'X',
+            'linkedin.com' => 'LinkedIn', 'youtube.com' => 'YouTube', 'youtu.be' => 'YouTube', 'tiktok.com' => 'TikTok', 'pinterest.com' => 'Pinterest',
+            'threads.net' => 'Threads', 'github.com' => 'GitHub', 'dribbble.com' => 'Dribbble', 'behance.net' => 'Behance', 'medium.com' => 'Medium',
+            'wa.me' => 'WhatsApp', 'whatsapp.com' => 'WhatsApp', 't.me' => 'Telegram', 'telegram.me' => 'Telegram', 'reddit.com' => 'Reddit',
+            'vimeo.com' => 'Vimeo', 'twitch.tv' => 'Twitch', 'bsky.app' => 'Bluesky', 'mastodon.social' => 'Mastodon', 'snapchat.com' => 'Snapchat',
+            'spotify.com' => 'Spotify', 'soundcloud.com' => 'SoundCloud', 'discord.gg' => 'Discord', 'discord.com' => 'Discord', 'skype.com' => 'Skype',
+        ];
+        $network = isset($networks[$host]) ? $networks[$host] : '';
+        // No known address (often "#" placeholders): read the network from the icon.
+        if ('' === $network) {
+            $icon_value = is_array($icon) && isset($icon['value']) && is_string($icon['value']) ? $icon['value'] : (is_string($icon) ? $icon : '');
+            $by_icon = ['facebook' => 'Facebook', 'x-twitter' => 'X', 'twitter' => 'X', 'linkedin' => 'LinkedIn', 'instagram' => 'Instagram', 'youtube' => 'YouTube', 'pinterest' => 'Pinterest', 'tiktok' => 'TikTok', 'github' => 'GitHub', 'dribbble' => 'Dribbble', 'behance' => 'Behance', 'whatsapp' => 'WhatsApp', 'telegram' => 'Telegram', 'threads' => 'Threads', 'reddit' => 'Reddit', 'vimeo' => 'Vimeo', 'medium' => 'Medium', 'skype' => 'Skype', 'envelope' => __('Email', 'easy-elementor-addons'), 'globe' => __('Website', 'easy-elementor-addons')];
+            foreach ($by_icon as $needle => $name) {
+                if (false !== strpos($icon_value, $needle)) {
+                    $network = $name;
+                    break;
+                }
+            }
+        }
+        if ('' === $network) {
+            if ('' !== $host) {
+                $network = $host;
+            } else {
+                /* translators: %s: person name */
+                return '' !== $person ? sprintf(__('%s\'s profile', 'easy-elementor-addons'), $person) : __('Profile', 'easy-elementor-addons');
+            }
+        }
+        /* translators: 1: person name, 2: network, e.g. "Jane Doe on LinkedIn" */
+        return '' !== $person ? sprintf(__('%1$s on %2$s', 'easy-elementor-addons'), $person, $network) : $network;
+    }
+}
+
+if (!function_exists('eead_kses_image')) {
+
+    /**
+     * Escape attachment image markup. wp_kses_post() drops srcset, sizes,
+     * decoding and fetchpriority, which leaves every visitor with the full-size
+     * file, so those are allowed on <img> here.
+     */
+    function eead_kses_image($html) {
+        $allowed = wp_kses_allowed_html('post');
+        $allowed['img'] = array_merge(isset($allowed['img']) ? $allowed['img'] : [], [
+            'srcset' => true,
+            'sizes' => true,
+            'decoding' => true,
+            'fetchpriority' => true,
+            'loading' => true,
+        ]);
+        return wp_kses($html, $allowed);
+    }
+}
+
 if (!function_exists('eead_allow_tags')) {
 
     function eead_allow_tags($tag = NULL) {
@@ -1005,7 +1077,7 @@ function eead_get_all_widgets_desc() {
         'image-comparison' => esc_html__('To showcase the images before and after editing the images.', 'easy-elementor-addons'),
         'image-gallery' => esc_html__('Build dynamic, filterable image or video galleries with ease.', 'easy-elementor-addons'),
         'image-hover-effect' => esc_html__('Reveal a title, text and button over an image with 16 hover effects.', 'easy-elementor-addons'),
-        'image-stack' => esc_html__('Show overlapping profile photos with a count bubble and a line of text, like \"Trusted by 2,000+ teams\".', 'easy-elementor-addons'),
+        'image-stack' => esc_html__('Show overlapping profile photos with a count bubble and a line of text, like "Trusted by 2,000+ teams".', 'easy-elementor-addons'),
         'justified-grid' => esc_html__('Show photos in neat rows that keep their shape, with captions and a lightbox.', 'easy-elementor-addons'),
         'link-effect' => esc_html__('Customize your hyperlink by adding different animation effects.', 'easy-elementor-addons'),
         'logo-carousel' => esc_html__('Highlight the logo of your clients, partners, or sponsor in a beautiful carousel.', 'easy-elementor-addons'),

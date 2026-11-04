@@ -193,46 +193,103 @@
 }
 
 .eead-admin-header-section {
-    padding: 20px;
-    background: #FFF;
-    margin-left: -20px;
-    line-height: 1.3;
-    margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
+    gap: 16px 24px;
+    margin: 0 0 24px -20px;
+    padding: 20px 28px;
+    border-bottom: 1px solid #ECEEF2;
+    background: #FFF;
+    line-height: 1.3;
 }
 
-.eead-admin-header-section h2 {
-    font-size: 18px;
-    margin: 0;
-}
-
-.eead-admin-header-section h2 {
+.eead-admin-brand {
     display: flex;
     align-items: center;
-    text-transform: uppercase;
-    gap: 10px;
-    font-weight: bold;
+    gap: 14px;
 }
 
-.eead-admin-header-section h2 svg {
-    height: 16px;
-    width: 16px;
-}
-
-.eead-admin-header-section .eead-doc-link a{
-    background: #000;
+.eead-admin-logo {
+    display: flex;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #9c19e9, #6a11cb);
     color: #FFF;
-    text-decoration: none;
+    box-shadow: 0 6px 16px -6px rgba(124, 18, 188, 0.6);
+}
+
+.eead-admin-logo svg {
+    width: 20px;
+    height: 20px;
+}
+
+.eead-admin-header-section .eead-admin-header-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: #1B1E2B;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.eead-admin-version {
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #F1E6FC;
+    color: #7B12BC;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.eead-admin-subtitle {
+    margin: 3px 0 0;
+    color: #8A8FA0;
+    font-size: 13px;
+}
+
+.eead-admin-header-section .eead-doc-link {
+    display: flex;
+    gap: 8px;
+}
+
+.eead-admin-header-section .eead-doc-link a {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    border-radius: 30px;
+    gap: 7px;
+    padding: 9px 16px;
+    border: 1px solid #DDE0E6;
+    border-radius: 10px;
+    background: #FFF;
+    color: #1B1E2B;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
 }
 
-.eead-admin-header-section .eead-doc-link a:hover{
+.eead-admin-header-section .eead-doc-link a:hover,
+.eead-admin-header-section .eead-doc-link a:focus-visible {
+    border-color: #9c19e9;
+    color: #9c19e9;
+}
+
+.eead-admin-header-section .eead-doc-link a.eead-doc-primary {
+    border-color: #9c19e9;
     background: #9c19e9;
+    color: #FFF;
+}
+
+.eead-admin-header-section .eead-doc-link a.eead-doc-primary:hover,
+.eead-admin-header-section .eead-doc-link a.eead-doc-primary:focus-visible {
+    border-color: #7B12BC;
+    background: #7B12BC;
+    color: #FFF;
 }
 
 /* Main tabs: rounded blocks; the current one is white and joins the panel like a folder tab. */
@@ -300,8 +357,38 @@
     background: #FFF;
 }
 
+.eead-settings-intro {
+    margin-bottom: 20px;
+}
+
+.eead-settings-intro p {
+    margin: 4px 0 0;
+    color: #8A8FA0;
+    font-size: 13px;
+}
+
+/* The fields sit in one bordered card, one row each. */
+.eead-google-api-key {
+    max-width: 760px;
+    border: 1px solid #E8E9EE;
+    border-radius: 12px;
+}
+
 .eead-settings-field {
-    margin-bottom: 30px;
+    margin: 0;
+    padding: 20px 22px;
+}
+
+.eead-settings-field + .eead-settings-field {
+    border-top: 1px solid #ECEEF2;
+}
+
+.eead-settings-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1B1E2B;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .eead-settings-field input[type=date],
@@ -317,37 +404,57 @@
 .eead-settings-field input[type=time],
 .eead-settings-field input[type=url],
 .eead-settings-field input[type=week] {
-    width: 500px;
-    min-height: 38px;
+    width: 100%;
+    max-width: 520px;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #DDE0E6;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.eead-settings-field label {
-    margin-bottom: 6px;
-    display: block;
+.eead-settings-field input:focus {
+    border-color: #9c19e9;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(156, 25, 233, 0.15);
 }
 
 .eead-settings-field .eead-desc {
+    margin-top: 8px;
+    color: #8A8FA0;
     font-size: 13px;
-    font-style: italic;
-    color: #666;
-    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.eead-settings-field .eead-desc a {
+    color: #7B12BC;
 }
 
 .eaad-save-button-wrap .eead-save-button {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #000;
-    padding: 14px 40px;
-    border-radius: 3px;
+    padding: 12px 28px;
     border: none;
+    border-radius: 10px;
+    background: #9c19e9;
     color: #FFF;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 6px 16px -8px rgba(124, 18, 188, 0.7);
+    transition: background-color 0.2s;
 }
 
-.eaad-save-button-wrap .eead-save-button:hover{
-    background: #9c19e9;
+.eaad-save-button-wrap .eead-save-button:hover,
+.eaad-save-button-wrap .eead-save-button:focus-visible {
+    background: #7B12BC;
+}
+
+.eaad-save-button-wrap .eead-save-button:focus-visible {
+    outline: 2px solid #9c19e9;
+    outline-offset: 2px;
 }
 
 .eead-widget-action-buttons,
@@ -638,9 +745,10 @@
 }
 
 .eaad-save-button-wrap {
-    margin-top: 50px;
-    padding: 30px;
-    border-top: 1px solid #EEE;
+    margin-top: 40px;
+    padding: 18px 30px;
+    border-top: 1px solid #ECEEF2;
+    border-radius: 0 0 14px 14px;
     margin-left: -30px;
     margin-right: -30px;
     position: sticky;
@@ -651,31 +759,48 @@
     justify-content: flex-end;
 }
 
+/* A compact toast with a status dot, raised above the sticky Save bar so it never covers the button. */
 .eead-admin-notificn {
     position: fixed;
-    width: 300px;
-    bottom: 30px;
     right: 30px;
-    padding: 30px;
-    border-radius: 4px;
-    box-shadow: 4px 4px 15px rgb(0 0 0 / 10%);
-    font-size: 16px;
-    letter-spacing: 1px;
+    bottom: 104px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px 14px 16px;
+    border-radius: 12px;
+    background: #1B1E2B;
     color: #FFF;
-    background: #000;
-    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 12px 30px -10px rgba(16, 24, 40, 0.45);
     -webkit-animation: eead-slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: eead-slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     z-index: 99;
 }
 
-.eead-admin-notificn.eead-previously-saved,
-.eead-admin-notificn.eead-saved {
-    background-color: #4BB543;
+.eead-admin-notificn::before {
+    flex: 0 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #8A8FA0;
+    content: "";
 }
 
-.eead-admin-notificn.eead-failed {
-    background-color: #ff3333;
+.eead-admin-notificn.eead-saved::before {
+    background: #3FD07A;
+    box-shadow: 0 0 0 4px rgba(63, 208, 122, 0.2);
+}
+
+.eead-admin-notificn.eead-failed::before {
+    background: #FF5A5A;
+    box-shadow: 0 0 0 4px rgba(255, 90, 90, 0.2);
+}
+
+/* "No changes made" is information, not success, so its dot stays grey. */
+.eead-admin-notificn.eead-previously-saved::before {
+    box-shadow: 0 0 0 4px rgba(138, 143, 160, 0.25);
 }
 
 .eead-btn-loading .eead-loader {
@@ -724,5 +849,214 @@
         -webkit-transform: translateY(0);
         transform: translateY(0);
         opacity: 1;
+    }
+}
+/* About tab */
+.eead-about-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 40px;
+    padding: 28px 30px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #FAF5FF, #F3F4FF);
+}
+
+.eead-about-intro-text {
+    flex: 1 1 420px;
+    max-width: 640px;
+}
+
+.eead-about-intro h3 {
+    margin: 0 0 8px;
+    color: #1B1E2B;
+    font-size: 20px;
+}
+
+.eead-about-intro p {
+    margin: 0;
+    color: #5C6272;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.eead-about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.eead-about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border: 1px solid #DDD3EE;
+    border-radius: 10px;
+    background: #FFF;
+    color: #1B1E2B;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.eead-about-btn:hover,
+.eead-about-btn:focus-visible {
+    border-color: #9c19e9;
+    color: #9c19e9;
+}
+
+.eead-about-btn.eead-about-btn-primary {
+    border-color: #9c19e9;
+    background: #9c19e9;
+    color: #FFF;
+}
+
+.eead-about-btn.eead-about-btn-primary:hover,
+.eead-about-btn.eead-about-btn-primary:focus-visible {
+    background: #7B12BC;
+    color: #FFF;
+}
+
+.eead-about-stats {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eead-about-stats li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 92px;
+    margin: 0;
+    padding: 14px 12px;
+    border-radius: 12px;
+    background: #FFF;
+    color: #8A8FA0;
+    font-size: 12px;
+    box-shadow: 0 6px 16px -10px rgba(84, 18, 140, 0.35);
+}
+
+.eead-about-stats strong {
+    color: #7B12BC;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.eead-about-heading {
+    margin: 36px 0 6px;
+    color: #1B1E2B;
+    font-size: 17px;
+}
+
+.eead-about-group {
+    padding: 18px 0;
+    border-bottom: 1px solid #ECEEF2;
+}
+
+.eead-about-group h4 {
+    margin: 0 0 12px;
+    color: #7B12BC;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.eead-about-widgets {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eead-about-widgets li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+}
+
+.eead-about-widgets a,
+.eead-about-widget-name {
+    color: #1B1E2B;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.eead-about-widgets a:hover,
+.eead-about-widgets a:focus-visible {
+    color: #9c19e9;
+}
+
+.eead-about-widget-desc {
+    color: #8A8FA0;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.eead-about-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 28px 0 40px;
+}
+
+.eead-about-card {
+    padding: 20px 22px;
+    border: 1px solid #E8E9EE;
+    border-radius: 12px;
+}
+
+.eead-about-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    color: #1B1E2B;
+    font-size: 15px;
+}
+
+.eead-about-card h4 span {
+    color: #9c19e9;
+    font-size: 18px;
+}
+
+.eead-about-card p {
+    margin: 0;
+    color: #5C6272;
+    line-height: 1.6;
+}
+
+.eead-about-card a {
+    color: #7B12BC;
+}
+
+@media (max-width: 1100px) {
+    .eead-about-widgets {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .eead-about-widgets,
+    .eead-about-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .eead-about-stats {
+        width: 100%;
+    }
+
+    .eead-about-stats li {
+        flex: 1 1 0;
+        min-width: 0;
     }
 }
