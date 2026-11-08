@@ -376,6 +376,8 @@ class ComparisonTable extends Widget_Base {
                 'size_units' => ['px', 'em'],
                 'selectors' => [
                     '{{WRAPPER}} .eead-ct-table td, {{WRAPPER}} .eead-ct-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    // The badge is placed from the top padding.
+                    '{{WRAPPER}} .eead-ct-table th' => '--eead-ct-pad-top: {{TOP}}{{UNIT}};',
                 ],
                 'separator' => 'before'
             ]

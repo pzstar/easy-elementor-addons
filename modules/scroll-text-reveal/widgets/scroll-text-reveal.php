@@ -298,38 +298,74 @@ class ScrollTextReveal extends Widget_Base {
 
     /**
      * Wrap every word (or letter) in a span while keeping the allowed inline
-     * tags, so highlighted words keep their markup.
+     * tags, so highlighted words keep their markup. A word runs from space to
+     * space, so "up</strong>," stays one unit; its tags are repeated inside it.
      */
     private function split_html($html, $by) {
-        $parts = preg_split('/(<[^>]+>)/', $html, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+        $parts = preg_split('/(<[^>]+>|\s+)/u', $html, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
         $out = '';
         $count = 0;
-        foreach ($parts as $part) {
-            if ('<' === $part[0]) {
-                $out .= $part;
-                continue;
+        $open = [];
+        $word = [];
+
+        $wrap = function ($text, $tags) {
+            $before = '';
+            $after = '';
+            foreach ($tags as $tag) {
+                $before .= '<' . $tag . '>';
+                $after = '</' . $tag . '>' . $after;
             }
-            $tokens = preg_split('/(\s+)/u', $part, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-            foreach ($tokens as $token) {
-                if (preg_match('/^\s+$/u', $token)) {
-                    $out .= ' ';
-                    continue;
-                }
-                if ('char' === $by) {
-                    $out .= '<span class="eead-str-word">';
+            return $before . $text . $after;
+        };
+
+        $flush = function () use (&$word, &$out, &$count, $by, $wrap) {
+            if (!$word) {
+                return;
+            }
+            if ('char' === $by) {
+                $out .= '<span class="eead-str-word">';
+                foreach ($word as $piece) {
                     // An entity such as &amp; is one letter.
-                    preg_match_all('/&#?[a-zA-Z0-9]+;|./us', $token, $chars);
+                    preg_match_all('/&#?[a-zA-Z0-9]+;|./us', $piece[0], $chars);
                     foreach ($chars[0] as $char) {
-                        $out .= '<span class="eead-str-unit">' . $char . '</span>';
+                        $out .= '<span class="eead-str-unit">' . $wrap($char, $piece[1]) . '</span>';
                         $count++;
                     }
-                    $out .= '</span>';
-                } else {
-                    $out .= '<span class="eead-str-unit">' . $token . '</span>';
-                    $count++;
                 }
+                $out .= '</span>';
+            } else {
+                $out .= '<span class="eead-str-unit">';
+                foreach ($word as $piece) {
+                    $out .= $wrap($piece[0], $piece[1]);
+                }
+                $out .= '</span>';
+                $count++;
+            }
+            $word = [];
+        };
+
+        foreach ($parts as $part) {
+            if (preg_match('/^\s+$/u', $part)) {
+                $flush();
+                $out .= ' ';
+            } elseif (preg_match('#^<(/?)([a-z]+)#i', $part, $tag)) {
+                $name = strtolower($tag[2]);
+                if ('br' === $name) {
+                    $flush();
+                    $out .= '<br>';
+                } elseif ('/' === $tag[1]) {
+                    $at = array_search($name, array_reverse($open, true), true);
+                    if (false !== $at) {
+                        array_splice($open, $at, 1);
+                    }
+                } else {
+                    $open[] = $name;
+                }
+            } else {
+                $word[] = [$part, $open];
             }
         }
+        $flush();
         return [$out, $count];
     }
 

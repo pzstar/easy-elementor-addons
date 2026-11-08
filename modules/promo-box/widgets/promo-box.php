@@ -680,8 +680,11 @@ class PromoBox extends Widget_Base {
      * not store its output. (Older Elementor versions don't call this.)
      */
     protected function is_dynamic_content(): bool {
-        $schedule = $this->get_settings('schedule');
-        return 'yes' === $schedule;
+        // The editor also calls this on the bare widget type, which has no settings.
+        if ($this->is_type_instance()) {
+            return false;
+        }
+        return 'yes' === $this->get_settings('schedule');
     }
 
     /** Whether now (site time) is inside the Show From / Show Until window. */

@@ -353,7 +353,7 @@ class Hotspot extends Widget_Base {
                     'unit' => 'px'
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'animation-duration: {{SIZE}}ms;'
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a .eead-pulse' => 'animation-duration: {{SIZE}}ms;'
                 ],
                 'condition' => ['enable_pulse_animation' => 'yes']
             ]
@@ -374,8 +374,8 @@ class Hotspot extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#333',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a' => 'background: {{VALUE}}',
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a .eead-pulse' => 'border: 5px solid {{VALUE}}'
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a .eead-pulse' => 'border: 5px solid {{VALUE}}'
                 ],
             ]
         );
@@ -386,8 +386,8 @@ class Hotspot extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a i' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'fill: {{VALUE}}'
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a i' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a svg' => 'fill: {{VALUE}}'
                 ],
             ]
         );
@@ -405,8 +405,8 @@ class Hotspot extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a i' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item a svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-hotspot .eead-hotspot-item > a svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );

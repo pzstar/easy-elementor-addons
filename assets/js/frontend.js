@@ -3289,7 +3289,15 @@
             if (video_type == 'custom') {
                 lightGallery(document.getElementById(video_id), {
                     selector: 'this',
-                    counter: false
+                    counter: false,
+                    videoMaxWidth: video_width
+                });
+                // Without an href, Enter and Space have to open it.
+                $video.on('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
                 });
             } else {
                 var settings = JSON.parse($video.attr('data-settings'));

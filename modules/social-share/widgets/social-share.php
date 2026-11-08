@@ -522,14 +522,14 @@ class SocialShare extends Widget_Base {
             'facebook' => ['class' => 'facebook', 'icon' => 'icofont-facebook', 'label' => esc_html__('Facebook', 'easy-elementor-addons'), 'href' => 'https://www.facebook.com/sharer/sharer.php?u=' . $url . '&t=' . $title],
             'twitter' => ['class' => 'twitter', 'icon' => 'icofont-x-twitter', 'label' => esc_html__('X', 'easy-elementor-addons'), 'href' => 'https://x.com/intent/tweet?text=' . $title . '&url=' . $url],
             'pintrest' => ['class' => 'pinterest', 'icon' => 'icofont-pinterest', 'label' => esc_html__('Pinterest', 'easy-elementor-addons'), 'href' => 'https://pinterest.com/pin/create/button/?url=' . $url],
-            'linkedin' => ['class' => 'linkedin', 'icon' => 'icofont-linkedin', 'label' => esc_html__('Linkedin', 'easy-elementor-addons'), 'href' => 'https://www.linkedin.com/shareArticle?mini=true&url=' . $url . '&title=' . $title],
-            'vkontakte' => ['class' => 'vkontakte', 'icon' => 'icofont-vk', 'label' => esc_html__('Vkontakte', 'easy-elementor-addons'), 'href' => 'https://vk.com/share.php?url=' . $url . '&title=' . $title],
+            'linkedin' => ['class' => 'linkedin', 'icon' => 'icofont-linkedin', 'label' => esc_html__('LinkedIn', 'easy-elementor-addons'), 'href' => 'https://www.linkedin.com/shareArticle?mini=true&url=' . $url . '&title=' . $title],
+            'vkontakte' => ['class' => 'vkontakte', 'icon' => 'icofont-vk', 'label' => esc_html__('VK', 'easy-elementor-addons'), 'href' => 'https://vk.com/share.php?url=' . $url . '&title=' . $title],
             'tumblr' => ['class' => 'tumblr', 'icon' => 'icofont-tumblr', 'label' => esc_html__('Tumblr', 'easy-elementor-addons'), 'href' => 'https://www.tumblr.com/share/link?url=' . $url . '&name=' . $title],
             'blogger' => ['class' => 'blogger', 'icon' => 'icofont-blogger', 'label' => esc_html__('Blogger', 'easy-elementor-addons'), 'href' => 'https://www.blogger.com/blog-this.g?u=' . $url . '&n=' . $title],
             'reddit' => ['class' => 'reddit', 'icon' => 'icofont-reddit', 'label' => esc_html__('Reddit', 'easy-elementor-addons'), 'href' => 'https://reddit.com/submit?url=' . $url . '&title=' . $title],
             'wordpress' => ['class' => 'wordpress', 'icon' => 'icofont-brand-wordpress', 'label' => esc_html__('WordPress', 'easy-elementor-addons'), 'href' => 'https://wordpress.com/press-this.php?u=' . $url . '&t=' . $title],
             'telegram' => ['class' => 'telegram', 'icon' => 'icofont-telegram', 'label' => esc_html__('Telegram', 'easy-elementor-addons'), 'href' => 'https://t.me/share/url?url=' . $url . '&text=' . $title],
-            'whatsapp' => ['class' => 'whatsapp', 'icon' => 'icofont-whatsapp', 'label' => esc_html__('Whatsapp', 'easy-elementor-addons'), 'href' => 'https://api.whatsapp.com/send?text=' . $title . '%20' . $url],
+            'whatsapp' => ['class' => 'whatsapp', 'icon' => 'icofont-whatsapp', 'label' => esc_html__('WhatsApp', 'easy-elementor-addons'), 'href' => 'https://api.whatsapp.com/send?text=' . $title . '%20' . $url],
             'line' => ['class' => 'line', 'icon' => 'icofont-line', 'label' => esc_html__('Line', 'easy-elementor-addons'), 'href' => 'https://lineit.line.me/share/ui?url=' . $url . '&text=' . $title],
             'email' => ['class' => 'email', 'icon' => 'icofont-envelope', 'label' => esc_html__('Email', 'easy-elementor-addons'), 'href' => 'mailto:?subject=' . $title . '&body=' . $url]
         ];

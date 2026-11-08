@@ -180,6 +180,10 @@ class LinkEffect extends Widget_Base {
                         'icon' => 'eicon-text-align-justify',
                     ]
                 ],
+                // text-align: justify can't widen a single link, so Justified stretches it instead.
+                'selectors_dictionary' => [
+                    'justify' => 'center; --eead-link-width: 100%',
+                ],
                 'selectors' => [
                     '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                 ]

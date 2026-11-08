@@ -133,7 +133,7 @@ class Weather extends Widget_Base {
         /* Round */
         $this->add_control(
             'round_temp', [
-                'label' => esc_html__('Round Temprature Value', 'easy-elementor-addons'),
+                'label' => esc_html__('Round Temperature Value', 'easy-elementor-addons'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes'
             ]
@@ -969,6 +969,7 @@ class Weather extends Widget_Base {
             182 => 'wi-' . $is_day . '-sleet',
             179 => 'wi-' . $is_day . '-snow',
             176 => 'wi-' . $is_day . '-sprinkle',
+            149 => 'wi-smoke',
             143 => 'wi-' . $is_day . '-sprinkle',
             122 => 'wi-' . $is_day . '-fog',
             119 => 'wi-' . $is_day . '-cloudy',
@@ -978,7 +979,8 @@ class Weather extends Widget_Base {
         // When the condition text is hidden the icon carries its meaning.
         $a11y = ('yes' === $this->get_settings_for_display('hide_weather_description') && '' !== $description) ? ' role="img" aria-label="' . esc_attr(trim($description)) . '"' : ' aria-hidden="true"';
         echo '<div class="eead-weather-icon">';
-        echo '<i class="wi ' . esc_attr($icon_mapping[$weather_code] ?? 'wi-na') . '"' . $a11y . '></i>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
+        // A code the map does not know yet gets a plain cloud rather than the text "N/A".
+        echo '<i class="wi ' . esc_attr($icon_mapping[$weather_code] ?? 'wi-cloud') . '"' . $a11y . '></i>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
         echo '</div>';
     }
 

@@ -353,6 +353,22 @@ class DualButton extends Widget_Base {
             ]
         );
 
+        // The shadow sits on the wrapper, so it needs its own corners to follow rounded buttons.
+        $this->add_responsive_control(
+            'box_shadow_radius', [
+                'label' => esc_html__('Shadow Border Radius', 'easy-elementor-addons'),
+                'description' => esc_html__('Match the outer corners of the buttons so the shadow follows their shape.', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-dual-buttons .eead-dual-button-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+                'condition' => [
+                    'box_shadow_box_shadow_type' => 'yes'
+                ]
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(

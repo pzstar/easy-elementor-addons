@@ -152,6 +152,9 @@ Advanced Button
     font-size: var(--eead-ab-button-icon-size, inherit);
     width: 1em;
     height: 1em;
+    /* Block with line-height 1, so the icon centers on the text instead of sitting on the text's line box. */
+    display: block;
+    line-height: 1;
     color: var(--eead-ab-button-text-color, inherit);
     fill: var(--eead-ab-button-text-color, inherit);
     transition: all .3s ease-out;
@@ -346,6 +349,8 @@ Advanced Button
     z-index: -1;
     transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
     transform-origin: 0 100%;
+    /* Hidden at rest: on a button taller than one line the rotated fill pokes into a corner. */
+    opacity: 0;
     transition: transform .3s, opacity .3s, background-color .3s
 }
 
@@ -1671,6 +1676,7 @@ Feature List
 
 .eead-feature-list .eead-fl-icon-box {
     display: flex;
+    flex-shrink: 0; /* long item text must not squeeze the icon or image */
     padding: 10px;
     align-items: center;
     justify-content: center;
@@ -2540,7 +2546,7 @@ Hotspot
     transform: translate(-50%, -50%);
 }
 
-.eead-hotspot .eead-hotspot-item a {
+.eead-hotspot .eead-hotspot-item > a {
     background: #333;
     border-radius: 50%;
     height: var(--eead-hotspot-box-size, 30px);
@@ -2552,25 +2558,25 @@ Hotspot
     font-size: 14px;
 }
 
-.eead-hotspot .eead-hotspot-item a img {
+.eead-hotspot .eead-hotspot-item > a img {
     border-radius: 50%;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.eead-hotspot .eead-hotspot-item a i {
+.eead-hotspot .eead-hotspot-item > a i {
     font-size: 15px;
     color: #fff;
 }
 
-.eead-hotspot .eead-hotspot-item a svg {
+.eead-hotspot .eead-hotspot-item > a svg {
     height: 1em;
     width: 1em;
     fill: #FFF;
 }
 
-.eead-hotspot .eead-hotspot-item a .eead-pulse {
+.eead-hotspot .eead-hotspot-item > a .eead-pulse {
     width: 100%;
     height: 100%;
     border: 5px solid #333;
@@ -2675,6 +2681,8 @@ Vertical Tabs
     font-size: 1em;
     height: 1em;
     width: 1em;
+    /* Without this the glyph takes the tab's line height and sits low. */
+    line-height: 1;
     color: inherit;
 }
 
@@ -3390,6 +3398,8 @@ Link Effects
 --------------------------------------------------------------*/
 .elementor-widget-eead-link-effect .eead-link {
     display: inline-block;
+    width: var(--eead-link-width, auto);
+    box-sizing: border-box;
     position: relative;
     color: var(--eead-link-effect-color, #111);
     white-space: nowrap;
@@ -4510,12 +4520,13 @@ Social Share Buttons
     background: rgb(59, 89, 153, 0.90);
 }
 
+/* X, so its own black rather than the old Twitter blue. */
 .eead-social-share-container a.eead-twitter {
-    background: rgb(85, 172, 238);
+    background: rgb(0, 0, 0);
 }
 
 .eead-social-share-container a.eead-twitter:hover {
-    background: rgb(85, 172, 238, 0.90);
+    background: rgb(0, 0, 0, 0.80);
 }
 
 .eead-social-share-container a.eead-pinterest {
@@ -5399,7 +5410,8 @@ Popup Modal
 
 /* Modal */
 .eead-popup-modal .modal__overlay {
-    z-index: 99999;
+    /* Above floating buttons and fly menus (some use 999999). */
+    z-index: 1000000;
 }
 
 .eead-popup-modal-fullscreen .modal__container {
@@ -6464,8 +6476,8 @@ Pricing List
 
 .eead-pricing-list .eead-pl-item-image {
     position: relative;
-    flex-basis: 30%;
-    min-width: 30%;
+    flex-basis: var(--eead-pl-img-width, 30%);
+    min-width: var(--eead-pl-img-width, 30%);
     overflow: hidden;
 }
 
@@ -6608,6 +6620,16 @@ Pricing Table
 
 .eead-pricing-table {
     overflow: hidden;
+}
+
+/* Inside a vertical container the widget grows to the column's height, so the box
+   has a height to fill. Row containers already stretch it; browsers without style
+   queries keep the old behavior. */
+@container style(--flex-direction: column) {
+    .elementor-element.eead-aib-fill-height-yes,
+    .elementor-element.eead-pt-fill-height-yes {
+        flex-grow: 1;
+    }
 }
 
 /* Fill Height: the table takes its column's full height, the features list
@@ -6870,6 +6892,7 @@ Pricing Table
 }
 
 .eead-pricing-table.style5 .eead-pricing-title,
+.eead-pricing-table.style5 .eead-pricing-sub-title,
 .eead-pricing-table.style5 .eead-pricing-price {
     position: relative;
 }
@@ -7674,6 +7697,8 @@ Slider
     right: 0;
     bottom: 0;
     opacity: 0.9;
+    /* Above the image even while Ken Burns transforms it. */
+    z-index: 1;
 }
 
 .eead-slide-cap-title,
@@ -7712,10 +7737,12 @@ Slider
     top: 0;
     bottom: 0;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 .eead-slide .eead-slide-caption {
     position: absolute;
+    z-index: 2;
     max-width: 100%;
     transform: translate(var(--eead-slider-caption-h, 0px), var(--eead-slider-caption-v, 0px));
     text-align: var(--eead-slider-caption-text-align, center);
@@ -9938,6 +9965,15 @@ Text Scroll Reveal
     color: inherit;
 }
 
+/* Highlights sit inside their word's unit, so they work out their own color. */
+.eead-str-effect-color .eead-str-unit :is(em, strong, mark) {
+    color: color-mix(in srgb, var(--eead-str-color, currentColor) calc(var(--eead-str-p) * 100%), var(--eead-str-dim));
+}
+
+.eead-str:not(.eead-str-effect-color) .eead-str-unit :is(em, strong, mark) {
+    color: var(--eead-str-color, inherit);
+}
+
 .eead-str-word {
     display: inline-block;
     white-space: nowrap;
@@ -10773,14 +10809,17 @@ Comparison Table
     display: block;
 }
 
-/* The badge sits in space reserved at the top of every plan, so all the titles line up. */
-.eead-ct-table:has(.eead-ct-badge) thead .eead-ct-plan {
-    padding-top: 54px;
+/* The badge sits in space reserved at the top of every plan, so all the titles line up.
+   A spacer rather than padding, so a custom Cell Padding can't remove it. */
+.eead-ct-table:has(.eead-ct-badge) thead .eead-ct-plan::before {
+    content: "";
+    display: block;
+    height: 30px;
 }
 
 .eead-ct-badge {
     position: absolute;
-    top: 20px;
+    top: calc(var(--eead-ct-pad-top, 26px) - 6px);
     left: 50%;
     display: inline-block !important;
     padding: 4px 10px;

@@ -286,7 +286,8 @@ class PricingList extends Widget_Base {
                     'size' => 200,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-pricing-list .eead-pl-item-image' => 'flex-basis: {{SIZE}}{{UNIT}};min-width: {{SIZE}}{{UNIT}};',
+                    // A variable, so the image-on-top layout can still reset the width.
+                    '{{WRAPPER}} .eead-pricing-list' => '--eead-pl-img-width: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );

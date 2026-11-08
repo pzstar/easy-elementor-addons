@@ -962,15 +962,22 @@ class PopupVideo extends Widget_Base {
                 'data-settings' => wp_json_encode($video_settings)
             ]);
         } elseif ($settings['video_type'] == 'custom') {
+            // No href: lightGallery would read it as an image URL instead of using data-html.
             $this->add_render_attribute('popup-video', [
-                // An href keeps the trigger in the keyboard order; the lightbox cancels the jump.
-                'href' => '#eead-custom-video-' . $this->get_id(),
+                'tabindex' => '0',
                 'data-html' => esc_attr('#eead-custom-video-' . $this->get_id())
             ]);
             $video_type = wp_check_filetype((string) wp_parse_url($settings['custom_video']['url'], PHP_URL_PATH));
+            $video_attrs = array_filter([
+                'controls' => true,
+                'autoplay' => !empty($settings['autoplay']),
+                'muted' => !empty($settings['mute']),
+                'loop' => !empty($settings['loop']),
+                'playsinline' => true,
+            ]);
             ?>
             <div id="eead-custom-video-<?php echo esc_attr($this->get_id()); ?>" style="display: none;">
-                <video class="lg-video-object lg-html5" controls preload="none">
+                <video class="lg-video-object lg-html5" <?php echo esc_attr(implode(' ', array_keys($video_attrs))); ?> preload="none">
                     <source src="<?php echo esc_url($settings['custom_video']['url']); ?>" type="<?php echo esc_attr(!empty($video_type['type']) ? $video_type['type'] : 'video/mp4'); ?>">
                     <?php echo esc_html__('Your browser does not support HTML5 video.', 'easy-elementor-addons'); ?>
                 </video>
