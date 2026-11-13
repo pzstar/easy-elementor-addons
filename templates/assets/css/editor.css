@@ -25,9 +25,6 @@
     color: inherit;
 }
 
-#eead-modal-template .elementor-button {
-    text-transform: uppercase;
-}
 
 /* Scroll Bar Modification */
 #eead-modal-template .eead-templates-list::-webkit-scrollbar {
@@ -112,17 +109,37 @@
 }
 
 #eead-template-modal-header .elementor-button {
-    padding: 8px 10px;
-    font-size: 14px;
-    color: #FFF;
-    text-shadow: none;
-    font-weight: 500;
     display: inline-flex;
     align-items: center;
+    margin-left: 8px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: none;
+    text-shadow: none;
+    color: #fff;
 }
 
-#eead-template-modal-header .elementor-button:hover {
-    color: #FFF;
+#eead-template-modal-header .elementor-button.eead-template-insert,
+#eead-template-modal-header .elementor-button.eead-template-insert:hover {
+    background: #4b00e7;
+    color: #fff;
+}
+
+#eead-template-modal-header .elementor-button.eead-template-insert:hover {
+    background: #3a00b3;
+}
+
+#eead-template-modal-header .elementor-button.elementor-button-live-preview {
+    border: 1px solid #d5dadf;
+    background: #fff;
+    color: #3f444b;
+}
+
+#eead-template-modal-header .elementor-button.elementor-button-live-preview:hover {
+    border-color: #4b00e7;
+    color: #4b00e7;
 }
 
 #eead-template-modal-header-close-modal {
@@ -272,19 +289,174 @@
 
 /* Template Listing */
 #eead-modal-templates-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding: 0 30px 30px 0;
 }
 
-#eead-modal-templates-container .elementor-template-library-template {
+#eead-modal-templates-container .elementor-template-library-template-remote {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #e6e9ec;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-remote:hover {
+    border-color: #d5d0f5;
+    box-shadow: 0 8px 24px rgba(36, 18, 82, 0.12);
+}
+
+#eead-modal-templates-container .elementor-template-library-template-body {
+    position: relative;
+    padding: 0;
+}
+
+/* One box shape keeps rows even. Thumbnails keep their full width: short ones sit centered,
+   tall ones are cut at the bottom (auto margins collapse to 0 when the image overflows). */
+#eead-modal-templates-container .elementor-template-library-template-screenshot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 16 / 9;
+    background: #f7f7fa;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-screenshot img {
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    margin: auto 0;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-preview {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 12, 46, 0.55);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-remote:hover .elementor-template-library-template-preview {
+    opacity: 1;
+}
+
+#eead-modal-templates-container .eead-template-preview-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fff;
+    color: #1f2124;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#eead-modal-templates-container .eead-template-preview-label i {
+    position: static;
+    transform: none;
+    margin: 0;
+    font-size: 15px;
+    color: inherit;
+}
+
+#eead-modal-templates-container .eead-template-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-top: 1px solid #f1f3f5;
+}
+
+#eead-modal-templates-container .eead-template-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+#eead-modal-templates-container .eead-template-widget {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #4b00e7;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    padding: 0;
+    background: none;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1f2124;
+    white-space: normal;
+}
+
+#eead-modal-templates-container .elementor-template-library-template-controls {
+    position: static;
+    flex-shrink: 0;
+    padding: 0;
+    background: none;
+    transform: none;
+    opacity: 1;
+}
+
+#eead-modal-templates-container .eead-template-insert,
+#eead-modal-templates-container .eead-template-go-pro {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: auto;
+    margin: 0;
+    padding: 7px 12px;
+    border-radius: 6px;
+    background: #4b00e7;
+    box-shadow: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+#eead-modal-templates-container .eead-template-insert:hover {
+    background: #3a00b3;
+    color: #fff;
+}
+
+#eead-modal-templates-container .eead-template-go-pro {
+    background: #93003c;
+}
+
+#eead-modal-templates-container .eead-template-go-pro:hover {
+    background: #75002f;
+    color: #fff;
 }
 
 #eead-modal-templates-container .eead-modal-template-pro::before {
     position: absolute;
-    right: 20px;
+    right: 16px;
     top: 0;
     content: "PRO";
     z-index: 10;
@@ -309,67 +481,17 @@
     content: '';
     position: absolute;
     z-index: 2;
-    right: 20px;
+    right: 16px;
     top: 60px;
     border-left: 13px solid #93003c;
     border-right: 13px solid #93003c;
     border-bottom: 10px solid transparent;
 }
 
-#eead-modal-templates-container .elementor-template-library-template-remote {
-    width: calc(33.3333% - 30px);
-    margin: 0;
-}
-
-.elementor-template-library-template-remote .elementor-template-library-template-preview i {
-    font-style: normal;
-}
-
-#eead-modal-templates-container .elementor-template-library-template-name {
-    padding: 5px 5px 0;
-    display: block;
-    text-align: center;
-    background: #FFF;
-}
-
-#eead-modal-templates-container .elementor-template-library-template-controls {
-    position: absolute;
-    background-color: #fff;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 0;
-    z-index: 10;
-    transform: translateY(100%);
-    transition: all 0.3s ease;
-}
-
-#eead-modal-templates-container .elementor-template-library-template:hover .elementor-template-library-template-controls {
-    transform: translateY(0);
-}
-
-#eead-modal-templates-container .eead-template-insert,
-#eead-modal-templates-container .eead-template-go-pro {
-    padding: 10px;
-    margin: 0;
-    color: #39b54a;
-    background: #FFF;
-    font-size: 12px;
-    width: 100%;
-    box-shadow: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-}
-
-#eead-modal-templates-container .eead-template-go-pro {
-    color: #93003c;
-}
-
-#eead-template-library-content .eead-template-insert i,
-#eead-modal-templates-container .eead-template-go-pro i {
-    margin-right: 5px;
+@media (max-width: 1100px) {
+    #eead-modal-templates-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* Keyword Filter */

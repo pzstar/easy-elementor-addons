@@ -42,7 +42,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
                 'pro_message' => $this->get_pro_message(),
                 'api' => array(
                     'enabled' => true,
-                    'base' => 'https://eea.hashcreation.com/',
+                    'base' => 'https://demo.hashthemes.com/easy-elementor-addons/',
                     'path' => 'wp-json/eead/v2',
                     'endpoints' => array(
                         'templates' => '/templates/',

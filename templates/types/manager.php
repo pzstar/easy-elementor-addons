@@ -70,15 +70,8 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Types')) {
          * @access public
          */
         public function get_types_for_popup() {
-            $result['eead_pages'] = array(
-                'title' => esc_html__('Pages', 'easy-elementor-addons'),
-                'data' => [],
-                'sources' => array('eead'),
-                'settings' => array(
-                    'show_title' => true,
-                    'show_widgets' => true
-                )
-            );
+            // The library only has section templates so far; a Pages tab would open empty.
+            $result = array();
 
             foreach ($this->types as $id => $structure) {
                 $result[$id] = array(

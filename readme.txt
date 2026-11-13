@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 7.1
-Stable tag: 2.5.1
+Stable tag: 2.6.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,8 @@ Easy Elementor Addons is built using modern standards and is optimized for speed
 <h3>Key Features:</h3>
 
 <p><strong>63 Elementor Widgets</strong> - A complete pack of creative widgets covering headings, buttons, galleries, sliders, tabs, timelines, pricing and comparison tables, data tables, marquees, team, testimonials, charts, maps and much more.</p>
+
+<p><strong>587 Ready-Made Sections</strong> - Insert complete, styled sections from the template library in the Elementor editor: FAQs, pricing, teams, testimonials, timelines and more, each showing a widget in a real website layout. Browse by category or widget and preview a section before inserting it.</p>
 
 <p><strong>Enable Only the Widgets You Need</strong> - Every widget can be switched on or off from the plugin dashboard, where widgets are grouped by purpose with Enable/Disable All for each group. Widgets you disable are never registered, so you only ever load what your site actually uses.</p>
 
@@ -195,6 +197,11 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
+= 2.6.0 - 13 Nov, 2026 =
+* New feature - Template library is back: 587 ready-made sections built from the widget demos, inserted from the Easy Elementor Addons button in the Elementor editor. Browse by category or widget, preview the full section and insert it with its images
+* Template library - redesigned with an even grid of cards, the widget name on each card, an Insert button that is always visible and a larger preview - Updated
+* Template library - opened on an empty Pages tab; it now opens on Sections - Fixed
+
 = 2.5.1 - 8 Nov, 2026 =
 * New option - Dual Button shadow border radius, so the shadow follows rounded buttons
 * Social Icons - X and Threads now show their own icons, and Font Awesome icons load even when no other widget on the page uses them - Fixed

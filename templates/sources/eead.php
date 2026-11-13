@@ -36,7 +36,8 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
             return $this->version;
         }
 
-        $key = $this->get_slug() . '_version';
+        // Keyed by the API address, so moving the library to another host drops the old host's cached lists.
+        $key = $this->get_slug() . '_version_' . substr(md5((string) Templates\eead_elementor_templates()->api->api_url('info')), 0, 8);
         $version = get_transient($key);
 
         if (false === $version) {

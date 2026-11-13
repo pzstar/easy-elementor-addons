@@ -233,17 +233,17 @@
                 },
                 ui: function () {
                     return {
-                        filterLabels: ".eead-modal-template-filter-label"
+                        filterInputs: ".eead-modal-template-filter-label input"
                     }
                 },
                 events: function () {
                     return {
-                        "click @ui.filterLabels": "onFilterClick"
+                        "change @ui.filterInputs": "onFilterClick"
                     }
                 },
                 onFilterClick: function (e) {
-                    var a = jQuery(e.target);
-                    jQuery(".eead-library-widgets").val(""), t.setFilter("category", a.val()), t.setFilter("keyword", "")
+                    // Clear the widget filter too; select2 only redraws on change, so the old widget would stay shown.
+                    jQuery(".eead-library-widgets").val("").trigger("change.select2"), t.setFilter("category", e.currentTarget.value), t.setFilter("keyword", "")
                 }
             }), a.ModalTabsItemView = Marionette.ItemView.extend({
                 template: "#views-eead-template-modal-tabs-item",
@@ -295,19 +295,6 @@
                 },
                 getChildView: function (e) {
                     return a.ModalTemplateItemView
-                },
-                onRenderCollection: function () {
-                    var e = this.$childViewContainer,
-                        o = this.$childViewContainer.children(),
-                        n = t.getTab();
-                    "eead_pages" !== n && "local" !== n && e.imagesLoaded(function () { }).done(function () {
-                        setTimeout(function () {
-                            a.masonry.init({
-                                container: e,
-                                items: o
-                            })
-                        }, 200)
-                    })
                 }
             }), a.ModalLoadingView = Marionette.ItemView.extend({
                 id: "eead-modal-loading",
@@ -377,49 +364,6 @@
                     }))
                 }
             })
-        },
-        masonry: {
-            self: {},
-            elements: {},
-            init: function (t) {
-                var a = this;
-                a.settings = e.extend(a.getDefaultSettings(), t), a.elements = a.getDefaultElements(), a.run()
-            },
-            getSettings: function (e) {
-                return e ? this.settings[e] : this.settings
-            },
-            getDefaultSettings: function () {
-                return {
-                    container: null,
-                    items: null,
-                    columnsCount: 3,
-                    verticalSpaceBetween: 30
-                }
-            },
-            getDefaultElements: function () {
-                return {
-                    $container: jQuery(this.getSettings("container")),
-                    $items: jQuery(this.getSettings("items"))
-                }
-            },
-            run: function () {
-                var e = [],
-                    t = this.elements.$container.position().top,
-                    a = this.getSettings(),
-                    o = a.columnsCount;
-                t += parseInt(this.elements.$container.css("margin-top"), 10), this.elements.$container.height(""), this.elements.$items.each(function (n) {
-                    var i = Math.floor(n / o),
-                        l = n % o,
-                        r = jQuery(this),
-                        s = r.position(),
-                        d = r[0].getBoundingClientRect().height + a.verticalSpaceBetween;
-                    if (i) {
-                        var m = s.top - t - e[l];
-                        m -= parseInt(r.css("margin-top"), 10), m *= -1, r.css("margin-top", m + "px"), e[l] += d
-                    } else
-                        e.push(d)
-                }), this.elements.$container.height(Math.max.apply(Math, e))
-            }
         }
     }, t = {
         modal: !1,
