@@ -8,10 +8,12 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Level up with Easy Elementor Addons – adds powerful widgets and sleek design tools to your favorite Elementor page builder.
+63 creative widgets for Elementor plus a template library of 587 ready-made sections and 12 complete websites, all free.
 
 == Description ==
 Easy Elementor Addons is an all in one element pack extension for Elementor page builder. It provides 63 creative widgets to give your Elementor based WordPress website an outstanding look, from headings, buttons and galleries to pricing tables, data tables, marquees, timelines and charts. Every widget is built to engage your visitors and works on desktop, tablet and mobile.
+
+It also comes with a free template library: 587 ready-made sections and 60 pages making up 12 complete websites, inserted straight from the Elementor editor.
 
 Easy Elementor Addons is a highly editable addon for Elementor with limitless possibilities. You can customize each element as per your preference and build a beautiful website beyond your imagination. Drag any element onto the page, set it up in the Elementor panel and reorder it just as easily.
 
@@ -198,6 +200,23 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 <li>Search for "Easy Elementor Addons" and install the plugin.</li>
 <li>Activate Plugin from "Plugins" menu in WordPress.</li>
 </ol>
+
+== Frequently Asked Questions ==
+
+= Do I need Elementor Pro? =
+No. Easy Elementor Addons works with the free Elementor plugin. Elementor Pro is not required.
+
+= Are the templates free? =
+Yes. All 587 sections and all 60 pages of the 12 websites are free. Open the template library from the Easy Elementor Addons button in the Elementor editor, then insert a section, a single page, or every page of a website at once.
+
+= Will it slow down my site? =
+No. Third party libraries such as carousels, charts and lightboxes load only on pages that use the widgets needing them, and any widget you switch off in the plugin dashboard is never loaded.
+
+= Does it work with my theme? =
+Yes. It works with any free or premium WordPress theme that supports Elementor.
+
+= Can I try the widgets before installing? =
+Yes. See the <a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank">widget demos</a> and the <a href="https://demo.hashthemes.com/easy-elementor-addons/templates/" target="_blank">page templates</a>, or try every setting in the <a href="https://demo.tastewp.com/easy-elementor-addons" target="_blank">test dashboard</a>.
 
 == Changelog ==
 = 2.6.0 - 14 Nov, 2026 =

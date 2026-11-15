@@ -246,6 +246,54 @@ $eead_all_widgets = eead_get_all_widgets_list();
                     <p><?php esc_html_e('If you have any issues while using our plugin, feel free to contact us for support. Our support team will be more than happy to help you resolve your issue. You can chat with us or email us at our website', 'easy-elementor-addons'); ?> <a href="https://hashthemes.com/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('here', 'easy-elementor-addons'); ?></a>.</p>
                 </div>
             </div>
+
+            <?php
+            // Premium HashThemes themes, made by the same team and tested with this plugin.
+            // Thumbnails ship with the plugin, so the screen loads nothing from other servers.
+            $eead_themes = array(
+                array(
+                    'name' => 'Total Plus',
+                    'image' => 'total-plus.webp',
+                    'url' => 'https://hashthemes.com/wordpress-theme/total/',
+                    'desc' => __('Multipurpose business theme with one-click demo import and ready-made designs for agencies, hotels, cafés and more.', 'easy-elementor-addons'),
+                ),
+                array(
+                    'name' => 'Viral Pro',
+                    'image' => 'viral-pro.webp',
+                    'url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+                    'desc' => __('News and magazine theme with seven header layouts, ready-made news blocks and one-click demo import.', 'easy-elementor-addons'),
+                ),
+                array(
+                    'name' => 'Square Plus',
+                    'image' => 'square-plus.webp',
+                    'url' => 'https://hashthemes.com/wordpress-theme/square-plus/',
+                    'desc' => __('Fast multipurpose theme with flexible layouts, rich customization options and a large collection of elements.', 'easy-elementor-addons'),
+                ),
+            );
+            ?>
+            <div class="eead-about-themes">
+                <div class="eead-about-themes-head">
+                    <h3 class="eead-about-heading"><?php esc_html_e('Works Best With Our Premium Themes', 'easy-elementor-addons'); ?></h3>
+                    <p><?php esc_html_e('Easy Elementor Addons works with any theme, and it pairs best with these premium themes from the same team at HashThemes.', 'easy-elementor-addons'); ?></p>
+                </div>
+                <div class="eead-about-theme-grid">
+                    <?php foreach ($eead_themes as $eead_theme) { ?>
+                        <a class="eead-about-theme" href="<?php echo esc_url($eead_theme['url']); ?>" target="_blank" rel="noopener noreferrer">
+                            <span class="eead-about-theme-shot">
+                                <img src="<?php echo esc_url(EEAD_URL . 'assets/img/themes/' . $eead_theme['image']); ?>" alt="<?php echo esc_attr($eead_theme['name']); ?>" width="720" height="450" loading="lazy" decoding="async" />
+                            </span>
+                            <span class="eead-about-theme-body">
+                                <span class="eead-about-theme-name">
+                                    <?php echo esc_html($eead_theme['name']); ?>
+                                    <span class="eead-about-theme-badge"><?php esc_html_e('Premium', 'easy-elementor-addons'); ?></span>
+                                </span>
+                                <span class="eead-about-theme-desc"><?php echo esc_html($eead_theme['desc']); ?></span>
+                                <span class="eead-about-theme-link"><?php esc_html_e('View Theme', 'easy-elementor-addons'); ?> <span class="mdi-arrow-right"></span></span>
+                            </span>
+                        </a>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
 
         <?php do_action('eead_admin_tab_contents'); ?>

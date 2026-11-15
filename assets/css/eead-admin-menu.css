@@ -292,13 +292,17 @@
     color: #FFF;
 }
 
-/* Main tabs: rounded blocks; the current one is white and joins the panel like a folder tab. */
+/* Main tabs: a segmented switcher; the current tab is a solid purple pill. */
 .eead-nav-tab-wrapper {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     max-width: 1200px;
-    margin: 0 20px 0 0;
-    padding: 0;
+    margin: 0 20px 16px 0;
+    padding: 6px;
+    border: 1px solid #E8E9EE;
+    border-radius: 14px;
+    background: #FFF;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -306,54 +310,60 @@
 .eead-nav-tab-wrapper .eead-tab {
     position: relative;
     display: inline-flex;
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     align-items: center;
-    gap: 9px;
+    justify-content: center;
+    gap: 10px;
     margin: 0;
-    padding: 15px 24px;
+    padding: 14px 24px;
     border: 0;
-    border-radius: 12px 12px 0 0;
+    border-radius: 10px;
     outline: none;
     box-shadow: none;
-    background: rgba(15, 23, 42, 0.05);
+    background: transparent;
     color: #5C6272;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .eead-nav-tab-wrapper .eead-tab i {
     margin: 0;
     color: inherit;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1;
 }
 
 .eead-nav-tab-wrapper .eead-tab:hover {
-    background: rgba(15, 23, 42, 0.09);
-    color: #1B1E2B;
+    background: #F5EEFC;
+    color: #7B12BC;
 }
 
 .eead-nav-tab-wrapper .eead-tab:focus-visible {
-    box-shadow: inset 0 0 0 2px #9c19e9;
+    box-shadow: 0 0 0 2px #FFF, 0 0 0 4px #9c19e9;
 }
 
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active,
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active:hover,
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus,
 .eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus:active {
-    background: #FFF;
-    color: #7B12BC;
-    box-shadow: inset 0 3px 0 #9c19e9;
+    background: #9c19e9;
+    color: #FFF;
+    box-shadow: 0 4px 12px -4px rgba(124, 18, 188, 0.55);
+}
+
+.eead-nav-tab-wrapper .eead-tab.nav-tab-active:focus-visible {
+    box-shadow: 0 0 0 2px #FFF, 0 0 0 4px #9c19e9;
 }
 
 .eead-tab-contents {
     max-width: 1200px;
     margin-right: 20px;
     padding: 30px 30px 0;
-    border-radius: 0 14px 14px 14px;
+    border: 1px solid #E8E9EE;
+    border-radius: 14px;
     background: #FFF;
 }
 
@@ -949,18 +959,27 @@
 }
 
 .eead-about-heading {
-    margin: 36px 0 6px;
+    margin: 36px 0 16px;
     color: #1B1E2B;
     font-size: 17px;
 }
 
+/* Each widget category sits in its own box, like the cards below. */
 .eead-about-group {
-    padding: 18px 0;
-    border-bottom: 1px solid #ECEEF2;
+    padding: 20px 22px;
+    border: 1px solid #E8E9EE;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.eead-about-group + .eead-about-group {
+    margin-top: 16px;
 }
 
 .eead-about-group h4 {
-    margin: 0 0 12px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ECEEF2;
     color: #7B12BC;
     font-size: 12px;
     font-weight: 700;
@@ -1039,13 +1058,162 @@
     color: #7B12BC;
 }
 
+/* Premium themes that pair with the plugin, at the foot of the About tab. */
+.eead-about-themes {
+    margin: 0 0 40px;
+}
+
+.eead-about-themes-head .eead-about-heading {
+    margin: 0 0 6px;
+}
+
+.eead-about-themes-head p {
+    max-width: 720px;
+    margin: 0 0 18px;
+    color: #5C6272;
+    line-height: 1.6;
+}
+
+.eead-about-theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.eead-about-theme {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #E8E9EE;
+    border-radius: 12px;
+    background: #FFF;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.eead-about-theme:hover,
+.eead-about-theme:focus-visible {
+    border-color: #D9C2F3;
+    box-shadow: 0 12px 28px -16px rgba(84, 18, 140, 0.45);
+    color: inherit;
+    transform: translateY(-2px);
+}
+
+.eead-about-theme:focus-visible {
+    outline: 2px solid #9c19e9;
+    outline-offset: 2px;
+}
+
+.eead-about-theme-shot {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid #ECEEF2;
+    background: #F5F6F8;
+}
+
+.eead-about-theme-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.4s;
+}
+
+.eead-about-theme:hover .eead-about-theme-shot img {
+    transform: scale(1.03);
+}
+
+.eead-about-theme-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px 18px;
+}
+
+.eead-about-theme-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1B1E2B;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.eead-about-theme-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #F1E6FC;
+    color: #7B12BC;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.eead-about-theme-desc {
+    flex: 1 1 auto;
+    color: #5C6272;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.eead-about-theme-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    color: #7B12BC;
+    font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eead-about-theme,
+    .eead-about-theme-shot img {
+        transition: none;
+    }
+
+    .eead-about-theme:hover,
+    .eead-about-theme:hover .eead-about-theme-shot img {
+        transform: none;
+    }
+}
+
 @media (max-width: 1100px) {
     .eead-about-widgets {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Below 900px three theme cards get too narrow: stack them, image beside the text. */
+@media (max-width: 900px) {
+    .eead-about-theme-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .eead-about-theme {
+        flex-direction: row;
+    }
+
+    .eead-about-theme-shot {
+        flex: 0 0 40%;
+        border-right: 1px solid #ECEEF2;
+        border-bottom: 0;
+    }
+}
+
 @media (max-width: 680px) {
+    .eead-about-theme {
+        flex-direction: column;
+    }
+
+    .eead-about-theme-shot {
+        flex: none;
+        border-right: 0;
+        border-bottom: 1px solid #ECEEF2;
+    }
+
     .eead-about-widgets,
     .eead-about-cards {
         grid-template-columns: minmax(0, 1fr);
