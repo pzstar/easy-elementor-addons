@@ -283,6 +283,52 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
     }
 
     /**
+     * Return page groups (The Harbour, Orbitly…) for the Pages tab
+     *
+     * Each group has its category, tagline, colors, fonts, page count and home page thumbnail.
+     * Older library APIs have no groups; the tab then lists pages without them.
+     *
+     * @param string $tab tab slug.
+     *
+     * @return array
+     */
+    public function get_groups($tab = null) {
+        if ('eead_pages' !== $tab) {
+            return array();
+        }
+
+        $key = 'eead_template_groups_' . $this->get_slug() . '_' . $this->get_version();
+        $cached = $this->is_debug_active() ? false : get_transient($key);
+        if (is_array($cached)) {
+            return $cached;
+        }
+
+        $api_url = Templates\eead_elementor_templates()->api->api_url('groups');
+        if (!$api_url) {
+            return array();
+        }
+
+        $response = wp_remote_get($api_url . $tab, array(
+            'timeout' => 15
+        ));
+        $body = json_decode(wp_remote_retrieve_body($response), true);
+        if (!is_array($body) || empty($body['success']) || empty($body['groups']) || !is_array($body['groups'])) {
+            return array();
+        }
+
+        $groups = array_values(array_map(function ($group) {
+            foreach (array('name', 'category_name', 'tagline', 'fonts') as $field) {
+                if (isset($group[$field]) && is_string($group[$field])) {
+                    $group[$field] = html_entity_decode($group[$field], ENT_QUOTES, 'UTF-8');
+                }
+            }
+            return $group;
+        }, $body['groups']));
+        set_transient($key, $groups, $this->transient_lifetime());
+        return $groups;
+    }
+
+    /**
      * Return single item
      *
      * @access public

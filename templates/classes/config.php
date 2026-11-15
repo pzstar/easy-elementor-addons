@@ -40,7 +40,8 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
                 'status' => $this->get_license_status(),
                 'license_page' => $this->get_license_page(),
                 'pro_message' => $this->get_pro_message(),
-                'api' => array(
+                // Filterable, so a staging copy of the library can be tested before it goes live.
+                'api' => apply_filters('eead_templates_api', array(
                     'enabled' => true,
                     'base' => 'https://demo.hashthemes.com/easy-elementor-addons/',
                     'path' => 'wp-json/eead/v2',
@@ -48,10 +49,11 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
                         'templates' => '/templates/',
                         'widgets' => '/widgets/',
                         'categories' => '/categories/',
+                        'groups' => '/groups/',
                         'template' => '/template/',
                         'info' => '/info/'
                     ),
-                )
+                ))
             );
         }
 

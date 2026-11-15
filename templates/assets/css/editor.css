@@ -605,3 +605,422 @@
         max-width: 1200px;
     }
 }
+/* Pages tab: page groups (The Harbour, Orbitly…) as cards, then the open group's pages under a header. */
+#eead-template-library-content .eead-modal-templates-wrap {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+#eead-template-library-content .eead-templates-list {
+    flex: 1 1 0;
+    min-height: 0;
+}
+
+#eead-modal-templates-container .eead-group-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e6e9ec;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#eead-modal-templates-container .eead-group-card:hover,
+#eead-modal-templates-container .eead-group-card:focus-visible {
+    border-color: #d5d0f5;
+    box-shadow: 0 8px 24px rgba(36, 18, 82, 0.12);
+    outline: none;
+}
+
+#eead-modal-templates-container .eead-group-shot {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    background: #f7f7fa;
+    overflow: hidden;
+}
+
+#eead-modal-templates-container .eead-group-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+}
+
+#eead-modal-templates-container .eead-group-card:hover .eead-group-shot img {
+    transform: scale(1.04);
+}
+
+#eead-modal-templates-container .eead-group-open {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 12, 46, 0.55);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#eead-modal-templates-container .eead-group-card:hover .eead-group-open,
+#eead-modal-templates-container .eead-group-card:focus-visible .eead-group-open {
+    opacity: 1;
+}
+
+#eead-modal-templates-container .eead-group-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px 16px;
+    text-align: left;
+}
+
+#eead-modal-templates-container .eead-group-name {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1f2124;
+}
+
+#eead-template-library-content .eead-group-tagline {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6d7882;
+}
+
+#eead-template-library-content .eead-group-dots {
+    display: inline-flex;
+    margin-top: 4px;
+}
+
+#eead-template-library-content .eead-group-dots i {
+    width: 14px;
+    height: 14px;
+    margin-right: -4px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Inside a group every card is the same group, so its label is left out. */
+#eead-template-library-content.eead-in-group #eead-modal-templates-container .eead-template-widget {
+    display: none;
+}
+
+#eead-template-library-content .eead-group-head-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    margin: 0 30px 20px 0;
+    padding: 0 0 18px;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+#eead-template-library-content .eead-group-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px 8px 10px;
+    border: 1px solid #e6e9ec;
+    border-radius: 999px;
+    background: #fff;
+    color: #1f2124;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#eead-template-library-content .eead-group-back:hover {
+    border-color: #4b00e7;
+    color: #4b00e7;
+}
+
+#eead-template-library-content .eead-group-head-info {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+#eead-template-library-content .eead-group-head-info .eead-template-widget {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #4b00e7;
+}
+
+#eead-template-library-content .eead-group-head-name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1f2124;
+}
+
+#eead-template-library-content .eead-group-head-side {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+#eead-template-library-content .eead-group-head-side .eead-group-dots {
+    margin: 0;
+}
+
+#eead-template-library-content .eead-group-fonts {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f3efff;
+    color: #4b00e7;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Preview header: previous and next page of the group. */
+#eead-template-modal-preview-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+}
+
+#eead-template-modal-preview-nav .eead-preview-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e6e9ec;
+    border-radius: 50%;
+    background: #fff;
+    color: #1f2124;
+    cursor: pointer;
+}
+
+#eead-template-modal-preview-nav .eead-preview-step:hover:not([disabled]) {
+    border-color: #4b00e7;
+    color: #4b00e7;
+}
+
+#eead-template-modal-preview-nav .eead-preview-step[disabled] {
+    opacity: 0.35;
+    cursor: default;
+}
+
+#eead-template-modal-preview-nav .eead-preview-position {
+    min-width: 120px;
+    font-size: 13px;
+    color: #6d7882;
+    text-align: center;
+}
+
+#eead-template-modal-preview-nav .eead-preview-position strong {
+    margin-right: 4px;
+    color: #1f2124;
+    font-weight: 600;
+}
+
+/* Import all pages: options, then one row per page with its progress and links. */
+#eead-template-library-content .eead-group-import,
+#eead-template-library-content .eead-import-start {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #4b00e7;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#eead-template-library-content .eead-group-import:hover,
+#eead-template-library-content .eead-import-start:hover:not([disabled]) {
+    background: #3a00b4;
+}
+
+#eead-template-library-content .eead-import {
+    max-width: 720px;
+    padding: 0 30px 30px 0;
+    text-align: left;
+}
+
+#eead-template-library-content .eead-import-intro h4 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2124;
+}
+
+#eead-template-library-content .eead-import-intro p,
+#eead-template-library-content .eead-import-message {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6d7882;
+}
+
+#eead-template-library-content .eead-import-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    border: 1px solid #e6e9ec;
+    border-radius: 8px;
+    background: #fafbfc;
+}
+
+#eead-template-library-content .eead-import-option-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    font-size: 13px;
+    color: #1f2124;
+}
+
+#eead-template-library-content .eead-import-option-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#eead-template-library-content .eead-import-option-label {
+    min-width: 120px;
+    font-weight: 600;
+}
+
+#eead-template-library-content .eead-import-list {
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #e6e9ec;
+    border-radius: 8px;
+}
+
+#eead-template-library-content .eead-import-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    border-top: 1px solid #f1f3f5;
+    font-size: 13px;
+    color: #1f2124;
+}
+
+#eead-template-library-content .eead-import-list li:first-child {
+    border-top: 0;
+}
+
+#eead-template-library-content .eead-import-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+#eead-template-library-content .eead-import-state {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d5dadf;
+    border-radius: 50%;
+}
+
+#eead-template-library-content .is-busy .eead-import-state {
+    border-color: #4b00e7 transparent #4b00e7 #4b00e7;
+    animation: eead-import-spin 0.8s linear infinite;
+}
+
+#eead-template-library-content .is-done .eead-import-state {
+    border-color: #1d9e5b;
+    background: #1d9e5b url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+#eead-template-library-content .is-failed .eead-import-state {
+    border-color: #d63638;
+    background: #d63638;
+}
+
+#eead-template-library-content .is-failed .eead-import-links {
+    color: #d63638;
+}
+
+#eead-template-library-content .eead-import-links {
+    display: flex;
+    gap: 14px;
+}
+
+#eead-template-library-content .eead-import-links a {
+    color: #4b00e7;
+    font-weight: 500;
+}
+
+#eead-template-library-content .eead-import-actions {
+    display: flex;
+    gap: 12px;
+}
+
+#eead-template-library-content .eead-import-cancel {
+    padding: 9px 16px;
+    border: 1px solid #e6e9ec;
+    border-radius: 6px;
+    background: #fff;
+    color: #1f2124;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#eead-template-library-content .eead-import [disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
+@keyframes eead-import-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #eead-template-library-content .is-busy .eead-import-state {
+        animation: none;
+    }
+}
+
+/* Inside a page group: a mosaic of full-length page screenshots, each card as tall as its page. */
+#eead-template-library-content.eead-in-group #eead-modal-templates-container {
+    display: block;
+    column-count: 3;
+    column-gap: 24px;
+}
+
+#eead-template-library-content.eead-in-group #eead-modal-templates-container .elementor-template-library-template-remote {
+    width: 100%;
+    margin: 0 0 24px;
+    break-inside: avoid;
+}
+
+#eead-template-library-content.eead-in-group .elementor-template-library-template-screenshot {
+    aspect-ratio: auto;
+}
+
+#eead-template-library-content.eead-in-group .elementor-template-library-template-screenshot img {
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    #eead-template-library-content.eead-in-group #eead-modal-templates-container {
+        column-count: 2;
+    }
+}

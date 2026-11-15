@@ -40,6 +40,10 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
          */
         public function __construct() {
             $this->config = Templates\eead_elementor_templates()->config->get('api');
+            // Overrides of the eead_templates_api filter written before page groups still get that endpoint.
+            if (!empty($this->config['endpoints']) && is_array($this->config['endpoints'])) {
+                $this->config['endpoints'] += array('groups' => '/groups/');
+            }
         }
 
         /**

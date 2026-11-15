@@ -214,7 +214,13 @@ abstract class EEAD_Templates_Source_Base {
             $element_data = $element->{$method}($element_data);
         }
 
+        $saved = isset($element_data['settings']) ? $element_data['settings'] : array();
         foreach ($element->get_controls() as $control) {
+            // Unset controls would pass their defaults through, and an image default is
+            // Elementor's placeholder, which then lands in the media library as placeholder.png.
+            if (!array_key_exists($control['name'], $saved)) {
+                continue;
+            }
             $control_class = \Elementor\Plugin::instance()->controls_manager->get_control($control['type']);
             // If the control isn't exist, like a plugin that creates the control but deactivated.
             if (!$control_class) {

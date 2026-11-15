@@ -14,7 +14,8 @@ var eeadName = eeadTitleParts.join( ' – ' );
 #>
 <div class="elementor-template-library-template-body">
     <div class="elementor-template-library-template-screenshot">
-        <img src="{{ thumbnail }}" alt="{{ title }}" loading="lazy">
+        <?php /* A page inside a group shows its full-length screenshot, laid out as a mosaic. */ ?>
+        <img src="{{ obj.group && obj.preview ? obj.preview : thumbnail }}" alt="{{ title }}" loading="lazy">
         <div class="elementor-template-library-template-preview">
             <span class="eead-template-preview-label"><i class="eicon-preview-medium"></i><?php echo esc_html__('Preview', 'easy-elementor-addons'); ?></span>
         </div>

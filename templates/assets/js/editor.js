@@ -79,6 +79,141 @@
                 }
             }), a.CategoriesCollection = Backbone.Collection.extend({
                 model: a.CategoryModel
+            }), a.GroupModel = Backbone.Model.extend({
+                defaults: {
+                    slug: "",
+                    name: "",
+                    category: "",
+                    category_name: "",
+                    tagline: "",
+                    colors: [],
+                    fonts: "",
+                    count: 0,
+                    thumbnail: ""
+                }
+            }), a.GroupsCollection = Backbone.Collection.extend({
+                model: a.GroupModel
+            }), a.GroupItemView = Marionette.ItemView.extend({
+                // A page group (The Harbour): opens the group's pages.
+                template: "#views-eead-template-modal-group",
+                className: "eead-group-card",
+                attributes: {
+                    role: "button",
+                    tabindex: 0
+                },
+                events: {
+                    click: "onOpen",
+                    keydown: "onKey"
+                },
+                onOpen: function () {
+                    t.openGroup(this.model)
+                },
+                onKey: function (e) {
+                    ("Enter" === e.key || " " === e.key) && (e.preventDefault(), this.onOpen())
+                }
+            }), a.GroupsCollectionView = Marionette.CompositeView.extend({
+                template: "#views-eead-template-modal-templates",
+                id: "eead-modal-template-library-groups",
+                childViewContainer: "#eead-modal-templates-container",
+                initialize: function () {
+                    this.listenTo(t.channels.templates, "filter:change", this._renderChildren)
+                },
+                filter: function (e) {
+                    var a = t.getFilter("category");
+                    return !a || e.get("category") === a
+                },
+                getChildView: function () {
+                    return a.GroupItemView
+                }
+            }), a.GroupHeadView = Marionette.ItemView.extend({
+                template: "#views-eead-template-modal-group-head",
+                className: "eead-group-head-bar",
+                events: {
+                    "click .eead-group-back": "onBack",
+                    "click .eead-group-import": "onImport"
+                },
+                onBack: function () {
+                    t.showGroups()
+                },
+                onImport: function () {
+                    t.showImport(this.model)
+                }
+            }), a.ImportView = Marionette.ItemView.extend({
+                // Import all pages: creates each page of the group as a page on this site, one after another.
+                template: "#views-eead-template-modal-import",
+                className: "eead-import",
+                events: {
+                    "click .eead-import-start": "onStart",
+                    "click .eead-import-cancel": "onCancel"
+                },
+                onCancel: function () {
+                    t.openGroup(this.getOption("group"))
+                },
+                onStart: function () {
+                    var v = this,
+                        pages = t.groupPages(),
+                        list = v.$(".eead-import-list"),
+                        status = v.$("[name=eead-import-status]:checked").val(),
+                        front = v.$("[name=eead-import-front]").is(":checked"),
+                        menu = v.$("[name=eead-import-menu]").is(":checked"),
+                        menuId = 0,
+                        failed = 0;
+                    // A retry imports only the pages that failed; the ones already created keep their links.
+                    v.$("input, button").prop("disabled", !0), v.$(".eead-import-message").prop("hidden", !0), list.find("li.is-failed").removeClass("is-failed").find(".eead-import-links").empty();
+                    menuId = v.menuId || 0;
+                    var next = function (n) {
+                        if (n >= pages.length) {
+                            return v.menuId = menuId, v.$("input, button").prop("disabled", !1), v.$(".eead-import-start").prop("hidden", !failed), v.$(failed ? ".eead-import-failed" : ".eead-import-done").prop("hidden", !1), v.$(".eead-import-menu-note").prop("hidden", failed || !menuId)
+                        }
+                        var m = pages[n],
+                            row = list.find("li[data-index='" + n + "']");
+                        if (row.hasClass("is-done")) {
+                            return next(n + 1)
+                        }
+                        row.addClass("is-busy");
+                        t.copyDependencies(m).then(function (map) {
+                            return e.ajax({
+                                url: ajaxurl,
+                                type: "post",
+                                dataType: "json",
+                                data: {
+                                    action: "eead_import_page",
+                                    nonce: i.nonce,
+                                    source: m.get("source"),
+                                    template_id: m.get("template_id"),
+                                    title: t.pageLabel(m),
+                                    order: m.get("order"),
+                                    status: status,
+                                    front: front && 0 === n ? 1 : 0,
+                                    menu: menu ? 1 : 0,
+                                    menu_id: menuId,
+                                    group: v.model.get("name"),
+                                    dependencies: JSON.stringify(map)
+                                }
+                            })
+                        }).then(function (res) {
+                            if (!res || !res.success) {
+                                throw res && res.data ? res.data : ""
+                            }
+                            menuId = res.data.menu || menuId, row.addClass("is-done").find(".eead-import-links").append(e("<a target='_blank' rel='noopener'>").attr("href", res.data.edit).text(list.data("edit")), e("<a target='_blank' rel='noopener'>").attr("href", res.data.view).text(list.data("view")))
+                        }).fail(function (err) {
+                            failed++, row.addClass("is-failed").find(".eead-import-links").text("string" == typeof err ? err : "")
+                        }).always(function () {
+                            row.removeClass("is-busy"), next(n + 1)
+                        })
+                    };
+                    next(0)
+                }
+            }), a.PreviewNavView = Marionette.ItemView.extend({
+                // Previous and next page of the previewed page's group.
+                template: "#views-eead-template-modal-preview-nav",
+                id: "eead-template-modal-preview-nav",
+                events: {
+                    "click .eead-preview-step": "onStep"
+                },
+                onStep: function (e) {
+                    t.stepPreview(+e.currentTarget.getAttribute("data-step"))
+                }
             }), a.KeywordsView = Marionette.ItemView.extend({
                 id: "elementor-template-library-filter-wrap",
                 template: "#views-eead-template-modal-widgets",
@@ -136,6 +271,7 @@
                     return "library-tab-" + t.getTab()
                 },
                 regions: {
+                    contentGroupHead: ".eead-group-head",
                     contentTemplates: ".eead-templates-list",
                     contentFilters: ".eead-filters-list",
                     contentKeywords: ".eead-widgets-list"
@@ -155,13 +291,39 @@
                 },
                 onInsertButtonClick: function () {
                     var a = this.view.model,
-                        o = a.attributes.dependencies,
+                        o = a.attributes.dependencies || {},
                         n = a.attributes.pro,
-                        l = Object.keys(o).length,
-                        r = {};
-                    if (t.layout.showLoadingView(), 0 < l) {
-                        for (var s in o) {
-                            const templateAttr = o[s];
+                        r = {},
+                        idMap = {},
+                        imports = [];
+                    if (t.layout.showLoadingView(), "valid" !== i.license.status && n) {
+                        return t.layout.showLicenseError();
+                    }
+                    for (var s in o) {
+                        const dep = o[s];
+                        if ("elementor_library" === dep.type && dep.template_id) {
+                            // Saved templates the section's tabs, switchers or toggles show: copy each one
+                            // first, so the widgets can be pointed at the copy instead of an ID this site lacks.
+                            imports.push(e.ajax({
+                                url: ajaxurl,
+                                type: "post",
+                                dataType: "json",
+                                data: {
+                                    action: "eead_import_dependency",
+                                    nonce: i.nonce,
+                                    source: dep.source,
+                                    template_id: dep.template_id,
+                                    title: dep.title,
+                                    tab: t.getTab()
+                                }
+                            }).then(function (res) {
+                                res && res.success && res.data && res.data.id ? idMap[dep.template_id] = res.data.id : console.warn("Easy Elementor Addons: a saved template could not be copied.", dep);
+                            }, function (err) {
+                                // The section still inserts; the widget that uses this template stays empty.
+                                console.warn("Easy Elementor Addons: a saved template could not be copied.", dep, err);
+                                return e.Deferred().resolve();
+                            }));
+                        } else {
                             e.ajax({
                                 url: ajaxurl,
                                 type: "post",
@@ -169,7 +331,7 @@
                                 data: {
                                     action: "eead_inner_template",
                                     nonce: i.nonce,
-                                    template: templateAttr?.template_id ? templateAttr : {...templateAttr, template_id: a.attributes.template_id},
+                                    template: dep?.template_id ? dep : {...dep, template_id: a.attributes.template_id},
                                     tab: t.getTab()
                                 },
                                 error: function (e) {
@@ -180,17 +342,35 @@
                             });
                         }
                     }
-                    "valid" !== i.license.status && n ? t.layout.showLicenseError() : elementor.templates.requestTemplateContent(a.get("source"), a.get("template_id"), {
-                        data: {
-                            tab: t.getTab(),
-                            page_settings: !1
-                        },
-                        success: function (e) {
-                            e.license ? (t.closeModal(), null !== t.atIndex && (r.at = t.atIndex), elementor.previewView.addChildModel(e.content, r), elementor.channels.data.trigger("template:after:insert", a), t.atIndex = null) : t.layout.showLicenseError()
-                        },
-                        error: function (e) {
-                            t.layout.showConnectionError()
+                    // Point tab, switcher and toggle widgets at the local copies of their saved templates.
+                    var remap = function (node) {
+                        if (Array.isArray(node)) {
+                            return node.forEach(remap);
                         }
+                        if (!node || "object" != typeof node) {
+                            return;
+                        }
+                        "elementor_template" === node.content_type && idMap[node.elementor_template] && (node.elementor_template = String(idMap[node.elementor_template]));
+                        ["primary", "secondary"].forEach(function (side) {
+                            "template" === node[side + "_content_type"] && idMap[node[side + "_templates"]] && (node[side + "_templates"] = String(idMap[node[side + "_templates"]]));
+                        });
+                        for (var k in node) {
+                            "object" == typeof node[k] && remap(node[k]);
+                        }
+                    };
+                    e.when.apply(e, imports).always(function () {
+                        elementor.templates.requestTemplateContent(a.get("source"), a.get("template_id"), {
+                            data: {
+                                tab: t.getTab(),
+                                page_settings: !1
+                            },
+                            success: function (e) {
+                                e.license ? (remap(e.content), t.closeModal(), null !== t.atIndex && (r.at = t.atIndex), elementor.previewView.addChildModel(e.content, r), elementor.channels.data.trigger("template:after:insert", a), t.atIndex = null) : t.layout.showLicenseError()
+                            },
+                            error: function (e) {
+                                t.layout.showConnectionError()
+                            }
+                        })
                     })
                 }
             }), a.ModalHeaderInsertButton = Marionette.ItemView.extend({
@@ -243,7 +423,8 @@
                 },
                 onFilterClick: function (e) {
                     // Clear the widget filter too; select2 only redraws on change, so the old widget would stay shown.
-                    jQuery(".eead-library-widgets").val("").trigger("change.select2"), t.setFilter("category", e.currentTarget.value), t.setFilter("keyword", "")
+                    // A category click inside a page group goes back to the groups, filtered.
+                    t.getFilter("group") && t.showGroups(), jQuery(".eead-library-widgets").val("").trigger("change.select2"), t.setFilter("category", e.currentTarget.value), t.setFilter("keyword", "")
                 }
             }), a.ModalTabsItemView = Marionette.ItemView.extend({
                 template: "#views-eead-template-modal-tabs-item",
@@ -265,8 +446,9 @@
                     this.model.get("slug") === t.getTab() && this.ui.tabsInput.attr("checked", "checked")
                 },
                 onTabClick: function (e) {
-                    var a = jQuery(e.target);
-                    t.setTab(a.val()), t.setFilter("keyword", "")
+                    // A label click arrives twice: on the label (no value) and on its radio input.
+                    var a = jQuery(e.target).val();
+                    a && (t.channels.templates.reply("filter:group", ""), t.setTab(a), t.setFilter("keyword", ""))
                 }
             }), a.FiltersCollectionView = Marionette.CompositeView.extend({
                 id: "eead-modal-template-library-filters",
@@ -288,9 +470,17 @@
                 initialize: function () {
                     this.listenTo(t.channels.templates, "filter:change", this._renderChildren)
                 },
+                // Inside a page group, its pages in order (home page first).
+                viewComparator: function (e) {
+                    return t.getFilter("group") ? e.get("order") : 0
+                },
                 filter: function (e) {
                     var a = t.getFilter("category"),
-                        o = t.getFilter("keyword");
+                        o = t.getFilter("keyword"),
+                        g = t.getFilter("group");
+                    if (g) {
+                        return e.get("group") === g
+                    }
                     return !a && !o || (o && !a ? _.contains(e.get("widgets"), o) : a && !o ? _.contains(e.get("categories"), a) : _.contains(e.get("categories"), a) && _.contains(e.get("widgets"), o))
                 },
                 getChildView: function (e) {
@@ -325,7 +515,7 @@
                         preview: o.get("preview"),
                         url: o.get("url"),
                         notice: o.get("notice")
-                    })), e.headerTabs.empty(), e.headerLogo.show(new a.ModalHeaderBack), void e.headerActions.show(new a.ModalHeaderInsertButton({
+                    })), t.showPreviewNav(e, o), e.headerLogo.show(new a.ModalHeaderBack), void e.headerActions.show(new a.ModalHeaderInsertButton({
                         model: o
                     })))
                 },
@@ -344,7 +534,7 @@
                 showConnectionError: function () {
                     this.modalContent.show(new a.ModalConnectionErrorView)
                 },
-                showTemplatesView: function (e, o, n) {
+                showTemplatesView: function (e, o, n, g) {
                     window.EEADData.cat = o.length;
                     this.getRegion("modalContent").show(new a.ModalBodyView);
                     var i = this.getContentView(),
@@ -361,7 +551,15 @@
                         collection: o
                     })) : '', i.contentKeywords.show(new a.KeywordsView({
                         model: r
-                    }))
+                    }));
+                    // Pages tab: group cards first; back from a preview reopens the group that was open.
+                    t.collections.groups = g;
+                    if ("eead_pages" === t.getTab() && g && g.length) {
+                        var s = t.getFilter("group") && g.findWhere({
+                            slug: t.getFilter("group")
+                        });
+                        s ? t.openGroup(s) : t.showGroups()
+                    }
                 }
             })
         }
@@ -431,7 +629,7 @@
         requestTemplates: function (t) {
             var o = this,
                 n = o.tabs[t];
-            o.setFilter("category", !1), n.data.templates && n.data.categories ? o.layout.showTemplatesView(n.data.templates, n.data.categories, n.data.widgets) : e.ajax({
+            o.setFilter("category", !1), n.data.templates && n.data.categories ? o.layout.showTemplatesView(n.data.templates, n.data.categories, n.data.widgets, n.data.groups) : e.ajax({
                 url: ajaxurl,
                 type: "get",
                 dataType: "json",
@@ -445,17 +643,105 @@
                         return o.layout.showConnectionError()
                     }
                     var n = new a.LibraryCollection(e.data.templates),
-                        i = new a.CategoriesCollection(e.data.categories);
+                        i = new a.CategoriesCollection(e.data.categories),
+                        g = new a.GroupsCollection(e.data.groups || []);
                     o.tabs[t].data = {
                         templates: n,
                         categories: i,
-                        widgets: e.data.widgets
-                    }, o.layout.showTemplatesView(n, i, e.data.widgets)
+                        widgets: e.data.widgets,
+                        groups: g
+                    }, o.layout.showTemplatesView(n, i, e.data.widgets, g)
                 },
                 error: function (e) {
                     o.layout.showConnectionError()
                 }
             })
+        },
+        showGroups: function () {
+            var b = this.layout.getContentView();
+            this.channels.templates.reply("filter:group", ""), b.$el.removeClass("eead-in-group"), b.contentGroupHead.empty(), b.contentTemplates.show(new a.GroupsCollectionView({
+                collection: this.collections.groups
+            }))
+        },
+        openGroup: function (g) {
+            var b = this.layout.getContentView();
+            this.channels.templates.reply("filter:group", g.get("slug")), b.$el.addClass("eead-in-group"), b.contentGroupHead.show(new a.GroupHeadView({
+                model: g
+            })), b.contentTemplates.show(new a.ModalCollectionView({
+                collection: this.tabs[this.getTab()].data.templates
+            })), b.$(".eead-templates-list").scrollTop(0)
+        },
+        showImport: function (g) {
+            var b = this.layout.getContentView();
+            b.contentTemplates.show(new a.ImportView({
+                group: g,
+                model: new Backbone.Model({
+                    name: g.get("name"),
+                    pages: _.map(this.groupPages(), this.pageLabel)
+                })
+            }))
+        },
+        // "The Harbour – Rooms" is the page "Rooms".
+        pageLabel: function (m) {
+            var l = m.get("title").split(" – ");
+            return l.length > 1 ? l.slice(1).join(" – ") : l[0]
+        },
+        // Copies the saved templates a page's tabs, switchers or toggles show; resolves to {library id: local id}.
+        copyDependencies: function (m) {
+            var map = {},
+                deps = _.filter(_.values(m.get("dependencies") || {}), function (d) {
+                    return "elementor_library" === d.type && d.template_id
+                });
+            return e.when.apply(e, _.map(deps, function (d) {
+                return e.ajax({
+                    url: ajaxurl,
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        action: "eead_import_dependency",
+                        nonce: i.nonce,
+                        source: d.source,
+                        template_id: d.template_id,
+                        title: d.title,
+                        tab: t.getTab()
+                    }
+                }).then(function (res) {
+                    res && res.success && res.data && res.data.id && (map[d.template_id] = res.data.id)
+                }, function () {
+                    return e.Deferred().resolve()
+                })
+            })).then(function () {
+                return map
+            })
+        },
+        // Pages of the open group, home page first.
+        groupPages: function () {
+            var g = this.getFilter("group"),
+                d = this.tabs[this.getTab()] && this.tabs[this.getTab()].data;
+            return g && d && d.templates ? _.sortBy(d.templates.where({
+                group: g
+            }), function (m) {
+                return m.get("order")
+            }) : []
+        },
+        showPreviewNav: function (h, m) {
+            var p = this.groupPages(),
+                i = p.indexOf(m);
+            if (p.length < 2 || i < 0) {
+                return h.headerTabs.empty()
+            }
+            h.headerTabs.show(new a.PreviewNavView({
+                model: new Backbone.Model({
+                    label: this.pageLabel(m),
+                    index: i,
+                    total: p.length
+                })
+            }))
+        },
+        stepPreview: function (n) {
+            var p = this.groupPages(),
+                m = p[p.indexOf(this.getPreview()) + n];
+            m && this.setPreview(m)
         },
         closeModal: function () {
             this.getModal().hide()

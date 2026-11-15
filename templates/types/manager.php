@@ -70,7 +70,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Types')) {
          * @access public
          */
         public function get_types_for_popup() {
-            // The library only has section templates so far; a Pages tab would open empty.
             $result = array();
 
             foreach ($this->types as $id => $structure) {
@@ -81,6 +80,17 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Types')) {
                     'settings' => $structure->library_settings(),
                 );
             }
+
+            // Full pages (home and inner pages by genre), after Sections so Sections stays the default tab.
+            $result['eead_pages'] = array(
+                'title' => esc_html__('Pages', 'easy-elementor-addons'),
+                'data' => array(),
+                'sources' => array('eead'),
+                'settings' => array(
+                    'show_title' => true,
+                    'show_widgets' => false
+                )
+            );
             return $result;
         }
 

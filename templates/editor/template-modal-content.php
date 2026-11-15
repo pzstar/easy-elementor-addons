@@ -11,5 +11,6 @@ if (!defined('ABSPATH')) {
 <# } #>
 <div class="eead-modal-templates-wrap">
     <div class="eead-widgets-list"></div>
+    <div class="eead-group-head"></div>
     <div class="eead-templates-list"></div>
 </div>

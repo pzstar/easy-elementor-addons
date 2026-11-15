@@ -18,6 +18,7 @@ Easy Elementor Addons is a highly editable addon for Elementor with limitless po
 Easy Elementor Addons is built using modern standards and is optimized for speed, SEO and accessibility. Scripts load only on the pages that use them, widgets work with the keyboard and screen readers, and animations respect your visitors' reduced motion setting.
 
 <p><a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank">See Demos of All Elementor Widgets</a></p>
+<p><a href="https://demo.hashthemes.com/easy-elementor-addons/templates/" target="_blank">See All Ready-Made Page Templates</a></p>
 <p>Want to test all Elementor widgets and their settings without installing on your website? <a href="https://demo.tastewp.com/easy-elementor-addons" target="_blank">Test Dashboard Settings Here</a></p>
 
 <h3>Key Features:</h3>
@@ -25,6 +26,8 @@ Easy Elementor Addons is built using modern standards and is optimized for speed
 <p><strong>63 Elementor Widgets</strong> - A complete pack of creative widgets covering headings, buttons, galleries, sliders, tabs, timelines, pricing and comparison tables, data tables, marquees, team, testimonials, charts, maps and much more.</p>
 
 <p><strong>587 Ready-Made Sections</strong> - Insert complete, styled sections from the template library in the Elementor editor: FAQs, pricing, teams, testimonials, timelines and more, each showing a widget in a real website layout. Browse by category or widget and preview a section before inserting it.</p>
+
+<p><strong>60 Ready-Made Pages</strong> - Complete websites for 12 kinds of business, such as a hotel, a law firm, a restaurant or a SaaS product, each with five pages in its own colors and fonts. Browse them by category, see every page in full, step through them in the preview, and insert a single page or import all of a website's pages as new pages on your site in one go, with their images, a front page and a menu.</p>
 
 <p><strong>Enable Only the Widgets You Need</strong> - Every widget can be switched on or off from the plugin dashboard, where widgets are grouped by purpose with Enable/Disable All for each group. Widgets you disable are never registered, so you only ever load what your site actually uses.</p>
 
@@ -197,10 +200,16 @@ The easy way to install the plugin is via WordPress.org plugin directory.
 </ol>
 
 == Changelog ==
-= 2.6.0 - 13 Nov, 2026 =
+= 2.6.0 - 14 Nov, 2026 =
 * New feature - Template library is back: 587 ready-made sections built from the widget demos, inserted from the Easy Elementor Addons button in the Elementor editor. Browse by category or widget, preview the full section and insert it with its images
+* New feature - Page templates in the template library's Pages tab: 60 pages making up 12 complete websites, such as a hotel or a law firm, grouped by category. Open a website to see all of its pages in full, step through them in the preview and insert any page, or import all of its pages as new pages on your site in one go, with their images, optionally as the front page and a new menu
 * Template library - redesigned with an even grid of cards, the widget name on each card, an Insert button that is always visible and a larger preview - Updated
+* Widget demo links on the plugin dashboard now open the new widget demo pages - Updated
 * Template library - opened on an empty Pages tab; it now opens on Sections - Fixed
+* Template library - clicking a tab name logged an error in the browser console - Fixed
+* Template library - inserting a template added placeholder.png images to the media library - Fixed
+* Template library - tabs, switchers and toggles that show saved templates were empty after inserting; the saved templates are now copied to your site first and the widgets pointed at them - Fixed
+* Settings - PDF Viewer was listed on its own under "Essential"; it is now under Video & Media - Fixed
 
 = 2.5.1 - 8 Nov, 2026 =
 * New option - Dual Button shadow border radius, so the shadow follows rounded buttons

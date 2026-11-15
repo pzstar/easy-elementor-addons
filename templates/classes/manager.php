@@ -30,6 +30,8 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
             //Register AJAX hooks
             add_action('wp_ajax_eead_get_templates', array($this, 'get_templates'));
             add_action('wp_ajax_eead_inner_template', array($this, 'insert_inner_template'));
+            add_action('wp_ajax_eead_import_dependency', array($this, 'import_dependency'));
+            add_action('wp_ajax_eead_import_page', array($this, 'import_page'));
             add_action('elementor/ajax/register_actions', array($this, 'register_ajax_actions'), 20);
 
             $this->register_sources();
@@ -129,6 +131,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                 'templates' => array(),
                 'categories' => array(),
                 'widgets' => array(),
+                'groups' => array(),
             );
 
             foreach ($sources as $source_slug) {
@@ -137,13 +140,16 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                     $result['templates'] = array_merge($result['templates'], $source->get_items($tab));
                     $result['categories'] = array_merge($result['categories'], $source->get_categories($tab));
                     $result['widgets'] = array_merge($result['widgets'], $source->get_widgets($tab));
+                    if (method_exists($source, 'get_groups')) {
+                        $result['groups'] = array_merge($result['groups'], $source->get_groups($tab));
+                    }
                 }
             }
 
             $all_cats = array(
                 array(
                     'slug' => '',
-                    'title' => esc_html__('All Sections', 'easy-elementor-addons'),
+                    'title' => 'eead_pages' === $tab ? esc_html__('All Categories', 'easy-elementor-addons') : esc_html__('All Sections', 'easy-elementor-addons'),
                 ),
             );
 
@@ -151,6 +157,194 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                 $result['categories'] = array_merge($all_cats, $result['categories']);
             }
             wp_send_json_success($result);
+        }
+
+        /**
+         * Import a dependency
+         *
+         * Copies a saved Elementor template that a library template's tabs, switchers or toggles show,
+         * and returns the copy's ID so the editor can point the widgets at it. The content is fetched
+         * from the library API here, never taken from the request.
+         *
+         * @access public
+         */
+        public function import_dependency() {
+            check_ajax_referer('eead_editor_nonce', 'nonce');
+
+            $library_type = get_post_type_object('elementor_library');
+            if (!current_user_can('edit_posts') || !$library_type || !current_user_can($library_type->cap->create_posts)) {
+                wp_send_json_error();
+            }
+
+            $source_name = sanitize_key(eead_get_request('source'));
+            $template_id = absint(eead_get_request('template_id'));
+            $title = sanitize_text_field(eead_get_request('title'));
+            $source = isset($this->sources[$source_name]) ? $this->sources[$source_name] : false;
+            if (!$source || !$template_id) {
+                wp_send_json_error();
+            }
+
+            // Inserting the same section again reuses the copy made the first time.
+            $key = $source_name . ':' . $template_id;
+            $existing = get_posts(array('post_type' => 'elementor_library', 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'meta_key' => '_eead_source_template', 'meta_value' => $key));
+            if ($existing) {
+                wp_send_json_success(array('id' => $existing[0]));
+            }
+
+            try {
+                $item = $source->get_item($template_id);
+            } catch (\Exception $e) {
+                wp_send_json_error($e->getMessage());
+            }
+            if (empty($item['license']) || empty($item['content'])) {
+                wp_send_json_error();
+            }
+
+            $type = is_array($item['type']) && $item['type'] ? sanitize_key(reset($item['type'])) : 'section';
+            if (!\Elementor\Plugin::instance()->documents->get_document_type($type, false)) {
+                $type = 'section';
+            }
+            $document = \Elementor\Plugin::instance()->documents->create($type, array(
+                'post_title' => $title ? $title : sprintf(esc_html__('Template %d', 'easy-elementor-addons'), $template_id),
+                'post_status' => 'publish',
+            ));
+            if (is_wp_error($document) || !$document) {
+                wp_send_json_error();
+            }
+            $document->save(array('elements' => $item['content']));
+            update_post_meta($document->get_main_id(), '_eead_source_template', $key);
+
+            wp_send_json_success(array('id' => $document->get_main_id()));
+        }
+
+        /**
+         * Import a page template as a new page
+         *
+         * "Import all pages" in the Pages tab calls this once per page of a group. The content is fetched
+         * from the library API here (never taken from the request), its images are copied to this site, and
+         * the page is created with Elementor Full Width so the theme's header and footer stay.
+         *
+         * @access public
+         */
+        public function import_page() {
+            check_ajax_referer('eead_editor_nonce', 'nonce');
+
+            $status = 'publish' === eead_get_request('status') ? 'publish' : 'draft';
+            if (!current_user_can('edit_pages') || !current_user_can('upload_files') || ('publish' === $status && !current_user_can('publish_pages'))) {
+                wp_send_json_error(esc_html__('You are not allowed to create pages.', 'easy-elementor-addons'));
+            }
+
+            $source_name = sanitize_key(eead_get_request('source'));
+            $template_id = absint(eead_get_request('template_id'));
+            $source = isset($this->sources[$source_name]) ? $this->sources[$source_name] : false;
+            $title = sanitize_text_field(eead_get_request('title'));
+            if (!$source || !$template_id || !$title) {
+                wp_send_json_error();
+            }
+
+            try {
+                $item = $source->get_item($template_id, 'eead_pages');
+            } catch (\Exception $e) {
+                wp_send_json_error($e->getMessage());
+            }
+            if (empty($item['license'])) {
+                wp_send_json_error(esc_html__('This page needs a valid Pro license.', 'easy-elementor-addons'));
+            }
+            if (empty($item['content']) || !is_array($item['content'])) {
+                wp_send_json_error(esc_html__('The page could not be downloaded.', 'easy-elementor-addons'));
+            }
+
+            // Saved templates the page's tabs, switchers or toggles show were copied first (eead_import_dependency).
+            $map = array();
+            foreach ((array) json_decode(eead_get_request('dependencies', '', '{}'), true) as $from => $to) {
+                if ('elementor_library' === get_post_type(absint($to))) {
+                    $map[absint($from)] = absint($to);
+                }
+            }
+            $content = $map ? $this->remap_dependencies($item['content'], $map) : $item['content'];
+
+            $document = \Elementor\Plugin::instance()->documents->create('wp-page', array(
+                'post_title' => $title,
+                'post_status' => $status,
+                'menu_order' => absint(eead_get_request('order')),
+            ));
+            if (is_wp_error($document) || !$document) {
+                wp_send_json_error(esc_html__('The page could not be created.', 'easy-elementor-addons'));
+            }
+            $document->save(array(
+                'elements' => $content,
+                'settings' => array('template' => 'elementor_header_footer'),
+            ));
+            $page_id = $document->get_main_id();
+
+            $result = array(
+                'id' => $page_id,
+                'title' => $title,
+                'edit' => $document->get_edit_url(),
+                'view' => get_permalink($page_id),
+                'menu' => 0,
+                'front' => false,
+            );
+
+            if ('1' === eead_get_request('front') && current_user_can('manage_options')) {
+                update_option('show_on_front', 'page');
+                update_option('page_on_front', $page_id);
+                $result['front'] = true;
+            }
+
+            // One new menu for the group, created with its first page and reused for the rest.
+            if ('1' === eead_get_request('menu') && current_user_can('edit_theme_options')) {
+                $menu_id = absint(eead_get_request('menu_id'));
+                if (!$menu_id || !is_nav_menu($menu_id)) {
+                    $name = sanitize_text_field(eead_get_request('group'));
+                    $name = $name ? $name : esc_html__('Imported pages', 'easy-elementor-addons');
+                    $base = $name;
+                    for ($n = 2; wp_get_nav_menu_object($name); $n++) {
+                        $name = $base . ' ' . $n;
+                    }
+                    $menu_id = wp_create_nav_menu($name);
+                }
+                if (!is_wp_error($menu_id)) {
+                    wp_update_nav_menu_item($menu_id, 0, array(
+                        'menu-item-title' => $title,
+                        'menu-item-object' => 'page',
+                        'menu-item-object-id' => $page_id,
+                        'menu-item-type' => 'post_type',
+                        'menu-item-status' => 'publish',
+                    ));
+                    $result['menu'] = $menu_id;
+                }
+            }
+
+            wp_send_json_success($result);
+        }
+
+        /**
+         * Point tab, switcher and toggle widgets at this site's copies of their saved templates.
+         *
+         * @param array $node elements or settings.
+         * @param array $map  library template id => local template id.
+         *
+         * @return array
+         */
+        private function remap_dependencies($node, $map) {
+            if (!is_array($node)) {
+                return $node;
+            }
+            if (isset($node['content_type'], $node['elementor_template']) && 'elementor_template' === $node['content_type'] && isset($map[(int) $node['elementor_template']])) {
+                $node['elementor_template'] = (string) $map[(int) $node['elementor_template']];
+            }
+            foreach (array('primary', 'secondary') as $side) {
+                if (isset($node[$side . '_content_type'], $node[$side . '_templates']) && 'template' === $node[$side . '_content_type'] && isset($map[(int) $node[$side . '_templates']])) {
+                    $node[$side . '_templates'] = (string) $map[(int) $node[$side . '_templates']];
+                }
+            }
+            foreach ($node as $key => $child) {
+                if (is_array($child)) {
+                    $node[$key] = $this->remap_dependencies($child, $map);
+                }
+            }
+            return $node;
         }
 
         /**
