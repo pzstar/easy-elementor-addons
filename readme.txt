@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 7.1
-Stable tag: 2.6.0
+Stable tag: 2.7.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -219,6 +219,11 @@ Yes. It works with any free or premium WordPress theme that supports Elementor.
 Yes. See the <a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank">widget demos</a> and the <a href="https://demo.hashthemes.com/easy-elementor-addons/templates/" target="_blank">page templates</a>, or try every setting in the <a href="https://demo.tastewp.com/easy-elementor-addons" target="_blank">test dashboard</a>.
 
 == Changelog ==
+= 2.7.0 - 16 Nov, 2026 =
+* Material Design Icons - updated to 7.4.47 with 251 new icons, all available in the icon picker - Updated
+* IcoFont - stylesheet loads with font-display: swap, so text shows while the icon font downloads - Updated
+* Icon fonts - load under one shared handle with other HashThemes themes and plugins, and through Elementor's icon picker, so each icon font loads only once on a page - Updated
+
 = 2.6.0 - 14 Nov, 2026 =
 * New feature - Template library is back: 587 ready-made sections built from the widget demos, inserted from the Easy Elementor Addons button in the Elementor editor. Browse by category or widget, preview the full section and insert it with its images
 * New feature - Page templates in the template library's Pages tab: 60 pages making up 12 complete websites, such as a hotel or a law firm, grouped by category. Open a website to see all of its pages in full, step through them in the preview and insert any page, or import all of its pages as new pages on your site in one go, with their images, optionally as the front page and a new menu

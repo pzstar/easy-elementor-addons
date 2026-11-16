@@ -1,8 +1,8 @@
+/* IcoFont 1.0.1 - handle icofont-1.0.1 */
 /*! 
 * @package IcoFont 
 * @version 1.0.1 
 */
-
 
 @font-face {
     font-family: "IcoFont";
@@ -10,6 +10,7 @@
         url("fonts/icofont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 [class^="icofont-"],
@@ -19,7 +20,9 @@
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
+    font-size: inherit;
     text-rendering: auto;
+    line-height: inherit;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -7652,7 +7655,7 @@
     content: "\e95b";
 }
 
-.icofont-brand-wordpress:before {
+.icofont-brand-wordpress:before{
     content: "\e95c";
 }
 

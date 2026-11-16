@@ -138,7 +138,7 @@ class EEAD_Widget_Loader {
      * Enqueue Frontend Styles
      */
     public function enqueue_frontend_styles() {
-        wp_enqueue_style('icofont', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
+        wp_enqueue_style('icofont-1.0.1', EEAD_URL . 'assets/fonts/icofont/icofont.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-custom-animate', EEAD_URL . 'assets/lib/animate/animate.css', array(), EEAD_VERSION);
         wp_enqueue_style('eead-frontend', EEAD_URL . 'assets/css/frontend.css', array(), EEAD_VERSION);
     }
