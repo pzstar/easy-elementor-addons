@@ -1026,9 +1026,7 @@ class DataTable extends Widget_Base {
         $rows = [];
         $csv = trim(preg_replace('/^\xEF\xBB\xBF/', '', (string) $csv));
 
-        // Spreadsheets paste as tab-separated and European Excel exports use
-        // semicolons; the separator seen most on the header line (outside
-        // quotes) wins.
+        // Guess the separator (tab, semicolon or comma): the one seen most on the header line wins.
         $first = preg_replace('/"[^"]*"/', '', strtok($csv, "\n"));
         $delimiter = ',';
         $best = substr_count($first, ',');
@@ -1223,7 +1221,6 @@ class DataTable extends Widget_Base {
                                 }
                                 echo '<' . $tag . $attrs . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 // One wrapper, so stacked cards show the label and the whole value side by side.
-                                // Cells holding only an icon (a tick, a cross) center it without a gap after.
                                 echo '<span class="eead-dt-cell' . ('' === trim(wp_strip_all_tags($cell['html'])) ? ' eead-dt-icon-only' : '') . '">';
                                 if ($cell['link']) {
                                     $key = 'link-' . $r . '-' . $c;

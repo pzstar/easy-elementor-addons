@@ -11,9 +11,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
 
     /**
      * EEAD Templates Manager.
-     *
-     * Templates manager class handles all templates library insertion
-     *
      */
     class EEAD_Templates_Manager {
 
@@ -21,8 +18,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
 
         /**
          * Ht_Templates_Manager constructor.
-         *
-         * initialize required hooks for templates.
          *
          * @access public
          */
@@ -41,10 +36,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Localize tabs
          *
-         * Add tabs data to localize object
-         *
          * @access public
-         *
          * @return [type] [description]
          */
         public function localize_tabs($data) {
@@ -59,10 +51,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Register sources
          *
-         * Register templates sources.
-         *
          * @access public
-         *
          * @return void
          */
         public function register_sources() {
@@ -81,8 +70,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Get template tabs
          *
-         * Get tabs for the library.
-         *
          * @access public
          */
         public function get_template_tabs() {
@@ -93,10 +80,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Get template tabs
          *
-         * Get tabs for the library.
-         *
          * @access public
-         *
          * @param $key source key
          * @param $class source class
          */
@@ -106,8 +90,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
 
         /**
          * Get template
-         *
-         * Get templates grid data.
          *
          * @access public
          */
@@ -162,10 +144,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Import a dependency
          *
-         * Copies a saved Elementor template that a library template's tabs, switchers or toggles show,
-         * and returns the copy's ID so the editor can point the widgets at it. The content is fetched
-         * from the library API here, never taken from the request.
-         *
          * @access public
          */
         public function import_dependency() {
@@ -219,10 +197,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
 
         /**
          * Import a page template as a new page
-         *
-         * "Import all pages" in the Pages tab calls this once per page of a group. The content is fetched
-         * from the library API here (never taken from the request), its images are copied to this site, and
-         * the page is created with Elementor Full Width so the theme's header and footer stay.
          *
          * @access public
          */
@@ -350,16 +324,12 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Insert inner template
          *
-         * Insert an inner template before insert the parent one.
-         *
          * @access public
          */
         public function insert_inner_template() {
             check_ajax_referer('eead_editor_nonce', 'nonce');
 
-            // The dependency content arrives from the client and is published as
-            // post content or Elementor data, so only users trusted with
-            // unfiltered HTML may create it.
+            // Content from the client is published, so only users with unfiltered_html may create it.
             if (!current_user_can('edit_posts') || !current_user_can('unfiltered_html')) {
                 wp_send_json_error();
             }
@@ -381,13 +351,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
             if (!empty($content)) {
                 $new_post = null;
 
-                /*
-                 * The post type arrives with the request and this handler is open to
-                 * any role that can edit_posts, so the type has to be a real one and
-                 * the caller has to actually hold the rights to it. Without this a
-                 * Contributor could name any post type and have a post published on
-                 * their behalf, which is not a capability that role has.
-                 */
+                /* The post type comes from the request, so it must exist and the user must be able to publish it. */
                 $post_type = isset($template['type']) ? sanitize_key($template['type']) : '';
                 $post_type_object = $post_type ? get_post_type_object($post_type) : null;
 
@@ -428,8 +392,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                         $taxonomy_object = $taxonomy ? get_taxonomy($taxonomy) : false;
 
                         if ($taxonomy_object) {
-                            // Reset per taxonomy, otherwise terms collected for an
-                            // earlier taxonomy get assigned to this one as well.
+                            // Reset per taxonomy, otherwise terms collected for an earlier taxonomy get assigned to this one as well.
                             $term_ids = array();
                             $term_slugs = isset($tax['term_slug']) ? (array) $tax['term_slug'] : array();
 
@@ -441,8 +404,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                                     $term_object = get_term_by('slug', $slug, $taxonomy);
                                     $term_id = $term_object ? $term_object->term_id : 0;
                                 } elseif (current_user_can($taxonomy_object->cap->edit_terms)) {
-                                    // Creating a term is its own capability, so never
-                                    // create one for a user who does not hold it.
+                                    // Creating a term is its own capability, so never create one for a user who does not hold it.
                                     $insterm = wp_insert_term($slug, $taxonomy, array(
                                         'description' => '',
                                         'parent' => 0,
@@ -470,20 +432,8 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                 $image_url = isset($template['template_featured_image']) ? esc_url_raw($template['template_featured_image']) : '';
 
                 if ($image_url && $post_id && !is_wp_error($post_id)) {
-                    /*
-                     * Sideload rather than fetching the URL and writing the response
-                     * into the uploads directory directly. media_sideload_image()
-                     * rejects anything that is not an image extension, downloads via
-                     * wp_safe_remote_get() so the URL cannot be aimed at internal
-                     * hosts, and revalidates the real file type before storing.
-                     *
-                     * The previous file_get_contents()/file_put_contents() pair did
-                     * none of that: wp_unique_filename() only de-duplicates a name, it
-                     * does not reject an extension, so a caller-supplied .php URL was
-                     * written verbatim into uploads and was executable on request.
-                     */
-                    // admin-ajax.php loads all three, but guard them separately so a
-                    // missing one cannot be masked by another already being loaded.
+                    /* Sideloaded, so the file is fetched safely and checked as an image. */
+                    // admin-ajax.php loads all three, but check each separately.
                     if (!function_exists('media_sideload_image')) {
                         require_once(ABSPATH . 'wp-admin/includes/media.php');
                     }
@@ -507,8 +457,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
         /**
          * Register AJAX actions
          *
-         * Add new actions to handle data after an AJAX requests returned.
-         *
          * @access public
          */
         public function register_ajax_actions($ajax_manager) {
@@ -516,9 +464,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
                 return;
             }
 
-            // Elementor sends `actions` as JSON keyed by request id, each entry
-            // holding `action` and `data`. Only read it raw here (unslashed) to
-            // find our request; the source is validated against our own list.
+            // Elementor sends `actions` as JSON keyed by request id, each entry holding `action` and `data`.
             $actions = json_decode(eead_get_request('actions', ''), true);
             if (!is_array($actions)) {
                 return;
@@ -557,8 +503,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Manager')) {
 
         /**
          * Get template data array
-         *
-         * triggered to get an array for a single template data
          *
          * @access public
          */

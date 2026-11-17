@@ -82,8 +82,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
             <form id="eead-widget-selection-form">
                 <?php
-                // Group the widgets by category, in the categories' order; unknown or
-                // missing categories still show, in their own groups at the end.
+                // Group the widgets by category, in the categories' order; unknown categories go last.
                 $eead_categories = eead_get_widget_categories();
                 $eead_groups = array_fill_keys(array_keys($eead_categories), array());
                 foreach ($eead_all_widgets as $eead_key => $eead_val) {
@@ -215,8 +214,7 @@ $eead_all_widgets = eead_get_all_widgets_list();
                         <?php foreach ($eead_about_groups[$eead_cat] as $eead_key => $eead_val) { ?>
                             <li>
                                 <?php
-                                // Add-on widgets have no page on the free demo site, so the name is
-                                // only linked when the widget actually declares a demo URL.
+                                // Linked only when the widget declares a demo URL.
                                 if (!empty($eead_val['demo_url'])) {
                                     ?>
                                     <a href="<?php echo esc_url($eead_val['demo_url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($eead_val['name']); ?></a>
@@ -249,7 +247,6 @@ $eead_all_widgets = eead_get_all_widgets_list();
 
             <?php
             // Premium HashThemes themes, made by the same team and tested with this plugin.
-            // Thumbnails ship with the plugin, so the screen loads nothing from other servers.
             $eead_themes = array(
                 array(
                     'name' => 'Total Plus',

@@ -295,9 +295,7 @@ if (!function_exists('eead_social_label')) {
 if (!function_exists('eead_kses_image')) {
 
     /**
-     * Escape attachment image markup. wp_kses_post() drops srcset, sizes,
-     * decoding and fetchpriority, which leaves every visitor with the full-size
-     * file, so those are allowed on <img> here.
+     * Escape attachment image markup, keeping srcset, sizes, decoding and fetchpriority that wp_kses_post() drops.
      */
     function eead_kses_image($html) {
         $allowed = wp_kses_allowed_html('post');
@@ -1010,10 +1008,6 @@ function eead_get_all_widgets_list() {
 /**
  * Widget keys that should actually be registered.
  *
- * `eead_widgets` only exists once the dashboard has been saved, so until then
- * every widget ships enabled. Keys are intersected with the current list so
- * that entries left behind by a deactivated add-on are quietly ignored.
- *
  * @return array
  */
 function eead_get_enabled_widgets() {
@@ -1025,9 +1019,7 @@ function eead_get_enabled_widgets() {
         return $all_widgets;
     }
 
-    // Widgets added after the settings were last saved were never offered to
-    // the user, so they start enabled instead of silently missing. Settings
-    // saved before this was tracked date from 2.4.0.
+    // Widgets added since the settings were last saved start enabled.
     $seen = get_option('eead_widgets_seen', '2.4.0');
     foreach ($widgets as $key => $widget) {
         if (!empty($widget['since']) && version_compare($widget['since'], $seen, '>')) {

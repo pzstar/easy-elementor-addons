@@ -730,8 +730,7 @@ class IconList extends Widget_Base {
             <ul class="eead-icon-list-items">
                 <?php
                 $count = 1;
-                // Items without text aren't shown; leave them out of the numbering
-                // and of the last-row maths too.
+                // Items without text aren't shown; leave them out of the numbering and of the last-row maths too.
                 $settings['list_items'] = array_values(array_filter((array) $settings['list_items'], function ($list) {
                     return '' !== trim((string) $list['text']);
                 }));

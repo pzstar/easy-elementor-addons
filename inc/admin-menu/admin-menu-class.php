@@ -86,8 +86,7 @@ class AdminClass {
     }
 
     public function get_widget_field($label, $val, $icon = '', $url = '', $premium = false, $category = '') {
-        // Same source of truth the module manager registers from, so a fresh
-        // install shows every widget ticked instead of an all-off dashboard.
+        // Same list the module manager registers from, so a fresh install shows every widget on.
         static $eead_widgets = null;
 
         if (null === $eead_widgets) {
@@ -132,8 +131,7 @@ class AdminClass {
                     <?php } ?>
                 </span>
                 <?php
-                // Add-on widgets may ship without a demo page; an empty href would just
-                // reload this screen, so the link is dropped instead.
+                // No link when an add-on widget has no demo page.
                 if ($url) {
                     ?>
                     <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" class="eead-widget-demo-link"><?php echo esc_html__('View Demo', 'easy-elementor-addons'); ?></a>

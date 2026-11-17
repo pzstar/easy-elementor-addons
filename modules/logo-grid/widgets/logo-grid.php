@@ -576,8 +576,7 @@ class LogoGrid extends Widget_Base {
                         $has_title = !empty($item['title']);
                         if (!empty($item['link']['url'])) {
                             $this->add_link_attributes('logo-link' . $count, $item['link']);
-                            // With a linked title below, the logo link repeats it: keep a
-                            // single tab stop and a single announced link per logo.
+                            // With a linked title below, the logo link repeats it, so it is hidden from keyboard and screen readers.
                             $this->add_link_attributes('logo-img-link' . $count, $item['link']);
                             if ($has_title) {
                                 $this->add_render_attribute('logo-img-link' . $count, ['tabindex' => '-1', 'aria-hidden' => 'true']);

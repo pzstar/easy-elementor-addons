@@ -78,8 +78,7 @@ class AdvancedHeading extends Widget_Base {
                 ],
                 'toggle' => false,
                 'default' => 'center',
-                // The flex alignment of the lines and the background text follows the
-                // text alignment through a variable, so it changes per device too.
+                // The flex alignment of the lines and the background text follows the text alignment through a variable, so it changes per device too.
                 'selectors_dictionary' => [
                     'left' => 'text-align: left; --eead-ah-justify: flex-start;',
                     'center' => 'text-align: center; --eead-ah-justify: center;',

@@ -171,15 +171,9 @@ abstract class EEAD_Templates_Source_Base {
     /**
      * Process content for export/import.
      *
-     * Process the content and all the inner elements, and prepare all the
-     * elements data for export/import.
-     *
      * @access protected
-     *
      * @param array  $content A set of elements.
-     * @param string $method  Accepts either `on_export` to export data or
-     *                        `on_import` to import data.
-     *
+     * @param string $method  Accepts either `on_export` to export data or `on_import` to import data.
      * @return mixed Processed content data.
      */
     protected function process_export_import_content($content, $method) {
@@ -198,13 +192,9 @@ abstract class EEAD_Templates_Source_Base {
     /**
      * Process single element content for export/import.
      *
-     * Process any given element and prepare the element data for export/import.
-     *
      * @access protected
-     *
      * @param Controls_Stack $element
      * @param string         $method
-     *
      * @return array Processed element data.
      */
     protected function process_element_export_import_content($element, $method) {
@@ -216,8 +206,7 @@ abstract class EEAD_Templates_Source_Base {
 
         $saved = isset($element_data['settings']) ? $element_data['settings'] : array();
         foreach ($element->get_controls() as $control) {
-            // Unset controls would pass their defaults through, and an image default is
-            // Elementor's placeholder, which then lands in the media library as placeholder.png.
+            // Skip unset controls, or Elementor's placeholder image lands in the media library.
             if (!array_key_exists($control['name'], $saved)) {
                 continue;
             }

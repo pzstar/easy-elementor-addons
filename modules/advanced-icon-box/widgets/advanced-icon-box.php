@@ -1574,7 +1574,6 @@ class AdvancedIconBox extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         // The alignment control that is in use: inline, left/right icon, or top.
-        // Controls whose condition is not met are left out of the settings.
         if ('yes' === ($settings['icon_inline'] ?? '')) {
             $align = $settings['inline_text_align'] ?? '';
         } elseif (in_array($settings['icon_position'] ?? '', ['left', 'right'], true)) {

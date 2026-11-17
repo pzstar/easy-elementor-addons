@@ -909,8 +909,7 @@ class BusinessHour extends Widget_Base {
                             "dynamic_timezone_default" => get_option('gmt_offset'),
                             "dynamic_timezone" => $settings['dynamic_timezone'] == 'default' ? get_option('gmt_offset') : $ct_input,
                             "timeNotation" => $timeNotation,
-                            // Status and today's row are recomputed in the browser, so a
-                            // cached page doesn't keep showing the hour it was cached in.
+                            // Status and today's row are recomputed in the browser, so cached pages stay right.
                             'schedule' => $schedule,
                             'tz' => $display_tz->getName(),
                             'offset' => $display_tz->getOffset($now) / 60,

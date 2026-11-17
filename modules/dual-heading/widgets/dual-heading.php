@@ -592,10 +592,6 @@ class DualHeading extends Widget_Base {
             $heading_text = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('first_heading'), esc_html($settings['first_heading']));
         }
         if ($settings['first_heading'] && $settings['second_heading']) {
-            // The gap is the visible space (a &nbsp; flex item used to be, and it
-            // could start a wrapped line); this keeps a real space in the text
-            // for screen readers and search engines. The break element puts the
-            // second part on its own line when "Second Part on New Line" is on.
             $heading_text .= '<span class="elementor-screen-only"> </span><span class="eead-dh-break" aria-hidden="true"></span>';
         }
         if ($settings['second_heading']) {

@@ -15,9 +15,7 @@ final class EEAD_Modules_Manager {
     public function __construct() {
         $this->require_files();
 
-        // Deferred to `init` so widget labels contributed by add-ons are built
-        // after textdomains load. Elementor only instantiates widget types on
-        // first use, which is always later than this.
+        // Deferred to `init` so widget labels contributed by add-ons are built after textdomains load.
         add_action('init', [$this, 'register_modules'], 20);
     }
 
@@ -31,8 +29,7 @@ final class EEAD_Modules_Manager {
             $class_name = str_replace(' ', '', ucwords($class_name));
             $class_name = __NAMESPACE__ . '\\Modules\\' . $class_name . '\Module';
 
-            // Add-ons contribute their own modules through `eead_all_widgets_list`,
-            // so the class may live in a plugin whose files are no longer readable.
+            // Add-on modules come through `eead_all_widgets_list`, so their file may be gone.
             if (!class_exists($class_name)) {
                 continue;
             }

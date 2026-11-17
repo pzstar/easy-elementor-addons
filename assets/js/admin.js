@@ -83,8 +83,7 @@
     };
 
     /* Enable / Disable All Widgets Button Actions */
-    /* Limited to the cards on screen so the buttons act on what the active filter
-       shows, rather than silently toggling widgets the user cannot see. */
+    /* Only the cards the active filter shows. */
     $('body').on('click', '.eead-widget-action-btn', function () {
         if ($(this).hasClass('eead-widget-enable-all')) {
             $('.eead-widget-wrap:visible').find('.eead-widget-checkbox').prop('checked', true);

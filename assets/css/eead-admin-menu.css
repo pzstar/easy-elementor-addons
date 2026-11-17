@@ -497,9 +497,7 @@
     background: #9c19e9;
 }
 
-/* Header row above the grid: filters on the left, bulk actions on the right.
-   With no add-on supplying filters the left side collapses and the buttons
-   keep their original right-aligned position. */
+/* Header row above the grid: filters on the left, bulk actions on the right. */
 .eead-widget-toolbar {
     display: flex;
     flex-wrap: wrap;

@@ -11,16 +11,11 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
 
     /**
      * EEAD Templates Assets.
-     *
-     * EEAD Templates Assets class is responsible for enqueuing all required assets for integration templates on the editor page.
-     *
      */
     class EEAD_Templates_Assets {
 
         /**
          * EEAD_Templates_Assets constructor.
-         *
-         * Triggers the required hooks to enqueue CSS/JS files.
          *
          * @access public
          */
@@ -34,8 +29,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
         /**
          * Editor Styles
          *
-         * Enqueue required editor CSS files.
-         *
          * @access public
          */
         public function editor_styles() {
@@ -47,8 +40,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
         /**
          * Preview Styles
          *
-         * Enqueue required templates CSS file.
-         *
          * @access public
          */
         public function enqueue_preview_styles() {
@@ -59,8 +50,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
 
         /**
          * Editor Scripts
-         *
-         * Enqueue required editor JS files, localize JS with required data.
          *
          * @access public
          */
@@ -88,8 +77,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
         /**
          * Get Modal Region
          *
-         * Get modal region in the editor.
-         *
          * @access public
          */
         public function get_modal_region() {
@@ -102,16 +89,12 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Assets')) {
         /**
          * Add Templates Scripts
          *
-         * Load required templates for the templates library.
-         *
          * @access public
          */
         public function load_footer_scripts() {
             $scripts = glob(EEAD_PATH . 'templates/editor/*.php');
 
-            // Marionette reads these templates with $('script#id').html(), so the
-            // markup has to be printed as-is. Each partial is static plugin
-            // markup that escapes its own dynamic output.
+            // Marionette reads these templates with $('script#id').html(), so the markup has to be printed as-is.
             array_map(function ($file) {
                 $name = basename($file, '.php');
 

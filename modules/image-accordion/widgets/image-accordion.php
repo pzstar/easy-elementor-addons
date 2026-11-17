@@ -531,8 +531,7 @@ class ImageAccordion extends Widget_Base {
                     ]
                 );
 
-                // Not a link: still reachable by keyboard, so it can be opened
-                // (click mode: a toggle button; hover mode: focus opens it).
+                // Not a link: still reachable by keyboard, so it can be opened.
                 if ($tag === 'div') {
                     $this->add_render_attribute('eead-image-accordion-' . $key, 'tabindex', '0');
                     if ('on-click' === $settings['image_accordion_action_type']) {

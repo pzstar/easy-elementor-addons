@@ -596,8 +596,7 @@ Advanced Heading
     color: transparent;
 }
 
-/* Without a line there is nothing to lay out beside the text, so the heading
-   and its split text flow as one run of words and wrap between any of them. */
+/* No line: the heading and its split text wrap as one run of words. */
 .eead-advanced-heading .eead-ah-main-heading.eead-ah-line- span.eead-ah-main-heading-wrap,
 .eead-advanced-heading .eead-ah-main-heading.eead-ah-line- .eead-ah-main-heading-text {
     display: inline;
@@ -748,9 +747,7 @@ Advanced Icon Box
     text-decoration: none;
 }
 
-/* Link Whole Box: the title link covers the widget (the Elementor widget is the
-   positioned ancestor, so padding and borders set on it are covered too);
-   Read More stays clickable above it. */
+/* Link Whole Box: the title link covers the whole widget; Read More stays clickable above it. */
 .eead-advanced-icon-box.eead-aib-linked .eead-aib-title-link::after {
     content: '';
     position: absolute;
@@ -777,8 +774,7 @@ Advanced Icon Box
     fill: #FFF;
 }
 
-/* Fill Height: the box takes its column's full height, the content grows to
-   fill it and Read More sits at the bottom, placed like the rest of the text. */
+/* Fill Height: the box takes its column's full height, the content grows to fill it and Read More sits at the bottom, placed like the rest of the text. */
 .eead-aib-fill-height-yes > .elementor-widget-container,
 .eead-aib-fill-height-yes .eead-advanced-icon-box {
     height: 100%;
@@ -1692,8 +1688,7 @@ Feature List
     line-height: 1;
 }
 
-/* Connector line: the icon sits in a column whose leftover height, plus the
-   gap to the next item, is drawn as the line. */
+/* Connector line: the icon sits in a column whose leftover height, plus the gap to the next item, is drawn as the line. */
 .eead-fl-connector-yes .eead-fl-icon-wrap {
     display: flex;
     flex: 0 0 auto;
@@ -4625,14 +4620,6 @@ Social Share Buttons
     background: rgb(37, 211, 102, 0.90);
 }
 
-/*.eead-social-share-container a.eead-wechat {
-    background: rgb(9, 184, 62);
-}
-
-.eead-social-share-container a.eead-wechat:hover {
-    background: rgb(9, 184, 62, 0.90);
-}*/
-
 .eead-social-share-container a.eead-line {
     background: rgb(0, 195, 0);
 }
@@ -6622,9 +6609,7 @@ Pricing Table
     overflow: hidden;
 }
 
-/* Inside a vertical container the widget grows to the column's height, so the box
-   has a height to fill. Row containers already stretch it; browsers without style
-   queries keep the old behavior. */
+/* Inside a vertical container the widget grows to the column's height, so the box has a height to fill. */
 @container style(--flex-direction: column) {
     .elementor-element.eead-aib-fill-height-yes,
     .elementor-element.eead-pt-fill-height-yes {
@@ -6632,8 +6617,7 @@ Pricing Table
     }
 }
 
-/* Fill Height: the table takes its column's full height, the features list
-   takes up the slack and the button sits at the bottom. */
+/* Fill Height: the table takes its column's full height, the features list takes up the slack and the button sits at the bottom. */
 .eead-pt-fill-height-yes > .elementor-widget-container,
 .eead-pt-fill-height-yes .eead-pricing-table {
     height: 100%;
@@ -10809,8 +10793,7 @@ Comparison Table
     display: block;
 }
 
-/* The badge sits in space reserved at the top of every plan, so all the titles line up.
-   A spacer rather than padding, so a custom Cell Padding can't remove it. */
+/* A spacer at the top of every plan holds the badge, so all titles line up whatever the Cell Padding. */
 .eead-ct-table:has(.eead-ct-badge) thead .eead-ct-plan::before {
     content: "";
     display: block;
@@ -10942,8 +10925,7 @@ Comparison Table
     color: #fff;
 }
 
-/* Info tooltip: anchored to the feature cell, not the icon, so a tip near the
-   table's left edge isn't cut off by the scroll box. */
+/* Info tooltip: anchored to the feature cell, so the scroll box doesn't cut it off. */
 .eead-ct-table .eead-ct-feature {
     position: relative;
 }

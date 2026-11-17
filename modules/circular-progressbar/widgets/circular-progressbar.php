@@ -333,12 +333,7 @@ class CircularProgressbar extends Widget_Base {
         if ($title !== '') {
             $this->add_render_attribute('bar', 'aria-label', $title);
         }
-        /*
-         * pathLength="100" makes the dash maths a plain percentage whatever the
-         * radius, and the geometry also comes from CSS variables, so the
-         * tablet/mobile Circle Size and Bar Width really resize the ring. The
-         * attributes are the desktop fallback.
-         */
+        /* pathLength="100" makes the dash maths a plain percentage whatever the radius. */
         ?>
         <div <?php $this->print_render_attribute_string('bar'); ?>>
             <div class="eead-circular-progressbar-box">

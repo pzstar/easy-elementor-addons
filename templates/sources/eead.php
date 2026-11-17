@@ -42,8 +42,7 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
 
         if (false === $version) {
             $version = (string) Templates\eead_elementor_templates()->api->get_info('api_version');
-            // A failed lookup is kept briefly so an unreachable API is not
-            // queried on every request.
+            // A failed lookup is kept briefly so an unreachable API is not queried on every request.
             set_transient($key, $version, $version ? DAY_IN_SECONDS : HOUR_IN_SECONDS);
         }
 
@@ -84,11 +83,7 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
     /**
      * Prepare items for response
      *
-     * Titles arrive HTML-encoded (e.g. `&#8211;`) and the modal prints them
-     * escaped, so decode them to plain text here.
-     *
      * @param array $templates templates list.
-     *
      * @return array
      */
     public function prepare_items($templates) {
@@ -285,11 +280,7 @@ class EEAD_Templates_Source_Api extends EEAD_Templates_Source_Base {
     /**
      * Return page groups (The Harbour, Orbitly…) for the Pages tab
      *
-     * Each group has its category, tagline, colors, fonts, page count and home page thumbnail.
-     * Older library APIs have no groups; the tab then lists pages without them.
-     *
      * @param string $tab tab slug.
-     *
      * @return array
      */
     public function get_groups($tab = null) {

@@ -11,9 +11,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
 
     /**
      * EEAD Templates Core config.
-     *
-     * Templates core class is responsible for handling templates library.
-     *
      */
     class EEAD_Templates_Core_Config {
 
@@ -27,8 +24,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
 
         /**
          * EEAD_Templates_Core_Config constructor.
-         *
-         * Sets config data.
          *
          * @access public
          */
@@ -60,10 +55,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
         /**
          * Get license key.
          *
-         * Gets EEAD Add-ons PRO license key.
-         *
          * @access public
-         *
          * @return string|boolean license key or false if no license key
          */
         public function get_license_key() {
@@ -77,10 +69,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
         /**
          * Get license status.
          *
-         * Gets EEAD Add-ons PRO license status.
-         *
          * @access public
-         *
          * @return string|boolean license status or false if no license key
          */
         public function get_license_status() {
@@ -94,10 +83,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
         /**
          * Get license page.
          *
-         * Gets EEAD Add-ons PRO license page.
-         *
          * @access public
-         *
          * @return string admin license page or plugin URI
          */
         public function get_license_page() {
@@ -124,10 +110,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Core_Config')) {
         /**
          * Get
          *
-         * Gets a segment of config data.
-         *
          * @access public
-         *
          * @return string|array|false data or false if not set
          */
         public function get($key = '') {

@@ -561,8 +561,7 @@
                     return;
                 }
 
-                // One marker, or several on the same spot: fitBounds on a single
-                // point would zoom all the way in, so use the Zoom setting instead.
+                // One spot: fitBounds would zoom all the way in, so use the Zoom setting.
                 if (map.markers.length == 1 || bounds.getNorthEast().equals(bounds.getSouthWest())) {
                     map.setCenter(bounds.getCenter());
                     map.setZoom(zoom);
@@ -778,8 +777,7 @@
                 };
 
             if ($countdown.is('[data-evergreen]')) {
-                // Per visitor: the deadline is remembered in the browser, keyed by
-                // widget and length so a new length starts afresh. Not in the editor.
+                // Per visitor: the deadline is kept in the browser, keyed by widget and length (not in the editor).
                 var stored = null;
                 if (!editMode) {
                     try {
@@ -800,8 +798,7 @@
                 return;
             }
 
-            // The largest shown unit takes everything above it, so with Days
-            // turned off 2 days 3 hours reads 51 hours, not 3.
+            // The largest shown unit takes everything above it: without Days, 2 days 3 hours reads 51 hours.
             var units = [];
             $.each([['days', 86400], ['hours', 3600], ['minutes', 60], ['seconds', 1]], function (i, unit) {
                 var $el = $items.find('[data-' + unit[0] + ']');
@@ -824,8 +821,7 @@
                     window.location.href = redirectUrl;
                 }
             };
-            // Remaining time is read from the clock on every tick, so a throttled
-            // background tab doesn't drift.
+            // Remaining time is read from the clock on every tick, so a throttled background tab doesn't drift.
             var tick = function () {
                 var left = Math.max(0, Math.floor((end - Date.now()) / 1000)),
                     rest = left;
@@ -881,9 +877,7 @@
                 }
             });
 
-            // UIkit's flip doesn't keep the panel on narrow screens, and it places
-            // it again on every scroll and resize; each time it does, nudge it back
-            // inside the viewport. The nudge itself fits, so it doesn't loop.
+            // UIkit's flip doesn't keep the panel on narrow screens, so nudge it back inside the viewport.
             var clamp = function () {
                 var rect = drop.getBoundingClientRect(),
                     gap = 8,
@@ -1132,7 +1126,6 @@
                         }, 600);
                     }
 
-                    // append items
                     $gallery.append($items);
                     $isotope_gallery.isotope('insert', $items);
                     $isotope_gallery.imagesLoaded().progress(function () {
@@ -1374,8 +1367,7 @@
                 return;
             }
 
-            // Keep the tooltip on screen: left/right tooltips that don't fit go
-            // below the spot, others slide sideways with the arrow still on the spot.
+            // Keep the tooltip on screen: below the spot, or slid sideways with the arrow still on it.
             function place($item) {
                 var content = $item.children('.eead-hotspot-content')[0],
                     gap = 8, vw, pos, rect, shift = 0;
@@ -1584,8 +1576,7 @@
         },
 
         imageHoverEffect: function ($scope) {
-            // Touch screens have no hover: on a whole-box link the first tap shows
-            // the hidden content, a second tap on the same box follows the link.
+            // Touch screens have no hover: the first tap shows the content, a second tap follows the link.
             var box = EEA.own($scope, 'a.eead-ihe')[0];
             if (!box) {
                 return;
@@ -1776,8 +1767,7 @@
                 return nav_el.find('.eead-one-page-nav-item.active').first();
             }
 
-            // Each returns whether it moved, so the caller only cancels the native
-            // scroll when the navigation actually took over.
+            // Each returns whether it moved, so the native scroll is only cancelled when it did.
             function goPrev() {
                 var $active = activeItem(),
                     $prev = $active.prev();
@@ -1873,8 +1863,7 @@
                     animationTime = 800,
                     startY = null;
 
-                // A native, non-passive listener: jQuery's document-level wheel handler is
-                // passive in modern browsers, so the page scrolled natively *and* jumped.
+                // A native, non-passive listener, so preventDefault() can stop the page scroll.
                 var onWheel = function (e) {
                     if (!document.documentElement.contains($scope[0])) {
                         document.removeEventListener('wheel', onWheel);
@@ -2452,9 +2441,7 @@
             function sortValue(row, col) {
                 var cell = cellAt(row, col),
                     text = cell ? cell.textContent.trim() : '',
-                    // A number with an optional currency sign or code before it and a
-                    // unit after it ($1,200 / USD 30 / 45% / 10 GB). Words before the
-                    // digits rule it out, so "Jan 5, 2024" isn't read as 52024.
+                    // A number with an optional currency sign or code before it and a unit after it ($1,200 / USD 30 / 45% / 10 GB).
                     match = text.match(/^(?:[A-Z]{3}\s*)?[^\w\s\-\u2212]*\s*([\-\u2212]?\d[\d,]*(?:\.\d+)?)(?:\s*[^\d\s][^\d]*)?$/),
                     date;
                 if (match) {
@@ -2774,9 +2761,7 @@
                 links.push(a);
             });
 
-            // A shared link such as page/#take-payments: the id only exists now that
-            // the table has given headings their anchors, so the browser could not
-            // jump on load. Do it here, with the same offset as a click.
+            // A shared link such as page/#take-payments: the heading ids exist only now, so jump here.
             if (!editMode && window.location.hash) {
                 var landing = null;
                 try {
@@ -2892,7 +2877,7 @@
             // Text already on screen when the page loads fills in as a short intro, then follows the scroll.
             var intro = 1, introStart = null;
 
-            // Scroll-linked: filling starts when the top of the text reaches the start line and ends when its bottom reaches the end line.
+            // Scroll-linked fill, from the start line to the end line.
             function update() {
                 ticking = false;
                 var vh = window.innerHeight,
@@ -3065,8 +3050,7 @@
                     var vh = window.innerHeight,
                         a = settings.start === undefined ? 95 : settings.start,
                         b = settings.end === undefined ? 45 : settings.end,
-                        // The start line has to sit below the finish line; reversed
-                        // values would otherwise snap straight to fully shown.
+                        // The start line has to sit below the finish line, or the text shows fully at once.
                         startY = vh * Math.max(a, b) / 100,
                         endY = vh * Math.min(a, b) / 100,
                         top = frame.getBoundingClientRect().top,
@@ -3088,8 +3072,7 @@
 
             var repeat = settings.trigger === 'repeat';
             el.classList.add('eead-apim-once');
-            // A quarter of the image, or a quarter of the screen for an image too
-            // tall to ever show a quarter of itself at once.
+            // A quarter of the image, or a quarter of the screen for an image too tall to ever show a quarter of itself at once.
             var threshold = Math.min(0.25, window.innerHeight * 0.25 / Math.max(1, frame.offsetHeight));
             observer = new IntersectionObserver(function (entries) {
                 var entry = entries[entries.length - 1];
@@ -3163,9 +3146,7 @@
                         setTimeout(function () {
                             window.dispatchEvent(new Event('resize'));
                         }, 50);
-                        // MicroModal skips the close button when picking what to focus,
-                        // so focus could land inside a video frame, where Escape is lost.
-                        // Start on the dialog itself instead.
+                        // Focus the dialog itself: MicroModal could focus a video frame, where Escape is lost.
                         var box = modal.querySelector('[role="dialog"]'),
                             focused = false,
                             focusBox = function () {
@@ -3184,8 +3165,7 @@
                         }
                     },
                     onClose: function (modal) {
-                        // Stop embedded video and audio: re-setting an iframe's src
-                        // unloads the player, and media elements are paused.
+                        // Stop embedded video and audio.
                         $(modal).find('iframe').each(function () {
                             var src = this.getAttribute('src');
                             if (src && /youtube|vimeo|dailymotion|wistia|soundcloud|spotify/.test(src)) {
@@ -3217,8 +3197,7 @@
                 });
             }
 
-            // Open automatically: after a delay, at a scroll depth or on exit intent,
-            // then not again for the chosen number of days (per visitor).
+            // Open automatically after a delay, at a scroll depth or on exit intent, then not again for the chosen days.
             var auto = $scope.find('.eead-popup-modal-trigger').data('auto');
             $(window).off(popupNs);
             $(document).off(popupNs);
@@ -3431,8 +3410,7 @@
                 return;
             }
 
-            // The sliding pill follows the active option; measured again when fonts
-            // or the window change its size.
+            // The sliding pill follows the active option; measured again when fonts or the window change its size.
             var placePill = function () {
                 var $active = $tabs.filter('.eead-switcher-active-tab');
                 if ($active.length) {
@@ -3547,8 +3525,7 @@
                         videoContainer.css('height', stickyVideo.height() + 'px');
                     }
                 };
-                // Measured on every check rather than once after load, so content that
-                // loads later and moves the video doesn't throw the float point off.
+                // Measured on every check, as content loading later can move the video.
                 var check = function () {
                     var gone = videoContainer[0].getBoundingClientRect().bottom < 0;
                     if (gone && videoIsActive === 'on' && floatsHere()) {
@@ -3698,7 +3675,6 @@
                     dots: JSON.parse(params.dots),
                     adaptiveHeight: JSON.parse(params.auto_height),
                     // Divs (so theme button styles don't leak in) made into real controls.
-                    // Slick only inserts arrows given as an HTML string; outerHTML keeps the values escaped.
                     prevArrow: $('<div class="slick-prev slick-arrow" role="button" tabindex="0"><i aria-hidden="true"></i></div>').attr('aria-label', params.prev_label || 'Previous slide').find('i').attr('class', params.prev_icon).end().prop('outerHTML'),
                     nextArrow: $('<div class="slick-next slick-arrow" role="button" tabindex="0"><i aria-hidden="true"></i></div>').attr('aria-label', params.next_label || 'Next slide').find('i').attr('class', params.next_icon).end().prop('outerHTML'),
                     fade: $slider.attr('data-transition') == 'fade' ? true : false,

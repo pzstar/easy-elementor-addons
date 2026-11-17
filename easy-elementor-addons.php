@@ -69,9 +69,7 @@ if (!class_exists('Easy_Elementor_Addons')) {
         }
 
         /**
-         * Elementor caches each page's generated CSS, so selectors a widget
-         * changes in an update keep pointing at the old markup until that
-         * cache is rebuilt. Clear it once whenever the plugin version changes.
+         * Clear Elementor's CSS cache when the plugin version changes, so pages pick up changed selectors.
          */
         public function maybe_clear_elementor_css() {
             if (get_option('eead_version') === EEAD_VERSION) {

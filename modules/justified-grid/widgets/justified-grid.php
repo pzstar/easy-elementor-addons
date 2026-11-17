@@ -273,8 +273,6 @@ class JustifiedGrid extends Widget_Base {
                     continue;
                 }
                 // Each photo grows in proportion to its width-to-height ratio, which keeps rows level.
-                // Taken from the size actually shown: a cropped size (Thumbnail is square) has
-                // other proportions than the original upload.
                 $size = !empty($settings['image_size']) ? $settings['image_size'] : 'medium_large';
                 $ratio = 1.5;
                 if ($id && 'custom' === $size && !empty($settings['image_custom_dimension']['width']) && !empty($settings['image_custom_dimension']['height'])) {

@@ -250,8 +250,7 @@ class AdvancedButton extends Widget_Base {
                         'icon' => 'eicon-grow',
                     ]
                 ],
-                // Applied through selectors: a responsive prefix_class adds the same
-                // class for every device, so tablet and mobile choices never applied.
+                // Applied through selectors, so tablet and mobile choices work.
                 'selectors_dictionary' => [
                     'left' => 'flex-direction: row; justify-content: flex-start;',
                     'center' => 'flex-direction: row; justify-content: center;',

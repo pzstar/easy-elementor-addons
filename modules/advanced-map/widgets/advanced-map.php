@@ -37,8 +37,7 @@ class AdvancedMap extends Widget_Base {
     }
 
     public function get_script_depends() {
-        // Without a key the widget falls back to a keyless embed, so the API
-        // (which would only paint Google's error box) is not loaded at all.
+        // Without a key the widget uses a keyless embed, so the API isn't loaded.
         return $this->get_api_key() !== '' ? ['gmap-api'] : [];
     }
 
@@ -319,8 +318,7 @@ class AdvancedMap extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $zoom = !empty($settings['zoom']['size']) ? (int) $settings['zoom']['size'] : 13;
 
-        // A blank or mistyped coordinate would hand Google NaN, which drops the
-        // marker and, with several markers, breaks the fit-to-bounds view.
+        // Skip blank or mistyped coordinates: Google gets NaN and drops the markers.
         $markers = array_values(array_filter((array) $settings['markers'], function ($marker) {
             return isset($marker['lat'], $marker['long']) && is_numeric(trim($marker['lat'])) && is_numeric(trim($marker['long'])) && abs((float) $marker['lat']) <= 90 && abs((float) $marker['long']) <= 180;
         }));

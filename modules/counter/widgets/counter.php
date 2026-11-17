@@ -555,8 +555,7 @@ class Counter extends Widget_Base {
                         <?php } ?>
 
                         <?php
-                        // Screen readers and search engines get the final number,
-                        // not the starting value the animation begins from.
+                        // Screen readers and search engines get the final number.
                         $decimals = strlen((string) substr(strrchr((string) $counter_count, '.'), 1));
                         $final = 'yes' === $counter_comma ? number_format((float) $counter_count, $decimals, '.' === $separator ? ',' : '.', $separator) : $counter_count;
                         ?>

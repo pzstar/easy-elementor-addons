@@ -1140,8 +1140,7 @@ class ScrollImage extends Widget_Base {
 			$this->add_render_attribute('image', ['role' => 'img', 'aria-label' => $alt]);
 		}
 
-		// Without a link to focus, the box itself takes focus, so keyboard and
-		// touch users can run the scroll too (CSS scrolls on :focus-within).
+		// Without a link to focus, the box takes focus, so keyboard and touch users can scroll it.
 		if (!$this->has_link($settings)) {
 			$this->add_render_attribute('image-box', 'tabindex', '0');
 		}

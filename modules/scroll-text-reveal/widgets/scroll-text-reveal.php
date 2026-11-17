@@ -297,9 +297,7 @@ class ScrollTextReveal extends Widget_Base {
     }
 
     /**
-     * Wrap every word (or letter) in a span while keeping the allowed inline
-     * tags, so highlighted words keep their markup. A word runs from space to
-     * space, so "up</strong>," stays one unit; its tags are repeated inside it.
+     * Wrap every word (or letter) in a span while keeping the allowed inline tags.
      */
     private function split_html($html, $by) {
         $parts = preg_split('/(<[^>]+>|\s+)/u', $html, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
@@ -395,8 +393,7 @@ class ScrollTextReveal extends Widget_Base {
         ]);
         ?>
         <?php
-        // Real hidden text rather than aria-label: several screen readers ignore
-        // aria-label on headings, and the split letters below are hidden.
+        // Hidden text rather than aria-label, which some screen readers ignore on headings.
         ?>
         <<?php echo esc_attr($tag); ?> <?php $this->print_render_attribute_string('text'); ?>>
             <span class="elementor-screen-only"><?php echo esc_html(trim(html_entity_decode(wp_strip_all_tags($html), ENT_QUOTES, get_bloginfo('charset')))); ?></span>

@@ -431,8 +431,7 @@ class AnimatedHeading extends Widget_Base {
                             'startDelay' => $settings['start_delay'],
                             'backSpeed' => $settings['back_speed'],
                             'backDelay' => $settings['back_delay'],
-                            // Typed only honours loopCount while loop is on, so a finite
-                            // count needs loop enabled too.
+                            // Typed only honours loopCount while loop is on, so a finite count needs loop enabled too.
                             'loop' => $settings['infinite_loop'] == 'yes' || (int) $settings['loop_count'] > 0,
                             'loopCount' => $settings['infinite_loop'] == 'yes' ? false : (int) $settings['loop_count'],
                             'showCursor' => $settings['show_cursor'] == 'yes' ? 'yes' : 'no',
@@ -463,8 +462,7 @@ class AnimatedHeading extends Widget_Base {
             }
 
             if ($words) {
-                // The rotating words change under assistive tech and are missing
-                // from the markup until typed, so the full list is given once here.
+                // The full word list for screen readers, as the typed words change and are missing until typed.
                 ?>
                     <span class="elementor-screen-only"><?php echo esc_html(implode(', ', $words)); ?></span>
                     <span aria-hidden="true" <?php $this->print_render_attribute_string('animated-heading'); ?>><?php

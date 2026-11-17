@@ -9,9 +9,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Types')) {
 
     /**
      * EEAD Templates Types.
-     *
-     * Templates types responsible for handling templates library tabs
-     *
      */
     class EEAD_Templates_Types {
         /*
@@ -22,8 +19,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_Types')) {
 
         /**
          * EEAD_Templates_Types constructor.
-         *
-         * Get available types for the templates.
          *
          * @access public
          */

@@ -302,8 +302,7 @@
                     for (var s in o) {
                         const dep = o[s];
                         if ("elementor_library" === dep.type && dep.template_id) {
-                            // Saved templates the section's tabs, switchers or toggles show: copy each one
-                            // first, so the widgets can be pointed at the copy instead of an ID this site lacks.
+                            // Copy the saved templates its tabs, switchers or toggles show, and point the widgets at the copies.
                             imports.push(e.ajax({
                                 url: ajaxurl,
                                 type: "post",
@@ -335,8 +334,7 @@
                                     tab: t.getTab()
                                 },
                                 error: function (e) {
-                                    // The parent template still inserts, so do not
-                                    // interrupt it; just make the failure visible.
+                                    // The parent template still inserts, so do not interrupt it; just make the failure visible.
                                     console.warn("Easy Elementor Addons: a template dependency could not be created.", e);
                                 }
                             });
@@ -423,7 +421,6 @@
                 },
                 onFilterClick: function (e) {
                     // Clear the widget filter too; select2 only redraws on change, so the old widget would stay shown.
-                    // A category click inside a page group goes back to the groups, filtered.
                     t.getFilter("group") && t.showGroups(), jQuery(".eead-library-widgets").val("").trigger("change.select2"), t.setFilter("category", e.currentTarget.value), t.setFilter("keyword", "")
                 }
             }), a.ModalTabsItemView = Marionette.ItemView.extend({
@@ -686,7 +683,7 @@
             var l = m.get("title").split(" – ");
             return l.length > 1 ? l.slice(1).join(" – ") : l[0]
         },
-        // Copies the saved templates a page's tabs, switchers or toggles show; resolves to {library id: local id}.
+        // Copies the saved templates a page's tabs, switchers or toggles show.
         copyDependencies: function (m) {
             var map = {},
                 deps = _.filter(_.values(m.get("dependencies") || {}), function (d) {

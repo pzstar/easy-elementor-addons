@@ -297,9 +297,7 @@ class PdfViewer extends Widget_Base {
     }
 
     /**
-     * Share links from Google Drive and Dropbox point at an HTML page, not the
-     * file, and Drive refuses to be framed: turn them into their embeddable,
-     * viewable and downloadable forms. Other URLs pass through unchanged.
+     * Turn Google Drive and Dropbox share links into embeddable file URLs.
      */
     private function share_links($url) {
         $links = ['service' => '', 'embed' => $url, 'open' => $url, 'download' => $url];

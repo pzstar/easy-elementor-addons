@@ -48,8 +48,7 @@ class Countdown extends Widget_Base {
     }
 
     public function get_script_depends() {
-        // The ticker lives in frontend.js; the generic 'countdown' handle is
-        // also used by other plugins and themes for different libraries.
+        // The ticker lives in frontend.js, not under the generic 'countdown' handle.
         return [];
     }
 

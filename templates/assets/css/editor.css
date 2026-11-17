@@ -319,8 +319,7 @@
     padding: 0;
 }
 
-/* One box shape keeps rows even. Thumbnails keep their full width: short ones sit centered,
-   tall ones are cut at the bottom (auto margins collapse to 0 when the image overflows). */
+/* One box shape keeps rows even; tall thumbnails are cut at the bottom. */
 #eead-modal-templates-container .elementor-template-library-template-screenshot {
     position: relative;
     display: flex;

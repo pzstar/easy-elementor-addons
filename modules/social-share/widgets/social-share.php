@@ -503,8 +503,7 @@ class SocialShare extends Widget_Base {
         $show_text = $settings['show_text'];
         $show_icon = $settings['show_icon'];
 
-        // The page being viewed: on archives and theme-builder templates
-        // get_the_permalink() would be the first post in the loop.
+        // The page being viewed: on archives and theme-builder templates get_the_permalink() would be the first post in the loop.
         if (is_singular()) {
             $page_url = get_permalink(get_queried_object_id());
             $page_title = get_the_title(get_queried_object_id());

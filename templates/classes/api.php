@@ -11,9 +11,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
 
     /**
      * EEAD API.
-     *
-     * EEAD API class is responsible for getting API data.
-     *
      */
     class EEAD_Templates_API {
 
@@ -34,8 +31,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
         /**
          * EEAD_API constructor.
          *
-         * Get all API data.
-         *
          * @access public
          */
         public function __construct() {
@@ -49,10 +44,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
         /**
          * Is Enabled.
          *
-         * Check if remote API is enabled.
-         *
          * @access public
-         *
          * @return boolean
          */
         public function is_enabled() {
@@ -77,8 +69,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
         /**
          * API URL.
          *
-         * Get API for template library area data.
-         *
          * @access public
          */
         public function api_url($flag) {
@@ -95,8 +85,6 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
 
         /**
          * Get Info from the remote server.
-         *
-         * Get remote system info.
          *
          * @access public
          */
@@ -136,10 +124,7 @@ if (!class_exists(__NAMESPACE__ . '\EEAD_Templates_API')) {
         /**
          * Request Args
          *
-         * Get request arguments for the remote request.
-         *
          * @access public
-         *
          * @return array
          */
         public function request_args() {

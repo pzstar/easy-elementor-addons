@@ -1230,7 +1230,6 @@ class FlipBox extends Widget_Base {
         ?>
         <?php
         // Focusable so Tab or a tap flips it (the CSS flips on :focus-within too).
-        // A whole-box link already takes focus, so it isn't needed twice then.
         $box_linked = $settings['link_click'] === 'box' && !empty($settings['link']['url']);
         ?>
         <div class="eead-flip-box"<?php echo $box_linked ? '' : ' tabindex="0"'; ?>>

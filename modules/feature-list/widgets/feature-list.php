@@ -831,8 +831,7 @@ class FeatureList extends Widget_Base {
 
                     if (!empty($item['link']['url'])) {
                         $this->add_link_attributes('link' . $index, $item['link']);
-                        // The icon repeats the title's link: one tab stop and one
-                        // announced link per item, not an extra unnamed one.
+                        // The icon repeats the title's link, so it is hidden from keyboard and screen readers.
                         $this->add_link_attributes('icon-link' . $index, $item['link']);
                         $this->add_render_attribute('icon-link' . $index, [
                             'tabindex' => '-1',

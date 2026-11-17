@@ -223,6 +223,7 @@ Yes. See the <a href="https://demo.hashthemes.com/easy-elementor-addons/" target
 * Material Design Icons - updated to 7.4.47 with 251 new icons, all available in the icon picker - Updated
 * IcoFont - stylesheet loads with font-display: swap, so text shows while the icon font downloads - Updated
 * Icon fonts - load under one shared handle with other HashThemes themes and plugins, and through Elementor's icon picker, so each icon font loads only once on a page - Updated
+* Elementor icon picker - the plugin's icon tabs removed the icon tabs of other themes and plugins, or were removed by them; both now show - Fixed
 
 = 2.6.0 - 14 Nov, 2026 =
 * New feature - Template library is back: 587 ready-made sections built from the widget demos, inserted from the Easy Elementor Addons button in the Elementor editor. Browse by category or widget, preview the full section and insert it with its images
