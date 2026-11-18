@@ -1598,42 +1598,38 @@ Dual Button Animations
 Dual Heading Style
 --------------------------------------------------------------*/
 .eead-dual-heading {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 0.25em;
     margin: 0;
     line-height: 1.3;
 }
 
-/* A link wraps both parts; it takes over the layout so alignment and spacing still apply. */
 .eead-dual-heading .eead-heading-link {
-    display: flex;
-    flex-wrap: inherit;
-    align-items: inherit;
-    justify-content: inherit;
-    column-gap: inherit;
-    row-gap: inherit;
-    width: 100%;
     color: inherit;
     text-decoration: none;
 }
 
+/* Empty unless "Second Part on New Line" is on; then it breaks the line. */
 .eead-dual-heading .eead-dh-break {
-    display: none;
-    flex-basis: 100%;
-    height: 0;
+    display: var(--eead-dh-break, none);
+    height: var(--eead-dh-row, 0);
 }
 
+/* Inline, so the second part follows the last word of the first, even when the first wraps. */
 .eead-dual-heading .eead-first-text,
 .eead-dual-heading .eead-second-text {
-    display: inline-block;
-    min-width: 0;
-    max-width: 100%;
+    display: inline;
+    vertical-align: middle;
     overflow-wrap: anywhere;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .eead-dual-heading .eead-second-text {
     color: var(--eead-pri-color);
+}
+
+/* Spacing widens the space between the parts; a space at a line break takes no room. */
+.eead-dual-heading .eead-dh-sep {
+    word-spacing: var(--eead-dh-gap, 0px);
 }
 
 .eead-dual-heading span.eead-first-text.eead-clipped,

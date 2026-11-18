@@ -119,8 +119,13 @@ class DualHeading extends Widget_Base {
                     ]
                 ],
                 'default' => 'flex-start',
+                'selectors_dictionary' => [
+                    'flex-start' => 'left',
+                    'center' => 'center',
+                    'flex-end' => 'right',
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-heading' => 'justify-content: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-heading' => 'text-align: {{VALUE}};',
                 ]
             ]
         );
@@ -145,8 +150,13 @@ class DualHeading extends Widget_Base {
                     ]
                 ],
                 'default' => 'center',
+                'selectors_dictionary' => [
+                    'flex-start' => 'top',
+                    'center' => 'middle',
+                    'flex-end' => 'bottom',
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-heading' => 'align-items: {{VALUE}};',
+                    '{{WRAPPER}} .eead-first-text, {{WRAPPER}} .eead-second-text' => 'vertical-align: {{VALUE}};',
                 ]
             ]
         );
@@ -162,8 +172,7 @@ class DualHeading extends Widget_Base {
                     ]
                 ],
                 'selectors' => [
-                    // Plus the word space the parts used to be separated by.
-                    '{{WRAPPER}} .eead-dual-heading' => 'column-gap: calc({{SIZE}}{{UNIT}} + 0.25em);',
+                    '{{WRAPPER}} .eead-dual-heading' => '--eead-dh-gap: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -178,11 +187,11 @@ class DualHeading extends Widget_Base {
                     'stacked' => esc_html__('Yes', 'easy-elementor-addons'),
                 ],
                 'selectors_dictionary' => [
-                    'inline' => 'none',
-                    'stacked' => 'block',
+                    'inline' => '--eead-dh-break: none;',
+                    'stacked' => '--eead-dh-break: block;',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dh-break' => 'display: {{VALUE}};',
+                    '{{WRAPPER}} .eead-dual-heading' => '{{VALUE}}',
                 ]
             ]
         );
@@ -194,7 +203,7 @@ class DualHeading extends Widget_Base {
                 'size_units' => ['px', 'em'],
                 'range' => ['px' => ['max' => 100]],
                 'selectors' => [
-                    '{{WRAPPER}} .eead-dual-heading' => 'row-gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eead-dual-heading' => '--eead-dh-row: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -592,7 +601,7 @@ class DualHeading extends Widget_Base {
             $heading_text = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('first_heading'), esc_html($settings['first_heading']));
         }
         if ($settings['first_heading'] && $settings['second_heading']) {
-            $heading_text .= '<span class="elementor-screen-only"> </span><span class="eead-dh-break" aria-hidden="true"></span>';
+            $heading_text .= '<span class="eead-dh-sep"> </span><span class="eead-dh-break" aria-hidden="true"></span>';
         }
         if ($settings['second_heading']) {
             $heading_text .= sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('second_heading'), esc_html($settings['second_heading']));

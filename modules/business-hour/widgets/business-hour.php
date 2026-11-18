@@ -6,6 +6,7 @@ namespace EasyElementorAddons\Modules\BusinessHour\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Repeater;
 use DateTime;
 
@@ -451,6 +452,33 @@ class BusinessHour extends Widget_Base {
         $this->end_controls_section();
 
         /*  Style Tabs  */
+        $this->start_controls_section(
+            'box_style', [
+                'label' => esc_html__('Box', 'easy-elementor-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'box_border_radius', [
+                'label' => esc_html__('Border Radius', 'easy-elementor-addons'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .eead-business-hour' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(), [
+                'name' => 'box_shadow',
+                'selector' => '{{WRAPPER}} .eead-business-hour',
+            ]
+        );
+
+        $this->end_controls_section();
+
         $this->start_controls_section(
             'header_style', [
                 'label' => esc_html__('Header Section', 'easy-elementor-addons'),
