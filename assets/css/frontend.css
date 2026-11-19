@@ -10733,6 +10733,7 @@ Comparison Table
 }
 
 .eead-ct-scroll {
+    position: relative;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }

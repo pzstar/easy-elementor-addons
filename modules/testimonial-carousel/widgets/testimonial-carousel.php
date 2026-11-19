@@ -980,9 +980,6 @@ class TestimonialCarousel extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eead-testimonial-container .eead-testimonial-designation' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-                ],
-                'condition' => [
-                    'show_rating' => 'yes'
                 ]
             ]
         );
@@ -1161,10 +1158,7 @@ class TestimonialCarousel extends Widget_Base {
         $this->start_controls_section(
             'rating_style', [
                 'label' => esc_html__('Rating', 'easy-elementor-addons'),
-                'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'show_rating' => 'yes',
-                ]
+                'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
