@@ -26,6 +26,16 @@ if (!function_exists('eead_html_tags')) {
 
 }
 
+if (!function_exists('eead_sanitize_html_classes')) {
+
+    // Keeps only valid class names, e.g. for icon values that end up in markup built by JS.
+    function eead_sanitize_html_classes($classes) {
+        $classes = is_string($classes) ? preg_split('/\s+/', $classes) : array();
+        return implode(' ', array_filter(array_map('sanitize_html_class', $classes)));
+    }
+
+}
+
 if (!function_exists('eead_check_allowed_html_tags')) {
 
     function eead_check_allowed_html_tags($tag, $default_tag = "h4") {

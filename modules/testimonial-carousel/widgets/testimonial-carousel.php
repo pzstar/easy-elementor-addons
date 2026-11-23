@@ -1729,11 +1729,11 @@ class TestimonialCarousel extends Widget_Base {
         );
 
         if (!empty($settings['prev_icon_arrow']['value'])) {
-            $params['prev_icon'] = $settings['prev_icon_arrow']['value'];
+            $params['prev_icon'] = eead_sanitize_html_classes($settings['prev_icon_arrow']['value']);
         }
 
         if (!empty($settings['next_icon_arrow']['value'])) {
-            $params['next_icon'] = $settings['next_icon_arrow']['value'];
+            $params['next_icon'] = eead_sanitize_html_classes($settings['next_icon_arrow']['value']);
         }
 
         $params = json_encode($params);

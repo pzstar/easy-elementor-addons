@@ -1976,110 +1976,130 @@
                 hoverPaused = false,
                 observer = null;
 
-            if (!settings.path) {
+            if (!settings.path || !window.fetch) {
                 return;
             }
 
-            var animation = lottie.loadAnimation({
-                container: $container[0],
-                renderer: settings.renderer,
-                // Viewport start and off-screen pausing are handled below.
-                autoplay: autoplay && settings.trigger !== 'viewport',
-                path: settings.path,
-                loop: loop
-            });
+            var pathUrl = new URL(settings.path, document.baseURI).href,
+                token = {};
 
-            EEA.keep($scope, 'lottie', function () {
-                if (observer) {
-                    observer.disconnect();
+            $container.data('eeadLottieToken', token);
+
+            // Fetched here rather than by lottie so expressions can be removed before anything runs.
+            fetch(pathUrl, {credentials: 'same-origin'}).then(function (response) {
+                if (!response.ok) {
+                    throw new Error(response.status);
                 }
-                animation.destroy();
-            });
+                return response.json();
+            }).then(function (data) {
+                // Skip if the widget re-rendered while the file was loading.
+                if ($container.data('eeadLottieToken') === token && document.contains($container[0])) {
+                    start(EEA.safeLottieData(data, pathUrl));
+                }
+            }).catch(function () {});
 
-            $container.off('.eeadLottie');
-
-            animation.setDirection(settings.reverse);
-            animation.setSpeed(settings.speed);
-
-            // Reduced motion: hold the first frame instead of playing.
-            if (still) {
-                animation.addEventListener('DOMLoaded', function () {
-                    animation.goToAndStop(settings.reverse == '-1' ? animation.totalFrames - 1 : 0, true);
+            function start(animationData) {
+                var animation = lottie.loadAnimation({
+                    container: $container[0],
+                    renderer: settings.renderer,
+                    // Viewport start and off-screen pausing are handled below.
+                    autoplay: autoplay && settings.trigger !== 'viewport',
+                    animationData: animationData,
+                    loop: loop
                 });
-                return;
-            }
 
-            // Autoplay: start when in view (if chosen) and pause while off-screen.
-            if (autoplay && window.IntersectionObserver) {
-                visible = settings.trigger !== 'viewport';
-                observer = new IntersectionObserver(function (entries) {
-                    visible = entries[entries.length - 1].isIntersecting;
-                    if (visible && !hoverPaused && animation.isPaused) {
-                        animation.play();
-                    } else if (!visible) {
-                        animation.pause();
-                    }
-                }, {threshold: 0.1});
-                observer.observe($container[0]);
-                // A play-once animation is done for good: don't restart it on the next scroll.
-                animation.addEventListener('complete', function () {
-                    if (!loop && observer) {
+                EEA.keep($scope, 'lottie', function () {
+                    if (observer) {
                         observer.disconnect();
                     }
+                    animation.destroy();
                 });
-            }
 
-            switch (action) {
-                case 'play':
-                    $container.on('mouseenter.eeadLottie', function () {
-                        animation.play();
+                $container.off('.eeadLottie');
+
+                animation.setDirection(settings.reverse);
+                animation.setSpeed(settings.speed);
+
+                // Reduced motion: hold the first frame instead of playing.
+                if (still) {
+                    animation.addEventListener('DOMLoaded', function () {
+                        animation.goToAndStop(settings.reverse == '-1' ? animation.totalFrames - 1 : 0, true);
                     });
-                    $container.on('mouseleave.eeadLottie', function () {
-                        animation.pause();
-                    });
-                    break;
-                case 'click':
-                    // Play from the start on each click (or toggle while it loops).
-                    $container.css('cursor', 'pointer').on('click.eeadLottie', function (e) {
-                        if (this.tagName !== 'A') {
-                            e.preventDefault();
-                        }
-                        if (loop && !animation.isPaused) {
+                    return;
+                }
+
+                // Autoplay: start when in view (if chosen) and pause while off-screen.
+                if (autoplay && window.IntersectionObserver) {
+                    visible = settings.trigger !== 'viewport';
+                    observer = new IntersectionObserver(function (entries) {
+                        visible = entries[entries.length - 1].isIntersecting;
+                        if (visible && !hoverPaused && animation.isPaused) {
+                            animation.play();
+                        } else if (!visible) {
                             animation.pause();
-                        } else {
-                            animation.goToAndPlay(settings.reverse == '-1' ? animation.totalFrames - 1 : 0, true);
+                        }
+                    }, {threshold: 0.1});
+                    observer.observe($container[0]);
+                    // A play-once animation is done for good: don't restart it on the next scroll.
+                    animation.addEventListener('complete', function () {
+                        if (!loop && observer) {
+                            observer.disconnect();
                         }
                     });
-                    break;
-                case 'pause':
-                    $container.on('mouseenter.eeadLottie', function () {
-                        hoverPaused = true;
-                        animation.pause();
-                    });
-                    $container.on('mouseleave.eeadLottie', function () {
-                        hoverPaused = false;
-                        if (visible) {
+                }
+
+                switch (action) {
+                    case 'play':
+                        $container.on('mouseenter.eeadLottie', function () {
                             animation.play();
-                        }
-                    });
-                    break;
-                case 'reverse':
-                    var direction = settings.reverse == '1' ? '-1' : '1';
-                    $container.on('mouseenter.eeadLottie', function () {
-                        animation.pause();
-                        setTimeout(function () {
-                            animation.setDirection(direction);
-                            animation.play();
-                        }, 200);
-                    });
-                    $container.on('mouseleave.eeadLottie', function () {
-                        animation.pause();
-                        setTimeout(function () {
-                            animation.setDirection(settings.reverse);
-                            animation.play();
-                        }, 200);
-                    });
-                    break;
+                        });
+                        $container.on('mouseleave.eeadLottie', function () {
+                            animation.pause();
+                        });
+                        break;
+                    case 'click':
+                        // Play from the start on each click (or toggle while it loops).
+                        $container.css('cursor', 'pointer').on('click.eeadLottie', function (e) {
+                            if (this.tagName !== 'A') {
+                                e.preventDefault();
+                            }
+                            if (loop && !animation.isPaused) {
+                                animation.pause();
+                            } else {
+                                animation.goToAndPlay(settings.reverse == '-1' ? animation.totalFrames - 1 : 0, true);
+                            }
+                        });
+                        break;
+                    case 'pause':
+                        $container.on('mouseenter.eeadLottie', function () {
+                            hoverPaused = true;
+                            animation.pause();
+                        });
+                        $container.on('mouseleave.eeadLottie', function () {
+                            hoverPaused = false;
+                            if (visible) {
+                                animation.play();
+                            }
+                        });
+                        break;
+                    case 'reverse':
+                        var direction = settings.reverse == '1' ? '-1' : '1';
+                        $container.on('mouseenter.eeadLottie', function () {
+                            animation.pause();
+                            setTimeout(function () {
+                                animation.setDirection(direction);
+                                animation.play();
+                            }, 200);
+                        });
+                        $container.on('mouseleave.eeadLottie', function () {
+                            animation.pause();
+                            setTimeout(function () {
+                                animation.setDirection(settings.reverse);
+                                animation.play();
+                            }, 200);
+                        });
+                        break;
+                }
             }
 
         },
@@ -2397,6 +2417,33 @@
 
         reducedMotion: function () {
             return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        },
+
+        // Lottie expressions are JavaScript that lottie evals, so drop them and pin image assets to absolute URLs.
+        safeLottieData: function (data, baseUrl) {
+            (function strip(node) {
+                if (Array.isArray(node)) {
+                    node.forEach(strip);
+                } else if (node && typeof node === 'object') {
+                    Object.keys(node).forEach(function (key) {
+                        if (key === 'x' && typeof node[key] === 'string') {
+                            delete node[key];
+                        } else {
+                            strip(node[key]);
+                        }
+                    });
+                }
+            })(data);
+
+            // Loaded from animationData, lottie no longer knows the file's folder, so resolve image paths here.
+            (data && Array.isArray(data.assets) ? data.assets : []).forEach(function (asset) {
+                if (asset && typeof asset.p === 'string' && !asset.e) {
+                    asset.p = new URL((asset.u || '') + asset.p, baseUrl).href;
+                    asset.u = '';
+                    asset.e = 1;
+                }
+            });
+            return data;
         },
 
         dataTable: function ($scope) {

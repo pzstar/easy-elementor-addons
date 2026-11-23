@@ -3,7 +3,7 @@ Contributors: hashthemes
 Tags: elementor addons, elementor, elementor widgets, elementor templates, elementor extensions
 Requires at least: 6.3
 Tested up to: 7.1
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -219,6 +219,9 @@ Yes. It works with any free or premium WordPress theme that supports Elementor.
 Yes. See the <a href="https://demo.hashthemes.com/easy-elementor-addons/" target="_blank">widget demos</a> and the <a href="https://demo.hashthemes.com/easy-elementor-addons/templates/" target="_blank">page templates</a>, or try every setting in the <a href="https://demo.tastewp.com/easy-elementor-addons" target="_blank">test dashboard</a>.
 
 == Changelog ==
+= 2.7.1 - 23 Nov, 2026 =
+* Security - Contributor-level users could add widget settings that ran JavaScript on the page in the Lottie, Logo Carousel, Team Carousel, Testimonial Carousel, Horizontal Timeline, Image Comparison and Popup Video widgets; these values are now cleaned before output. Lottie animations no longer run expressions stored in the animation file - Fixed
+
 = 2.7.0 - 16 Nov, 2026 =
 * Material Design Icons - updated to 7.4.47 with 251 new icons, all available in the icon picker - Updated
 * IcoFont - stylesheet loads with font-display: swap, so text shows while the icon font downloads - Updated

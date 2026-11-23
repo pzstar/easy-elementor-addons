@@ -893,7 +893,15 @@ class PopupVideo extends Widget_Base {
             }
             echo '<span>' . esc_html($settings['play_text']) . '</span>';
         } elseif ($settings['trigger_type'] == 'image') {
+            // Empty alt: lightGallery copies it into its HTML unescaped, and the link already has an aria-label.
+            $settings['play_image']['alt'] = '';
+            $empty_alt = function ($attr) {
+                $attr['alt'] = '';
+                return $attr;
+            };
+            add_filter('wp_get_attachment_image_attributes', $empty_alt);
             Group_Control_Image_Size::print_attachment_image_html($settings, 'play_image_thumbnail', 'play_image');
+            remove_filter('wp_get_attachment_image_attributes', $empty_alt);
             if ($settings['enable_image_play_icon']) {
                 echo '<span>';
                 Icons_Manager::render_icon($settings['image_play_icon'], ['aria-hidden' => 'true']);

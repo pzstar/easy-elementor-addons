@@ -392,7 +392,8 @@ class ImageComparison extends Widget_Base {
             'add_circle' => $settings['add_circle'] == 'yes' ? true : false,
             'add_circle_blur' => $settings['add_circle_blur'] == 'yes' ? true : false,
             'add_circle_shadow' => $settings['add_circle_shadow'] == 'yes' ? true : false,
-            'bar_color' => $settings['bar_color'] ? $settings['bar_color'] : false,
+            // The library writes this into SVG markup, so allow color syntax only (hex, rgb(), hsl(), names, var()).
+            'bar_color' => is_string($settings['bar_color']) && preg_match('/^[#a-zA-Z0-9(),.%\s-]+$/', $settings['bar_color']) ? $settings['bar_color'] : false,
             'show_overlay' => $settings['show_overlay'] == 'yes' ? true : false
         ];
 
