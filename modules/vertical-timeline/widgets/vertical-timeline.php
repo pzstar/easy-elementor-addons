@@ -593,6 +593,20 @@ class VerticalTimeline extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'point_passed_color', [
+                'label' => esc_html__('Passed Point Color', 'easy-elementor-addons'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .eead-vt-each-wrap.eead-vt-passed .eead-vt-point i' => 'color: {{VALUE}}; border-color: {{VALUE}};',
+                    '{{WRAPPER}} .eead-vt-each-wrap.eead-vt-passed .eead-vt-point svg' => 'fill: {{VALUE}};',
+                ],
+                'condition' => [
+                    'scroll_progress' => 'yes',
+                ]
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
